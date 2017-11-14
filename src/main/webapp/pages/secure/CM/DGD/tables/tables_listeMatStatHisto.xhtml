@@ -92,7 +92,7 @@
             <f:facet name="header">Dépositaire</f:facet>
             #{materiel.dc.im}
         </p:column-->
-        <p:column>
+        <p:column filterBy="#{materiel.nomenMat.designation}">
             <f:facet name="header">
                 <h:outputText value="Nomenclature" />
             </f:facet>
