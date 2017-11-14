@@ -57,7 +57,10 @@
                     <tr>
                         <td>Document</td>
                         <td>
-                            <p:link outcome="#{depositaireBean.curentMateriel.documentPath}"icon="ui-icon-document"/>
+                            <p:link outcome="#{depositaireBean.curentMateriel.documentPath}" icon="ui-icon-document
+ ">
+                                <f:param name="productId" value="10" />
+                            </p:link>
                             </td>
                     </tr> 
                     <tr>
