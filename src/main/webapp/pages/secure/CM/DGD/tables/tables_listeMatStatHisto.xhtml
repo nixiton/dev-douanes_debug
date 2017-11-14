@@ -44,7 +44,7 @@
     <p:dataTable   var="materiel" value="#{depositaireBean.listAllMateriel}" 
                  paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}  "
                  paginator="true" rows="10" style="margin-bottom:20px">
-        <p:column filterBy="#{materiel.idMateriel}">
+        <p:column filterBy="#{materiel.idMateriel}" filterMatchMode="contains">
             <f:facet name="header">ID</f:facet>
             #{materiel.idMateriel}
         </p:column>
