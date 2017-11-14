@@ -1,0 +1,65 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:p="http://primefaces.org/ui"
+    >
+
+    <p:dialog id="detail" widgetVar="detail">
+        
+        <h:form class="form-horizontal">
+
+    <div   class="body collapse in table-responsive">
+
+        <table class="table responsive-table">
+
+            <table class="table responsive-table">
+                    <tr>
+                        <td>Type de matériel</td>
+                        <td>#{suivieditionBean.curentOperation.mat.nomenMat.designation}</td>
+                    </tr>
+                    <tr>
+                        <td>Nomenclature</td>
+                        <td>#{suivieditionBean.curentOperation.mat.nomenMat.nomenclature}</td>
+                    </tr>
+                    <tr>
+                        <td>Marque</td>
+                        <td>#{suivieditionBean.curentOperation.mat.marque.designation}</td>
+                    </tr>
+                    <tr>
+                        <td>Référence</td>
+                        <td>#{suivieditionBean.curentOperation.mat.reference}</td>
+                    </tr>
+                    <tr>
+                        <td>Numero de série</td>
+                        <td>#{suivieditionBean.curentOperation.mat.numSerie}</td>
+                    </tr>
+                    <tr>
+                        <td>Imatriculation détenteur</td>
+                        <td>#{suivieditionBean.curentOperation.detenteur.im}</td>
+                    </tr>
+                    <tr>
+                        <td>Nom détenteru</td>
+                        <td>#{suivieditionBean.curentOperation.detenteur.nomAgent}</td>
+                    </tr>
+                    <tr>
+                        <td>Prénom détenteur</td>
+                        <td>#{suivieditionBean.curentOperation.detenteur.prenomAgent}</td>
+                    </tr> 
+                    <tr>
+                        <td>Motif de sortie</td>
+                        <td>#{suivieditionBean.curentOperation.motifsortie.designation}</td>
+                    </tr>       
+            </table>
+                        
+            </table>
+        </div>
+        
+            <h:commandButton  action="#{gacBean.validateDechargeSortie(suivieditionBean.curentOperation)}" value="Valider"
+                        class="btn btn-lg btn-primary btn-block"/>
+        </h:form>
+    </p:dialog>
+
+</html>

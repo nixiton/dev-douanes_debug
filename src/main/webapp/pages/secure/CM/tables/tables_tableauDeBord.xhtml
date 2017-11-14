@@ -1,0 +1,91 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:c="http://java.sun.com/jsp/jstl/core"
+    >
+
+<h:head></h:head>
+
+<div   class="body collapse in table-responsive">
+
+
+     <h:form>
+    <p:dataTable   var="c" value="#{operationBean.mesOperations}"
+                 paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}"
+                 paginator="true" rows="10" style="margin-bottom:20px">
+ 
+        <!--f:facet name=" ">
+ 
+            <h:commandLink>
+                <h:outputText value="PDF" />
+                <p:dataExporter type="pdf" target="tbl" fileName="mesOperations"/>
+            </h:commandLink>
+        </f:facet-->
+ 
+        <p:column>
+            <f:facet name="header">
+                <h:outputText value="Date"/>
+            </f:facet>
+            <h:outputText value="#{c.date}  #{c.time}" />
+        </p:column>
+ 
+        <p:column>
+            <f:facet name="header">
+                <h:outputText value="Poste" />
+            </f:facet>
+            <h:outputText value="#{c.poste}" />
+        </p:column>
+        <p:column>
+            <f:facet name="header">
+                <h:outputText value="Operateur" />
+            </f:facet>
+            <h:outputText value="#{c.operateur.im}" />
+        </p:column>
+        <p:column>
+            <f:facet name="header">
+                <h:outputText value="Operateur" />
+            </f:facet>
+            <h:outputText value="#{c.state}" />
+        </p:column>
+        <p:column>
+            <f:facet name="header">
+                <h:outputText value="Operation" />
+            </f:facet>
+            <p:panel rendered="#{c['class'].simpleName eq 'OpEntree' }" >
+            Saisie materiel
+        </p:panel>
+            <p:panel rendered="#{c['class'].simpleName eq 'OpSaisie' }" >
+            Saisie réferentiel 
+            </p:panel>
+            <p:panel rendered="#{c['class'].simpleName eq 'OpAttribution' }" >
+            Attribution
+            </p:panel>
+            <p:panel rendered="#{c['class'].simpleName eq 'OpDetachement' }" >
+            Détachement
+            </p:panel>
+
+        </p:column>
+        
+    </p:dataTable>
+ 
+    <!--h3>Export Page Data Only</h3>
+ 
+    <h:commandLink>
+        <h:outputText value="PDF" />
+        <p:dataExporter type="pdf" target="tbl" fileName="cars" pageOnly="true" />
+    </h:commandLink-->
+
+</h:form>
+
+
+
+
+
+
+
+</div>
+
+</html>
