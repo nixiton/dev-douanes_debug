@@ -57,10 +57,9 @@
                     <tr>
                         <td>Document</td>
                         <td>
-                            <p:link outcome="#{depositaireBean.curentMateriel.documentPath}" icon="ui-icon-document
- ">
-                                <f:param name="productId" value="10" />
-                            </p:link>
+                            <h:outputLink value="#{depositaireBean.curentMateriel.documentPath}}" target="_blank"> 
+                                <i class="fa-file-archive-o"></i> 
+                            </h:outputLink>
                             </td>
                     </tr> 
                     <tr>
