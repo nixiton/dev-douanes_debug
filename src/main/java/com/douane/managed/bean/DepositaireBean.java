@@ -149,6 +149,7 @@ public class DepositaireBean {
 	HashMap<String, HashMap<UploadedFile, byte[]>> hashOfHashMapFIle = new HashMap<String, HashMap<UploadedFile, byte[]>>();
 
 	private String caracteristique;
+	private List<MaterielNouv> listMaterielNouveauValide;
 
 	// localisation
 	private Bureau bureau;
@@ -1361,4 +1362,12 @@ System.out.println("****************************ADD3 ATTR**ERRORR***************
 		System.out.println("****************************SET LIST ******************************** " +this.getDetenteur().getIm());
 		this.setCurrentListMateriel((List<Materiel>)usermetierimpl.getMatByDetenteurAndValidation(this.getDetenteur(), true));
 	}
+	public List<MaterielNouv> getListMaterielNouveauValide() {
+		return usermetierimpl.getListMaterielNouvValide();
+	}
+
+	public void setListMaterielNouveauValide(List<MaterielNouv> listMaterielNouveauValide) {
+		this.listMaterielNouveauValide = listMaterielNouveauValide;
+	}
+
 }
