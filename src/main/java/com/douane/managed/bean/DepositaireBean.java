@@ -958,13 +958,14 @@ public class DepositaireBean {
 			// agent.setIp()
 			MaterielEx m = new MaterielEx();
 			m.setImage(imagelist.get(0).getByteArrayImage());
+                        System.out.println("---------------SIZE IMAGE BYTE ARRAY="+imagelist.get(0).getByteArrayImage().length);
 			m.setDocumentPath((String) RequestFilter.getSession().getAttribute("documentpath"));
 			RequestFilter.getSession().removeAttribute("documentpath");
 			m.setAutre(getAutre());
 			m.setBureau(getBureau());
 			// m.setDirec(getDirection());
 			//m.setDirec(agent.getDirection());
-			m.setDocumentPath("default");
+			//m.setDocumentPath("default");
 			m.setEtat(getEtat());
 			m.setMarque(getMarq());
 			m.setNomenMat(getTypemateriel());
