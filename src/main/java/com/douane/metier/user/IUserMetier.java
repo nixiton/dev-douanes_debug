@@ -68,6 +68,7 @@ public interface IUserMetier {
 	public List<MaterielNouv> getListMatNouv();
 	public List<Materiel> getMatByValidation(boolean validation);
 	public List<Materiel> getMatByDetenteurAndValidation(Agent detenteur,boolean validation);
+	public List<MaterielNouv> getListMaterielNouvValide();
 
 	public List<Operation> getListOp();
 	public List<OpEntree> getListOpEntree();
