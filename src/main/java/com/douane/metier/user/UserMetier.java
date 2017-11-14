@@ -704,6 +704,12 @@ public class UserMetier implements IUserMetier{
 		opsortieartrepos.save(sortieart);
 		return a;
 	}
+	
+	@Override
+	public List<MaterielNouv> getListMaterielNouvValide() {
+		// TODO Auto-generated method stub
+		return materielNouvRepository.findByValidation(true);
+	}
 
 
 
