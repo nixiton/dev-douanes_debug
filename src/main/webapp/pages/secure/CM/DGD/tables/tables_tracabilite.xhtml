@@ -20,7 +20,7 @@
     <p:dataTable   var="t" value="#{operationBean.mesOperations}" 
                  paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}  "
                  paginator="true" rows="10" style="margin-bottom:20px">
-        <p:column filterBy="#{t.id}">
+        <p:column>
             <f:facet name="header">ID</f:facet>
             #{t.id}
         </p:column>
@@ -39,6 +39,10 @@
         <p:column>
             <f:facet name="header">Opérateur</f:facet>
             #{t.operateur.im}
+        </p:column>
+        <p:column>
+            <f:facet name="header">Etat</f:facet>
+            #{t.operateur.state}
         </p:column>
 
     </p:dataTable>
