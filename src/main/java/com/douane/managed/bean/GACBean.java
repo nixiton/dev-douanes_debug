@@ -24,8 +24,8 @@ public class GACBean {
     @ManagedProperty(value="#{usermetier}")
     IUserMetier usermetierimpl;
     
-    @ManagedProperty(value="#{suivieditionBean}")
-    private SuiviEditionBean suivibean;
+    //@ManagedProperty(value="#{suivieditionBean}")
+    //private SuiviEditionBean suivibean;
     
     private List<Agent> listAgent;
 
@@ -103,10 +103,11 @@ public class GACBean {
     public void setUsermetierimpl(IUserMetier usermetierimpl) {
         this.usermetierimpl = usermetierimpl;
     }
+    /*
     public void setSuivibean(SuiviEditionBean svbean){
         this.suivibean = svbean;
     }
-
+    */
     public void setCurentOperation(OpEntree operation){
         this.curentOperation = operation;
     }
