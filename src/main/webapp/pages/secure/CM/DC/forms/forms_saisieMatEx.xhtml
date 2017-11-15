@@ -19,88 +19,10 @@
         <h:form id="fileUpoadForm" class="form-horizontal" prependId="false"
                 enctype="multipart/form-data">
 
-            <!-- *********************************FILE UPLOAD ****************************************************-->
-
-            <p:outputPanel id="testContainer">
-
-                <p:dataTable id="docId" var="row"
-                             value="#{depositaireBean.documentList}" editable="true"
-                             editMode="cell" widgetVar="documentTable">
-
-
-
-                    <p:column headerText="Doc upload">
-                        <p:panel rendered="#{!row.uploaded}">
-                            <p:fileUpload value="#{depositaireBean.document}"
-                                          fileUploadListener="#{depositaireBean.uploadDoc_Advanced}"
-                                          mode="advanced" dragDropSupport="false" update="@this,docId"
-                                          allowTypes="/(\.|\/)(gif|jpe?g|png|txt)$/">
-                                <f:attribute name="docObj" value="#{row}"></f:attribute>
-                            </p:fileUpload>
-                        </p:panel>
-                        <p:panel rendered="#{row.uploaded}">
-                            Doc  Uploaded       <p:commandLink
-                                title="remove" value="remove document"
-                                actionListener="#{depositaireBean.removeDoc(row)}" update="docId"
-                                ajax="true" process="@this" />
-                        </p:panel>
-                    </p:column>
-
-
-
-                </p:dataTable>
-                <!-- **IMAGE UPLOAD** -->
-                <p:dataTable id="imId" var="rowIm"
-                             value="#{depositaireBean.imageList}" editable="true"
-                             editMode="cell" widgetVar="documentTable">
-
-                    <p:column headerText="Image upload">
-                        <p:panel rendered="#{!rowIm.uploaded}">
-                            <p:fileUpload value="#{depositaireBean.byteDoc}"
-                                          fileUploadListener="#{depositaireBean.uploadIm_Advanced}"
-                                          mode="advanced" dragDropSupport="false" update="@this,imId"
-                                          allowTypes="/(\.|\/)(gif|jpe?g|png|txt)$/">
-                                <f:attribute name="docObj" value="#{rowIm}"></f:attribute>
-                            </p:fileUpload>
-                        </p:panel>
-                        <p:panel rendered="#{rowIm.uploaded}">
-                            Doc  Uploaded       <p:commandLink
-                                title="remove" value="remove document"
-                                actionListener="#{depositaireBean.removeDoc(rowIm)}" update="imId"
-                                ajax="true" process="@this" />
-                        </p:panel>
-                    </p:column>
-
-                </p:dataTable>
-
-            </p:outputPanel>
-            <p:commandButton value="Ajouter d\' autres documents" process="@this"
-                             update="docId" actionListener="#{depositaireBean.addNewDoc}"
-                             ajax="true" />
-            <!-- *********************************FILE UPLOAD ****************************************************-->
-
+            
             <p:messages id="messages" />
 
             <div class="form-group">
-
-                    <label for="text1" class="control-label col-lg-4">Liste Services
-                    </label>
-
-                    <div class="col-lg-6">
-
-                    <p:selectOneMenu value="#{depositaireBean.serviceforMat}" converter="#{refConverter}" panelStyle="width:180px"  style="width:160px"
-                         effect="fade" var="t" filter="true" filterMatchMode="startsWith">
-                        <f:selectItem itemValue="#{null}" itemLabel="--select--" /> 
-                            <f:selectItems value="#{depositaireBean.listServices}" var="theme" itemLabel="#{theme.designation}" itemValue="#{theme}" />
-                        <p:column>
-                            <h:outputText value="#{t.designation}" />
-                        </p:column>
-
-                    </p:selectOneMenu>
-
-                    <hr></hr>
-
-                    </div>
 
 
 
@@ -271,6 +193,88 @@
                 <hr></hr>
 
                 </div>
+
+
+                <label for="text1" class="control-label col-lg-4">Liste Services
+                    </label>
+
+                    <div class="col-lg-6">
+
+                    <p:selectOneMenu value="#{depositaireBean.serviceforMat}" converter="#{refConverter}" panelStyle="width:180px"  style="width:160px"
+                         effect="fade" var="t" filter="true" filterMatchMode="startsWith">
+                        <f:selectItem itemValue="#{null}" itemLabel="--select--" /> 
+                            <f:selectItems value="#{depositaireBean.listServices}" var="theme" itemLabel="#{theme.designation}" itemValue="#{theme}" />
+                        <p:column>
+                            <h:outputText value="#{t.designation}" />
+                        </p:column>
+
+                    </p:selectOneMenu>
+
+                    <hr></hr>
+
+                    </div>
+
+
+                <!-- *********************************FILE UPLOAD ****************************************************-->
+
+            <p:outputPanel id="testContainer">
+
+                <p:dataTable id="docId" var="row"
+                             value="#{depositaireBean.documentList}" editable="true"
+                             editMode="cell" widgetVar="documentTable">
+
+
+
+                    <p:column headerText="Doc upload">
+                        <p:panel rendered="#{!row.uploaded}">
+                            <p:fileUpload value="#{depositaireBean.document}"
+                                          fileUploadListener="#{depositaireBean.uploadDoc_Advanced}"
+                                          mode="advanced" dragDropSupport="false" update="@this,docId"
+                                          allowTypes="/(\.|\/)(gif|jpe?g|png|txt)$/">
+                                <f:attribute name="docObj" value="#{row}"></f:attribute>
+                            </p:fileUpload>
+                        </p:panel>
+                        <p:panel rendered="#{row.uploaded}">
+                            Doc  Uploaded       <p:commandLink
+                                title="remove" value="remove document"
+                                actionListener="#{depositaireBean.removeDoc(row)}" update="docId"
+                                ajax="true" process="@this" />
+                        </p:panel>
+                    </p:column>
+
+
+
+                </p:dataTable>
+                <!-- **IMAGE UPLOAD** -->
+                <p:dataTable id="imId" var="rowIm"
+                             value="#{depositaireBean.imageList}" editable="true"
+                             editMode="cell" widgetVar="documentTable">
+
+                    <p:column headerText="Image upload">
+                        <p:panel rendered="#{!rowIm.uploaded}">
+                            <p:fileUpload value="#{depositaireBean.byteDoc}"
+                                          fileUploadListener="#{depositaireBean.uploadIm_Advanced}"
+                                          mode="advanced" dragDropSupport="false" update="@this,imId"
+                                          allowTypes="/(\.|\/)(gif|jpe?g|png|txt)$/">
+                                <f:attribute name="docObj" value="#{rowIm}"></f:attribute>
+                            </p:fileUpload>
+                        </p:panel>
+                        <p:panel rendered="#{rowIm.uploaded}">
+                            Doc  Uploaded       <p:commandLink
+                                title="remove" value="remove document"
+                                actionListener="#{depositaireBean.removeDoc(rowIm)}" update="imId"
+                                ajax="true" process="@this" />
+                        </p:panel>
+                    </p:column>
+
+                </p:dataTable>
+
+            </p:outputPanel>
+            <p:commandButton value="Ajouter d\' autres documents" process="@this"
+                             update="docId" actionListener="#{depositaireBean.addNewDoc}"
+                             ajax="true" />
+            <!-- *********************************FILE UPLOAD ****************************************************-->
+
             
 
 

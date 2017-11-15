@@ -20,7 +20,7 @@ import javax.faces.context.FacesContext;
 
 @ManagedBean(name="suivieditionBean")
 //@SessionScoped
-@RequestScoped
+@ViewScoped
 public class SuiviEditionBean {
 
 
