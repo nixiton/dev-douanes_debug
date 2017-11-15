@@ -32,7 +32,7 @@ public class GACBean {
     private Agent gac;
 
 
-    private Operation curentOperation;
+    private OpEntree curentOperation;
 
 
 
@@ -108,7 +108,7 @@ public class GACBean {
     public void setCurentOperation(Operation operation){
         this.curentOperation = operation;
     }
-    public Operation getCurentOperation(){
+    public OpEntree getCurentOperation(){
         return this.curentOperation;
     }
 
