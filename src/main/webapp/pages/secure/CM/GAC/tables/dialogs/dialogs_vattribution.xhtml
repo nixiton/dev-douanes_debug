@@ -13,43 +13,43 @@
 
     <div   class="body collapse in table-responsive">
 
-        <table class="table responsive-table" var="a" value="#{suivieditionBean.curentOperation}">
+        <table class="table responsive-table" >
                     <tr>
                         <td>Type de matériel</td>
-                        <td>#{suivieditionBean.curentOperation.mat.nomenMat.designation}</td>
+                        <td>#{gacBean.curentOperation.mat.nomenMat.designation}</td>
                     </tr>
                     <tr>
                         <td>Nomenclature</td>
-                        <td>#{suivieditionBean.curentOperation.mat.nomenMat.nomenclature}</td>
+                        <td>#{gacBean.curentOperation.mat.nomenMat.nomenclature}</td>
                     </tr>
                     <tr>
                         <td>Marque</td>
-                        <td>#{suivieditionBean.curentOperation.mat.marque.designation}</td>
+                        <td>#{gacBean.curentOperation.mat.marque.designation}</td>
                     </tr>
                     <tr>
                         <td>Référence</td>
-                        <td>#{suivieditionBean.curentOperation.mat.reference}</td>
+                        <td>#{gacBean.curentOperation.mat.reference}</td>
                     </tr>
                     <tr>
                         <td>Numero de série</td>
-                        <td>#{suivieditionBean.curentOperation.mat.numSerie}</td>
+                        <td>#{gacBean.curentOperation.mat.numSerie}</td>
                     </tr>
                     <tr>
                         <td>Imatriculation détenteur</td>
-                        <td>#{suivieditionBean.curentOperation.detenteur.im}</td>
+                        <td>#{gacBean.curentOperation.detenteur.im}</td>
                     </tr>
                     <tr>
                         <td>Nom détenteru</td>
-                        <td>#{suivieditionBean.curentOperation.detenteur.nomAgent}</td>
+                        <td>#{gacBean.curentOperation.detenteur.nomAgent}</td>
                     </tr>
                     <tr>
                         <td>Prénom détenteur</td>
-                        <td>#{suivieditionBean.curentOperation.detenteur.prenomAgent}</td>
+                        <td>#{gacBean.curentOperation.detenteur.prenomAgent}</td>
                     </tr>         
             </table>
         </div>
         
-            <h:commandButton  action="#{gacBean.validateAttributionDetenteur(a)}" value="Valider"
+            <h:commandButton  action="#{gacBean.validateAttributionDetenteur()}" value="Valider"
                         class="btn btn-lg btn-primary btn-block"/>
         </h:form>
     </p:dialog>
