@@ -364,7 +364,7 @@ public class SuiviEditionBean {
         return this.curentOperation;
     }
     
-    public void validatePrisEnChargeEntreMat(OpEntree op)
+    public void validatePrisEnChargeEntreMat()
     {
         //usermetierimpl.entrerMateriel(op);
         usermetierimpl.entrerMateriel((OpEntree)getCurentOperation());
