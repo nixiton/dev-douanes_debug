@@ -19,7 +19,8 @@ import org.springframework.stereotype.Component;
 
 
 @ManagedBean(name="suivieditionBean")
-@SessionScoped
+//@SessionScoped
+@RequestScoped
 public class SuiviEditionBean {
 
 
