@@ -60,7 +60,7 @@
             <f:facet name="header">
                 <h:outputText value="Validation" />
             </f:facet>
-            <p:commandButton rendered="#{c.state eq 'WAITING' }" action="#{suivieditionBean.setCurentOperation(c)}" update=":detail"
+            <p:commandButton rendered="#{c.state eq 'WAITING' }" action="#{gacBean.setCurentOperation(c)}" update=":detail"
             oncomplete="PF('detail').show()" icon="ui-icon-circle-check"/>
         </p:column>
     

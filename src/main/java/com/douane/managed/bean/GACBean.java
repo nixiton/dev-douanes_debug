@@ -32,6 +32,9 @@ public class GACBean {
     private Agent gac;
 
 
+    private Operation curentOperation;
+
+
 
     private List<Operation> listAllOperation;
 
@@ -58,6 +61,13 @@ public class GACBean {
     {
         usermetierimpl.entrerMateriel(op);
         //usermetierimpl.entrerMateriel((OpEntree)suivibean.getCurentOperation());
+        
+    }
+
+    public void validatePrisEnChargeEntreMat()
+    {
+        //usermetierimpl.entrerMateriel(op);
+        usermetierimpl.entrerMateriel(this.getCurentOperation());
         
     }
 
@@ -93,6 +103,13 @@ public class GACBean {
     }
     public void setSuivibean(SuiviEditionBean svbean){
         this.suivibean = svbean;
+    }
+
+    public void setCurentOperation(Operation operation){
+        this.curentOperation = operation;
+    }
+    public Operation getCurentOperation(){
+        return this.curentOperation;
     }
 
 }
