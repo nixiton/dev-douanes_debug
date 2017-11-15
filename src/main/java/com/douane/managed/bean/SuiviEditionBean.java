@@ -26,6 +26,16 @@ public class SuiviEditionBean {
 
     @ManagedProperty(value="#{usermetier}")
     IUserMetier usermetierimpl;
+    
+    private Operation operationTovalidate;
+    
+    public void setOperationTovalidate(Operation operation){
+        this.operationTovalidate = operation;
+    }
+    public Operation getOperationTovalidate(){
+        return this.operationTovalidate;
+    }
+    
 
     private Agent agentOperateur;
     private Direction direction;
@@ -364,13 +374,13 @@ public class SuiviEditionBean {
         return this.curentOperation;
     }
     
-    public void validatePrisEnChargeEntreMat(Operation op)
+    public void validatePrisEnChargeEntreMat()
     {
         //usermetierimpl.entrerMateriel(op);
-        if(op ==null){
+        if( operationTovalidate==null){
             System.out.println("-------------FUCK----------");
         }
-        usermetierimpl.entrerMateriel((OpEntree)op);
+        usermetierimpl.entrerMateriel((OpEntree)operationTovalidate);
     }
 
 }
