@@ -380,7 +380,7 @@ public class SuiviEditionBean {
         if( FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("operationValide")==null){
             System.out.println("-------------FUCK----------");
         }
-        usermetierimpl.entrerMateriel((OpEntree)FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get(operationValide));
+        usermetierimpl.entrerMateriel((OpEntree)FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("operationValide"));
     }
 
 }
