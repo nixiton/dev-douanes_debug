@@ -377,7 +377,7 @@ public class SuiviEditionBean {
     public void validatePrisEnChargeEntreMat()
     {
         //usermetierimpl.entrerMateriel(op);
-        if( FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get(operationValide)==null){
+        if( FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("operationValide")==null){
             System.out.println("-------------FUCK----------");
         }
         usermetierimpl.entrerMateriel((OpEntree)FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get(operationValide));
