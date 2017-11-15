@@ -27,6 +27,7 @@ public class SuiviEditionBean {
     @ManagedProperty(value="#{usermetier}")
     IUserMetier usermetierimpl;
     
+    @ManagedProperty("#{suivieditionBean.operationTovalidate}")
     private Operation operationTovalidate;
     
     public void setOperationTovalidate(Operation operation){
@@ -377,10 +378,10 @@ public class SuiviEditionBean {
     public void validatePrisEnChargeEntreMat()
     {
         //usermetierimpl.entrerMateriel(op);
-        if( operationTovalidate==null){
+        if( this.operationTovalidate==null){
             System.out.println("-------------FUCK----------");
         }
-        usermetierimpl.entrerMateriel((OpEntree)operationTovalidate);
+        usermetierimpl.entrerMateriel((OpEntree)this.operationTovalidate);
     }
 
 }
