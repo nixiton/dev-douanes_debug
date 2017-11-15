@@ -105,7 +105,7 @@ public class GACBean {
         this.suivibean = svbean;
     }
 
-    public void setCurentOperation(Operation operation){
+    public void setCurentOperation(OpEntree operation){
         this.curentOperation = operation;
     }
     public OpEntree getCurentOperation(){
