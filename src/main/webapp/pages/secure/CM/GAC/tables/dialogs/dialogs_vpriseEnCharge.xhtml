@@ -60,7 +60,7 @@
             </table>
         </div>
         
-            <h:commandButton  action="#{suivieditionBean.validatePrisEnChargeEntreMat()}" value="Valider"
+            <h:commandButton  action="#{suivieditionBean.validatePrisEnChargeEntreMat(suivieditionBean.curentOperation)}" value="Valider"
                         class="btn btn-lg btn-primary btn-block"/>
         </h:form>
     </p:dialog>
