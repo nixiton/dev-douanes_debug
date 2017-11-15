@@ -61,7 +61,7 @@ public class GACBean {
 
     public void validatePrisEnChargeEntreMat(Operation op)
     {
-        usermetierimpl.entrerMateriel(op);
+        usermetierimpl.entrerMateriel((OpEntree)op);
         //usermetierimpl.entrerMateriel((Operation)suivibean.getCurentOperation());
         this.setCurentOperation(null);
         
