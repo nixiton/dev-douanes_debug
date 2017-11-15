@@ -71,7 +71,7 @@ public class GACBean {
     {
         //usermetierimpl.entrerMateriel(op);
         usermetierimpl.entrerMateriel(this.getCurentOperation());
-        
+        this.setCurentOperation(null);
     }
 
     public void validateAttributionDetenteur(OpAttribution attr)
