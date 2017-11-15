@@ -70,20 +70,20 @@ public class GACBean {
     public void validatePrisEnChargeEntreMat()
     {
         //usermetierimpl.entrerMateriel(op);
-        usermetierimpl.entrerMateriel(this.getCurentOperation());
+        usermetierimpl.entrerMateriel((Operation)this.getCurentOperation());
         this.setCurentOperation(null);
     }
 
     public void validateAttributionDetenteur(OpAttribution attr)
     {
         //usermetierimpl.attriuberMateriel(attr);
-        usermetierimpl.attriuberMateriel(this.getCurentOperation());
+        usermetierimpl.attriuberMateriel((OpAttribution)this.getCurentOperation());
         this.setCurentOperation(null);
     }
 
     public void validateDechargeSortie(OpSortie sortie) throws Exception {
         //usermetierimpl.sortirMateriel(sortie);
-        usermetierimpl.sortirMateriel(this.getCurentOperation());
+        usermetierimpl.sortirMateriel((OpSortie)this.getCurentOperation());
         this.setCurentOperation(null);
     }
 
