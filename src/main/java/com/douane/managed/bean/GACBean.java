@@ -63,6 +63,7 @@ public class GACBean {
     {
         usermetierimpl.entrerMateriel(op);
         //usermetierimpl.entrerMateriel((OpEntree)suivibean.getCurentOperation());
+        this.setCurentOperation(null);
         
     }
 
