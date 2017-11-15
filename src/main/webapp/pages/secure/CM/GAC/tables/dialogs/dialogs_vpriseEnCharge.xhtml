@@ -62,7 +62,7 @@
         
             <h:commandButton  action="#{suivieditionBean.validatePrisEnChargeEntreMat}" value="Valider"
                         class="btn btn-lg btn-primary btn-block">
-            <f:setPropertyActionListener target= "#{debug.operationTovalidate}" value="#{suivieditionBean.curentOperation}"/>
+            <f:setPropertyActionListener target= "#{param.operationTovalidate}" value="#{suivieditionBean.curentOperation}"/>
             </h:commandButton>
         </h:form>
     </p:dialog>
