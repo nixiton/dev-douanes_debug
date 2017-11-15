@@ -12,7 +12,7 @@
 
     <div   class="body collapse in table-responsive">
 
-        <table class="table responsive-table">
+        <table class="table responsive-table" var="a" value="#{suivieditionBean.curentOperation}>
                     <tr>
                         <td>Type de matériel</td>
                         <td>#{suivieditionBean.curentOperation.mat.nomenMat.designation}</td>
@@ -60,7 +60,7 @@
             </table>
         </div>
         
-            <h:commandButton  action="#{gacBean.validatePrisEnChargeEntreMat(suivieditionBean.curentOperation)}" value="Valider"
+            <h:commandButton  action="#{gacBean.validatePrisEnChargeEntreMat(a)}" value="Valider"
                         class="btn btn-lg btn-primary btn-block"/>
         </h:form>
     </p:dialog>
