@@ -70,7 +70,7 @@ public class GACBean {
     public void validatePrisEnChargeEntreMat()
     {
         //usermetierimpl.entrerMateriel(op);
-        usermetierimpl.entrerMateriel((Operation)this.getCurentOperation());
+        usermetierimpl.entrerMateriel((OpEntree)this.getCurentOperation());
         this.setCurentOperation(null);
     }
 
