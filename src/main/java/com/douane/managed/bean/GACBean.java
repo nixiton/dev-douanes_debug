@@ -5,12 +5,13 @@ import com.douane.metier.user.IUserMetier;
 import com.douane.repository.OpRepository;
 import com.douane.requesthttp.RequestFilter;
 import javax.faces.bean.RequestScoped;
+import javax.faces.bean.ViewScoped;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import java.util.HashMap;
 import java.util.List;
-@RequestScoped
+@ViewScoped
 
 /**
  * Created by hasina on 11/3/17.
