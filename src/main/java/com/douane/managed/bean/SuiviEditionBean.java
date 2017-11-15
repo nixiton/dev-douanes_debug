@@ -12,30 +12,19 @@ import javax.faces.bean.SessionScoped;
 import java.util.Date;
 import java.util.List;
 import org.springframework.stereotype.Component;
-import javax.faces.context.FacesContext; 
+
 /**
  * Created by hasina on 11/3/17.
  */
 
 
 @ManagedBean(name="suivieditionBean")
-//@SessionScoped
 @ViewScoped
 public class SuiviEditionBean {
 
 
     @ManagedProperty(value="#{usermetier}")
     IUserMetier usermetierimpl;
-    
-    private Operation operationTovalidate;
-    
-    public void setOperationTovalidate(Operation operation){
-        this.operationTovalidate = operation;
-    }
-    public Operation getOperationTovalidate(){
-        return this.operationTovalidate;
-    }
-    
 
     private Agent agentOperateur;
     private Direction direction;
@@ -372,15 +361,6 @@ public class SuiviEditionBean {
     }
     public Operation getCurentOperation(){
         return this.curentOperation;
-    }
-    
-    public void validatePrisEnChargeEntreMat()
-    {
-        //usermetierimpl.entrerMateriel(op);
-        if( FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("operationValide")==null){
-            System.out.println("-------------FUCK----------");
-        }
-        //usermetierimpl.entrerMateriel((OpEntree)FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("operationValide"));
     }
 
 }
