@@ -364,13 +364,13 @@ public class SuiviEditionBean {
         return this.curentOperation;
     }
     
-    public void validatePrisEnChargeEntreMat()
+    public void validatePrisEnChargeEntreMat(Operation op)
     {
         //usermetierimpl.entrerMateriel(op);
-        if(curentOperation ==null){
+        if(op ==null){
             System.out.println("-------------FUCK----------");
         }
-        usermetierimpl.entrerMateriel((OpEntree)curentOperation);
+        usermetierimpl.entrerMateriel((OpEntree)op);
     }
 
 }
