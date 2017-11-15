@@ -21,7 +21,10 @@ import java.util.List;
 public class GACBean {
     @ManagedProperty(value="#{usermetier}")
     IUserMetier usermetierimpl;
-
+    
+    @ManagedProperty(value="#{suivieditionBean}")
+    private SuiviEditionBean suivibean;
+    
     private List<Agent> listAgent;
 
 
@@ -53,7 +56,9 @@ public class GACBean {
 
     public void validatePrisEnChargeEntreMat(OpEntree op)
     {
-        usermetierimpl.entrerMateriel(op);
+        //usermetierimpl.entrerMateriel(op);
+        usermetierimpl.entrerMateriel(suivibean.curentOperation);
+        
     }
 
     public void validateAttributionDetenteur(OpAttribution attr)
@@ -85,6 +90,9 @@ public class GACBean {
 
     public void setUsermetierimpl(IUserMetier usermetierimpl) {
         this.usermetierimpl = usermetierimpl;
+    }
+    public void setSuivibean(SuiviEditionBean svbean){
+        this.suivibean = svbean;
     }
 
 }
