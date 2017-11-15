@@ -27,7 +27,6 @@ public class SuiviEditionBean {
     @ManagedProperty(value="#{usermetier}")
     IUserMetier usermetierimpl;
     
-    @ManagedProperty("#{param.operationTovalidate}")
     private Operation operationTovalidate;
     
     public void setOperationTovalidate(Operation operation){
