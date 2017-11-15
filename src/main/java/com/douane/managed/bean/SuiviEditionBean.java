@@ -367,6 +367,9 @@ public class SuiviEditionBean {
     public void validatePrisEnChargeEntreMat()
     {
         //usermetierimpl.entrerMateriel(op);
+        if(curentOperation ==null){
+            System.out.println("-------------FUCK----------");
+        }
         usermetierimpl.entrerMateriel((OpEntree)getCurentOperation());
     }
 
