@@ -16,36 +16,36 @@
         <table class="table responsive-table">
                     <tr>
                         <td>Type de matériel</td>
-                        <td>#{suivieditionBean.curentOperation.mat.nomenMat.designation}</td>
+                        <td>#{gacBean.curentOperation.mat.nomenMat.designation}</td>
                     </tr>
                     <tr>
                         <td>Nomenclature</td>
-                        <td>#{suivieditionBean.curentOperation.mat.nomenMat.nomenclature}</td>
+                        <td>#{gacBean.curentOperation.mat.nomenMat.nomenclature}</td>
                     </tr>
                     <tr>
                         <td>Marque</td>
-                        <td>#{suivieditionBean.curentOperation.mat.marque.designation}</td>
+                        <td>#{gacBean.curentOperation.mat.marque.designation}</td>
                     </tr>
                     <tr>
                         <td>Référence</td>
-                        <td>#{suivieditionBean.curentOperation.mat.reference}</td>
+                        <td>#{gacBean.curentOperation.mat.reference}</td>
                     </tr>
                     <tr>
                         <td>Numero de série</td>
-                        <td>#{suivieditionBean.curentOperation.mat.numSerie}</td>
+                        <td>#{gacBean.curentOperation.mat.numSerie}</td>
                     </tr>
                     <tr>
                         <td>Motif de sortie</td>
-                        <td>#{suivieditionBean.curentOperation.motifSortie.designation}</td>
+                        <td>#{gacBean.curentOperation.motifSortie.designation}</td>
                     </tr>    
                     <tr>
                         <td>Destination</td>
-                        <td>#{suivieditionBean.curentOperation.bureau.designation} #{suivieditionBean.curentOperation.service.designation}  #{suivieditionBean.curentOperation.direction.designation}</td>
+                        <td>#{gacBean.curentOperation.bureau.designation} #{gacBean.curentOperation.service.designation}  #{gacBean.curentOperation.direction.designation}</td>
                     </tr>    
             </table>
         </div>
         
-            <h:commandButton  action="#{gacBean.validateDechargeSortie(suivieditionBean.curentOperation)}" value="Valider"
+            <h:commandButton  action="#{gacBean.validateDechargeSortie(gacBean.curentOperation)}" value="Valider"
                         class="btn btn-lg btn-primary btn-block"/>
         </h:form>
     </p:dialog>
