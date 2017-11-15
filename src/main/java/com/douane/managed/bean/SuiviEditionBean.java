@@ -12,7 +12,7 @@ import javax.faces.bean.SessionScoped;
 import java.util.Date;
 import java.util.List;
 import org.springframework.stereotype.Component;
-
+import javax.faces.context.FacesContext; 
 /**
  * Created by hasina on 11/3/17.
  */
