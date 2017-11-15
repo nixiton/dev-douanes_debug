@@ -370,7 +370,7 @@ public class SuiviEditionBean {
         if(curentOperation ==null){
             System.out.println("-------------FUCK----------");
         }
-        usermetierimpl.entrerMateriel(curentOperation);
+        usermetierimpl.entrerMateriel((OpEntree)curentOperation);
     }
 
 }
