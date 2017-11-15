@@ -34,7 +34,7 @@ public class GACBean {
     private Agent gac;
 
 
-    private OpEntree curentOperation;
+    private Operation curentOperation;
 
 
 
@@ -59,10 +59,10 @@ public class GACBean {
         return AgentOp;
     }
 
-    public void validatePrisEnChargeEntreMat(OpEntree op)
+    public void validatePrisEnChargeEntreMat(Operation op)
     {
         usermetierimpl.entrerMateriel(op);
-        //usermetierimpl.entrerMateriel((OpEntree)suivibean.getCurentOperation());
+        //usermetierimpl.entrerMateriel((Operation)suivibean.getCurentOperation());
         this.setCurentOperation(null);
         
     }
@@ -76,11 +76,15 @@ public class GACBean {
 
     public void validateAttributionDetenteur(OpAttribution attr)
     {
-        usermetierimpl.attriuberMateriel(attr);
+        //usermetierimpl.attriuberMateriel(attr);
+        usermetierimpl.attriuberMateriel(this.getCurentOperation());
+        this.setCurentOperation(null);
     }
 
     public void validateDechargeSortie(OpSortie sortie) throws Exception {
-        usermetierimpl.sortirMateriel(sortie);
+        //usermetierimpl.sortirMateriel(sortie);
+        usermetierimpl.sortirMateriel(this.getCurentOperation());
+        this.setCurentOperation(null);
     }
 
     public void setListAllOperation(List<Operation> listAllOperation) {
@@ -109,10 +113,10 @@ public class GACBean {
         this.suivibean = svbean;
     }
     */
-    public void setCurentOperation(OpEntree operation){
+    public void setCurentOperation(Operation operation){
         this.curentOperation = operation;
     }
-    public OpEntree getCurentOperation(){
+    public Operation getCurentOperation(){
         return this.curentOperation;
     }
 
