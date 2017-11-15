@@ -40,6 +40,8 @@ public class GACBean {
 
     private List<Operation> listAllOperation;
 
+    private String motif;
+
 
 
     public HashMap<Agent,List<Operation>> getOperationAndDepositaire()
@@ -61,18 +63,22 @@ public class GACBean {
 
     public void validatePrisEnChargeEntreMat(Operation op)
     {
-        usermetierimpl.entrerMateriel((OpEntree)op);
-        //usermetierimpl.entrerMateriel((Operation)suivibean.getCurentOperation());
+        //usermetierimpl.entrerMateriel(op);
+        usermetierimpl.entrerMateriel((OpEntree)this.getCurentOperation());
         this.setCurentOperation(null);
         
     }
 
-    public void validatePrisEnChargeEntreMat()
+
+    public void refusePrisEnChargeEntreMat(Operation op)
     {
         //usermetierimpl.entrerMateriel(op);
-        usermetierimpl.entrerMateriel((OpEntree)this.getCurentOperation());
+        usermetierimpl.reqMatRefuser((OpEntree)this.getCurentOperation(), this.getMotif());
         this.setCurentOperation(null);
+        this.setMotif(null);
     }
+
+
 
     public void validateAttributionDetenteur(OpAttribution attr)
     {
@@ -118,6 +124,13 @@ public class GACBean {
     }
     public Operation getCurentOperation(){
         return this.curentOperation;
+    }
+
+    public void setMotif(String m){
+        this.motif = m;
+    }
+    public String getMotif(){
+        return this.motif;
     }
 
 }
