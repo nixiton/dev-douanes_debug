@@ -100,7 +100,7 @@ public class GACBean {
     public void refuseAttributionDetenteur(OpAttribution attr)
     {
         //usermetierimpl.attriuberMateriel(attr);
-        usermetierimpl.reqAttrRefuser((OpAttribution)this.getCurentOperation());
+        usermetierimpl.reqAttrRefuser((OpAttribution)this.getCurentOperation(), this.getMotif());
         this.setCurentOperation(null);
         this.setMotif(null);
     }
@@ -109,7 +109,7 @@ public class GACBean {
     public void aModifierAttributionDetenteur(OpAttribution attr)
     {
         //usermetierimpl.attriuberMateriel(attr);
-        usermetierimpl.reqAttrAModifier((OpAttribution)this.getCurentOperation());
+        usermetierimpl.reqAttrAModifier((OpAttribution)this.getCurentOperation(), this.getMotif());
         this.setCurentOperation(null);
         this.setMotif(null);
     }
@@ -124,14 +124,14 @@ public class GACBean {
 
     public void refuseDechargeSortie(OpSortie sortie) throws Exception {
         //usermetierimpl.sortirMateriel(sortie);
-        usermetierimpl.reqSortirRefuser((OpSortie)this.getCurentOperation());
+        usermetierimpl.reqSortirRefuser((OpSortie)this.getCurentOperation(), this.getMotif());
         this.setCurentOperation(null);
         this.setMotif(null);
     }
 
     public void aModifierDechargeSortie(OpSortie sortie) throws Exception {
         //usermetierimpl.sortirMateriel(sortie);
-        usermetierimpl.reqSortirAModifier((OpSortie)this.getCurentOperation());
+        usermetierimpl.reqSortirAModifier((OpSortie)this.getCurentOperation(), this.getMotif());
         this.setCurentOperation(null);
         this.setMotif(null);
     }
