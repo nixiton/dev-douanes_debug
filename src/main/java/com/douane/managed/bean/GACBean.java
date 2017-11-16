@@ -70,7 +70,7 @@ public class GACBean {
     }
 
 
-    public void refusePrisEnChargeEntreMat(Operation op)
+    public void refusePrisEnChargeEntreMat(Operation op) throws Exception
     {
         //usermetierimpl.entrerMateriel(op);
         usermetierimpl.reqMatRefuser((OpEntree)this.getCurentOperation(), this.getMotif());
