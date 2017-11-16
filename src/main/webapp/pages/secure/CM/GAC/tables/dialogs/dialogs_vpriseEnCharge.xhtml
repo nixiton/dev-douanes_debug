@@ -67,13 +67,18 @@
         </h:form>
         <h:form>
 
-            <h:inputText value="#{gacBean.motif}" 
-                        ></h:inputText>
-
-            <h:commandButton  action="#{gacBean.refusePrisEnChargeEntreMat()}" value="Refuser"
+            <h:commandButton  action="#{gacBean.refusePrisEnChargeEntreMat(gacBean.curentOperation)}" value="Refuser"
                         class="btn btn-lg btn-primary btn-block">
                 <!--f:param name="operationValide" value="#{gacBean.curentOperation}"/-->
             </h:commandButton>
+
+            <label for="text1" class="control-label col-lg-4">Motif
+                    </label>
+
+            <h:inputText value="#{gacBean.motif}" 
+                        styleClass="form-control top"></h:inputText>
+
+            
         </h:form>
     </p:dialog>
 
