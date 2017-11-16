@@ -79,6 +79,15 @@ public class GACBean {
     }
 
 
+    public void aModifierPrisEnChargeEntreMat(Operation op) throws Exception
+    {
+        //usermetierimpl.entrerMateriel(op);
+        usermetierimpl.reqMatAModifier((OpEntree)this.getCurentOperation(), this.getMotif());
+        this.setCurentOperation(null);
+        this.setMotif(null);
+    }
+
+
 
     public void validateAttributionDetenteur(OpAttribution attr)
     {
