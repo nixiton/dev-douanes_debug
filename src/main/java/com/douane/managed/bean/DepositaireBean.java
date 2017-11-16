@@ -1415,4 +1415,12 @@ System.out.println("****************************ADD3 ATTR**ERRORR***************
 	{
 		System.out.println("****************************SET LIST ******************************** " +this.getClass().getName());
 	}
+	private List<MaterielNouv> listMaterielNouveauValide;
+	public List<MaterielNouv> getListMaterielNouveauValide() {
+		return usermetierimpl.getListMaterielNouvValide();
+	}
+
+	public void setListMaterielNouveauValide(List<MaterielNouv> listMaterielNouveauValide) {
+		this.listMaterielNouveauValide = listMaterielNouveauValide;
+	}
 }
