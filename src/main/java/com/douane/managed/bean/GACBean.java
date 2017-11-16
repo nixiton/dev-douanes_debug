@@ -97,7 +97,7 @@ public class GACBean {
 
     }
 
-    public void refuseAttributionDetenteur(OpAttribution attr)
+    public void refuseAttributionDetenteur(OpAttribution attr) throws Exception
     {
         //usermetierimpl.attriuberMateriel(attr);
         usermetierimpl.reqAttrRefuser((OpAttribution)this.getCurentOperation(), this.getMotif());
@@ -106,7 +106,7 @@ public class GACBean {
     }
 
 
-    public void aModifierAttributionDetenteur(OpAttribution attr)
+    public void aModifierAttributionDetenteur(OpAttribution attr) throws Exception
     {
         //usermetierimpl.attriuberMateriel(attr);
         usermetierimpl.reqAttrAModifier((OpAttribution)this.getCurentOperation(), this.getMotif());
