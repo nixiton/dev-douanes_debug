@@ -94,13 +94,48 @@ public class GACBean {
         //usermetierimpl.attriuberMateriel(attr);
         usermetierimpl.attriuberMateriel((OpAttribution)this.getCurentOperation());
         this.setCurentOperation(null);
+
     }
+
+    public void refuseAttributionDetenteur(OpAttribution attr)
+    {
+        //usermetierimpl.attriuberMateriel(attr);
+        usermetierimpl.reqAttrRefuser((OpAttribution)this.getCurentOperation());
+        this.setCurentOperation(null);
+        this.setMotif(null);
+    }
+
+
+    public void aModifierAttributionDetenteur(OpAttribution attr)
+    {
+        //usermetierimpl.attriuberMateriel(attr);
+        usermetierimpl.reqAttrAModifier((OpAttribution)this.getCurentOperation());
+        this.setCurentOperation(null);
+        this.setMotif(null);
+    }
+
 
     public void validateDechargeSortie(OpSortie sortie) throws Exception {
         //usermetierimpl.sortirMateriel(sortie);
         usermetierimpl.sortirMateriel((OpSortie)this.getCurentOperation());
         this.setCurentOperation(null);
     }
+
+
+    public void refuseDechargeSortie(OpSortie sortie) throws Exception {
+        //usermetierimpl.sortirMateriel(sortie);
+        usermetierimpl.reqSortirRefuser((OpSortie)this.getCurentOperation());
+        this.setCurentOperation(null);
+        this.setMotif(null);
+    }
+
+    public void aModifierDechargeSortie(OpSortie sortie) throws Exception {
+        //usermetierimpl.sortirMateriel(sortie);
+        usermetierimpl.reqSortirAModifier((OpSortie)this.getCurentOperation());
+        this.setCurentOperation(null);
+        this.setMotif(null);
+    }
+
 
     public void setListAllOperation(List<Operation> listAllOperation) {
         this.listAllOperation = listAllOperation;
