@@ -41,97 +41,97 @@
         <hr></hr>
 
     </div-->   
-    <p:dataTable   var="op" value="#{suivieditionBean.listAllOperation}" 
+    <p:dataTable   var="materiel" value="#{depositaireBean.listAllMateriel}" 
                  paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}  "
-                 paginator="true" rows="10" style="margin-bottom:20px">
-        <p:column filterBy="#{op.mat.idop.mat}" filterMatchMode="contains">
+                 paginator="true" rows="10" style="margin-bottom:20px" filteredValue="#{depositaireBean.listAllMateriel}">
+        <p:column filterBy="#{materiel.idMateriel}" filterMatchMode="contains">
             <f:facet name="header">ID</f:facet>
-            #{op.mat.idMateriel}
+            #{materiel.idMateriel}
         </p:column>
         <!--p:column>
             <f:facet name="header">Prix Unitaire</f:facet>
-            #{op.mat.pu}
+            #{materiel.pu}
         </p:column>
         <p:column>
             <f:facet name="header">Référence</f:facet>
-            #{op.mat.reference}
+            #{materiel.reference}
         </p:column>
         <p:column>
             <f:facet name="header">Numéro de série</f:facet>
-            #{op.mat.numSerie}
+            #{materiel.numSerie}
         </p:column>
         <p:column>
             <f:facet name="header">Autre</f:facet>
-            #{op.mat.autre}
+            #{materiel.autre}
         </p:column>
         <p:column>
             <f:facet name="header">Codification</f:facet>
-            #{op.mat.code}
+            #{materiel.code}
         </p:column>
         <p:column>
             <f:facet name="header">Nomenclature</f:facet>
-            #{op.mat.nomenMat.designation}
+            #{materiel.nomenMat.designation}
         </p:column>
         <p:column>
             <f:facet name="header">Etat</f:facet>
-            #{op.mat.etat.designation}
+            #{materiel.etat.designation}
         </p:column>
         <p:column>
             <f:facet name="header">Caractéristiques</f:facet>
-            #{op.mat.caract}
+            #{materiel.caract}
         </p:column>
         <p:column>
             <f:facet name="header">Marque</f:facet>
-            #{op.mat.marque.designation}
+            #{materiel.marque.designation}
         </p:column>
         <p:column>
             <f:facet name="header">Détenteur</f:facet>
-            #{op.mat.detenteur.im}
+            #{materiel.detenteur.im}
         </p:column>
         <p:column>
             <f:facet name="header">Dépositaire</f:facet>
-            #{op.mat.dc.im}
+            #{materiel.dc.im}
         </p:column-->
         <p:column >
             <f:facet name="header">
                 <h:outputText value="Nomenclature" />
             </f:facet>
-            <h:outputText value="#{op.mat.nomenMat.designation}" />
+            <h:outputText value="#{materiel.nomenMat.designation}" />
         </p:column>
         <p:column>
             <f:facet name="header">
                 <h:outputText value="Etat" />
             </f:facet>
-            <h:outputText value="#{op.mat.etat.designation}" />
+            <h:outputText value="#{materiel.etat.designation}" />
         </p:column>
         <p:column>
             <f:facet name="header">
                 <h:outputText value="Marque" />
             </f:facet>
-            <h:outputText value="#{op.mat.marque.designation}" />
+            <h:outputText value="#{materiel.marque.designation}" />
         </p:column>
         <p:column>
             <f:facet name="header">
                 <h:outputText value="Dépositaire" />
             </f:facet>
-            <h:outputText value="#{op.mat.dc.nomAgent}" />
+            <h:outputText value="#{materiel.dc.nomAgent}" />
         </p:column>
         <p:column>
 
             <f:facet name="header">Détail</f:facet>
-            <p:commandButton  action="#{depositaireBean.mySetCurentMat(op.mat)}" update=":detail"
+            <p:commandButton  action="#{depositaireBean.mySetCurentMateriel(materiel)}" update=":detail"
             oncomplete="PF('detail').show()" icon="ui-icon-zoomin"/>
         </p:column> 
         <p:column>
             <f:facet name="header">Statut</f:facet>
-            <p:commandButton  action="#{depositaireBean.mySetCurentMat(op.mat)}" 
+            <p:commandButton  action="#{depositaireBean.mySetCurentMateriel(materiel)}" 
             oncomplete="PF('statut').show()" icon="ui-icon-info" update=":statut">
 
             </p:commandButton>
         </p:column>
         <p:column>
             <f:facet name="header">Histoique</f:facet>
-            <p:commandButton  action="#{depositaireBean.mySetCurentMat(op.mat)}" 
+            <p:commandButton  action="#{depositaireBean.mySetCurentMateriel(materiel)}" 
             oncomplete="PF('historique').show()" icon="ui-icon-clipboard" update=":historique">
             </p:commandButton>
         </p:column>
