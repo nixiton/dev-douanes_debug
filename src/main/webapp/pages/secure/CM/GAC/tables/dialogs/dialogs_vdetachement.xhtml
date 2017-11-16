@@ -57,7 +57,7 @@
             </table>
         </div>
         
-            <h:commandButton  action="#{gacBean.validateDechargeSortie(gacBean.curentOperation)}" value="Valider"
+            <h:commandButton  action="#{gacBean.validateDetachement(gacBean.curentOperation)}" value="Valider"
                         class="btn btn-lg btn-primary btn-block"/>
         </h:form>
         <h:form>
@@ -68,14 +68,14 @@
             <h:inputText value="#{gacBean.motif}" 
                         styleClass="form-control top"></h:inputText>
 
-            <h:commandButton  action="#{gacBean.refuseDechargeSortie(gacBean.curentOperation)}" value="Refuser"
+            <h:commandButton  action="#{gacBean.refuseDetachement(gacBean.curentOperation)}" value="Refuser"
                         class="btn btn-lg btn-primary btn-block">
-                <!--f:param name="operationValide" value="#{gacBean.curentOperation}"/-->
+                
             </h:commandButton>
 
         
         </h:form>
-        <h:form>
+        <!--h:form>
 
 
             <label for="text1" >Motif de demande de correction
@@ -86,11 +86,11 @@
 
             <h:commandButton  action="#{gacBean.aModifierDechargeSortie(gacBean.curentOperation)}" value="A modifier"
                         class="btn btn-lg btn-primary btn-block">
-                <!--f:param name="operationValide" value="#{gacBean.curentOperation}"/-->
+                
             </h:commandButton>
 
             
-        </h:form>
+        </h:form-->
     </p:dialog>
 
 </html>

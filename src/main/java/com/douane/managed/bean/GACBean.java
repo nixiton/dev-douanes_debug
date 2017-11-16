@@ -137,6 +137,31 @@ public class GACBean {
     }
 
 
+
+    public void validateDetachement(OpSortie sortie) throws Exception {
+        //usermetierimpl.sortirMateriel(sortie);
+        usermetierimpl.sortirMateriel((OpSortie)this.getCurentOperation());
+        this.setCurentOperation(null);
+    }
+
+
+    public void refuseDetachement(OpSortie sortie) throws Exception {
+        //usermetierimpl.sortirMateriel(sortie);
+        usermetierimpl.reqDetRefuser((OpSortie)this.getCurentOperation(), this.getMotif());
+        this.setCurentOperation(null);
+        this.setMotif(null);
+    }
+
+    public void aModifierDetachement(OpSortie sortie) throws Exception {
+        //usermetierimpl.sortirMateriel(sortie);
+        usermetierimpl.reqSortirAModifier((OpSortie)this.getCurentOperation(), this.getMotif());
+        this.setCurentOperation(null);
+        this.setMotif(null);
+    }
+
+
+
+
     public void setListAllOperation(List<Operation> listAllOperation) {
         this.listAllOperation = listAllOperation;
     }
