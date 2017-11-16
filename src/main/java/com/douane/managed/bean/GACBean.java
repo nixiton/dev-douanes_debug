@@ -138,23 +138,23 @@ public class GACBean {
 
 
 
-    public void validateDetachement(OpSortie sortie) throws Exception {
+    public void validateDetachement(OpDettachement sortie) throws Exception {
         //usermetierimpl.sortirMateriel(sortie);
-        usermetierimpl.sortirMateriel((OpSortie)this.getCurentOperation());
+        //usermetierimpl.sortirMateriel((OpDettachement)this.getCurentOperation());
         this.setCurentOperation(null);
     }
 
 
-    public void refuseDetachement(OpSortie sortie) throws Exception {
+    public void refuseDetachement(OpDettachement sortie) throws Exception {
         //usermetierimpl.sortirMateriel(sortie);
-        usermetierimpl.reqDetRefuser((OpSortie)this.getCurentOperation(), this.getMotif());
+        usermetierimpl.reqDetRefuser((OpDettachement)this.getCurentOperation(), this.getMotif());
         this.setCurentOperation(null);
         this.setMotif(null);
     }
 
-    public void aModifierDetachement(OpSortie sortie) throws Exception {
+    public void aModifierDetachement(OpDettachement sortie) throws Exception {
         //usermetierimpl.sortirMateriel(sortie);
-        usermetierimpl.reqSortirAModifier((OpSortie)this.getCurentOperation(), this.getMotif());
+        //usermetierimpl.reqSortirAModifier((OpDettachement)this.getCurentOperation(), this.getMotif());
         this.setCurentOperation(null);
         this.setMotif(null);
     }
