@@ -141,7 +141,7 @@ public class GACBean {
     public void validateDetachement(OpDettachement sortie) throws Exception {
         //usermetierimpl.sortirMateriel(sortie);
         //usermetierimpl.sortirMateriel((OpDettachement)this.getCurentOperation());
-        this.setCurentOperation(null);
+        //this.setCurentOperation(null);
     }
 
 
@@ -155,8 +155,8 @@ public class GACBean {
     public void aModifierDetachement(OpDettachement sortie) throws Exception {
         //usermetierimpl.sortirMateriel(sortie);
         //usermetierimpl.reqSortirAModifier((OpDettachement)this.getCurentOperation(), this.getMotif());
-        this.setCurentOperation(null);
-        this.setMotif(null);
+        //this.setCurentOperation(null);
+        //this.setMotif(null);
     }
 
 
