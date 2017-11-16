@@ -11,9 +11,10 @@
 
     <div   class="body collapse in table-responsive">
 
+
         <table class="table responsive-table">
 
-
+                <div class="col-ld-4">
                     <tr>
                         <td>ID</td>
                         <td>#{depositaireBean.curentMateriel.idMateriel}</td>
@@ -42,6 +43,9 @@
                         <td>Etat</td>
                         <td>#{depositaireBean.curentMateriel.etat.designation}</td>
                     </tr>
+            </div>
+
+            <div class="col-ld-4">
                     <tr>
                         <td>Caractéristiques</td>
                         <td>#{depositaireBean.curentMateriel.renseignement}</td>
@@ -65,7 +69,8 @@
                     <tr>
                         <td>Image</td>
                         <td>#{depositaireBean.curentMateriel.image}</td>
-                    </tr>           
+                    </tr> 
+            </div>          
             </table>
         </div>
     </p:dialog>
