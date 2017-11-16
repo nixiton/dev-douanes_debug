@@ -140,7 +140,7 @@ public class GACBean {
 
     public void validateDetachement(OpDettachement det) throws Exception {
         //usermetierimpl.sortirMateriel(sortie);
-        usermetierimpl.detacherMateriel((OpDettachement)this.getCurentOperation());
+        //usermetierimpl.detacherMateriel((OpDettachement)this.getCurentOperation());
         //usermetierimpl.sortirMateriel((OpDettachement)this.getCurentOperation());
         this.setCurentOperation(null);
     }
