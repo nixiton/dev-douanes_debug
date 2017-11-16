@@ -9,7 +9,7 @@
 
     <p:dialog id="detail" widgetVar="detail" closable="false">
         
-        <h:form class="form-horizontal">
+        
 
     <div   class="body collapse in table-responsive">
 
@@ -17,64 +17,72 @@
 
             <table class="table responsive-table">
                     <tr>
-                        <td>Type de matériel</td>
+                        <td><strong>Type de matériel</strong></td>
                         <td>#{gacBean.curentOperation.mat.nomenMat.designation}</td>
-                    </tr>
-                    <tr>
-                        <td>Nomenclature</td>
-                        <td>#{gacBean.curentOperation.mat.nomenMat.nomenclature}</td>
-                    </tr>
-                    <tr>
-                        <td>Marque</td>
-                        <td>#{gacBean.curentOperation.mat.marque.designation}</td>
-                    </tr>
-                    <tr>
-                        <td>Référence</td>
-                        <td>#{gacBean.curentOperation.mat.reference}</td>
-                    </tr>
-                    <tr>
-                        <td>Numero de série</td>
-                        <td>#{gacBean.curentOperation.mat.numSerie}</td>
-                    </tr>
-                    <tr>
-                        <td>Imatriculation détenteur</td>
+                        <td></td>
+                        <td><strong>Imatriculation détenteur</strong></td>
                         <td>#{gacBean.curentOperation.detenteur.im}</td>
                     </tr>
                     <tr>
-                        <td>Nom détenteru</td>
+                        <td><strong>Nomenclature</strong></td>
+                        <td>#{gacBean.curentOperation.mat.nomenMat.nomenclature}</td>
+                        <td></td>
+                        <td><strong>Nom détenteru</strong></td>
                         <td>#{gacBean.curentOperation.detenteur.nomAgent}</td>
                     </tr>
                     <tr>
-                        <td>Prénom détenteur</td>
+                        <td><strong>Marque</strong></td>
+                        <td>#{gacBean.curentOperation.mat.marque.designation}</td>
+                        <td></td>
+                        <td><strong>Prénom détenteur</strong></td>
                         <td>#{gacBean.curentOperation.detenteur.prenomAgent}</td>
-                    </tr> 
+                    </tr>
                     <tr>
-                        <td>Motif de sortie</td>
+                        <td><strong>Référence</strong></td>
+                        <td>#{gacBean.curentOperation.mat.reference}</td>
+                        <td></td>
+                        <td><strong>Motif de sortie</strong></td>
                         <td>#{gacBean.curentOperation.motifS.designation}</td>
-                    </tr>       
+                    </tr>
+                    <tr>
+                        <td><strong>Numero de série</strong></td>
+                        <td>#{gacBean.curentOperation.mat.numSerie}</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>
+                                <h:form class="form-horizontal">
+                                <h:commandButton  action="#{gacBean.validateDetachement(gacBean.curentOperation)}" value="Valider"
+                                            class="btn btn-lg btn-primary btn-block"/>
+                            </h:form>
+                        </td>
+
+                        <td>
+                            <h:form>
+
+                                <label for="text1" >Motif de refus
+                                        </label>
+
+                                <h:inputText value="#{gacBean.motif}" 
+                                            styleClass="form-control top"></h:inputText>
+
+                                <h:commandButton  action="#{gacBean.refuseDetachement(gacBean.curentOperation)}" value="Refuser"
+                                            class="btn btn-lg btn-primary btn-block">
+                                    
+                                </h:commandButton>
+
+                            
+                            </h:form>
+                        </td>
+                        <td></td>
+                    </tr>     
             </table>
                         
             </table>
         </div>
         
-            <h:commandButton  action="#{gacBean.validateDetachement(gacBean.curentOperation)}" value="Valider"
-                        class="btn btn-lg btn-primary btn-block"/>
-        </h:form>
-        <h:form>
-
-            <label for="text1" >Motif de refus
-                    </label>
-
-            <h:inputText value="#{gacBean.motif}" 
-                        styleClass="form-control top"></h:inputText>
-
-            <h:commandButton  action="#{gacBean.refuseDetachement(gacBean.curentOperation)}" value="Refuser"
-                        class="btn btn-lg btn-primary btn-block">
-                
-            </h:commandButton>
 
         
-        </h:form>
 
     </p:dialog>
 
