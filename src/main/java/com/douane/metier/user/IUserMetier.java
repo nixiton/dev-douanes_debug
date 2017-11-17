@@ -71,6 +71,7 @@ public interface IUserMetier {
 	public List<MaterielNouv> getListMaterielNouvValide();
 
 	public List<Operation> getListOp();
+	public List<Operation> getListOpWithMat();
 	public List<OpEntree> getListOpEntree();
 	public List<OpSortie> getListOpSortie();
 
