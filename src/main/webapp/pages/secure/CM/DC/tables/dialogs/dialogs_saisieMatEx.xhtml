@@ -14,63 +14,57 @@
 
         <table class="table responsive-table">
 
-                <div class="col-ld-4">
                     <tr>
-                        <td>ID</td>
+                        <td><strong>ID</strong></td>
                         <td>#{depositaireBean.curentMateriel.idMateriel}</td>
-                    </tr>
-                    <tr>
-                        <td>Prix Unitaire</td>
-                        <td>#{depositaireBean.curentMateriel.pu}</td>
-                    </tr>
-                    <tr>
-                        <td>Référence</td>
-                        <td>#{depositaireBean.curentMateriel.reference}</td>
-                    </tr>
-                    <tr>
-                        <td>Numéro de série</td>
-                        <td>#{depositaireBean.curentMateriel.numSerie}</td>
-                    </tr>
-                    <tr>
-                        <td>Autre</td>
-                        <td>#{depositaireBean.curentMateriel.autre}</td>
-                    </tr>
-                    <tr>
-                        <td>Nomenclature</td>
-                        <td>#{depositaireBean.curentMateriel.nomenMat.designation}</td>
-                    </tr>
-                    <tr>
-                        <td>Etat</td>
-                        <td>#{depositaireBean.curentMateriel.etat.designation}</td>
-                    </tr>
-            </div>
-
-            <div class="col-ld-4">
-                    <tr>
-                        <td>Caractéristiques</td>
+                        <td></td>   
+                        <td><strong>Caractéristiques</strong></td>
                         <td>#{depositaireBean.curentMateriel.renseignement}</td>
                     </tr>
                     <tr>
-                        <td>Marque</td>
+                        <td><strong>Prix Unitaire</strong></td>
+                        <td>#{depositaireBean.curentMateriel.pu}</td>
+                        <td></td>
+                        <td><strong>Marque</strong></td>
                         <td>#{depositaireBean.curentMateriel.marque.designation}</td>
+
                     </tr>
                     <tr>
-                        <td>Dépositaire</td>
+                        <td><strong>Référence</strong></td>
+                        <td>#{depositaireBean.curentMateriel.reference}</td>
+                        <td></td>
+                        <td><strong>Dépositaire</strong></td>
                         <td>#{depositaireBean.curentMateriel.dc.im}</td>
-                    </tr>    
+                    </tr>
                     <tr>
-                        <td>Document</td>
+                        <td><strong>Numéro de série</strong></td>
+                        <td>#{depositaireBean.curentMateriel.numSerie}</td>
+                        <td></td>
+                        <td><strong>Document</strong></td>
                         <td>
                             <h:outputLink value="#{depositaireBean.curentMateriel.documentPath}" target="_blank"> 
                                 <i class="fa-file-archive-o"></i> 
                             </h:outputLink>
                             </td>
-                    </tr> 
+                    </tr>
                     <tr>
-                        <td>Image</td>
+                        <td><strong>Autre</strong></td>
+                        <td>#{depositaireBean.curentMateriel.autre}</td>
+                        <td></td>
+                        <td><strong>Image</strong></td>
                         <td>#{depositaireBean.curentMateriel.image}</td>
-                    </tr> 
-            </div>          
+                    </tr>
+                    <tr>
+                        <td><strong>Nomenclature</strong></td>
+                        <td>#{depositaireBean.curentMateriel.nomenMat.designation}</td>
+                        <td></td>
+                        <td><strong>Codification</strong></td>
+                        <td>#{depositaireBean.curentMateriel.code}</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Etat</strong></td>
+                        <td>#{depositaireBean.curentMateriel.etat.designation}</td>
+                    </tr>
             </table>
         </div>
     </p:dialog>
