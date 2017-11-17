@@ -2,6 +2,7 @@ package com.douane.repository;
 
 import java.util.List;
 
+import com.douane.model.EtatOperation;
 import org.springframework.data.repository.CrudRepository;
 
 import com.douane.entite.Agent;
@@ -15,6 +16,6 @@ public interface OpDettRepository extends CrudRepository<OpDettachement, Long>{
     public List<OpDettachement> findByOperateur(Agent operateur);
     public List<OpDettachement> findByDirection(Direction direction);
     public List<OpDettachement> findByMat(Materiel m);
-
+    public List<OpDettachement> findByMatAndByState(Materiel m, EtatOperation e);
 }
 

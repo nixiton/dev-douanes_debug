@@ -5,6 +5,7 @@ import java.util.List;
 
 import com.douane.entite.*;
 import com.douane.entite.Useri;
+import com.douane.model.EtatOperation;
 
 public interface IUserMetier {
 	public Useri addUser(Useri u);
@@ -98,6 +99,11 @@ public interface IUserMetier {
 
 	public List<OpAttribution> getListOpAttrByMat(Materiel m);
 	public List<OpDettachement> getListOpDettByMat(Materiel m);
+
+	public List<OpEntree> getListOpEntreeByMatAndByState(Materiel m, EtatOperation e);
+	public List<OpSortie> getListOpSortieByMatAndByState(Materiel m, EtatOperation e);
+	public List<OpAttribution> getListOpAttrByMatAndByState(Materiel m, EtatOperation e);
+	public List<OpDettachement> getListOpDettByMatAndByState(Materiel m, EtatOperation e);
 
 	public List<OpEntree> getListOpEntreeByMatBDate(Materiel m, Date startDate, Date endDate);
 	public List<OpSortie> getListOpSortieByMatBDate(Materiel m, Date startDate, Date endDate);
