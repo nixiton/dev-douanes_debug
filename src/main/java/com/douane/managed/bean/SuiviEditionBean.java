@@ -2,6 +2,7 @@ package com.douane.managed.bean;
 
 import com.douane.entite.*;
 import com.douane.metier.user.IUserMetier;
+import com.douane.model.EtatOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.faces.bean.ManagedBean;
@@ -363,4 +364,44 @@ public class SuiviEditionBean {
         return this.curentOperation;
     }
 
+
+
+    //-----------------GETTER AND SETTER FOR OPERATION --------------
+    private List<OpEntree> listOpEn;
+    private List<OpSortie> listOpSo;
+    private List<OpAttribution> listOpAttr;
+    private List<OpDettachement> listOpDet;
+
+
+    public List<OpEntree> getListOpEn() {
+        return usermetierimpl.getListOpEntreeByMatAndByState(getMateriel(), EtatOperation.ACCEPTED);
+    }
+
+    public void setListOpEn(List<OpEntree> listOpEn) {
+        this.listOpEn = listOpEn;
+    }
+
+    public List<OpSortie> getListOpSo() {
+        return usermetierimpl.getListOpSortieByMatAndByState(getMateriel(), EtatOperation.ACCEPTED);
+    }
+
+    public void setListOpSo(List<OpSortie> listOpSo) {
+        this.listOpSo = listOpSo;
+    }
+
+    public List<OpAttribution> getListOpAttr() {
+        return usermetierimpl.getListOpAttrByMatAndByState(getMateriel(), EtatOperation.ACCEPTED);
+    }
+
+    public void setListOpAttr(List<OpAttribution> listOpAttr) {
+        this.listOpAttr = listOpAttr;
+    }
+
+    public List<OpDettachement> getListOpDet() {
+        return usermetierimpl.getListOpDettByMatAndByState(getMateriel(), EtatOperation.ACCEPTED);
+    }
+
+    public void setListOpDet(List<OpDettachement> listOpDet) {
+        this.listOpDet = listOpDet;
+    }
 }

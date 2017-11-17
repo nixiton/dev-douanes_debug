@@ -162,7 +162,7 @@ public class DepositaireBean {
 	private List<Materiel> listMaterielByDet;
 	
 	private List<Materiel> listAllMaterielValideSansDetenteur;
-	
+
 	public List<Materiel> getListMaterielByDet() {
 		//List<Materiel> listmatcorrespondant;
 		if(usermetierimpl.getListMatByDet(getDetenteur())==null){

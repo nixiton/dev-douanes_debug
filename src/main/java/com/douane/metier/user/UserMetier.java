@@ -6,6 +6,7 @@ import java.util.List;
 import javax.faces.bean.ManagedProperty;
 
 import com.douane.entite.*;
+import com.douane.model.EtatOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -586,6 +587,26 @@ public class UserMetier implements IUserMetier{
 	public List<OpDettachement> getListOpDettByMat(Materiel m) {
 		// TODO Auto-generated method stub
 		return opdettrepos.findByMat(m);
+	}
+
+	@Override
+	public List<OpEntree> getListOpEntreeByMatAndByState(Materiel m, EtatOperation e) {
+		return opentreerepos.findByMatAndByState(m,e);
+	}
+
+	@Override
+	public List<OpSortie> getListOpSortieByMatAndByState(Materiel m, EtatOperation e) {
+		return opsortierepos.findByMatAndByState(m,e);
+	}
+
+	@Override
+	public List<OpAttribution> getListOpAttrByMatAndByState(Materiel m, EtatOperation e) {
+		return opattrrepos.findByMatAndByState(m,e);
+	}
+
+	@Override
+	public List<OpDettachement> getListOpDettByMatAndByState(Materiel m, EtatOperation e) {
+		return opdettrepos.findByMatAndByState(m,e);
 	}
 
 	@Override
