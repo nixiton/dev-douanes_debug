@@ -8,6 +8,7 @@ import com.douane.metier.referentiel.IRefMetier;
 import com.douane.metier.user.IUserMetier;
 import com.douane.metier.utilisateur.IUtilisateurMetier;
 import com.douane.requesthttp.RequestFilter;
+import org.aspectj.apache.bcel.classfile.Code;
 import org.omg.PortableInterceptor.SUCCESSFUL;
 import org.springframework.dao.DataAccessException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -65,6 +66,9 @@ public class SISEformBean {
     private ModeAcquisition modeAcquisition;
     private MotifDecharge motifDecharge;
     private Financement financement;
+
+
+
     private Fournisseur fournisseur;
     
     private String codeBureau;
@@ -605,6 +609,225 @@ public class SISEformBean {
         usermetierimpl.addUser(useri);
         return SUCCESS;
     }
-    
-    
+
+
+
+
+    //-------------------------GRAND II--------------------------
+    private String caracteristique;
+    private List<TypeObjet> listTypeObject;
+    private TypeObjet typeObjet;
+    private List<CodeArticle> listCodeArticle;
+    private List<CodeArticle> listCodeArticleByTypeObject;
+    private Float prix;
+    private Agent  agentDest;
+
+
+
+    private List<OpEntreeArticle> listOpEntreeArticle;
+    private List<OpSortieArticle> listOpSortieArticle;
+    private List<Agent> listAgentDestinataire;
+
+    private OpEntreeArticle opEntreeArticle;
+    private OpSortieArticle opSortieArticle;
+    private String motif;
+
+    public void setCaracteristiqueObjet()
+    {
+        TypeObjet t = new TypeObjet();
+        Agent agent = (Agent)RequestFilter.getSession().getAttribute("agent");
+        t.setCaracteristique(getCaracteristique());
+        t.setDesignation(getDesignation());
+        refmetierimpl.addRef(t,agent);
+    }
+
+
+
+    public String getCaracteristique() {
+        return caracteristique;
+    }
+
+    public void setCaracteristique(String caracteristique) {
+        this.caracteristique = caracteristique;
+    }
+
+    public List<TypeObjet> getListTypeObject() {
+        ArrayList<Referentiel> r = (ArrayList<Referentiel>)refmetierimpl.listRef(new TypeObjet());
+        List<TypeObjet> ds = new ArrayList<TypeObjet>();
+        for (Object d :  r)
+        {
+            if(d instanceof MotifSortie) {
+                ds.add((TypeObjet)d);
+            }
+        }
+        return ds;
+    }
+
+    public void setListTypeObject(List<TypeObjet> listTypeObject) {
+        this.listTypeObject = listTypeObject;
+    }
+
+
+    public TypeObjet getTypeObjet() {
+        return typeObjet;
+    }
+
+    public void setTypeObjet(TypeObjet typeObjet) {
+        this.typeObjet = typeObjet;
+    }
+
+    public void addCodeArticle()
+    {
+        CodeArticle c = new CodeArticle();
+        c.setDesignation(getDesignation());
+        c.setTypeObjet(getTypeObjet());
+        usermetierimpl.addCodeArticle(c);
+    }
+
+    public List<CodeArticle> getListCodeArticle() {
+        return usermetierimpl.listCodeArticle();
+    }
+
+    public void setListCodeArticle(List<CodeArticle> listCodeArticle) {
+        this.listCodeArticle = listCodeArticle;
+    }
+
+
+    public List<CodeArticle> getListCodeArticleByTypeObject() {
+        return usermetierimpl.listCodeArticleByTypeObj(getTypeObjet());
+    }
+
+    public void setListCodeArticleByTypeObject(List<CodeArticle> listCodeArticleByTypeObject) {
+        this.listCodeArticleByTypeObject = listCodeArticleByTypeObject;
+    }
+
+    public Fournisseur getFournisseur() {
+        return fournisseur;
+    }
+
+    public void setFournisseur(Fournisseur fournisseur) {
+        this.fournisseur = fournisseur;
+    }
+
+
+    public Float getPrix() {
+        return prix;
+    }
+
+    public void setPrix(Float prix) {
+        this.prix = prix;
+    }
+
+    public OpEntreeArticle addRequeteOpEntree()
+    {
+        ArticleNouv a = new ArticleNouv();
+        Agent agent = (Agent)RequestFilter.getSession().getAttribute("agent");
+        a.setFournisseur(getFournisseur());
+        a.setPrix(getPrix());
+        return usermetierimpl.reqEntrerArticle(a,agent);
+    }
+
+    public OpSortieArticle addRequeteSortie() throws Exception {
+        ArticleNouv a = new ArticleNouv();
+        Agent agent = (Agent)RequestFilter.getSession().getAttribute("agent");
+        a.setFournisseur(getFournisseur());
+        a.setPrix(getPrix());
+        return usermetierimpl.reqSortirArticle(a,agent,getAgentDest());
+    }
+
+    public List<OpEntreeArticle> getListOpEntreeArticle() {
+        return listOpEntreeArticle;
+    }
+
+    public void setListOpEntreeArticle(List<OpEntreeArticle> listOpEntreeArticle) {
+        this.listOpEntreeArticle = listOpEntreeArticle;
+    }
+
+
+    public List<OpSortieArticle> getListOpSortieArticle() {
+        return listOpSortieArticle;
+    }
+
+    public void setListOpSortieArticle(List<OpSortieArticle> listOpSortieArticle) {
+        this.listOpSortieArticle = listOpSortieArticle;
+    }
+    public OpEntreeArticle getOpEntreeArticle() {
+        return opEntreeArticle;
+    }
+
+    public void setOpEntreeArticle(OpEntreeArticle opEntreeArticle) {
+        this.opEntreeArticle = opEntreeArticle;
+    }
+
+
+    public OpSortieArticle getOpSortieArticle() {
+        return opSortieArticle;
+    }
+
+    public void setOpSortieArticle(OpSortieArticle opSortieArticle) {
+        this.opSortieArticle = opSortieArticle;
+    }
+
+
+    public String getMotif() {
+        return motif;
+    }
+
+    public void setMotif(String motif) {
+        this.motif = motif;
+    }
+
+
+    public List<Agent> getListAgentDestinataire() {
+        return listAgentDestinataire;
+    }
+
+    public void setListAgentDestinataire(List<Agent> listAgentDestinataire) {
+        this.listAgentDestinataire = listAgentDestinataire;
+    }
+
+
+    public Agent getAgentDest() {
+        return agentDest;
+    }
+
+    public void setAgentDest(Agent agentDest) {
+        this.agentDest = agentDest;
+    }
+
+
+    //validation
+    public void validateArticleSaisieExistant()
+    {
+        OpEntreeArticle o = addRequeteOpEntree();
+        usermetierimpl.entrerArticle(o);
+    }
+    public void reqArtAModifier() throws Exception {
+        usermetierimpl.reqArtAModifier(getOpEntreeArticle(),getMotif());
+    }
+     public void reqSortirArtAModifier() throws Exception {
+         usermetierimpl.reqSortirArtAModifier(getOpSortieArticle(),getMotif());
+     }
+     public void reqArtRefuser() throws  Exception{
+         usermetierimpl.reqArtRefuser(getOpEntreeArticle(),getMotif());
+     }
+     public void reqSortirRefuser() throws Exception
+     {
+         usermetierimpl.reqSortirRefuser(getOpSortieArticle(),getMotif());
+     }
+     public void entrerArticle() throws  Exception
+     {
+         usermetierimpl.entrerArticle(getOpEntreeArticle());
+     }
+     public void sortirArticle() throws  Exception
+     {
+         usermetierimpl.sortirArticle(getOpSortieArticle());
+     }
+
+
+
+
+
+
+
 }
