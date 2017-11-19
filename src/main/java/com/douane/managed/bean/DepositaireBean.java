@@ -165,6 +165,8 @@ public class DepositaireBean {
 
 	private OpEntree curentOrdreEntree; 
 
+	private OpEntree curentOrdreSortie; 
+
 	public List<Materiel> getListMaterielByDet() {
 		//List<Materiel> listmatcorrespondant;
 		if(usermetierimpl.getListMatByDet(getDetenteur())==null){
@@ -181,6 +183,14 @@ public class DepositaireBean {
 
 	public OpEntree getCurentOrdreEntree(){
 		return this.curentOrdreEntree;
+	}
+
+	public void setCurentOrdreSortie(OpSortie o){
+		this.curentOrdreSortie = o;
+	}
+
+	public OpEntree getCurentOrdreSortie(){
+		return this.curentOrdreSortie;
 	}
 
 	public void setListMaterielByDet(List<Materiel> listMateriel) {
