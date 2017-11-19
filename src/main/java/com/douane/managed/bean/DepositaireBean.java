@@ -163,6 +163,10 @@ public class DepositaireBean {
 	
 	private List<Materiel> listAllMaterielValideSansDetenteur;
 
+	private OpEntree curentOrdreEntree; 
+
+	private OpSortie curentOrdreSortie; 
+
 	public List<Materiel> getListMaterielByDet() {
 		//List<Materiel> listmatcorrespondant;
 		if(usermetierimpl.getListMatByDet(getDetenteur())==null){
@@ -171,6 +175,22 @@ public class DepositaireBean {
 		else{
 			return usermetierimpl.getListMatByDet(getDetenteur());
 		}
+	}
+
+	public void setCurentOrdreEntree(OpEntree o){
+		this.curentOrdreEntree = o;
+	}
+
+	public OpEntree getCurentOrdreEntree(){
+		return this.curentOrdreEntree;
+	}
+
+	public void setCurentOrdreSortie(OpSortie o){
+		this.curentOrdreSortie = o;
+	}
+
+	public OpSortie getCurentOrdreSortie(){
+		return this.curentOrdreSortie;
 	}
 
 	public void setListMaterielByDet(List<Materiel> listMateriel) {
