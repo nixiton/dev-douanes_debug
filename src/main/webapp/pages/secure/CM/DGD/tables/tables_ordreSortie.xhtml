@@ -17,15 +17,27 @@
             <f:facet name="header">ID</f:facet>
             #{d.id}
         </p:column>
-        <p:column>
+        <!--p:column>
             <f:facet name="header">Date</f:facet>
             #{d.date}
+        </p:column-->
+        <p:column>
+            <f:facet name="header">Désignation des materiels ou objets</f:facet>
+             #{d.mat.nomenMat.designation}
         </p:column>
-         <p:column>
-            <f:facet name="header">Détail</f:facet>
-             <p:commandButton  action="#{depositaireBean.setCurentOrdreSortie(d)}" 
-             icon="ui-icon-zoomin"/>
-        
+        <p:column>
+            <f:facet name="header">Espèce des unités</f:facet>
+            #{d.mat.nomenMat.nomenclature} 
+        </p:column>
+        <p:column>
+            <f:facet name="header">Pris unitaire</f:facet>
+            #{d.mat.pu}
+        </p:column>
+        <p:column>
+            <f:facet name="header">Pièce justificative</f:facet>
+            <h:outputLink value="#{d.mat.documentPath}" target="_blank"> 
+                                <i class="fa-file-archive-o"></i> 
+                            </h:outputLink>
         </p:column>
     </p:dataTable>
 
