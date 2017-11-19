@@ -23,12 +23,9 @@
         </p:column>
          <p:column>
             <f:facet name="header">Détail</f:facet>
-             <!--p:commandButton  action="#{depositaireBean.setCurentOrdreSortie(d)}" 
-            oncomplete="PF('detail').show()">
-
-                <i class='ui-icon-zoomin'></i>
-
-            </p:commandButton-->
+             <p:commandButton  action="#{depositaireBean.setCurentOrdreSortie(d)}" 
+            oncomplete="PF('detail').show()"  icon="ui-icon-zoomin"/>
+        
         </p:column>
     </p:dataTable>
 
