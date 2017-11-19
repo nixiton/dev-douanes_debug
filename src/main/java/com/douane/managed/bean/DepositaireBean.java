@@ -165,7 +165,7 @@ public class DepositaireBean {
 
 	private OpEntree curentOrdreEntree; 
 
-	private OpEntree curentOrdreSortie; 
+	private OpSortie curentOrdreSortie; 
 
 	public List<Materiel> getListMaterielByDet() {
 		//List<Materiel> listmatcorrespondant;
