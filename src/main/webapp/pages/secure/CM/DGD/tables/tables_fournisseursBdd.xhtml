@@ -11,7 +11,7 @@
 <div   class="body collapse in table-responsive">
 
 
-    <p:dataTable   var="d" value="#{depositaireBean.listFournisseur}" 
+    <p:dataTable   var="d" value="#{siseBean.listFournisseur}" 
                  paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}  "
                  paginator="true" rows="10" style="margin-bottom:20px">
         <p:column>
@@ -24,12 +24,9 @@
         </p:column>
          <p:column>
             <f:facet name="header">Détail</f:facet>
-             <p:commandButton  action="#{depositaireBean.setCurentFournisseur(d)}" 
-            oncomplete="PF('detail').show()">
+            <p:commandButton  action="#{depositaireBean.setCurentOrdreSortie(d)}" 
+             icon="ui-icon-zoomin"/>
 
-                <i class='ui-icon-zoomin'></i>
-
-            </p:commandButton>
         </p:column>
     </p:dataTable>
 
