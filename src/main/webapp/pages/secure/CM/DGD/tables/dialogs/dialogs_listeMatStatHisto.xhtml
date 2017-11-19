@@ -64,9 +64,9 @@
                         <td>Mouvements effectués</td>
                         <td>
 
-                        <p:repeat value="#{suivieditionBean.listOperationAttributionByMateriel}" var="value">
+                        <ui:repeat value="#{suivieditionBean.listOperationAttributionByMateriel}" var="value">
                             #{value.detenteur.im} <br></br>
-                        </p:repeat>
+                        </ui:repeat>
 
                         </td>
 
