@@ -189,7 +189,7 @@ public class DepositaireBean {
 		this.curentOrdreSortie = o;
 	}
 
-	public OpEntree getCurentOrdreSortie(){
+	public OpSortie getCurentOrdreSortie(){
 		return this.curentOrdreSortie;
 	}
 
