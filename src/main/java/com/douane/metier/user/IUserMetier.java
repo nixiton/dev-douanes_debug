@@ -8,6 +8,7 @@ import com.douane.entite.Useri;
 import com.douane.model.EtatOperation;
 
 public interface IUserMetier {
+	
 	public Useri addUser(Useri u);
 
 	public void remUser(Useri u);

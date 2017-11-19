@@ -16,6 +16,6 @@ public interface OpDettRepository extends CrudRepository<OpDettachement, Long>{
     public List<OpDettachement> findByOperateur(Agent operateur);
     public List<OpDettachement> findByDirection(Direction direction);
     public List<OpDettachement> findByMat(Materiel m);
-    public List<OpDettachement> findByMatAndByState(Materiel m, EtatOperation e);
+    public List<OpDettachement> findByMatAndState(Materiel m, EtatOperation e);
 }
 

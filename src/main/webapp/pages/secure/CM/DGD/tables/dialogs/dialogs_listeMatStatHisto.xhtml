@@ -57,7 +57,7 @@
                     </tr>
                     <tr>
                         <td>Date d’entrée</td>
-                        <td>#{suivieditionBean.materiel.dateEntree}</td>
+                        <td>#{suivieditionBean.listOperationEntreeByMateriel[0].date}</td>
 
                     </tr>
                     <tr>
@@ -65,10 +65,10 @@
                         <td>#{suivieditionBean.materiel.mouvements}</td>
 
                     </tr>
-                    <tr>
+                    <!--tr>
                         <td>Détenteurs successifs</td>
                         <td>#{suivieditionBean.materiel.listeDetenteurs}</td>
-                    </tr>
+                    </tr-->
                 </tbody>                
             </table>
 
@@ -128,6 +128,10 @@
                         <td>Type de materiel</td>
                         <td>#{suivieditionBean.materiel.nomenMat.designation}</td>
                     </tr>
+                    </tr>  
+
+                    <p:panel rendered="#{suivieditionBean.materiel['class'].simpleName eq 'MaterielNouv' }" >
+
                     <tr>
                         <td>Mode d'aquisition</td>
                         <td>#{suivieditionBean.materiel.modAcq.designation}</td>
@@ -147,7 +151,8 @@
                     <tr>
                         <td>Fournisseur</td>
                         <td>#{suivieditionBean.materiel.fournisseur.designation}</td>
-                    </tr>            
+                        
+                    </p:panel>            
             </table>
         </div>
     </p:dialog>

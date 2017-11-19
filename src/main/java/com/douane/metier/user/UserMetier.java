@@ -591,22 +591,22 @@ public class UserMetier implements IUserMetier{
 
 	@Override
 	public List<OpEntree> getListOpEntreeByMatAndByState(Materiel m, EtatOperation e) {
-		return opentreerepos.findByMatAndByState(m,e);
+		return opentreerepos.findByMatAndState(m,e);
 	}
 
 	@Override
 	public List<OpSortie> getListOpSortieByMatAndByState(Materiel m, EtatOperation e) {
-		return opsortierepos.findByMatAndByState(m,e);
+		return opsortierepos.findByMatAndState(m,e);
 	}
 
 	@Override
 	public List<OpAttribution> getListOpAttrByMatAndByState(Materiel m, EtatOperation e) {
-		return opattrrepos.findByMatAndByState(m,e);
+		return opattrrepos.findByMatAndState(m,e);
 	}
 
 	@Override
 	public List<OpDettachement> getListOpDettByMatAndByState(Materiel m, EtatOperation e) {
-		return opdettrepos.findByMatAndByState(m,e);
+		return opdettrepos.findByMatAndState(m,e);
 	}
 
 	@Override
