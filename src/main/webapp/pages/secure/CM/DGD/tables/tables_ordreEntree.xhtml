@@ -17,10 +17,10 @@
             <f:facet name="header">ID</f:facet>
             #{d.id}
         </p:column>
-        <p:column>
+        <!--p:column>
             <f:facet name="header">Date</f:facet>
             #{d.date}
-        </p:column>
+        </p:column-->
         <p:column>
             <f:facet name="header">Désignation des materiels ou objets</f:facet>
              #{d.mat.nomenMat.designation}
@@ -40,11 +40,11 @@
                             </h:outputLink>
         </p:column>
 
-         <p:column>
+         <!--p:column>
             <f:facet name="header">Détail</f:facet>
              <p:commandButton  action="#{depositaireBean.setCurentOrdreEntree(d)}" 
              icon="ui-icon-zoomin"/>
-        </p:column>
+        </p:column-->
     </p:dataTable>
 
 <!--ui:include src="/pages/secure/CM/tables/dialogs/dialogs_OrdreEntree.xhtml"></ui:include-->
