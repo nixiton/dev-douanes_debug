@@ -30,6 +30,78 @@ public class UserMetier implements IUserMetier{
 	@Autowired
 	private MaterielNouvRepository materielNouvRepository;
 
+	public OpRepository getOprepos() {
+		return oprepos;
+	}
+
+	public void setOprepos(OpRepository oprepos) {
+		this.oprepos = oprepos;
+	}
+
+	public OpEntreeRepository getOpentreerepos() {
+		return opentreerepos;
+	}
+
+	public void setOpentreerepos(OpEntreeRepository opentreerepos) {
+		this.opentreerepos = opentreerepos;
+	}
+
+	public OpSortieRepository getOpsortierepos() {
+		return opsortierepos;
+	}
+
+	public void setOpsortierepos(OpSortieRepository opsortierepos) {
+		this.opsortierepos = opsortierepos;
+	}
+
+	public OpAttrRepository getOpattrrepos() {
+		return opattrrepos;
+	}
+
+	public void setOpattrrepos(OpAttrRepository opattrrepos) {
+		this.opattrrepos = opattrrepos;
+	}
+
+	public OpDettRepository getOpdettrepos() {
+		return opdettrepos;
+	}
+
+	public void setOpdettrepos(OpDettRepository opdettrepos) {
+		this.opdettrepos = opdettrepos;
+	}
+
+	public CodeArticleRepository getCodeartrepos() {
+		return codeartrepos;
+	}
+
+	public void setCodeartrepos(CodeArticleRepository codeartrepos) {
+		this.codeartrepos = codeartrepos;
+	}
+
+	public ArticleRepository getArtreops() {
+		return artreops;
+	}
+
+	public void setArtreops(ArticleRepository artreops) {
+		this.artreops = artreops;
+	}
+
+	public OpEnArtRepository getOpentreeartrepos() {
+		return opentreeartrepos;
+	}
+
+	public void setOpentreeartrepos(OpEnArtRepository opentreeartrepos) {
+		this.opentreeartrepos = opentreeartrepos;
+	}
+
+	public OpSortArtRepository getOpsortieartrepos() {
+		return opsortieartrepos;
+	}
+
+	public void setOpsortieartrepos(OpSortArtRepository opsortieartrepos) {
+		this.opsortieartrepos = opsortieartrepos;
+	}
+
 	@Autowired
 	private OpRepository oprepos;
 
@@ -591,22 +663,22 @@ public class UserMetier implements IUserMetier{
 
 	@Override
 	public List<OpEntree> getListOpEntreeByMatAndByState(Materiel m, EtatOperation e) {
-		return opentreerepos.findByMatAndByState(m,e);
+		return opentreerepos.findByMatAndState(m,e);
 	}
 
 	@Override
 	public List<OpSortie> getListOpSortieByMatAndByState(Materiel m, EtatOperation e) {
-		return opsortierepos.findByMatAndByState(m,e);
+		return opsortierepos.findByMatAndState(m,e);
 	}
 
 	@Override
 	public List<OpAttribution> getListOpAttrByMatAndByState(Materiel m, EtatOperation e) {
-		return opattrrepos.findByMatAndByState(m,e);
+		return opattrrepos.findByMatAndState(m,e);
 	}
 
 	@Override
 	public List<OpDettachement> getListOpDettByMatAndByState(Materiel m, EtatOperation e) {
-		return opdettrepos.findByMatAndByState(m,e);
+		return opdettrepos.findByMatAndState(m,e);
 	}
 
 	@Override
