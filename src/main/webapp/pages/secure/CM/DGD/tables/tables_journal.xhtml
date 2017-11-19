@@ -47,6 +47,12 @@
         </p:column>
         <p:column>
             <f:facet name="header">
+                <h:outputText value="Agent" />
+            </f:facet>
+            <h:outputText value="#{c.operateur.im}" />
+        </p:column>
+        <p:column>
+            <f:facet name="header">
                 <h:outputText value="Operation" />
             </f:facet>
             <p:panel rendered="#{c['class'].simpleName eq 'OpEntree' }" >
@@ -68,7 +74,7 @@
                 <h:outputText value="Détail" />
                 
             </f:facet>
-            <p:commandButton update=":detail"
+            <p:commandButton action="#{suivieditionBean.setMateriel(c.mat)}"  update=":detail" 
                 oncomplete="PF('detail').show()" icon="ui-icon-zoomin"/>
             
         </p:column>
