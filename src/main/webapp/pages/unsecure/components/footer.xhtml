@@ -57,6 +57,10 @@
 
 
 	<script type="text/javascript">
+
+                var nix = 0;
+
+            
                 (function($) {
                     $(document).ready(function() {
                         $('.list-inline li > a').click(function() {
@@ -71,7 +75,12 @@
                     });
 
                     //$('.body').attr('class', 'body collapse');
-                    $('.collapse').collapse("hide");
+
+                    if (nix == 0) {
+                        $('.collapse').collapse("hide");
+                        nix = 1;    
+                    };
+                    
 
                 })(jQuery);                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
 
