@@ -58,19 +58,22 @@
             <p:panel rendered="#{c['class'].simpleName eq 'OpAttribution' }" >
             Attribution
             </p:panel>
-            <p:panel rendered="#{c['class'].simpleName eq 'OpDetachement' }" >
+            <p:panel rendered="#{c['class'].simpleName eq 'OpDettachement' }" >
             Détachement
+            </p:panel>
+            <p:panel rendered="#{c['class'].simpleName eq 'OpSortie' }" >
+            Décharge
             </p:panel>
 
         </p:column>
-        <p:column>
+        <!--p:column>
             <f:facet name="header">
                 <h:outputText value="Class" />
             </f:facet>
             <h:outputText value="#{c['class'].simpleName}" />
             
             
-        </p:column>
+        </p:column-->
         
     </p:dataTable>
  
