@@ -16,6 +16,7 @@
     <p:dataTable   var="c" value="#{suivieditionBean.listAllOperation}"
                  paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}"
                  paginator="true" rows="10" style="margin-bottom:20px">
+
         <p:column>
             <f:facet name="header">
                 <h:outputText value="Operation" />
@@ -33,7 +34,7 @@
             Détachement
             </p:panel>
             <p:panel rendered="#{c['class'].simpleName eq 'OpSortie' }" >
-            Décharger
+            Décharge
             </p:panel>
 
         </p:column>
@@ -109,7 +110,6 @@
             </f:facet>
             <h:outputText value="#{c.operateur.im}" />
         </p:column>
-
         
     </p:dataTable>
  
