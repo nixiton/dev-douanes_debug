@@ -34,6 +34,12 @@
             #{d.mat.pu}
         </p:column>
         <p:column>
+            <f:facet name="header">Numéro de sortie</f:facet>
+            #{d.numSortie}
+        </p:column>
+
+
+        <p:column>
             <f:facet name="header">Pièce justificative</f:facet>
             <h:outputLink value="#{d.mat.documentPath}" target="_blank"> 
                                 <i class="fa fa-file-archive-o"></i> 

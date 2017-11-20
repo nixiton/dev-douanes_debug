@@ -34,11 +34,18 @@
             #{d.mat.pu}
         </p:column>
         <p:column>
+            <f:facet name="header">Numéro d'entrée</f:facet>
+            #{d.numentree}
+        </p:column>
+        <p:column>
             <f:facet name="header">Pièce justificative</f:facet>
             <h:outputLink value="#{d.mat.documentPath}" target="_blank"> 
                                 <i class="fa fa-file-archive-o"></i> 
                             </h:outputLink>
         </p:column>
+
+
+        
 
          <!--p:column>
             <f:facet name="header">Détail</f:facet>
