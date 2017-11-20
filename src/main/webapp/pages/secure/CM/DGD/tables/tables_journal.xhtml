@@ -78,7 +78,15 @@
             <f:facet name="header">
                 <h:outputText value="Prix unitaire"/>
             </f:facet>
+            <p:panel rendered="#{c['class'].simpleName eq 'OpEntree' }" >
             <h:outputText value="#{c.mat.pu}" />
+            </p:panel>
+
+            <p:panel rendered="#{c['class'].simpleName eq 'OpSortie' }" >
+
+            <h:outputText value="#{c.mat.pu}" />
+            </p:panel>
+
         </p:column>
 
 
