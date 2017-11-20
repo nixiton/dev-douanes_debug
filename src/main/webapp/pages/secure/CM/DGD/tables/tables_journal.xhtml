@@ -16,18 +16,49 @@
     <p:dataTable   var="c" value="#{suivieditionBean.listAllOperation}"
                  paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}"
                  paginator="true" rows="10" style="margin-bottom:20px">
- 
-        <!--f:facet name=" ">
- 
-            <h:commandLink>
-                <h:outputText value="PDF" />
-                <p:dataExporter type="pdf" target="tbl" fileName="mesOperations"/>
-            </h:commandLink>
-        </f:facet-->
+
+        <p:column>
+            <f:facet name="header">
+                <h:outputText value="N° d'ordre"/>
+            </f:facet>
+            <p:panel rendered="#{c['class'].simpleName eq 'OpEntree' }" >
+                <h:outputText value="#{c.numentree}" />
+            </p:panel>
+
+            <p:panel rendered="#{c['class'].simpleName eq 'OpSortie' }" >
+                <h:outputText value="#{c.numSortie}" />
+            </p:panel>
+
+        </p:column>
+
+        <p:column>
+            <f:facet name="header">
+                <h:outputText value="Origine"/>
+            </f:facet>
+            <h:outputText value="#{c.direction}" />
+        </p:column>
+
+        <p:column>
+            <f:facet name="header">
+                <h:outputText value="Destination"/>
+            </f:facet>
+            <h:outputText value="#{c.direc} #{c.serv} #{c.bureau}" />
+        </p:column>
+
+
+        <p:column>
+            <f:facet name="header">
+                <h:outputText value="Prix unitaire"/>
+            </f:facet>
+            <h:outputText value="#{c.mat.pu}" />
+        </p:column>
+
+
+
  
         <p:column>
             <f:facet name="header">
-                <h:outputText value="Date"/>
+                <h:outputText value="Date des opérations"/>
             </f:facet>
             <h:outputText value="#{c.date}  #{c.time}" />
         </p:column>
@@ -64,29 +95,17 @@
             <p:panel rendered="#{c['class'].simpleName eq 'OpAttribution' }" >
             Attribution
             </p:panel>
-            <p:panel rendered="#{c['class'].simpleName eq 'OpDetachement' }" >
+            <p:panel rendered="#{c['class'].simpleName eq 'OpDettachement' }" >
             Détachement
+            </p:panel>
+            <p:panel rendered="#{c['class'].simpleName eq 'OpSortie' }" >
+            Décharger
             </p:panel>
 
         </p:column>
-        <!--p:column>
-            <f:facet name="header">
-                <h:outputText value="Détail" />
-                
-            </f:facet>
-            <p:commandButton action="#{suivieditionBean.setMateriel(c.mat)}"  update=":detail" 
-                oncomplete="PF('detail').show()" icon="ui-icon-zoomin"/>
-            
-        </p:column-->
         
     </p:dataTable>
  
-    <!--h3>Export Page Data Only</h3>
- 
-    <h:commandLink>
-        <h:outputText value="PDF" />
-        <p:dataExporter type="pdf" target="tbl" fileName="cars" pageOnly="true" />
-    </h:commandLink-->
 
 </h:form>
 
