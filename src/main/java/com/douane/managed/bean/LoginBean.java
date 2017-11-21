@@ -22,7 +22,7 @@ public class LoginBean {
 	private String immatriculation = null;
 	    private String password = null;
 
-	    private HttpSession session;
+	    private HttpSession session = null;
 	    
 	    @ManagedProperty(value="#{authenticationManager}")
 	    private AuthenticationManager authenticationManager = null;
