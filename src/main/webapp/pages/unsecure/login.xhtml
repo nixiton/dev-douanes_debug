@@ -19,7 +19,7 @@
 
 <h:body styleClass="login">
 	
-	<p:panel rendered="#{!loginMgmtBean.authenticationManager != null}">
+	<p:panel rendered="#{loginMgmtBean.authenticationManager != null}">
 		<script language="javascript" type="text/javascript">
 	    window.location = "http://douane.herokuapp.com/pages/secure/choice.xhtml";
 	    //test
