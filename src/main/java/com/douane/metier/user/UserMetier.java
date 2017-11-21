@@ -220,6 +220,7 @@ public class UserMetier implements IUserMetier{
 			throw new Exception("detenu");
 		}
 		OpSortie sortie = new OpSortie(new Date(), new Date(), oper.getIp(), oper, m, d, s, b, motif);
+		
 		oprepos.save(sortie);
 		return sortie;
 	}

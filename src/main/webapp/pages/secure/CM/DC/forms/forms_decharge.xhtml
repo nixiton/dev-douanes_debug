@@ -53,9 +53,9 @@
                     <p:selectOneMenu value="#{depositaireBean.materiel}" converter="#{materielConverter}"   panelStyle="width:180px"  style="width:160px"
                          effect="fade" var="t" filter="true" filterMatchMode="startsWith">
                         <f:selectItem itemValue="#{null}" itemLabel="--select--" /> 
-                            <f:selectItems value="#{depositaireBean.listMaterielexistant}" var="theme" itemLabel="#{theme.nomenMat.designation}" itemValue="#{theme}" />
+                            <f:selectItems value="#{depositaireBean.listAllMaterielValideSansDetenteur}" var="theme" itemLabel="#{theme.numSerie}" itemValue="#{theme}" />
                         <p:column>
-                            <h:outputText value="#{t.nomenMat.designation}" />
+                            <h:outputText value="#{t.numSerie}" />
                         </p:column>
                         <p:ajax event="change" update="marque ref num" listener="#{depositaireBean.onMaterielChange}"/>
                     </p:selectOneMenu>
@@ -94,7 +94,7 @@
                 
                 
 
-                <label for="text1" class="control-label col-lg-4">Numer de série
+                <label for="text1" class="control-label col-lg-4">Numero de série
                 </label>
 
                 <div class="col-lg-6">
@@ -118,21 +118,21 @@
 
                     <p:selectOneMenu  styleClass="form-control top" converter="#{refConverter}" value="#{depositaireBean.destination}">
                         <f:selectItem itemValue="#{null}" itemLabel="--select--" /> 
-                            <f:selectItems value="#{siseBean.listBureau}" var="b" itemLabel="#{b.codeBureau}"/>
+                            <f:selectItems value="#{siseBean.listBureau}" var="b" itemLabel="#{b.codeBureau}" itemValue="#{b}"/>
                     </p:selectOneMenu>
 
                     <label for="text1" >Service</label>
 
                     <p:selectOneMenu  styleClass="form-control top" converter="#{refConverter}" value="#{depositaireBean.destinationService}">
                         <f:selectItem itemValue="#{null}" itemLabel="--select--" /> 
-                            <f:selectItems value="#{siseBean.listService}" var="b" itemLabel="#{b.codeService}"/>
+                            <f:selectItems value="#{siseBean.listService}" var="b" itemLabel="#{b.codeService}" itemValue="#{b}"/>
                     </p:selectOneMenu>
 
                     <label for="text1" >Direction</label>
 
-                    <p:selectOneMenu  styleClass="form-control top" converter="#{refConverter}" value="#{destinationDirec}">
+                    <p:selectOneMenu  styleClass="form-control top" converter="#{refConverter}" value="#{depositaireBean.destinationDirec}">
                         <f:selectItem itemValue="#{null}" itemLabel="--select--" /> 
-                            <f:selectItems value="#{siseBean.listDirection}" var="b" itemLabel="#{b.codeDirection}"/>
+                            <f:selectItems value="#{siseBean.listDirection}" var="b" itemLabel="#{b.codeDirection}" itemValue="#{b}"/>
                     </p:selectOneMenu>
 
                 <hr></hr>

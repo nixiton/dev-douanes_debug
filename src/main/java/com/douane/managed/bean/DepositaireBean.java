@@ -1145,9 +1145,14 @@ System.out.println("****************************ADD3 ATTR**ERRORR***************
 	}
 
 	public String addDecharge() {
+		System.out.println("Decharge begin");
 		Agent agent = (Agent) RequestFilter.getSession().getAttribute("agent");
 		// agent.setIp()
 		OpSortie opSort = null;
+		System.out.println("Operation Decharge "+getDestination().getDesignation()+" "
+				+getDestinationDirec().getDesignation()+" "
+				+getDestinationService().getDesignation()+" "
+				+getMotifSortie().getDesignation());
 		try {
 			opSort = usermetierimpl.reqSortirMateriel(this.getMateriel(), this.getMotifSortie(),
 					this.getDestinationDirec(), this.getDestinationService(), this.getDestination(), agent);

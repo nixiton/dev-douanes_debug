@@ -9,7 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class Useri {
+public class Useri implements Serializable{
 	/*public Useri(String designation, String role) {
 		super();
 		this.designation = designation;

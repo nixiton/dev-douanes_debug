@@ -40,10 +40,10 @@ public class OpSortie extends Operation{
 			Materiel mater, Direction d, Service s, Bureau b, MotifSortie mot) {
 		super(date, time, poste, operateur);
 		this.setMat(mater);
-		this.setDirection(d);
+		this.setDirec(d);
 		this.setService(s);
 		this.setBureau(b);
-		this.setMotifSortie(mot);
+		this.setMotifsortie(mot);
 	}
 
 	public Materiel getMat() {
@@ -102,11 +102,11 @@ public class OpSortie extends Operation{
 		this.bureau = bureau;
 	}
 
-	public MotifSortie getMotifSortie() {
+	public MotifSortie getMotifsortie() {
 		return motifsortie;
 	}
 
-	public void setMotifSortie(MotifSortie motif) {
+	public void setMotifsortie(MotifSortie motif) {
 		this.motifsortie = motif;
 	}
 
