@@ -489,7 +489,9 @@ public class UserMetier implements IUserMetier{
 	@Override
 	public List<Operation> getListOpByOperator(Agent operator) {
 		// TODO Auto-generated method stub
-		return oprepos.findByOperateur(operator);
+		//return oprepos.findByOperateur(operator);
+		int maxresult = 200;
+		return operationdao.getListOperationByOperator(operator, maxresult);
 	}
 
 	@Override
