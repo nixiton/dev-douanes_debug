@@ -33,6 +33,7 @@ public class LoginBean {
 	            Authentication request = new UsernamePasswordAuthenticationToken(this.getImmatriculation(), this.getPassword());
 	            Authentication result = authenticationManager.authenticate(request);
 	            SecurityContextHolder.getContext().setAuthentication(result);
+	            setSession((HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(true));
 	        } catch (AuthenticationException e) {
 	           
 	            message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Loggin Error", "Invalid credentials");
@@ -41,7 +42,7 @@ public class LoginBean {
 	        }
 	        message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Welcome", this.getImmatriculation());
 	        FacesContext.getCurrentInstance().addMessage(null, message);
-	        this.setSession((HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(true));
+	        
 	        return "correct";
 	    }
 
@@ -63,7 +64,7 @@ public class LoginBean {
 	    }
 
 	    public void setSession(HttpSession session){
-	    	this.session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(true);
+	    	this.session = session;
 	    }
 
 	    public HttpSession getSession(){
