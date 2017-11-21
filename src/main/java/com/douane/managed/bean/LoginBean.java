@@ -21,6 +21,8 @@ public class LoginBean {
 
 	private String immatriculation = null;
 	    private String password = null;
+
+	    private HttpSession session;
 	    
 	    @ManagedProperty(value="#{authenticationManager}")
 	    private AuthenticationManager authenticationManager = null;
@@ -40,6 +42,7 @@ public class LoginBean {
 	        }
 	        message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Welcome", this.getImmatriculation());
 	        FacesContext.getCurrentInstance().addMessage(null, message);
+	        this.setSession((HttpSession) facesContext.getExternalContext().getSession(true));
 	        return "correct";
 	    }
 
@@ -56,8 +59,19 @@ public class LoginBean {
 	        FacesContext facesContext = FacesContext.getCurrentInstance();
 	        HttpSession session = (HttpSession) facesContext.getExternalContext().getSession(true);
 	        session.invalidate();
+	        this.setSession(session);
 	        return "loggedout";
 	    }
+
+	    private void getSession(HttpSession session){
+	    	this.session = session;
+	    }
+
+	    private HttpSession getSession(){
+	    	return this.session;
+	    }
+
+
 	 
 	    public AuthenticationManager getAuthenticationManager() {
 	        return authenticationManager;
