@@ -9,6 +9,15 @@
 <h:head></h:head>
 
 
+	<p:panel rendered="#{loginMgmtBean.im != null}">
+		<script type="text/javascript">
+		    window.location = "http://douane.herokuapp.com/pages/secure/choice.xhtml";
+		    //test
+		</script>
+	</p:panel>
+
+
+
 <f:metadata>
     <f:viewAction action="#{loginBean.test()}" />
 </f:metadata>
@@ -23,12 +32,6 @@
 
 <h:body styleClass="login">
 	
-	<p:panel rendered="#{loginMgmtBean.im != null}">
-		<script type="text/javascript">
-		    window.location = "http://douane.herokuapp.com/pages/secure/choice.xhtml";
-		    //test
-		</script>
-	</p:panel>
 
 
 
