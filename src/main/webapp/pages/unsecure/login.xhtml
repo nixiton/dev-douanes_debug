@@ -7,6 +7,8 @@
     xmlns:p="http://primefaces.org/ui">
 
 <h:head></h:head>
+
+
     
 <ui:include src="components/header.xhtml">
 	<ui:param name="title" value="Se connecter" />
@@ -14,7 +16,17 @@
 
 
 
+
 <h:body styleClass="login">
+	
+	<p:panel rendered="#{!userMB.authenticationManager != null}">
+		<script language=javascript type="text/javascript">
+	    window.location = "http://douane.herokuapp.com/pages/secure/choice.xhtml";
+	    //test
+		</script>
+	</panel>
+
+
 
 	<div class="form-signin">
 		<div class="text-center">
