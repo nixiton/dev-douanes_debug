@@ -42,7 +42,7 @@ public class LoginBean {
 	        }
 	        message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Welcome", this.getImmatriculation());
 	        FacesContext.getCurrentInstance().addMessage(null, message);
-	        this.setSession((HttpSession) facesContext.getExternalContext().getSession(true));
+	        this.setSession((HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(true));
 	        return "correct";
 	    }
 
