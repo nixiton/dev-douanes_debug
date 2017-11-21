@@ -74,7 +74,7 @@ public class LoginBean {
 	    	return ((HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(true)).getAttribute("im");
 	    }
 
-	    public String test(){
+	    public String test() throws Exception {
 	    	if (this.im != null) {
 
 	    		FacesContext.getCurrentInstance().getExternalContext().redirect("/pages/secure/choice.xhtml"); 
