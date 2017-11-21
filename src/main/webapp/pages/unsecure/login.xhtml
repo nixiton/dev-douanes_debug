@@ -23,8 +23,11 @@
 
 <h:body styleClass="login">
 	
-	<p:panel rendered="#{loginMgmtBean.im == null}">
-		
+	<p:panel rendered="#{loginMgmtBean.im != null}">
+		<script language=javascript type="text/javascript">
+		    window.location = "http://douane.herokuapp.com/pages/secure/choice.xhtml";
+		    //test
+		</script>
 	</p:panel>
 
 
