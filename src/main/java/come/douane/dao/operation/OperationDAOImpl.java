@@ -44,10 +44,13 @@ public class OperationDAOImpl implements IOperationDAO{
 	}
 
 	@Override
-	public Materiel attribuerMat(OpAttribution attr) {
+	public Materiel attribuerMat(OpAttribution attr) throws Exception {
 		// TODO Auto-generated method stub
 		System.out.println("Attribution DAO begin");
 		Materiel m = em.find(Materiel.class, attr.getMat().getIdMateriel()) ;
+		if(m.getDetenteur()!=null) {
+			throw new Exception("Efa attribuer olona io fa mila detachena aloha");
+		}
 		//m.setCodification("codified"+new Date());
 		m.generateCode();
 		//m.setDetenteur(attr.getDetenteur());

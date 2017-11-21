@@ -46,7 +46,7 @@ public interface IUserMetier {
 
 	//public Materiel attriuberMateriel (Long idMat, Long im);
 	//public Materiel attriuberMateriel (Materiel m, Agent d);
-	public Materiel attriuberMateriel(OpAttribution attr);
+	public Materiel attriuberMateriel(OpAttribution attr) throws Exception;
 	public OpAttribution reqAttrAModifier(OpAttribution attr, String motif)throws Exception;
 	public OpAttribution reqAttrRefuser(OpAttribution attr, String motif)throws Exception;
 

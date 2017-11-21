@@ -14,7 +14,7 @@ import com.douane.entite.Operation;
 
 public interface IOperationDAO {
 	public Agent detacherMat(OpDettachement det);
-	public Materiel attribuerMat(OpAttribution attr);
+	public Materiel attribuerMat(OpAttribution attr)throws Exception;
 	
 	public List<Operation> getListOpByDate(Date startDate, Date endDate , int maxresult);
 	

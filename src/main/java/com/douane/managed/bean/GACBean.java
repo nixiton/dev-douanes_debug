@@ -92,7 +92,12 @@ public class GACBean {
     public void validateAttributionDetenteur(OpAttribution attr)
     {
         //usermetierimpl.attriuberMateriel(attr);
-        usermetierimpl.attriuberMateriel((OpAttribution)this.getCurentOperation());
+    	try {
+    		usermetierimpl.attriuberMateriel((OpAttribution)this.getCurentOperation());
+    	}catch(Exception e){
+    		System.out.println(e.getMessage());
+    	}
+        
         this.setCurentOperation(null);
 
     }

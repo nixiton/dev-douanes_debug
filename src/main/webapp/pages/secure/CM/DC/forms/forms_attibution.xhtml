@@ -30,7 +30,7 @@
                     <p:selectOneMenu value="#{depositaireBean.materielSeclected}" converter="#{materielConverter}"   panelStyle="width:180px"  style="width:160px"
                          effect="fade" var="t" filter="true" filterMatchMode="startsWith">
                         <f:selectItem itemValue="#{null}" itemLabel="--select--" /> 
-                            <f:selectItems value="#{depositaireBean.listMaterielexistant}" var="theme" itemLabel="#{theme.numSerie}" itemValue="#{theme}" />
+                            <f:selectItems value="#{depositaireBean.listAllMaterielValideSansDetenteur}" var="theme" itemLabel="#{theme.numSerie}" itemValue="#{theme}" />
                         <p:column>
                             <h:outputText value="#{t.numSerie}" />
                         </p:column>
@@ -87,9 +87,13 @@
 
                 <div class="col-lg-6">
 
-                    <p:selectOneMenu styleClass="form-control top" converter="#{agentConverter}" value="#{depositaireBean.detenteur}">
+                    <p:selectOneMenu styleClass="form-control top" converter="#{agentConverter}" value="#{depositaireBean.detenteur}"
+                    effect="fade" var="t" filter="true" filterMatchMode="startsWith">
                             <f:selectItem itemValue="#{null}" itemLabel="--select--" /> 
                             <f:selectItems value="#{userMB.userList}" var="type" itemLabel="#{type.im}" itemValue="#{type}"/>
+                            <p:column>
+                            <h:outputText value="#{t.im}" />
+                        </p:column>
                             <p:ajax event="change" update="nom prenom" listener="#{depositaireBean.onDetenteurChange}"/>
                         </p:selectOneMenu>
 
@@ -106,8 +110,8 @@
 
                 <div class="col-lg-6">
 
-                    <h:inputText id="nom" value="#{depositaireBean.nom}" 
-                        ></h:inputText>
+                    <h:outputText id="nom" value="#{depositaireBean.nom}" 
+                        ></h:outputText>
 
                 <hr></hr>
 
@@ -121,8 +125,8 @@
 
                 <div class="col-lg-6">
 
-                    <h:inputText id="prenom" value="#{depositaireBean.prenom}"                                                                              
-                        ></h:inputText>
+                    <h:outputText id="prenom" value="#{depositaireBean.prenom}"                                                                              
+                        ></h:outputText>
 
                 <hr></hr>
 
