@@ -517,7 +517,12 @@
 		
 
 		
-
+		<navigation-case>
+			<from-action>#{gacBean.exit}</from-action>
+			<from-outcome>success</from-outcome>
+			<to-view-id>http://douane.herokuapp.com/pages/secure/CM/GAC/validation/attribution.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
 		
 
 

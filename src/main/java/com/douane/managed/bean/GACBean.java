@@ -138,6 +138,7 @@ public class GACBean {
     public void exit(){
         this.setCurentOperation(null);
         this.setMotif(null);
+        return "success";
     }
 
 
