@@ -9,8 +9,12 @@
 
     <p:dialog id="detail" widgetVar="detail" closable="false">
         
-        
-
+            <h:form class="form-horizontal">
+            <h:commandButton action="#{gacBean.exit()}" icon="ui-icon-close"
+                                    style="valign:bottom;float:right;padding-right:20px"
+                                    onclick="detail.hide();" type="button">
+                                </h:commandButton>
+            </h:form>
     <div   class="body collapse in table-responsive">
 
         <table class="table responsive-table" >
@@ -83,9 +87,7 @@
                                     <!--f:param name="operationValide" value="#{gacBean.curentOperation}"/-->
                                 </h:commandButton>
 
-                                <p:commandButton action="#{gacBean.exit()}" icon="ui-icon-close"
-                                    style="valign:bottom;float:right;padding-right:20px"
-                                    onclick="detail.hide();" type="button"/>
+
                                 
                             </h:form> 
                         </td>
