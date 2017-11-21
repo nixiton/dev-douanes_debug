@@ -527,6 +527,14 @@
 
 
 
+		<navigation-case>
+			<from-outcome>choice_logged</from-outcome>
+			<to-view-id>/pages/secure/choice.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+
+
+
 	
 
 

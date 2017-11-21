@@ -21,7 +21,7 @@ public class LoginBean {
 
 	private String immatriculation = null;
 	    private String password = null;
-	    private HttpSession session;
+	    private Object im;
 	    
 	    @ManagedProperty(value="#{authenticationManager}")
 	    private AuthenticationManager authenticationManager = null;
@@ -33,7 +33,9 @@ public class LoginBean {
 	            Authentication request = new UsernamePasswordAuthenticationToken(this.getImmatriculation(), this.getPassword());
 	            Authentication result = authenticationManager.authenticate(request);
 	            SecurityContextHolder.getContext().setAuthentication(result);
-	            setSession((HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(true));
+	            HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(true);
+    			session.setAttribute("im", this.getImmatriculation());
+
 	        } catch (AuthenticationException e) {
 	           
 	            message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Loggin Error", "Invalid credentials");
@@ -56,22 +58,29 @@ public class LoginBean {
 
 	    public String logout(){
 	        SecurityContextHolder.clearContext();
-	        FacesContext facesContext = FacesContext.getCurrentInstance();
-	        HttpSession session = (HttpSession) facesContext.getExternalContext().getSession(true);
-	        session.invalidate();
-	        this.setSession(session);
+	        HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(true);
+    		session.invalidate();
 	        return "loggedout";
-	    }
-
-	    public void setSession(HttpSession session){
-	    	this.session = session;
-	    }
-
-	    public HttpSession getSession(){
-	    	return this.session;
+	        
 	    }
 
 
+
+	    public void setIm(Object im){
+	    	this.im = im;
+	    }
+
+	    public Object getIm(){
+	    	return ((HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(true)).getAttribute("im");
+	    }
+
+	    public String test() throws Exception {
+	    	if (this.im != null) {
+	    		FacesContext.getCurrentInstance().getExternalContext().redirect("/pages/secure/choice.xhtml"); 
+	    		return "choice_logged";
+	    	}
+	    	else return null;
+	    }
 	 
 	    public AuthenticationManager getAuthenticationManager() {
 	        return authenticationManager;
