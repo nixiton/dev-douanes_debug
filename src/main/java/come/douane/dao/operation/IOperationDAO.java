@@ -13,7 +13,7 @@ import com.douane.entite.OpSortie;
 import com.douane.entite.Operation;
 
 public interface IOperationDAO {
-	public Agent detacherMat(OpDettachement det);
+	public Agent detacherMat(OpDettachement det)throws Exception;
 	public Materiel attribuerMat(OpAttribution attr)throws Exception;
 	
 	public List<Operation> getListOpByDate(Date startDate, Date endDate , int maxresult);

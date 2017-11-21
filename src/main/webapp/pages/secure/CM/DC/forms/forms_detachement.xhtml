@@ -21,26 +21,63 @@
             
 
             <div class="form-group">
-
-
-
-                 <label for="text1" class="control-label col-lg-4">Détenteur
+                
+                <!-- DETENTEUR -->
+                <label for="text1" class="control-label col-lg-4">Détenteur
                 </label>
 
                 <div class="col-lg-6">
 
-                    <p:selectOneMenu id="det" styleClass="form-control top" converter="#{agentConverter}" valueChangeListener="#{depositaireBean.mySetCurrentListMateriel1}" value="#{depositaireBean.detenteur}">
-                            <f:selectItem itemValue="#{null}" itemLabel="--select--" />
-                             
-                            <f:selectItems value="#{userMB.userList}" var="type" itemLabel="#{type.im}"/>
-                            <p:ajax process="@this" event="change" listener="#{depositaireBean.mySetCurrentListMateriel}" update="mat,@this"/>
+                    <p:selectOneMenu styleClass="form-control top" converter="#{agentConverter}" value="#{depositaireBean.detenteur}"
+                    effect="fade" id="det" var="t" filter="true" filterMatchMode="startsWith">
+                            <f:selectItem itemValue="#{null}" itemLabel="select" /> 
+                            <f:selectItems value="#{userMB.userList}" var="type" itemLabel="#{type.im}" itemValue="#{type}"/>
+                            <p:column>
+                            <h:outputText value="#{t.im}" />
+                        	</p:column>
+                            <p:ajax process="@this" event="change" listener="#{depositaireBean.mySetCurrentListMateriel}" update="mat,@this,nom,prenom"/>
                         </p:selectOneMenu>
 
                 <hr></hr>
 
                 </div>
+                
+                
 
-                <label for="text1" class="control-label col-lg-4">Matériel
+                
+
+                <label for="text1" class="control-label col-lg-4">Nom
+                </label>
+
+                <div class="col-lg-6">
+
+                    <h:outputText id="nom" value="#{depositaireBean.nom}" 
+                        ></h:outputText>
+
+                <hr></hr>
+
+                </div>
+                
+                
+
+
+                <label for="text1" class="control-label col-lg-4">Prénom
+                </label>
+
+                <div class="col-lg-6">
+
+                    <h:outputText id="prenom" value="#{depositaireBean.prenom}"                                                                              
+                        ></h:outputText>
+
+                <hr></hr>
+
+                </div>
+                
+                <!-- DETENTEUR AMBINY -->
+                
+                
+
+                <!-- label for="text1" class="control-label col-lg-4">Matériel
                 </label>
 
 
@@ -48,12 +85,72 @@
 
 
                     <p:selectOneMenu id="mat"  styleClass="form-control top" converter="#{materielConverter}" value="#{depositaireBean.materiel}">
-                           <f:selectItem itemValue="#{null}" itemLabel="--select--" /> 
+                           <f:selectItem itemValue="#{null}" itemLabel="select" /> 
                             <f:selectItems value="#{depositaireBean.currentListMateriel}" var="theme" itemLabel="#{theme.nomenMat.designation}" itemValue="#{theme}" />
                         </p:selectOneMenu>
                 <hr></hr>
 
+                </div-->
+                <!-- MATERIEL -->
+                <label for="text1" class="control-label col-lg-4">Matériel
+                </label>
+
+                <div class="col-lg-6">
+
+                    <p:selectOneMenu id="mat" styleClass="form-control top" value="#{depositaireBean.materielSeclected}" converter="#{materielConverter}"   panelStyle="width:180px"  style="width:160px"
+                         effect="fade" var="t" filter="true" filterMatchMode="startsWith">
+                        <f:selectItem itemValue="#{null}" itemLabel="--select--" /> 
+                            <f:selectItems value="#{depositaireBean.currentListMateriel}" var="theme" itemLabel="#{theme.numSerie}" itemValue="#{theme}" />
+                        <p:column>
+                            <h:outputText value="#{t.numSerie}" />
+                        </p:column>
+                        <p:ajax event="change" update="marque ref num" listener="#{depositaireBean.onChangeMateriel}"/>
+                    </p:selectOneMenu>
+
+                <hr></hr>
+
                 </div>
+                
+                                <label for="text1" class="control-label col-lg-4">Nomenclature
+                </label>
+
+                <div class="col-lg-6">
+
+                    <h:outputText id="num" value="#{depositaireBean.nomenclatureAutom}" ></h:outputText>
+
+                    <hr></hr>
+
+                </div>
+
+
+                <label for="text1" class="control-label col-lg-4">Marque
+                </label>
+
+                <div class="col-lg-6">
+
+                    <!--h:inputText id="marque" value="#{depositaireBean.marq.designation}" ></h:inputText-->
+                    <h:outputText id="marque" value="#{depositaireBean.marqueAutom != null ? depositaireBean.marqueAutom.designation : ''}"/>
+
+                    <hr></hr>
+
+                </div>
+                                
+            
+
+                <label for="text1" class="control-label col-lg-4">Référence
+                </label>
+
+                <div class="col-lg-6">
+
+                    <h:outputText id="ref"  value="#{depositaireBean.referenceAutom}" ></h:outputText>
+
+                    <hr></hr>
+
+                </div>
+                
+                
+                <!-- END MATERIEL -->
+                
                 
                 
 

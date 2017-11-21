@@ -1,5 +1,6 @@
 package com.douane.entite;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,7 +16,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Transient;
 
 @Entity
-public class Agent {
+public class Agent implements Serializable {
 	
 	@Id
 	//@GeneratedValue(strategy=GenerationType.IDENTITY)

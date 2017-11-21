@@ -40,7 +40,7 @@ public interface IUserMetier {
 	public OpEntree reqMatRefuser(OpEntree entree, String string)throws Exception;
 	public OpSortie reqSortirRefuser(OpSortie sortie, String string);
 
-	public Agent detacherMateriel(OpDettachement det);
+	public Agent detacherMateriel(OpDettachement det) throws Exception;
 	public OpDettachement reqDetRefuser(OpDettachement det, String string);
 
 

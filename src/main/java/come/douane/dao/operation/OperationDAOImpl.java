@@ -27,10 +27,13 @@ public class OperationDAOImpl implements IOperationDAO{
 	}
 	
 	@Override
-	public Agent detacherMat(OpDettachement det) {
+	public Agent detacherMat(OpDettachement det) throws Exception{
 		// TODO Auto-generated method stub
-		Agent ancienDet = det.getMat().getDetenteur();
-		Materiel m = det.getMat();
+		Agent ancienDet = em.find(Agent.class,det.getMat().getDetenteur().getIm()) ;
+		if(ancienDet==null) {
+			throw new Exception("materiel non detenu");
+		}
+		Materiel m = em.find(Materiel.class, det.getMat().getIdMateriel());
 		ancienDet.getMatdetenu().remove(m);
 		em.merge(ancienDet);
 		

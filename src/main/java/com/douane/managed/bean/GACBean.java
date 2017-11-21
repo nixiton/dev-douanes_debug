@@ -120,10 +120,19 @@ public class GACBean {
     }
 
 
-    public void validateDechargeSortie(OpSortie sortie) throws Exception {
+    public void validateDechargeSortie(OpSortie sortie){
         //usermetierimpl.sortirMateriel(sortie);
-        usermetierimpl.sortirMateriel((OpSortie)this.getCurentOperation());
-        this.setCurentOperation(null);
+    	System.out.println("VALDATION DECHARGE SORTIE");
+    	try {
+    		usermetierimpl.sortirMateriel((OpSortie)this.getCurentOperation());
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.getMessage();
+		}finally {
+
+	        this.setCurentOperation(null);
+		}
+        
     }
 
 
@@ -143,11 +152,21 @@ public class GACBean {
 
 
 
-    public void validateDetachement(OpDettachement det) throws Exception {
-        //usermetierimpl.sortirMateriel(sortie);
-        //usermetierimpl.detacherMateriel((OpDettachement)this.getCurentOperation());
+    public void validateDetachement(OpDettachement det){
+        System.out.println("VALIDATION DETACHEMENT");
+    	//usermetierimpl.sortirMateriel(sortie);
+        try {
+        	usermetierimpl.detacherMateriel((OpDettachement)this.getCurentOperation());
+		} catch (Exception e) {
+			// TODO: handle exception
+			System.out.println(e.getMessage());
+		}finally {
+			this.setCurentOperation(null);
+	        this.setMotif(null);
+		}
+        
         //usermetierimpl.sortirMateriel((OpDettachement)this.getCurentOperation());
-        this.setCurentOperation(null);
+        
     }
 
 

@@ -1131,7 +1131,7 @@ System.out.println("****************************ADD3 ATTR**ERRORR***************
 		System.out.println("****************************ADD DETACHEMENT********************************");
 		try {
 			// getCurrent Materiel ve?????
-			opDet = usermetierimpl.reqDettachement(this.getMateriel(), agent, getDetenteur());
+			opDet = usermetierimpl.reqDettachement(this.getMaterielSeclected(), agent, getDetenteur());
 			return SUCCESS;
 		} catch (Exception e) {
 			// TODO: handle exception
@@ -1428,7 +1428,9 @@ System.out.println("****************************ADD3 ATTR**ERRORR***************
 	//ActionEvent actionEvent
 	public void mySetCurrentListMateriel(){
 		this.detenteur = this.getDetenteur();
-		System.out.println("****************************SET LIST ******************************** " +this.getDetenteur().getIm());
+		this.setNom(detenteur.getNomAgent());
+		this.setPrenom(detenteur.getPrenomAgent());
+		System.out.println("****************************SET LIST ******************************** " +this.getDetenteur().getNomAgent());
 		this.setCurrentListMateriel((List<Materiel>)usermetierimpl.getMatByDetenteurAndValidation(this.getDetenteur(), true));
 		System.out.println("****************************SET LIST ******************************** " +this.getDetenteur().getIm());
 	}

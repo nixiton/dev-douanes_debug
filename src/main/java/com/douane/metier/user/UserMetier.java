@@ -422,7 +422,7 @@ public class UserMetier implements IUserMetier{
 	}
 
 	@Override
-	public Agent detacherMateriel(OpDettachement det) {
+	public Agent detacherMateriel(OpDettachement det) throws Exception{
 		// TODO Auto-generated method stub
 		/*Agent ancienDet = det.getMat().getDetenteur();
 		Materiel m = det.getMat();
