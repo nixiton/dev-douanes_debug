@@ -51,6 +51,7 @@ public class OpEntree extends Operation{
 			codeservice = mat.getServ().getCodeService();
 		}
 		this.numentree="OE "+ numerochronoe+ "/"+codeservice+ "/" +dd+ "/" +mm+ "/" +yy;
+		numerochronoe+=1;
 	}
 	public Materiel getMat() {
 		return mat;

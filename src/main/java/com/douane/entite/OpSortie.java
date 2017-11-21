@@ -75,7 +75,7 @@ public class OpSortie extends Operation{
 		yy=""+y%200; 
 		
 		this.numSortie="OS "+ numerochronos+ "/"+mat.getServ().getCodeService()+ "/" +dd+ "/" +mm+ "/" +yy;
-
+		numerochronos+=1;
 	}
 
 	public Direction getDirec() {

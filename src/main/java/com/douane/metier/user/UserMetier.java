@@ -228,7 +228,7 @@ public class UserMetier implements IUserMetier{
 
 	public Materiel entrerMateriel(OpEntree op) {
 		if(op ==null){
-		System.out.println("-------FUCK ETO ARY EH----------");
+		//System.out.println("-------FUCK ETO ARY EH----------");
 		}
 		Materiel m = op.getMat();
 		m.setValidation(true);

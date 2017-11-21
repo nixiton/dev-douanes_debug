@@ -48,6 +48,10 @@
             <f:facet name="header">ID</f:facet>
             #{materiel.idMateriel}
         </p:column>
+        <p:column filterBy="#{materiel.numSerie}" filterMatchMode="contains">
+            <f:facet name="header">Numero Serie</f:facet>
+            #{materiel.numSerie}
+        </p:column>
         <!--p:column>
             <f:facet name="header">Prix Unitaire</f:facet>
             #{materiel.pu}
