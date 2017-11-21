@@ -9,6 +9,10 @@
 <h:head></h:head>
 
 
+<f:metadata>
+    <f:viewAction action="#{loginBean.test}" />
+</f:metadata>
+
     
 <ui:include src="components/header.xhtml">
 	<ui:param name="title" value="Se connecter" />
@@ -19,8 +23,8 @@
 
 <h:body styleClass="login">
 	
-	<p:panel rendered="true">
-		#{loginMgmtBean.im == null}
+	<p:panel rendered="#{loginMgmtBean.im == null}">
+		
 	</p:panel>
 
 

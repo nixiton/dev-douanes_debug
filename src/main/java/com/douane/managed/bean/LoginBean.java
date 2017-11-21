@@ -64,6 +64,8 @@ public class LoginBean {
 	        
 	    }
 
+
+
 	    public void setIm(Object im){
 	    	this.im = im;
 	    }
@@ -72,7 +74,12 @@ public class LoginBean {
 	    	return ((HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(true)).getAttribute("im");
 	    }
 
-
+	    public String test(){
+	    	if (this.im != null) {
+	    		return "choice_logged";
+	    	}
+	    	else return null;
+	    }
 	 
 	    public AuthenticationManager getAuthenticationManager() {
 	        return authenticationManager;
