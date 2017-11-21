@@ -74,12 +74,13 @@ public class LoginBean {
 	    	return ((HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(true)).getAttribute("im");
 	    }
 
-	    public String test() throws Exception {
+	    public void test() throws Exception {
+	    	System.out.println("***************************LOGIN REDIRECT TEST ********************************");
+
 	    	if (this.im != null) {
 	    		FacesContext.getCurrentInstance().getExternalContext().redirect("/pages/secure/choice.xhtml"); 
-	    		return "choice_logged";
+	    		
 	    	}
-	    	else return null;
 	    }
 	 
 	    public AuthenticationManager getAuthenticationManager() {
