@@ -63,7 +63,7 @@ public class LoginBean {
 	    }
 
 	    public void setSession(HttpSession session){
-	    	this.session = session;
+	    	this.session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(true);
 	    }
 
 	    public HttpSession getSession(){
