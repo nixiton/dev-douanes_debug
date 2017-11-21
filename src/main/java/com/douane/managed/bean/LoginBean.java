@@ -21,7 +21,7 @@ public class LoginBean {
 
 	private String immatriculation = null;
 	    private String password = null;
-	    private long im;
+	    private Object im;
 	    
 	    @ManagedProperty(value="#{authenticationManager}")
 	    private AuthenticationManager authenticationManager = null;
@@ -64,12 +64,12 @@ public class LoginBean {
 	        
 	    }
 
-	    public void setIm(long im){
+	    public void setIm(Object im){
 	    	this.im = im;
 	    }
 
-	    public long getIm(){
-	    	return (long)((HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(true)).getAttribute("im");
+	    public Object getIm(){
+	    	return ((HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(true)).getAttribute("im");
 	    }
 
 
