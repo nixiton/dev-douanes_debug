@@ -67,7 +67,7 @@ public class LoginBean {
 	    }
 
 	    public HttpSession getSession(){
-	    	return (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(true);
+	    	return this.session;
 	    }
 
 
