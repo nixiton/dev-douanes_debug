@@ -21,9 +21,7 @@ public class LoginBean {
 
 	private String immatriculation = null;
 	    private String password = null;
-
-	    
-	    private HttpSession session = null;
+	    private HttpSession session;
 	    
 	    @ManagedProperty(value="#{authenticationManager}")
 	    private AuthenticationManager authenticationManager = null;
@@ -69,7 +67,7 @@ public class LoginBean {
 	    }
 
 	    public HttpSession getSession(){
-	    	return this.session;
+	    	return (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(true);
 	    }
 
 
