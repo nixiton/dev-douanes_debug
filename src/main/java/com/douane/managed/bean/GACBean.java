@@ -135,6 +135,11 @@ public class GACBean {
         
     }
 
+    public void exit(){
+        this.setCurentOperation(null);
+        this.setMotif(null);
+    }
+
 
     public void refuseDechargeSortie(OpSortie sortie) throws Exception {
         //usermetierimpl.sortirMateriel(sortie);
