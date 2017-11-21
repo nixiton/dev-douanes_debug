@@ -230,7 +230,7 @@ public class OperationDAOImpl implements IOperationDAO{
 		// TODO Auto-generated method stub
 		TypedQuery<Operation> query = em.createQuery("select o from Operation o "
 				+ " where o.operateur =:operator"
-	       		+ " order by date desc "
+	       		+ " order by date desc and by time desc"
 	       		,Operation.class);
 		query.setParameter("operator", operator);
 		query.setMaxResults(maxresult);
