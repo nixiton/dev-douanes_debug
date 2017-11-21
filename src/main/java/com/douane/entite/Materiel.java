@@ -40,15 +40,15 @@ public class Materiel implements Serializable{
 
 	public String getImage() throws IOException {
 		ByteArrayInputStream bais;
-		System.out.println('----------------------begint test');
+		System.out.println("----------------------begint test");
 		if(image != null)
 		{
-			System.out.println('----------------------not null');
+			System.out.println("----------------------not null");
 			bais = new ByteArrayInputStream(image);
 		}
 		else
 		{
-			System.out.println('---------------------- null');
+			System.out.println("---------------------- null");
 			return null;
 		}
 		//BufferedImage imagebuff = ImageIO.read(bais);
