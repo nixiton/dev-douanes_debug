@@ -139,7 +139,7 @@ public class UserManagedBean implements Serializable {
 			//useri.setDesignation(designation);
 			//useri.setRole(role);
 			user.setRoleAgent(this.getRoleuser());
-			user.setDirection(direction);
+			user.setDirection(this.getDirection());
 			user.setBureau(getBureau());
 			user.setService(getService());
 			user.setPosteny(getPoste());

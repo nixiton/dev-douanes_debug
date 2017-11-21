@@ -70,6 +70,15 @@ public class RefConverter implements Converter {
                 else if(ref instanceof Fournisseur) {
                 	return (Fournisseur) ref;
                 }
+                else if(ref instanceof Direction) {
+                	return (Direction) ref;
+                }
+                else if(ref instanceof Service) {
+                	return (Service) ref;
+                }
+                else if(ref instanceof Bureau) {
+                	return (Bureau) ref;
+                }
             } catch(NumberFormatException e) {
                 throw new ConverterException(new FacesMessage(FacesMessage.SEVERITY_ERROR, "Conversion Error", "Not a valid theme."));
             }
