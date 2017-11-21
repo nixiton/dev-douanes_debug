@@ -83,10 +83,9 @@
                                     <!--f:param name="operationValide" value="#{gacBean.curentOperation}"/-->
                                 </h:commandButton>
 
-                                <p:commandButton value="#{gacBean.exit}" icon="ui-icon-close"
+                                <p:commandButton action"#{gacBean.exit()}" icon="ui-icon-close"
                                     style="valign:bottom;float:right;padding-right:20px"
                                     onclick="detail.hide();" type="button"/>
-
                                 
                             </h:form> 
                         </td>
