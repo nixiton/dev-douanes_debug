@@ -101,7 +101,7 @@
 
 					<hr></hr>
 
-
+					<!-- DIRECTION -->
 					<h:outputLabel styleClass="col-md-6" 
 						value="Direction " />
 
@@ -116,8 +116,36 @@
                     </p:selectOneMenu>
 
                     <hr></hr>
+                    <!-- SERVICE -->
+					<h:outputLabel styleClass="col-md-6" 
+						value="Service " />
 
+					<p:selectOneMenu value="#{userMB.service}" converter="#{refConverter}" panelStyle="width:180px"  style="width:160px"
+                         effect="fade" var="t" filter="true" filterMatchMode="startsWith">
+                        <f:selectItem itemValue="#{null}" itemLabel="--select--" /> 
+                            <f:selectItems value="#{siseBean.listService}" var="theme" itemLabel="#{theme.designation}" itemValue="#{theme}" />
+                        <p:column>
+                            <h:outputText value="#{t.designation}" />
+                        </p:column>
 
+                    </p:selectOneMenu>
+
+                    <hr></hr>
+                    <!-- POSTE -->
+					<h:outputLabel styleClass="col-md-6" 
+						value="Poste " />
+
+					<p:selectOneMenu value="#{userMB.poste}" converter="#{refConverter}" panelStyle="width:180px"  style="width:160px"
+                         effect="fade" var="t" filter="true" filterMatchMode="startsWith">
+                        <f:selectItem itemValue="#{null}" itemLabel="--select--" /> 
+                            <f:selectItems value="#{siseBean.listPoste}" var="theme" itemLabel="#{theme.designation}" itemValue="#{theme}" />
+                        <p:column>
+                            <h:outputText value="#{t.designation}" />
+                        </p:column>
+
+                    </p:selectOneMenu>
+
+                    <hr></hr>
 
 					<h:commandButton id="addUser" action="#{userMB.addAgent}"
 						value="S'enregistrer" ajax="false" class="btn btn-lg btn-primary btn-block" />
