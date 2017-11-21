@@ -21,7 +21,7 @@ public class LoginBean {
 
 	private String immatriculation = null;
 	    private String password = null;
-	    private HttpSession session;
+	    private long im;
 	    
 	    @ManagedProperty(value="#{authenticationManager}")
 	    private AuthenticationManager authenticationManager = null;
@@ -33,6 +33,8 @@ public class LoginBean {
 	            Authentication request = new UsernamePasswordAuthenticationToken(this.getImmatriculation(), this.getPassword());
 	            Authentication result = authenticationManager.authenticate(request);
 	            SecurityContextHolder.getContext().setAuthentication(result);
+	            HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(true);
+    			session.setAttribute("im", this.getImmatriculation());
 
 	        } catch (AuthenticationException e) {
 	           
@@ -56,18 +58,18 @@ public class LoginBean {
 
 	    public String logout(){
 	        SecurityContextHolder.clearContext();
-	        HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
+	        HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(true);
     		session.invalidate();
 	        return "loggedout";
 	        
 	    }
 
-	    public void setSession(HttpSession session){
-	    	this.session = session;
+	    public void setIm(long im){
+	    	this.im = im;
 	    }
 
-	    public HttpSession getSession(){
-	    	return (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(true);
+	    public long getIm(){
+	    	return (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(true).getAttribute("im");
 	    }
 
 
