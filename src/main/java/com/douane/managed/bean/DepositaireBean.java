@@ -1005,6 +1005,7 @@ public class DepositaireBean {
 			m.setRenseignement(getRenseignement());
 
 			m.setServ(getServiceforMat());
+			m.setDirec(agent.getDirection());
 
 			// m.setCaract(caract);
 			// m.setCategorie(categorie);
@@ -1061,6 +1062,8 @@ public class DepositaireBean {
 		m.setServ(getService());
 		
 		m.setRefFacture(getRefFacture());
+		
+		m.setDirec(agent.getDirection());
 
 		// m.setCaract(caract);
 		// m.setCategorie(categorie);
