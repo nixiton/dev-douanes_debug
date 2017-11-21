@@ -1023,6 +1023,10 @@ public class DepositaireBean {
 			// set Operation valider automatique car ne necessite pas de validation GAC
 			usermetierimpl.entrerMateriel(opentree);
 
+			//-----------DESTROY ALL SESSION------------------
+			RequestFilter.getSession().setAttribute("documentpath",null);
+			RequestFilter.getSession().setAttribute("documentList",null);
+			RequestFilter.getSession().setAttribute("imageList",null);
 			return SUCCESS;
 		}
 		catch(JDBCException jdbce){
