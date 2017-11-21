@@ -69,7 +69,7 @@ public class LoginBean {
 	    }
 
 	    public long getIm(){
-	    	return ((HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(true)).getAttribute("im");
+	    	return (long)((HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(true)).getAttribute("im");
 	    }
 
 
