@@ -64,11 +64,11 @@ public class LoginBean {
 	        return "loggedout";
 	    }
 
-	    private void setSession(HttpSession session){
+	    public void setSession(HttpSession session){
 	    	this.session = session;
 	    }
 
-	    private HttpSession getSession(){
+	    public HttpSession getSession(){
 	    	return this.session;
 	    }
 
