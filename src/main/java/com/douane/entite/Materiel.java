@@ -52,12 +52,19 @@ public class Materiel implements Serializable{
 			return null;
 		}
 		//BufferedImage imagebuff = ImageIO.read(bais);
+		System.out.println("----------------------not null 1");
 		String encodedImage;
+		System.out.println("----------------------not null 2");
 		BufferedImage imBuff = ImageIO.read(bais);
+		System.out.println("----------------------not null 3");
 		BufferedImage resizedImg = resize(imBuff, 275, 75);
+		System.out.println("----------------------not null 4");
 		ByteArrayOutputStream os = new ByteArrayOutputStream();
+		System.out.println("----------------------not null 5");
 		ImageIO.write(resizedImg, "jpg", os);
+		System.out.println("----------------------not null 6");
 		encodedImage = new String(Base64.encodeBytes(os.toByteArray()));
+		System.out.println("----------------------not null 7");
 		return encodedImage;
 		//return imagebuff;
 		//return image;
