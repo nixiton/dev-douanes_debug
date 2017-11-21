@@ -994,8 +994,16 @@ public class DepositaireBean {
 					.getAttribute("imageList");
 			// agent.setIp()
 			MaterielEx m = new MaterielEx();
-			System.out.println("---------------SIZE IMAGE BYTE ARRAY="+imagelist.get(0).getByteArrayImage().length);
-			m.setImage(imagelist.get(0).getByteArrayImage());
+			//System.out.println("---------------SIZE IMAGE BYTE ARRAY="+imagelist.get(0).getByteArrayImage().length);
+			if(imagelist !=null)
+			{
+				m.setImage(imagelist.get(0).getByteArrayImage());
+			}
+			else
+			{
+				m.setImage(null);
+			}
+
 			m.setDocumentPath((String) RequestFilter.getSession().getAttribute("documentpath"));
 			RequestFilter.getSession().removeAttribute("documentpath");
 			m.setAutre(getAutre());
