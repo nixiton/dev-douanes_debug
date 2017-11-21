@@ -193,6 +193,38 @@ public class UserManagedBean implements Serializable {
 		return ERROR;
 	}
 	
+	public String addUtilisateur() {
+		try {
+			Agent user = new Agent();
+			user.setNomAgent(getName());
+
+			//user.setUsername(getUsername());
+
+			user.setPrenomAgent(getFirstname());
+			user.setIm(getIm());
+			
+			String hashedPassword = passwordEncoder.encode(getPassword());
+			user.setPassword(hashedPassword);
+			user.setPassword(hashedPassword);
+			//useri.setDesignation(designation);
+			//useri.setRole(role);
+			user.setRoleAgent(getRoleuser());
+			user.setDirection(direction);
+			//getUsermetierimpl().addAgent(user);
+			//refmetierimpl.addRef(new Useri(designation,role), new Agent(getIm(),getName(),hashedPassword,new Useri(designation,role)));
+			//refmetierimpl.addRef(useri,user);
+			//usermetierimpl.addUser(useri);
+			usermetierimpl.addAgent(user);
+
+			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Data Saved"));
+			return SUCCESS;
+		} catch (DataAccessException e) {
+			e.printStackTrace();
+		} 	
+		FacesContext.getCurrentInstance().addMessage("myForm:password1", new FacesMessage("Password Doesnt Match"));
+		return ERROR;
+	}
+	
 	/**
 	 * Reset Fields
 	 * 
