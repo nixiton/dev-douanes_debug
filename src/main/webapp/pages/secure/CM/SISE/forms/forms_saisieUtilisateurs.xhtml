@@ -52,6 +52,22 @@
 					</p:inputText>
 
 					<hr></hr>
+					
+					<!-- User role with liste-->
+					<h:outputLabel styleClass="col-md-6" 
+						value="Role " />
+
+					<p:selectOneMenu value="#{userMB.role}" converter="#{useriConverter}" panelStyle="width:180px"  style="width:160px"
+                         effect="fade" var="t" filter="true" filterMatchMode="startsWith">
+                        <f:selectItem itemValue="#{null}" itemLabel="--select--" /> 
+                            <f:selectItems value="#{siseBean.listUseri}" var="theme" itemLabel="#{theme.designation}" itemValue="#{theme}" />
+                        <p:column>
+                            <h:outputText value="#{t.designation}" />
+                        </p:column>
+
+                    </p:selectOneMenu>
+
+                    <hr></hr>
 
 
 					<h:outputLabel styleClass="col-md-6" for="username"
