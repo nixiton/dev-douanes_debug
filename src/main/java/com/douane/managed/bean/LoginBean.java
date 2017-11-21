@@ -76,6 +76,8 @@ public class LoginBean {
 
 	    public String test(){
 	    	if (this.im != null) {
+
+	    		FacesContext.getCurrentInstance().getExternalContext().redirect("/pages/secure/choice.xhtml"); 
 	    		return "choice_logged";
 	    	}
 	    	else return null;
