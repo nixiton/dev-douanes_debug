@@ -61,6 +61,10 @@ public class Materiel implements Serializable{
 		System.out.println("----------------------not null 4");
 		ByteArrayOutputStream os = new ByteArrayOutputStream();
 		System.out.println("----------------------not null 5");
+		if(resizedImg == null)
+		{
+			return null;
+		}
 		ImageIO.write(resizedImg, "jpg", os);
 		System.out.println("----------------------not null 6");
 		encodedImage = new String(Base64.encodeBytes(os.toByteArray()));
