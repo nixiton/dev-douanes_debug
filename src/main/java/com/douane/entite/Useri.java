@@ -63,6 +63,40 @@ public class Useri {
 		super();
 		this.designation = designation;
 	}
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((designation == null) ? 0 : designation.hashCode());
+		result = prime * result + idUser;
+		result = prime * result + ((role == null) ? 0 : role.hashCode());
+		return result;
+	}
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Useri other = (Useri) obj;
+		if (designation == null) {
+			if (other.designation != null)
+				return false;
+		} else if (!designation.equals(other.designation))
+			return false;
+		if (idUser != other.idUser)
+			return false;
+		if (role == null) {
+			if (other.role != null)
+				return false;
+		} else if (!role.equals(other.role))
+			return false;
+		return true;
+	}
+	
+	
 
 
 		

@@ -247,6 +247,17 @@ public class DepositaireBean {
 
 	//Service
 	private Service serviceforMat;
+	
+	//Current Agent
+	private Agent currentAgent;
+
+	public Agent getCurrentAgent() {
+		return (Agent) RequestFilter.getSession().getAttribute("agent");
+	}
+
+	public void setCurrentAgent(Agent currentAgent) {
+		this.currentAgent = currentAgent;
+	}
 
 	public void onGetService()
 	{

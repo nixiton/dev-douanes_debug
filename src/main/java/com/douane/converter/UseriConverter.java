@@ -33,7 +33,10 @@ public class UseriConverter implements Converter {
         if(value != null && value.trim().length() > 0)
         {
             try {
-                return this.utilisateurmetierimpl.findById(Integer.parseInt(value));
+            	System.out.println("CONVERTER AND GET BY ID");
+            	Useri role = this.utilisateurmetierimpl.findById(Integer.parseInt(value));
+            	System.out.println("Useri ; "+role.getDesignation());
+                return role;
             } catch(NumberFormatException e) {
                 throw new ConverterException(new FacesMessage(FacesMessage.SEVERITY_ERROR, "Conversion Error", "Not a valid theme."));
             }
