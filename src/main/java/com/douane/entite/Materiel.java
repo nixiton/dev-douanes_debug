@@ -1,8 +1,16 @@
 package com.douane.entite;
 
+import org.jboss.resteasy.util.Base64;
+
+import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
 import java.io.Serializable;
 import java.util.Arrays;
 
+import javax.imageio.ImageIO;
 import javax.persistence.*;
 
 @Entity
@@ -15,7 +23,7 @@ public class Materiel implements Serializable{
 	@SequenceGenerator(allocationSize=1, initialValue=1, sequenceName="account_id_seq", name="account_id_seq")
 	@GeneratedValue(generator="account_id_seq", strategy=GenerationType.SEQUENCE)
 	private Long idMateriel;
-	
+
 	private Float pu;
 	private String reference;
 	private String numSerie;
@@ -23,23 +31,46 @@ public class Materiel implements Serializable{
 	//private String codification;
 	private boolean validation;
 	private String renseignement;
-	
+
 	private String code;
-	
+
 	private byte[] image;
-	
+
 	private String documentPath;
 
-	public byte[] getImage() {
-		return image;
+	public String getImage() throws IOException {
+		ByteArrayInputStream bais = new ByteArrayInputStream(image);
+		//BufferedImage imagebuff = ImageIO.read(bais);
+		String encodedImage;
+		BufferedImage imBuff = ImageIO.read(bais);
+		BufferedImage resizedImg = resize(imBuff, 275, 75);
+		ByteArrayOutputStream os = new ByteArrayOutputStream();
+		ImageIO.write(resizedImg, "jpg", os);
+		encodedImage = new String(Base64.encodeBytes(os.toByteArray()));
+		return encodedImage;
+		//return imagebuff;
+		//return image;
+	}
+
+	private  BufferedImage resize(BufferedImage image, int newWidth, int newHeight) {
+		int currentWidth = image.getWidth();
+		int currentHeight = image.getHeight();
+		BufferedImage newImage = new BufferedImage(newWidth, newHeight, image.getType());
+		Graphics2D graphics2d = newImage.createGraphics();
+		graphics2d.setRenderingHint(RenderingHints.KEY_INTERPOLATION,
+				RenderingHints.VALUE_INTERPOLATION_BILINEAR);
+		graphics2d.drawImage(image, 0, 0, newWidth, newHeight, 0, 0,
+				currentWidth, currentHeight, null);
+		graphics2d.dispose();
+		return newImage;
 	}
 
 	public void setImage(byte[] image) {
 		this.image = image;
 	}
 
-	
-	
+
+
 	@ManyToOne
 	@JoinColumn(name="idNom")
 	private Nomenclature nomenMat;
@@ -49,15 +80,15 @@ public class Materiel implements Serializable{
 	@ManyToOne
 	@JoinColumn(name="idCateg")
 	private CategorieMat categorie;
-	
-	
+
+
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name="idCar", columnDefinition="integer", nullable = true , insertable=false, updatable=false)
 	private TypeMateriel caract;
 	@ManyToOne
 	@JoinColumn(name="idMarque")
 	private Marque marque;
-	
+
 	//localisation
 	@ManyToOne
 	@JoinColumn(name="idDirection")
@@ -68,10 +99,10 @@ public class Materiel implements Serializable{
 	@ManyToOne
 	@JoinColumn(name="idBureau")
 	private Bureau bureau;
-	
-	
-	
-	
+
+
+
+
 	/*@ManyToOne
 	@JoinColumn(name="idFournisseur")
 	private Fournisseur fourni;
@@ -79,7 +110,7 @@ public class Materiel implements Serializable{
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name="imDetenteur")
 	private Agent detenteur;
-	
+
 	@ManyToOne
 	@JoinColumn(name="imDepositaire")
 	//@Transient
@@ -95,7 +126,7 @@ public class Materiel implements Serializable{
 	Code Barre
 	Localisation
 	*/
-	
+
 	public Long getIdMateriel(){
 		return this.idMateriel;
 	}
@@ -198,10 +229,10 @@ public class Materiel implements Serializable{
 	public void setMarque(Marque marque) {
 		this.marque = marque;
 	}
-	
-	
+
+
 	public Materiel(Float pu, String reference, String numSerie, String autre, String codification,
-			Nomenclature nomenMat, EtatMateriel etat, TypeMateriel caract, Agent dc, Marque m) {
+					Nomenclature nomenMat, EtatMateriel etat, TypeMateriel caract, Agent dc, Marque m) {
 		super();
 		this.pu = pu;
 		this.reference = reference;
@@ -256,23 +287,23 @@ public class Materiel implements Serializable{
 	public String getCode() {
 		return code;
 	}
-/*	
-	public Fournisseur getFourni() {
-		return fourni;
-	}
-	public void setFourni(Fournisseur fourni) {
-		this.fourni = fourni;
-	}
-	*/
+	/*
+        public Fournisseur getFourni() {
+            return fourni;
+        }
+        public void setFourni(Fournisseur fourni) {
+            this.fourni = fourni;
+        }
+        */
 	public void generateCode() {
 		String codeBureau = "tsy misy";
 		if(this.getBureau()!=null) {
 			codeBureau = this.bureau.getCodeBureau();
 		}
 		this.code = "Type"+"..."+
-					"Bureau"+codeBureau+
-					"Acquisition"+"??problemMatExist??"+
-					"Origine"+"??problemMatExist??";
+				"Bureau"+codeBureau+
+				"Acquisition"+"??problemMatExist??"+
+				"Origine"+"??problemMatExist??";
 	}
 
 	public CategorieMat getCategorie() {
@@ -295,7 +326,7 @@ public class Materiel implements Serializable{
 	public void setDocumentPath(String documentPath) {
 		this.documentPath = documentPath;
 	}
-	
-	
-	
+
+
+
 }

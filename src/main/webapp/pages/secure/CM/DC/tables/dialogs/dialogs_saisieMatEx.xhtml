@@ -7,7 +7,7 @@
     >
 
     <p:dialog id="detail" widgetVar="detail">
-        
+
 
     <div   class="body collapse in table-responsive">
 
@@ -17,7 +17,7 @@
                     <tr>
                         <td><strong>ID</strong></td>
                         <td>#{depositaireBean.curentMateriel.idMateriel}</td>
-                        <td></td>   
+                        <td></td>
                         <td><strong>Caractéristiques</strong></td>
                         <td>#{depositaireBean.curentMateriel.renseignement}</td>
                     </tr>
@@ -42,8 +42,8 @@
                         <td></td>
                         <td><strong>Document</strong></td>
                         <td>
-                            <h:outputLink value="#{depositaireBean.curentMateriel.documentPath}"  target="_blank"> 
-                                <i class="fa fa-file-archive-o"></i> 
+                            <h:outputLink value="#{depositaireBean.curentMateriel.documentPath}"  target="_blank">
+                                <i class="fa fa-file-archive-o"></i>
                             </h:outputLink>
                             </td>
                     </tr>
@@ -52,7 +52,8 @@
                         <td>#{depositaireBean.curentMateriel.autre}</td>
                         <td></td>
                         <td><strong>Image</strong></td>
-                        <td>#{depositaireBean.curentMateriel.image}</td>
+                        <td><h:graphicImage url="data:image/jpg;base64,#{depositaireBean.curentMateriel.image}"
+                                            width="275px" height="75px"></h:graphicImage></td>
                     </tr>
                     <tr>
                         <td><strong>Nomenclature</strong></td>
