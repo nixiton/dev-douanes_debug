@@ -53,6 +53,8 @@ public class LoginBean {
 
 	    public String logout(){
 	        SecurityContextHolder.clearContext();
+	        FacesContext facesContext = FacesContext.getCurrentInstance();
+	        facesContext.getExternalContext().setSession(null);
 	        return "loggedout";
 	    }
 	 
