@@ -47,6 +47,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.Part;
 import java.io.*;
 import java.lang.reflect.Array;
+import java.text.SimpleDateFormat;
 import java.util.*;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
@@ -746,15 +747,19 @@ public class DepositaireBean {
 		ZipOutputStream zipOut = null;
 		FileInputStream fis = null;
 		try {
-			File file = new File("resourcessZip");
+			Date dNow = new Date();
+			SimpleDateFormat ft = new SimpleDateFormat("yyMMddhhmmssMs");
+			String datetime = ft.format(dNow);
+
+			File file = new File(datetime);
 			String absolutePath = file.getAbsolutePath();
 
-			RequestFilter.getSession().setAttribute("documentpath", absolutePath + "resourcessZip.zip");
+			RequestFilter.getSession().setAttribute("documentpath",   datetime+".zip");
 			// eto miset an le documentpath
 			String a = (String) RequestFilter.getSession().getAttribute("documentpath");
 
-			fos = new FileOutputStream(absolutePath + "resourcessZip.zip");
-			setDocumentPath(absolutePath + "resourcessZip.zip");
+			fos = new FileOutputStream(  datetime+".zip");
+			setDocumentPath(  datetime+".zip");
 
 			zipOut = new ZipOutputStream(new BufferedOutputStream(fos));
 			for (String filePath : files) {
@@ -770,6 +775,7 @@ public class DepositaireBean {
 				}
 				// zipOut.flush();
 				fis.close();
+				input.delete();
 			}
 			zipOut.close();
 			System.out.println("Done... Zipped the files...");
