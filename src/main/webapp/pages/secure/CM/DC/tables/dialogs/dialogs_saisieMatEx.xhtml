@@ -52,8 +52,12 @@
                         <td>#{depositaireBean.curentMateriel.autre}</td>
                         <td></td>
                         <td><strong>Image</strong></td>
-                        <td><h:graphicImage url="data:image/jpg;base64,#{depositaireBean.curentMateriel.image}"
-                                            width="275px" height="75px"></h:graphicImage></td>
+                        <td>
+                            <p:panel rendered="#{depositaireBean.curentMateriel.image != null}">
+                                <h:graphicImage url="data:image/jpg;base64,#{depositaireBean.curentMateriel.image}"
+                                                width="275px" height="75px"></h:graphicImage>
+                            </p:panel>
+                        </td>
                     </tr>
                     <tr>
                         <td><strong>Nomenclature</strong></td>

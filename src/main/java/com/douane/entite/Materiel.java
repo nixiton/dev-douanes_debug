@@ -39,7 +39,15 @@ public class Materiel implements Serializable{
 	private String documentPath;
 
 	public String getImage() throws IOException {
-		ByteArrayInputStream bais = new ByteArrayInputStream(image);
+		ByteArrayInputStream bais;
+		if(image != null)
+		{
+			bais = new ByteArrayInputStream(image);
+		}
+		else
+		{
+			return null;
+		}
 		//BufferedImage imagebuff = ImageIO.read(bais);
 		String encodedImage;
 		BufferedImage imBuff = ImageIO.read(bais);

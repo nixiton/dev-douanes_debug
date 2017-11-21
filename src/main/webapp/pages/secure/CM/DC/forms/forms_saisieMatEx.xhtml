@@ -257,7 +257,7 @@
                             <p:fileUpload value="#{depositaireBean.byteDoc}"
                                           fileUploadListener="#{depositaireBean.uploadIm_Advanced}"
                                           mode="advanced" dragDropSupport="false" update="@this,imId"
-                                          allowTypes="/(\.|\/)(gif|jpe?g|png|txt)$/">
+                                          allowTypes="/(\.|\/)(gif|jpe?g|png|txt)$/" required="true">
                                 <f:attribute name="docObj" value="#{rowIm}"></f:attribute>
                             </p:fileUpload>
                         </p:panel>
