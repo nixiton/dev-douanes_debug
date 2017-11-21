@@ -1105,9 +1105,9 @@ System.out.println("****************************ADD1 ATTR**ERRORR***************
 		try {
 			// getCurrent Materiel ve?????
 System.out.println("****************************ADD2 ATTR**ERRORR*****NULL*************************** "+
-			getMateriel().getNomenMat().getDesignation());
+			getMaterielSeclected().getNomenMat().getDesignation());
 
-			OpAttribution opAt = usermetierimpl.reqAttribution(getMateriel(), agent, getDetenteur());
+			OpAttribution opAt = usermetierimpl.reqAttribution(getMaterielSeclected(), agent, getDetenteur());
 System.out.println("****************************ADD3 ATTR**ERRORR********************************");
 			return SUCCESS;
 		} catch (Exception e) {
@@ -1285,14 +1285,16 @@ System.out.println("****************************ADD3 ATTR**ERRORR***************
 	private Marque marqueAutom;
 	private String referenceAutom;
 	private String numSerieAutom;
+	private String nomenclatureAutom;
 	private List<Referentiel> listDestinaiton;
 
 
 	public void onChangeMateriel()
 	{
-		setMarqueAutom(getMaterielSeclected().getMarque());
+		marqueAutom=getMaterielSeclected().getMarque();
 		setReferenceAutom(getMaterielSeclected().getReference());
 		setNumSerie(getMaterielSeclected().getNumSerie());
+		setNomenclatureAutom(getMaterielSeclected().getNomenMat().getDesignation());
 	}
 	public List<Referentiel> getListDestinaiton() {
 		this.listDestinaiton.add(new Bureau());
@@ -1306,7 +1308,7 @@ System.out.println("****************************ADD3 ATTR**ERRORR***************
 	}
 
 	public String getReferenceAutom() {
-		return getMaterielSeclected().getReference();
+		return this.referenceAutom;
 	}
 
 	public void setReferenceAutom(String referenceAutom) {
@@ -1314,7 +1316,7 @@ System.out.println("****************************ADD3 ATTR**ERRORR***************
 	}
 
 	public String getNumSerieAutom() {
-		return getMaterielSeclected().getNumSerie();
+		return this.numSerieAutom;
 	}
 
 	public void setNumSerieAutom(String numSerieAutom) {
@@ -1322,7 +1324,7 @@ System.out.println("****************************ADD3 ATTR**ERRORR***************
 	}
 
 	public Marque getMarqueAutom() {
-		return getMaterielSeclected().getMarque();
+		return this.marqueAutom;
 	}
 
 	public void setMarqueAutom(Marque marqueAutom) {
@@ -1456,5 +1458,13 @@ System.out.println("****************************ADD3 ATTR**ERRORR***************
 
 	public void setListMaterielNouveauValide(List<MaterielNouv> listMaterielNouveauValide) {
 		this.listMaterielNouveauValide = listMaterielNouveauValide;
+	}
+
+	public String getNomenclatureAutom() {
+		return nomenclatureAutom;
+	}
+
+	public void setNomenclatureAutom(String nomenclatureAutom) {
+		this.nomenclatureAutom = nomenclatureAutom;
 	}
 }

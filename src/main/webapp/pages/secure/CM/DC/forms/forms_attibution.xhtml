@@ -21,22 +21,65 @@
 
             <div class="form-group">
 
-
+				<!-- MATERIEL -->
                 <label for="text1" class="control-label col-lg-4">Matériel
                 </label>
 
                 <div class="col-lg-6">
 
+                    <p:selectOneMenu value="#{depositaireBean.materielSeclected}" converter="#{materielConverter}"   panelStyle="width:180px"  style="width:160px"
+                         effect="fade" var="t" filter="true" filterMatchMode="startsWith">
+                        <f:selectItem itemValue="#{null}" itemLabel="--select--" /> 
+                            <f:selectItems value="#{depositaireBean.listMaterielexistant}" var="theme" itemLabel="#{theme.numSerie}" itemValue="#{theme}" />
+                        <p:column>
+                            <h:outputText value="#{t.numSerie}" />
+                        </p:column>
+                        <p:ajax event="change" update="marque ref num" listener="#{depositaireBean.onChangeMateriel}"/>
+                    </p:selectOneMenu>
 
-                    <p:selectOneMenu styleClass="form-control top" converter="#{materielConverter}" value="#{depositaireBean.materiel}">
-                           <f:selectItem itemValue="#{null}" itemLabel="--select--" /> 
-                            <f:selectItems value="#{depositaireBean.listAllMaterielValideSansDetenteur}" var="theme" itemLabel="#{theme.nomenMat.designation}" itemValue="#{theme}" />
-                        </p:selectOneMenu>
                 <hr></hr>
 
                 </div>
                 
+                                <label for="text1" class="control-label col-lg-4">Nomenclature
+                </label>
+
+                <div class="col-lg-6">
+
+                    <h:outputText id="num" value="#{depositaireBean.nomenclatureAutom}" ></h:outputText>
+
+                    <hr></hr>
+
+                </div>
+
+
+                <label for="text1" class="control-label col-lg-4">Marque
+                </label>
+
+                <div class="col-lg-6">
+
+                    <!--h:inputText id="marque" value="#{depositaireBean.marq.designation}" ></h:inputText-->
+                    <h:outputText id="marque" value="#{depositaireBean.marqueAutom != null ? depositaireBean.marqueAutom.designation : ''}"/>
+
+                    <hr></hr>
+
+                </div>
+                                
+            
+
+                <label for="text1" class="control-label col-lg-4">Référence
+                </label>
+
+                <div class="col-lg-6">
+
+                    <h:outputText id="ref"  value="#{depositaireBean.referenceAutom}" ></h:outputText>
+
+                    <hr></hr>
+
+                </div>
                 
+                
+                <!-- END MATERIEL -->
 
 
                  <label for="text1" class="control-label col-lg-4">Détenteur

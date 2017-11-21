@@ -177,7 +177,7 @@ public class Materiel implements Serializable{
 	public int hashCode() {
 		int result = idMateriel.hashCode();
 		result = 31 * result + reference.hashCode();
-		result = 31 * result + numSerie.hashCode();
+		//result = 31 * result + numSerie.hashCode();
 		result = 31 * result + (validation ? 1 : 0);
 		result = 31 * result + code.hashCode();
 		result = 31 * result + Arrays.hashCode(image);
