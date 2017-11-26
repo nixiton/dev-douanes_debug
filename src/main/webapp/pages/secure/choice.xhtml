@@ -24,7 +24,9 @@
 					<p class="text-muted text-center">Choisir le type de tableau de bord</p>
 					
 					<h:selectOneMenu styleClass="form-control top" value="#{choiceMB.choiceValue}">
-						<f:selectItem itemValue="admin" itemLabel="Administration"/>
+						<p:panel rendered="#{topMenuMB.curentAgent.roleAgent.role eq 'ROLE_ADMIN'}">
+			            	<f:selectItem itemValue="admin" itemLabel="Administration"/>
+			        	</p:panel>
 						<f:selectItem itemValue="Cm" itemLabel="Comptabilité Matière"/>
 						<f:selectItem itemValue="Ca" itemLabel="Comptabilité Administrative"/>
 					</h:selectOneMenu>

@@ -3,7 +3,8 @@
 <nav class="navbar navbar-inverse navbar-static-top"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:h="http://java.sun.com/jsf/html">
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
 	<div class="container-fluid">
 
 
@@ -73,8 +74,9 @@
 				<ul class="nav navbar-nav">
 					<li class="active"><h:commandLink
 							action="#{topMenuMB.goToDashboard}" immediate="true" >
-							Taleau de bord #{topMenuMB.curentAgent.roleAgent.role}
+							Taleau de bord 
 						</h:commandLink></li>
+					
 					<li class="dropdown"><a href="#" class="dropdown-toggle"
 						data-toggle="dropdown"> Saisie <b class="caret"></b>
 					</a>
