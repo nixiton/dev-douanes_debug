@@ -4,7 +4,8 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:p="http://primefaces.org/ui">
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:c="http://java.sun.com/jsp/jstl/core">
 	<div class="container-fluid">
 
 
@@ -74,9 +75,11 @@
 				<ul class="nav navbar-nav">
 					<li class="active"><h:commandLink
 							action="#{topMenuMB.goToDashboard}" immediate="true" >
-							Taleau de bord #{topMenuMB.curentAgent.roleAgent.role}
+							Taleau de bord
 						</h:commandLink></li>
-					
+
+					<c:if test="#{topMenuMB.curentAgent.roleAgent.role eq 'ROLE_ADMIN' or topMenuMB.curentAgent.roleAgent.role eq 'ROLE_SISE'}">
+
 					<li class="dropdown"><a href="#" class="dropdown-toggle"
 						data-toggle="dropdown"> Saisie <b class="caret"></b>
 					</a>
@@ -90,7 +93,9 @@
 
 						</ul></li>
 
-					<p:panel rendered="#{topMenuMB.curentAgent.roleAgent.role eq 'ROLE_ADMIN' or topMenuMB.curentAgent.roleAgent.role eq 'ROLE_DC'}">
+					</c:if>
+
+					<c:if test="#{topMenuMB.curentAgent.roleAgent.role eq 'ROLE_ADMIN' or topMenuMB.curentAgent.roleAgent.role eq 'ROLE_DC'}">
 
 					<li><h:link value="Prise en charge" outcome="prise_en_charge" immediate="true" /></li>
 
@@ -123,7 +128,7 @@
 
 						</ul></li>
 
-					</p:panel>
+					</c:if>
 
 					<li class='dropdown '><a href="#" class="dropdown-toggle"
 						data-toggle="dropdown"> Validations <b class="caret"></b>
