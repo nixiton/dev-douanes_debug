@@ -807,7 +807,8 @@ public class UserMetier implements IUserMetier{
 	@Override
 	public List<MaterielNouv> getListMaterielNouvValide() {
 		// TODO Auto-generated method stub
-		return materielNouvRepository.findByValidationAndAModifier(true, true);
+		return materielNouvRepository.findByValidation(true);
+		//return materielNouvRepository.findByValidationAndAModifier(true, true);
 	}
 
 
