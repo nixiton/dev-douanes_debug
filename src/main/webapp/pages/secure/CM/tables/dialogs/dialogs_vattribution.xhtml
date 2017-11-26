@@ -16,6 +16,8 @@
             </h:form>
     <div   class="body collapse in table-responsive">
 
+        <h:form class="form-horizontal">
+
         <table class="table responsive-table" >
                     <tr>
                         <td><strong>Type de matériel</strong></td>
@@ -48,50 +50,16 @@
                     <tr>
                         <td></td>
                         <td>
-                            <h:form class="form-horizontal">
+                            
         
-                                <h:commandButton  action="#{gacBean.validateAttributionDetenteur(gacBean.curentOperation)}" value="Valider"
+                        <h:commandButton  action="#{gacBean.validateAttributionDetenteur(gacBean.curentOperation)}" value="Valider"
                                             class="btn btn-lg btn-primary btn-block"/>
                             </h:form>
                         </td>
-                        <td>
-                            <h:form>
-
-                                <label for="text1" >Motif de refus
-                                        </label>
-
-                                <h:inputText value="#{gacBean.motif}" 
-                                            styleClass="form-control top"></h:inputText>
-
-                                <h:commandButton  action="#{gacBean.refuseAttributionDetenteur(gacBean.curentOperation)}" value="Refuser"
-                                            class="btn btn-lg btn-primary btn-block">
-                                    <!--f:param name="operationValide" value="#{gacBean.curentOperation}"/-->
-                                </h:commandButton>
-
-                            
-                            </h:form>
-                        </td>
-                        <td>
-                               <h:form>
-
-
-                                <label for="text1" >Motif de demande de correction
-                                        </label>
-
-                                <h:inputText value="#{gacBean.motif}" 
-                                            styleClass="form-control top"></h:inputText>
-
-                                <h:commandButton  action="#{gacBean.aModifierAttributionDetenteur(gacBean.curentOperation)}" value="A modifier"
-                                            class="btn btn-lg btn-primary btn-block">
-                                    <!--f:param name="operationValide" value="#{gacBean.curentOperation}"/-->
-                                </h:commandButton>
-
-
-                                
-                            </h:form> 
-                        </td>
                     </tr>      
             </table>
+
+            </h:form>
         </div>
 
 
