@@ -6,7 +6,7 @@
     xmlns:p="http://primefaces.org/ui"
     >
 
-    <p:dialog id="detail" widgetVar="detail" closable="false">
+    <p:dialog id="detailPriseEnCharge" widgetVar="detailPriseEnCharge" closable="false">
 
     <h:form class="form-horizontal">
             <h:commandButton action="#{gacBean.exit()}" value="X" style="valign:bottom;float:right;padding-right:20px">
@@ -17,6 +17,8 @@
         
 
     <div   class="body collapse in table-responsive">
+
+        <h:form class="form-horizontal">
 
         <table class="table responsive-table">
                     <tr>
@@ -61,52 +63,21 @@
                     <tr>
                         <td></td>
                         <td>
-                            <h:form class="form-horizontal">
                             
-                            <h:commandButton  action="#{gacBean.validatePrisEnChargeEntreMat(gacBean.curentOperation)}" value="Valider"
-                        class="btn btn-lg btn-primary btn-block">
+                            
+                            <!--h:commandButton  action="#{gacBean.validatePrisEnChargeEntreMat(gacBean.curentOperation)}" value="Valider"
+                        class="btn btn-lg btn-primary btn-block"-->
                 <!--f:param name="operationValide" value="#{gacBean.curentOperation}"/-->
                             </h:commandButton>
-                            </h:form>
+                            
                         </td>
-                        <td>
-                            <h:form>
+                        
 
-                                    <label for="text1" >Motif de refus
-                                            </label>
-
-                                    <h:inputText value="#{gacBean.motif}" 
-                                                styleClass="form-control top"></h:inputText>
-
-                                    <h:commandButton  action="#{gacBean.refusePrisEnChargeEntreMat(gacBean.curentOperation)}" value="Refuser"
-                                                class="btn btn-lg btn-primary btn-block">
-                                        <!--f:param name="operationValide" value="#{gacBean.curentOperation}"/-->
-                                    </h:commandButton>
-
-                                
-                                </h:form>
-                        </td>
-                        <td>
-                            <h:form>
-
-
-                                <label for="text1" >Motif de demande de correction
-                                        </label>
-
-                                <h:inputText value="#{gacBean.motif}" 
-                                            styleClass="form-control top"></h:inputText>
-
-                                <h:commandButton  action="#{gacBean.aModifierPrisEnChargeEntreMat(gacBean.curentOperation)}" value="A modifier"
-                                            class="btn btn-lg btn-primary btn-block">
-                                    <!--f:param name="operationValide" value="#{gacBean.curentOperation}"/-->
-                                </h:commandButton>
-
-                                
-                            </h:form>
-                        </td>
                     </tr>
                     
             </table>
+
+            </h:form>
         </div>
         
             

@@ -7,7 +7,7 @@
     xmlns:p="http://primefaces.org/ui"
     >
 
-    <p:dialog id="detail" widgetVar="detail" closable="false">
+    <p:dialog id="detailDecharge" widgetVar="detailDecharge" closable="false">
 
     <h:form class="form-horizontal">
             <h:commandButton action="#{gacBean.exit()}" value="X" style="valign:bottom;float:right;padding-right:20px">
@@ -18,6 +18,8 @@
         
 
     <div   class="body collapse in table-responsive">
+
+        <h:form class="form-horizontal">
 
         <table class="table responsive-table">
                     <tr>
@@ -49,51 +51,15 @@
                     <tr>
                         <td></td>
                         <td>
-                            <h:form class="form-horizontal">
+                            
         
-                                <h:commandButton  action="#{gacBean.validateDechargeSortie(gacBean.curentOperation)}" value="Valider"
-                                            class="btn btn-lg btn-primary btn-block"/>
-                            </h:form>
-                        </td>
-                        <td>
-                            <h:form>
-
-                                    <label for="text1" >Motif de refus
-                                            </label>
-
-                                    <h:inputText value="#{gacBean.motif}" 
-                                                styleClass="form-control top"></h:inputText>
-
-                                    <h:commandButton  action="#{gacBean.refuseDechargeSortie(gacBean.curentOperation)}" value="Refuser"
-                                                class="btn btn-lg btn-primary btn-block">
-                                        <!--f:param name="operationValide" value="#{gacBean.curentOperation}"/-->
-                                    </h:commandButton>
-
-                                
-                                </h:form>
-
-                                <td>
-                                        <h:form>
-
-
-                                        <label for="text1" >Motif de demande de correction
-                                                </label>
-
-                                        <h:inputText value="#{gacBean.motif}" 
-                                                    styleClass="form-control top"></h:inputText>
-
-                                        <h:commandButton  action="#{gacBean.aModifierDechargeSortie(gacBean.curentOperation)}" value="A modifier"
-                                                    class="btn btn-lg btn-primary btn-block">
-                                            <!--f:param name="operationValide" value="#{gacBean.curentOperation}"/-->
-                                        </h:commandButton>
-
-                                        
-                                    </h:form>
-                                </td>
-
+                                <!--h:commandButton  action="#{gacBean.validateDechargeSortie(gacBean.curentOperation)}" value="Valider"
+                                            class="btn btn-lg btn-primary btn-block"/-->
+                            
                         </td>
                     </tr>  
             </table>
+            </h:form>
         </div>
 
 
