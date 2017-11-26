@@ -91,14 +91,16 @@
                     <p:panel rendered="#{c['class'].simpleName eq 'OpEntree' }">
 
 
-                    <p:commandButton   icon="ui-icon-pencil"/>
+                    
+
+                    <p:commandButton  action="#{gacBean.setCurentOperation(c)}" update=":detailPriseEnCharge"
+            oncomplete="PF('detailPriseEnCharge').show()"  icon="ui-icon-pencil"/>
                     
 
 
                     </p:panel>
                     <p:panel rendered="#{c['class'].simpleName eq 'OpSaisie' }">
-                        <p:commandButton  action="#{gacBean.setCurentOperation(c)}" update=":detailPriseEnCharge"
-            oncomplete="PF('detailPriseEnCharge').show()"  icon="ui-icon-pencil"/>
+                        <p:commandButton   icon="ui-icon-pencil"/>
 
                     </p:panel>
                     <p:panel rendered="#{c['class'].simpleName eq 'OpAttribution' }">
