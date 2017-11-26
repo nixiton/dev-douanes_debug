@@ -15,12 +15,6 @@
 		<!-- Page level Spring Security : Intercept access to resources in /pages/secure/** -->
 		<sec:intercept-url pattern="/pages/secure/**"
 			access="hasRole('ROLE_ADMIN')" />
-		<sec:intercept-url pattern="/pages/secure/**"
-			access="hasRole('ROLE_GAC')" />
-		<sec:intercept-url pattern="/pages/secure/**"
-			access="hasRole('ROLE_SISE')" />
-		<sec:intercept-url pattern="/pages/secure/**"
-			access="hasRole('ROLE_DC')" />
 
 		<!-- Page level Spring Security : Permit access to resources in /pages/unsecure/** -->
 		<sec:intercept-url pattern="/pages/unsecure/**"
