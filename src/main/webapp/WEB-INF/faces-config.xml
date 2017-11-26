@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <faces-config version="2.1" xmlns="http://java.sun.com/xml/ns/javaee"
 	xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee      http://java.sun.com/xml/ns/javaee/web-facesconfig_2_1.xsd">
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee      http://java.sun.com/xml/ns/javaee/web-facesconfig_2_1.xsd"
+xmlns:c="http://java.sun.com/jsp/jstl/core"
+	>
 	<!-- navigation-rule for login.xhtml -->
 	<navigation-rule>
 		<from-view-id>/pages/unsecure/login.xhtml</from-view-id>
@@ -112,7 +114,19 @@
 		<navigation-case>
 			<from-action>#{topMenuMB.goToDashboard}</from-action>
 			<from-outcome>dashboard</from-outcome>
-			<to-view-id>/pages/secure/admin/admin.xhtml</to-view-id>
+			<to-view-id>
+				<c:if test="#{topMenuMB.curentAgent.roleAgent.role eq 'ROLE_ADMIN'}">
+					/pages/secure/admin/admin.xhtml
+				</c:if>
+
+				<c:if test="#{topMenuMB.curentAgent.roleAgent.role eq 'ROLE_GAC' or 
+					topMenuMB.curentAgent.roleAgent.role eq 'ROLE_DC' or 
+					topMenuMB.curentAgent.roleAgent.role eq 'ROLE_SISE' or
+					topMenuMB.curentAgent.roleAgent.role eq 'ROLE_SE'}">
+					/pages/secure/CM/ComptaMatiere.xhtml
+				</c:if>
+
+			</to-view-id>
 			<redirect />
 		</navigation-case>
 
