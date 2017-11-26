@@ -90,9 +90,11 @@
 
 						</ul></li>
 
+					<p:panel rendered="#{topMenuMB.curentAgent.roleAgent.role eq 'ROLE_ADMIN' or topMenuMB.curentAgent.roleAgent.role eq 'ROLE_DC'}">
+
 					<li><h:link value="Prise en charge" outcome="prise_en_charge" immediate="true" /></li>
 
-					<p:panel rendered="#{topMenuMB.curentAgent.roleAgent.role eq 'ROLE_ADMIN' or topMenuMB.curentAgent.roleAgent.role eq 'ROLE_DC'}">
+					
 			            
 			        
 					<li class="dropdown"><a href="#" class="dropdown-toggle"
