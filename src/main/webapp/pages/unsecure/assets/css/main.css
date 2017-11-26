@@ -2601,3 +2601,7 @@ table, .ui-datatable-tablewrapper {
 .ui-messages-warn {
   display: none!important;
 }
+
+#detail{
+  width: 100%!important;
+}
