@@ -27,8 +27,10 @@
 						<c:if test="#{topMenuMB.curentAgent.roleAgent.role eq 'ROLE_ADMIN'}">
 			            	<f:selectItem itemValue="admin" itemLabel="Administration"/>
 			        	</c:if>
-						<f:selectItem itemValue="Cm" itemLabel="Comptabilité Matière"/>
-						<f:selectItem itemValue="Ca" itemLabel="Comptabilité Administrative"/>
+			        	<c:if test="#{topMenuMB.curentAgent.roleAgent.role ne 'ROLE_ADMIN'}">
+							<f:selectItem itemValue="Cm" itemLabel="Comptabilité Matière"/>
+							<f:selectItem itemValue="Ca" itemLabel="Comptabilité Administrative"/>
+						</c:if>
 					</h:selectOneMenu>
                		 <hr></hr>
 					<h:commandButton  id="btnChoiceId"  action="#{choiceMB.choisir}" value="Tableau de bord"
