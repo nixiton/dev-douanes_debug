@@ -12,4 +12,5 @@ import java.util.List;
  */
 public interface MaterielNouvRepository extends CrudRepository<MaterielNouv, Long> {
   public List<MaterielNouv> findByValidation(boolean validation);
+  public List<MaterielNouv> findByValidationAndAModifier(boolean validation, boolean aModifier);
 }
