@@ -26,13 +26,13 @@ public class topMenuMgmtBean {
 	}
 	
 	public String goToDashboard(){
-		if(RequestFilter.getSession().getAttribute("agent").getRoleAgent().getRole() == "ROLE_ADMIN"){
+		if(((Agent)RequestFilter.getSession().getAttribute("agent")).getRoleAgent().getRole() == "ROLE_ADMIN"){
 			return "dashboard"; 
 		}
 
-		if(RequestFilter.getSession().getAttribute("agent").getRoleAgent().getRole() == "ROLE_DC" || 
-			RequestFilter.getSession().getAttribute("agent").getRoleAgent().getRole() == "ROLE_SISE" ||
-			RequestFilter.getSession().getAttribute("agent").getRoleAgent().getRole() == "ROLE_GAC"){
+		if(((Agent)RequestFilter.getSession().getAttribute("agent")).getRoleAgent().getRole() == "ROLE_DC" || 
+			((Agent)RequestFilter.getSession().getAttribute("agent")).getRoleAgent().getRole() == "ROLE_SISE" ||
+			((Agent)RequestFilter.getSession().getAttribute("agent")).getRoleAgent().getRole() == "ROLE_GAC"){
 			return "cm"; 
 		}
 
