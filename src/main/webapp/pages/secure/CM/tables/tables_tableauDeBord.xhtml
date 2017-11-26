@@ -95,14 +95,15 @@
                         <p:commandButton  icon="ui-icon-pencil"/> 
                     </p:panel>
                     <p:panel rendered="#{c['class'].simpleName eq 'OpAttribution' }">
-                        <p:commandButton  icon="ui-icon-pencil"/>
+                        <p:commandButton  action="#{gacBean.setCurentOperation(c)}" update=":detailAttribution"
+            oncomplete="PF('detailAttribution').show()"  icon="ui-icon-pencil"/>
                     </p:panel>
-                    <p:panel rendered="#{c['class'].simpleName eq 'OpDettachement' }">
+                    <p:panel rendered="#{c['class'].simpleName eq 'OpDettachement' }">44
+                        
                         <p:commandButton  icon="ui-icon-pencil"/>
                     </p:panel>
                     <p:panel rendered="#{c['class'].simpleName eq 'OpSortie' }">
-                        <p:commandButton  action="#{gacBean.setCurentOperation(a)}" update=":detailAttribution"
-            oncomplete="PF('detailAttribution').show()"  icon="ui-icon-pencil"/>
+                        <p:commandButton   icon="ui-icon-pencil"/>
                     </p:panel>
         	</p:panel>
             
