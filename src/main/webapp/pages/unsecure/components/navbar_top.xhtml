@@ -80,24 +80,27 @@
 
 					<c:if test="#{topMenuMB.curentAgent.roleAgent.role eq 'ROLE_ADMIN' or topMenuMB.curentAgent.roleAgent.role eq 'ROLE_SISE' or topMenuMB.curentAgent.roleAgent.role eq 'ROLE_SE'}">
 
-					<li class="dropdown"><a href="#" class="dropdown-toggle"
-						data-toggle="dropdown"> Saisie <b class="caret"></b>
-					</a>
-						<ul class="dropdown-menu">
-							<li><h:link value="Saisie
+					<li><h:link value="Saisie
 								des référentiels"
 									outcome="saisie_ref" immediate="true" /></li>
-							<li><h:link value="Saisie
-						des matériels existants"
-									outcome="saisie_mat_ex" immediate="true"/></li>
-
-						</ul></li>
 
 					</c:if>
 
 					<c:if test="#{topMenuMB.curentAgent.roleAgent.role eq 'ROLE_ADMIN' or topMenuMB.curentAgent.roleAgent.role eq 'ROLE_DC'}">
 
-					<li><h:link value="Prise en charge" outcome="prise_en_charge" immediate="true" /></li>
+					<li class="dropdown"><a href="#" class="dropdown-toggle"
+						data-toggle="dropdown"> Saisie des materiels <b class="caret"></b>
+					</a>
+						<ul class="dropdown-menu">
+							
+							<li><h:link value="Saisie
+						des matériels existants"
+									outcome="saisie_mat_ex" immediate="true"/></li>
+							<li><h:link value="Prise en charge" outcome="prise_en_charge" immediate="true" /></li>
+
+						</ul></li>
+
+					
 
 					
 			            
