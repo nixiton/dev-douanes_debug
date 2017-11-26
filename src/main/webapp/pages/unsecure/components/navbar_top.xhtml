@@ -73,11 +73,21 @@
 
 
 				<ul class="nav navbar-nav">
-					<li class="active"><h:commandLink
-							action="#{topMenuMB.goToDashboard}" immediate="true" >
-							Taleau de bord
-						</h:commandLink></li>
 
+					<c:if test="#{topMenuMB.curentAgent.roleAgent.role eq 'ROLE_ADMIN'}">
+						<li class="active"><h:commandLink
+								action="#{topMenuMB.goToDashboard}" immediate="true" >
+								Taleau de bord
+							</h:commandLink></li>
+					</c:if>
+					<c:if test="#{topMenuMB.curentAgent.roleAgent.role eq 'ROLE_GAC' or 
+					topMenuMB.curentAgent.roleAgent.role eq 'ROLE_SISE' or
+				topMenuMB.curentAgent.roleAgent.role eq 'ROLE_DC'}">
+						<li class="active"><h:commandLink
+								action="#{topMenuMB.goToDashboardCM}" immediate="true" >
+								Taleau de bord
+							</h:commandLink></li>
+					</c:if>
 					<c:if test="#{topMenuMB.curentAgent.roleAgent.role eq 'ROLE_ADMIN' or topMenuMB.curentAgent.roleAgent.role eq 'ROLE_SISE' or topMenuMB.curentAgent.roleAgent.role eq 'ROLE_SE'}">
 
 					<li><h:link value="Saisie

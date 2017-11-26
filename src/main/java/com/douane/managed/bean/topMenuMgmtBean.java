@@ -26,17 +26,11 @@ public class topMenuMgmtBean {
 	}
 	
 	public String goToDashboard(){
-		if(((Agent)RequestFilter.getSession().getAttribute("agent")).getRoleAgent().getRole() == "ROLE_ADMIN"){
-			return "dashboard"; 
-		}
-
-		if(((Agent)RequestFilter.getSession().getAttribute("agent")).getRoleAgent().getRole() == "ROLE_DC" || 
-			((Agent)RequestFilter.getSession().getAttribute("agent")).getRoleAgent().getRole() == "ROLE_SISE" ||
-			((Agent)RequestFilter.getSession().getAttribute("agent")).getRoleAgent().getRole() == "ROLE_GAC"){
-			return "cm"; 
-		}
-
 		return "dashboard";
 		
+	}
+
+	public String goToDashboardCM(){
+		return "cm";
 	}
 }
