@@ -30,8 +30,8 @@ public class topMenuMgmtBean {
 			return "dashboard"; 
 		}
 
-		if(RequestFilter.getSession().getAttribute("agent").getRoleAgent().getRole() == "ROLE_DC" OR 
-			RequestFilter.getSession().getAttribute("agent").getRoleAgent().getRole() == "ROLE_SISE" OR
+		if(RequestFilter.getSession().getAttribute("agent").getRoleAgent().getRole() == "ROLE_DC" || 
+			RequestFilter.getSession().getAttribute("agent").getRoleAgent().getRole() == "ROLE_SISE" ||
 			RequestFilter.getSession().getAttribute("agent").getRoleAgent().getRole() == "ROLE_GAC"){
 			return "cm"; 
 		}
