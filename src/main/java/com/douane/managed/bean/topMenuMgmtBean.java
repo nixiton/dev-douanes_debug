@@ -3,6 +3,9 @@ package com.douane.managed.bean;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 
+import com.douane.entite.Agent;
+import com.douane.requesthttp.RequestFilter;
+
 import org.springframework.transaction.annotation.Transactional;
 
 
@@ -10,6 +13,17 @@ import org.springframework.transaction.annotation.Transactional;
 @RequestScoped
 @Transactional
 public class topMenuMgmtBean {
+
+	private Agent curentAgent;
+
+
+	public Agent getCurentAgent(){
+		return (Agent)RequestFilter.getSession().getAttribute("agent");
+	}
+
+	public void setCurentAgent(Agent a){
+		this.curentAgent = a;
+	}
 	
 	public String goToDashboard(){
 		return "dashboard"; 
