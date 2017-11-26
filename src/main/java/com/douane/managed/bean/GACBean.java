@@ -83,7 +83,7 @@ public class GACBean {
     {
         //usermetierimpl.entrerMateriel(op);
 
-        this.getCurentOperation().getMat().setAModifier(true);
+        ((OpEntree)this.getCurentOperation()).getMat().setAModifier(true);
         usermetierimpl.reqMatAModifier((OpEntree)this.getCurentOperation(), this.getMotif());
 
         this.setCurentOperation(null);
