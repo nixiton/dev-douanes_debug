@@ -97,7 +97,9 @@
                     </p:panel>
                     <p:panel rendered="#{c['class'].simpleName eq 'OpSaisie' }">
                         
-                        <p:commandButton   icon="ui-icon-pencil"/>
+                        <p:commandButton  action="#{gacBean.setCurentOperation(c)}" update=":detailPriseEnCharge"
+            oncomplete="PF('detailPriseEnCharge').show()"  icon="ui-icon-pencil"/>
+
                     </p:panel>
                     <p:panel rendered="#{c['class'].simpleName eq 'OpAttribution' }">
                         <p:commandButton  action="#{gacBean.setCurentOperation(c)}" update=":detailAttribution"
@@ -138,9 +140,9 @@
 
 <ui:include src="/pages/secure/CM/tables/dialogs/dialogs_vattribution.xhtml"></ui:include>
 
-<!--ui:include src="/pages/secure/CM/tables/dialogs/dialogs_vdecharge.xhtml"></ui:include>
+<!--ui:include src="/pages/secure/CM/tables/dialogs/dialogs_vdecharge.xhtml"></ui:include-->
 
-<ui:include src="/pages/secure/CM/tables/dialogs/dialogs_vpriseEnCharge.xhtml"></ui:include-->
+<ui:include src="/pages/secure/CM/tables/dialogs/dialogs_vpriseEnCharge.xhtml"></ui:include>
 
 
 
