@@ -78,7 +78,7 @@
 							Taleau de bord
 						</h:commandLink></li>
 
-					<c:if test="#{topMenuMB.curentAgent.roleAgent.role eq 'ROLE_SISE'}">
+					<c:if test="#{topMenuMB.curentAgent.roleAgent.role eq 'ROLE_ADMIN' or topMenuMB.curentAgent.roleAgent.role eq 'ROLE_SISE' or topMenuMB.curentAgent.roleAgent.role eq 'ROLE_SE'}">
 
 					<li class="dropdown"><a href="#" class="dropdown-toggle"
 						data-toggle="dropdown"> Saisie <b class="caret"></b>
@@ -113,6 +113,10 @@
 
 					<li><h:link value="Décharge" outcome="decharge" immediate="true"/></li>
 
+				</c:if>
+
+					<c:if test="#{topMenuMB.curentAgent.roleAgent.role eq 'ROLE_ADMIN' or topMenuMB.curentAgent.roleAgent.role eq 'ROLE_DC' or topMenuMB.curentAgent.roleAgent.role eq 'ROLE_GAC' or topMenuMB.curentAgent.roleAgent.role eq 'ROLE_SE'}">
+
 					<li class='dropdown '><a href="#" class="dropdown-toggle"
 						data-toggle="dropdown"> Suivi et édition des états
 							réglementaires <b class="caret"></b>
@@ -130,6 +134,8 @@
 
 					</c:if>
 
+					<c:if test="#{topMenuMB.curentAgent.roleAgent.role eq 'ROLE_ADMIN' or topMenuMB.curentAgent.roleAgent.role eq 'ROLE_GAC'">
+
 					<li class='dropdown '><a href="#" class="dropdown-toggle"
 						data-toggle="dropdown"> Validations <b class="caret"></b>
 					</a>
@@ -141,6 +147,8 @@
 
 
 						</ul></li>
+
+					</c:if>
 
 				</ul>
 
