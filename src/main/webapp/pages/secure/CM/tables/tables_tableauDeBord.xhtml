@@ -86,14 +86,14 @@
 			<p:tooltip id="idpopup" for="popuit" value="Identifiant: #{c.id}" trackMouse="true" />
 	
 		</p:column>
-		<p:column filterBy="#{c['class'].simpleName}" headerText="Type Operation"  filterMatchMode="exact">
+		<p:column filterBy="#{c['class']}" headerText="Type Operation"  filterMatchMode="exact">
 			<f:facet name="filter">
                 <p:selectOneMenu onchange="PF('operationsTable').filter()" >
                     <f:selectItem itemLabel="Selectioner" itemValue="#{null}" noSelectionOption="true" />
                     <f:selectItems value="#{dtFilterView.operations}" />
                 </p:selectOneMenu>
             </f:facet>
-            <h:outputText value="#{c['class'].simpleName}" />
+            <h:outputText value="#{c['class']}" />
         </p:column>
 		<!--p:column>
             <f:facet name="header">
