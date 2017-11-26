@@ -92,7 +92,9 @@
 
 					<li><h:link value="Prise en charge" outcome="prise_en_charge" immediate="true" /></li>
 
-
+					<p:panel rendered="#{topMenuMB.curentAgent.roleAgent.role eq 'ROLE_ADMIN' or topMenuMB.curentAgent.roleAgent.role eq 'ROLE_DC'}">
+			            
+			        
 					<li class="dropdown"><a href="#" class="dropdown-toggle"
 						data-toggle="dropdown"> Détenteur <b class="caret"></b>
 					</a>
@@ -118,6 +120,8 @@
 									outcome="edition_etats" immediate="true"/></li>
 
 						</ul></li>
+
+					</p:panel>
 
 					<li class='dropdown '><a href="#" class="dropdown-toggle"
 						data-toggle="dropdown"> Validations <b class="caret"></b>
