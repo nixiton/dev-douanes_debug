@@ -36,7 +36,7 @@ public class topMenuMgmtBean {
 			return "cm"; 
 		}
 
-		return "ca";
+		return "dashboard";
 		
 	}
 }
