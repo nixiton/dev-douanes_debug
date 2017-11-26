@@ -53,12 +53,15 @@
             <h:outputText value="#{c.state}" />
         </p:column>
 		
-		
-		<p:column>
-			<f:facet name="header">
-				<h:outputText value="Operation" />
-			</f:facet>
-			<h:outputLink id="popuit" value="#">
+	
+		<p:column filterBy="#{c['class']}" headerText="Type Operation"  filterMatchMode="exact">
+			<f:facet name="filter">
+                <p:selectOneMenu onchange="PF('operationsTable').filter()" >
+                    <f:selectItem itemLabel="Selectioner" itemValue="#{null}" noSelectionOption="true" />
+                    <f:selectItems value="#{dtFilterView.operations}" />
+                </p:selectOneMenu>
+            </f:facet>
+            <h:outputLink id="popuit" value="#">
 			
 			<p:panel rendered="#{c['class'].simpleName eq 'OpEntree' }">
             Saisie materiel
@@ -77,16 +80,6 @@
             </p:panel>
             </h:outputLink>
 			<p:tooltip id="idpopup" for="popuit" value="Identifiant: #{c.id}" trackMouse="true" />
-	
-		</p:column>
-		<p:column filterBy="#{c['class']}" headerText="Type Operation"  filterMatchMode="exact">
-			<f:facet name="filter">
-                <p:selectOneMenu onchange="PF('operationsTable').filter()" >
-                    <f:selectItem itemLabel="Selectioner" itemValue="#{null}" noSelectionOption="true" />
-                    <f:selectItems value="#{dtFilterView.operations}" />
-                </p:selectOneMenu>
-            </f:facet>
-            <h:outputText value="#{c['class']}" />
         </p:column>
 		<!--p:column>
             <f:facet name="header">
