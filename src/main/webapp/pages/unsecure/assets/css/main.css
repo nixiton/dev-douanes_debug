@@ -2602,6 +2602,6 @@ table, .ui-datatable-tablewrapper {
   display: none!important;
 }
 
-#detail{
+#detail, #statut, #historique{
   width: 100%!important;
 }
