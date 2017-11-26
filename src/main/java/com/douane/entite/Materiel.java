@@ -30,7 +30,7 @@ public class Materiel implements Serializable{
 	private String autre;
 	//private String codification;
 	private boolean validation;
-	private boolean aModifier;
+	//private boolean aModifier;
 	private String renseignement;
 
 	private String code;
@@ -290,12 +290,12 @@ public class Materiel implements Serializable{
 		this.validation = validation;
 	}
 
-	public boolean isAModifier() {
+	/*public boolean isAModifier() {
 		return aModifier;
 	}
 	public void setAModifier(boolean aModifier) {
 		this.aModifier = aModifier;
-	}
+	}*/
 
 
 	public Direction getDirec() {
