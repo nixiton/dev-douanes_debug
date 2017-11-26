@@ -82,12 +82,28 @@
 			<p:tooltip id="idpopup" for="popuit" value="Identifiant: #{c.id}" trackMouse="true" />
         </p:column>
         <p:column>
+
             <f:facet name="header">
                 <h:outputText value="A modifier" />
             </f:facet>
 
             <p:panel rendered="#{c.state eq 'MODIF'}">
-            	<p:commandButton  icon="ui-icon-pencil"/>
+                    <p:panel rendered="#{c['class'].simpleName eq 'OpEntree' }">
+                        <p:commandButton  icon="ui-icon-pencil"/>
+                    </p:panel>
+                    <p:panel rendered="#{c['class'].simpleName eq 'OpSaisie' }">
+                        <p:commandButton  icon="ui-icon-pencil"/> 
+                    </p:panel>
+                    <p:panel rendered="#{c['class'].simpleName eq 'OpAttribution' }">
+                        <p:commandButton  icon="ui-icon-pencil"/>
+                    </p:panel>
+                    <p:panel rendered="#{c['class'].simpleName eq 'OpDettachement' }">
+                        <p:commandButton  icon="ui-icon-pencil"/>
+                    </p:panel>
+                    <p:panel rendered="#{c['class'].simpleName eq 'OpSortie' }">
+                        <p:commandButton  action="#{gacBean.setCurentOperation(a)}" update=":detailAttribution"
+            oncomplete="PF('detailAttribution').show()"  icon="ui-icon-pencil"/>
+                    </p:panel>
         	</p:panel>
             
             
@@ -113,5 +129,7 @@
     </h:commandLink-->
 
 </h:form>
+
+<ui:include src="/pages/secure/CM/tables/dialogs/dialogs_vattribution.xhtml"></ui:include>
 
 </html>
