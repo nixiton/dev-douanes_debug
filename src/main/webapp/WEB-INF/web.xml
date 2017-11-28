@@ -128,6 +128,11 @@
         <location>/AppExceptionHandler</location>
     </error-page>
 
+    <error-page>
+        <error-code>403</error-code>
+        <location>/pages/unsecure/error_403.xhtml</location>
+    </error-page>
+
     <!--error-page>
         <exception-type>javax.servlet.ServletException</exception-type>
         <location>/AppExceptionHandler</location>

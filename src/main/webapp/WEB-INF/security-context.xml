@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans:beans xmlns:sec="http://www.springframework.org/schema/security"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:beans="http://www.springframework.org/schema/beans"
-	xsi:schemaLocation="
+			 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:beans="http://www.springframework.org/schema/beans"
+			 xsi:schemaLocation="
      http://www.springframework.org/schema/beans
      http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
     http://www.springframework.org/schema/security
@@ -9,43 +9,69 @@
 
 	<!-- Enable method level Spring Security by annotations -->
 	<sec:global-method-security
-		pre-post-annotations="enabled" />
+			pre-post-annotations="enabled" />
 	<sec:http auto-config="true" use-expressions="true">
 
 		<!-- Page level Spring Security : Intercept access to resources in /pages/secure/** -->
-		<sec:intercept-url pattern="/pages/secure/**"
-			access="hasAnyRole('ROLE_ADMIN','ROLE_GAC', 'ROLE_SISE', 'ROLE_DC')" />
+		<!-- ADMIN-->
+		<sec:access-denied-handler ref="my403" />
+		<sec:intercept-url pattern="/pages/secure/admin/**"
+						   access="hasAnyRole('ROLE_ADMIN','ROLE_CONS','ROLE_DC','ROLE_GAC','ROLE_SISE')" />
+
 		<sec:intercept-url pattern="/pages/template/common/**"
-			access="hasRole('ROLE_ADMIN')" />
+						   access="hasAnyRole('ROLE_ADMIN','ROLE_CONS','ROLE_DC','ROLE_GAC','ROLE_SISE')" />
+
+		<sec:intercept-url pattern="/pages/secure/choice.xhtml"
+						   access="hasAnyRole('ROLE_ADMIN','ROLE_CONS','ROLE_DC','ROLE_GAC','ROLE_SISE')" />
+
+
+
+		<!-- DEPOSITAIRE COMPTABLE -->
+		<sec:intercept-url pattern="/pages/secure/CM/DC/**"
+						   access="hasAnyRole('ROLE_DC','ROLE_ADMIN','ROLE_CONS')" />
+
+		<!-- CONSULTATION-->
+		<sec:intercept-url pattern="/pages/secure/CM/DGD/**"
+						   access="hasAnyRole('ROLE_CONS','ROLE_ADMIN','ROLE_CONS')" />
+
+		<!-- GAC-->
+		<sec:intercept-url pattern="/pages/secure/CM/GAC/**"
+						   access="hasAnyRole('ROLE_GAC','ROLE_ADMIN','ROLE_CONS')" />
+		<!-- SISE-->
+		<sec:intercept-url pattern="/pages/secure/CM/SISE/**"
+						   access="hasAnyRole('ROLE_SISE','ROLE_ADMIN','ROLE_CONS')" />
+
+		<sec:intercept-url pattern="/pages/secure/**"
+						   access="hasAnyRole('ROLE_ADMIN','ROLE_CONS')" />
 
 		<!-- Page level Spring Security : Permit access to resources in /pages/unsecure/** -->
 		<sec:intercept-url pattern="/pages/unsecure/**"
-			access="permitAll" />
-			
-					<!-- Page level Spring Security : Permit access to resources in /resources/** -->
+						   access="permitAll" />
+
+		<!-- Page level Spring Security : Permit access to resources in /resources/** -->
 		<sec:intercept-url pattern="/resources/**"
-			access="permitAll" />
-				<sec:intercept-url pattern="/pages/template/unsecure/**"
-			access="permitAll" />
+						   access="permitAll" />
+		<sec:intercept-url pattern="/pages/template/unsecure/**"
+						   access="permitAll" />
 
 		<!-- Page level Spring Security : Intercept access to resources in /** -->
 		<sec:intercept-url pattern="/**" 	access="permitAll"  />
 
 		<!-- Page level Spring Security : Enable Primefaces -->
 		<sec:intercept-url pattern="/javax.faces.resource/**"
-			access="permitAll" />
-			
-			
+						   access="permitAll" />
+
+
 
 		<!-- Define login page for Spring Security -->
 		<sec:form-login login-page="/pages/unsecure/login.xhtml" />
 
 		<!-- Define logout properties for Spring Security -->
 		<sec:logout invalidate-session="true" delete-cookies="true"
-			logout-success-url="/"></sec:logout>
+					logout-success-url="/"></sec:logout>
 	</sec:http>
 
-	<!-- Set customUserDetailsService class as the authentication Manager for 
+	<!-- Set customUserDetailsService class as the authentication Manager for
 		Spring Security -->
 	<beans:bean id="customAuthenticationProvider" class="com.douane.security.CustomAuthenticationProvider"/>
 
@@ -56,8 +82,14 @@
 
 	<!-- Inject authentication Manager to our LoginBean -->
 	<beans:bean id="loginBean" name="loginBean"
-		class="com.douane.managed.bean.LoginBean" scope="prototype">
+				class="com.douane.managed.bean.LoginBean" scope="prototype">
 		<beans:property name="authenticationManager" ref="authenticationManager"></beans:property>
 	</beans:bean>
+
+	<beans:bean id="my403"
+				class="com.douane.exception.CustomAccessDeniedHandler">
+		<beans:property name="message" value="403" />
+	</beans:bean>
+
 
 </beans:beans>
