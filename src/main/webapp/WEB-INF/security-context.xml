@@ -27,6 +27,12 @@
 
 
 		<!-- DEPOSITAIRE COMPTABLE -->
+
+
+		<sec:intercept-url pattern="/pages/secure/CM/ComptaMatiere.xhtml"
+						   access="hasAnyRole('ROLE_DC','ROLE_ADMIN','ROLE_CONS')" />
+
+
 		<sec:intercept-url pattern="/pages/secure/CM/DC/**"
 						   access="hasAnyRole('ROLE_DC','ROLE_ADMIN','ROLE_CONS')" />
 
