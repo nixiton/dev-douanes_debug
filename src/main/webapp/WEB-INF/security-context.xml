@@ -30,10 +30,10 @@
 
 
 		<sec:intercept-url pattern="/pages/secure/CM/ComptaMatiere.xhtml"
-						   access="hasAnyRole('ROLE_DC','ROLE_ADMIN','ROLE_CONS', 'ROLE_GAC')" />
+						   access="hasAnyRole('ROLE_DC','ROLE_ADMIN','ROLE_CONS', 'ROLE_GAC', 'ROLE_SISE')" />
 
 		<sec:intercept-url pattern="/pages/secure/CA/ComptaAdmin.xhtml"
-						   access="hasAnyRole('ROLE_DC','ROLE_ADMIN','ROLE_CONS', 'ROLE_GAC')" />
+						   access="hasAnyRole('ROLE_DC','ROLE_ADMIN','ROLE_CONS', 'ROLE_GAC', 'ROLE_SISE')" />
 
 
 		<sec:intercept-url pattern="/pages/secure/CM/DC/**"
