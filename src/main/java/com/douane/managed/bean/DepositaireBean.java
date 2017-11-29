@@ -1422,9 +1422,10 @@ System.out.println("****************************ADD3 ATTR**ERRORR***************
 		System.out.println(FacesContext.getCurrentInstance().toString());
 		String userId = ec.getRequestParameterMap().get(1);
 		Map<String, String> map = ec.getRequestParameterMap();
+		String input = ":det_input";
 		for (Map.Entry<String, String> entry : map.entrySet())
 		{
-			if(entry.getKey().equals("j_idt58:det_input"))
+			if(entry.getKey().toLowerCase().contains(input.toLowerCase()))
 				idAg = Long.parseLong(entry.getValue());
 				//System.out.println(entry.getKey() + "/" + entry.getValue());
 		}
