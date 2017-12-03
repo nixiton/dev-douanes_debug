@@ -4,6 +4,7 @@
     xmlns:f="http://java.sun.com/jsf/core"
     xmlns:h="http://java.sun.com/jsf/html"
     xmlns:p="http://primefaces.org/ui"
+    xmlns:c="http://java.sun.com/jsp/jstl/core"
     >
 
     <p:dialog id="statut" widgetVar="statut">
@@ -16,7 +17,16 @@
                     <tr>
                         
                         <td>Détenteur</td>
-                        <td>#{suivieditionBean.materiel.detenteur.im}</td>
+                        <td>
+                            <c:if test="#{suivieditionBean.materiel.detenteur ne null}">
+                                #{suivieditionBean.materiel.detenteur.im}
+                            </c:if>
+
+                            <c:if test="#{suivieditionBean.materiel.detenteur eq null}">
+                                #{suivieditionBean.materiel.dc.im}
+                            </c:if>
+
+                        </td>
 
                     </tr>
                     <tr>
@@ -64,8 +74,10 @@
                         <td>Mouvements effectués</td>
                         <td>
 
+                        #{suivieditionBean.materiel.dc.im} =>
+
                         <ui:repeat value="#{suivieditionBean.listOperationAttributionByMateriel}" var="value">
-                            #{value.detenteur.im} <br></br>
+                            #{value.detenteur.im} =>
                         </ui:repeat>
 
                         </td>
