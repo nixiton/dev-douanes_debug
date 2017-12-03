@@ -485,7 +485,7 @@ public class SISEformBean {
         this.usermetierimpl = usermetierimpl;
     }
     
-    public String addBureau() {
+    public String addBureau() throws SQLException  {
         Bureau b = new Bureau(this.getDesignation(), this.getCodeBureau());
         Agent agent = (Agent)RequestFilter.getSession().getAttribute("agent");
         refmetierimpl.addRef(b,agent);
@@ -558,7 +558,7 @@ public class SISEformBean {
     }
     
     
-    public String addService()
+    public String addService() throws SQLException 
     {
         Service service = new Service(this.getDesignation(), this.getCodeService());
         Agent agent = (Agent)RequestFilter.getSession().getAttribute("agent");
@@ -566,7 +566,7 @@ public class SISEformBean {
         return SUCCESS;
     }
     
-    public String addDirection()
+    public String addDirection() throws SQLException 
     {
         Direction direction = new Direction(this.getDesignation(), this.getCodeDirection());
         Agent agent = (Agent)RequestFilter.getSession().getAttribute("agent");
