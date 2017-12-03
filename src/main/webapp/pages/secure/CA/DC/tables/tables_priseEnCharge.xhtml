@@ -1,0 +1,113 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:p="http://primefaces.org/ui">
+
+<h:head></h:head>
+
+<div   class="body collapse in table-responsive">
+
+    <div class="col-lg-4">
+
+        <h:link value="Ajouter" outcome="add_PriseEnCharge"
+            class="btn btn-lg btn-primary btn-block " immediate="true" />
+            
+        <hr></hr>
+
+    </div>    
+
+
+
+    <p:dataTable   var="materiel" value="#{depositaireBean.listMaterielNouveauValide}"
+                 paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}  "
+                 paginator="true" rows="10" style="margin-bottom:20px">
+ 
+        <p:column>
+            <f:facet name="header">
+                <h:outputText value="ID" />
+            </f:facet>
+            <h:outputText value="#{materiel.idMateriel}" />
+        </p:column>
+        <p:column>
+            <f:facet name="header">
+                <h:outputText value="Type de materiel" />
+            </f:facet>
+            <h:outputText value="#{materiel.nomenMat.designation}" />
+        </p:column>
+        <p:column>
+            <f:facet name="header">
+                <h:outputText value="Nomenclature" />
+            </f:facet>
+            <h:outputText value="#{materiel.nomenMat.nomenclature}" />
+        </p:column>
+        <p:column>
+            <f:facet name="header">
+                <h:outputText value="Marque" />
+            </f:facet>
+            <h:outputText value="#{materiel.marque.designation}" />
+        </p:column>
+        <p:column>
+            <f:facet name="header">
+                <h:outputText value="Réference" />
+            </f:facet>
+           <h:outputText value=" #{materiel.reference}" />
+        </p:column>
+        <p:column>
+            <f:facet name="header">
+                <h:outputText value="Numro de Série" />
+            </f:facet>
+            <h:outputText value="#{materiel.numSerie}" />
+        </p:column>
+        <!--p:column>
+            <f:facet name="header">
+                <h:outputText value="Caractéristique" />
+            </f:facet>
+            <h:outputText value="#{materiel.caract}" />
+        </p:column-->
+        <p:column>
+            <f:facet name="header">
+                <h:outputText value="Mode d'aquisition" />
+            </f:facet>
+            <h:outputText value="#{materiel.modAcq.designation}" />
+        </p:column>
+        <!--p:column>
+            <f:facet name="header">
+                <h:outputText value="Financement" />
+            </f:facet>
+            <h:outputText value="#{materiel.financement.designation}" />
+        </p:column>
+        <p:column>
+            <f:facet name="header">
+                <h:outputText value="Montant sur la facture" />
+            </f:facet>
+            <h:outputText value="#{materiel.montant_facture}" />
+        </p:column>
+        <p:column>
+            <f:facet name="header">
+                <h:outputText value="Référence facture" />
+            </f:facet>
+            <h:outputText value="#{materiel.refFacture}" />
+        </p:column>
+        <p:column>
+            <f:facet name="header">
+                <h:outputText value="Fournisseur" />
+            </f:facet>
+            <h:outputText value="#{materiel.fournisseur.designation}" />
+        </p:column-->
+
+        <p:column>
+
+            <f:facet name="header">
+                <h:outputText value="Détail" />
+            </f:facet>
+            <p:commandButton  action="#{depositaireBean.mySetCurentMateriel(materiel)}" 
+            oncomplete="PF('detail').show()" icon="ui-icon-zoomin" update=":detail"/>
+        </p:column>
+    </p:dataTable>
+</div>
+
+<ui:include src="/pages/secure/CM/DC/tables/dialogs/dialogs_priseEnCharge.xhtml"></ui:include>
+
+</html>

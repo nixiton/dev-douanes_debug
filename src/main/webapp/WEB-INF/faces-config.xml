@@ -170,6 +170,8 @@
 			<to-view-id>/pages/secure/CA/DC/saisieMatEx.xhtml</to-view-id>
 			<redirect />
 		</navigation-case>
+
+		
 		
 		
 		<navigation-case>
