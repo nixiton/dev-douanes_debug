@@ -125,6 +125,13 @@
 		</navigation-case>
 
 		<navigation-case>
+			<from-action>#{topMenuMB.goToDashboardadmin}</from-action>
+			<from-outcome>dashboardCA</from-outcome>
+			<to-view-id>/pages/secure/admin/adminCA.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+
+		<navigation-case>
 			<from-action>#{topMenuMB.goToDashboard}</from-action>
 			<from-outcome>cm</from-outcome>
 			<to-view-id>/pages/secure/CM/ComptaMatiere.xhtml</to-view-id>

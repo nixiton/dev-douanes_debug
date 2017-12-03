@@ -76,7 +76,7 @@
 
 					<c:if test="#{topMenuMB.curentAgent.roleAgent.role eq 'ROLE_ADMIN'}">
 						<li class="active"><h:commandLink
-								action="#{topMenuMB.goToDashboard}" immediate="true" >
+								action="#{topMenuMB.goToDashboardadmin}" immediate="true" >
 								Taleau de bord
 							</h:commandLink></li>
 					</c:if>
@@ -84,7 +84,7 @@
 					topMenuMB.curentAgent.roleAgent.role eq 'ROLE_SISE' or
 				topMenuMB.curentAgent.roleAgent.role eq 'ROLE_DC'}">
 						<li class="active"><h:commandLink
-								action="#{topMenuMB.goToDashboardCM}" immediate="true" >
+								action="#{topMenuMB.goToDashboardCA}" immediate="true" >
 								Taleau de bord
 							</h:commandLink></li>
 					</c:if>

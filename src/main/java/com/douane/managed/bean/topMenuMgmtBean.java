@@ -30,7 +30,15 @@ public class topMenuMgmtBean {
 		
 	}
 
+	public String goToDashboardadmin(){
+		return "dashboardCA";
+		
+	}
+
 	public String goToDashboardCM(){
 		return "cm";
+	}
+	public String goToDashboardCA(){
+		return "ca";
 	}
 }
