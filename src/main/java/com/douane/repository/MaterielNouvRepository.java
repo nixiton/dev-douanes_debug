@@ -2,6 +2,7 @@ package com.douane.repository;
 
 import com.douane.entite.Materiel;
 import com.douane.entite.MaterielNouv;
+import com.douane.entite.*;
 import org.springframework.data.repository.CrudRepository;
 
 import java.util.List;
@@ -12,5 +13,6 @@ import java.util.List;
  */
 public interface MaterielNouvRepository extends CrudRepository<MaterielNouv, Long> {
   public List<MaterielNouv> findByValidation(boolean validation);
+  public List<MaterielNouv> findByValidationAndDirection(boolean validation, Direction direc);
   //public List<MaterielNouv> findByValidationAndAModifier(boolean validation, boolean aModifier);
 }
