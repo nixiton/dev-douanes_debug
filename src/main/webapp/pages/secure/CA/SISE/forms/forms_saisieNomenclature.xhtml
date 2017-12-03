@@ -32,17 +32,19 @@
 				
 				<hr></hr>
 				
-				<label for="text2" class="control-label col-lg-4">Nomenclature
-				</label>
+				<label for="text1" class="control-label col-lg-4">Type d'Objet
+                    </label>
 
-				<div class="col-lg-6">
+                    <div class="col-lg-6">
 
-					<p:inputText id="nomenclature" required="true"
-						value="#{siseBean.nomenclature}"
-						requiredMessage=""
-						placeholder="Nomenclature" styleClass="form-control top"></p:inputText>
+                        <p:selectOneMenu id="zone"  styleClass="form-control top" converter="#{refConverter}" value="#{siseBean.typeObjet}">
+                            <f:selectItem itemValue="#{null}" itemLabel="--select--" /> 
+                            <f:selectItems value="#{siseBean.listTypeObjet}" var="type" itemLabel="#{type.designation}"/>
+                        </p:selectOneMenu>
 
-				</div>
+                    <hr></hr>
+
+                    </div>
 
 				<div class="col-lg-2"></div>
 

@@ -28,9 +28,24 @@
 						requiredMessage=""
 						placeholder="Désignation" styleClass="form-control top"></p:inputText>
 
+				<hr></hr>
 				</div>
 				
-				<hr></hr>
+
+			<div class="form-group">
+				<label for="text1" class="control-label col-lg-4">Caractéristique
+				</label>
+
+				<div class="col-lg-6">
+
+					<p:inputText   required="true"
+						value="#{siseBean.caracteristique}"
+						requiredMessage=""
+						placeholder="Caractéristique" styleClass="form-control top"></p:inputText>
+						<hr></hr>
+				</div>
+				
+				
 
 				<div class="col-lg-2"></div>
 
@@ -40,7 +55,7 @@
 				<label for="text1" class="control-label col-lg-4"></label>
 
 				<div class="col-lg-4">
-					<h:commandButton id="btnSignId" action="#{siseBean.addTypeMateriel}" value="Créer"
+					<h:commandButton id="btnSignId" action="#{siseBean.addTypeObjet}" value="Créer"
 						class="btn btn-lg btn-primary btn-block"/>
 				</div>
 
