@@ -47,17 +47,33 @@
 
 					<!-- User role -->
 					<h:outputLabel for="role" styleClass="col-md-6"
-								   value="Role : " />
+								   value="Code fonction : " />
 					<p:inputText id="role" styleClass="col-md-6" value="#{userMB.role}"
 								 required="true">
 					</p:inputText>
 					<h:outputLabel for="designation" styleClass="col-md-6"
-								   value="designation : " />
+								   value="designation fonction: " />
 					<p:inputText id="designation" styleClass="col-md-6" value="#{userMB.designation}"
 								 required="true">
 					</p:inputText>
 
 					<hr></hr>
+
+					<!-- DIRECTION -->
+					<h:outputLabel styleClass="col-md-6" 
+						value="Direction " />
+
+					<p:selectOneMenu value="#{userMB.direction}" converter="#{refConverter}" panelStyle="width:180px"  style="width:160px"
+                         effect="fade" var="t" filter="true" filterMatchMode="startsWith">
+                        <f:selectItem itemValue="#{null}" itemLabel="--select--" /> 
+                            <f:selectItems value="#{siseBean.listDirection}" var="theme" itemLabel="#{theme.designation}" itemValue="#{theme}" />
+                        <p:column>
+                            <h:outputText value="#{t.designation}" />
+                        </p:column>
+
+                    </p:selectOneMenu>
+
+                    <hr></hr>
 
 					<h:outputLabel styleClass="col-md-6" for="username"
 						value="Login : " />
