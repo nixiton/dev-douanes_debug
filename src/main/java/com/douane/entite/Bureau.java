@@ -21,7 +21,7 @@ public class Bureau extends Referentiel {
 		// TODO Auto-generated constructor stub
 	}
 
-	public String getCodeBureau() {
+	public String getCodeBureau() throws SQLException {
 		return codeBureau;
 	}
 

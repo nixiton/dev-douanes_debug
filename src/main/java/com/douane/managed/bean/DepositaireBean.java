@@ -991,6 +991,12 @@ public class DepositaireBean {
 		this.setNumSerie(this.getMateriel().getNumSerie());
 	}
 
+	public void onMotifSortieChange() {
+		
+	}
+
+	
+
 	//list services
 	public List<Service> getListServices()
 	{

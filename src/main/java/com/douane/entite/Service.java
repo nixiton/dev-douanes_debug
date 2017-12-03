@@ -12,7 +12,7 @@ public class Service extends Referentiel{
 		return codeService;
 	}
 
-	public void setCodeService(String codeService) {
+	public void setCodeService(String codeService) throws SQLException {
 		this.codeService = codeService;
 	}
 

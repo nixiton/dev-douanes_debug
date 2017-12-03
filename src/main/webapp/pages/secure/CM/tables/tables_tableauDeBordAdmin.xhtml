@@ -10,7 +10,7 @@
 
 
 <h:form>
-	<p:dataTable var="c" value="#{operationBean.mesOperations}" widgetVar="operationsTable"
+	<p:dataTable var="c" value="#{operationBean.listOperations}" widgetVar="operationsTable"
 		paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}"
 		paginator="true" rows="10" style="margin-bottom:20px"
 		emptyMessage="Aucun resultat" filteredValue="#{dtFilterView.filteredOperations}"
@@ -54,8 +54,10 @@
         </p:column>
 
 
-        
-		
+        <p:column headerText="Opérateur">
+            <h:outputText value="#{c.operateur.im}" />
+        </p:column>
+
 	
 		<p:column filterBy="#{c['class']}" headerText="Type Operation"  filterMatchMode="exact">
 			<f:facet name="filter">

@@ -5,6 +5,7 @@
     xmlns:f="http://java.sun.com/jsf/core"
     xmlns:h="http://java.sun.com/jsf/html"
     xmlns:p="http://primefaces.org/ui"
+    xmlns:c="http://java.sun.com/jsp/jstl/core"
     >
 
  <h:head></h:head>
@@ -36,6 +37,7 @@
                         <p:column>
                             <h:outputText value="#{t.designation}" />
                         </p:column>
+                        <p:ajax event="change" update="designation" listener="#{depositaireBean.onMotifSortieChange}"/>
                     </p:selectOneMenu>
 
                 <hr></hr>
@@ -107,26 +109,8 @@
                 
                 
 
-
-                 
-
-                <div class="col-lg-6">
-
+                <p:panel id="designation" class="col-lg-6" rendered="#{depositaireBean.motifSortie.designation eq 'Affectation'}">
                     <label for="text1" >Destination</label>
-
-                    <label for="text1" >Bureau</label>
-
-                    <p:selectOneMenu  styleClass="form-control top" converter="#{refConverter}" value="#{depositaireBean.destination}">
-                        <f:selectItem itemValue="#{null}" itemLabel="--select--" /> 
-                            <f:selectItems value="#{siseBean.listBureau}" var="b" itemLabel="#{b.codeBureau}" itemValue="#{b}"/>
-                    </p:selectOneMenu>
-
-                    <label for="text1" >Service</label>
-
-                    <p:selectOneMenu  styleClass="form-control top" converter="#{refConverter}" value="#{depositaireBean.destinationService}">
-                        <f:selectItem itemValue="#{null}" itemLabel="--select--" /> 
-                            <f:selectItems value="#{siseBean.listService}" var="b" itemLabel="#{b.codeService}" itemValue="#{b}"/>
-                    </p:selectOneMenu>
 
                     <label for="text1" >Direction</label>
 
@@ -135,9 +119,8 @@
                             <f:selectItems value="#{siseBean.listDirection}" var="b" itemLabel="#{b.codeDirection}" itemValue="#{b}"/>
                     </p:selectOneMenu>
 
-                <hr></hr>
-
-                </div>
+                    <hr></hr>
+                </p:panel>
                 
 
 
