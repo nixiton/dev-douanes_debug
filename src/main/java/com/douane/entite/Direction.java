@@ -2,6 +2,7 @@ package com.douane.entite;
 
 import javax.persistence.*;
 
+import java.sql.SQLException;
 
 @Entity
 public class Direction extends Referentiel {
