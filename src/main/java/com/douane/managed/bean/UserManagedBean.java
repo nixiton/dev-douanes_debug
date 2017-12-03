@@ -21,6 +21,8 @@ import org.springframework.transaction.annotation.Transactional;
 import com.douane.metier.user.IUserMetier;
 import com.douane.model.User;
 
+import java.sql.SQLException;
+
 
 
 @ManagedBean(name="userMB")
