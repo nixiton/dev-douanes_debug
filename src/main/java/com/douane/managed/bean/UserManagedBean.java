@@ -98,11 +98,11 @@ public class UserManagedBean implements Serializable {
 
 			//user.setUsername(getUsername());
 
-			direction = new Direction();
+			Direction dir = new Direction();
 
 			if(designationDir!=null){
-				direction.setDesignation(designationDir);
-				direction.setCodeDirection(codeDir);
+				dir.setDesignation(designationDir);
+				dir.setCodeDirection(codeDir);
 			}
 
 			user.setPrenomAgent(this.getFirstname());
@@ -114,7 +114,7 @@ public class UserManagedBean implements Serializable {
 			useri.setDesignation(designation);
 			useri.setRole(role);
 			user.setRoleAgent(useri);
-			user.setDirection(direction);
+			user.setDirection(dir);
 			user.setBureau(getBureau());
 			user.setService(getService());
 			user.setPosteny(getPoste());
