@@ -25,7 +25,9 @@
 					
 					<h:selectOneMenu styleClass="form-control top" value="#{choiceMB.choiceValue}">
 						<c:if test="#{topMenuMB.curentAgent.roleAgent.role eq 'ROLE_ADMIN'}">
-			            	<f:selectItem itemValue="admin" itemLabel="Administration"/>
+			            	<f:selectItem itemValue="adminCM" itemLabel="Administration Comptabilité Matière"/>
+
+			            	<f:selectItem itemValue="adminCA" itemLabel="Administration Comptabilité Administrative"/>
 			        	</c:if>
 			        	<c:if test="#{topMenuMB.curentAgent.roleAgent.role ne 'ROLE_ADMIN'}">
 							<f:selectItem itemValue="Cm" itemLabel="Comptabilité Matière"/>

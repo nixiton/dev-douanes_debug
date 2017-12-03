@@ -76,8 +76,14 @@
 		</navigation-case>
 		<navigation-case>
 			<from-action>#{choiceMB.choisir}</from-action>
-			<from-outcome>admin</from-outcome>
-			<to-view-id>/pages/secure/admin/admin.xhtml</to-view-id>
+			<from-outcome>adminCA</from-outcome>
+			<to-view-id>/pages/secure/admin/adminCA.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-action>#{choiceMB.choisir}</from-action>
+			<from-outcome>adminCM</from-outcome>
+			<to-view-id>/pages/secure/admin/adminCM.xhtml</to-view-id>
 			<redirect />
 		</navigation-case>
 	</navigation-rule>
@@ -114,7 +120,7 @@
 		<navigation-case>
 			<from-action>#{topMenuMB.goToDashboard}</from-action>
 			<from-outcome>dashboard</from-outcome>
-			<to-view-id>/pages/secure/admin/admin.xhtml</to-view-id>
+			<to-view-id>/pages/secure/admin/adminCM.xhtml</to-view-id>
 			<redirect />
 		</navigation-case>
 
@@ -516,7 +522,7 @@
 		<navigation-case>
 			<from-action>#{depositaireBean.addDecharge}</from-action>
 			<from-outcome>success</from-outcome>
-			<to-view-id>/pages/secure/admin/admin.xhtml</to-view-id>
+			<to-view-id>/pages/secure/admin/adminCM.xhtml</to-view-id>
 			<redirect />
 		</navigation-case>
 
@@ -524,7 +530,7 @@
 		<navigation-case>
 			<from-action>#{depositaireBean.addAttribution}</from-action>
 			<from-outcome>success</from-outcome>
-			<to-view-id>/pages/secure/admin/admin.xhtml</to-view-id>
+			<to-view-id>/pages/secure/admin/adminCM.xhtml</to-view-id>
 			<redirect />
 		</navigation-case>
 
@@ -532,7 +538,7 @@
 		<navigation-case>
 			<from-action>#{depositaireBean.addDetachement}</from-action>
 			<from-outcome>success</from-outcome>
-			<to-view-id>/pages/secure/admin/admin.xhtml</to-view-id>
+			<to-view-id>/pages/secure/admin/adminCM.xhtml</to-view-id>
 			<redirect />
 		</navigation-case>
 
