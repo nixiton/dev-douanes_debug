@@ -80,6 +80,7 @@ public class SuiviEditionBean {
     private List<OpDettachement> listOperationDetachement;
     private List<OpAttribution> listOperationAttributionByOperator;
     private List<OpDettachement> listOperationDetachementByOperator;
+    private List<OpDettachement> listOperationDetachementByDirection;
     private List<OpAttribution> listOperationAttributionByDirection;
     private List<OpDettachement> listOperationDeetachementByDirection;
     private List<OpAttribution> listOperationAttributionByMateriel;
@@ -309,6 +310,12 @@ public class SuiviEditionBean {
     public List<OpDettachement> getListOperationDetachementByOperator()
     {
         return usermetierimpl.getListOpDettByOperatort(getAgentOperateur());
+    }
+
+    public List<OpDettachement> getListOperationDeetachementByDirection()
+    {
+        Agent agent = (Agent)RequestFilter.getSession().getAttribute("agent");
+        return usermetierimpl.getListOpDettByDirection(agent.getDirection());
     }
     public void setListOperationDetachementByOperator(List<OpDettachement> l)
     {
