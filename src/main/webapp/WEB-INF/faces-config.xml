@@ -339,7 +339,7 @@
 		</navigation-case>
 
 		<navigation-case>
-			<from-outcome>add_MotifAqAC</from-outcome>
+			<from-outcome>add_MotifAqCA</from-outcome>
 			<to-view-id>/pages/secure/CA/SISE/content_forms/content_forms_saisieMotifAquisition.xhtml</to-view-id>
 			<redirect />
 		</navigation-case>
