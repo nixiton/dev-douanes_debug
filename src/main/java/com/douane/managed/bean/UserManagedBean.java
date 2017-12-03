@@ -88,7 +88,7 @@ public class UserManagedBean implements Serializable {
 	 * 
 	 * @return String - Response Message
 	 */
-	public String addUser() {
+	public String addUser() throws SQLException {
 		try {
 			Agent user = new Agent();
 			Useri useri = new Useri();
@@ -97,6 +97,11 @@ public class UserManagedBean implements Serializable {
 			user.setNomAgent(getName());
 
 			//user.setUsername(getUsername());
+
+			if(designationDir!=null){
+				Direction dir =new Direction(designationDir, codeDir) ;
+				this.setDirection(dir);
+			}
 
 			user.setPrenomAgent(this.getFirstname());
 			user.setIm(getIm());
