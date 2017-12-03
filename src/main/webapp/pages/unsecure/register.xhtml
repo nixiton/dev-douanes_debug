@@ -59,7 +59,21 @@
 
 					<hr></hr>
 
+					<!-- DIRECTION -->
+					<h:outputLabel for="role" styleClass="col-md-6"
+								   value="Désignation direction : " />
+					<p:inputText id="role" styleClass="col-md-6" value="#{userMB.codeDir}"
+								 required="true">
+					</p:inputText>
+					<h:outputLabel for="designation" styleClass="col-md-6"
+								   value="Code direction: " />
+					<p:inputText id="designation" styleClass="col-md-6" value="#{userMB.designationDir}"
+								 required="true">
+					</p:inputText>
+
 					
+
+                    <hr></hr>
 
 					<h:outputLabel styleClass="col-md-6" for="username"
 						value="Login : " />

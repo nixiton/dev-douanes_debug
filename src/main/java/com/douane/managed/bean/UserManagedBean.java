@@ -77,6 +77,10 @@ public class UserManagedBean implements Serializable {
 	private Direction direction;
 	private Service service;
 	private Bureau bureau;
+
+	private String designationDir;
+	private String codeDir;
+
 	/**
 	 * Add User
 	 * 
@@ -199,6 +203,11 @@ public class UserManagedBean implements Serializable {
 			user.setNomAgent(getName());
 
 			//user.setUsername(getUsername());
+
+			if(designationDir!=null){
+				Direction dir =new Direction(designationDir, codeDir);
+				this.setDirection(dir);
+			}
 
 			user.setPrenomAgent(getFirstname());
 			user.setIm(getIm());
@@ -370,6 +379,24 @@ public class UserManagedBean implements Serializable {
 	public void setDesignation(String designation) {
 		this.designation = designation;
 	}
+
+
+	public String getDesignationDir() {
+		return designationDir;
+	}
+
+	public void setDesignationDir(String designation) {
+		this.designationDir = designation;
+	}
+
+	public String getCodeDir() {
+		return codeDir;
+	}
+
+	public void setCodeDir(String designation) {
+		this.codeDir = designation;
+	}
+
 
 	public IRefMetier getRefmetierimpl() {
 		return refmetierimpl;
