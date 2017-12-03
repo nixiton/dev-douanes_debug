@@ -20,11 +20,11 @@ public class Direction extends Referentiel {
 		this.setLeref("Direction");
 	}
 
-	public String getCodeDirection() throws SQLException {
+	public String getCodeDirection(){
 		return codeDirection;
 	}
 
-	public void setCodeDirection(String codeDirection) {
+	public void setCodeDirection(String codeDirection) throws SQLException  {
 		this.codeDirection = codeDirection;
 	}
 	

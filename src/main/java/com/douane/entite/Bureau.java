@@ -22,11 +22,11 @@ public class Bureau extends Referentiel {
 		// TODO Auto-generated constructor stub
 	}
 
-	public String getCodeBureau() throws SQLException {
+	public String getCodeBureau() {
 		return codeBureau;
 	}
 
-	public void setCodeBureau(String codeBureau) {
+	public void setCodeBureau(String codeBureau) throws SQLException  {
 		this.codeBureau = codeBureau;
 	}
 	
