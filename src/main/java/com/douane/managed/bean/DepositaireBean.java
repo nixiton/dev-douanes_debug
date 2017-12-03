@@ -52,6 +52,9 @@ import java.util.*;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
 
+
+import java.util.Calendar;
+
 /**
  * Created by hasina on 10/29/17.
  */
@@ -97,6 +100,22 @@ public class DepositaireBean {
 	@ManagedProperty(value="#{refmetier}")
 	IRefMetier refmetierimpl;
 	private List<Localite> listLocalite;
+
+
+
+	private String anneeAcquisition;
+
+
+	public String getAnneeAcquisition(){
+		return anneeAcquisition;
+	}
+
+	public void setAnneeAcquisition(String annee){
+		this.anneeAcquisition = annee;
+	}
+
+
+
 
 	public IRefMetier getRefmetierimpl() {
 		return refmetierimpl;
@@ -1004,6 +1023,8 @@ public class DepositaireBean {
 				m.setImage(null);
 			}
 
+			m.setAnneeAcquisition(this.anneeAcquisition);
+
 			m.setDocumentPath((String) RequestFilter.getSession().getAttribute("documentpath"));
 			RequestFilter.getSession().removeAttribute("documentpath");
 			m.setAutre(getAutre());
@@ -1058,6 +1079,8 @@ public class DepositaireBean {
 		MaterielNouv m = new MaterielNouv();
 
 		m.setAutre(getAutre());
+
+		m.setAnneeAcquisition((String) Calendar.getInstance().get(Calendar.YEAR));
 
 		m.setBureau(getBureau());
 		// m.setDirec(getDirection());

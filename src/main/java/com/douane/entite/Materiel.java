@@ -125,6 +125,9 @@ public class Materiel implements Serializable{
 
 
 
+	private String anneeAcquisition;
+
+
 
 	/*@ManyToOne
 	@JoinColumn(name="idFournisseur")
@@ -227,6 +230,14 @@ public class Materiel implements Serializable{
 
 	}
 
+
+	public String getAnneeAcquisition(){
+		return anneeAcquisition;
+	}
+
+	public void setAnneeAcquisition(String annee){
+		this.anneeAcquisition = annee;
+	}
 
 
 	/*public String getCodification() {
