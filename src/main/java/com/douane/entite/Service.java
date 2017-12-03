@@ -1,12 +1,11 @@
 package com.douane.entite;
 
 import javax.persistence.Entity;
-import javax.persistence.uniq;
 
 @Entity
 public class Service extends Referentiel{
 
-	@uniq
+	@Column(unique=true)
 	private String codeService;
 	
 	public String getCodeService() {
