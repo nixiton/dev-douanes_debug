@@ -10,6 +10,9 @@ import java.util.List;
 /**
  * Created by hasina on 11/8/17.
  */
+
+@ManagedBean(name="siseAdminBean")
+@RequestScoped
 public class SISEComptAdminBean {
 
     @Autowired

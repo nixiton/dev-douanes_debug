@@ -18,7 +18,7 @@
 
 	</div>
 
-	<p:dataTable   var="typemateriel" value="#{siseBean.listTypeMateriel}" 
+	<p:dataTable   var="typemateriel" value="#{siseBean.listTypeObjet}" 
                  paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}  "
                  paginator="true" rows="10" style="margin-bottom:20px">
 		<p:column>
@@ -29,6 +29,11 @@
 			<f:facet name="header">Désignation</f:facet>
 			#{typemateriel.designation}
 		</p:column>
+		<p:column>
+			<f:facet name="header">Caracteristique</f:facet>
+			#{typemateriel.caracteristique}
+		</p:column>
+		
 	</p:dataTable>
 
 
