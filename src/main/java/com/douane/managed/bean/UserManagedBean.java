@@ -124,7 +124,7 @@ public class UserManagedBean implements Serializable {
 
 
 			usermetierimpl.addUser(useri);
-			usermetierimpl.addRef(dir,user);
+			refmetierimpl.addRef(dir,user);
 			usermetierimpl.addAgent(user);
 
 			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Data Saved"));
