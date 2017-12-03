@@ -594,8 +594,8 @@ public class UserMetier implements IUserMetier{
 	public List<MaterielEx> getListMatEx()
 	{
 		Agent agent = (Agent)RequestFilter.getSession().getAttribute("agent");
-		return (List<MaterielEx>) materielExRepository.findAll();
-		//return (List<MaterielEx>) materielExRepository.findByDirec(agent.getDirection());
+		//return (List<MaterielEx>) materielExRepository.findAll();
+		return (List<MaterielEx>) materielExRepository.findByDirec(agent.getDirection());
 	}
 
 	@Override
