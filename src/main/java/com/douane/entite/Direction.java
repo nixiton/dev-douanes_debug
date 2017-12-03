@@ -1,6 +1,6 @@
 package com.douane.entite;
 
-import javax.persistence.Entity;
+import javax.persistence.*;
 
 
 @Entity
