@@ -312,11 +312,7 @@ public class SuiviEditionBean {
         return usermetierimpl.getListOpDettByOperatort(getAgentOperateur());
     }
 
-    public List<OpDettachement> getListOperationDeetachementByDirection()
-    {
-        Agent agent = (Agent)RequestFilter.getSession().getAttribute("agent");
-        return usermetierimpl.getListOpDettByDirection(agent.getDirection());
-    }
+
     public void setListOperationDetachementByOperator(List<OpDettachement> l)
     {
         this.listOperationDetachementByOperator = l;
@@ -332,9 +328,10 @@ public class SuiviEditionBean {
         this.listOperationAttributionByDirection = l;
     }
 
-    public List<OpDettachement> getListOperationDeetachementByDirection()
+        public List<OpDettachement> getListOperationDeetachementByDirection()
     {
-        return usermetierimpl.getListOpDettByDirection(getDirection());
+        Agent agent = (Agent)RequestFilter.getSession().getAttribute("agent");
+        return usermetierimpl.getListOpDettByDirection(agent.getDirection());
     }
     public void setListOperationDeetachementByDirection(List<OpDettachement> l)
     {
