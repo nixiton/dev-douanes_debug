@@ -180,6 +180,15 @@
 			<redirect />
 		</navigation-case>
 
+		<navigation-case>
+			<from-outcome>articles_priseEnCharge</from-outcome>
+			<to-view-id>/pages/secure/CA/DC/priseEnCharge.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+
+
+		
+
 
 		<navigation-case>
 			<from-outcome>sortie_article</from-outcome>
@@ -235,6 +244,9 @@
 			<to-view-id>/pages/secure/CM/GAC/validation/priseEnCharge.xhtml</to-view-id>
 			<redirect />
 		</navigation-case>
+
+
+
 
 		<navigation-case>
 			<from-outcome>v_detachement</from-outcome>
