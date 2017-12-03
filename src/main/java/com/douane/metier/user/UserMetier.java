@@ -813,7 +813,7 @@ public class UserMetier implements IUserMetier{
 		// TODO Auto-generated method stub
 		//return materielNouvRepository.findByValidation(true);
 		Agent agent = (Agent)RequestFilter.getSession().getAttribute("agent");
-		return materielNouvRepository.findByValidationAndDirection(true, agent.getDirection());
+		return materielNouvRepository.findByValidationAndDirec(true, agent.getDirection());
 		//return materielNouvRepository.findByValidationAndAModifier(true, true);
 	}
 
