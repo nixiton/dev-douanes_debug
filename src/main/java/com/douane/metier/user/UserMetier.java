@@ -480,6 +480,7 @@ public class UserMetier implements IUserMetier{
 	@Override
 	public List<OpEntree> getListOpEntree() {
 		// TODO Auto-generated method stub
+		
 		return opentreerepos.findAll();
 	}
 

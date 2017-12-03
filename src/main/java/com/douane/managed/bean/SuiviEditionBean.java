@@ -14,6 +14,8 @@ import java.util.Date;
 import java.util.List;
 import org.springframework.stereotype.Component;
 
+import com.douane.requesthttp.RequestFilter;
+
 /**
  * Created by hasina on 11/3/17.
  */
@@ -98,6 +100,8 @@ public class SuiviEditionBean {
         //setListOperationEntree(usermetierimpl.getListOpEntree());
         //return listOperationEntree;
         return usermetierimpl.getListOpEntree();
+        
+        
     }
 
     public void setListOperationEntree(List<OpEntree> l)
@@ -171,7 +175,8 @@ public class SuiviEditionBean {
     //-------------GET List of operations by DIRECTION --------------------------------
     public List<Operation> getListOperatoinByDirection()
     {
-        return usermetierimpl.getListOpByDirection(this.direction);
+        Agent agent = (Agent)RequestFilter.getSession().getAttribute("agent");
+        return usermetierimpl.getListOpByDirection(agent.getDirection());
     }
 
     public void setListOperatoinByDirection(List<Operation> l)
@@ -181,7 +186,8 @@ public class SuiviEditionBean {
 
     public List<OpEntree> getListOperationEntreeByDirection()
     {
-        return usermetierimpl.getListOpEntreeByDirection(this.direction);
+        Agent agent = (Agent)RequestFilter.getSession().getAttribute("agent");
+        return usermetierimpl.getListOpEntreeByDirection(agent.getDirection());
     }
     public void setListOperationEntreeByDirection(List<OpEntree> l)
     {
@@ -190,7 +196,8 @@ public class SuiviEditionBean {
 
     public List<OpSortie> getListOperationSortieByDirection()
     {
-        return usermetierimpl.getListOpSortieByDirection(this.direction);
+        Agent agent = (Agent)RequestFilter.getSession().getAttribute("agent");
+        return usermetierimpl.getListOpSortieByDirection(agent.getDirection());
     }
     public void setListOperationSortieByDirection(List<OpSortie> l)
     {
@@ -310,7 +317,8 @@ public class SuiviEditionBean {
 
     public List<OpAttribution> getListOperationAttributionByDirection()
     {
-        return usermetierimpl.getListOpAttrByDirection(getDirection());
+        Agent agent = (Agent)RequestFilter.getSession().getAttribute("agent");
+        return usermetierimpl.getListOpAttrByDirection(agent.getDirection());
     }
     public void setListOperationAttributionByDirection(List<OpAttribution> l)
     {
