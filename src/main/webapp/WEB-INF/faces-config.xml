@@ -164,6 +164,12 @@
 			<to-view-id>/pages/secure/CM/DC/saisieMatEx.xhtml</to-view-id>
 			<redirect />
 		</navigation-case>
+
+		<navigation-case>
+			<from-outcome>saisie_article</from-outcome>
+			<to-view-id>/pages/secure/CA/DC/saisieMatEx.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
 		
 		
 		<navigation-case>
@@ -171,6 +177,15 @@
 			<to-view-id>/pages/secure/CM/DC/priseEnCharge.xhtml</to-view-id>
 			<redirect />
 		</navigation-case>
+
+
+		<navigation-case>
+			<from-outcome>sortie_article</from-outcome>
+			<to-view-id>/pages/secure/CA/DC/priseEnCharge.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+
+
 		
 		
 		<navigation-case>
