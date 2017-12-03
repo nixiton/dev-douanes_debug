@@ -197,7 +197,7 @@ public class UserManagedBean implements Serializable {
 		return ERROR;
 	}
 	
-	public String addUtilisateur() {
+	public String addUtilisateur() throws SQLException{
 		try {
 			Agent user = new Agent();
 			user.setNomAgent(getName());
@@ -205,7 +205,7 @@ public class UserManagedBean implements Serializable {
 			//user.setUsername(getUsername());
 
 			if(designationDir!=null){
-				Direction dir =new Direction(designationDir, codeDir);
+				Direction dir =new Direction(designationDir, codeDir) ;
 				this.setDirection(dir);
 			}
 
