@@ -4,6 +4,7 @@ import com.douane.entite.Materiel;
 import com.douane.entite.MaterielEx;
 import com.douane.entite.*;
 import org.springframework.data.repository.CrudRepository;
+import java.util.List;
 
 /**
  * Created by hasina on 11/11/17.
