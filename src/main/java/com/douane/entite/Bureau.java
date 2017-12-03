@@ -15,7 +15,7 @@ public class Bureau extends Referentiel {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Bureau(String designation, String code) {
+	public Bureau(String designation, String code) throws SQLException  {
 		super(designation);
 		setCodeBureau(code);
 		this.setLeref("Bureau");

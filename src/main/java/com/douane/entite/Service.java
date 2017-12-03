@@ -22,7 +22,7 @@ public class Service extends Referentiel{
 		// TODO Auto-generated constructor stub
 	}
 
-	public Service(String designation, String code) {
+	public Service(String designation, String code) throws SQLException {
 		super(designation);
 		setCodeService(code);
 		// TODO Auto-generated constructor stub

@@ -14,7 +14,7 @@ public class Direction extends Referentiel {
 		// TODO Auto-generated constructor stub
 		this.setLeref("Direction");
 	}
-	public Direction(String designation, String code){
+	public Direction(String designation, String code)throws SQLException  {
 		this.setDesignation(designation);
 		this.setCodeDirection(code);
 		this.setLeref("Direction");
