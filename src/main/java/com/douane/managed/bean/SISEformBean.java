@@ -25,6 +25,8 @@ import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.RequestScoped;
 import javax.faces.context.FacesContext;
 
+import java.sql.SQLException;
+
 /**
  * Created by hasina on 10/25/17.
  */
