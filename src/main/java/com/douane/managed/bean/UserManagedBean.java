@@ -101,8 +101,8 @@ public class UserManagedBean implements Serializable {
 			Direction dir = new Direction();
 
 			if(designationDir!=null){
-				dir.setDesignation(designationDir);
-				dir.setCodeDirection(codeDir);
+				dir.setDesignation(this.getDesignationDir());
+				dir.setCodeDirection(this.getCodeDir());
 			}
 
 			user.setPrenomAgent(this.getFirstname());
@@ -121,7 +121,10 @@ public class UserManagedBean implements Serializable {
 			//getUsermetierimpl().addAgent(user);
 			//refmetierimpl.addRef(new Useri(designation,role), new Agent(getIm(),getName(),hashedPassword,new Useri(designation,role)));
 			//refmetierimpl.addRef(useri,user);
+
+
 			usermetierimpl.addUser(useri);
+			usermetierimpl.addRef(dir,user);
 			usermetierimpl.addAgent(user);
 
 			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Data Saved"));
