@@ -4,6 +4,8 @@ import javax.persistence.Entity;
 
 @Entity
 public class Service extends Referentiel{
+
+	@uniq
 	private String codeService;
 	
 	public String getCodeService() {

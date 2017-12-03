@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 @Entity
 public class Direction extends Referentiel {
 
+	@uniq
 	private String codeDirection;
 	
 	public Direction() {

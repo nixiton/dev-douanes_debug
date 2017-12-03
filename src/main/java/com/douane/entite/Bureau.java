@@ -4,6 +4,8 @@ import javax.persistence.Entity;
 
 @Entity
 public class Bureau extends Referentiel {
+	
+	@uniq
 	private String codeBureau;
 	
 	public Bureau() {
