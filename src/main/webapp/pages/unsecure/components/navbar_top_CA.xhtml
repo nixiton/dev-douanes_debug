@@ -92,20 +92,20 @@
 
 					<li><h:link value="Saisie
 								des référentiels"
-									outcome="saisie_ref" immediate="true" /></li>
+									outcome="saisie_refCA" immediate="true" /></li>
 
 					</c:if>
 
 					<c:if test="#{topMenuMB.curentAgent.roleAgent.role eq 'ROLE_ADMIN' or topMenuMB.curentAgent.roleAgent.role eq 'ROLE_DC'}">
 
 					<li class="dropdown"><a href="#" class="dropdown-toggle"
-						data-toggle="dropdown"> Saisie des materiels <b class="caret"></b>
+						data-toggle="dropdown"> Saisie des articles <b class="caret"></b>
 					</a>
 						<ul class="dropdown-menu">
 							
-							<li><h:link value="Entrée des nouveaux matériels"
+							<li><h:link value="Entrée des nouveaux articles"
 									outcome="saisie_mat_ex" immediate="true"/></li>
-							<li><h:link value="Sortie matériels" outcome="prise_en_charge" immediate="true" /></li>
+							<li><h:link value="Sortie articles" outcome="prise_en_charge" immediate="true" /></li>
 
 						</ul></li>
 
@@ -132,8 +132,8 @@
 						data-toggle="dropdown"> Validations <b class="caret"></b>
 					</a>
 						<ul class="dropdown-menu">
-							<li><h:link value="Entrée nouveaux matériels" outcome="v_prise_en_charge" immediate="true"/></li>
-							<li><h:link value="Sortie matériels" outcome="v_detenteur" immediate="true"/></li>
+							<li><h:link value="Entrée nouveaux articles" outcome="v_prise_en_charge" immediate="true"/></li>
+							<li><h:link value="Sortie articles" outcome="v_detenteur" immediate="true"/></li>
 						</ul></li>
 
 					</c:if>
