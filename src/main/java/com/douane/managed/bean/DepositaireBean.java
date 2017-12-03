@@ -1080,7 +1080,7 @@ public class DepositaireBean {
 
 		m.setAutre(getAutre());
 
-		m.setAnneeAcquisition((String) Calendar.getInstance().get(Calendar.YEAR));
+		m.setAnneeAcquisition((String) ""+Calendar.getInstance().get(Calendar.YEAR)+"");
 
 		m.setBureau(getBureau());
 		// m.setDirec(getDirection());
