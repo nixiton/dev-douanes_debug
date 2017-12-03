@@ -98,10 +98,10 @@ public class UserManagedBean implements Serializable {
 
 			//user.setUsername(getUsername());
 
-			if(designationDir!=null){
+			/*if(designationDir!=null){
 				Direction dir =new Direction(designationDir, codeDir) ;
 				this.setDirection(dir);
-			}
+			}*/
 
 			user.setPrenomAgent(this.getFirstname());
 			user.setIm(getIm());
