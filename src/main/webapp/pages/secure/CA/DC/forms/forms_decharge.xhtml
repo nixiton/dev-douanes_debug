@@ -25,7 +25,53 @@
 
 
 
+                <label for="text1" class="control-label col-lg-4">Motif de sortie
+                </label>
 
+                <div class="col-lg-6">
+
+                    <p:selectOneMenu value="#{depositaireBean.motifSortie}" converter="#{refConverter}" panelStyle="width:180px"  style="width:160px"
+                         effect="fade" var="t" filter="true" filterMatchMode="startsWith">
+                        <f:selectItem itemValue="#{null}" itemLabel="--select--" /> 
+                            <f:selectItems value="#{siseBean.listMotifSortie}" var="theme" itemLabel="#{theme.designation}" itemValue="#{theme}" />
+                        <p:column>
+                            <h:outputText value="#{t.designation}" />
+                        </p:column>
+                        <p:ajax event="change" update="designation" listener="#{depositaireBean.onMotifSortieChange}"/>
+                    </p:selectOneMenu>
+
+                <hr></hr>
+
+                </div>
+                
+                
+
+
+                <label for="text1" class="control-label col-lg-4">Matériel
+                </label>
+
+                <div class="col-lg-6">
+
+                    <p:selectOneMenu value="#{depositaireBean.materiel}" converter="#{materielConverter}"   panelStyle="width:180px"  style="width:160px"
+                         effect="fade" var="t" filter="true" filterMatchMode="startsWith">
+                        <f:selectItem itemValue="#{null}" itemLabel="--select--" /> 
+                            <f:selectItems value="#{depositaireBean.listAllMaterielValideSansDetenteur}" var="theme" itemLabel="#{theme.numSerie}" itemValue="#{theme}" />
+                        <p:column>
+                            <h:outputText value="#{t.numSerie}" />
+                        </p:column>
+                        <p:ajax event="change" update="marque ref num" listener="#{depositaireBean.onMaterielChange}"/>
+                    </p:selectOneMenu>
+
+                <hr></hr>
+
+                </div>
+                
+                
+
+
+
+
+                <div class="col-lg-2"></div>
 
             </div>
 
