@@ -150,7 +150,7 @@ public class GACBean {
     	}catch(Exception e){
     		System.out.println("EEEEEEEEERRRRRRRRRRRRRRROOOOOOOOOOORRRRRRRRR *************
                 ***********************************************************
-                ********************************************************* :"e.getMessage());
+                ********************************************************* :"+e.getMessage());
     	}
 
 
