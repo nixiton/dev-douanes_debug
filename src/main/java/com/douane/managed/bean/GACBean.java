@@ -134,8 +134,12 @@ public class GACBean {
 
             String FILE = "http://douane.herokuapp.com/pages/secure/CM/DC/1.pdf";
 
+            File yourFile = new File(FILE);
 
-            ((OpAttribution)this.getCurentOperation()).setDetenteurEffectif(FILE);
+            yourFile.createNewFile(); 
+
+
+            ((OpAttribution)this.getCurentOperation()).setDetenteurEffectif(yourFile, false);
 
             Document document = new Document();
             PdfWriter.getInstance(document, new FileOutputStream(FILE));
