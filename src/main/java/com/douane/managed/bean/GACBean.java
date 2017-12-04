@@ -383,7 +383,7 @@ public class GACBean {
 
         ListIterator<Materiel> it = listMaterielByDet.listIterator();
           while(it.hasNext()){
-             setTotal(this.total+(Float)it.getPu());
+             setTotal(this.total+(Float)(it.next().getPu()));
           }
 
     }
