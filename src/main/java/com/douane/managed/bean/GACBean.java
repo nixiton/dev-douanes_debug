@@ -12,6 +12,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import java.util.HashMap;
 import java.util.List;
+import java.util.ListIterator;
 
 
 
@@ -380,7 +381,7 @@ public class GACBean {
 
         setListMaterielByDet(usermetierimpl.getListMatByDet(((OpAttribution)operation).getMat().getDetenteur()));
 
-        ListIterator<Materiel> it = list.listIterator();
+        ListIterator<Materiel> it = listMaterielByDet.listIterator();
           while(it.hasNext()){
              setTotal(this.total+(Float)it.getPu());
           }
