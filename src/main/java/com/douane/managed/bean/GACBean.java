@@ -155,6 +155,7 @@ public class GACBean {
     		usermetierimpl.attriuberMateriel((OpAttribution)this.getCurentOperation());
     	}catch(Exception e){
     		System.out.println("EEEEEEEEERRRRRRRRRRRRRRROOOOOOOOOOORRRRRRRRR *************:"+e.getMessage()+"*******");
+            e.printStackTrace();
     	}
 
 
