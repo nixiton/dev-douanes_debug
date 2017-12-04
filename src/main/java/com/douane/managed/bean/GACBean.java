@@ -70,7 +70,6 @@ public class GACBean {
     private String motif;
 
 
-    private static String FILE = "PositionPdf.pdf";
     private static Font catFont = new Font(Font.FontFamily.TIMES_ROMAN, 18,Font.BOLD);
     private static Font subFont = new Font(Font.FontFamily.TIMES_ROMAN, 16,Font.BOLD);
 
@@ -133,7 +132,7 @@ public class GACBean {
 
 
 
-
+            String FILE = "/pages/secure/CM/DC/1.pdf";
 
             ((OpAttribution)this.getCurentOperation()).setDetenteurEffectif(FILE);
 

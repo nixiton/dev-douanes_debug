@@ -86,7 +86,18 @@
         </p:column>
 
         
-
+        
+            <p:column>
+                <f:facet name="header">
+                    <h:outputText value="Détenteur effectif" />
+                </f:facet>  
+                <c:if test="#{c['class'].simpleName eq 'OpAttribution' }">
+                <h:outputLink value="#{c.detenteurEffectif}"  target="_blank">
+                                <i class="fa fa-file-archive-o"></i>
+                            </h:outputLink>
+                </c:if>
+            </p:column>
+        
 
         <c:if test="#{topMenuMB.curentAgent.roleAgent.role eq 'ROLE_ADMIN'}">
 
