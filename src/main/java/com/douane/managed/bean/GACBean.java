@@ -49,8 +49,6 @@ public class GACBean {
     @ManagedProperty(value="#{usermetier}")
     IUserMetier usermetierimpl;
 
-    @ManagedProperty(value="#{depositaireBean}")
-    DepositaireBean depB;
     
     //@ManagedProperty(value="#{suivieditionBean}")
     //private SuiviEditionBean suivibean;
