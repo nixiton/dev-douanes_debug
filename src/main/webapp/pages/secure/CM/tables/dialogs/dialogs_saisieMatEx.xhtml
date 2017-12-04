@@ -76,6 +76,10 @@
                                 <h:outputText value="#{c.pu}" />
                             </p:column>
 
+                            <f:facet name="footer">
+                                Total: #{gacBean.listMaterielByDet.stream().map(c->c.pu).sum()}
+                            </f:facet>
+
                         </p:dataTable>
                     </tr>                    
                     
