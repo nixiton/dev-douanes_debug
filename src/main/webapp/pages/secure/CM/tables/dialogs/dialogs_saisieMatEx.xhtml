@@ -44,11 +44,37 @@
 
                             <p:column>
                                 <f:facet name="header">
-                                    <h:outputText value="ID" />
+                                    <h:outputText value="DESIGNATION " />
                                 </f:facet>
-                                <h:outputText value="#{c.idMateriel}" />
+                                <h:outputText value="#{c.nomenMat.designation}" />
                             </p:column>
 
+                            <p:column>
+                                <f:facet name="header">
+                                    <h:outputText value="ESPECES DES UNITES " />
+                                </f:facet>
+                                <h:outputText value="#{c.nomenMat.nomenclature}" />
+                            </p:column>
+                            <p:column>
+                                <f:facet name="header">
+                                    <h:outputText value="PRIX UNITAIRE " />
+                                </f:facet>
+                                <h:outputText value="#{c.pu}" />
+                            </p:column>
+
+                            <p:column>
+                                <f:facet name="header">
+                                    <h:outputText value="NOMBRE" />
+                                </f:facet>
+                                
+                            </p:column>
+
+                            <p:column>
+                                <f:facet name="header">
+                                    <h:outputText value="VALEUR TOTALE" />
+                                </f:facet>
+                                
+                            </p:column>
 
                         </p:dataTable>
                     </tr>                    
