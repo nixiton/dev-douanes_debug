@@ -696,6 +696,13 @@
 		</navigation-case>
 
 
+		<navigation-case>
+			<from-outcome>add_Mat_ExCA</from-outcome>
+			<to-view-id>/pages/secure/CA/DC/content_forms/content_forms_saisieMatEx.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+
+
 		<!-- +++++++++++++++++++++Links prise en charge+++++++++++++++++++++++++++++++++++++++++++++++ -->
 		
 		
