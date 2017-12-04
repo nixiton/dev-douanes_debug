@@ -17,7 +17,7 @@ import java.util.List;
 
 /*__________itext pdf____________*/
 
-import java.io.*;
+import java.io.FileOutputStream;
 import java.util.Date;
 
 import com.itextpdf.text.Anchor;
@@ -134,10 +134,12 @@ public class GACBean {
 
             String FILE = "/pages/secure/CM/DC/1.pdf";
 
+            File file = new File(FILE);
+
             ((OpAttribution)this.getCurentOperation()).setDetenteurEffectif(FILE);
 
             Document document = new Document();
-            PdfWriter.getInstance(document, new FileOutputStreamWriter(FILE));
+            PdfWriter.getInstance(document, new FileOutputStream(file));
             document.open();
             addContent(document);
 
