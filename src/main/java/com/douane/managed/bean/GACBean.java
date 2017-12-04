@@ -73,6 +73,8 @@ public class GACBean {
 
     private String motif;
 
+    private Float total;
+
 
     private static Font catFont = new Font(Font.FontFamily.TIMES_ROMAN, 18,Font.BOLD);
     private static Font subFont = new Font(Font.FontFamily.TIMES_ROMAN, 16,Font.BOLD);
@@ -102,6 +104,15 @@ public class GACBean {
         usermetierimpl.entrerMateriel((OpEntree)this.getCurentOperation());
         this.setCurentOperation(null);
         
+    }
+
+
+    public void setTotal(Float t){
+        this.total = t;
+    }
+
+    public Float getTotal(){
+        return this.total;
     }
 
 
@@ -368,6 +379,11 @@ public class GACBean {
         this.curentOperation = operation;
 
         setListMaterielByDet(usermetierimpl.getListMatByDet(((OpAttribution)operation).getMat().getDetenteur()));
+
+        ListIterator<Materiel> it = list.listIterator();
+          while(it.hasNext()){
+             setTotal(this.total+(Float)it.getPu());
+          }
 
     }
 
