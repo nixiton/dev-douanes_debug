@@ -136,7 +136,7 @@ public class GACBean {
 
 
 
-            String FILE = "1.pdf";
+            /*String FILE = "1.pdf";
 
             File yourFile = new File("/pages/secure/CM/DC/","1.pdf");
 
@@ -153,7 +153,7 @@ public class GACBean {
             document.open();
             addContent(document);
 
-            document.close();
+            document.close();*/
 
 
 
