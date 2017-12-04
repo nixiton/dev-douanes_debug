@@ -50,7 +50,7 @@ public class OpAttribution extends Operation{
 	public String getDetenteurEffectif() {
 		return detenteurEffectif;
 	}
-	private void setDetenteurEffectif(String detenteurEffectif) {
+	public void setDetenteurEffectif(String detenteurEffectif) {
 		this.detenteurEffectif = detenteurEffectif;
 	}
 	
