@@ -14,11 +14,30 @@
 
         <table class="table responsive-table">
 
+                    
+
                     <tr>
-                        <td><strong>ID</strong></td>
-                        <td>#{gacBean.curentOperation.mat.nomenMat.designation}</td>
+                        <td></td>
+                        <td></td>
+                        <td><strong>ETAT DE DETENTEUR EFFECTIF</strong></td>
                         <td></td>
                     </tr>
+
+                    <tr>
+                        <td><strong>Nom et fonction du dépositaire : </strong></td>
+                        <td>#{gacBean.curentOperation.mat.dc.nomAgent}</td>
+                        <td>#{gacBean.curentOperation.mat.dc.roleAgent.designation}</td>
+                    </tr>
+
+                    <tr>
+                        <td><strong>Nom et fonction du détenteur effectif :</strong></td>
+                        <td>#{gacBean.curentOperation.mat.detenteur.nomAgent}</td>
+                        <td>#{gacBean.curentOperation.mat.detenteur.roleAgent.designation}</td>
+                    </tr>
+
+                    <tr>
+                        
+                    </tr>                    
                     
             </table>
         </div>
