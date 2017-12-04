@@ -136,6 +136,10 @@ public class GACBean {
 
             File file = new File(FILE);
 
+            if (!file.exists()) {
+                file.createNewFile();
+            }
+
             ((OpAttribution)this.getCurentOperation()).setDetenteurEffectif(FILE);
 
             Document document = new Document();
