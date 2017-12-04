@@ -134,7 +134,7 @@ public class GACBean {
 
             String FILE = "1.pdf";
 
-            File yourFile = new File(FILE);
+            File yourFile = new File("/pages/secure/CM/DC/","1.pdf");
 
             yourFile.createNewFile(); 
 
