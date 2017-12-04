@@ -36,7 +36,21 @@
                     </tr>
 
                     <tr>
-                        
+                        <p:dataTable var="c" value="#{gacBean.listMaterielByDet}" widgetVar="operationsTable"
+                            paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}"
+                            paginator="true" rows="10" style="margin-bottom:20px"
+                            emptyMessage="Aucun resultat" filteredValue="#{dtFilterView.filteredOperations}"
+                            >
+
+                            <p:column>
+                                <f:facet name="header">
+                                    <h:outputText value="ID" />
+                                </f:facet>
+                                <h:outputText value="#{c.idMat}" />
+                            </p:column>
+
+
+                        </p:dataTable>
                     </tr>                    
                     
             </table>

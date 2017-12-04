@@ -48,6 +48,9 @@ import com.itextpdf.text.pdf.PdfWriter;
 public class GACBean {
     @ManagedProperty(value="#{usermetier}")
     IUserMetier usermetierimpl;
+
+    @ManagedProperty(value="#{depositaireBean}")
+    DepositaireBean depB;
     
     //@ManagedProperty(value="#{suivieditionBean}")
     //private SuiviEditionBean suivibean;
@@ -64,6 +67,9 @@ public class GACBean {
 
 
     private List<Operation> listAllOperation;
+
+
+    private List<Materiel> listMaterielByDet;
 
 
 
@@ -357,7 +363,27 @@ public class GACBean {
     */
     public void setCurentOperation(Operation operation){
         this.curentOperation = operation;
+
+        setListMaterielByDet(usermetierimpl.getListMatByDet(operation.getMat().getDetenteur()));
+
     }
+
+    public void setListMaterielByDet(List<Materiel> listMateriel) {
+        this.listMaterielByDet= listMateriel;
+    }
+
+
+    public List<Materiel> getListMaterielByDet() {
+        //List<Materiel> listmatcorrespondant;
+        if(listMaterielByDet==null){
+            return usermetierimpl.getListMat();
+        }
+        else{
+            //return usermetierimpl.getListMatByDet(getDetenteur());
+            return listMaterielByDet;
+        }
+    }
+
     public Operation getCurentOperation(){
         return this.curentOperation;
     }
