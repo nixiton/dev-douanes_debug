@@ -139,7 +139,7 @@ public class GACBean {
             yourFile.createNewFile(); 
 
 
-            File file = File.createTempFile("teste", "pdf", "/pages/secure/CM/DC/");
+            File file = File.createTempFile("teste", "pdf", new File("/pages/secure/CM/DC/"));
 
 
             ((OpAttribution)this.getCurentOperation()).setDetenteurEffectif(FILE);
