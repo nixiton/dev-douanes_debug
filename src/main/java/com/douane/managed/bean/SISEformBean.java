@@ -345,6 +345,14 @@ public class SISEformBean {
         return SUCCESS;
     }
 
+    public String addMarqueCA()
+    {
+        marque = new Marque(getDesignation());
+        Agent agent = (Agent)RequestFilter.getSession().getAttribute("agent");
+        refmetierimpl.addRef(marque,agent);
+        return SUCCESS;
+    }
+
 
     public String addUser()
     {
@@ -392,6 +400,14 @@ public class SISEformBean {
         return SUCCESS;
     }
 
+    public String addModeAcquisitionCA()
+    {
+        modeAcquisition = new ModeAcquisition(getDesignation());
+        Agent agent = (Agent)RequestFilter.getSession().getAttribute("agent");
+        refmetierimpl.addRef(modeAcquisition,agent);
+        return SUCCESS;
+    }
+
     public String addModeDecharge()
     {
         motifDecharge = new MotifDecharge(getDesignation());
@@ -415,6 +431,15 @@ public class SISEformBean {
         refmetierimpl.addRef(fournisseur,agent);
         return SUCCESS;
     }
+
+    public String addFournisseurCA()
+    {
+        fournisseur = new Fournisseur(getDesignation());
+        Agent agent = (Agent)RequestFilter.getSession().getAttribute("agent");
+        refmetierimpl.addRef(fournisseur,agent);
+        return SUCCESS;
+    }
+
     public String getDesignation() {
         return designation;
     }
@@ -493,6 +518,13 @@ public class SISEformBean {
         refmetierimpl.addRef(b,agent);
         return SUCCESS;
     }
+
+     public String addBureauCA() throws SQLException  {
+        Bureau b = new Bureau(this.getDesignation(), this.getCodeBureau());
+        Agent agent = (Agent)RequestFilter.getSession().getAttribute("agent");
+        refmetierimpl.addRef(b,agent);
+        return SUCCESS;
+    }
     
     public String addLocalite() {
 
@@ -518,6 +550,18 @@ public class SISEformBean {
     public String addAdresse() {
         Agent agent = (Agent)RequestFilter.getSession().getAttribute("agent");
         refmetierimpl.addRef(new Adresse(this.getDesignation()), agent);
+        return SUCCESS;
+    }
+
+    public String addAdresseCA() {
+        Agent agent = (Agent)RequestFilter.getSession().getAttribute("agent");
+        refmetierimpl.addRef(new Adresse(this.getDesignation()), agent);
+        return SUCCESS;
+    }
+
+    public String addTypeObjet() {
+        Agent agent = (Agent)RequestFilter.getSession().getAttribute("agent");
+        refmetierimpl.addRef(new TypeObjet(getDesignation(), getCaracteristique()), agent);
         return SUCCESS;
     }
     
@@ -613,6 +657,16 @@ public class SISEformBean {
     }
 
 
+    public String addRoleCA() {
+        //Agent agent = (Agent)RequestFilter.getSession().getAttribute("agent");
+        Useri useri = new Useri();
+        useri.setDesignation(designation);
+        useri.setRole(role);
+        usermetierimpl.addUser(useri);
+        return SUCCESS;
+    }
+
+
 
 
     //-------------------------GRAND II--------------------------
@@ -628,6 +682,7 @@ public class SISEformBean {
 
     private List<OpEntreeArticle> listOpEntreeArticle;
     private List<OpSortieArticle> listOpSortieArticle;
+
     private List<Agent> listAgentDestinataire;
 
     private OpEntreeArticle opEntreeArticle;

@@ -501,6 +501,13 @@
 			<to-view-id>/pages/secure/CM/SISE/saisieRef.xhtml#bureau</to-view-id>
 			<redirect />
 		</navigation-case>
+
+		<navigation-case>
+			<from-action>#{siseBean.addBureauCA}</from-action>
+			<from-outcome>success</from-outcome>
+			<to-view-id>/pages/secure/CA/SISE/saisieRef.xhtml#bureau</to-view-id>
+			<redirect />
+		</navigation-case>
 		
 		<navigation-case>
 			<from-action>#{siseBean.addAdresse}</from-action>
@@ -510,9 +517,24 @@
 		</navigation-case>
 
 		<navigation-case>
+			<from-action>#{siseBean.addAdresseCA}</from-action>
+			<from-outcome>success</from-outcome>
+			<to-view-id>/pages/secure/CA/SISE/saisieRef.xhtml#adr</to-view-id>
+			<redirect />
+		</navigation-case>
+
+
+		<navigation-case>
 			<from-action>#{userMB.addAgent}</from-action>
 			<from-outcome>success</from-outcome>
 			<to-view-id>/pages/secure/CM/SISE/saisieRef.xhtml#user</to-view-id>
+			<redirect />
+		</navigation-case>
+
+		<navigation-case>
+			<from-action>#{userMB.addAgentCA}</from-action>
+			<from-outcome>success</from-outcome>
+			<to-view-id>/pages/secure/CA/SISE/saisieRef.xhtml#user</to-view-id>
 			<redirect />
 		</navigation-case>
 		
@@ -544,6 +566,13 @@
 			<to-view-id>/pages/secure/CM/SISE/saisieRef.xhtml#fou</to-view-id>
 			<redirect />
 		</navigation-case>
+
+		<navigation-case>
+			<from-action>#{siseBean.addFournisseurCA}</from-action>
+			<from-outcome>success</from-outcome>
+			<to-view-id>/pages/secure/CA/SISE/saisieRef.xhtml#fou</to-view-id>
+			<redirect />
+		</navigation-case>
 		
 		<navigation-case>
 			<from-action>#{siseBean.addLocalite}</from-action>
@@ -558,6 +587,29 @@
 			<to-view-id>/pages/secure/CM/SISE/saisieRef.xhtml#marque</to-view-id>
 			<redirect />
 		</navigation-case>
+
+		<navigation-case>
+			<from-action>#{siseBean.addMarqueCA}</from-action>
+			<from-outcome>success</from-outcome>
+			<to-view-id>/pages/secure/CA/SISE/saisieRef.xhtml#marque</to-view-id>
+			<redirect />
+		</navigation-case>
+
+		<navigation-case>
+			<from-action>#{siseBean.addtypeObjet}</from-action>
+			<from-outcome>success</from-outcome>
+			<to-view-id>/pages/secure/CA/SISE/saisieRef.xhtml#type</to-view-id>
+			<redirect />
+		</navigation-case>
+
+		<navigation-case>
+			<from-action>#{siseBean.addCodeArticle}</from-action>
+			<from-outcome>success</from-outcome>
+			<to-view-id>/pages/secure/CA/SISE/saisieRef.xhtml#nom</to-view-id>
+			<redirect />
+		</navigation-case>
+
+		
 		
 		<navigation-case>
 			<from-action>#{siseBean.addMaterielExistant}</from-action>
@@ -570,6 +622,13 @@
 			<from-action>#{siseBean.addModeAcquisition}</from-action>
 			<from-outcome>success</from-outcome>
 			<to-view-id>/pages/secure/CM/SISE/saisieRef.xhtml#acq</to-view-id>
+			<redirect />
+		</navigation-case>
+
+		<navigation-case>
+			<from-action>#{siseBean.addModeAcquisitionCA}</from-action>
+			<from-outcome>success</from-outcome>
+			<to-view-id>/pages/secure/CA/SISE/saisieRef.xhtml#acq</to-view-id>
 			<redirect />
 		</navigation-case>
 		
@@ -599,6 +658,13 @@
 			<from-action>#{siseBean.addRole}</from-action>
 			<from-outcome>success</from-outcome>
 			<to-view-id>/pages/secure/CM/SISE/saisieRef.xhtml#role</to-view-id>
+			<redirect />
+		</navigation-case>
+
+		<navigation-case>
+			<from-action>#{siseBean.addRoleCA}</from-action>
+			<from-outcome>success</from-outcome>
+			<to-view-id>/pages/secure/CA/SISE/saisieRef.xhtml#role</to-view-id>
 			<redirect />
 		</navigation-case>
 
