@@ -132,7 +132,7 @@ public class GACBean {
 
 
 
-            String FILE = "http://douane.herokuapp.com/pages/secure/CM/DC/1.pdf";
+            String FILE = "1.pdf";
 
             File yourFile = new File(FILE);
 
