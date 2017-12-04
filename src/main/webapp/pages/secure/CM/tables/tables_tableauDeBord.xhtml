@@ -91,11 +91,11 @@
                 <f:facet name="header">
                     <h:outputText value="Détenteur effectif" />
                 </f:facet>  
-                <c:if test="#{c['class'].simpleName eq 'OpAttribution' }">
+                <p:panel rendered="#{c['class'].simpleName eq 'OpAttribution' }">
                 <h:outputLink value="#{c.detenteurEffectif}"  target="_blank">
                                 <i class="fa fa-file-archive-o"></i>
                             </h:outputLink>
-                </c:if>
+                </p:panel> 
             </p:column>
         
 
