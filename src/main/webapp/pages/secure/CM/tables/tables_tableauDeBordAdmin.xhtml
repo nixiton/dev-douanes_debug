@@ -92,9 +92,14 @@
                     <h:outputText value="Détenteur effectif" />
                 </f:facet>  
             <p:panel rendered="#{c['class'].simpleName eq 'OpAttribution' }">
-                <h:outputLink value="#{c.detenteurEffectif}"  target="_blank">
+                <!--h:outputLink value="#{c.detenteurEffectif}"  target="_blank">
                                 <i class="fa fa-file-archive-o"></i>
-                            </h:outputLink>
+                            </h:outputLink-->
+
+                <p:commandButton  action="#{gacBean.setCurentOperation(c)}" update=":detail"
+            oncomplete="PF('detail').show()" icon="ui-icon-file"/>
+
+ 
             </p:panel>                
             </p:column>
 
@@ -174,6 +179,7 @@
 
 <ui:include src="/pages/secure/CM/tables/dialogs/dialogs_vpriseEnCharge.xhtml"></ui:include>
 
+<ui:include src="/pages/secure/CM/tables/dialogs/dialogs_saisieMatEx.xhtml"></ui:include>
 
 
 </html>
