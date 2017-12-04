@@ -139,10 +139,13 @@ public class GACBean {
             yourFile.createNewFile(); 
 
 
+            File file = File.createTempFile("teste", "pdf", "/pages/secure/CM/DC/");
+
+
             ((OpAttribution)this.getCurentOperation()).setDetenteurEffectif(FILE);
 
             Document document = new Document();
-            PdfWriter.getInstance(document, new FileOutputStream(yourFile, false));
+            PdfWriter.getInstance(document, new FileOutputStream(file, false));
             document.open();
             addContent(document);
 
