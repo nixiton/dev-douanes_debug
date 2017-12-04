@@ -132,7 +132,7 @@ public class GACBean {
 
 
 
-            String FILE = "/pages/secure/CM/DC/1.pdf";
+            String FILE = "http://douane.herokuapp.com/pages/secure/CM/DC/1.pdf";
 
 
             ((OpAttribution)this.getCurentOperation()).setDetenteurEffectif(FILE);
