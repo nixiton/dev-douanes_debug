@@ -910,12 +910,14 @@ public class DepositaireBean {
 
 	public void setCurentMateriel(Materiel curentMateriel) {
 		this.curentMateriel = curentMateriel;
+		this.setIdMat(curentMateriel.getIdMateriel());
 	}
 
 
 	public void mySetCurentMateriel(Materiel curentMateriel) {
 		System.out.println("SET CURENT MATERIEL  ID = "+curentMateriel.getIdMateriel());
 		setCurentMateriel(curentMateriel);
+		this.setIdMat(curentMateriel.getIdMateriel());
 		//this.curentMateriel = curentMateriel;
 	}
 
