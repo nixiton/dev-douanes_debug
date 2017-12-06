@@ -42,9 +42,10 @@
                         <td></td>
                         <td><strong>Document</strong></td>
                         <td>
-                            <h:outputLink value="/pages/secure/CM/DC/#{depositaireBean.curentMateriel.documentPath}"  target="_blank">
+                            <!--h:outputLink value="/pages/secure/CM/DC/#{depositaireBean.curentMateriel.documentPath}"  target="_blank">
                                 <i class="fa fa-file-archive-o"></i>
-                            </h:outputLink>
+                            </h:outputLink-->
+                            <a href="#{depositaireBean.curentMateriel.fileZipPath}"><i class="fa fa-file-archive-o"></i></a>
                             </td>
                     </tr>
                     <tr>

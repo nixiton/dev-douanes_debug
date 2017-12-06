@@ -271,6 +271,20 @@ public class DepositaireBean {
 	//Current Agent
 	private Agent currentAgent;
 
+
+
+
+
+	private String fileZipPath;
+
+	public String getFileZipPath() {
+		return (String) RequestFilter.getSession().getAttribute("documentpath");
+	}
+
+	public void setFileZipPath(String f){
+		this.fileZipPath = f;
+	}
+
 	public Agent getCurrentAgent() {
 		return (Agent) RequestFilter.getSession().getAttribute("agent");
 	}
