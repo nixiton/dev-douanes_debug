@@ -288,7 +288,7 @@ public class DepositaireBean {
 	}
 
 	public String getFileZipPath() {
-		return usermetierimpl.getMatById(idMat).getDocumentPath();
+		return usermetierimpl.getMatById(getIdMat()).getDocumentPath();
 	}
 
 	public void setFileZipPath(String f){
