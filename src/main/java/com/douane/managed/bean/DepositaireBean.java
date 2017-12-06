@@ -277,8 +277,18 @@ public class DepositaireBean {
 
 	private String fileZipPath;
 
+	private Long idMat;
+	public Long getIdMat()
+	{
+		return idMat;
+	}
+	public void setIdMat(Long id)
+	{
+		this.idMat = id;
+	}
+
 	public String getFileZipPath() {
-		return (String) RequestFilter.getSession().getAttribute("documentpath");
+		return usermetierimpl.getMatById(idMat).getDocumentPath();
 	}
 
 	public void setFileZipPath(String f){
