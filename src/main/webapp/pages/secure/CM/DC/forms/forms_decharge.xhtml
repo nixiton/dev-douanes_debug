@@ -46,6 +46,26 @@
                 
                 
 
+
+                <label for="text1" class="control-label col-lg-4">Matériel
+                </label>
+
+                <div class="col-lg-6">
+
+                    <p:selectOneMenu value="#{depositaireBean.materiel}" converter="#{materielConverter}"   panelStyle="width:180px"  style="width:160px"
+                         effect="fade" var="t" filter="true" filterMatchMode="startsWith">
+                        <f:selectItem itemValue="#{null}" itemLabel="--select--" /> 
+                            <f:selectItems value="#{depositaireBean.listAllMaterielValideSansDetenteur}" var="theme" itemLabel="#{theme.numSerie}" itemValue="#{theme}" />
+                        <p:column>
+                            <h:outputText value="#{t.numSerie}" />
+                        </p:column>
+                        <p:ajax event="change" update="marque ref num" listener="#{depositaireBean.onMaterielChange}"/>
+                    </p:selectOneMenu>
+
+                <hr></hr>
+
+                </div>
+                
                 
 
 
@@ -86,20 +106,6 @@
 
                 </div>
                 
-                
-
-                <p:panel id="designation" class="col-lg-6" rendered="#{depositaireBean.motifSortie.designation eq 'Affectation'}">
-                    <label for="text1" >Destination</label>
-
-                    <label for="text1" >Direction</label>
-
-                    <p:selectOneMenu  styleClass="form-control top" converter="#{refConverter}" value="#{depositaireBean.destinationDirec}">
-                        <f:selectItem itemValue="#{null}" itemLabel="--select--" /> 
-                            <f:selectItems value="#{siseBean.listDirection}" var="b" itemLabel="#{b.codeDirection}" itemValue="#{b}"/>
-                    </p:selectOneMenu>
-
-                    <hr></hr>
-                </p:panel>
                 
 
 
