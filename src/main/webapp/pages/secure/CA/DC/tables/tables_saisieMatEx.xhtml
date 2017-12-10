@@ -18,7 +18,7 @@
 
     </div>    
     <h:form>
-    <p:dataTable   var="materiel" value="#{depositaireBean.listMaterielexistant}"
+    <p:dataTable   var="a" value="#{depositaireBean.listMaterielexistant}"
                  paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}  "
                  paginator="true" rows="10" style="margin-bottom:20px">
  
@@ -26,7 +26,7 @@
             <f:facet name="header">
                 <h:outputText value="ID" />
             </f:facet>
-            <h:outputText value="#{materiel.idMateriel}" />
+            <h:outputText value="#{a.idArticle}" />
         </p:column>
         
         <p:column>
@@ -34,7 +34,7 @@
             <f:facet name="header">
                 <h:outputText value="Détail" />
             </f:facet>
-            <p:commandButton  action="#{depositaireBean.mySetCurentMateriel(materiel)}" update=":detail"
+            <p:commandButton  action="" update=":detail"
             oncomplete="PF('detail').show()" icon="ui-icon-zoomin"/>
         </p:column>
     </p:dataTable>
