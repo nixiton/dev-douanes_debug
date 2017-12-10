@@ -108,7 +108,9 @@
                 
                 
 
-                <p:panel id="designation" styleClass="col-lg-6" rendered="#{depositaireBean.motifSortie.designation eq 'Affectation'}" >
+                <p:panel id="designation" >
+
+                    <p:panel rendered="#{depositaireBean.motifSortie.designation eq 'Affectation'}" >
                     <label for="text1" >Destination</label>
 
 
@@ -121,6 +123,8 @@
                     </p:selectOneMenu>
 
                     <hr></hr>
+                </p:panel>
+
                 </p:panel>
                 
 
