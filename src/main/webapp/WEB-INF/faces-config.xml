@@ -780,6 +780,13 @@
 		</navigation-case>
 
 
+		<navigation-case>
+			<from-outcome>add_PriseEnChargeCA</from-outcome>
+			<to-view-id>/pages/secure/CA/DC/content_forms/content_forms_priseEnCharge.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+
+
 		<!-- +++++++++++++++++++++Links Attributon+++++++++++++++++++++++++++++++++++++++++++++++ -->
 		
 		

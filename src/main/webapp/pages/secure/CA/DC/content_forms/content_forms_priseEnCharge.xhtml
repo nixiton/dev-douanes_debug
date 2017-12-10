@@ -1,3 +1,4 @@
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
     xmlns:ui="http://java.sun.com/jsf/facelets"
@@ -13,10 +14,10 @@
     <div class="bg-dark dk" id="wrap">
         <div id="top">
 
-            <ui:include src="/pages/unsecure/components/navbar_top_CA.xhtml"></ui:include>
+            <ui:include src="/pages/unsecure/components/navbar_top.xhtml"></ui:include>
 
             <ui:include src="/pages/unsecure/components/top.xhtml">
-                <ui:param name="title" value="Nouveaux articles" />
+                <ui:param name="title" value="Prise en charge" />
             </ui:include>
 
         </div>
@@ -37,7 +38,7 @@
                     <div class="icons">
                         <i class="fa fa-edit"></i>
                     </div>
-                    <h5>Entrée de nouveaux articles</h5>
+                    <h5>Prise en charge</h5>
                     <!-- .toolbar -->
                     <div class="toolbar">
                         <nav style="padding: 8px;"> <a href="javascript:;"
@@ -52,7 +53,7 @@
                     <!-- /.toolbar --> </header>
                     <div class="body">
 
-                        <ui:include src="/pages/secure/CA/DC/tables/tables_priseEnCharge.xhtml"></ui:include>   
+                        <ui:include src="/pages/secure/CA/DC/forms/forms_priseEnCharge.xhtml"></ui:include>   
 
 
 
