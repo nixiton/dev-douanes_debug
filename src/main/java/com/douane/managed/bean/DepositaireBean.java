@@ -1275,7 +1275,24 @@ System.out.println("****************************ADD3 ATTR**ERRORR***************
 	private TypeObjet typeObjet;
 	private CodeArticle codeArticle;
 
+	public List<Article> getListArticle() {
+		return listArticle;
+	}
 
+	public void setListArticle(List<Article> listArticle) {
+		this.listArticle = listArticle;
+	}
+
+	public List<ArticleNouv> getListArticleNouv() {
+		return listArticleNouv;
+	}
+
+	public void setListArticleNouv(List<ArticleNouv> listArticleNouv) {
+		this.listArticleNouv = listArticleNouv;
+	}
+
+	private List<Article> listArticle;
+	private List<ArticleNouv> listArticleNouv;
 
 
 

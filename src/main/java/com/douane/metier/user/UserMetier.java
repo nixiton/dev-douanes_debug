@@ -825,6 +825,16 @@ public class UserMetier implements IUserMetier{
 	}
 
 	@Override
+	public List<ArticleNouv> getListAllArticleNouv() {
+		return artnouvreops.findAll();
+	}
+
+	@Override
+	public List<Article> getListAllArticle() {
+		return artreops.findAll();
+	}
+
+	@Override
 	public ArticleNouv addArticleNouv(CodeArticle cde, Agent ben, Agent depo, Fournisseur fourn, Float prix, Long nombre) {
 		ArticleNouv a =new ArticleNouv(fourn, prix);
 		a.setCodeArticle(cde);
