@@ -678,6 +678,8 @@ public class SISEformBean {
     private Float prix;
     private Agent  agentDest;
 
+    private CodeArticle codeArticle;
+
 
 
     private List<OpEntreeArticle> listOpEntreeArticle;
@@ -761,17 +763,22 @@ public class SISEformBean {
 
 
 
-
-
-
-
-
     public List<CodeArticle> getListCodeArticle() {
         return usermetierimpl.listCodeArticle();
     }
 
     public void setListCodeArticle(List<CodeArticle> listCodeArticle) {
         this.listCodeArticle = listCodeArticle;
+    }
+
+
+
+    public CodeArticle getCodeArticle() {
+        return codeArticle;
+    }
+
+    public void setCodeArticle(CodeArticle Code) {
+        this.codeArticle = Code;
     }
 
 
