@@ -471,6 +471,15 @@ public class UserMetier implements IUserMetier{
 		//return null;
 	}
 
+
+	@Override
+	public List<ArticleEx> getListArticleEx() {
+		// TODO Auto-generated method stub
+		return artreops.findAll();
+		//return null;
+	}
+
+
 	@Override
 	public List<Operation> getListOp() {
 		// TODO Auto-generated method stub

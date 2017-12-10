@@ -689,6 +689,13 @@ public class SISEformBean {
     private OpSortieArticle opSortieArticle;
     private String motif;
 
+
+
+
+    private List<ArticleEx> listArticleEx;
+
+
+
     public void setCaracteristiqueObjet()
     {
         TypeObjet t = new TypeObjet();
@@ -740,6 +747,24 @@ public class SISEformBean {
         c.setTypeObjet(getTypeObjet());
         usermetierimpl.addCodeArticle(c);
     }
+
+
+
+
+    public List<ArticleEx> getListArticleEx() {
+        return usermetierimpl.listCodeArticle();
+    }
+
+    public void setListArticleEx(List<ArticleEx> list) {
+        this.listArticleEx = list;
+    }
+
+
+
+
+
+
+
 
     public List<CodeArticle> getListCodeArticle() {
         return usermetierimpl.listCodeArticle();
