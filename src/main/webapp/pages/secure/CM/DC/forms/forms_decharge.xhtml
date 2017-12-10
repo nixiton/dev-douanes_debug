@@ -37,7 +37,7 @@
                         <p:column>
                             <h:outputText value="#{t.designation}" />
                         </p:column>
-                        
+                        <p:ajax event="change" update="designation" listener="#{depositaireBean.onMotifSortieChange}"/>
                     </p:selectOneMenu>
 
                 <hr></hr>
@@ -108,7 +108,7 @@
                 
                 
 
-                <p:panel id="designation" class="col-lg-6" rendered="#{depositaireBean.motifSortie.designation eq 'Affectation'}">
+                <p:panel id="designation" styleClass="col-lg-6" rendered="#{depositaireBean.motifSortie.designation eq 'Affectation'}">
                     <label for="text1" >Destination</label>
 
                     <label for="text1" >Direction</label>
