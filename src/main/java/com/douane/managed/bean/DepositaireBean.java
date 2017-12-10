@@ -17,6 +17,8 @@ import org.apache.commons.io.FilenameUtils;
 import org.hibernate.JDBCException;
 import org.primefaces.context.ApplicationContext;
 import org.primefaces.event.FileUploadEvent;
+import org.primefaces.model.DefaultStreamedContent;
+import org.primefaces.model.StreamedContent;
 import org.primefaces.model.UploadedFile;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -289,6 +291,8 @@ public class DepositaireBean {
 
 	public String getFileZipPath() {
 		if(getIdMat()!=null){
+			fileZipPath = usermetierimpl.getMatById(getIdMat()).getDocumentPath();//
+			RequestFilter.getSession().setAttribute("fileZipPath",fileZipPath);
 			return usermetierimpl.getMatById(getIdMat()).getDocumentPath();
 		}
 		else{
@@ -802,7 +806,7 @@ public class DepositaireBean {
 			File file = new File(datetime);
 			String absolutePath = file.getAbsolutePath();
 
-			RequestFilter.getSession().setAttribute("documentpath",   datetime+".zip");
+			RequestFilter.getSession().setAttribute("documentpath",   absolutePath+".zip");
 			// eto miset an le documentpath
 			String a = (String) RequestFilter.getSession().getAttribute("documentpath");
 
@@ -1553,4 +1557,36 @@ System.out.println("****************************ADD3 ATTR**ERRORR***************
 	public void setNomenclatureAutom(String nomenclatureAutom) {
 		this.nomenclatureAutom = nomenclatureAutom;
 	}
+
+	//-------DOWNLOAD FILE ZIP-----------
+	private StreamedContent filedownload;
+
+
+	public void beforeDown()
+	{
+		InputStream stream = this.getClass().
+				getResourceAsStream("/chapter7/PFSamplePDF.pdf");
+		filedownload = new DefaultStreamedContent(stream,
+				"application/pdf", "PFSample.pdf");
+	}
+
+	public StreamedContent getFiledownload() throws FileNotFoundException {
+		InputStream stream = new FileInputStream((String )RequestFilter.getSession().getAttribute("fileZipPath"));
+
+		filedownload = new DefaultStreamedContent(stream,
+				"application/zip", "doc.zip");
+		RequestFilter.getSession().setAttribute("fileZipPath",null);
+		return filedownload;
+	}
+
+	public String getFilePathsecond() {
+		return filePathsecond;
+	}
+
+	public void setFilePathsecond(String filePathsecond) {
+		this.filePathsecond = filePathsecond;
+	}
+
+	private String filePathsecond;
+
 }
