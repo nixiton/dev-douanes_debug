@@ -1585,6 +1585,7 @@ System.out.println("****************************ADD3 ATTR**ERRORR***************
 		return ae;
 	}
 
+
 	public TypeObjet getTypeObjet() {
 		return typeObjet;
 	}
