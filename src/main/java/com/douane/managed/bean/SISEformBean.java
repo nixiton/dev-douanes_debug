@@ -752,7 +752,7 @@ public class SISEformBean {
 
 
     public List<ArticleEx> getListArticleEx() {
-        return usermetierimpl.listCodeArticle();
+        return usermetierimpl.getListArticleEx();
     }
 
     public void setListArticleEx(List<ArticleEx> list) {
