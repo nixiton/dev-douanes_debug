@@ -25,29 +25,37 @@
 
 
 
-                <label for="text1" class="control-label col-lg-4">Motif de sortie
+                <label for="text1" class="control-label col-lg-4">Bénéficiaire
                 </label>
 
                 <div class="col-lg-6">
 
-                   
+                    <p:selectOneMenu styleClass="form-control top" converter="#{agentConverter}" value="#{depositaireBean.detenteur}"
+                    effect="fade" var="t" filter="true" filterMatchMode="startsWith">
+                            <f:selectItem itemValue="#{null}" itemLabel="--select--" /> 
+                            <f:selectItems value="#{userMB.userList}" var="type" itemLabel="#{type.im}" itemValue="#{type}"/>
+                            <p:column>
+                            <h:outputText value="#{t.im}" />
+                        </p:column>
+                        </p:selectOneMenu>
 
                 <hr></hr>
+
 
                 </div>
                 
                 
 
 
-                <label for="text1" class="control-label col-lg-4">Matériel
+                <label for="text1" class="control-label col-lg-4">Code article
                 </label>
 
                 <div class="col-lg-6">
 
-                    <p:selectOneMenu value="#{depositaireBean.materiel}" converter="#{materielConverter}"   panelStyle="width:180px"  style="width:160px"
+                    <p:selectOneMenu value="#{depositaireBean.article}" converter="#{articleConverter}"   panelStyle="width:180px"  style="width:160px"
                          effect="fade" var="t" filter="true" filterMatchMode="startsWith">
                         <f:selectItem itemValue="#{null}" itemLabel="--select--" /> 
-                            <f:selectItems value="#{depositaireBean.listAllMaterielValideSansDetenteur}" var="theme" itemLabel="#{theme.numSerie}" itemValue="#{theme}" />
+                            <f:selectItems value="#{siseBean.listArticle}" var="theme" itemLabel="#{theme.codeArticle}" itemValue="#{theme}" />
                         <p:column>
                             <h:outputText value="#{t.numSerie}" />
                         </p:column>
@@ -70,7 +78,7 @@
                 <label for="text1" class="control-label col-lg-4"></label>
 
                 <div class="col-lg-4">
-                    <h:commandButton id="btnSignId" action="#{depositaireBean.addDecharge}" value="Décharger"
+                    <h:commandButton id="btnSignId" action="#{depositaireBean.addDechargeCA}" value="Sortir"
                         class="btn btn-lg btn-primary btn-block"/>
                 </div>
 
