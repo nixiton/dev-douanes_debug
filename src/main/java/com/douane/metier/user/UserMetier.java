@@ -126,6 +126,9 @@ public class UserMetier implements IUserMetier{
 	private ArticleRepository artreops;
 
 	@Autowired
+	private ArticleExRepository artexreops;
+
+	@Autowired
 	private OpEnArtRepository opentreeartrepos;
 
 	@Autowired
@@ -475,7 +478,7 @@ public class UserMetier implements IUserMetier{
 	@Override
 	public List<ArticleEx> getListArticleEx() {
 		// TODO Auto-generated method stub
-		return artreops.findAll();
+		return artexreops.findAll();
 		//return null;
 	}
 
