@@ -1026,7 +1026,7 @@ public class DepositaireBean {
 		this.setNumSerie(this.getMateriel().getNumSerie());
 	}
 
-	public void onMotifSortieChange() {
+	public void onMotifSortieChange(){
 		
 	}
 

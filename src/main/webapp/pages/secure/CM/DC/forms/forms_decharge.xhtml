@@ -37,7 +37,7 @@
                         <p:column>
                             <h:outputText value="#{t.designation}" />
                         </p:column>
-                        <p:ajax event="change" update="designation" listener="#{depositaireBean.onMotifSortieChange}"/>
+                        
                     </p:selectOneMenu>
 
                 <hr></hr>
@@ -113,7 +113,10 @@
 
                     <label for="text1" >Direction</label>
 
-                   
+                    <p:selectOneMenu  styleClass="form-control top" converter="#{refConverter}" value="#{depositaireBean.destinationDirec}">
+                        <f:selectItem itemValue="#{null}" itemLabel="--select--" /> 
+                            <f:selectItems value="#{siseBean.listDirection}" var="b" itemLabel="#{b.codeDirection}" itemValue="#{b}"/>
+                    </p:selectOneMenu>
 
                     <hr></hr>
                 </p:panel>
