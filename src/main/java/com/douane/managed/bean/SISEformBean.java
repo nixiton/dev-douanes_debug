@@ -907,7 +907,10 @@ public class SISEformBean {
      }
 
 
+    public void addArticleEx(Article ex)
+    {
 
+    }
 
 
 

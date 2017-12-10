@@ -148,7 +148,8 @@ public interface IUserMetier {
 	public Article sortirArticle(OpSortieArticle sortieart) throws Exception;
 
 
-
+	public ArticleNouv addArticleNouv(CodeArticle cde, Agent ben, Agent depo, Fournisseur fourn, Float prix, Long nombre);
+	public ArticleEx addArticleEx(CodeArticle cde, Agent ben, Agent depo, Float prix, Long nombre);
 
 
 

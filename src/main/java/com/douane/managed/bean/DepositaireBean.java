@@ -1,8 +1,6 @@
 package com.douane.managed.bean;
 
 import com.douane.entite.*;
-import com.douane.exception.GetFieldName;
-import com.douane.exception.NullPointerAttributeException;
 import com.douane.metier.fournisseur.IFournisseurMetier;
 import com.douane.metier.marque.IMarqueMetier;
 import com.douane.metier.nomenclature.INomenclatureMetier;
@@ -10,45 +8,28 @@ import com.douane.metier.referentiel.IRefMetier;
 import com.douane.metier.typeMateriel.ITypeMaterielMetier;
 import com.douane.metier.user.IUserMetier;
 import com.douane.model.DocumentModel;
-import com.douane.model.DocumentModelSimple;
 //import com.douane.model.UploadedFileByte;
 import com.douane.requesthttp.RequestFilter;
 import org.apache.commons.io.FilenameUtils;
 import org.hibernate.JDBCException;
-import org.primefaces.context.ApplicationContext;
 import org.primefaces.event.FileUploadEvent;
 import org.primefaces.model.DefaultStreamedContent;
 import org.primefaces.model.StreamedContent;
 import org.primefaces.model.UploadedFile;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.ConfigurableApplicationContext;
-import org.springframework.context.EnvironmentAware;
-import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.PropertySource;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.core.env.Environment;
-import org.springframework.stereotype.Component;
-import org.springframework.test.context.ContextConfiguration;
 
-import javax.annotation.Resource;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
-import javax.faces.bean.RequestScoped;
-import javax.faces.bean.SessionScoped;
 import javax.faces.bean.ViewScoped;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
-import javax.faces.event.ActionEvent;
-import javax.faces.event.AjaxBehaviorEvent;
 import javax.faces.event.ValueChangeEvent;
-import javax.jws.WebParam;
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.Part;
 import java.io.*;
-import java.lang.reflect.Array;
 import java.text.SimpleDateFormat;
 import java.util.*;
 import java.util.zip.ZipEntry;
@@ -1588,5 +1569,17 @@ System.out.println("****************************ADD3 ATTR**ERRORR***************
 	}
 
 	private String filePathsecond;
+
+	public ArticleNouv addArticleNouv(CodeArticle cde, Agent ben, Agent depo, Fournisseur fourn, Float prix, Long nombre)
+	{
+		ArticleNouv an = usermetierimpl.addArticleNouv( cde,  ben,  depo,  fourn,  prix,  nombre);
+		return an;
+	}
+
+	public ArticleEx addArticleEx(CodeArticle cde, Agent ben, Agent depo, Float prix, Long nombre)
+	{
+		ArticleEx ae = usermetierimpl.addArticleEx( cde,  ben,  depo,  prix,  nombre);
+		return ae;
+	}
 
 }
