@@ -1272,6 +1272,9 @@ System.out.println("****************************ADD3 ATTR**ERRORR***************
 
 
 
+	private TypeObjet typeObjet;
+	private CodeArticle codeArticle;
+
 
 
 
@@ -1582,4 +1585,19 @@ System.out.println("****************************ADD3 ATTR**ERRORR***************
 		return ae;
 	}
 
+	public TypeObjet getTypeObjet() {
+		return typeObjet;
+	}
+
+	public void setTypeObjet(TypeObjet typeObjet) {
+		this.typeObjet = typeObjet;
+	}
+
+	public CodeArticle getCodeArticle() {
+		return codeArticle;
+	}
+
+	public void setCodeArticle(CodeArticle codeArticle) {
+		this.codeArticle = codeArticle;
+	}
 }
