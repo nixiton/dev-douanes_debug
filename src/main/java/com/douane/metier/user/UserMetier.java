@@ -478,7 +478,7 @@ public class UserMetier implements IUserMetier{
 	@Override
 	public List<ArticleEx> getListArticleEx() {
 		// TODO Auto-generated method stub
-		return artexreops.findAll();
+		return (List<ArticleEx>)artexreops.findAll();
 		//return null;
 	}
 
