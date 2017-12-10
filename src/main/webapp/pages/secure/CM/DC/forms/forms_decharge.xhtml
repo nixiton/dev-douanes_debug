@@ -74,7 +74,6 @@
 
                 <div class="col-lg-6">
 
-                    <!--h:inputText id="marque" value="#{depositaireBean.marq.designation}" ></h:inputText-->
                     <h:outputText id="marque" value="#{depositaireBean.marq != null ? depositaireBean.marq.designation : ''}"/>
 
                     <hr></hr>
@@ -109,7 +108,19 @@
                 
                 
 
+                <p:panel id="designation" class="col-lg-6" rendered="#{depositaireBean.motifSortie.designation eq 'Affectation'}">
+                    <label for="text1" >Destination</label>
 
+                    <label for="text1" >Direction</label>
+
+                    <p:selectOneMenu  styleClass="form-control top" converter="#{refConverter}" value="#{depositaireBean.destinationDirec}">
+                        <f:selectItem itemValue="#{null}" itemLabel="--select--" /> 
+                            <f:selectItems value="#{siseBean.listDirection}" var="b" itemLabel="#{b.codeDirection}" itemValue="#{b}"/>
+                    </p:selectOneMenu>
+
+                    <hr></hr>
+                </p:panel>
+                
 
 
                 <div class="col-lg-2"></div>
