@@ -752,23 +752,30 @@ public class DepositaireBean {
 		ArrayList<String> filesTozip = new ArrayList<String>();
 		ArrayList<DocumentModel> documentlist = (ArrayList<DocumentModel>) RequestFilter.getSession()
 				.getAttribute("documentList");
-		for (DocumentModel d : documentlist) {
-			File file = new File("resources_13_11");
-			String absolutePath = file.getAbsolutePath();
-			String filePath = absolutePath;
-			String filePath2 = new File("test").getAbsolutePath();
-			byte[] bytes = null;
+		if(documentlist != null)
+		{
+			for (DocumentModel d : documentlist) {
+				File file = new File("resources_13_11");
+				String absolutePath = file.getAbsolutePath();
+				String filePath = absolutePath;
+				String filePath2 = new File("test").getAbsolutePath();
+				byte[] bytes = null;
 
-			if (null != d) {
-				bytes = d.getByteArrayImage();
-				fileName = FilenameUtils.getName(d.getDocumentUploadedPath());
-				System.out.println("file name" + fileName);
-				BufferedOutputStream stream;
-				stream = new BufferedOutputStream(new FileOutputStream(new File(filePath + fileName)));
-				filesTozip.add(filePath + fileName);
-				stream.write(bytes);
-				stream.close();
+				if (null != d) {
+					bytes = d.getByteArrayImage();
+					fileName = FilenameUtils.getName(d.getDocumentUploadedPath());
+					System.out.println("file name" + fileName);
+					BufferedOutputStream stream;
+					stream = new BufferedOutputStream(new FileOutputStream(new File(filePath + fileName)));
+					filesTozip.add(filePath + fileName);
+					stream.write(bytes);
+					stream.close();
+				}
 			}
+		}
+		else
+		{
+			filesTozip.add("");
 		}
 		zipFiles(filesTozip);
 		return SUCCESS;
