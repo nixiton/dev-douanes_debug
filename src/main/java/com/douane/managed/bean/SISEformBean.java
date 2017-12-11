@@ -766,7 +766,7 @@ public class SISEformBean {
 
 
     public List<ArticleNouv> getListArticleNouv() {
-        return usermetierimpl.getListArticleNouv();
+        return usermetierimpl.getListAllArticleNouv();
     }
 
     public void setListArticleNouv(List<ArticleNouv> list) {
