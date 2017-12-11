@@ -46,6 +46,22 @@ public class OpSortie extends Operation{
 		this.setMotifsortie(mot);
 	}
 
+	public OpSortie(Date date, Date time, String poste, Agent operateur, 
+			Materiel mater, Direction d, MotifSortie mot) {
+		super(date, time, poste, operateur);
+		this.setMat(mater);
+		this.setDirec(d);
+		this.setMotifsortie(mot);
+	}
+
+	public OpSortie(Date date, Date time, String poste, Agent operateur, 
+			Materiel mater, MotifSortie mot) {
+		super(date, time, poste, operateur);
+		this.setMat(mater);
+		this.setMotifsortie(mot);
+	}
+
+
 	public Materiel getMat() {
 		return mat;
 	}

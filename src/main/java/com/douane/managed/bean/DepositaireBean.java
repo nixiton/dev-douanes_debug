@@ -1232,8 +1232,14 @@ System.out.println("****************************ADD3 ATTR**ERRORR***************
 				+getDestinationService().getDesignation()+" "
 				+getMotifSortie().getDesignation());
 		try {
-			opSort = usermetierimpl.reqSortirMateriel(this.getMateriel(), this.getMotifSortie(),
-					this.getDestinationDirec(), this.getDestinationService(), this.getDestination(), agent);
+			if(getDestinationDirec()==null){
+				opSort = usermetierimpl.reqSortirMateriel(this.getMateriel(), this.getMotifSortie(),agent);
+			}
+			else {
+				opSort = usermetierimpl.reqSortirMateriel(this.getMateriel(), this.getMotifSortie(),
+					this.getDestinationDirec(), agent);
+			}
+			
 			return SUCCESS;
 		} catch (Exception e) {
 			// TODO Auto-generated catch block

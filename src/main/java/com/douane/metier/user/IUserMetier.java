@@ -154,6 +154,7 @@ public interface IUserMetier {
 
 
 
-
+	public OpSortie reqSortirMateriel(Materiel m, MotifSortie motif, Direction d);
+	public OpSortie reqSortirMateriel(Materiel m, MotifSortie motif);
 
 }
