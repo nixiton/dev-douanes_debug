@@ -9,32 +9,32 @@
 <div   class="body collapse in table-responsive">
 
 
-    <p:dataTable   var="materiel" value="#{depositaireBean.listAllMateriel}" 
+    <p:dataTable   var="o" value="#{suivieditionBean.listOperationAttribution}" 
                  paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}  "
                  paginator="true" rows="10" style="margin-bottom:20px">
 
         <p:column >
             <f:facet name="header">
-                <h:outputText value="Type" />
+                <h:outputText value="ID" />
             </f:facet>
-            <h:outputText value="#{materiel.nomenMat.nomenclature}" />
+            <h:outputText value="#{u.id}" />
         </p:column>
+
         <p:column >
             <f:facet name="header">
-                <h:outputText value="Nomenclature" />
-            </f:facet>
-            <h:outputText value="#{materiel.nomenMat.designation}" />
-        </p:column>
-        <p:column >
-            <f:facet name="header">
-                <h:outputText value="Détenteur" />
+                <h:outputText value="Détenteur effectif" />
             </f:facet>
             
+                <p:commandButton  action="#{suivieditionBean.setCurentOperation(c)}" update=":detail"
+            oncomplete="PF('detail').show()" icon="ui-icon-document"/>
+
         </p:column>
+
+
 
     </p:dataTable>
 
-<!--ui:include src="/pages/secure/CM/tables/dialogs/dialogs_DetenteurEffectif.xhtml"></ui:include-->
+<ui:include src="/pages/secure/CM/tables/dialogs/dialogs_DetenteurEffectif.xhtml"></ui:include>
 
 </div>
 

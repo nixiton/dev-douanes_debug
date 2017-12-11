@@ -86,6 +86,31 @@ public class SuiviEditionBean {
     private List<OpAttribution> listOperationAttributionByMateriel;
     private List<OpDettachement> listOperationDetachementByMateriel;
     //----------ALL LIST BY METHOD------------------
+
+
+    private List<Materiel> listMaterielByDet;
+
+
+    public void setListMaterielByDet(List<Materiel> listMateriel) {
+        this.listMaterielByDet= listMateriel;
+    }
+
+    public List<Materiel> getListMaterielByDet() {
+        //List<Materiel> listmatcorrespondant;
+        if(listMaterielByDet==null){
+            return usermetierimpl.getListMat();
+        }
+        else{
+            //return usermetierimpl.getListMatByDet(getDetenteur());
+            return listMaterielByDet;
+        }
+    }
+
+
+
+
+
+
     public List<Operation> getListAllOperation()
     {
         return usermetierimpl.getListOp();
@@ -368,9 +393,29 @@ public class SuiviEditionBean {
     public void setUsermetierimpl(IUserMetier usermetierimpl) {
         this.usermetierimpl = usermetierimpl;
     }
-    
+
     public void setCurentOperation(Operation operation){
         this.curentOperation = operation;
+    }
+    
+    public void setCurentOperation2(Operation operation){
+        this.curentOperation = operation;
+
+        if(((OpAttribution)operation).getDetenteur()!=null){
+           this.setListMaterielByDet(usermetierimpl.getListMatByDet(((OpAttribution)operation).getDetenteur()));
+
+            ListIterator<Materiel> it = this.getListMaterielByDet().listIterator();
+            if (it!=null) {
+                this.setTotal(Float.parseFloat("0"));
+               while(it.hasNext()){
+                 setTotal(this.total+(Float)(it.next().getPu()));
+              } 
+            }  
+        }
+        else{
+            
+        }
+
     }
     public Operation getCurentOperation(){
         return this.curentOperation;
