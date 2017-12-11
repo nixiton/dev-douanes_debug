@@ -994,7 +994,9 @@ public class DepositaireBean {
 
 	public void onTypeMaterielChange() {
 
-		this.setNomencl(getTypemateriel().getNomenclature());
+		//this.setNomencl(getTypemateriel().getNomenclature());
+		this.setNomencl(getTypematerielToAdd().getNomenclaureParent().getNomenclature());
+	
 	}
 
 	public String onDetenteurChange(){
@@ -1062,11 +1064,14 @@ public class DepositaireBean {
 			//m.setDirec(agent.getDirection());
 			m.setEtat(getEtat());
 			m.setMarque(getMarq());
-			m.setNomenMat(getTypemateriel());
+			//m.setNomenMat(getTypemateriel());
 			m.setNumSerie(getNumSerie());
 			m.setPu(getUnitPrice());
 			m.setReference(getReference());
 			m.setRenseignement(getRenseignement());
+			m.setTypematerieladd(this.getTypematerielToAdd());
+			m.setNomenMat(this.getTypematerielToAdd().getNomenclaureParent());
+
 
 			m.setServ(getServiceforMat());
 			m.setDirec(agent.getDirection());
@@ -1119,7 +1124,10 @@ public class DepositaireBean {
 
 		m.setMarque(getMarq());
 
-		m.setNomenMat(getTypemateriel());
+		//m.setNomenMat(getTypemateriel());
+		m.setTypematerieladd(this.getTypematerielToAdd());
+		m.setNomenMat(this.getTypematerielToAdd().getNomenclaureParent());
+		
 
 		m.setNumSerie(getNumSerie());
 
@@ -1625,5 +1633,15 @@ System.out.println("****************************ADD3 ATTR**ERRORR***************
 	public void setCodeArticle(CodeArticle codeArticle) {
 		//test
 		this.codeArticle = codeArticle;
+	}
+		TypeMateriel typematerielToAdd;
+
+
+	public TypeMateriel getTypematerielToAdd() {
+		return typematerielToAdd;
+	}
+
+	public void setTypematerielToAdd(TypeMateriel typematerielToAdd) {
+		this.typematerielToAdd = typematerielToAdd;
 	}
 }
