@@ -154,7 +154,7 @@ public interface IUserMetier {
 
 
 
-	public OpSortie reqSortirMateriel(Materiel m, MotifSortie motif, Direction d, Agent oper);
-	public OpSortie reqSortirMateriel(Materiel m, MotifSortie motif, Agent oper);
+	public OpSortie reqSortirMateriel(Materiel m, MotifSortie motif, Direction d, Agent oper)throws Exception;;
+	public OpSortie reqSortirMateriel(Materiel m, MotifSortie motif, Agent oper)throws Exception;;
 
 }
