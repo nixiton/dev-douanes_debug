@@ -376,7 +376,7 @@ public class GACBean {
 
     }
 
-    public string setCurentOperation2(Operation operation){
+    public String setCurentOperation2(Operation operation){
         setCurentOperation(operation);
 
         
