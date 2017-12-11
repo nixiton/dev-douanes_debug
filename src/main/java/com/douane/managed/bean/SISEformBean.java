@@ -928,7 +928,12 @@ public class SISEformBean {
 
     public void addArticleEx()
     {
-        
+        ArticxleEx a = new ArticleEx();
+
+        Agent agent = (Agent)RequestFilter.getSession().getAttribute("agent");
+        a.setCodeArticle(getCodeArticle());
+        //a.setTypeObjet(getTypeObjet());
+        return usermetierimpl.reqEntrerArticle(a,agent);
     }
         Nomenclature nomenclatureP;
 	public Nomenclature getNomenclatureP() {
