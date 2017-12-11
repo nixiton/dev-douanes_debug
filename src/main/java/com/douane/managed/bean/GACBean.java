@@ -379,8 +379,9 @@ public class GACBean {
     public void setCurentOperation2(Operation operation){
         setCurentOperation(operation);
 
-        this.setListMaterielByDet(usermetierimpl.getListMatByDet(((OpAttribution)getCurentOperation()).getDetenteur()));
-        if(getListMaterielByDet()!=null){
+        
+        if(usermetierimpl.getListMatByDet(((OpAttribution)getCurentOperation()).getDetenteur())!=null){
+            this.setListMaterielByDet(usermetierimpl.getListMatByDet(((OpAttribution)getCurentOperation()).getDetenteur()));
             ListIterator<Materiel> it = this.getListMaterielByDet().listIterator();
             if (it!=null) {
                 this.setTotal(Float.parseFloat("0"));
