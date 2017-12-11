@@ -376,7 +376,7 @@ public class GACBean {
 
     }
 
-    public void setCurentOperation2(Operation operation){
+    public string setCurentOperation2(Operation operation){
         setCurentOperation(operation);
 
         
@@ -389,6 +389,7 @@ public class GACBean {
                  setTotal(this.total+(Float)(it.next().getPu()));
               } 
             }*/ 
+            return "dialog"
         }
 
     }
