@@ -48,27 +48,6 @@
 					<i class="fa fa-question"></i>
 				</h:link-->
 			</div>
-			<div class="btn-group">
-
-				<h:form>
-
-					<h:commandLink action="#{loginMgmtBean.logout}"
-						data-toggle="tooltip" data-original-title="Logout"
-						data-placement="bottom" class="btn btn-metis-1 btn-sm">
-						<i class="fa fa-power-off"></i>
-					</h:commandLink>
-				</h:form>
-			</div>
-			<div class="btn-group">
-
-				<h:link data-placement="bottom"
-					data-original-title="Show / Hide Left" data-toggle="tooltip"
-					class="btn btn-primary btn-sm toggle-left" id="menu-toggle">
-					<i class="fa fa-bars"></i>
-				</h:link>
-
-			</div>
-
 		</div>
 
 		<div class="collapse navbar-collapse navbar-ex1-collapse">
@@ -81,7 +60,9 @@
 
 		</div>
             
-
+		<ui:include src="/pages/unsecure/components/top.xhtml">
+                <ui:param name="title" value="Administration" />
+            </ui:include>
         </div>
 
 
