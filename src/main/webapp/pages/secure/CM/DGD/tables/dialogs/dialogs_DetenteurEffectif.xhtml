@@ -6,7 +6,13 @@
     xmlns:p="http://primefaces.org/ui"
     >
 
-    <p:dialog id="detail1" widgetVar="detail1">
+    <p:dialog id="detail1" widgetVar="detail1" closable="false">
+
+    <h:form class="form-horizontal">
+            <h:commandButton action="#{gacBean.exit()}" value="X" style="valign:bottom;float:right;padding-right:20px">
+                        
+            </h:commandButton>
+            </h:form>
 
 
     <div   class="body collapse in table-responsive">
@@ -36,7 +42,7 @@
                     </tr>
 
                     <tr>
-                        <p:dataTable var="c" value="#{gacBean.listMaterielByDet}" widgetVar="operationsTable"
+                        <p:dataTable var="c" value="#{gacBean.listMaterielByDe}t" widgetVar="operationsTable"
                             paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}"
                             paginator="true" rows="10" style="margin-bottom:20px"
                             emptyMessage="Aucun resultat" filteredValue="#{dtFilterView.filteredOperations}"
