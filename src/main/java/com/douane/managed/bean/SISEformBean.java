@@ -697,6 +697,7 @@ public class SISEformBean {
 
 
     private List<ArticleEx> listArticleEx;
+    private List<ArticleNouv> listArticleNouv;
 
 
 
@@ -761,6 +762,15 @@ public class SISEformBean {
 
     public void setListArticleEx(List<ArticleEx> list) {
         this.listArticleEx = list;
+    }
+
+
+    public List<ArticleNouv> getListArticleNouv() {
+        return usermetierimpl.getListArticleNouv();
+    }
+
+    public void setListArticleNouv(List<ArticleNouv> list) {
+        this.listArticleNouv = list;
     }
 
 
@@ -916,9 +926,14 @@ public class SISEformBean {
      }
 
 
-    public void addArticleEx(Article ex)
+    public void addArticleEx()
     {
+        ArticleEx a = new ArticleEx();
 
+        Agent agent = (Agent)RequestFilter.getSession().getAttribute("agent");
+        a.setCodeArticle(getCodeArticle());
+        a.setTypeObjet(getTypeObjet());
+        return usermetierimpl.reqEntrerArticle(a,agent);
     }
         Nomenclature nomenclatureP;
 	public Nomenclature getNomenclatureP() {

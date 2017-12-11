@@ -62,6 +62,8 @@ public interface IUserMetier {
 
 	public List<ArticleEx> getListArticleEx();
 
+	public List<ArticleNouv> getListAllArticleNouv();
+
 
 	public Materiel getMatById(Long idmat);
 	public List<Materiel> getListMatByDet(Agent detenteur);

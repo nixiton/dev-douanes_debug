@@ -128,6 +128,12 @@ public class UserMetier implements IUserMetier{
 	@Autowired
 	private ArticleExRepository artexreops;
 
+
+	@Autowired
+	private ArticleNouvRepository artnouvreops;
+
+	
+
 	@Autowired
 	private ArticleNouvRepository artnouvreops;
 
@@ -484,6 +490,16 @@ public class UserMetier implements IUserMetier{
 		return (List<ArticleEx>)artexreops.findAll();
 		//return null;
 	}
+
+	@Override
+	public List<ArticleNouv> getListAllArticleNouv() {
+		// TODO Auto-generated method stub
+		return (List<ArticleNouv>)artnouvreops.findAll();
+		//return null;
+	}
+
+
+	
 
 
 	@Override
