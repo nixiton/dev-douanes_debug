@@ -6,7 +6,7 @@
     xmlns:p="http://primefaces.org/ui"
     >
 
-    <p:dialog id="detail1" widgetVar="detail1">
+    <p:dialog id="detail" widgetVar="detail">
 
 
     <div   class="body collapse in table-responsive">
@@ -25,19 +25,18 @@
 
                     <tr>
                         <td><strong>Nom et fonction du dépositaire : </strong></td>
-                        <td>#{suivieditionBean.curentOperation.mat.idMateriel}</td>
-                        <td>#{suivieditionBean.curentOperation.mat.dc.nomAgent}</td>
-                        <td>#{suivieditionBean.curentOperation.mat.dc.roleAgent.designation}</td>
+                        <td>#{gacBean.curentOperation.mat.dc.nomAgent}</td>
+                        <td>#{gacBean.curentOperation.mat.dc.roleAgent.designation}</td>
                     </tr>
 
                     <tr>
                         <td><strong>Nom et fonction du détenteur effectif :</strong></td>
-                        <td>#{suivieditionBean.curentOperation.mat.detenteur.nomAgent}</td>
-                        <td>#{suivieditionBean.curentOperation.mat.detenteur.roleAgent.designation}</td>
+                        <td>#{gacBean.curentOperation.mat.detenteur.nomAgent}</td>
+                        <td>#{gacBean.curentOperation.mat.detenteur.roleAgent.designation}</td>
                     </tr>
 
                     <tr>
-                        <p:dataTable var="c" value="#{suivieditionBean.listMaterielByDet}" widgetVar="operationsTable"
+                        <p:dataTable var="c" value="#{gacBean.listMaterielByDet}" widgetVar="operationsTable"
                             paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}"
                             paginator="true" rows="10" style="margin-bottom:20px"
                             emptyMessage="Aucun resultat" filteredValue="#{dtFilterView.filteredOperations}"
@@ -78,7 +77,7 @@
                             </p:column>
 
                             <f:facet name="footer">
-                                Total: #{suivieditionBean.total}
+                                Total: #{gacBean.total}
                             </f:facet>
 
                         </p:dataTable>
