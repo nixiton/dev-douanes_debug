@@ -234,7 +234,7 @@ public class UserMetier implements IUserMetier{
 	}
 
 	@Override
-	public OpSortie reqSortirMateriel(Materiel m, MotifSortie motif, Direction d) throws Exception {
+	public OpSortie reqSortirMateriel(Materiel m, MotifSortie motif, Direction d, Agent oper) throws Exception {
 		// TODO Auto-generated method stub
 		if(m.getDetenteur()!=null) {
 			throw new Exception("detenu");
@@ -246,7 +246,7 @@ public class UserMetier implements IUserMetier{
 	}
 
 	@Override
-	public OpSortie reqSortirMateriel(Materiel m, MotifSortie motif) throws Exception {
+	public OpSortie reqSortirMateriel(Materiel m, MotifSortie motif, Agent oper) throws Exception {
 		// TODO Auto-generated method stub
 		if(m.getDetenteur()!=null) {
 			throw new Exception("detenu");
