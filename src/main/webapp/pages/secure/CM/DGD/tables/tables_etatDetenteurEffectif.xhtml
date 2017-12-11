@@ -17,7 +17,7 @@
             <f:facet name="header">
                 <h:outputText value="ID" />
             </f:facet>
-            <h:outputText value="#{u.id}" />
+            <h:outputText value="#{o.id}" />
         </p:column>
 
         <p:column >
@@ -25,8 +25,8 @@
                 <h:outputText value="Détenteur effectif" />
             </f:facet>
             
-                <p:commandButton  action="#{suivieditionBean.setCurentOperation(c)}" update=":detail"
-            oncomplete="PF('detail').show()" icon="ui-icon-document"/>
+                <p:commandButton  action="#{suivieditionBean.setCurentOperation(c)}" update=":detail1"
+            oncomplete="PF('detail1').show()" icon="ui-icon-document"/>
 
         </p:column>
 
@@ -34,7 +34,7 @@
 
     </p:dataTable>
 
-<!--ui:include src="/pages/secure/CM/DGD/tables/dialogs/dialogs_DetenteurEffectif.xhtml"></ui:include-->
+<ui:include src="/pages/secure/CM/DGD/tables/dialogs/dialogs_DetenteurEffectif.xhtml"></ui:include>
 
 </div>
 
