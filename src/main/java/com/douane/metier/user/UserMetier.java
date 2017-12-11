@@ -233,6 +233,29 @@ public class UserMetier implements IUserMetier{
 		return sortie;
 	}
 
+	@Override
+	public OpSortie reqSortirMateriel(Materiel m, MotifSortie motif, Direction d, Agent oper) throws Exception {
+		// TODO Auto-generated method stub
+		if(m.getDetenteur()!=null) {
+			throw new Exception("detenu");
+		}
+		OpSortie sortie = new OpSortie(new Date(), new Date(), oper.getIp(), oper, m, d, motif);
+		
+		oprepos.save(sortie);
+		return sortie;
+	}
+
+	@Override
+	public OpSortie reqSortirMateriel(Materiel m, MotifSortie motif, Agent oper) throws Exception {
+		// TODO Auto-generated method stub
+		if(m.getDetenteur()!=null) {
+			throw new Exception("detenu");
+		}
+		OpSortie sortie = new OpSortie(new Date(), new Date(), oper.getIp(), oper, m, motif);
+		
+		oprepos.save(sortie);
+		return sortie;
+	}
 
 	public Materiel entrerMateriel(OpEntree op) {
 		if(op ==null){

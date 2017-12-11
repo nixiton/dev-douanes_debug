@@ -1231,13 +1231,15 @@ System.out.println("****************************ADD3 ATTR**ERRORR***************
 		Agent agent = (Agent) RequestFilter.getSession().getAttribute("agent");
 		// agent.setIp()
 		OpSortie opSort = null;
-		System.out.println("Operation Decharge "+getDestination().getDesignation()+" "
-				+getDestinationDirec().getDesignation()+" "
-				+getDestinationService().getDesignation()+" "
-				+getMotifSortie().getDesignation());
 		try {
-			opSort = usermetierimpl.reqSortirMateriel(this.getMateriel(), this.getMotifSortie(),
-					this.getDestinationDirec(), this.getDestinationService(), this.getDestination(), agent);
+			if(getDestinationDirec()==null){
+				opSort = usermetierimpl.reqSortirMateriel(this.getMateriel(), this.getMotifSortie(),agent);
+			}
+			else {
+				opSort = usermetierimpl.reqSortirMateriel(this.getMateriel(), this.getMotifSortie(),
+					this.getDestinationDirec(), agent);
+			}
+			
 			return SUCCESS;
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
