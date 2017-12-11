@@ -1665,7 +1665,7 @@ System.out.println("****************************ADD3 ATTR**ERRORR***************
 		return an;
 	}
 
-	public ArticleEx addArticleEx(CodeArticle cde, Agent ben, Agent depo, Float prix, Long nombre)
+	public ArticleEx ticleEx(CodeArticle cde, Agent ben, Agent depo, Float prix, Long nombre)
 	{
 		ArticleEx ae = usermetierimpl.addArticleEx( cde,  ben,  depo,  prix,  nombre);
 		return ae;
