@@ -3,10 +3,9 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:p="http://primefaces.org/ui"
-	>
+	xmlns:p="http://primefaces.org/ui">
 
- <h:head></h:head>
+<h:head></h:head>
 
 <div class="col-md-4"></div>
 <div class="box dark col-md-4">
@@ -15,7 +14,7 @@
 
 		<h:form class="form-horizontal">
 
-            <p:messages id="messages" />
+			<p:messages id="messages" />
 
 			<div class="form-group">
 				<label for="text1" class="control-label col-lg-4">Désignation
@@ -23,15 +22,33 @@
 
 				<div class="col-lg-6">
 
-					<p:inputText   required="true"
-						value="#{siseBean.designation}"
-						requiredMessage=""
-						placeholder="Désignation" styleClass="form-control top"></p:inputText>
 
+					<p:inputText required="true" value="#{siseBean.designation}"
+						requiredMessage="" placeholder="Désignation"
+						styleClass="form-control top"></p:inputText>
 				</div>
-				
-				<hr></hr>
 
+				<hr></hr>
+				<label for="text1" class="control-label col-lg-4">Categorie
+				</label>
+				<div class="col-lg-6">
+					<p:selectOneMenu id="zone" styleClass="form-control top"
+						converter="#{refConverter}" value="#{siseBean.nomenclatureP}">
+						<f:selectItem itemValue="#{null}" itemLabel="--select--" />
+						<f:selectItems value="#{siseBean.listNomenclature}" var="type"
+							itemLabel="#{type.designation}" />
+						<p:ajax event="change" update="data"
+							listener="#{siseBean.onTypeMaterielChange}" />
+					</p:selectOneMenu>
+				</div>
+
+				<label for="text1" class="control-label col-lg-4">Nomenclature
+				</label>
+
+				<div class="col-lg-6">
+					<h:outputText id="data"
+						value="#{siseBean.nomenclatureP.nomenclature}"></h:outputText>
+				</div>
 				<div class="col-lg-2"></div>
 
 			</div>
@@ -40,8 +57,9 @@
 				<label for="text1" class="control-label col-lg-4"></label>
 
 				<div class="col-lg-4">
-					<h:commandButton id="btnSignId" action="#{siseBean.addTypeMateriel}" value="Créer"
-						class="btn btn-lg btn-primary btn-block"/>
+					<h:commandButton id="btnSignId"
+						action="#{siseBean.addTypeMateriel}" value="Créer"
+						class="btn btn-lg btn-primary btn-block" />
 				</div>
 
 				<div class="col-lg-4"></div>

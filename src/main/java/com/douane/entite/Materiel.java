@@ -126,6 +126,9 @@ public class Materiel implements Serializable{
 
 
 	private String anneeAcquisition;
+	@ManyToOne
+	@JoinColumn(name="idTypeMateriel")
+	private TypeMateriel typematerieladd;
 
 
 
@@ -360,6 +363,14 @@ public class Materiel implements Serializable{
 		this.documentPath = documentPath;
 	}
 
+	public TypeMateriel getTypematerieladd() {
+		return typematerieladd;
+	}
+
+	public void setTypematerieladd(TypeMateriel typematerieladd) {
+		this.typematerieladd = typematerieladd;
+	}
+	
 
 
 }

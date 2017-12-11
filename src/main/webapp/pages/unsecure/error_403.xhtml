@@ -19,7 +19,51 @@
 <h:body styleClass="login">
 	
 
+<div id="top">
 
+		<header class="navbar-header">
+			<button type="button" class="navbar-toggle" data-toggle="collapse"
+				data-target=".navbar-ex1-collapse">
+				<span class="sr-only">Toggle navigation</span> <span
+					class="icon-bar"></span> <span class="icon-bar"></span> <span
+					class="icon-bar"></span>
+			</button>
+
+			<h:link>
+
+				<h:graphicImage height="50px"
+					value="/pages/unsecure/assets/images/logo.jpeg" />
+
+			</h:link>
+
+		</header>
+
+		<div class="topnav">
+
+			<div class="btn-group">
+
+				<!-- h:link data-toggle="modal" data-original-title="Help"
+					data-placement="bottom" class="btn btn-default btn-sm"
+					outcome="#helpModal">
+					<i class="fa fa-question"></i>
+				</h:link-->
+			</div>
+		</div>
+
+		<div class="collapse navbar-collapse navbar-ex1-collapse">
+
+			<ul class="nav navbar-nav">
+				<li>
+            <a href="/pages/unsecure/login.xhtml">Réessayer</a>
+        </li>
+			</ul>
+
+		</div>
+            
+		<ui:include src="/pages/unsecure/components/top.xhtml">
+                <ui:param name="title" value="ERROR PAGE" />
+            </ui:include>
+        </div>
 
 
 

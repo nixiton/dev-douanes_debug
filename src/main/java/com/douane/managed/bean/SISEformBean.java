@@ -317,6 +317,8 @@ public class SISEformBean {
     public String addTypeMateriel()
     {
         tymat = new TypeMateriel(getDesignation());
+        tymat.setNomenclaureParent(this.getNomenclatureP());
+        
         Agent agent = (Agent)RequestFilter.getSession().getAttribute("agent");
         //check if there is nomenclature duplicate
 
@@ -695,6 +697,7 @@ public class SISEformBean {
 
 
     private List<ArticleEx> listArticleEx;
+    private List<ArticleNouv> listArticleNouv;
 
 
 
@@ -759,6 +762,15 @@ public class SISEformBean {
 
     public void setListArticleEx(List<ArticleEx> list) {
         this.listArticleEx = list;
+    }
+
+
+    public List<ArticleNouv> getListArticleNouv() {
+        return usermetierimpl.getListAllArticleNouv();
+    }
+
+    public void setListArticleNouv(List<ArticleNouv> list) {
+        this.listArticleNouv = list;
     }
 
 
@@ -914,10 +926,27 @@ public class SISEformBean {
      }
 
 
-    public void addArticleEx(Article ex)
+    public void addArticleEx()
     {
+        ArticleEx a = new ArticleEx();
 
+        Agent agent = (Agent)RequestFilter.getSession().getAttribute("agent");
+        a.setCodeArticle(getCodeArticle());
+        //a.setTypeObjet(getTypeObjet());
+        usermetierimpl.reqEntrerArticle(a,agent);
     }
+        Nomenclature nomenclatureP;
+	public Nomenclature getNomenclatureP() {
+		return nomenclatureP;
+	}
+
+	public void setNomenclatureP(Nomenclature nomenclatureP) {
+		this.nomenclatureP = nomenclatureP;
+	}
+	public void onTypeMaterielChange() {
+
+		this.setNomenclatureP(nomenclatureP);
+	}
 
 
 

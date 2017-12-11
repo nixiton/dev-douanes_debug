@@ -117,12 +117,12 @@
 
                     <hr></hr>
                     <!-- SERVICE -->
-					<h:outputLabel styleClass="col-md-6" 
+					<!--h:outputLabel styleClass="col-md-6" 
 						value="Service " />
 
 					<p:selectOneMenu value="#{userMB.service}" converter="#{refConverter}" panelStyle="width:180px"  style="width:160px"
                          effect="fade" var="t" filter="true" filterMatchMode="startsWith">
-                        <f:selectItem itemValue="#{null}" itemLabel="--select--" /> 
+                        <f:selectItem itemValue="#{null}" itemLabel="select" /> 
                             <f:selectItems value="#{siseBean.listService}" var="theme" itemLabel="#{theme.designation}" itemValue="#{theme}" />
                         <p:column>
                             <h:outputText value="#{t.designation}" />
@@ -130,7 +130,7 @@
 
                     </p:selectOneMenu>
 
-                    <hr></hr>
+                    <hr></hr-->
                     <!-- POSTE -->
 					<h:outputLabel styleClass="col-md-6" 
 						value="Poste " />
