@@ -64,11 +64,11 @@
                 <h:outputText value="Destination"/>
             </f:facet>
             <p:panel rendered="#{c['class'].simpleName eq 'OpEntree' }" >
-                <h:outputText value="#{c.mat.direc} #{c.mat.serv} #{c.mat.bureau}" />
+                <h:outputText value="#{c.mat.direc}" />
             </p:panel>
 
             <p:panel rendered="#{c['class'].simpleName eq 'OpSortie' }" >
-                <h:outputText value="#{c.direc} #{c.serv} #{c.bureau}" />
+                <h:outputText value="#{c.direc}" />
             </p:panel>
             
         </p:column>
