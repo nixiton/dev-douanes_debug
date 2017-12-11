@@ -10,11 +10,9 @@
 
 
 <h:form>
-	<p:dataTable var="c" value="#{operationBean.listOperations}" widgetVar="operationsTable"
-		paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}"
-		paginator="true" rows="10" style="margin-bottom:20px"
-		emptyMessage="Aucun resultat" filteredValue="#{dtFilterView.filteredOperations}"
-		>
+	<p:dataTable   var="b" value="#{siseBean.listBureau}" 
+                 paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}  "
+                 paginator="true" rows="10" style="margin-bottom:20px">
 		<f:facet name="header">
             <p:outputPanel>
                 <h:outputText value="Rechercher:" />
@@ -180,6 +178,7 @@
 <ui:include src="/pages/secure/CM/tables/dialogs/dialogs_vpriseEnCharge.xhtml"></ui:include>
 
 <ui:include src="/pages/secure/CM/tables/dialogs/dialogs_saisieMatEx.xhtml"></ui:include>
+
 
 
 </html>
