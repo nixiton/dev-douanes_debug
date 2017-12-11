@@ -425,5 +425,113 @@ public class GACBean {
         return this.motif;
     }
 
+
+    //----------------GRAND II --------------------
+    Fournisseur fournisseur;
+
+    public Fournisseur getFournisseur() {
+        return fournisseur;
+    }
+
+    public void setFournisseur(Fournisseur fournisseur) {
+        this.fournisseur = fournisseur;
+    }
+
+    public Float getPrix() {
+        return prix;
+    }
+
+    public void setPrix(Float prix) {
+        this.prix = prix;
+    }
+
+    Float prix;
+
+    public OpEntreeArticle getOpEntreeArticle() {
+        return opEntreeArticle;
+    }
+
+    public void setOpEntreeArticle(OpEntreeArticle opEntreeArticle) {
+        this.opEntreeArticle = opEntreeArticle;
+    }
+
+    public OpSortieArticle getOpSortieArticle() {
+        return opSortieArticle;
+    }
+
+    public void setOpSortieArticle(OpSortieArticle opSortieArticle) {
+        this.opSortieArticle = opSortieArticle;
+    }
+
+    private OpEntreeArticle opEntreeArticle;
+    private OpSortieArticle opSortieArticle;
+
+    public CodeArticle getCodeArticle() {
+        return codeArticle;
+    }
+
+    public void setCodeArticle(CodeArticle codeArticle) {
+        this.codeArticle = codeArticle;
+    }
+
+    private CodeArticle codeArticle;
+    public OpEntreeArticle addRequeteOpEntree()
+    {
+        ArticleNouv a = new ArticleNouv();
+        Agent agent = (Agent)RequestFilter.getSession().getAttribute("agent");
+        a.setFournisseur(getFournisseur());
+        a.setPrix(getPrix());
+        return usermetierimpl.reqEntrerArticle(a,agent);
+    }
+
+    public void validateArticleSaisieExistant()
+    {
+        OpEntreeArticle o = addRequeteOpEntree();
+        usermetierimpl.entrerArticle(o);
+    }
+    public void reqArtAModifier() throws Exception {
+        usermetierimpl.reqArtAModifier(getOpEntreeArticle(),getMotif());
+    }
+    public void reqSortirArtAModifier() throws Exception {
+        usermetierimpl.reqSortirArtAModifier(getOpSortieArticle(),getMotif());
+    }
+    public void reqArtRefuser() throws  Exception{
+        usermetierimpl.reqArtRefuser(getOpEntreeArticle(),getMotif());
+    }
+    public void reqSortirRefuser() throws Exception
+    {
+        usermetierimpl.reqSortirRefuser(getOpSortieArticle(),getMotif());
+    }
+    public void entrerArticle() throws  Exception
+    {
+        usermetierimpl.entrerArticle(getOpEntreeArticle());
+    }
+    public void sortirArticle() throws  Exception
+    {
+        usermetierimpl.sortirArticle(getOpSortieArticle());
+    }
+
+
+    public void addArticleEx()
+    {
+        ArticleEx a = new ArticleEx();
+
+        Agent agent = (Agent)RequestFilter.getSession().getAttribute("agent");
+        a.setCodeArticle(getCodeArticle());
+        //a.setTypeObjet(getTypeObjet());
+        usermetierimpl.reqEntrerArticle(a,agent);
+    }
+    Nomenclature nomenclatureP;
+    public Nomenclature getNomenclatureP() {
+        return nomenclatureP;
+    }
+
+    public void setNomenclatureP(Nomenclature nomenclatureP) {
+        this.nomenclatureP = nomenclatureP;
+    }
+    public void onTypeMaterielChange() {
+
+        this.setNomenclatureP(nomenclatureP);
+    }
 }
 //r

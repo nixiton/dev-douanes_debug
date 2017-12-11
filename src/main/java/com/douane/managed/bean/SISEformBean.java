@@ -828,6 +828,8 @@ public class SISEformBean {
         return usermetierimpl.reqEntrerArticle(a,agent);
     }
 
+
+    //-----------FIN SISE------------------
     public OpSortieArticle addRequeteSortie() throws Exception {
         ArticleNouv a = new ArticleNouv();
         Agent agent = (Agent)RequestFilter.getSession().getAttribute("agent");
@@ -897,7 +899,7 @@ public class SISEformBean {
     }
 
 
-    //validation
+    //------------DEBUT GAC--------------
     public void validateArticleSaisieExistant()
     {
         OpEntreeArticle o = addRequeteOpEntree();
