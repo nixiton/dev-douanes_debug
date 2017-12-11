@@ -81,7 +81,7 @@
                     </tr>
             </table>
         </h:body>
-        <c:if test="#{depositaireBean.filedownload ne null}">
+        <c:if test="#{depositaireBean.filedownload ne null}" >
             <h:form>
                 <p:commandButton id="downloadLink" value="Download" ajax="false">
                     <f:setPropertyActionListener target="#{depositaireBean.fileZipPath}" value="delete" />

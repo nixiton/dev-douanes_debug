@@ -282,6 +282,7 @@ public class DepositaireBean {
 		}
 	}
 
+
 	public void setFileZipPath(String f){
 		this.fileZipPath = f;
 	}
