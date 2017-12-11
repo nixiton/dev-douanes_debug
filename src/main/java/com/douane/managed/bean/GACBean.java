@@ -392,6 +392,8 @@ public class GACBean {
             return "dialog";
         }
 
+        return null;
+
     }
 
     public void setListMaterielByDet(List<Materiel> listMateriel) {
