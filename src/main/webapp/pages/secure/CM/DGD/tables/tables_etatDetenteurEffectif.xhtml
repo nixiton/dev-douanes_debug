@@ -32,8 +32,10 @@
                 <h:outputText value="Détenteur effectif" />
             </f:facet>
             
-                <p:commandButton  action="#{gacBean.setCurentOperation2(o)}" update=":detail1"
-            oncomplete="PF('detail1').show()" icon="ui-icon-document"/>
+                <!--p:commandButton  action="#{gacBean.setCurentOperation2(o)}" update=":detail1"
+            oncomplete="PF('detail1').show()" icon="ui-icon-document"/-->
+
+            <p:commandButton  action="#{gacBean.setCurentOperation2(o)}" icon="ui-icon-document"/>
 
         </p:column>
 
