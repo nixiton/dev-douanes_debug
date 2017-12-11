@@ -7,69 +7,92 @@
     >
 
     <p:dialog id="detail" widgetVar="detail">
-        
 
-    <div   class="body collapse in table-responsive">
+
+        <h:body    class="body collapse in table-responsive">
+
 
         <table class="table responsive-table">
+
                     <tr>
-                        <td><strong>Type de materiel</strong></td>
-                        <td>#{depositaireBean.curentMateriel.nomenMat.designation}</td>
+                        <td><strong>ID</strong></td>
+                        <td>#{depositaireBean.curentMateriel.idMateriel}</td>
                         <td></td>
-                        <td><strong>Financement</strong></td>
-                        <td>#{depositaireBean.curentMateriel.financement.designation}</td>
+                        <td><strong>Caractéristiques</strong></td>
+                        <td>#{depositaireBean.curentMateriel.renseignement}</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Prix Unitaire</strong></td>
+                        <td>#{depositaireBean.curentMateriel.pu}</td>
+                        <td></td>
+                        <td><strong>Marque</strong></td>
+                        <td>#{depositaireBean.curentMateriel.marque.designation}</td>
+
+                    </tr>
+                    <tr>
+                        <td><strong>Référence</strong></td>
+                        <td>#{depositaireBean.curentMateriel.reference}</td>
+                        <td></td>
+                        <td><strong>Dépositaire</strong></td>
+                        <td>#{depositaireBean.curentMateriel.dc.im}</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Numéro de série</strong></td>
+                        <td>#{depositaireBean.curentMateriel.numSerie}</td>
+                        <td></td>
+                        <td><strong>Document</strong></td>
+                        <td>
+                            <!--h:outputLink value="/pages/secure/CM/DC/#{depositaireBean.curentMateriel.documentPath}"  target="_blank">
+                                <i class="fa fa-file-archive-o"></i>
+                            </h:outputLink-->
+                            <a href="#{depositaireBean.fileZipPath}"><i class="fa fa-file-archive-o"></i></a>
+
+                            </td>
+
+                            
+                    </tr>
+                    <tr>
+                        <td><strong>Autre</strong></td>
+                        <td>#{depositaireBean.curentMateriel.autre}</td>
+                        <td></td>
+                        <td><strong>Image</strong></td>
+                        <td>
+                            <p:panel rendered="#{depositaireBean.curentMateriel.image != null}">
+                                <h:graphicImage url="data:image/jpg;base64,#{depositaireBean.curentMateriel.image}"
+                                                width="275px" height="75px"></h:graphicImage>
+                            </p:panel>
+                        </td>
                     </tr>
                     <tr>
                         <td><strong>Type de Materiel - Nomenclature</strong></td>
                         <td>#{depositaireBean.curentMateriel.typematerieladd.designation} - #{depositaireBean.curentMateriel.nomenMat.nomenclature}</td>
                         <td></td>
-                        <td><strong>Montant sur la facture</strong></td>
-                        <td>#{depositaireBean.curentMateriel.montant_facture}</td>
+                        <td><strong>Codification</strong></td>
+                        <td>#{depositaireBean.curentMateriel.code}</td>
                     </tr>
                     <tr>
-                        <td><strong>Marque</strong></td>
-                        <td>#{depositaireBean.curentMateriel.marque.designation}</td>
-                        <td></td>
-                        <td><strong>Référence facture</strong></td>
-                        <td>#{depositaireBean.curentMateriel.refFacture}</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Réference</strong></td>
-                        <td>#{depositaireBean.curentMateriel.reference}</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Numero de Série</strong></td>
-                        <td>#{depositaireBean.curentMateriel.numSerie}</td>
-                        <td></td>
-                        <td><strong>Fournisseur</strong></td>
-                        <td>#{depositaireBean.curentMateriel.fournisseur.designation}</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Caractéristique</strong></td>
-                        <td>#{depositaireBean.curentMateriel.renseignement}</td>
-                        <td></td>
                         <td><strong>Etat</strong></td>
                         <td>#{depositaireBean.curentMateriel.etat.designation}</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Mode d'aquisition</strong></td>
-                        <td>#{depositaireBean.curentMateriel.modAcq.designation}</td>
-                        <td></td>
-                        <td><strong>Annee d'acquisition</strong></td>
-                        <td>#{depositaireBean.curentMateriel.anneeAcquisition}</td>
-                    </tr>
-                    <tr>
-                    	<td><strong>Codification</strong></td>
-                        <td>#{depositaireBean.curentMateriel.code}</td>
                     	<td></td>
-                        <td><strong>Code128</strong></td>
-                        <td>
-                        <p:barcode value="142536" type="code128" format="png" orientation="0" height="128px" width="302px"/></td>
-                    	
+                    	<td><strong>Annee d'acquisition</strong></td>
+                    	<td>#{depositaireBean.curentMateriel.anneeAcquisition}</td>
                     </tr>
-                         
+                    <tr>
+                    <td><strong>Code128</strong></td>
+                        <td><p:barcode value="41256" type="code128" format="png" orientation="0" height="128px" width="302px"/></td>
+                    
+                    </tr>
+                    <tr>
+
+                    </tr>
             </table>
-        </div>
+        </h:body>
+        <h:form>
+            <p:commandButton id="downloadLink" value="Download" ajax="false">
+                <f:setPropertyActionListener target="#{depositaireBean.fileZipPath}" value="delete" />
+                <p:fileDownload value="#{depositaireBean.filedownload}" />
+            </p:commandButton>
+        </h:form>
     </p:dialog>
 
 </html>
