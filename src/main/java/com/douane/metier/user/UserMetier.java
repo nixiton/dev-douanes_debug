@@ -225,6 +225,7 @@ public class UserMetier implements IUserMetier{
 	public OpSortie reqSortirMateriel(Materiel m, MotifSortie motif, Direction d, Service s, Bureau b, Agent oper) throws Exception {
 		// TODO Auto-generated method stub
 		if(m.getDetenteur()!=null) {
+			System.out.println("DETENU");
 			throw new Exception("detenu");
 		}
 		OpSortie sortie = new OpSortie(new Date(), new Date(), oper.getIp(), oper, m, d, s, b, motif);
