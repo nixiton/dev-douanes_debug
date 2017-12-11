@@ -1227,9 +1227,6 @@ System.out.println("****************************ADD3 ATTR**ERRORR***************
 		Agent agent = (Agent) RequestFilter.getSession().getAttribute("agent");
 		// agent.setIp()
 		OpSortie opSort = null;
-		System.out.println("Operation Decharge "+" "
-				+getDestinationDirec().getDesignation()+" "
-				+getMotifSortie().getDesignation());
 		try {
 			if(getDestinationDirec()==null){
 				opSort = usermetierimpl.reqSortirMateriel(this.getMateriel(), this.getMotifSortie(),agent);
