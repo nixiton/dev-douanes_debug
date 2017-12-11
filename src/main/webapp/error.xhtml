@@ -4,6 +4,10 @@
       xmlns:p="http://primefaces.org/ui" xmlns:ui="http://java.sun.com/jsf/facelets">
 
 
+<ui:include src="/pages/unsecure/components/header.xhtml">
+    <ui:param name="title" value="Administration" />
+</ui:include>
+
 <h:body>
 
     <h2>Error page</h2>
@@ -27,6 +31,8 @@
             <li>#{stack.className} - #{stack.methodName} - #{stack.fileName} (#{stack.lineNumber})</li>
         </ui:repeat>
     </ul>
+
+  <ui:include src="/pages/unsecure/components/footer.xhtml"></ui:include>
 
 </h:body>
 </html>
