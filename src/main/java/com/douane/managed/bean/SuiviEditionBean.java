@@ -16,6 +16,9 @@ import org.springframework.stereotype.Component;
 
 import com.douane.requesthttp.RequestFilter;
 
+
+import java.util.ListIterator;
+
 /**
  * Created by hasina on 11/3/17.
  */
@@ -89,6 +92,17 @@ public class SuiviEditionBean {
 
 
     private List<Materiel> listMaterielByDet;
+
+    private Float total;
+
+
+        public void setTotal(Float t){
+        this.total = t;
+    }
+
+    public Float getTotal(){
+        return this.total;
+    }
 
 
     public void setListMaterielByDet(List<Materiel> listMateriel) {
