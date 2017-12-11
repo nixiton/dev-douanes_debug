@@ -271,6 +271,7 @@ public class DepositaireBean {
 	}
 
 	public String getFileZipPath() {
+
 		if(getIdMat()!=null){
 			fileZipPath = usermetierimpl.getMatById(getIdMat()).getDocumentPath();//
 			RequestFilter.getSession().setAttribute("fileZipPath",fileZipPath);
@@ -775,6 +776,7 @@ public class DepositaireBean {
 		}
 		else
 		{
+			RequestFilter.getSession().setAttribute("documentpath","");
 			filesTozip.add("");
 		}
 		zipFiles(filesTozip);
@@ -906,6 +908,7 @@ public class DepositaireBean {
 	}
 
 	public void setCurentMateriel(Materiel curentMateriel) {
+		RequestFilter.getSession().setAttribute("fileZipPath",curentMateriel.getDocumentPath());
 		this.curentMateriel = curentMateriel;
 		this.setIdMat(curentMateriel.getIdMateriel());
 	}
@@ -1562,6 +1565,40 @@ System.out.println("****************************ADD3 ATTR**ERRORR***************
 		return nomenclatureAutom;
 	}
 
+	private int fileZipSize;
+
+	public int getFileZipSize() throws IOException {
+		if(RequestFilter.getSession().getAttribute("fileZipPath") == null)
+			return 0;
+		InputStream stream = new FileInputStream((String )RequestFilter.getSession().getAttribute("fileZipPath"));
+		if(stream == null)
+			return 0;
+		fileZipSize = stream.available();
+		return fileZipSize;
+	}
+
+	public void setFileZipSize(int fileZipSize) {
+		this.fileZipSize = fileZipSize;
+	}
+
+
+	private InputStream fileDownloadStream;
+
+	public InputStream getFileDownloadStream() throws IOException
+	{
+		if(RequestFilter.getSession().getAttribute("fileZipPath") == null || RequestFilter.getSession().getAttribute("fileZipPath") == "")
+			return null;
+		FileInputStream stream = new FileInputStream((String )RequestFilter.getSession().getAttribute("fileZipPath"));
+		if(stream == null)
+			return null;
+		if(stream.getChannel().size() == 0)
+			return null;
+		return stream;
+	}
+
+	public void setFileDownloadStream(InputStream fileZipSize) {
+		this.fileDownloadStream = fileZipSize;
+	}
 	public void setNomenclatureAutom(String nomenclatureAutom) {
 		this.nomenclatureAutom = nomenclatureAutom;
 	}
@@ -1578,12 +1615,26 @@ System.out.println("****************************ADD3 ATTR**ERRORR***************
 				"application/pdf", "PFSample.pdf");
 	}
 
-	public StreamedContent getFiledownload() throws FileNotFoundException {
-		InputStream stream = new FileInputStream((String )RequestFilter.getSession().getAttribute("fileZipPath"));
+	public StreamedContent getFiledownload() throws IOException {
+		if(RequestFilter.getSession().getAttribute("fileZipPath") == null || RequestFilter.getSession().getAttribute("fileZipPath") == "")
+			return null;
+		try
+		{
+			FileInputStream fstream = new FileInputStream((String) RequestFilter.getSession().getAttribute("fileZipPath"));
+			if (fstream == null)
+				return null;
+			if (fstream.getChannel().size() == 0)
+				return null;
 
-		filedownload = new DefaultStreamedContent(stream,
-				"application/zip", "doc.zip");
-		RequestFilter.getSession().setAttribute("fileZipPath",null);
+			InputStream stream = new FileInputStream((String) RequestFilter.getSession().getAttribute("fileZipPath"));
+			fileZipSize = stream.available();
+			filedownload = new DefaultStreamedContent(stream,
+					"application/zip", "doc.zip");
+		}catch (FileNotFoundException f)
+		{
+			return null;
+		}
+		//RequestFilter.getSession().setAttribute("fileZipPath",null);
 		return filedownload;
 	}
 
