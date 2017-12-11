@@ -6,6 +6,12 @@
     xmlns:p="http://primefaces.org/ui"
     >
 
+
+<ui:include src="/pages/unsecure/components/header.xhtml">
+    <ui:param name="title" value="Administration" />
+</ui:include>
+
+
     <p:dialog id="detail" widgetVar="detail">
 
 
@@ -87,5 +93,7 @@
             </table>
         </div>
     </p:dialog>
+
+    <ui:include src="/pages/unsecure/components/footer.xhtml"></ui:include>
 
 </html>
