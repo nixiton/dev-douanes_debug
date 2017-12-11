@@ -382,13 +382,7 @@ public class GACBean {
         
         if(usermetierimpl.getListMatByDet(((OpAttribution)getCurentOperation()).getDetenteur())!=null){
             this.setListMaterielByDet(usermetierimpl.getListMatByDet(((OpAttribution)getCurentOperation()).getDetenteur()));
-            ListIterator<Materiel> it = this.getListMaterielByDet().listIterator();
-            if (it!=null) {
-                this.setTotal(Float.parseFloat("0"));
-               while(it.hasNext()){
-                 setTotal(this.total+(Float)(it.next().getPu()));
-              } 
-            } 
+            
         }
 
 
