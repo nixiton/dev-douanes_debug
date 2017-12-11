@@ -1616,6 +1616,7 @@ System.out.println("****************************ADD3 ATTR**ERRORR***************
 	}
 
 	public void setCodeArticle(CodeArticle codeArticle) {
+		//test
 		this.codeArticle = codeArticle;
 	}
 }
