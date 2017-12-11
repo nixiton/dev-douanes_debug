@@ -389,7 +389,7 @@ public class GACBean {
                  setTotal(this.total+(Float)(it.next().getPu()));
               } 
             }*/ 
-            return "dialog"
+            return "dialog";
         }
 
     }
