@@ -276,7 +276,7 @@ public class GACBean {
         //usermetierimpl.sortirMateriel(sortie);
     	System.out.println("VALDATION DECHARGE SORTIE");
     	try {
-    		usermetierimpl.sortirMateriel((OpSortie)this.getCurentOperation());
+    		usermetierimpl.sortirMateriel(sortie);
 		} catch (Exception e) {
 			// TODO: handle exception
 			e.getMessage();
