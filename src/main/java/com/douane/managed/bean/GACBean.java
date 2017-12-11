@@ -377,7 +377,7 @@ public class GACBean {
     }
 
     public void setCurentOperation2(Operation operation){
-        this.curentOperation = operation;
+        setCurentOperation(operation);
 
         System.out.println("ERROR+++++++++   " + ((OpAttribution)operation).getDetenteur()!=null + "    ++++++++++++++++++++++++++");
 
