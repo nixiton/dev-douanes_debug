@@ -39,9 +39,18 @@
         </p:column>
         <p:column>
             <f:facet name="header">Pièce justificative</f:facet>
-            <h:outputLink value="#{d.mat.documentPath}" target="_blank"> 
+            <!--h:outputLink value="#{d.mat.documentPath}" target="_blank"> 
                                 <i class="fa fa-file-archive-o"></i> 
-                            </h:outputLink>
+                            </h:outputLink-->
+            <c:if test="#{depositaireBean.filedownload ne null}" >
+                                <h:form>
+                                    <p:commandButton id="downloadLink" value="Download" ajax="false">
+                                        <f:setPropertyActionListener target="#{depositaireBean.fileZipPath}" value="delete" />
+                                        <p:fileDownload value="#{depositaireBean.filedownload}" />
+                                        <i class="fa fa-file-archive-o"></i>
+                                    </p:commandButton>
+                                </h:form>
+                            </c:if>
         </p:column>
 
 
