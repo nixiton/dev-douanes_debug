@@ -212,7 +212,7 @@
 
                     <p:selectOneMenu value="#{depositaireBean.serviceforMat}" converter="#{refConverter}" panelStyle="width:180px"  style="width:160px"
                          effect="fade" var="t" filter="true" filterMatchMode="startsWith">
-                        <f:selectItem itemValue="#{null}" itemLabel="--select--" /> 
+                        <f:selectItem itemValue="#{null}" itemLabel="" /> 
                             <f:selectItems value="#{depositaireBean.listServices}" var="theme" itemLabel="#{theme.designation}" itemValue="#{theme}" />
                         <p:column>
                             <h:outputText value="#{t.designation}" />
