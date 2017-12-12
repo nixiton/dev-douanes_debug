@@ -49,6 +49,11 @@ public class CustomAuthenticationProvider implements AuthenticationProvider {
         Agent user;
         if (immatriculation.matches("[0-9]+") && immatriculation.length() > 2) {
             user = usermetier.findAgentByIm(Long.parseLong(immatriculation));
+            if (user == null) {
+                log.info("username not found " + immatriculation);
+                throw new SecurityExecption("user " + immatriculation + " tidak ditemukan");
+            }
+
             user.setIp("IP default");
         }
         else

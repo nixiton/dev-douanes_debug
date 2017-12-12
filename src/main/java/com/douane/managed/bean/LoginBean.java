@@ -7,6 +7,7 @@ import javax.faces.bean.RequestScoped;
 import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpSession;
 
+import com.douane.security.SecurityExecption;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -40,7 +41,8 @@ public class LoginBean {
 	           
 	            message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Loggin Error", "Invalid credentials");
 	            FacesContext.getCurrentInstance().addMessage(null, message);
-	            return "incorrect";
+				throw new SecurityExecption("Wrong credentials");
+				//return "incorrect";
 	        }
 	        message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Welcome", this.getImmatriculation());
 	        FacesContext.getCurrentInstance().addMessage(null, message);
