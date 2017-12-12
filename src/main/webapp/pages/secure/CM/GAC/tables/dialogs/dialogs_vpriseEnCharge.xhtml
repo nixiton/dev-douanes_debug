@@ -83,6 +83,9 @@
                             </p:panel>
                         </td>
                     </tr>
+
+                    <p:panel rendered="#{gacBean.curentOperation.state eq 'WAITING' }">
+
                     <tr>
                         <td></td>
                         <td>
@@ -131,6 +134,7 @@
                         </td>
                     </tr>
                     
+                    </p:panel>
             </table>
         </div>
         

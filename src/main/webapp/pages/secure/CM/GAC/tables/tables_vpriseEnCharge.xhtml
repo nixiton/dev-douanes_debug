@@ -62,6 +62,9 @@
             </f:facet>
             <p:commandButton rendered="#{c.state eq 'WAITING' }" action="#{gacBean.setCurentOperation(c)}" update=":detail"
             oncomplete="PF('detail').show()" icon="ui-icon-circle-check"/>
+
+            <p:commandButton action="#{gacBean.setCurentOperation(c)}" update=":detail"
+            oncomplete="PF('detail').show()" icon="ui-icon-zooming"/>
         </p:column>
     
     </p:dataTable>
