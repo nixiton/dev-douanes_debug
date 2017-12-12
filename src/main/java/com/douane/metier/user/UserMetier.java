@@ -654,6 +654,11 @@ public class UserMetier implements IUserMetier{
 	}
 
 	@Override
+	public List<Materiel> getMatByDetenteurAndDirection(Agent detenteur, Direction direction) {
+		return matrepos.findByDetenteurAndDirec(detenteur, direction);
+	}
+
+	@Override
 	public List<Agent> listAgentByDirection(Direction direction) {
 		// TODO Auto-generated method stub
 		return agentrepos.findByDirection(direction);
