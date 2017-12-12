@@ -3,6 +3,7 @@
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:pe="http://primefaces.org/ui/extensions"
       xmlns:p="http://primefaces.org/ui" xmlns:c="http://java.sun.com/jsp/jstl/core"
 >
 
@@ -85,6 +86,15 @@
                         <td>#{depositaireBean.curentMateriel.code}</td>
                         <td><strong>Code128</strong></td>
                         <td><p:barcode value="41256" type="code128" format="png" orientation="0" height="128px" width="302px"/></td>
+                    </tr>
+                    <tr>
+                    	<td><strong>QRCODE</strong></td>
+                        <td>           					
+            				<p:barcode value="${depositaireBean.curentMateriel.direc.designation}/ 
+            				${depositaireBean.curentMateriel.typematerieladd.designation  } /
+            				NUM1 /
+            				${depositaireBean.curentMateriel.anneeAcquisition}/" type="qr"/>
+           				</td>
                     </tr>
                     <tr>
 
