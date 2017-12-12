@@ -60,7 +60,17 @@
 
 			</div>
 
+			<div class="btn-group">
+
+				<p:commandButton 
+            		oncomplete="PF('detail3').show()" icon="ui-icon-person"/>
+
+			</div>
+
 		</div>
+
+
+
 
 
 
@@ -149,5 +159,31 @@
 			<!-- /.nav -->
 		</div>
 	</div>
+
+
+
+	<p:dialog id="detail3" widgetVar="detail3">
+
+		<table class="table responsive-table">
+
+                    <tr>
+                        <td><strong>Matricule</strong></td>
+                        <td>#{depositaireBean.currentAgent.im}</td>
+                        <td></td>
+                        <td><strong>Nom</strong></td>
+                        <td>#{depositaireBean.currentAgent.nomAgent}</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Direction</strong></td>
+                        <td>#{depositaireBean.currentAgent.direction.designation}</td>
+                        <td></td>
+                       	<td><strong>Role</strong></td>
+                        <td>#{depositaireBean.currentAgent.roleAgent.designation}</td>
+                        <td></td>
+                    </tr>
+        </table>
+
+	</p:dialog>
+
 	<!-- /.container-fluid -->
 </nav>
