@@ -1716,4 +1716,93 @@ System.out.println("****************************ADD3 ATTR**ERRORR***************
 	public void setTypematerielToAdd(TypeMateriel typematerielToAdd) {
 		this.typematerielToAdd = typematerielToAdd;
 	}
+
+
+
+
+	//-----------------GRAND II-----------------------------
+	Float prix;
+
+	public Float getPrix() {
+		return prix;
+	}
+
+	public void setPrix(Float prix) {
+		this.prix = prix;
+	}
+
+	public OpEntreeArticle addArticleEx()
+	{
+		ArticleEx a = new ArticleEx();
+
+		Agent agent = (Agent)RequestFilter.getSession().getAttribute("agent");
+		a.setCodeArticle(getCodeArticle());
+		//a.setTypeObjet(getTypeObjet());
+		return usermetierimpl.reqEntrerArticle(a,agent);
+	}
+
+	public void validateArticleEx()
+	{
+		OpEntreeArticle o = addArticleEx();
+		usermetierimpl.entrerArticle(o);
+	}
+
+	public OpEntreeArticle addArticleNouv()
+	{
+		ArticleNouv a = new ArticleNouv();
+
+		Agent agent = (Agent)RequestFilter.getSession().getAttribute("agent");
+		a.setCodeArticle(getCodeArticle());
+		a.setFournisseur(getFournisseur());
+		a.setPrix(getPrix());
+		return usermetierimpl.reqEntrerArticle(a,agent);
+	}
+
+	public void validateArticleENouv()
+	{
+		OpEntreeArticle o = addArticleNouv();
+		usermetierimpl.entrerArticle(o);
+	}
+
+
+
+
+	//sortie
+	private Agent agentDest;
+
+	public Agent getAgentDest() {
+		return agentDest;
+	}
+
+	public void setAgentDest(Agent agentDest) {
+		this.agentDest = agentDest;
+	}
+
+	public OpSortieArticle addRequeteSortieNouv() throws Exception {
+		ArticleNouv a = new ArticleNouv();
+		Agent agent = (Agent)RequestFilter.getSession().getAttribute("agent");
+		a.setFournisseur(getFournisseur());
+		a.setPrix(getPrix());
+		return usermetierimpl.reqSortirArticle(a,agent,getAgentDest());
+	}
+
+	public void validateSortieArticleNouv() throws Exception {
+		OpSortieArticle o = addRequeteSortieNouv();
+		usermetierimpl.sortirArticle(o);
+	}
+
+	public OpSortieArticle addRequeteSortieEx() throws Exception {
+		ArticleNouv a = new ArticleNouv();
+
+		Agent agent = (Agent)RequestFilter.getSession().getAttribute("agent");
+		a.setCodeArticle(getCodeArticle());
+		return usermetierimpl.reqSortirArticle(a,agent,getAgentDest());
+	}
+
+	public void validateSortieArticleEx() throws Exception {
+		OpSortieArticle o = addRequeteSortieEx();
+		usermetierimpl.sortirArticle(o);
+	}
+
+
 }
