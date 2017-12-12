@@ -1114,10 +1114,25 @@ public class DepositaireBean {
 	}
 	public String addPriseEncharge() {
 		try{
+			uploadFilesDocument();
 		Agent agent = (Agent) RequestFilter.getSession().getAttribute("agent");
 		// agent.setIp()
+			ArrayList<DocumentModel> imagelist = (ArrayList<DocumentModel>) RequestFilter.getSession()
+					.getAttribute("imageList");
 
 		MaterielNouv m = new MaterielNouv();
+
+			if(imagelist !=null)
+			{
+				m.setImage(imagelist.get(0).getByteArrayImage());
+			}
+			else
+			{
+				m.setImage(null);
+			}
+
+			m.setDocumentPath((String) RequestFilter.getSession().getAttribute("documentpath"));
+			RequestFilter.getSession().removeAttribute("documentpath");
 
 		m.setAutre(getAutre());
 
