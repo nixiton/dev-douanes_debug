@@ -47,6 +47,7 @@
                         <td>#{gacBean.curentOperation.mat.reference}</td>
                     </tr>
                     <tr>
+                        <p:panel rendered="#{gacBean.curentOperation.state eq 'WAITING' }">
                         <td></td>
                         <td>
                             <h:form class="form-horizontal">
@@ -92,6 +93,7 @@
                                 </td>
 
                         </td>
+                    </p:panel>
                     </tr>  
             </table>
         </div>
