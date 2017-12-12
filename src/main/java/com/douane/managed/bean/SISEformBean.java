@@ -627,7 +627,8 @@ public class SISEformBean {
     }
     
     public String addDirection() throws SQLException 
-    {   try
+    {
+        try
         {
             Direction direction = new Direction(this.getDesignation(), this.getCodeDirection());
             Agent agent = (Agent)RequestFilter.getSession().getAttribute("agent");
