@@ -765,13 +765,16 @@ public class DepositaireBean {
 
 				if (null != d) {
 					bytes = d.getByteArrayImage();
-					fileName = FilenameUtils.getName(d.getDocumentUploadedPath());
-					System.out.println("file name" + fileName);
-					BufferedOutputStream stream;
-					stream = new BufferedOutputStream(new FileOutputStream(new File(filePath + fileName)));
-					filesTozip.add(filePath + fileName);
-					stream.write(bytes);
-					stream.close();
+					if(bytes != null)
+					{
+						fileName = FilenameUtils.getName(d.getDocumentUploadedPath());
+						System.out.println("file name" + fileName);
+						BufferedOutputStream stream;
+						stream = new BufferedOutputStream(new FileOutputStream(new File(filePath + fileName)));
+						filesTozip.add(filePath + fileName);
+						stream.write(bytes);
+						stream.close();
+					}
 				}
 			}
 		}
