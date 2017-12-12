@@ -53,10 +53,34 @@
                         <td></td>
                         <td><strong>Mode d'acquisition</strong></td>
                         <td>#{gacBean.curentOperation.mat.modAcq.designation}</td>
+                        <td><strong>Document</strong></td>
+                        <td>
+                            <!--h:outputLink value="/pages/secure/CM/DC/#{depositaireBean.curentMateriel.documentPath}"  target="_blank">
+                                <i class="fa fa-file-archive-o"></i>
+                            </h:outputLink-->
+
+                            <c:if test="#{depositaireBean.filedownload ne null}" >
+                                <h:form>
+                                    <p:commandButton id="downloadLink" value="Download" ajax="false">
+                                        <f:setPropertyActionListener target="#{depositaireBean.fileZipPath}" value="delete" />
+                                        <p:fileDownload value="#{depositaireBean.filedownload}" />
+                                        <i class="fa fa-file-archive-o"></i>
+                                    </p:commandButton>
+                                </h:form>
+                            </c:if>
+
+                            </td>
                     </tr>
                     <tr>
                         <td><strong>Caratéristique</strong></td>
                         <td>#{gacBean.curentOperation.mat.renseignement}</td>
+                        <td><strong>Image</strong></td>
+                        <td>
+                            <p:panel rendered="#{depositaireBean.curentMateriel.image != null}">
+                                <h:graphicImage url="data:image/jpg;base64,#{depositaireBean.curentMateriel.image}"
+                                                width="275px" height="75px"></h:graphicImage>
+                            </p:panel>
+                        </td>
                     </tr>
                     <tr>
                         <td></td>
