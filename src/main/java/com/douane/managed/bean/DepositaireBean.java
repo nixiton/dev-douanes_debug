@@ -1561,7 +1561,7 @@ System.out.println("****************************ADD3 ATTR**ERRORR***************
 	}
 	public void test()
 	{
-		System.out.println("****************************SET LIST ******************************** " +this.getClass().getName());
+		System.out.println("***************************SET LIST ******************************** " +this.getClass().getName());
 	}
 	private List<MaterielNouv> listMaterielNouveauValide;
 	public List<MaterielNouv> getListMaterielNouveauValide() {
