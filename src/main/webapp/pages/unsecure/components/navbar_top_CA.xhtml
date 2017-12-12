@@ -62,15 +62,15 @@
 
 			<div class="btn-group">
 
-				<h:commandLink action="#{loginMgmtBean.logout}"
-						data-toggle="tooltip" data-original-title="Profile"
-						data-placement="bottom" class="btn btn-metis-1 btn-sm">
-					<i class="fa fa-user" aria-hidden="true"></i>
-				</h:commandLink>
+				<p:commandButton 
+            		oncomplete="PF('detail3').show()" icon="ui-icon-person"/>
 
 			</div>
 
 		</div>
+
+
+
 
 
 
@@ -159,5 +159,28 @@
 			<!-- /.nav -->
 		</div>
 	</div>
+
+
+
+	<p:dialog id="detail3" widgetVar="detail3">
+
+		<table class="table responsive-table">
+
+                    <tr>
+                        <td><strong>Matricule</strong></td>
+                        <td>#{depositaireBean.curentAgent.im}</td>
+                        <td></td>
+                        <td><strong>Nom</strong></td>
+                        <td>#{depositaireBean.curentAgent.nomAgent}</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Direction</strong></td>
+                        <td>#{depositaireBean.curentAgent.direction.designation}</td>
+                        <td></td>
+                    </tr>
+        </table>
+
+	</p:dialog>
+
 	<!-- /.container-fluid -->
 </nav>
