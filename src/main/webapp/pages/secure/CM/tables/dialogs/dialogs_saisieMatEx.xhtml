@@ -14,10 +14,10 @@
     <!--p:dialog id="detail" widgetVar="detail"-->
 
 
-    
+    <div   class="body collapse in table-responsive">
 
 
-        <table >
+        <table class="table responsive-table">
 
                     
 
@@ -43,9 +43,7 @@
 
                     <tr>
                         <p:dataTable var="c" value="#{gacBean.listMaterielByDet}" widgetVar="operationsTable"
-                            paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}"
-                            paginator="true" rows="10" style="margin-bottom:20px"
-                            emptyMessage="Aucun resultat" filteredValue="#{dtFilterView.filteredOperations}"
+                            
                             >
 
                             <p:column>
@@ -90,6 +88,7 @@
                     </tr>                    
                     
             </table>
+        </div>
     <!--/p:dialog-->
 
     
