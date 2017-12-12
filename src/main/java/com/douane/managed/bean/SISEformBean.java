@@ -591,7 +591,7 @@ public class SISEformBean {
         return ds;
     }
     public List<TypeObjet> getListTypeObjet() {
-        ArrayList<Referentiel> r = (ArrayList<Referentiel>)refmetierimpl.listRef(new Nomenclature());
+        ArrayList<Referentiel> r = (ArrayList<Referentiel>)refmetierimpl.listRef(new TypeObjet());
         List<TypeObjet> ds = new ArrayList<TypeObjet>();
         for (Object d :  r)
         {
