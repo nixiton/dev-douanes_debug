@@ -318,7 +318,7 @@ public class SISEformBean {
     {
         tymat = new TypeMateriel(getDesignation());
         tymat.setNomenclaureParent(this.getNomenclatureP());
-        
+        tymat.setCodeTypeMate(this.getCodeTypeMateriel());
         Agent agent = (Agent)RequestFilter.getSession().getAttribute("agent");
         //check if there is nomenclature duplicate
 
@@ -949,6 +949,17 @@ public class SISEformBean {
 
 		this.setNomenclatureP(nomenclatureP);
 	}
+
+
+	private String codeTypeMateriel;
+	
+	public String getCodeTypeMateriel() {
+		return codeTypeMateriel;
+	}
+	public void setCodeTypeMateriel(String codeTypeMateriel) {
+		this.codeTypeMateriel = codeTypeMateriel;
+	}
+
 
 
 
