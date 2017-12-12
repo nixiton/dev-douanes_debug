@@ -62,7 +62,7 @@
                     </tr>
 
                     <tr>
-                        <p:dataTable var="c" value="#{gacBean.listMaterielByDet}" widgetVar="operationsTable"
+                        <p:dataTable id="listdeteff" var="c" value="#{gacBean.listMaterielByDet}" widgetVar="operationsTable"
                             >
 
                             <p:column>
@@ -104,7 +104,7 @@
                     
             </table>
 
-            <br></br>
+            <br></br><br></br><br></br>
 
             <div class="col-md-1"></div>
 
@@ -112,11 +112,13 @@
 
             <div class="col-md-1"></div>
 
+            <br></br>
+
 
             <div class="col-md-8"></div><div class="col-md-4"> 
                 Antananarivo, le <br></br>
                 #{gacBean.curentOperation.operateur.nomAgent}
-            </div><br></br>
+            </div><br></br><br></br>
 
             <div class="col-md-1"></div>
             <div class="col-md-4">

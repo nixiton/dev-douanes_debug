@@ -2613,3 +2613,10 @@ table, .ui-datatable-tablewrapper {
 #deteff td{
   border: none!important;
 }
+
+#listdeteff{
+
+border-collapse: collapse;
+    border: 1px solid black;
+
+  }
