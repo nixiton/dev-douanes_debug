@@ -10,11 +10,9 @@
 
 
 <h:form>
-	<p:dataTable var="c" value="#{operationBean.listOperations}" widgetVar="operationsTable"
-		paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}"
-		paginator="true" rows="10" style="margin-bottom:20px"
-		emptyMessage="Aucun resultat" filteredValue="#{dtFilterView.filteredOperations}"
-		>
+    <p:dataTable   var="c" value="#{operationBean.listOperations}" 
+                 paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}  "
+                 paginator="true" rows="10" style="margin-bottom:20px">
 		<f:facet name="header">
             <p:outputPanel>
                 <h:outputText value="Rechercher:" />
@@ -96,8 +94,7 @@
                                 <i class="fa fa-file-archive-o"></i>
                             </h:outputLink-->
 
-                <p:commandButton  action="#{gacBean.setCurentOperation2(c)}" update=":detail"
-            oncomplete="PF('detail').show()" icon="ui-icon-document"/>
+                <p:commandButton  action="#{gacBean.setCurentOperation2(c)}" icon="ui-icon-document"/>
 
  
             </p:panel>                
@@ -134,7 +131,7 @@
                         <p:commandButton  action="#{gacBean.setCurentOperation(c)}" update=":detailAttribution"
             oncomplete="PF('detailAttribution').show()"  icon="ui-icon-pencil"/>
                     </p:panel>
-                    <p:panel rendered="#{c['class'].simpleName eq 'OpDettachement' }">44
+                    <p:panel rendered="#{c['class'].simpleName eq 'OpDettachement' }">
                         
                         <p:commandButton  icon="ui-icon-pencil"/>
                     </p:panel>
@@ -179,7 +176,8 @@
 
 <ui:include src="/pages/secure/CM/tables/dialogs/dialogs_vpriseEnCharge.xhtml"></ui:include>
 
-<ui:include src="/pages/secure/CM/tables/dialogs/dialogs_saisieMatEx.xhtml"></ui:include>
+<!--ui:include src="/pages/secure/CM/tables/dialogs/dialogs_saisieMatEx.xhtml"></ui:include-->
+
 
 
 </html>

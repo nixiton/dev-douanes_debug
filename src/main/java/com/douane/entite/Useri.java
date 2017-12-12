@@ -3,10 +3,12 @@ package com.douane.entite;
 import java.io.Serializable;
 import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.UniqueConstraint;
 
 @Entity
 public class Useri implements Serializable{
@@ -23,6 +25,8 @@ public class Useri implements Serializable{
 	private int idUser;
 
 	private String designation;
+	
+	@Column(unique = true)
 	private String role;
 
 	/*TEMPORARY NOT NEEDED 

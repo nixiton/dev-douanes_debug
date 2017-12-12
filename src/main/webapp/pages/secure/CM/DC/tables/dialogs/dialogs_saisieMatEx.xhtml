@@ -64,15 +64,25 @@
                         </td>
                     </tr>
                     <tr>
-                        <td><strong>Nomenclature</strong></td>
-                        <td>#{depositaireBean.curentMateriel.nomenMat.designation}</td>
+                        <td><strong>Type de materiel - Nomenclature</strong></td>
+                        <td>#{depositaireBean.curentMateriel.typematerieladd} - #{depositaireBean.curentMateriel.nomenMat.nomenclature}</td>
                         <td></td>
-                        <td><strong>Codification</strong></td>
-                        <td>#{depositaireBean.curentMateriel.code}</td>
-                    </tr>
-                    <tr>
                         <td><strong>Etat</strong></td>
                         <td>#{depositaireBean.curentMateriel.etat.designation}</td>
+                        
+                        
+                    </tr>
+                    <tr>
+                    	<td><strong>Année d'Acquisition</strong></td>
+                        <td>#{depositaireBean.curentMateriel.anneeAcquisition}</td>
+                        <td></td>
+                        <td><strong>Detenteur</strong></td>
+                        <td>à remplir</td>
+                        
+                    </tr>
+                    <tr>
+                    	<td><strong>Codification</strong></td>
+                        <td>#{depositaireBean.curentMateriel.code}</td>
                         <td><strong>Code128</strong></td>
                         <td><p:barcode value="41256" type="code128" format="png" orientation="0" height="128px" width="302px"/></td>
                     </tr>
