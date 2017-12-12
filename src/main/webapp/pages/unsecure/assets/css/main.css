@@ -2609,3 +2609,7 @@ table, .ui-datatable-tablewrapper {
 .ui-widget-content {
   border: none!important;
 }
+
+#deteff td{
+  border: none!important;
+}
