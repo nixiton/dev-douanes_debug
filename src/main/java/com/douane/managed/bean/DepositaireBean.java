@@ -1804,5 +1804,14 @@ System.out.println("****************************ADD3 ATTR**ERRORR***************
 		usermetierimpl.sortirArticle(o);
 	}
 
+	public List<Materiel> getListAllMaterielValideSansDetenteurByDirection() {
+		return usermetierimpl.getMatByDetenteurAndDirection(null, getDirection());
+	}
+
+	public void setListAllMaterielValideSansDetenteurByDirection(List<Materiel> listAllMaterielValideSansDetenteurByDirection) {
+		this.listAllMaterielValideSansDetenteurByDirection = listAllMaterielValideSansDetenteurByDirection;
+	}
+
+	private List<Materiel> listAllMaterielValideSansDetenteurByDirection;
 
 }

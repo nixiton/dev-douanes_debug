@@ -14,4 +14,5 @@ public interface MaterielRepository extends CrudRepository<Materiel, Long>{
 	public List<Materiel> findByBureau(Bureau bureau);
 	public List<Materiel> findByValidation(boolean validation);
 	public List<Materiel> findByDetenteurAndValidation(Agent detenteur, boolean validation);
+	public List<Materiel> findByDetenteurAndDirec(Agent detenteur, Direction direction);
 }
