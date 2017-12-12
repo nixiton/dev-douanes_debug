@@ -32,7 +32,8 @@ public class Materiel implements Serializable{
 	private boolean validation;
 	//private boolean aModifier;
 	private String renseignement;
-
+	
+	@Column(unique=true)
 	private String code;
 
 	private byte[] image;
@@ -332,14 +333,26 @@ public class Materiel implements Serializable{
         }
         */
 	public void generateCode() {
-		String codeBureau = "tsy misy";
-		if(this.getBureau()!=null) {
-			codeBureau = this.bureau.getCodeBureau();
+		String codeDirection = "xxx";
+		String codeTypeMateriel = "xxx";
+		String anneeacquisition = "xxx";
+		String codeNomenclature = "xxx";
+		if(this.getDirec()!=null) {
+			codeDirection = this.direc.getCodeDirection();
 		}
-		this.code = "Type"+"..."+
-				"Bureau"+codeBureau+
-				"Acquisition"+"??problemMatExist??"+
-				"Origine"+"??problemMatExist??";
+		if(this.getTypematerieladd()!=null) {
+			codeTypeMateriel = this.getTypematerieladd().getCodeTypeMate();
+			codeNomenclature = this.getTypematerieladd().getNomenclaureParent().getNomenclature();
+		}
+		if(this.getAnneeAcquisition()!=null) {
+			anneeacquisition = this.getAnneeAcquisition();
+		}
+		this.code = "COD"+
+				"DIR"+codeDirection+
+				"NOM"+codeNomenclature+
+				"TM"+codeTypeMateriel+
+				"INC"+"Default1"+
+				"AA"+anneeacquisition;
 	}
 
 	public CategorieMat getCategorie() {
