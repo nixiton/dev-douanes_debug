@@ -24,5 +24,11 @@ public class TypeMateriel extends Referentiel{
 	public void setNomenclaureParent(Nomenclature nomenclaureParent) {
 		this.nomenclaureParent = nomenclaureParent;
 	}
+	public String getCodeTypeMate() {
+		return codeTypeMate;
+	}
+	public void setCodeTypeMate(String codeTypeMate) {
+		this.codeTypeMate = codeTypeMate;
+	}
 	
 }
