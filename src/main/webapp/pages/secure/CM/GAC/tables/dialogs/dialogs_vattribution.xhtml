@@ -44,6 +44,10 @@
                         <td></td>
                         <td><strong>Prénom détenteur</strong></td>
                         <td>#{gacBean.curentOperation.detenteur.prenomAgent}</td>
+                        <td><strong>Détenteur effectif</strong></td>
+                        <td><p:commandButton  action="#{gacBean.setCurentOperation2(gacBean.curentOperation)}" icon="ui-icon-document"/></td>
+
+
                     </tr>
                     <tr>
                         <p:panel rendered="#{gacBean.curentOperation.state eq 'WAITING' }">

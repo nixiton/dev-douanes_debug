@@ -40,7 +40,7 @@
             </f:facet>
             <p:commandButton rendered="#{d.state eq 'WAITING' }" action="#{gacBean.setCurentOperation(d)}" update=":detail"
             oncomplete="PF('detail').show()" icon="ui-icon-circle-check"/>
-            <p:commandButton action="#{gacBean.setCurentOperation(c)}" update=":detail"
+            <p:commandButton action="#{gacBean.setCurentOperation(d)}" update=":detail"
             oncomplete="PF('detail').show()" icon="ui-icon-zoomin"/>
         </p:column>
 
