@@ -11,6 +11,7 @@ import com.douane.requesthttp.RequestFilter;
 import org.aspectj.apache.bcel.classfile.Code;
 import org.omg.PortableInterceptor.SUCCESSFUL;
 import org.springframework.dao.DataAccessException;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
@@ -305,25 +306,36 @@ public class SISEformBean {
 
     public String addNomenclature()
     {
-        nomen = new Nomenclature(getDesignation() , getNomenclature());
-        Agent agent = (Agent)RequestFilter.getSession().getAttribute("agent");
-        //check if there is nomenclature duplicate
-        System.out.println("NOMENCLATURE ADD"+ nomen.getDesignation());
-        System.out.println("AGENT ADD"+ agent.getNomAgent());
+        try {
+            nomen = new Nomenclature(getDesignation() , getNomenclature());
+            Agent agent = (Agent)RequestFilter.getSession().getAttribute("agent");
+            //check if there is nomenclature duplicate
+            System.out.println("NOMENCLATURE ADD"+ nomen.getDesignation());
+            System.out.println("AGENT ADD"+ agent.getNomAgent());
 
-        refmetierimpl.addRef(nomen,agent);
-        return SUCCESS;
+            refmetierimpl.addRef(nomen,agent);
+            return SUCCESS;
+        }
+        catch (DataIntegrityViolationException ex) {
+
+            throw new DataIntegrityViolationException(getNomenclature()+ "  already exists");
+        }
     }
     public String addTypeMateriel()
     {
-        tymat = new TypeMateriel(getDesignation());
-        tymat.setNomenclaureParent(this.getNomenclatureP());
-        tymat.setCodeTypeMate(this.getCodeTypeMateriel());
-        Agent agent = (Agent)RequestFilter.getSession().getAttribute("agent");
-        //check if there is nomenclature duplicate
+        try {
+            tymat = new TypeMateriel(getDesignation());
+            tymat.setNomenclaureParent(this.getNomenclatureP());
+            tymat.setCodeTypeMate(this.getCodeTypeMateriel());
+            Agent agent = (Agent) RequestFilter.getSession().getAttribute("agent");
+            //check if there is nomenclature duplicate
 
-        refmetierimpl.addRef(tymat,agent);
-        return SUCCESS;
+            refmetierimpl.addRef(tymat, agent);
+            return SUCCESS;
+        }catch (DataIntegrityViolationException ex) {
+
+            throw new DataIntegrityViolationException(getCodeTypeMateriel()+ "  already exists");
+        }
     }
     public String addEtatMateriel() throws NullPointerAttributeException, NoSuchMethodException {
         if(getDesignation()==null || getDesignation().equals(""))
@@ -616,10 +628,18 @@ public class SISEformBean {
     
     public String addDirection() throws SQLException 
     {
-        Direction direction = new Direction(this.getDesignation(), this.getCodeDirection());
-        Agent agent = (Agent)RequestFilter.getSession().getAttribute("agent");
-        refmetierimpl.addRef(direction,agent);
-        return SUCCESS;
+        try
+        {
+            Direction direction = new Direction(this.getDesignation(), this.getCodeDirection());
+            Agent agent = (Agent)RequestFilter.getSession().getAttribute("agent");
+            refmetierimpl.addRef(direction,agent);
+            return SUCCESS;
+        }
+        catch (DataIntegrityViolationException ex)
+        {
+
+            throw new DataIntegrityViolationException(getCodeDirection()+ "  already exists");
+        }
     }
     
     public void setListNomenclature(List<Nomenclature> listNomenclature) {
@@ -650,12 +670,18 @@ public class SISEformBean {
         this.utilisateurmetierimpl = utilisateurmetierimpl;
     }
     public String addRole() {
-        //Agent agent = (Agent)RequestFilter.getSession().getAttribute("agent");
-        Useri useri = new Useri();
-        useri.setDesignation(designation);
-        useri.setRole(role);
-        usermetierimpl.addUser(useri);
-        return SUCCESS;
+        try {
+            //Agent agent = (Agent)RequestFilter.getSession().getAttribute("agent");
+            Useri useri = new Useri();
+            useri.setDesignation(designation);
+            useri.setRole(role);
+            usermetierimpl.addUser(useri);
+            return SUCCESS;
+        }
+        catch (DataIntegrityViolationException ex) {
+
+            throw new DataIntegrityViolationException(role+ "   already exists");
+        }
     }
 
 
