@@ -392,12 +392,16 @@ public class GACBean {
             return "dialog";
         }
 
+        return null;
+
+    }
+
+
     public String setCurentOperationOrdre(Operation operation){
         setCurentOperation(operation);
-            return "ordre";
-        }
+            return "dialog";
 
-        return null;
+
 
     }
 
