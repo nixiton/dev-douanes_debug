@@ -43,6 +43,10 @@
             <!--h:outputLink value="#{d.mat.documentPath}" target="_blank"> 
                                 <i class="fa fa-file-archive-o"></i> 
                             </h:outputLink-->
+
+            <h:commandLink  action="#{gacBean.setCurentOperation2(c)}" target="_blank">
+                    <i class="fa fa-file-archive-o"></i>
+                </h:commandLink>
             <c:if test="#{depositaireBean.filedownload ne null}" >
                                 <h:form>
                                     <p:commandButton id="downloadLink" value="Download" ajax="false">
