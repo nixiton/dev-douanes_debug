@@ -2,7 +2,9 @@ package com.douane.security;
 
 import java.util.*;
 
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedProperty;
+import javax.faces.context.FacesContext;
 
 import com.douane.entite.Useri;
 import com.douane.metier.user.UserMetier;
@@ -51,6 +53,7 @@ public class CustomAuthenticationProvider implements AuthenticationProvider {
             user = usermetier.findAgentByIm(Long.parseLong(immatriculation));
             if (user == null) {
                 log.info("username not found " + immatriculation);
+                FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("username not found " + immatriculation));
                 throw new SecurityExecption("user " + immatriculation + " tidak ditemukan");
             }
 
