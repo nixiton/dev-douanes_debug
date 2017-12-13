@@ -2609,3 +2609,14 @@ table, .ui-datatable-tablewrapper {
 .ui-widget-content {
   border: none!important;
 }
+
+#deteff td{
+  border: none!important;
+}
+
+#listdeteff_head, #listdeteff_head td, #listdeteff_data td{
+
+border-collapse: collapse;
+    border: 1px solid black;
+
+  }
