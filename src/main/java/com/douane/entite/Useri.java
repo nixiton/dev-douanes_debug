@@ -12,6 +12,8 @@ import javax.persistence.UniqueConstraint;
 
 @Entity
 public class Useri implements Serializable{
+    @Column(unique = true)
+    private String role;
 	/*public Useri(String designation, String role) {
 		super();
 		this.designation = designation;
@@ -26,8 +28,7 @@ public class Useri implements Serializable{
 
 	private String designation;
 	
-	@Column(unique = true)
-	private String role;
+
 
 	/*TEMPORARY NOT NEEDED 
 	 * @OneToMany(mappedBy="roleAgent", fetch=FetchType.LAZY)

@@ -2,6 +2,8 @@ package com.douane.managed.bean;
 
 import com.douane.entite.*;
 import com.douane.metier.fournisseur.IFournisseurMetier;
+import com.douane.metier.listeDetenteur.DetenteurMetier;
+import com.douane.metier.listeDetenteur.IDetenteurMetier;
 import com.douane.metier.marque.IMarqueMetier;
 import com.douane.metier.nomenclature.INomenclatureMetier;
 import com.douane.metier.referentiel.IRefMetier;
@@ -74,6 +76,9 @@ public class DepositaireBean {
 	//@Autowired
 	@ManagedProperty(value="#{usermetier}")
 	IUserMetier usermetierimpl;
+
+	@ManagedProperty(value="#{detenteurmetier}")
+	IDetenteurMetier detenteurmetierimpl;
 
 	//@Autowired
 	@ManagedProperty(value="#{fournisseurmetier}")
@@ -1061,6 +1066,10 @@ public class DepositaireBean {
 				m.setImage(null);
 			}
 
+			if(getDetenteurMatEx() !=null)
+			{
+				m.setDetenteur(getDetenteurMatEx());
+			}
 			m.setAnneeAcquisition(this.anneeAcquisition);
 
 			m.setDocumentPath((String) RequestFilter.getSession().getAttribute("documentpath"));
@@ -1814,4 +1823,34 @@ System.out.println("****************************ADD3 ATTR**ERRORR***************
 
 	private List<Materiel> listAllMaterielValideSansDetenteurByDirection;
 
+
+	//------TODO BY PRIORITE---------------
+	private List<Agent> listDetenteurMatEx;
+
+	private Agent detenteurMatEx;
+
+	public List<Agent> getListDetenteurMatEx() {
+		return detenteurmetierimpl.findAllDetenteur();
+	}
+
+	public void setListDetenteurMatEx(List<Agent> listDetenteurMatEx) {
+		this.listDetenteurMatEx = listDetenteurMatEx;
+
+	}
+
+	public Agent getDetenteurMatEx() {
+		return detenteurMatEx;
+	}
+
+	public void setDetenteurMatEx(Agent detenteurMatEx) {
+		this.detenteurMatEx = detenteurMatEx;
+	}
+
+	public IDetenteurMetier getDetenteurmetierimpl() {
+		return detenteurmetierimpl;
+	}
+
+	public void setDetenteurmetierimpl(IDetenteurMetier detenteurmetierimpl) {
+		this.detenteurmetierimpl = detenteurmetierimpl;
+	}
 }

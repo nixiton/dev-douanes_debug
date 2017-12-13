@@ -17,7 +17,8 @@ import javax.persistence.*;
 @Inheritance(strategy=InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name="typeMateriels", discriminatorType=DiscriminatorType.INTEGER)
 public class Materiel implements Serializable{
-
+	@Column(unique=true)
+	private String code;
 	//@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Id
 	@SequenceGenerator(allocationSize=1, initialValue=1, sequenceName="account_id_seq", name="account_id_seq")
@@ -33,8 +34,7 @@ public class Materiel implements Serializable{
 	//private boolean aModifier;
 	private String renseignement;
 	
-	@Column(unique=true)
-	private String code;
+
 
 	private byte[] image;
 

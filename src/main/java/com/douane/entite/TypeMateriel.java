@@ -11,6 +11,9 @@ import javax.persistence.OrderColumn;
 
 @Entity
 public class TypeMateriel extends Referentiel{
+	@Column(unique=true)
+	private String codeTypeMate;
+
 	public TypeMateriel(){
 		this.setTable("TypeMateriel");
 	}
@@ -22,8 +25,10 @@ public class TypeMateriel extends Referentiel{
 	@JoinColumn(name="idNomenclature")
 	private Nomenclature nomenclaureParent;
 	
-	@Column(unique=true)
-	private String codeTypeMate;
+
+
+
+
 	public Nomenclature getNomenclaureParent() {
 		return nomenclaureParent;
 	}

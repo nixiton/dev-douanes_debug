@@ -203,6 +203,24 @@
                     </p:selectOneMenu>
 
                 <hr></hr>
+                </div>
+                    <label for="text1" class="control-label col-lg-4">Detenteur
+                    </label>
+
+                    <div class="col-lg-6">
+
+
+                        <p:selectOneMenu value="#{depositaireBean.detenteurMatEx}" converter="#{agentConverter}" panelStyle="width:180px"  style="width:160px"
+                                         effect="fade" var="d" filter="true" filterMatchMode="startsWith">
+                            <f:selectItem itemValue="#{null}" itemLabel="--select--" />
+                            <f:selectItems value="#{depositaireBean.listDetenteurMatEx}" var="dep" itemLabel="#{dep.nomAgent}" itemValue="#{dep}" />
+                            <p:column>
+                                <h:outputText value="#{d.nomAgent}" />
+                            </p:column>
+
+                        </p:selectOneMenu>
+
+                        <hr></hr>
 
                 </div>
 

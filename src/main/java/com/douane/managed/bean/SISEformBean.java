@@ -317,8 +317,10 @@ public class SISEformBean {
             return SUCCESS;
         }
         catch (DataIntegrityViolationException ex) {
-
-            throw new DataIntegrityViolationException(getNomenclature()+ "  already exists");
+            FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_FATAL, "Nomenclature should be unique ", getNomenclature()+ "already exists");
+            FacesContext.getCurrentInstance().addMessage(null, message);
+            return "";
+            //throw new DataIntegrityViolationException(getNomenclature()+ "  already exists");
         }
     }
     public String addTypeMateriel()
@@ -333,8 +335,10 @@ public class SISEformBean {
             refmetierimpl.addRef(tymat, agent);
             return SUCCESS;
         }catch (DataIntegrityViolationException ex) {
-
-            throw new DataIntegrityViolationException(getCodeTypeMateriel()+ "  already exists");
+            FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_FATAL, "Code type of materiel should be unique ", getCodeTypeMateriel()+ "already exists");
+            FacesContext.getCurrentInstance().addMessage(null, message);
+            return "";
+            //throw new DataIntegrityViolationException(getCodeTypeMateriel()+ "  already exists");
         }
     }
     public String addEtatMateriel() throws NullPointerAttributeException, NoSuchMethodException {
@@ -637,8 +641,9 @@ public class SISEformBean {
         }
         catch (DataIntegrityViolationException ex)
         {
-
-            throw new DataIntegrityViolationException(getCodeDirection()+ "  already exists");
+            FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_FATAL, "Code direction should be unique", getCodeDirection()+ "already exists");
+            FacesContext.getCurrentInstance().addMessage(null, message);
+            return "";
         }
     }
     
@@ -679,8 +684,10 @@ public class SISEformBean {
             return SUCCESS;
         }
         catch (DataIntegrityViolationException ex) {
-
-            throw new DataIntegrityViolationException(role+ "   already exists");
+            FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_FATAL, "Us Eer role should be un", role+ "already exists");
+            FacesContext.getCurrentInstance().addMessage(null, message);
+            return "";
+            //throw new DataIntegrityViolationException(role+ "   already exists");
         }
     }
 
