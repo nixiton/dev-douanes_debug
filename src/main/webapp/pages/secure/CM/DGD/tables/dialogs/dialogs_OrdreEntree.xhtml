@@ -34,10 +34,10 @@
  			</div>
 
  			<div class="col-md-3">
- 				(1) Numéro de chapitre<br></br>
- 				(2) Libelé de chapitre<br></br>
- 				(3) Service : #{gacBean.curentOperation.detenteur.direction}<br></br>
- 				(4) Subdivision de chapitre<br></br>
+ 				 Numéro de chapitre<br></br>
+ 				 Libelé de chapitre<br></br>
+ 				 Service : #{gacBean.curentOperation.detenteur.direction}<br></br>
+ 				 Subdivision de chapitre<br></br>
 
  			</div>
 
@@ -71,7 +71,7 @@
  				
  				ORDRE D'ENTREE<br><br>
 
- 			Seront portés en entrée dans les écritures du comptable ................................les matières et objets ci-après désignés provenant de ...........................................................
+ 			Seront portés en entrée dans les écritures du comptable ...#{gacBean.curentOperation.operateur.im}  #{gacBean.curentOperation.operateur.nomAgent}...................les matières et objets ci-après désignés provenant de ..#{gacBean.curentOperation.direction.designation}.........................................................
 
  			</div>
 
@@ -116,9 +116,34 @@
  				</tr>
  			</table>
 
+ 			<br><br>
+
+ 			Arrêté le présent ordre d'entrée à  ...1..... article évalué à la somme de .....#{gacBean.curentOperation.mat.pu}......<br></br>
+
+ 			<div class="col-md-6">Le comptable ..#{gacBean.curentOperation.operateur.im}  #{gacBean.curentOperation.operateur.nomAgent}.. présent en charge des matières désignés et objets désignés ci-dessus dont j'ai vérifié la concordance avec le ......................................., le ........................<br><br>
+
+ 			Le ..................................
+
+ 			</div>
+
+ 			<div class="col-md-6">
+ 				A........................, le .......................<br></br>
+ 				Le comptable ...#{gacBean.curentOperation.operateur.im}  #{gacBean.curentOperation.operateur.nomAgent}.......................<br></br>
+ 				Déclaration de prise en charge <br></br>
+ 				le comptable déclare avoir reçu et pris en charge les matières et objets mentionnés dans le tableau ci-dessus.<br></br>
+
+ 				A........................, le .......................<br></br>
+
+ 				Le comptable ...#{gacBean.curentOperation.operateur.im}  
+
+ 			</div>
+
+
 
 
  	</div>
+
+
 
  	<div class="col-md-1"></div>
     

@@ -399,7 +399,7 @@ public class GACBean {
 
     public String setCurentOperationOrdre(Operation operation){
         setCurentOperation(operation);
-            return "dialog";
+            return "ordre";
 
 
 
