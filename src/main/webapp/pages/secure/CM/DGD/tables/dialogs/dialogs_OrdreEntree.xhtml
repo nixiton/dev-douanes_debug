@@ -86,22 +86,48 @@
 
  			<div class="col-md-12" style="text-align: center;">
  				
- 				ORDRE D'ENTREE<br></br>
+ 				<h:graphicImage width="30%"
+                    value="/pages/unsecure/assets/images/ordre.png" /><br></br>
+
+ 			
+ 			</div>
+
+ 			<div class="col-md-12" style="text-align: center;">
 
  			Seront portés en entrée dans les écritures du comptable ...#{gacBean.curentOperation.operateur.im}  #{gacBean.curentOperation.operateur.nomAgent}...................les matières et objets ci-après désignés provenant de ..#{gacBean.curentOperation.direction.designation}.........................................................
 
- 			</div>
+ 		</div>
+
 
  			<table>
  				<tr>
-
- 					 <th colspan="8">
+ 					<th>
  					 <h:graphicImage width="100%"
-                    value="/pages/unsecure/assets/images/th.png" />
+                    value="/pages/unsecure/assets/images/num.png" />
+                	</th>
+                	<th>
+ 					 <h:graphicImage width="100%"
+                    value="/pages/unsecure/assets/images/des.png" />
+                	</th>
+                	<th>
+ 					 <h:graphicImage width="100%"
+                    value="/pages/unsecure/assets/images/esp.png" />
+                	</th>
+                	<th>
+ 					 <h:graphicImage width="100%"
+                    value="/pages/unsecure/assets/images/quant.png" />
+                	</th>
+ 					 <th colspan="2">
+ 					 <h:graphicImage width="100%"
+                    value="/pages/unsecure/assets/images/dec.png" />
+                	</th>
+                	<th>
+ 					 <h:graphicImage width="100%"
+                    value="/pages/unsecure/assets/images/nump.png" />
                 	</th>
 
  				</tr>
- 				<tr id="entreeo">	
+ 				<tr>	
  					<td>#{gacBean.curentOperation.mat.nomenMat.nomenclature}</td>
  					<td>#{gacBean.curentOperation.mat.nomenMat.designation}</td>
  					<td></td>
