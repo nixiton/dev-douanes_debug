@@ -250,14 +250,61 @@
     <br></br><br></br><br></br>
 
 
-    <p:dataTable  id="testingID1" var="materiel" value="#{depositaireBean.listMaterielNouveauValide}">
+     	<p:dataTable  id="testingID1" var="materiel" value="#{depositaireBean.listMaterielNouveauValide}">
+
+ 		<p:columnGroup type="header">
+            <p:row>
+                <p:column rowspan="2" headerText="Numero de pièce justificative" />
+                <p:column rowspan="2" headerText="Date des entrée et des sorties" />
+                <p:column rowspan="2" headerText="Origine des entrées et désignation des sotries" />
+        
+                <p:column colspan="2" headerText="Entrées" />
+                <p:column colspan="2" headerText="Sorties" />
+                <p:column colspan="2" headerText="Reste au 31 Décembre #{gacBean.annee}" />
+            </p:row>
+            <p:row>
+                <p:column  headerText="Quantité" />
+                <p:column  headerText="Valeurs" />
+                <p:column  headerText="Quantité" />
+                <p:column  headerText="Valeurs" />
+                <p:column  headerText="Quantité" />
+                <p:column  headerText="Valeurs" />
+            </p:row>
+        </p:columnGroup>
  
         <p:column>
-            <f:facet name="header">
-                <h:outputText value="ID" />
-            </f:facet>
-            <h:outputText value="#{materiel.idMateriel}" />
+            <h:outputText value="" />
         </p:column>
+		<p:column>
+            <h:outputText value="" />
+        </p:column>
+		<p:column>
+            <h:outputText value="" />
+        </p:column>
+		<p:column>
+            <h:outputText value="" />
+        </p:column>
+		<p:column>
+            <h:outputText value="" />
+        </p:column>
+		<p:column>
+            <h:outputText value="" />
+        </p:column>
+
+
+        <p:column>
+            <h:outputText value="" />
+        </p:column>
+
+        <p:column>
+            <h:outputText value="" />
+        </p:column>
+
+        <p:column>
+            <h:outputText value="" />
+        </p:column>
+
+
        
     </p:dataTable>
 
