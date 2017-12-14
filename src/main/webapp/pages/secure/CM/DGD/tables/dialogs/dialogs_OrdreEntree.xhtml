@@ -96,9 +96,9 @@
  			
  			</div>
 
- 			<div class="col-md-12" style="text-align: center;">
+ 			<div class="col-md-12">
 
- 			Seront portés en entrée dans les écritures du comptable ...#{gacBean.curentOperation.operateur.im}  #{gacBean.curentOperation.operateur.nomAgent}...................les matières et objets ci-après désignés provenant de ..#{gacBean.curentOperation.direction.designation}.........................................................
+ 			Seront portés en entrée dans les écritures du comptable ... #{gacBean.curentOperation.operateur.nomAgent}...................les matières et objets ci-après désignés provenant de ..#{gacBean.curentOperation.direction.designation}.........................................................
 
  		</div>
 
@@ -109,8 +109,17 @@
  			<table>
  				<tr class="entreeo">
  					<th>
- 					 <h:graphicImage width="100%"
-                    value="/pages/unsecure/assets/images/num.png" />
+                        <td>
+                            Numéro
+                        </td>
+                        <td>
+                            Du folio
+                        </td>
+                        <td>
+                            De nomenclature
+                        </td>
+ 					 <!--h:graphicImage width="100%"
+                    value="/pages/unsecure/assets/images/num.png" /-->
                 	</th>
                 	<th>
  					 <h:graphicImage width="100%"
@@ -150,7 +159,7 @@
 
  			Arrêté le présent ordre d'entrée à  ...1..... article évalué à la somme de .....#{gacBean.curentOperation.mat.pu}......<br></br><br></br><br></br>
 
- 			<div class="col-md-6">Le comptable ..#{gacBean.curentOperation.operateur.im}  #{gacBean.curentOperation.operateur.nomAgent}.. présent en charge des matières désignés et objets désignés ci-dessus dont j'ai vérifié la concordance avec le ......................................., le ........................<br></br><br></br>
+ 			<div class="col-md-6">Le comptable ..#{gacBean.curentOperation.operateur.nomAgent}.. présent en charge des matières désignés et objets désignés ci-dessus dont j'ai vérifié la concordance avec le ......................................., le ........................<br></br><br></br>
 
  			Le ..................................
 
@@ -158,13 +167,13 @@
 
  			<div class="col-md-6">
  				A........................, le .......................<br></br>
- 				Le comptable ...#{gacBean.curentOperation.operateur.im}  #{gacBean.curentOperation.operateur.nomAgent}.......................<br></br>
+ 				Le comptable ...  #{gacBean.curentOperation.operateur.nomAgent}.......................<br></br>
  				Déclaration de prise en charge <br></br>
  				le comptable déclare avoir reçu et pris en charge les matières et objets mentionnés dans le tableau ci-dessus.<br></br>
 
  				A........................, le .......................<br></br>
 
- 				Le comptable ...#{gacBean.curentOperation.operateur.im}  <br></br><br></br><br></br><br></br><br></br>
+ 				Le comptable ...#{gacBean.curentOperation.operateur.nomAgent}  <br></br><br></br><br></br><br></br><br></br>
 
  			</div>
 
