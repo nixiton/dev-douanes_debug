@@ -510,6 +510,14 @@
 		</navigation-case>
 
 
+		<navigation-case>
+			<from-outcome>anneeInv</from-outcome>
+			<to-view-id>/pages/secure/CM/DGD/tables/dialogs/dialogs_Inventaire.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+
+
+
 		
 
 
