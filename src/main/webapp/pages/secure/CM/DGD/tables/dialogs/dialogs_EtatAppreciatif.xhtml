@@ -127,63 +127,38 @@
  		</div>
 
 
- 		
 
- 		<br></br><br></br><br></br>
-
- 		<table>
- 				<tr class="entreeo">
- 					<th>
- 						Date de recensemnt
- 					</th>
- 					<th>
- 						Numeros recensés
- 					</th>
- 					<th>
- 						Signature du fonctionnaire recenseur
- 					</th>
- 				</tr>
- 				<tr class="entreeo">
- 					<td style="height: 300px">
- 						
- 					</td>
- 					<td>
- 						
- 					</td>
- 					<td>
- 						
- 					</td>
- 				</tr>
-
- 		</table>
 
 
  		<br></br><br></br><br></br>
 
- 		<div class="col-md-12">
- 			<div class="col-md-9">
- 				
- 			</div>
- 			<div class="col-md-3">
- 				ANNEE ..#{gacBean.annee}........
- 			</div>
- 		</div>
 
  	<p:dataTable  id="testingID" var="materiel" value="#{depositaireBean.listMaterielNouveauValide}">
 
  		<p:columnGroup type="header">
             <p:row>
-                <p:column rowspan="2" headerText="Numero d'ordre de la nomenclature" />
-                <p:column rowspan="2" headerText="Espèce des unités" />
-                <p:column rowspan="2" headerText="Désignation des objets" />
-                <p:column rowspan="2" headerText="Prix de l'unité" />
 
-                <p:column colspan="2" headerText="Existant au 1er Janvier #{gacBean.annee}" />
-                <p:column rowspan="2" headerText="Mouvements effectués" />
+                <p:column colspan="2" headerText="Pièces justificatives" />
+
+                <p:column rowspan="2" headerText="Désignation des opérations" />
+                <p:column colspan="2" headerText="1 opération A" />
+                <p:column colspan="2" headerText="2 opération A" />
+                <p:column colspan="2" headerText="3 opération A" />
+                <p:column colspan="2" headerText="4 opération A" />
+                
+                
             </p:row>
             <p:row>
-                <p:column  headerText="Quantité" />
-                <p:column  headerText="Valeurs" />
+                <p:column  headerText="N°" />
+                <p:column  headerText="Date" />
+                <p:column  headerText="Charge" />
+                <p:column  headerText="Décharge" />
+                <p:column  headerText="Charge" />
+                <p:column  headerText="Décharge" />
+                <p:column  headerText="Charge" />
+                <p:column  headerText="Décharge" />
+                <p:column  headerText="Charge" />
+                <p:column  headerText="Décharge" />
                 
             </p:row>
         </p:columnGroup>
@@ -195,11 +170,11 @@
             <h:outputText value="" />
         </p:column>
         <p:column>
-            <h:outputText value="#{materiel.nomenMat.designation}" />
+            <h:outputText value="" />
         </p:column>
 
         <p:column>
-            <h:outputText value="#{materiel.pu}" />
+            <h:outputText value="" />
         </p:column>
 
         <p:column>
@@ -210,6 +185,19 @@
             <h:outputText value="" />
         </p:column>
 
+        <p:column>
+            <h:outputText value="" />
+        </p:column>
+
+        <p:column>
+            <h:outputText value="" />
+        </p:column>
+        <p:column>
+            <h:outputText value="" />
+        </p:column>
+        <p:column>
+            <h:outputText value="" />
+        </p:column>
         <p:column>
             <h:outputText value="" />
         </p:column>
@@ -219,50 +207,56 @@
     </p:dataTable>
 
 
-    <br></br><br></br><br></br>
+        <p:dataTable  id="testingID1" var="materiel" value="#{depositaireBean.listMaterielNouveauValide}">
 
-
-     	<p:dataTable  id="testingID1" var="materiel" value="#{depositaireBean.listMaterielNouveauValide}">
-
- 		<p:columnGroup type="header">
+        <p:columnGroup type="header">
             <p:row>
-                <p:column rowspan="2" headerText="Numero de pièce justificative" />
-                <p:column rowspan="2" headerText="Date des entrée et des sorties" />
-                <p:column rowspan="2" headerText="Origine des entrées et désignation des sotries" />
-        
-                <p:column colspan="2" headerText="Entrées" />
-                <p:column colspan="2" headerText="Sorties" />
-                <p:column colspan="2" headerText="Reste au 31 Décembre #{gacBean.annee}" />
+
+                <p:column colspan="2" headerText="5 opération A" />
+                <p:column colspan="2" headerText="6 opération A" />
+                <p:column colspan="2" headerText="7 opération A" />
+                <p:column colspan="2" headerText="8 opération A" />
+                <p:column colspan="2" headerText="9 opération A" />
+                <p:column colspan="2" headerText="10 opération A" />
+                <p:column colspan="2" headerText="11 opération A" />
+                <p:column colspan="2" headerText="12 opération A" />
+                
+                
             </p:row>
             <p:row>
-                <p:column  headerText="Quantité" />
-                <p:column  headerText="Valeurs" />
-                <p:column  headerText="Quantité" />
-                <p:column  headerText="Valeurs" />
-                <p:column  headerText="Quantité" />
-                <p:column  headerText="Valeurs" />
+                <p:column  headerText="Charge" />
+                <p:column  headerText="Décharge" />
+                <p:column  headerText="Charge" />
+                <p:column  headerText="Décharge" />
+                <p:column  headerText="Charge" />
+                <p:column  headerText="Décharge" />
+                <p:column  headerText="Charge" />
+                <p:column  headerText="Décharge" />
+                <p:column  headerText="Charge" />
+                <p:column  headerText="Décharge" />
+                <p:column  headerText="Charge" />
+                <p:column  headerText="Décharge" />
+                <p:column  headerText="Charge" />
+                <p:column  headerText="Décharge" />
+                <p:column  headerText="Charge" />
+                <p:column  headerText="Décharge" />
+                
             </p:row>
         </p:columnGroup>
  
         <p:column>
             <h:outputText value="#{materiel.nomenMat.nomenclature}" />
         </p:column>
-		<p:column>
+        <p:column>
             <h:outputText value="" />
         </p:column>
-		<p:column>
-            <h:outputText value="" />
-        </p:column>
-		<p:column>
-            <h:outputText value="" />
-        </p:column>
-		<p:column>
-            <h:outputText value="" />
-        </p:column>
-		<p:column>
+        <p:column>
             <h:outputText value="" />
         </p:column>
 
+        <p:column>
+            <h:outputText value="" />
+        </p:column>
 
         <p:column>
             <h:outputText value="" />
@@ -272,6 +266,35 @@
             <h:outputText value="" />
         </p:column>
 
+        <p:column>
+            <h:outputText value="" />
+        </p:column>
+
+        <p:column>
+            <h:outputText value="" />
+        </p:column>
+        <p:column>
+            <h:outputText value="" />
+        </p:column>
+        <p:column>
+            <h:outputText value="" />
+        </p:column>
+        <p:column>
+            <h:outputText value="" />
+        </p:column>
+
+        <p:column>
+            <h:outputText value="" />
+        </p:column>
+        <p:column>
+            <h:outputText value="" />
+        </p:column>
+        <p:column>
+            <h:outputText value="" />
+        </p:column>
+        <p:column>
+            <h:outputText value="" />
+        </p:column>
         <p:column>
             <h:outputText value="" />
         </p:column>
@@ -279,6 +302,13 @@
 
        
     </p:dataTable>
+
+
+
+    <br></br><br></br><br></br>
+
+
+
 
  	</div>
 
