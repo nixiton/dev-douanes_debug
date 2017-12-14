@@ -73,7 +73,7 @@ public class CustomAuthenticationProvider implements AuthenticationProvider {
         }
 
         if (!passwordEncoder.matches(password, user.getPassword())) {
-            log.info("invalid passpord for " + immatriculation);
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("password not valid" + immatriculation));
             throw new BadCredentialsException("tidak berhasil login dengan user " + immatriculation);
         }
         /*

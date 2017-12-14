@@ -9,11 +9,18 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.RequestScoped;
 import javax.faces.context.FacesContext;
+import javax.servlet.http.HttpSession;
 
 import com.douane.entite.*;
 import com.douane.metier.referentiel.IRefMetier;
+import com.douane.requesthttp.RequestFilter;
 import org.primefaces.context.RequestContext;
 import org.springframework.dao.DataAccessException;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.AuthenticationException;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.transaction.annotation.Transactional;
@@ -136,7 +143,7 @@ public class UserManagedBean implements Serializable {
 		FacesContext.getCurrentInstance().addMessage("myForm:password1", new FacesMessage("Password Doesnt Match"));
 		return ERROR;
 	}
-	
+
 	public String addAgent() {
 		try {
 			Agent user = new Agent();
@@ -514,5 +521,82 @@ public class UserManagedBean implements Serializable {
 
 	public void setRole(String role) {
 		this.role = role;
+	}
+
+
+	//---------UPDATE PASSWORD--------------
+	private Agent agent;
+
+	private String pass;
+
+	private String newPass;
+
+	public boolean checkPreviousPass()
+	{
+		String passWordCur = ((Agent) RequestFilter.getSession().getAttribute("agent")).getPassword();
+		if(passwordEncoder.matches(passWordCur, getPass()))
+			return true;
+		return false;
+	}
+
+
+
+	public Agent getAgent() {
+		return (Agent) RequestFilter.getSession().getAttribute("agent");
+	}
+
+	public void setAgent(Agent agent) {
+		this.agent = agent;
+	}
+
+	public String getPass() {
+		return pass;
+	}
+
+	public void setPass(String pass) {
+		this.pass = pass;
+	}
+
+	public String getNewPass() {
+		return newPass;
+	}
+
+	public void setNewPass(String newPass) {
+		this.newPass = newPass;
+	}
+
+	@ManagedProperty(value="#{authenticationManager}")
+	private AuthenticationManager authenticationManager = null;
+
+	public void changePass() {
+
+			FacesMessage message;
+			try {
+				Authentication request = new UsernamePasswordAuthenticationToken(((Agent) RequestFilter.getSession().getAttribute("agent")).getIm(), getPass());
+				Authentication result = authenticationManager.authenticate(request);
+				SecurityContextHolder.getContext().setAuthentication(result);
+
+				((Agent) RequestFilter.getSession().getAttribute("agent")).setPassword(passwordEncoder.encode(getNewPass()));
+
+				message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Success", "Password updated");
+				FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Password updated"));
+				FacesContext.getCurrentInstance().addMessage(null, message);
+
+			} catch (AuthenticationException e) {
+
+				message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Error wrong current password", "Invalid credentials");
+				FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Error wrong current password"));
+				//throw new SecurityExecption("Wrong credentials");
+
+			}
+
+
+	}
+	public AuthenticationManager getAuthenticationManager() {
+		return authenticationManager;
+	}
+
+	public void setAuthenticationManager(AuthenticationManager authenticationManager) {
+		this.authenticationManager = authenticationManager;
 	}
 }

@@ -1,0 +1,65 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+<ui:include src="components/header.xhtml"></ui:include>
+
+
+<h:body styleClass="login">
+
+
+    <div class="form-signin">
+        <div class="text-center">
+            <h:graphicImage value="/pages/unsecure/assets/images/logo.jpeg" />
+        </div>
+        <br></br>
+        <div class="tab-content">
+            <div id="login" class="tab-pane active">
+
+                <h:form id="myform">
+                    <p:messages id="messages" showDetail="true" autoUpdate="true" />
+
+                    <hr></hr>
+                    <h:outputLabel for="password1" styleClass="col-md-6"
+                                   value="Mot de passe courant: " />
+                    <p:password id="passwordcur" styleClass="col-md-6"
+                                value="#{userMB.pass}"  required="true">
+                    </p:password>
+
+                    <h:outputLabel for="password1" styleClass="col-md-6"
+                                   value="Nouveau mot de passe : " />
+                    <p:password id="password1" styleClass="col-md-6"
+                                value="#{userMB.newPass}" match="password2" required="true">
+                    </p:password>
+
+                    <hr></hr>
+
+                    <h:outputLabel styleClass="col-md-6" for="password2"
+                                   value="Retaper nouveau mot de passe : " />
+                    <p:password id="password2" styleClass="col-md-6"
+                                value="#{userMB.newPass}" required="true">
+                    </p:password>
+
+                    <hr></hr>
+
+                    <h:commandButton id="addUser" action="#{userMB.changePass}"
+                                     value="S'enregistrer" ajax="false" class="btn btn-lg btn-primary btn-block" />
+
+
+
+                </h:form>
+
+            </div>
+        </div>
+
+        <hr></hr>
+    </div>
+
+    <ui:include src="components/footer.xhtml"></ui:include>
+</h:body>
+
+</html>

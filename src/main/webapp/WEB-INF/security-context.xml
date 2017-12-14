@@ -95,6 +95,11 @@
 		<beans:property name="authenticationManager" ref="authenticationManager"></beans:property>
 	</beans:bean>
 
+	<beans:bean id="userManagedBean" name="userManagedBean"
+				class="com.douane.managed.bean.UserManagedBean" scope="prototype">
+		<beans:property name="authenticationManager" ref="authenticationManager"></beans:property>
+	</beans:bean>
+
 	<beans:bean id="my403"
 				class="com.douane.exception.CustomAccessDeniedHandler">
 		<beans:property name="message" value="403" />
