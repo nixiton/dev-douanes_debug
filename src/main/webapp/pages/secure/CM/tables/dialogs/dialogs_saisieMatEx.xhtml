@@ -35,7 +35,7 @@
             ----------------------<br></br>
             DIRECTION GENERALE DES DOUANES
             -----------------------<br></br>
-            #{gacBean.curentOperation.detenteur.direction}<br></br>
+            #{gacBean.curentOperation1.detenteur.direction}<br></br>
             ------------------
 
         </div>
@@ -51,14 +51,14 @@
                     <tr>
                         <td><strong>Nom et fonction du dépositaire : </strong></td>
     
-                        <td>#{gacBean.curentOperation.operateur.nomAgent}</td>
-                        <td>#{gacBean.curentOperation.operateur.roleAgent.designation}</td>
+                        <td>#{gacBean.curentOperation1.operateur.nomAgent}</td>
+                        <td>#{gacBean.curentOperation1.operateur.roleAgent.designation}</td>
                     </tr>
 
                     <tr>
                         <td><strong>Nom et fonction du détenteur effectif :</strong></td>
-                        <td>#{gacBean.curentOperation.detenteur.nomAgent}</td>
-                        <td>#{gacBean.curentOperation.detenteur.roleAgent.designation}</td>
+                        <td>#{gacBean.curentOperation1.detenteur.nomAgent}</td>
+                        <td>#{gacBean.curentOperation1.detenteur.roleAgent.designation}</td>
                     </tr>
 
                     <tr>
@@ -117,13 +117,13 @@
 
             <div class="col-md-8"></div><div class="col-md-4"> 
                 Antananarivo, le #{c.date}<br></br>
-                #{gacBean.curentOperation.operateur.nomAgent}
+                #{gacBean.curentOperation1.operateur.nomAgent}
             </div><br></br><br></br>
 
             <div class="col-md-1"></div>
             <div class="col-md-4">
                 Reconnu exact<br></br>
-                #{gacBean.curentOperation.detenteur.nomAgent}
+                #{gacBean.curentOperation1.detenteur.nomAgent}
             </div>
 
             </div>

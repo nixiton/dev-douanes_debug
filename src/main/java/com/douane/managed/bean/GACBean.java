@@ -63,7 +63,7 @@ public class GACBean {
 
     private Operation curentOperation;
 
-
+    private Operation curentOperation1;
 
     private List<Operation> listAllOperation;
 
@@ -376,6 +376,11 @@ public class GACBean {
 
     }
 
+    public void setCurentOperation1(Operation operation){
+        this.curentOperation1 = operation;
+
+    }
+
     public String setCurentOperation2(Operation operation){
         setCurentOperation(operation);
 
@@ -426,6 +431,11 @@ public class GACBean {
     public Operation getCurentOperation(){
         return this.curentOperation;
     }
+
+    public Operation getCurentOperation1(){
+        return this.curentOperation1;
+    }
+
 
     public void setMotif(String m){
         this.motif = m;
