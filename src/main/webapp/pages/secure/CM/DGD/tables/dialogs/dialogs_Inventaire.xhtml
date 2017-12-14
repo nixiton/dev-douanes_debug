@@ -29,13 +29,15 @@
  			</div>
 
  			<div class="col-md-6">
+
+                <br></br><br></br>
             
                 
                 BUDGET ............................................................
             
 
 
-            <br></br><br></br><br></br><br></br>
+            <br></br><br></br><br></br>
 
 
                 EXERCICE ..................................
@@ -61,17 +63,20 @@
 
         <div class="col-md-12">
             CHAPITRE(2) .............................. ARTICLE...............................PARAGRAPHE.................
+            <br></br><br></br>
         </div>
 
         <br></br><br></br>
         <div class="col-md-12">
 
             Service d (1).........................................................................................................<br></br>
+            <br></br><br></br>
         </div>
         <br></br><br></br>
         <div class="col-md-12">
 
             Hôtel du (2).........................................................................................................<br></br><br></br>
+            <br></br><br></br>
 
         </div>
         <br></br><br></br>
@@ -87,6 +92,7 @@
  				<h:graphicImage width="100%"
                     value="/pages/unsecure/assets/images/inv.png" /><br></br>
                     <strong>du mobilier et des objets d'ameublemnt existant au 31 Décembre #{gacBean.annee}</strong>
+                    <br></br><br></br><br></br>
  			</div>
 
  			<div class="col-md-1" style="font-size: 14px!important;">
@@ -97,6 +103,7 @@
 
 
  		<br></br><br></br><br></br>
+        <br></br><br></br><br></br>
 
 
  	<p:dataTable  id="testingID" var="materiel" value="#{depositaireBean.listMaterielNouveauValide}">
@@ -104,39 +111,41 @@
  		<p:columnGroup type="header">
             <p:row>
 
-                <p:column colspan="2" headerText="Pièces justificatives" />
+                <p:column rowspan="2" headerText="Numéro de folio du grand livre" />
+                <p:column rowspan="2" headerText="Désignation des matériels" />
+                <p:column rowspan="2" headerText="Espèce des unités" />
+                <p:column rowspan="2" headerText="Prix de l'unité" />
 
-                <p:column rowspan="2" headerText="Désignation des opérations" />
-                <p:column colspan="2" headerText="1 opération A" />
-                <p:column colspan="2" headerText="2 opération A" />
-                <p:column colspan="2" headerText="3 opération A" />
-                <p:column colspan="2" headerText="4 opération A" />
+
+                <p:column colspan="4" headerText="Quantité" />
+
+                
+                <p:column rowspan="2" headerText="Décompte" />
+                <p:column rowspan="2" headerText="Observation" />
                 
                 
             </p:row>
             <p:row>
-                <p:column  headerText="N°" />
-                <p:column  headerText="Date" />
-                <p:column  headerText="Charge" />
-                <p:column  headerText="Décharge" />
-                <p:column  headerText="Charge" />
-                <p:column  headerText="Décharge" />
-                <p:column  headerText="Charge" />
-                <p:column  headerText="Décharge" />
-                <p:column  headerText="Charge" />
-                <p:column  headerText="Décharge" />
+                <p:column  headerText="Existant au 1 er Janvier" />
+                <p:column  headerText="Entreés pendant l'année" />
+                <p:column  headerText="Sortie pendant l'année" />
+                <p:column  headerText="Reste au 31 Déc" />
                 
             </p:row>
         </p:columnGroup>
  
         <p:column>
-            <h:outputText value="#{materiel.nomenMat.nomenclature}" />
+            <h:outputText value="" />
+        </p:column>
+        <p:column>
+            <h:outputText value="#{materiel.nomenMat.designation}" />
         </p:column>
         <p:column>
             <h:outputText value="" />
         </p:column>
+
         <p:column>
-            <h:outputText value="" />
+            <h:outputText value="#{materiel.pu}" />
         </p:column>
 
         <p:column>
@@ -151,13 +160,6 @@
             <h:outputText value="" />
         </p:column>
 
-        <p:column>
-            <h:outputText value="" />
-        </p:column>
-
-        <p:column>
-            <h:outputText value="" />
-        </p:column>
         <p:column>
             <h:outputText value="" />
         </p:column>
@@ -175,101 +177,7 @@
     <br></br><br></br><br></br>
 
 
-        <p:dataTable  id="testingID1" var="materiel" value="#{depositaireBean.listMaterielNouveauValide}">
 
-        <p:columnGroup type="header">
-            <p:row>
-
-                <p:column colspan="2" headerText="5 opération A" />
-                <p:column colspan="2" headerText="6 opération A" />
-                <p:column colspan="2" headerText="7 opération A" />
-                <p:column colspan="2" headerText="8 opération A" />
-                <p:column colspan="2" headerText="9 opération A" />
-                <p:column colspan="2" headerText="10 opération A" />
-                <p:column colspan="2" headerText="11 opération A" />
-                <p:column colspan="2" headerText="12 opération A" />
-                
-                
-            </p:row>
-            <p:row>
-                <p:column  headerText="Charge" />
-                <p:column  headerText="Décharge" />
-                <p:column  headerText="Charge" />
-                <p:column  headerText="Décharge" />
-                <p:column  headerText="Charge" />
-                <p:column  headerText="Décharge" />
-                <p:column  headerText="Charge" />
-                <p:column  headerText="Décharge" />
-                <p:column  headerText="Charge" />
-                <p:column  headerText="Décharge" />
-                <p:column  headerText="Charge" />
-                <p:column  headerText="Décharge" />
-                <p:column  headerText="Charge" />
-                <p:column  headerText="Décharge" />
-                <p:column  headerText="Charge" />
-                <p:column  headerText="Décharge" />
-                
-            </p:row>
-        </p:columnGroup>
- 
-        <p:column>
-            <h:outputText value="#{materiel.nomenMat.nomenclature}" />
-        </p:column>
-        <p:column>
-            <h:outputText value="" />
-        </p:column>
-        <p:column>
-            <h:outputText value="" />
-        </p:column>
-
-        <p:column>
-            <h:outputText value="" />
-        </p:column>
-
-        <p:column>
-            <h:outputText value="" />
-        </p:column>
-
-        <p:column>
-            <h:outputText value="" />
-        </p:column>
-
-        <p:column>
-            <h:outputText value="" />
-        </p:column>
-
-        <p:column>
-            <h:outputText value="" />
-        </p:column>
-        <p:column>
-            <h:outputText value="" />
-        </p:column>
-        <p:column>
-            <h:outputText value="" />
-        </p:column>
-        <p:column>
-            <h:outputText value="" />
-        </p:column>
-
-        <p:column>
-            <h:outputText value="" />
-        </p:column>
-        <p:column>
-            <h:outputText value="" />
-        </p:column>
-        <p:column>
-            <h:outputText value="" />
-        </p:column>
-        <p:column>
-            <h:outputText value="" />
-        </p:column>
-        <p:column>
-            <h:outputText value="" />
-        </p:column>
-
-
-       
-    </p:dataTable>
 
 
 
