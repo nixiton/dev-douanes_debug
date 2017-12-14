@@ -197,7 +197,61 @@
  			</div>
  		</div>
 
- 		    <p:dataTable  id="testingID" var="materiel" value="#{depositaireBean.listMaterielNouveauValide}">
+ 	<p:dataTable  id="testingID" var="materiel" value="#{depositaireBean.listMaterielNouveauValide}">
+ 
+        <p:column>
+            <f:facet name="header">
+                <h:outputText value="Numero d'ordre de la nomenclature" />
+            </f:facet>
+            <h:outputText value="#{materiel.nomenMat.nomenclature}" />
+        </p:column>
+        <p:column>
+            <f:facet name="header">
+                <h:outputText value="Espèce des unités" />
+            </f:facet>
+            <h:outputText value="" />
+        </p:column>
+        <p:column>
+            <f:facet name="header">
+                <h:outputText value="Désignation des objets" />
+            </f:facet>
+            <h:outputText value="#{materiel.nomenMat.designation}" />
+        </p:column>
+
+        <p:column>
+            <f:facet name="header">
+                <h:outputText value="Prix de l'unité" />
+            </f:facet>
+            <h:outputText value="#{materiel.pu}" />
+        </p:column>
+
+        <p:column>
+            <f:facet name="header">
+                <h:outputText value="Quantité" />
+            </f:facet>
+            <h:outputText value="" />
+        </p:column>
+
+        <p:column>
+            <f:facet name="header">
+                <h:outputText value="Valeurs" />
+            </f:facet>
+            <h:outputText value="" />
+        </p:column>
+
+        <p:column>
+            <f:facet name="header">
+                <h:outputText value="Mouvements effecués" />
+            </f:facet>
+            <h:outputText value="" />
+        </p:column>
+
+
+       
+    </p:dataTable>
+
+
+    <p:dataTable  id="testingID1" var="materiel" value="#{depositaireBean.listMaterielNouveauValide}">
  
         <p:column>
             <f:facet name="header">
@@ -205,42 +259,7 @@
             </f:facet>
             <h:outputText value="#{materiel.idMateriel}" />
         </p:column>
-        <p:column>
-            <f:facet name="header">
-                <h:outputText value="Type de materiel" />
-            </f:facet>
-            <h:outputText value="#{materiel.nomenMat.designation}" />
-        </p:column>
-        <p:column>
-            <f:facet name="header">
-                <h:outputText value="Nomenclature" />
-            </f:facet>
-            <h:outputText value="#{materiel.nomenMat.nomenclature}" />
-        </p:column>
-        <p:column>
-            <f:facet name="header">
-                <h:outputText value="Marque" />
-            </f:facet>
-            <h:outputText value="#{materiel.marque.designation}" />
-        </p:column>
-        <p:column>
-            <f:facet name="header">
-                <h:outputText value="Réference" />
-            </f:facet>
-           <h:outputText value=" #{materiel.reference}" />
-        </p:column>
-        <p:column>
-            <f:facet name="header">
-                <h:outputText value="Numro de Série" />
-            </f:facet>
-            <h:outputText value="#{materiel.numSerie}" />
-        </p:column>
-        <p:column>
-            <f:facet name="header">
-                <h:outputText value="Mode d'aquisition" />
-            </f:facet>
-            <h:outputText value="#{materiel.modAcq.designation}" />
-        </p:column>
+       
     </p:dataTable>
 
  	</div>
