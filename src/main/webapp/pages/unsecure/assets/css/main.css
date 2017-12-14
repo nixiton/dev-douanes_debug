@@ -2614,7 +2614,7 @@ table, .ui-datatable-tablewrapper {
   border: none!important;
 }
 
-#listdeteff_head, #listdeteff_head td, #listdeteff_data td, .entreeo td, .entreeo th{
+#listdeteff_head, #listdeteff_head td, #listdeteff_data td, .entreeo td, .entreeo th, #testingID td, #testingID th{
 
 border-collapse: collapse;
     border: 1px solid black;
