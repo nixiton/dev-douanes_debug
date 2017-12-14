@@ -139,7 +139,7 @@ public class GACBean {
         this.listAnnee = listAnnee;
     }
 
-    public int getListAnnee(){
+    public List<Integer> getListAnnee(){
         this.listAnnee = new ArrayList<Integer>();
         int k = 2017;
         while(k<2022){
