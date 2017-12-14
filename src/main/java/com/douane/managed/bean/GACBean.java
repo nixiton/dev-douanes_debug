@@ -13,6 +13,7 @@ import javax.faces.bean.ManagedProperty;
 import java.util.HashMap;
 import java.util.List;
 import java.util.ListIterator;
+import java.util.*;
 
 
 
@@ -72,7 +73,7 @@ public class GACBean {
 
     private int Annee;
 
-    private List<int> listAnnee;
+    private List<Integer> listAnnee;
 
 
 
@@ -134,12 +135,12 @@ public class GACBean {
         return this.Annee;
     }
 
-    public void setListAnnee(List<int> listAnnee){
+    public void setListAnnee(List<Integer> listAnnee){
         this.listAnnee = listAnnee;
     }
 
     public int getListAnnee(){
-        this.listAnnee = new ArrayList<int>();
+        this.listAnnee = new ArrayList<Integer>();
         int k = 2017;
         while(k<2022){
             this.listAnnee.add(k);
