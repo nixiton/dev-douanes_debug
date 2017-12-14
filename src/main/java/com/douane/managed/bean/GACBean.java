@@ -70,6 +70,10 @@ public class GACBean {
 
     private List<Materiel> listMaterielByDet;
 
+    private int Annee;
+
+    private List<int> listAnnee;
+
 
 
     private String motif;
@@ -114,6 +118,34 @@ public class GACBean {
 
     public Float getTotal(){
         return this.total;
+    }
+
+
+    public void setAnnee(int t){
+        this.Annee = t;
+    }
+
+    public String setAnnee1(int t){
+        this.Annee = t;
+        return "annee";
+    }
+
+    public int getAnnee(){
+        return this.Annee;
+    }
+
+    public void setListAnnee(List<int> listAnnee){
+        this.listAnnee = listAnnee;
+    }
+
+    public int getListAnnee(){
+        this.listAnnee = new ArrayList<int>();
+        int k = 2017;
+        while(k<2022){
+            this.listAnnee.add(k);
+            k = k+1;
+        }
+        return this.listAnnee;
     }
 
 
