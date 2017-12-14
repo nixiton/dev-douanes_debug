@@ -489,6 +489,14 @@
 			<redirect />
 		</navigation-case>
 
+		<navigation-case>
+			<from-outcome>ordreSortie</from-outcome>
+			<to-view-id>/pages/secure/CM/DGD/tables/dialogs/dialogs_OrdreSortie.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+
+		
+
 
 
 
