@@ -198,57 +198,56 @@
  		</div>
 
  	<p:dataTable  id="testingID" var="materiel" value="#{depositaireBean.listMaterielNouveauValide}">
+
+ 		<p:columnGroup type="header">
+            <p:row>
+                <p:column rowspan="2" headerText="Numero d'ordre de la nomenclature" />
+                <p:column rowspan="2" headerText="Espèce des unités" />
+                <p:column rowspan="2" headerText="Désignation des objets" />
+                <p:column rowspan="2" headerText="Prix de l'unité" />
+
+                <p:column colspan="2" headerText="Existant au 1er Janvier #{gacBean.annee}" />
+                <p:column rowspan="2" headerText="Mouvements effectués" />
+            </p:row>
+            <p:row>
+                <p:column  headerText="Quantité" />
+                <p:column  headerText="Valeurs" />
+                
+            </p:row>
+        </p:columnGroup>
  
         <p:column>
-            <f:facet name="header">
-                <h:outputText value="Numero d'ordre de la nomenclature" />
-            </f:facet>
             <h:outputText value="#{materiel.nomenMat.nomenclature}" />
         </p:column>
         <p:column>
-            <f:facet name="header">
-                <h:outputText value="Espèce des unités" />
-            </f:facet>
             <h:outputText value="" />
         </p:column>
         <p:column>
-            <f:facet name="header">
-                <h:outputText value="Désignation des objets" />
-            </f:facet>
             <h:outputText value="#{materiel.nomenMat.designation}" />
         </p:column>
 
         <p:column>
-            <f:facet name="header">
-                <h:outputText value="Prix de l'unité" />
-            </f:facet>
             <h:outputText value="#{materiel.pu}" />
         </p:column>
 
         <p:column>
-            <f:facet name="header">
-                <h:outputText value="Quantité" />
-            </f:facet>
             <h:outputText value="" />
         </p:column>
 
         <p:column>
-            <f:facet name="header">
-                <h:outputText value="Valeurs" />
-            </f:facet>
             <h:outputText value="" />
         </p:column>
 
         <p:column>
-            <f:facet name="header">
-                <h:outputText value="Mouvements effecués" />
-            </f:facet>
             <h:outputText value="" />
         </p:column>
 
 
        
     </p:dataTable>
+
+
+    <br></br><br></br><br></br>
 
 
     <p:dataTable  id="testingID1" var="materiel" value="#{depositaireBean.listMaterielNouveauValide}">
