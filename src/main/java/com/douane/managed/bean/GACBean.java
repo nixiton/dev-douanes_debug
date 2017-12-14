@@ -403,12 +403,12 @@ public class GACBean {
 
 
     public String setCurentOperationOrdre(Operation operation){
-        setCurentOperation(operation);
+        setCurentOperation1(operation);
             return "ordre";
     }
 
     public String setCurentOperationSortie(Operation operation){
-        setCurentOperation(operation);
+        setCurentOperation1(operation);
             return "ordreSortie";
     }
 
