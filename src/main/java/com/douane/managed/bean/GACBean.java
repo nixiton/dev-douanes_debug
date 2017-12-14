@@ -131,6 +131,13 @@ public class GACBean {
         return "annee";
     }
 
+    public String setAnneeEtatAp(int t){
+        this.Annee = t;
+        return "anneeEtatAp";
+    }
+
+    
+
     public int getAnnee(){
         return this.Annee;
     }
