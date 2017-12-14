@@ -173,7 +173,7 @@
  				</tr>
  				<tr class="entreeo">
  					<td>
- 						
+ 						1
  					</td>
  					<td>
  						
@@ -184,7 +184,7 @@
  				</tr>
  				<tr class="entreeo">
  					<td>
- 						
+ 						2
  					</td>
  					<td>
  						
@@ -196,6 +196,71 @@
 
  		</table>
 
+
+ 		<br></br><br></br><br></br>
+
+ 		<div class="col-md-12">
+ 			<div class="col-md-9">
+ 				
+ 			</div>
+ 			<div class="col-md-3">
+ 				ANNEE ..#{gacBean.annee}........
+ 			</div>
+ 		</div>
+
+ 		    <p:dataTable   var="materiel" value="#{depositaireBean.listMaterielNouveauValide}"
+                 paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}  "
+                 paginator="true" rows="10" style="margin-bottom:20px">
+ 
+        <p:column>
+            <f:facet name="header">
+                <h:outputText value="ID" />
+            </f:facet>
+            <h:outputText value="#{materiel.idMateriel}" />
+        </p:column>
+        <p:column>
+            <f:facet name="header">
+                <h:outputText value="Type de materiel" />
+            </f:facet>
+            <h:outputText value="#{materiel.nomenMat.designation}" />
+        </p:column>
+        <p:column>
+            <f:facet name="header">
+                <h:outputText value="Nomenclature" />
+            </f:facet>
+            <h:outputText value="#{materiel.nomenMat.nomenclature}" />
+        </p:column>
+        <p:column>
+            <f:facet name="header">
+                <h:outputText value="Marque" />
+            </f:facet>
+            <h:outputText value="#{materiel.marque.designation}" />
+        </p:column>
+        <p:column>
+            <f:facet name="header">
+                <h:outputText value="Réference" />
+            </f:facet>
+           <h:outputText value=" #{materiel.reference}" />
+        </p:column>
+        <p:column>
+            <f:facet name="header">
+                <h:outputText value="Numro de Série" />
+            </f:facet>
+            <h:outputText value="#{materiel.numSerie}" />
+        </p:column>
+        <!--p:column>
+            <f:facet name="header">
+                <h:outputText value="Caractéristique" />
+            </f:facet>
+            <h:outputText value="#{materiel.caract}" />
+        </p:column-->
+        <p:column>
+            <f:facet name="header">
+                <h:outputText value="Mode d'aquisition" />
+            </f:facet>
+            <h:outputText value="#{materiel.modAcq.designation}" />
+        </p:column>
+    </p:dataTable>
 
  	</div>
 
