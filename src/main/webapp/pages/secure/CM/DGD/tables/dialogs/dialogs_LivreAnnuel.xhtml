@@ -208,9 +208,7 @@
  			</div>
  		</div>
 
- 		    <p:dataTable   var="materiel" value="#{depositaireBean.listMaterielNouveauValide}"
-                 paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}  "
-                 paginator="true" rows="10" style="margin-bottom:20px">
+ 		    <p:dataTable   var="materiel" value="#{depositaireBean.listMaterielNouveauValide}">
  
         <p:column>
             <f:facet name="header">
@@ -248,12 +246,6 @@
             </f:facet>
             <h:outputText value="#{materiel.numSerie}" />
         </p:column>
-        <!--p:column>
-            <f:facet name="header">
-                <h:outputText value="Caractéristique" />
-            </f:facet>
-            <h:outputText value="#{materiel.caract}" />
-        </p:column-->
         <p:column>
             <f:facet name="header">
                 <h:outputText value="Mode d'aquisition" />
