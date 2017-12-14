@@ -15,8 +15,8 @@
                  paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}  "
                  paginator="true" rows="10" style="margin-bottom:20px">
         <p:column>
-            <f:facet name="header">ID</f:facet>
-            #{d.id}
+            <f:facet name="header">Dépositaire</f:facet>
+            #{d.operateur.im}
         </p:column>
         <!--p:column>
             <f:facet name="header">Date</f:facet>
@@ -43,6 +43,11 @@
             <!--h:outputLink value="#{d.mat.documentPath}" target="_blank"> 
                                 <i class="fa fa-file-archive-o"></i> 
                             </h:outputLink-->
+        <h:form>
+            <h:commandLink  action="#{gacBean.setCurentOperationOrdre(d)}" target="_blank">
+                    <i class="fa fa-file-archive-o"></i>
+                </h:commandLink>
+        </h:form>
             <c:if test="#{depositaireBean.filedownload ne null}" >
                                 <h:form>
                                     <p:commandButton id="downloadLink" value="Download" ajax="false">

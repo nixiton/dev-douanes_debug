@@ -35,7 +35,12 @@
                 <!--p:commandButton  action="#{gacBean.setCurentOperation2(o)}" update=":detail1"
             oncomplete="PF('detail1').show()" icon="ui-icon-document"/-->
 
-            <p:commandButton  action="#{gacBean.setCurentOperation2(o)}" icon="ui-icon-document"/>
+        <h:form>
+
+            <h:commandLink  action="#{gacBean.setCurentOperation2(c)}" target="_blank">
+                    <i class="fa fa-file-archive-o"></i>
+                </h:commandLink>
+        </h:form>
 
         </p:column>
 

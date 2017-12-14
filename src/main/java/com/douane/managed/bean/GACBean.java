@@ -396,6 +396,17 @@ public class GACBean {
 
     }
 
+
+    public String setCurentOperationOrdre(Operation operation){
+        setCurentOperation(operation);
+            return "ordre";
+    }
+
+    public String setCurentOperationSortie(Operation operation){
+        setCurentOperation(operation);
+            return "ordreSortie";
+    }
+
     public void setListMaterielByDet(List<Materiel> listMateriel) {
         this.listMaterielByDet= listMateriel;
     }
