@@ -102,9 +102,6 @@
             </p:panel>   
 
             <p:panel rendered="#{c['class'].simpleName eq 'OpEntree' }">
-                <!--h:outputLink value="#{c.detenteurEffectif}"  target="_blank">
-                                <i class="fa fa-file-archive-o"></i>
-                            </h:outputLink-->
 
                 <h:commandLink  action="#{gacBean.setCurentOperationOrdre(c)}" target="_blank">
                     <i class="fa fa-file-archive-o"></i>
@@ -114,9 +111,6 @@
             </p:panel> 
 
             <p:panel rendered="#{c['class'].simpleName eq 'OpSortie' }">
-                <!--h:outputLink value="#{c.detenteurEffectif}"  target="_blank">
-                                <i class="fa fa-file-archive-o"></i>
-                            </h:outputLink-->
 
                 <h:commandLink  action="#{gacBean.setCurentOperationSortie(c)}" target="_blank">
                     <i class="fa fa-file-archive-o"></i>
