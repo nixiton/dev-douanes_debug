@@ -105,10 +105,11 @@
 
  			</div>
 
- 			<div class="col-md-10">
+ 			<div class="col-md-10" style="text-align: center;font-size: 21px">
  				
  				<h:graphicImage width="100%"
-                    value="/pages/unsecure/assets/images/etat.png" />
+                    value="/pages/unsecure/assets/images/etat.png" /><br></br>
+                    <strong>effectués pendant l'année ...#{gacBean.annee}....</strong>
  			</div>
 
  			<div class="col-md-1" style="font-size: 14px!important;">
@@ -205,6 +206,8 @@
 
        
     </p:dataTable>
+
+    <br></br><br></br><br></br>
 
 
         <p:dataTable  id="testingID1" var="materiel" value="#{depositaireBean.listMaterielNouveauValide}">
