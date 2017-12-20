@@ -7,6 +7,7 @@ import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 @Entity
 @Table(name="operationentree")
@@ -72,10 +73,11 @@ public class OpEntree extends Operation{
 
 
 	//----CORRECTION---------
-	public List<Materiel> listMat;
+	@OneToMany(mappedBy="myoperationEntree")
+	private List<Materiel> listMat;
 
-	public String pathDoc;
-	public String refFact;
+	private String pathDoc;
+	private String refFact;
 
 	public String getPathDoc() {
 		return pathDoc;

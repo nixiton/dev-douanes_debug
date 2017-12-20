@@ -383,6 +383,16 @@ public class Materiel implements Serializable{
 	public void setTypematerieladd(TypeMateriel typematerieladd) {
 		this.typematerieladd = typematerieladd;
 	}
+	@ManyToOne
+	private OpEntree myoperationEntree;
+
+	public OpEntree getMyoperationEntree() {
+		return myoperationEntree;
+	}
+
+	public void setMyoperationEntree(OpEntree myoperationEntree) {
+		this.myoperationEntree = myoperationEntree;
+	}
 	
 
 

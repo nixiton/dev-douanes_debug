@@ -220,6 +220,9 @@ public class UserMetier implements IUserMetier{
 		//m = materielExRepository.save((MaterielEx) m);
 
 		OpEntree entree = new OpEntree(new Date(), new Date(), dc.getIp(), dc, l);
+		entree.setPathDoc(facturePath);
+		entree.setRefFact(refFacture);
+		entree.setListMat(l);
 		oprepos.save(entree);
 
 		return entree;
