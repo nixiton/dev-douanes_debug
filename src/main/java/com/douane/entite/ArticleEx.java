@@ -4,7 +4,7 @@ import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 
 @Entity
-@DiscriminatorValue("AE")
+@DiscriminatorValue("2")
 public class ArticleEx extends Article{
 
     public ArticleEx() {

@@ -16,7 +16,7 @@ import javax.persistence.ManyToOne;
 
 @Entity
 @Inheritance(strategy=InheritanceType.SINGLE_TABLE)
-@DiscriminatorColumn(name="typeArt", discriminatorType=DiscriminatorType.STRING,length=4)
+@DiscriminatorColumn(name="typeArt", discriminatorType=DiscriminatorType.INTEGER)
 public class Article  implements Serializable{
 
     @Id

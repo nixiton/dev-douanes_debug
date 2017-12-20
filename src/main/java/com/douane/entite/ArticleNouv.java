@@ -6,7 +6,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 @Entity
-@DiscriminatorValue("AN")
+@DiscriminatorValue("4")
 public class ArticleNouv extends Article{
     @ManyToOne
     @JoinColumn(name="idFournisseur")
