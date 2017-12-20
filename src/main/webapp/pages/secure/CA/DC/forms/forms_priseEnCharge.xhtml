@@ -31,7 +31,7 @@
 
                     <div class="col-lg-6">
 
-                        <p:selectOneMenu id="zone"  styleClass="form-control top" converter="#{refConverter}" value="#{depositaireBean.typeObjet}">
+                        <p:selectOneMenu  styleClass="form-control top" converter="#{refConverter}" value="#{depositaireBean.typeObjet}">
                             <f:selectItem itemValue="#{null}" itemLabel="--select--" /> 
                             <f:selectItems value="#{siseBean.listTypeObject}" var="type" itemLabel="#{type.designation}"/>
                             
