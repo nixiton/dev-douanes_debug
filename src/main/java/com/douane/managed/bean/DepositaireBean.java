@@ -1097,8 +1097,9 @@ public class DepositaireBean {
 
 			// m.setDocumentPath(documentPath);
 			m.setValidation(false);
+            listMaterielForOpEntree.add(m);
 			// set Operation requete entrer materiel existant
-			OpEntree opentree = usermetierimpl.reqEntrerMateriel(m, agent);
+			OpEntree opentree = usermetierimpl.reqEntrerMateriel(listMaterielForOpEntree, agent, getFacturePath(), getRefFacture());
 			// set Operation valider automatique car ne necessite pas de validation GAC
 			usermetierimpl.entrerMateriel(opentree);
 
@@ -1191,10 +1192,11 @@ public class DepositaireBean {
 
 		m.setMontant_facture(getMontantFac());
 
+            listMaterielForOpEntree.add(m);
 		// m.setRefFacture(refFacture);
 
 		// set Operation requete entrer materiel nouveau
-		OpEntree opEntree = usermetierimpl.reqEntrerMateriel(m, agent);
+		OpEntree opEntree = usermetierimpl.reqEntrerMateriel(listMaterielForOpEntree, agent, getFacturePath(), getRefFacture());
 
 		return SUCCESS;
 		}
@@ -1829,6 +1831,14 @@ System.out.println("****************************ADD3 ATTR**ERRORR***************
 
 	private Agent detenteurMatEx;
 
+    private List<Materiel> listMaterielForOpEntree;
+
+
+
+    private String facturePath;
+
+
+
 	public List<Agent> getListDetenteurMatEx() {
 		return detenteurmetierimpl.findAllDetenteur();
 	}
@@ -1853,4 +1863,22 @@ System.out.println("****************************ADD3 ATTR**ERRORR***************
 	public void setDetenteurmetierimpl(IDetenteurMetier detenteurmetierimpl) {
 		this.detenteurmetierimpl = detenteurmetierimpl;
 	}
+
+
+    public List<Materiel> getListMaterielForOpEntree() {
+        return listMaterielForOpEntree;
+    }
+
+    public void setListMaterielForOpEntree(List<Materiel> listMaterielForOpEntree) {
+        this.listMaterielForOpEntree = listMaterielForOpEntree;
+    }
+
+    public String getFacturePath() {
+        return facturePath;
+    }
+
+    public void setFacturePath(String facturePath) {
+        this.facturePath = facturePath;
+    }
+
 }

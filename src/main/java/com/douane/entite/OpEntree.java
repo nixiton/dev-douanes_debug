@@ -27,6 +27,11 @@ public class OpEntree extends Operation{
 		this.setMat(mater);
 		this.numentree = "";
 	}
+    public OpEntree(Date date, Date time, String poste, Agent operateur, List<Materiel> listMater) {
+        super(date, time, poste, operateur);
+        this.setListMat(listMater);
+        this.numentree = "";
+    }
 	public OpEntree() {
 		
 	}

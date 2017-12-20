@@ -23,7 +23,7 @@ public interface IUserMetier {
 	public Agent findAgentByIm (Long im_agent);
 
 	//les requetes
-	public OpEntree reqEntrerMateriel(Materiel m, Agent dc);
+	public OpEntree reqEntrerMateriel(List<Materiel> m, Agent dc, String facturePath, String refFacture);
 	public OpSortie reqSortirMateriel(Materiel m, MotifSortie motif, Direction d, Service s, Bureau b, Agent op)throws Exception;
 
 	public OpAttribution reqAttribution(Materiel m, Agent oper, Agent detenteur) throws Exception;

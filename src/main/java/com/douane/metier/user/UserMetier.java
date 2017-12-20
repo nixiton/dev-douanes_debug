@@ -206,16 +206,20 @@ public class UserMetier implements IUserMetier{
 	}
 
 	@Override
-	public OpEntree reqEntrerMateriel(Materiel m, Agent dc) {
+	public OpEntree reqEntrerMateriel(List<Materiel> l, Agent dc, String facturePath, String refFacture) {
 		// TODO Auto-generated method stub*
-		m.setDc(dc);
-		m = matrepos.save(m);
+		for (Materiel m:l)
+		{
+			m.setDc(dc);
+			m = matrepos.save(m);
+		}
+
 		/*MaterielEx ma= new MaterielEx();
 
 		ma = matrepos.save(ma);*/
 		//m = materielExRepository.save((MaterielEx) m);
 
-		OpEntree entree = new OpEntree(new Date(), new Date(), dc.getIp(), dc, m);
+		OpEntree entree = new OpEntree(new Date(), new Date(), dc.getIp(), dc, l);
 		oprepos.save(entree);
 
 		return entree;
