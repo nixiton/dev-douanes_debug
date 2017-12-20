@@ -13,6 +13,7 @@ import javax.faces.bean.ManagedProperty;
 import java.util.HashMap;
 import java.util.List;
 import java.util.ListIterator;
+import java.util.*;
 
 
 
@@ -63,12 +64,16 @@ public class GACBean {
 
     private Operation curentOperation;
 
-
+    private Operation curentOperation1;
 
     private List<Operation> listAllOperation;
 
 
     private List<Materiel> listMaterielByDet;
+
+    private int Annee;
+
+    private List<Integer> listAnnee;
 
 
 
@@ -114,6 +119,47 @@ public class GACBean {
 
     public Float getTotal(){
         return this.total;
+    }
+
+
+    public void setAnnee(int t){
+        this.Annee = t;
+    }
+
+    public String setAnnee1(int t){
+        this.Annee = t;
+        return "annee";
+    }
+
+    public String setAnneeEtatAp(int t){
+        this.Annee = t;
+        return "anneeEtatAp";
+    }
+
+
+    public String setAnneeInv(int t){
+        this.Annee = t;
+        return "anneeInv";
+    }
+
+    
+
+    public int getAnnee(){
+        return this.Annee;
+    }
+
+    public void setListAnnee(List<Integer> listAnnee){
+        this.listAnnee = listAnnee;
+    }
+
+    public List<Integer> getListAnnee(){
+        this.listAnnee = new ArrayList<Integer>();
+        int k = 2017;
+        while(k<2022){
+            this.listAnnee.add(k);
+            k = k+1;
+        }
+        return this.listAnnee;
     }
 
 
@@ -376,6 +422,11 @@ public class GACBean {
 
     }
 
+    public void setCurentOperation1(Operation operation){
+        this.curentOperation1 = operation;
+
+    }
+
     public String setCurentOperation2(Operation operation){
         setCurentOperation(operation);
 
@@ -398,12 +449,12 @@ public class GACBean {
 
 
     public String setCurentOperationOrdre(Operation operation){
-        setCurentOperation(operation);
+        setCurentOperation1(operation);
             return "ordre";
     }
 
     public String setCurentOperationSortie(Operation operation){
-        setCurentOperation(operation);
+        setCurentOperation1(operation);
             return "ordreSortie";
     }
 
@@ -426,6 +477,11 @@ public class GACBean {
     public Operation getCurentOperation(){
         return this.curentOperation;
     }
+
+    public Operation getCurentOperation1(){
+        return this.curentOperation1;
+    }
+
 
     public void setMotif(String m){
         this.motif = m;

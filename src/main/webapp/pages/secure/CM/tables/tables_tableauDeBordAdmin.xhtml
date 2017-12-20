@@ -87,7 +87,7 @@
 
             <p:column>
                 <f:facet name="header">
-                    <h:outputText value="Détenteur effectif" />
+                    <h:outputText value="Pièces justificatives" />
                 </f:facet>  
             <p:panel rendered="#{c['class'].simpleName eq 'OpAttribution' }">
                 <!--h:outputLink value="#{c.detenteurEffectif}"  target="_blank">
@@ -99,7 +99,31 @@
                 </h:commandLink>
 
  
-            </p:panel>                
+            </p:panel>   
+
+            <p:panel rendered="#{c['class'].simpleName eq 'OpEntree' }">
+
+                <h:commandLink  action="#{gacBean.setCurentOperationOrdre(c)}" target="_blank">
+                    <i class="fa fa-file-archive-o"></i>
+                </h:commandLink>
+
+ 
+            </p:panel> 
+
+            <p:panel rendered="#{c['class'].simpleName eq 'OpSortie' }">
+
+                <h:commandLink  action="#{gacBean.setCurentOperationSortie(c)}" target="_blank">
+                    <i class="fa fa-file-archive-o"></i>
+                </h:commandLink>
+
+ 
+            </p:panel>   
+
+
+            <h:form>
+            
+        </h:form>
+
             </p:column>
 
         
