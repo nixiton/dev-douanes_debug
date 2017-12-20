@@ -2,6 +2,7 @@ package com.douane.entite;
 import javax.persistence.Table;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
@@ -61,5 +62,39 @@ public class OpEntree extends Operation{
 	}
 	public String getNumentree() {
 		return this.numentree;
+	}
+
+
+
+	//----CORRECTION---------
+	public List<Materiel> listMat;
+
+	public String pathDoc;
+	public String refFact;
+
+	public String getPathDoc() {
+		return pathDoc;
+	}
+
+	public void setPathDoc(String pathDoc) {
+		this.pathDoc = pathDoc;
+	}
+
+	public String getRefFact() {
+		return refFact;
+	}
+
+	public void setRefFact(String refFact) {
+		this.refFact = refFact;
+	}
+
+
+
+	public List<Materiel> getListMat() {
+		return listMat;
+	}
+
+	public void setListMat(List<Materiel> listMat) {
+		this.listMat = listMat;
 	}
 }
