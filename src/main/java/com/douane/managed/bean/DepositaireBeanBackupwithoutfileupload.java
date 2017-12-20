@@ -456,9 +456,9 @@ public class DepositaireBeanBackupwithoutfileupload {
 		//m.setDocumentPath(documentPath);
 		
 		//set Operation requete entrer materiel existant
-		OpEntree opentree = usermetierimpl.reqEntrerMateriel(m, agent);
+		//OpEntree opentree = usermetierimpl.reqEntrerMateriel(m, agent);
 		//set Operation valider automatique car ne necessite pas de validation GAC
-		usermetierimpl.entrerMateriel(opentree);
+		//usermetierimpl.entrerMateriel(opentree);
 		
         return SUCCESS;
 	}
@@ -496,7 +496,7 @@ public class DepositaireBeanBackupwithoutfileupload {
 		//m.setRefFacture(refFacture);
 		
 		//set Operation requete entrer materiel nouveau
-		OpEntree opEntree = usermetierimpl.reqEntrerMateriel(m, agent);
+		//OpEntree opEntree = usermetierimpl.reqEntrerMateriel(m, agent);
 		return SUCCESS;
 	}
 	
