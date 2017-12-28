@@ -394,6 +394,16 @@ public class Materiel implements Serializable{
 		this.myoperationEntree = myoperationEntree;
 	}
 	
+	public String getEspeceUnite() {
+		return especeUnite;
+	}
 
+	public void setEspeceUnite(String especeUnite) {
+		this.especeUnite = especeUnite;
+	}
+
+
+
+	private String especeUnite;
 
 }

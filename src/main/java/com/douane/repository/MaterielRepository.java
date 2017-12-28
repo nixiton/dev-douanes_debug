@@ -3,6 +3,8 @@ package com.douane.repository;
 import java.util.List;
 
 import com.douane.entite.*;
+
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 
 public interface MaterielRepository extends CrudRepository<Materiel, Long>{
@@ -15,4 +17,9 @@ public interface MaterielRepository extends CrudRepository<Materiel, Long>{
 	public List<Materiel> findByValidation(boolean validation);
 	public List<Materiel> findByDetenteurAndValidation(Agent detenteur, boolean validation);
 	public List<Materiel> findByDetenteurAndDirec(Agent detenteur, Direction direction);
+	
+	@Query("select m from Materiel m where m.direc == %?1 and m.validation == TRUE "
+			+ "group by m.typematerieladd.nomenclaureParent.designation	"
+			+ "order by m.typematerieladd.designation asc")
+	public List<Materiel> findByDirectionAndValidationGpByNomOrdByTypemat(Direction d);
 }

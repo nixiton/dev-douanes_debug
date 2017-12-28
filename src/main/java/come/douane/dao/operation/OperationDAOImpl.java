@@ -321,6 +321,20 @@ public class OperationDAOImpl implements IOperationDAO{
 		return operations;
 	}
 
+	@Override
+	public List<Operation> getListOpEntreeAndSortieByDirectionByYearByDateAsc(Direction d,  Date startDate, Date endDate) {
+		// TODO Auto-generated method stub
+		TypedQuery<Operation> query = em.createQuery("select oe, os from OpEntree oe, OpSortie os "
+				+ "where os.date>=:startDate AND os.date<=:endDate AND oe.date>=:startDate AND oe.date<=:endDate "
+				+ "and oe.direction = : direct and oe.direction = : direct"
+				+ "order by date asc"
+				,Operation.class);
+		query.setParameter("direct", d);
+		List<Operation> operations = query.getResultList();
+		return operations;
+	
+	}
+
 	
 
 }
