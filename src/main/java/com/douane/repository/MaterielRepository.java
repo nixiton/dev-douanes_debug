@@ -18,8 +18,8 @@ public interface MaterielRepository extends CrudRepository<Materiel, Long>{
 	public List<Materiel> findByDetenteurAndValidation(Agent detenteur, boolean validation);
 	public List<Materiel> findByDetenteurAndDirec(Agent detenteur, Direction direction);
 	
-	@Query("select m from Materiel m where m.direc == %?1 and m.validation == TRUE "
+	/*@Query("select m from Materiel m where m.direc == %?1 and m.validation == TRUE "
 			+ "group by m.typematerieladd.nomenclaureParent.designation	"
 			+ "order by m.typematerieladd.designation asc")
-	public List<Materiel> findByDirectionAndValidationGpByNomOrdByTypemat(Direction d);
+	public List<Materiel> findByDirectionAndValidationGpByNomOrdByTypemat(Direction d);*/
 }
