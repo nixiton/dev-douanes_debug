@@ -31,7 +31,7 @@ public class Article  implements Serializable{
 
     private boolean validation;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name="imBeneficiaire")
     private Agent beneficiaire;
 

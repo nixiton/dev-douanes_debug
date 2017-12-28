@@ -30,7 +30,7 @@ public abstract class Referentiel implements Serializable {
 	}
 	
 	/*TEMPORARY NOT NEEDED 
-	 * @OneToMany(mappedBy="xxxx", fetch=FetchType.LAZY)
+	 * @OneToMany(mappedBy="xxxx", fetch=FetchType.EAGER)
 	private List<Materiel> materiels;
 	*/
 	

@@ -31,7 +31,7 @@ public class Useri implements Serializable{
 
 
 	/*TEMPORARY NOT NEEDED 
-	 * @OneToMany(mappedBy="roleAgent", fetch=FetchType.LAZY)
+	 * @OneToMany(mappedBy="roleAgent", fetch=FetchType.EAGER)
 	private List<Agent> agents;
 	
 	public List<Agent> getAgents() {
