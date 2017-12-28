@@ -73,7 +73,7 @@ public class OpEntree extends Operation{
 
 
 	//----CORRECTION---------
-	@OneToMany(mappedBy="myoperationEntree")
+	@OneToMany(mappedBy="myoperationEntree", fetch=FetchType.EAGER)
 	private List<Materiel> listMat;
 
 	private String pathDoc;
