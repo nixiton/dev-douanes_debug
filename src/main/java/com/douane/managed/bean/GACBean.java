@@ -420,6 +420,8 @@ public class GACBean {
     public void setCurentOperation(Operation operation){
         this.curentOperation = operation;
 
+        System.out.println("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
+
     }
 
     public void setCurentOperation1(Operation operation){
