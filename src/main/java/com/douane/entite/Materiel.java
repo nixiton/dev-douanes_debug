@@ -106,7 +106,7 @@ public class Materiel implements Serializable{
 	private CategorieMat categorie;
 
 
-	@ManyToOne(fetch = FetchType.EAGER)
+	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name="idCar", columnDefinition="integer", nullable = true , insertable=false, updatable=false)
 	private TypeMateriel caract;
 	@ManyToOne
@@ -137,7 +137,7 @@ public class Materiel implements Serializable{
 	@JoinColumn(name="idFournisseur")
 	private Fournisseur fourni;
 	*/
-	@ManyToOne(fetch = FetchType.EAGER)
+	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name="imDetenteur")
 	private Agent detenteur;
 

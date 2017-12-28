@@ -41,7 +41,7 @@ public class Role {
         this.role = role;
     }
 
-    @OneToMany(fetch = FetchType.EAGER, mappedBy = "pk.role", cascade=CascadeType.ALL)
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "pk.role", cascade=CascadeType.ALL)
     public Set<UserRole> getUserRole() {
         return this.userRole;
     }

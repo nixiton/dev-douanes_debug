@@ -70,7 +70,7 @@ public class User {
 		this.enabled = enabled;
 	}
 
-	@OneToMany(fetch = FetchType.EAGER, mappedBy = "user")
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
 	public Set<UserRole> getUserRole() {
 		return this.userRole;
 	}
@@ -116,7 +116,7 @@ public class User {
 
 
 
-	@OneToMany(fetch = FetchType.EAGER, mappedBy = "user")
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
 	public Set<UserRole> getUserRole() {
 		return this.userRole;
 	}
