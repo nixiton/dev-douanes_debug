@@ -26,6 +26,7 @@ import org.springframework.core.env.Environment;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
+import javax.faces.bean.SessionScoped;
 import javax.faces.bean.ViewScoped;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
@@ -44,7 +45,7 @@ import java.util.Calendar;
  * Created by hasina on 10/29/17.
  */
 @ManagedBean(name = "depositaireBean")
-@ViewScoped
+@SessionScoped
 @PropertySource("classpath:config.properties")
 public class DepositaireBean {
 
@@ -123,7 +124,7 @@ public class DepositaireBean {
 	private UploadedFile document;
 	ArrayList<DocumentModel> documentList = new ArrayList<DocumentModel>();
 	ArrayList<DocumentModel> imageList = new ArrayList<DocumentModel>();
-
+	ArrayList<DocumentModel> documentFacList = new ArrayList<DocumentModel>();
 	private Float unitPrice;
 
 	private String reference;
@@ -591,6 +592,7 @@ public class DepositaireBean {
 		try {
 			documentList = initialize();
 			imageList = initializeImageFile();
+			documentFacList = initializeFacFile();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -619,6 +621,17 @@ public class DepositaireBean {
 		DocumentModel obj = new DocumentModel();
 		obj.setSrNo(1);
 		obj.setDocumentName("test imagefilename1");
+		obj.setRemovable(false);
+		list.add(obj);
+
+		return list;
+	}
+	public ArrayList<DocumentModel> initializeFacFile() throws IOException {
+
+		ArrayList<DocumentModel> list = new ArrayList<DocumentModel>();
+		DocumentModel obj = new DocumentModel();
+		obj.setSrNo(1);
+		obj.setDocumentName("test imagefac1");
 		obj.setRemovable(false);
 		list.add(obj);
 
@@ -658,6 +671,21 @@ public class DepositaireBean {
 		System.out.println("filename to be removed " + row.getDocumentUploadedPath());
 		// You can write logic to remove uploaded file from the device. not written
 		// here.
+		System.out.println(row.getDocumentName());
+		row.setDocumentUploadedPath("");
+		row.setUploaded(false);
+
+		return null;
+	}
+
+	public String removeDocFac(DocumentModel row) {
+
+		System.out.println("filename to be removed " + row.getDocumentUploadedPath());
+		// You can write logic to remove uploaded file from the device. not written
+		// here.
+
+		//delete uploadedfile from path
+
 		System.out.println(row.getDocumentName());
 		row.setDocumentUploadedPath("");
 		row.setUploaded(false);
@@ -723,6 +751,73 @@ public class DepositaireBean {
 		System.out.println("File Uploaded");
 
 		return null;
+	}
+
+	public String uploadFac_Advanced(FileUploadEvent e) throws IOException {
+
+		DocumentModel docObj = (DocumentModel) e.getComponent().getAttributes().get("docObj");
+
+		if (e.getFile().getContents() != null)
+			docObj.setByteArrayImage(e.getFile().getContents());
+
+		docFacture = e.getFile();
+
+		docObj.setUploaded(true);
+		docObj.setDocumentUploadedPath("" + e.getFile().getFileName());
+
+		ArrayList<DocumentModel> documentlist = (ArrayList<DocumentModel>) RequestFilter.getSession()
+				.getAttribute("documentFacList");
+		if (documentlist != null)
+			this.setDocumentList(documentlist);
+
+		documentFacList.set(documentFacList.indexOf(docObj), docObj);
+		RequestFilter.getSession().setAttribute("documentFacList", documentFacList);
+		System.out.println("Facture Uploaded");
+		saveFacFile();
+		return null;
+	}
+
+	public void saveFacFile() throws IOException {
+		Date dNow = new Date();
+		SimpleDateFormat ft = new SimpleDateFormat("yyMMddhhmmssMs");
+		String datetime = ft.format(dNow);
+
+		ArrayList<DocumentModel> documentlist = (ArrayList<DocumentModel>) RequestFilter.getSession()
+				.getAttribute("documentFacList");
+		String fileName;
+		try{
+		if(documentlist != null) {
+			for (DocumentModel d : documentlist)
+			{
+				InputStream is = docFacture.getInputstream();
+				fileName = FilenameUtils.getName(d.getDocumentUploadedPath());
+				File fileFac = new File(datetime +"_"+ fileName);
+				OutputStream out = new FileOutputStream(fileFac);
+				facturePath = fileFac.getAbsolutePath();
+				int read = 0;
+				byte[] bytes = new byte[1024];
+
+				while ((read = is.read(bytes)) != -1) {
+					out.write(bytes, 0, read);
+				}
+
+				is.close();
+				out.flush();
+				out.close();
+
+
+				/*System.out.println("file name" + fileName);
+				BufferedOutputStream stream;
+				stream = new BufferedOutputStream(new FileOutputStream(new File(datetime +"_"+ fileName)));
+				//stream.write(bytes);
+				stream.close();*/
+			}
+		}
+		}catch (IOException e){
+			FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Error file not found", "Facture's file not found ");
+			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Facture's file not found "));
+			FacesContext.getCurrentInstance().addMessage(null, message);
+		}
 	}
 
 	public String updatePage() throws IOException {
@@ -1047,10 +1142,12 @@ public class DepositaireBean {
 		}
 		return ds;
 	}
-	public String addMateriel() {
+	public String addMateriel() throws IOException
+	{
 		System.out.println("ADD MATERIEL");
 		try{
 			uploadFilesDocument();
+			//saveFacFile();
 			Agent agent = (Agent) RequestFilter.getSession().getAttribute("agent");
 			ArrayList<DocumentModel> imagelist = (ArrayList<DocumentModel>) RequestFilter.getSession()
 					.getAttribute("imageList");
@@ -1113,8 +1210,15 @@ public class DepositaireBean {
 			jdbce.getSQLException().getNextException().printStackTrace();
 			return ERROR;
 		} catch (IOException e) {
-			e.printStackTrace();
-			return ERROR;
+			FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Error file not found", "Facture's file not found ");
+			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Facture's file not found "));
+			FacesContext.getCurrentInstance().addMessage(null, message);
+			return null;
+		}catch (NullPointerException e) {
+			FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Error validating materiel", "Error operation");
+			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Error operation "));
+			FacesContext.getCurrentInstance().addMessage(null, message);
+			return null;
 		}
 		/*catch(Exception e){
 			e.printStackTrace();
@@ -1831,13 +1935,13 @@ System.out.println("****************************ADD3 ATTR**ERRORR***************
 
 	private Agent detenteurMatEx;
 
-    private List<Materiel> listMaterielForOpEntree;
+    private ArrayList<Materiel> listMaterielForOpEntree = new ArrayList<Materiel>();
 
 
 
     private String facturePath;
 
-
+	private UploadedFile docFacture;
 
 	public List<Agent> getListDetenteurMatEx() {
 		return detenteurmetierimpl.findAllDetenteur();
@@ -1869,7 +1973,7 @@ System.out.println("****************************ADD3 ATTR**ERRORR***************
         return listMaterielForOpEntree;
     }
 
-    public void setListMaterielForOpEntree(List<Materiel> listMaterielForOpEntree) {
+    public void setListMaterielForOpEntree(ArrayList<Materiel> listMaterielForOpEntree) {
         this.listMaterielForOpEntree = listMaterielForOpEntree;
     }
 
@@ -1880,5 +1984,25 @@ System.out.println("****************************ADD3 ATTR**ERRORR***************
     public void setFacturePath(String facturePath) {
         this.facturePath = facturePath;
     }
+
+	public UploadedFile getDocFacture() {
+		return docFacture;
+	}
+
+	public void setDocFacture(UploadedFile docFacture) {
+		this.docFacture = docFacture;
+	}
+
+
+	public ArrayList<DocumentModel> getDocumentFacList() {
+		return documentFacList;
+	}
+
+	public void setDocumentFacList(ArrayList<DocumentModel> documentFacList) {
+		this.documentFacList = documentFacList;
+	}
+
+
+
 
 }

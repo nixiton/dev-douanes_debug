@@ -269,15 +269,18 @@ public class UserMetier implements IUserMetier{
 		if(op ==null){
 		//System.out.println("-------FUCK ETO ARY EH----------");
 		}
-		Materiel m = op.getMat();
-		m.setValidation(true);
-		
-		System.out.println("materiel m"+ m.getDc());
-		matrepos.save(m);
-		op.valider();
-		op.generateNumEntree();
-		oprepos.save(op);
-		return m;
+		List<Materiel> mat = op.getListMat();
+		for(Materiel m: mat)
+		{
+			m.setValidation(true);
+
+			System.out.println("materiel m"+ m.getDc());
+			matrepos.save(m);
+			op.valider();
+			op.generateNumEntree();
+			oprepos.save(op);
+		}
+		return null;
 	}
 
 	@Override
