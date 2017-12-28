@@ -45,7 +45,7 @@ import java.util.Calendar;
  * Created by hasina on 10/29/17.
  */
 @ManagedBean(name = "depositaireBean")
-@SessionScoped
+@ViewScoped
 @PropertySource("classpath:config.properties")
 public class DepositaireBean {
 
