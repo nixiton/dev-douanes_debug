@@ -424,6 +424,11 @@ public class GACBean {
 
     }
 
+    public void setCurentOperation3(Operation operation){
+        this.curentOperation = operation;
+
+    }
+
     public void setCurentOperation1(Operation operation){
         this.curentOperation1 = operation;
 
