@@ -1167,7 +1167,7 @@ public class DepositaireBean {
 			{
 				m.setDetenteur(getDetenteurMatEx());
 			}
-			m.setAnneeAcquisition(this.anneeAcquisition);
+			m.setAnneeAcquisition(this.getAnneeAcquisition());
 
 			m.setDocumentPath((String) RequestFilter.getSession().getAttribute("documentpath"));
 			RequestFilter.getSession().removeAttribute("documentpath");

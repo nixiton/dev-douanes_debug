@@ -39,7 +39,7 @@ import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
 
 
-@SessionScoped
+
 
 /**
  * Created by hasina on 11/3/17.
@@ -47,6 +47,7 @@ import com.itextpdf.text.pdf.PdfWriter;
 
 
 @ManagedBean(name="gacBean")
+@SessionScoped
 public class GACBean {
     @ManagedProperty(value="#{usermetier}")
     IUserMetier usermetierimpl;
@@ -418,6 +419,13 @@ public class GACBean {
     }
     */
     public void setCurentOperation(Operation operation){
+        this.curentOperation = operation;
+
+        System.out.println("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
+
+    }
+
+    public void setCurentOperation3(Operation operation){
         this.curentOperation = operation;
 
     }

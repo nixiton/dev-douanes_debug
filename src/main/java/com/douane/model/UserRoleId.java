@@ -11,7 +11,7 @@ public class UserRoleId implements java.io.Serializable {
     /*public User user;
     public Role role;
 
-    @ManyToOne(fetch = FetchType.EAGER, targetEntity = User.class)
+    @ManyToOne(fetch = FetchType.LAZY, targetEntity = User.class)
     public User getUser() {
         return user;
     }
@@ -20,7 +20,7 @@ public class UserRoleId implements java.io.Serializable {
         this.user = stock;
     }
 
-    @ManyToOne(fetch = FetchType.EAGER, targetEntity = Role.class)
+    @ManyToOne(fetch = FetchType.LAZY, targetEntity = Role.class)
     public Role getRole() {
         return role;
     }
