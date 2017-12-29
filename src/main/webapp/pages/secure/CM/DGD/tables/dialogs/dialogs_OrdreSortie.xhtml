@@ -22,8 +22,8 @@
  		<br></br><br></br><br></br><br></br><br></br>
  			
  			<div class="col-md-3">
- 				(3)...........<br></br>
- 				(4)...........<br></br>
+ 				(5)<p:inputText style="text-align: center;width: 80%"></p:inputText><br></br>
+ 				(6)<p:inputText style="text-align: center;width: 80%"></p:inputText><br></br>
 
  			</div>
 
@@ -76,15 +76,24 @@
 
  			<div class="col-md-12">
  				
- 				Numero d'ordre du journal : #{gacBean.curentOperation1.numSortie}
+ 				Numero d'ordre du journal :(2) <p:inputText style="text-align: center;width: 50%"></p:inputText>
 
  			</div>
 
 
  			<div class="col-md-12">
  				
- 				<h:graphicImage width="100%"
-                    value="/pages/unsecure/assets/images/mat.png" />
+ 				<div class="col-md-3"></div>
+
+                <div class="col-md-4" style="text-align: center;">
+                    
+                    <select style="text-align: center;">
+                        <option style="text-align: center;">MATERIEL EN APPROVISIONNEMENT</option>
+                        <option style="text-align: center;">MATERIEL EN SERVICE</option>
+                    </select>
+                </div>
+
+                <div class="col-md-3"></div>
  			</div>
 
 
@@ -98,7 +107,7 @@
 
  			<div class="col-md-12">
 
- 			Seront portés en sortie dans les écritures du comptable ..  #{gacBean.curentOperation1.operateur.nomAgent}...................les matières et objets ci-après désignés provenant de ..#{gacBean.curentOperation1.direction.designation}.........................................................
+ 			Seront portés en sortie dans les écritures du comptable ..   #{gacBean.curentOperation1.direction.designation}...................les matières et objets ci-après désignés provenant de ..#{gacBean.curentOperation1.mat.origine}.........................................................
 
  		</div>
 
@@ -163,14 +172,14 @@
                     <th style="border-top: none;">Numéro de la pièce justificative de sortie ou indocation de référence</th>
                 </tr>
  				<tr class="entreeo">	
- 					<td>#{gacBean.curentOperation1.mat.nomenMat.nomenclature}</td>
+ 					<td><p:inputText style="text-align: center;"></p:inputText>  |  #{gacBean.curentOperation1.mat.nomenMat.nomenclature}</td>
  					<td>#{gacBean.curentOperation1.mat.nomenMat.designation}</td>
- 					<td></td>
- 					<td></td>
- 					<td>#{gacBean.curentOperation1.mat.pu}</td>
- 					<td></td>
- 					<td></td>
- 					<td></td>
+ 					<td>#{gacBean.curentOperation1.mat.typematerieladd.designation} , #{gacBean.curentOperation1.mat.renseignement}</td>
+                    <td></td>
+                    <td>#{gacBean.curentOperation1.mat.pu}</td>
+                    <td>#{gacBean.curentOperation1.mat.pu}</td>
+                    <td></td>
+                    <td>#{gacBean.curentOperation1.mat.reference}</td>
  				</tr>
  			</table>
 
@@ -180,14 +189,14 @@
 
  			<div class="col-md-6">
 
-            A........................, le .......................<br></br>
+            A<p:inputText style="text-align: center;"></p:inputText>, le ..#{gacBean.curentOperation1.date}..<br></br>
 
             Le comptable ..#{gacBean.curentOperation1.operateur.im}  #{gacBean.curentOperation1.operateur.nomAgent}.. délivrera et portera en sortie dans ses écritures les  matières désignés et objets désignés ci-dessus.<br></br>
 
             Le comptable ..#{gacBean.curentOperation1.operateur.im}  #{gacBean.curentOperation1.operateur.nomAgent}..  portera en sortie dans ses écritures les  matières désignés et objets désignés ci-dessus dont je certifie la conformité avec avec. <br></br>
              ......................................., le ........................<br></br><br></br>
 
- 			Le ..................................
+ 			Le ..#{gacBean.curentOperation1.date}..
 
  			</div>
 
@@ -195,13 +204,13 @@
                 Les matières et objets désignés ci-dessus ont été délivrés et portés en sortie.<br></br>
                 Les matières et objets désignés ci-dessus ont été  portés en sortie dans les écriture.<br></br>
 
- 				A........................, le .......................<br></br>
+ 				A <p:inputText style="text-align: center;"></p:inputText>, le ..#{gacBean.curentOperation1.date}..<br></br>
  				Le comptable ...#{gacBean.curentOperation1.operateur.nomAgent}.......................<br></br>
  				RECEPISSE <br></br>
  				Je soussigné ..#{gacBean.curentOperation1.operateur.nomAgent}..<br></br>
                 reconnais avoir reçu les ...#{gacBean.curentOperation1.mat.nomenMat.designation}...portés en sortie.
 
- 				A........................, le .......................<br></br>
+ 				A. <p:inputText style="text-align: center;"></p:inputText>, le ..#{gacBean.curentOperation1.date}..<br></br>
 
  				Le comptable ...#{gacBean.curentOperation1.operateur.nomAgent}  <br></br><br></br><br></br><br></br><br></br>
 
