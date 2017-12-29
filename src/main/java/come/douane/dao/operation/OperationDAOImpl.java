@@ -52,6 +52,7 @@ public class OperationDAOImpl implements IOperationDAO{
 		// TODO Auto-generated method stub
 		System.out.println("Attribution DAO begin");
 		Materiel m = em.find(Materiel.class, attr.getMat().getIdMateriel()) ;
+		System.out.println("*************************************AFAKA***************1");
 		if(m.getDetenteur()!=null) {
 			throw new Exception("Efa attribuer olona io fa mila detachena aloha");
 		}
@@ -62,6 +63,7 @@ public class OperationDAOImpl implements IOperationDAO{
 		//em.persist(m);
 		//em.merge(m);
 		Agent detent = em.find(Agent.class, attr.getDetenteur().getIm());
+		System.out.println("*************************************AFAKA***************2");
 		m.setDetenteur(detent);
 		detent.getMatdetenu().add(m);
 		//agentrepos.save(detent);
