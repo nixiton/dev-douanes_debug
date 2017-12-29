@@ -23,7 +23,7 @@ public class OpEntree extends Operation{
 	@ManyToOne
 	@JoinColumn(name="idMat")
 	private Materiel mat;
-	
+
 	private String numentree;
 	
 	static {
@@ -80,7 +80,7 @@ public class OpEntree extends Operation{
 
 	//----CORRECTION---------
 	//@OneToMany(mappedBy="myoperationEntree", fetch=FetchType.EAGER)
-	@OneToMany(fetch = FetchType.EAGER, mappedBy = "myoperationEntree")
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "myoperationEntree", targetEntity=Materiel.class)
 	//@ElementCollection
 	public List<Materiel> getListMat() {
 		return listMat;
