@@ -57,7 +57,7 @@ public class OperationDAOImpl implements IOperationDAO{
 			throw new Exception("Efa attribuer olona io fa mila detachena aloha");
 		}
 		//m.setCodification("codified"+new Date());
-		//m.generateCode();
+		m.generateCode();
 		//m.setDetenteur(attr.getDetenteur());
 		//matrepos.save(m);
 		//em.persist(m);
@@ -65,13 +65,19 @@ public class OperationDAOImpl implements IOperationDAO{
 		Agent detent = em.find(Agent.class, attr.getDetenteur().getIm());
 		System.out.println("*************************************AFAKA***************2");
 		m.setDetenteur(detent);
+		System.out.println("*************************************AFAKA***************3");
 		detent.getMatdetenu().add(m);
+		System.out.println("*************************************AFAKA***************4");
 		//agentrepos.save(detent);
 		em.merge(m);
+		System.out.println("*************************************AFAKA***************5");
 		em.merge(detent);
+		System.out.println("*************************************AFAKA***************6");
 		attr.valider();
+		System.out.println("*************************************AFAKA***************7");
 		//oprepos.save(attr);
 		em.merge(attr);
+		System.out.println("*************************************AFAKA***************8");
 		return m;
 	}
 	
