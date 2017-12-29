@@ -1252,6 +1252,8 @@ public class DepositaireBean {
 			return ERROR;
 		}*/
 	}
+
+
 	public String addPriseEncharge() {
 		try{
 			uploadFilesDocument();
@@ -1326,7 +1328,7 @@ public class DepositaireBean {
 		// m.setRefFacture(refFacture);
 
 		// set Operation requete entrer materiel nouveau
-		OpEntree opEntree = usermetierimpl.reqEntrerMateriel(listMaterielForOpEntree, agent, getFacturePath(), getRefFacture());
+		
 
 		return SUCCESS;
 		}
@@ -1335,6 +1337,13 @@ public class DepositaireBean {
 			return ERROR;
 		}
 
+	}
+
+
+	public String addPriseEnchargeOp(){
+		Agent agent = (Agent) RequestFilter.getSession().getAttribute("agent");
+		OpEntree opEntree = usermetierimpl.reqEntrerMateriel(listMaterielForOpEntree, agent, getFacturePath(), getRefFacture());
+		return SUCCESS;
 	}
 
 	public String addAttribution() {
@@ -1723,7 +1732,7 @@ System.out.println("****************************ADD3 ATTR**ERRORR***************
 		System.out.println("***************************SET LIST ******************************** " +this.getClass().getName());
 	}
 	private List<MaterielNouv> listMaterielNouveauValide;
-	public List<MaterielNouv> getListMaterielNouveauValide() {
+	public List<MaterielNouv> getListMaterielNouveauValide(){
 		return usermetierimpl.getListMaterielNouvValide();
 	}
 

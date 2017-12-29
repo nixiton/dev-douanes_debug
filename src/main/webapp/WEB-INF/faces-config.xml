@@ -754,6 +754,13 @@
 		<navigation-case>
 			<from-action>#{depositaireBean.addPriseEncharge}</from-action>
 			<from-outcome>success</from-outcome>
+			<to-view-id>/pages/secure/CM/DC/content_forms/content_forms_priseEnCharge.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+
+		<navigation-case>
+			<from-action>#{depositaireBean.addPriseEnchargeOp}</from-action>
+			<from-outcome>success</from-outcome>
 			<to-view-id>/pages/secure/CM/DC/priseEnCharge.xhtml</to-view-id>
 			<redirect />
 		</navigation-case>
