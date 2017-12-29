@@ -17,8 +17,8 @@
                  paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}"
                  paginator="true" rows="10" style="margin-bottom:20px">
 
-    <p:row rendered="#{c['class'].simpleName eq 'OpEntree' or c['class'].simpleName eq 'OpSortie'}">
-        <p:column >
+    
+        <p:column rendered="#{c['class'].simpleName eq 'OpEntree' or c['class'].simpleName eq 'OpSortie'}">
             <f:facet name="header">
                 <h:outputText value="Numéro d'ordre des pièces justificatives" />
             </f:facet>
@@ -110,7 +110,7 @@
 
         </p:column>
     
-    </p:row>
+    
         
     </p:dataTable>
  
