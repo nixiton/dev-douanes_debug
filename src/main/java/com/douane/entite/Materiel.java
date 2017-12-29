@@ -13,6 +13,8 @@ import java.util.Arrays;
 import javax.imageio.ImageIO;
 import javax.persistence.*;
 
+import javax.persistence.FetchType;
+
 @Entity
 @Inheritance(strategy=InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name="typeMateriels", discriminatorType=DiscriminatorType.INTEGER)
@@ -383,12 +385,17 @@ public class Materiel implements Serializable{
 	public void setTypematerieladd(TypeMateriel typematerieladd) {
 		this.typematerieladd = typematerieladd;
 	}
-	@ManyToOne
+
 	private OpEntree myoperationEntree;
 
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "idMateriel")
 	public OpEntree getMyoperationEntree() {
 		return myoperationEntree;
 	}
+	
+
+	
 
 	public void setMyoperationEntree(OpEntree myoperationEntree) {
 		this.myoperationEntree = myoperationEntree;

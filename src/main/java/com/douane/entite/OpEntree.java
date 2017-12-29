@@ -74,12 +74,17 @@ public class OpEntree extends Operation{
 		return this.numentree;
 	}
 
+	private List<Materiel> listMat = new ArrayList<Materiel>();
 
 
 	//----CORRECTION---------
 	//@OneToMany(mappedBy="myoperationEntree", fetch=FetchType.EAGER)
-	@ElementCollection(fetch=FetchType.EAGER)
-	private List<Materiel> listMat = new ArrayList<Materiel>();
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "myoperationEntree")
+	//@ElementCollection
+	public List<Materiel> getListMat() {
+		return listMat;
+	}
+	
 
 	private String pathDoc;
 	private String refFact;
@@ -102,9 +107,7 @@ public class OpEntree extends Operation{
 
 
 
-	public List<Materiel> getListMat() {
-		return listMat;
-	}
+	
 
 	public void setListMat(List<Materiel> listMat) {
 		this.listMat = listMat;
