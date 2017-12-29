@@ -86,9 +86,9 @@ public class OpEntree extends Operation{
 	//@OneToMany(mappedBy="myoperationEntree", fetch=FetchType.EAGER)
 	//@Access(AccessType.PROPERTY)
 	//@OneToMany(fetch = FetchType.EAGER, mappedBy = "myoperationEntree", targetEntity=Materiel.class)
-	@OneToMany(targetEntity = Materiel.class, mappedBy = "myoperationEntree",fetch = FetchType.EAGER)
 	//@ElementCollection
-	@Fetch(value = FetchMode.SUBSELECT)
+	//@Fetch(value = FetchMode.SUBSELECT)
+	@OneToMany(targetEntity = Materiel.class, mappedBy = "myoperationEntree",fetch = FetchType.EAGER)
 	public List<Materiel> getListMat() {
 		return listMat;
 	}
