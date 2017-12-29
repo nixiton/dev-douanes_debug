@@ -1142,63 +1142,84 @@ public class DepositaireBean {
 		}
 		return ds;
 	}
+
+	public void addIntoListMateriel()
+	{
+		Agent agent = (Agent) RequestFilter.getSession().getAttribute("agent");
+
+
+		ArrayList<DocumentModel> imagelist = (ArrayList<DocumentModel>) RequestFilter.getSession()
+				.getAttribute("imageList");
+		// agent.setIp()
+		MaterielEx m = new MaterielEx();
+		//System.out.println("---------------SIZE IMAGE BYTE ARRAY="+imagelist.get(0).getByteArrayImage().length);
+		if(imagelist !=null)
+		{
+			m.setImage(imagelist.get(0).getByteArrayImage());
+		}
+		else
+		{
+			m.setImage(null);
+		}
+
+
+		m.setAnneeAcquisition(this.getAnneeAcquisition());
+
+		m.setDocumentPath((String) RequestFilter.getSession().getAttribute("documentpath"));
+		RequestFilter.getSession().removeAttribute("documentpath");
+		m.setAutre(getAutre());
+		m.setBureau(getBureau());
+		// m.setDirec(getDirection());
+		//m.setDirec(agent.getDirection());
+		m.setEtat(getEtat());
+		m.setMarque(getMarq());
+		//m.setNomenMat(getTypemateriel());
+		m.setNumSerie(getNumSerie());
+		m.setPu(getUnitPrice());
+		m.setReference(getReference());
+		m.setRenseignement(getRenseignement());
+		m.setTypematerieladd(this.getTypematerielToAdd());
+		m.setNomenMat(this.getTypematerielToAdd().getNomenclaureParent());
+
+
+		m.setServ(getServiceforMat());
+		m.setDirec(agent.getDirection());
+
+		// m.setCaract(caract);
+		// m.setCategorie(categorie);
+
+		// m.setDocumentPath(documentPath);
+		m.setValidation(false);
+		listMaterielForOpEntree.add(m);
+
+		listMaterielForOpEntree.add(getMatForEntree());
+	}
+
 	public String addMateriel() throws IOException
 	{
+		Agent agent = (Agent) RequestFilter.getSession().getAttribute("agent");
+
+
 		System.out.println("ADD MATERIEL");
 		try{
 			uploadFilesDocument();
 			//saveFacFile();
-			Agent agent = (Agent) RequestFilter.getSession().getAttribute("agent");
-			ArrayList<DocumentModel> imagelist = (ArrayList<DocumentModel>) RequestFilter.getSession()
-					.getAttribute("imageList");
-			// agent.setIp()
-			MaterielEx m = new MaterielEx();
-			//System.out.println("---------------SIZE IMAGE BYTE ARRAY="+imagelist.get(0).getByteArrayImage().length);
-			if(imagelist !=null)
-			{
-				m.setImage(imagelist.get(0).getByteArrayImage());
-			}
-			else
-			{
-				m.setImage(null);
-			}
 
-			if(getDetenteurMatEx() !=null)
-			{
-				m.setDetenteur(getDetenteurMatEx());
-			}
-			m.setAnneeAcquisition(this.getAnneeAcquisition());
-
-			m.setDocumentPath((String) RequestFilter.getSession().getAttribute("documentpath"));
-			RequestFilter.getSession().removeAttribute("documentpath");
-			m.setAutre(getAutre());
-			m.setBureau(getBureau());
-			// m.setDirec(getDirection());
-			//m.setDirec(agent.getDirection());
-			m.setEtat(getEtat());
-			m.setMarque(getMarq());
-			//m.setNomenMat(getTypemateriel());
-			m.setNumSerie(getNumSerie());
-			m.setPu(getUnitPrice());
-			m.setReference(getReference());
-			m.setRenseignement(getRenseignement());
-			m.setTypematerieladd(this.getTypematerielToAdd());
-			m.setNomenMat(this.getTypematerielToAdd().getNomenclaureParent());
-
-
-			m.setServ(getServiceforMat());
-			m.setDirec(agent.getDirection());
-
-			// m.setCaract(caract);
-			// m.setCategorie(categorie);
-
-			// m.setDocumentPath(documentPath);
-			m.setValidation(false);
-            listMaterielForOpEntree.add(m);
 			// set Operation requete entrer materiel existant
 			OpEntree opentree = usermetierimpl.reqEntrerMateriel(listMaterielForOpEntree, agent, getFacturePath(), getRefFacture());
 			// set Operation valider automatique car ne necessite pas de validation GAC
 			usermetierimpl.entrerMateriel(opentree);
+
+			//miboucle list op entree
+			for(Materiel m : listMaterielForOpEntree)
+			{
+				if(getDetenteurMatEx() !=null)
+				{
+					usermetierimpl.attribuerMaterielEx((MaterielEx) m,getDetenteurMatEx());
+					//m.setDetenteur(getDetenteurMatEx());
+				}
+			}
+
 
 			//-----------DESTROY ALL SESSION------------------
 			RequestFilter.getSession().setAttribute("documentpath",null);
@@ -1215,6 +1236,11 @@ public class DepositaireBean {
 			FacesContext.getCurrentInstance().addMessage(null, message);
 			return null;
 		}catch (NullPointerException e) {
+			FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Error validating materiel", "Error operation");
+			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Error operation "));
+			FacesContext.getCurrentInstance().addMessage(null, message);
+			return null;
+		} catch (Exception e) {
 			FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Error validating materiel", "Error operation");
 			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Error operation "));
 			FacesContext.getCurrentInstance().addMessage(null, message);
@@ -1943,6 +1969,8 @@ System.out.println("****************************ADD3 ATTR**ERRORR***************
 
 	private UploadedFile docFacture;
 
+	private Materiel matForEntree;
+
 	public List<Agent> getListDetenteurMatEx() {
 		return detenteurmetierimpl.findAllDetenteur();
 	}
@@ -2002,6 +2030,14 @@ System.out.println("****************************ADD3 ATTR**ERRORR***************
 		this.documentFacList = documentFacList;
 	}
 
+
+	public Materiel getMatForEntree() {
+		return matForEntree;
+	}
+
+	public void setMatForEntree(Materiel matForEntree) {
+		this.matForEntree = matForEntree;
+	}
 
 
 

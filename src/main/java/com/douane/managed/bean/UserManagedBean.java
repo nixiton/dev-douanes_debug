@@ -16,6 +16,7 @@ import com.douane.metier.referentiel.IRefMetier;
 import com.douane.requesthttp.RequestFilter;
 import org.primefaces.context.RequestContext;
 import org.springframework.dao.DataAccessException;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -130,6 +131,7 @@ public class UserManagedBean implements Serializable {
 			//refmetierimpl.addRef(useri,user);
 
 
+
 			usermetierimpl.addUser(useri);
 			usermetierimpl.addAgent(user);
 			//refmetierimpl.addRef(dir,user);
@@ -137,11 +139,23 @@ public class UserManagedBean implements Serializable {
 
 			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Data Saved"));
 			return SUCCESS;
+		} catch(DataIntegrityViolationException e)
+		{
+			FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Error creating user", "Role or User already exists");
+			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Role or User already exists"));
+			FacesContext.getCurrentInstance().addMessage(null, message);
+			return null;
 		} catch (DataAccessException e) {
-			e.printStackTrace();
-		} 	
-		FacesContext.getCurrentInstance().addMessage("myForm:password1", new FacesMessage("Password Doesnt Match"));
-		return ERROR;
+			FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Error creating user", "Role or User already exists");
+			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Role or User already exists"));
+			FacesContext.getCurrentInstance().addMessage(null, message);
+			/*
+			FacesContext.getCurrentInstance().addMessage("myForm:password1", new FacesMessage("Password Doesnt Match"));
+			return ERROR;
+			*/
+			return null;
+		}
+
 	}
 
 	public String addAgent() {
@@ -174,11 +188,23 @@ public class UserManagedBean implements Serializable {
 
 			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Data Saved"));
 			return SUCCESS;
+
+		}catch(DataIntegrityViolationException e)
+		{
+			FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Error creating user", "Role or User already exists");
+			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Role or User already exists"));
+			FacesContext.getCurrentInstance().addMessage(null, message);
+			return null;
 		} catch (DataAccessException e) {
-			e.printStackTrace();
-		} 	
-		FacesContext.getCurrentInstance().addMessage("myForm:password1", new FacesMessage("Password Doesnt Match"));
-		return ERROR;
+			FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Error creating user", "Role or User already exists");
+			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Role or User already exists"));
+			FacesContext.getCurrentInstance().addMessage(null, message);
+			/*
+			FacesContext.getCurrentInstance().addMessage("myForm:password1", new FacesMessage("Password Doesnt Match"));
+			return ERROR;
+			*/
+			return null;
+		}
 	}
 
 

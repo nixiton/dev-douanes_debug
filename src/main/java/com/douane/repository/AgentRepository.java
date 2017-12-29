@@ -10,4 +10,5 @@ import com.douane.entite.Direction;
 public interface AgentRepository extends CrudRepository<Agent, Long> {
 	public List<Agent> findByNomAgentContainingIgnoreCase(String nom);
 	public List<Agent> findByDirection(Direction direction);
+	public Agent findByIm(Long im_agent);
 }

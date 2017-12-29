@@ -17,9 +17,13 @@ import javax.persistence.Transient;
 
 @Entity
 public class Agent implements Serializable {
-	
+
+
 	@Id
-	//@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	private Long idAgent;
+
+	@Column(unique = true)
 	private Long im;
 	
 	private String nomAgent;
@@ -204,5 +208,10 @@ public class Agent implements Serializable {
 		result = 31 * result + (password != null ? password.hashCode() : 0);
 		result = 31 * result + (roleAgent != null ? roleAgent.hashCode() : 0);
 		return result;
+	}
+
+
+	public Long getIdAgent() {
+		return idAgent;
 	}
 }

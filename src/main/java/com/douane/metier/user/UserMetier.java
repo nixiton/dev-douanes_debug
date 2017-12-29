@@ -195,7 +195,7 @@ public class UserMetier implements IUserMetier{
 	@Override
 	public Agent findAgentByIm(Long im_agent) {
 		// TODO Auto-generated method stub
-		return agentrepos.findOne(im_agent);
+		return (Agent) agentrepos.findByIm(im_agent);
 	}
 
 	//temporary
