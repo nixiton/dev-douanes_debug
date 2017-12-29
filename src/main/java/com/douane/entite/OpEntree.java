@@ -1,5 +1,7 @@
 package com.douane.entite;
 import javax.persistence.Table;
+
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
@@ -74,7 +76,7 @@ public class OpEntree extends Operation{
 
 	//----CORRECTION---------
 	@OneToMany(mappedBy="myoperationEntree", fetch=FetchType.EAGER)
-	private List<Materiel> listMat;
+	private List<Materiel> listMat = new ArrayList<Materiel>();
 
 	private String pathDoc;
 	private String refFact;

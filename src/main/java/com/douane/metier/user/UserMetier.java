@@ -208,6 +208,7 @@ public class UserMetier implements IUserMetier{
 	@Override
 	public OpEntree reqEntrerMateriel(List<Materiel> l, Agent dc, String facturePath, String refFacture) {
 		// TODO Auto-generated method stub*
+		OpEntree entree = new OpEntree(new Date(), new Date(), dc.getIp(), dc, l);
 		for (Materiel m:l)
 		{
 			m.setDc(dc);
@@ -219,7 +220,7 @@ public class UserMetier implements IUserMetier{
 		ma = matrepos.save(ma);*/
 		//m = materielExRepository.save((MaterielEx) m);
 
-		OpEntree entree = new OpEntree(new Date(), new Date(), dc.getIp(), dc, l);
+		
 		entree.setPathDoc(facturePath);
 		entree.setRefFact(refFacture);
 		entree.setListMat(l);
@@ -276,10 +277,10 @@ public class UserMetier implements IUserMetier{
 
 			System.out.println("materiel m"+ m.getDc());
 			matrepos.save(m);
-			op.valider();
-			op.generateNumEntree();
-			oprepos.save(op);
 		}
+		op.valider();
+		op.generateNumEntree();
+		oprepos.save(op);
 		return null;
 	}
 
