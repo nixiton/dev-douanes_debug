@@ -15,7 +15,7 @@ import javax.persistence.*;
 
 import javax.persistence.FetchType;
 
-import org.hibernate.engine.Cascade;
+import java.lang.annotation.Annotation.*;
 
 @Entity
 @Inheritance(strategy=InheritanceType.SINGLE_TABLE)
