@@ -1221,12 +1221,12 @@ public class DepositaireBean {
 		}
 
 
-		m.setAnneeAcquisition(this.getAnneeAcquisition());
+		m.setAnneeAcquisition(this.getAnneeAcquisition());	
 
 		m.setDocumentPath((String) RequestFilter.getSession().getAttribute("documentpath"));
 		RequestFilter.getSession().removeAttribute("documentpath");
 		m.setAutre(getAutre());
-		m.setBureau(getBureau());
+		//m.setBureau(getBureau());
 		// m.setDirec(getDirection());
 		//m.setDirec(agent.getDirection());
 		m.setEtat(getEtat());
@@ -1240,8 +1240,8 @@ public class DepositaireBean {
 		m.setNomenMat(this.getTypematerielToAdd().getNomenclaureParent());
 
 
-		m.setServ(getServiceforMat());
-		m.setDirec(agent.getDirection());
+		//m.setServ(getServiceforMat());
+		//m.setDirec(agent.getDirection());
 
 		// m.setCaract(caract);
 		// m.setCategorie(categorie);
