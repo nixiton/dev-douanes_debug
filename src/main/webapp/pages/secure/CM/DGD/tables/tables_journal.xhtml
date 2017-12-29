@@ -17,11 +17,11 @@
                  paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}"
                  paginator="true" rows="10" style="margin-bottom:20px">
 
+
+
     
-        <p:column rendered="#{c['class'].simpleName eq 'OpEntree' or c['class'].simpleName eq 'OpSortie'}">
-            <f:facet name="header">
-                <h:outputText value="Numéro d'ordre des pièces justificatives" />
-            </f:facet>
+        <p:column headerText="Numéro d'ordre des pièces justificatives"  rendered="#{c['class'].simpleName eq 'OpEntree' or c['class'].simpleName eq 'OpSortie'}">
+            
             <p:panel rendered="#{c['class'].simpleName eq 'OpEntree' }" >
             
                 #{c.numentree}
@@ -31,20 +31,16 @@
             </p:panel>
 
         </p:column>
-        <p:column rendered="#{c['class'].simpleName eq 'OpEntree' or c['class'].simpleName eq 'OpSortie'}">
-            <f:facet name="header">
-                <h:outputText value="Date des entrées et des sorties" />
-            </f:facet>
+        <p:column headerText="Date des entrées et des sorties"  rendered="#{c['class'].simpleName eq 'OpEntree' or c['class'].simpleName eq 'OpSortie'}">
+            
             #{c.date}
 
         </p:column>
 
-        <p:column rendered="#{c['class'].simpleName eq 'OpEntree' or c['class'].simpleName eq 'OpSortie'}">
-            <f:facet name="header">
-                <h:outputText value="Origine des entrées et désignation des sorties" />
-            </f:facet>
+        <p:column headerText="Origine des entrées et désignation des sorties"  rendered="#{c['class'].simpleName eq 'OpEntree' or c['class'].simpleName eq 'OpSortie'}">
+            
 
-        <p:panel rendered="#{c['class'].simpleName eq 'OpEntree'}">
+        <p:panel headerText= rendered="#{c['class'].simpleName eq 'OpEntree'}">
                 #{c.direction.designation}
             </p:panel>
             <p:panel rendered="#{c['class'].simpleName eq 'OpSortie' }" >
@@ -57,30 +53,25 @@
 
         </p:column>
 
-        <p:column rendered="#{c['class'].simpleName eq 'OpEntree' or c['class'].simpleName eq 'OpSortie'}">
-            <f:facet name="header">
-                <h:outputText value="Désignation des matières et objets" />
-            </f:facet>
+        <p:column headerText="Désignation des matières et objets" rendered="#{c['class'].simpleName eq 'OpEntree' or c['class'].simpleName eq 'OpSortie'}">
+            
             
         #{c.mat.typematerieladd.designation} #{c.mat.renseignement} 
             
 
         </p:column>
 
-        <p:column rendered="#{c['class'].simpleName eq 'OpEntree' or c['class'].simpleName eq 'OpSortie'}">
-            <f:facet name="header">
-                <h:outputText value="Espèce des unités" />
-            </f:facet>
+        <p:column headerText="Espèce des unités"  rendered="#{c['class'].simpleName eq 'OpEntree' or c['class'].simpleName eq 'OpSortie'}">
+            
             
         
-            000
+            000 
 
         </p:column>
 
-        <p:column rendered="#{c['class'].simpleName eq 'OpEntree' or c['class'].simpleName eq 'OpSortie'}">
-            <f:facet name="header">
-                <h:outputText value="Prix de l'unité" />
-            </f:facet>
+        <p:column headerText="Prix de l'unité" rendered="#{c['class'].simpleName eq 'OpEntree' or c['class'].simpleName eq 'OpSortie'}">
+            
+            
             
             #{c.mat.pu} 
         
@@ -88,10 +79,8 @@
 
         </p:column>
 
-        <p:column rendered="#{c['class'].simpleName eq 'OpEntree' or c['class'].simpleName eq 'OpSortie'}">
-            <f:facet name="header">
-                <h:outputText value="Quanitité" />
-            </f:facet>
+        <p:column headerText="Quanitité" rendered="#{c['class'].simpleName eq 'OpEntree' or c['class'].simpleName eq 'OpSortie'}">
+          
             
             
             000
@@ -99,10 +88,7 @@
 
         </p:column>
 
-        <p:column rendered="#{c['class'].simpleName eq 'OpEntree' or c['class'].simpleName eq 'OpSortie'}">
-            <f:facet name="header">
-                <h:outputText value="Valeur" />
-            </f:facet>
+        <p:column headerText="Valeur"  rendered="#{c['class'].simpleName eq 'OpEntree' or c['class'].simpleName eq 'OpSortie'}">
             
             000
         
