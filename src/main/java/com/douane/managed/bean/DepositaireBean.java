@@ -1205,8 +1205,6 @@ public class DepositaireBean {
 			uploadFilesDocument();
 			//saveFacFile();
 
-			Agent agent = (Agent) RequestFilter.getSession().getAttribute("agent");
-
 
 		ArrayList<DocumentModel> imagelist = (ArrayList<DocumentModel>) RequestFilter.getSession()
 				.getAttribute("imageList");
@@ -1250,8 +1248,8 @@ public class DepositaireBean {
 
 		// m.setDocumentPath(documentPath);
 		m.setValidation(false);
-		listMaterielForOpEntree.add(m);
-			
+		listMaterielForOpEntree.add(m);	
+
 
 			// set Operation requete entrer materiel existant
 			OpEntree opentree = usermetierimpl.reqEntrerMateriel(listMaterielForOpEntree, agent, getFacturePath(), getRefFacture());
@@ -1259,11 +1257,11 @@ public class DepositaireBean {
 			usermetierimpl.entrerMateriel(opentree);
 
 			//miboucle list op entree
-			for(Materiel m : listMaterielForOpEntree)
+			for(Materiel ma : listMaterielForOpEntree)
 			{
 				if(getDetenteurMatEx() !=null)
 				{
-					usermetierimpl.attribuerMaterielEx((MaterielEx) m,getDetenteurMatEx());
+					usermetierimpl.attribuerMaterielEx((MaterielEx) ma,getDetenteurMatEx());
 					//m.setDetenteur(getDetenteurMatEx());
 				}
 			}
