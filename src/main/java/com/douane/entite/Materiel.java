@@ -389,7 +389,6 @@ public class Materiel implements Serializable{
 	private OpEntree myoperationEntree;
 
 	@ManyToOne(fetch = FetchType.EAGER)
-	@JoinColumn(name = "idMateriel")
 	public OpEntree getMyoperationEntree() {
 		return myoperationEntree;
 	}
