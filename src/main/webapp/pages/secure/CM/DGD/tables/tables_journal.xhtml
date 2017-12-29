@@ -15,12 +15,13 @@
      <h:form>
     <p:dataTable   var="c" value="#{suivieditionBean.listAllOperation}"
                  paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}"
-                 paginator="true" rows="10" style="margin-bottom:20px">
+                 paginator="true" rows="10" style="margin-bottom:20px"  
+                 rowStyleClass="#{c['class'].simpleName eq 'OpEntree' ? 'ui-helper-hidden' : '' }">
 
 
 
     
-        <p:column headerText="Numéro d'ordre des pièces justificatives"  rendered="#{c['class'].simpleName eq 'OpEntree' or c['class'].simpleName eq 'OpSortie'}">
+        <p:column headerText="Numéro d'ordre des pièces justificatives"  >
             
             <p:panel rendered="#{c['class'].simpleName eq 'OpEntree' }" >
             
@@ -31,13 +32,13 @@
             </p:panel>
 
         </p:column>
-        <p:column headerText="Date des entrées et des sorties"  rendered="#{c['class'].simpleName eq 'OpEntree' or c['class'].simpleName eq 'OpSortie'}">
+        <p:column headerText="Date des entrées et des sorties"  >
             
             #{c.date}
 
         </p:column>
 
-        <p:column headerText="Origine des entrées et désignation des sorties"  rendered="#{c['class'].simpleName eq 'OpEntree' or c['class'].simpleName eq 'OpSortie'}">
+        <p:column headerText="Origine des entrées et désignation des sorties"  >
             
 
         <p:panel rendered="#{c['class'].simpleName eq 'OpEntree'}">
@@ -53,7 +54,7 @@
 
         </p:column>
 
-        <p:column headerText="Désignation des matières et objets" rendered="#{c['class'].simpleName eq 'OpEntree' or c['class'].simpleName eq 'OpSortie'}">
+        <p:column headerText="Désignation des matières et objets" >
             
             
         #{c.mat.typematerieladd.designation} #{c.mat.renseignement} 
@@ -61,7 +62,7 @@
 
         </p:column>
 
-        <p:column headerText="Espèce des unités"  rendered="#{c['class'].simpleName eq 'OpEntree' or c['class'].simpleName eq 'OpSortie'}">
+        <p:column headerText="Espèce des unités"  >
             
             
         
@@ -69,7 +70,7 @@
 
         </p:column>
 
-        <p:column headerText="Prix de l'unité" rendered="#{c['class'].simpleName eq 'OpEntree' or c['class'].simpleName eq 'OpSortie'}">
+        <p:column headerText="Prix de l'unité" >
             
             
             
@@ -79,7 +80,7 @@
 
         </p:column>
 
-        <p:column headerText="Quanitité" rendered="#{c['class'].simpleName eq 'OpEntree' or c['class'].simpleName eq 'OpSortie'}">
+        <p:column headerText="Quanitité" >
           
             
             
@@ -88,7 +89,7 @@
 
         </p:column>
 
-        <p:column headerText="Valeur"  rendered="#{c['class'].simpleName eq 'OpEntree' or c['class'].simpleName eq 'OpSortie'}">
+        <p:column headerText="Valeur"  >
             
             000
         
