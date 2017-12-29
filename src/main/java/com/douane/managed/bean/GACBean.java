@@ -221,7 +221,7 @@ public class GACBean {
 
     	}catch(Exception e){
     		System.out.println("EEEEEEEEERRRRRRRRRRRRRRROOOOOOOOOOORRRRRRRRR *******T******:"+e.getMessage()+"*******");
-            //e.printStackTrace();
+            e.printStackTrace();
     	}
 
 
