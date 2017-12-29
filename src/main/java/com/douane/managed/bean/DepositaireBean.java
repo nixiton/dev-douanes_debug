@@ -1190,6 +1190,9 @@ public class DepositaireBean {
 
 		// m.setDocumentPath(documentPath);
 		m.setValidation(false);
+
+		listMaterielForOpEntree = new ArrayList<Materiel>();
+		
 		listMaterielForOpEntree.add(m);
 
 		listMaterielForOpEntree.add(getMatForEntree());
@@ -1324,7 +1327,7 @@ public class DepositaireBean {
 
 		m.setMontant_facture(getMontantFac());
 
-            listMaterielForOpEntree.add(m);
+        listMaterielForOpEntree.add(m);
 		// m.setRefFacture(refFacture);
 
 		// set Operation requete entrer materiel nouveau
@@ -1970,7 +1973,7 @@ System.out.println("****************************ADD3 ATTR**ERRORR***************
 
 	private Agent detenteurMatEx;
 
-    private ArrayList<Materiel> listMaterielForOpEntree = new ArrayList<Materiel>();
+    private ArrayList<Materiel> listMaterielForOpEntree;
 
 
 
