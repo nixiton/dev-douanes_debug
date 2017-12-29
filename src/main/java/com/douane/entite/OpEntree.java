@@ -23,6 +23,7 @@ public class OpEntree extends Operation{
 	@ManyToOne
 	@JoinColumn(name="idMat")
 	private Materiel mat;
+	
 	private String numentree;
 	
 	static {
@@ -84,7 +85,7 @@ public class OpEntree extends Operation{
 	public List<Materiel> getListMat() {
 		return listMat;
 	}
-	
+
 
 	private String pathDoc;
 	private String refFact;
