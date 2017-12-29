@@ -388,8 +388,11 @@ public class Materiel implements Serializable{
 
 	private OpEntree myoperationEntree;
 
-	@ManyToOne(fetch = FetchType.EAGER)
-	@JoinColumn(name = "id")
+	//@ManyToOne(fetch = FetchType.EAGER)
+	//@JoinColumn(name = "id")
+	@ManyToOne
+	@Cascade(value={org.hibernate.annotations.CascadeType.ALL})
+    //@JoinColumn(name="PARENT_ID")
 	public OpEntree getMyoperationEntree() {
 		return myoperationEntree; 
 	}
