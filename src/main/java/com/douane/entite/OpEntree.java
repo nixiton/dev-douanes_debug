@@ -15,6 +15,8 @@ import javax.persistence.FetchType;
 
 import javax.persistence.ElementCollection;
 
+import javax.persistence.*;
+
 @Entity
 @Table(name="operationentree")
 public class OpEntree extends Operation{
@@ -80,7 +82,9 @@ public class OpEntree extends Operation{
 
 	//----CORRECTION---------
 	//@OneToMany(mappedBy="myoperationEntree", fetch=FetchType.EAGER)
-	@OneToMany(fetch = FetchType.EAGER, mappedBy = "myoperationEntree", targetEntity=Materiel.class)
+	@Access(AccessType.PROPERTY)
+	//@OneToMany(fetch = FetchType.EAGER, mappedBy = "myoperationEntree", targetEntity=Materiel.class)
+	@OneToMany(targetEntity = Materiel.class, mappedBy = "myoperationEntree", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	//@ElementCollection
 	public List<Materiel> getListMat() {
 		return listMat;
