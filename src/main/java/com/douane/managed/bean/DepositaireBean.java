@@ -1329,7 +1329,7 @@ public class DepositaireBean {
 
 		// set Operation requete entrer materiel nouveau
 		
-
+        OpEntree opEntree = usermetierimpl.reqEntrerMateriel(listMaterielForOpEntree, agent, getFacturePath(), getRefFacture());
 		return SUCCESS;
 		}
 		catch(Exception e){
