@@ -209,6 +209,12 @@ public class UserMetier implements IUserMetier{
 	public OpEntree reqEntrerMateriel(List<Materiel> l, Agent dc, String facturePath, String refFacture) {
 		// TODO Auto-generated method stub*
 		OpEntree entree = new OpEntree(new Date(), new Date(), dc.getIp(), dc, l);
+
+		entree.setPathDoc(facturePath);
+		entree.setRefFact(refFacture);
+		entree.setListMat(l);
+		oprepos.save(entree);
+		
 		for (Materiel m:l)
 		{
 			m.setDc(dc);
@@ -221,10 +227,7 @@ public class UserMetier implements IUserMetier{
 		//m = materielExRepository.save((MaterielEx) m);
 
 		
-		entree.setPathDoc(facturePath);
-		entree.setRefFact(refFacture);
-		entree.setListMat(l);
-		oprepos.save(entree);
+		
 
 		return entree;
 	}
