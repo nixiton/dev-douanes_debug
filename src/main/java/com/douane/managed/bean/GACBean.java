@@ -216,8 +216,8 @@ public class GACBean {
 
 
 
-            usermetierimpl.attriuberMateriel((OpAttribution)attr);
-    		//usermetierimpl.attriuberMateriel((OpAttribution)this.getCurentOperation());
+            //usermetierimpl.attriuberMateriel((OpAttribution)attr);
+    		usermetierimpl.attriuberMateriel((OpAttribution)this.getCurentOperation());
 
     	}catch(Exception e){
     		System.out.println("EEEEEEEEERRRRRRRRRRRRRRROOOOOOOOOOORRRRRRRRR *******T******:"+e.getMessage()+"*******");
