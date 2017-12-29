@@ -77,9 +77,15 @@
 
         <p:column headerText="Prix de l'unité" >
             
-            
-            
+            <p:panel rendered="#{c['class'].simpleName eq 'OpEntree'}">
             #{c.mat.pu} 
+        </p:panel>
+
+        <p:panel rendered="#{c['class'].simpleName eq 'OpSortie'}">
+            #{c.mat.pu} 
+        </p:panel>
+            
+            
         
 
 
