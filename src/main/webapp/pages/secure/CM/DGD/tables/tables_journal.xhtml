@@ -17,106 +17,14 @@
                  paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}"
                  paginator="true" rows="10" style="margin-bottom:20px">
 
-        <p:column>
+        <p:column rendered="#{c['class'].simpleName eq 'OpEntree' or c['class'].simpleName eq 'OpSortie'}">
             <f:facet name="header">
                 <h:outputText value="Operation" />
             </f:facet>
             <p:panel rendered="#{c['class'].simpleName eq 'OpEntree' }" >
             Saisie materiel
-        </p:panel>
-            <p:panel rendered="#{c['class'].simpleName eq 'OpSaisie' }" >
-            Saisie réferentiel 
-            </p:panel>
-            <p:panel rendered="#{c['class'].simpleName eq 'OpAttribution' }" >
-            Attribution
-            </p:panel>
-            <p:panel rendered="#{c['class'].simpleName eq 'OpDettachement' }" >
-            Détachement
-            </p:panel>
-            <p:panel rendered="#{c['class'].simpleName eq 'OpSortie' }" >
-            Décharge
             </p:panel>
 
-        </p:column>
-        <p:column>
-            <f:facet name="header">
-                <h:outputText value="N° d'ordre"/>
-            </f:facet>
-            <p:panel rendered="#{c['class'].simpleName eq 'OpEntree' }" >
-                <h:outputText value="#{c.numentree}" />
-            </p:panel>
-
-            <p:panel rendered="#{c['class'].simpleName eq 'OpSortie' }" >
-                <h:outputText value="#{c.numSortie}" />
-            </p:panel>
-
-        </p:column>
-
-        <p:column>
-            <f:facet name="header">
-                <h:outputText value="Origine"/>
-            </f:facet>
-            <h:outputText value="#{c.direction}" />
-        </p:column>
-
-        <p:column>
-            <f:facet name="header">
-                <h:outputText value="Destination"/>
-            </f:facet>
-            <p:panel rendered="#{c['class'].simpleName eq 'OpEntree' }" >
-                <h:outputText value="#{c.mat.direc}" />
-            </p:panel>
-
-            <p:panel rendered="#{c['class'].simpleName eq 'OpSortie' }" >
-                <h:outputText value="#{c.direc}" />
-            </p:panel>
-            
-        </p:column>
-
-
-        <p:column>
-            <f:facet name="header">
-                <h:outputText value="Prix unitaire"/>
-            </f:facet>
-            <p:panel rendered="#{c['class'].simpleName eq 'OpEntree' }" >
-            <h:outputText value="#{c.mat.pu}" />
-            </p:panel>
-
-            <p:panel rendered="#{c['class'].simpleName eq 'OpSortie' }" >
-
-            <h:outputText value="#{c.mat.pu}" />
-            </p:panel>
-
-        </p:column>
-
-
-
- 
-        <p:column>
-            <f:facet name="header">
-                <h:outputText value="Date des opérations"/>
-            </f:facet>
-            <h:outputText value="#{c.date}  #{c.time}" />
-        </p:column>
- 
-        <p:column>
-            <f:facet name="header">
-                <h:outputText value="Poste" />
-            </f:facet>
-            <h:outputText value="#{c.poste}" />
-        </p:column>
-
-        <p:column>
-            <f:facet name="header">
-                <h:outputText value="Etat" />
-            </f:facet>
-            <h:outputText value="#{c.state}" />
-        </p:column>
-        <p:column>
-            <f:facet name="header">
-                <h:outputText value="Agent" />
-            </f:facet>
-            <h:outputText value="#{c.operateur.im}" />
         </p:column>
         
     </p:dataTable>
