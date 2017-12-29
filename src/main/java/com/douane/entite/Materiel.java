@@ -404,6 +404,17 @@ public class Materiel implements Serializable{
 
 
 
+	public String getOrigine() {
+		return origine;
+	}
+
+	public void setOrigine(String origine) {
+		this.origine = origine;
+	}
+
+
+
 	private String especeUnite;
+	private String origine;
 
 }
