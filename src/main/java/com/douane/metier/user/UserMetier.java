@@ -212,9 +212,9 @@ public class UserMetier implements IUserMetier{
 
 		entree.setPathDoc(facturePath);
 		entree.setRefFact(refFacture);
-		entree.setListMat(l);
-		oprepos.save(entree);
-		
+		entree.setListMat(l); 
+		opentreerepos.save(entree);
+
 		for (Materiel m:l)
 		{
 			m.setDc(dc);

@@ -1332,6 +1332,8 @@ public class DepositaireBean {
 
 		m.setEtat(getEtat());
 
+
+
 		m.setMarque(getMarq());
 
 		//m.setNomenMat(getTypemateriel());
@@ -1369,6 +1371,8 @@ public class DepositaireBean {
 		m.setModAcq(getAcquisition());
 
 		m.setMontant_facture(getMontantFac());
+
+		m.generateCode();
 
         listMaterielForOpEntree.add(m);
 		// m.setRefFacture(refFacture);
