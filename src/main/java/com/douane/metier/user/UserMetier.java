@@ -226,8 +226,6 @@ public class UserMetier implements IUserMetier{
 		ma = matrepos.save(ma);*/
 		//m = materielExRepository.save((MaterielEx) m);
 
-		
-		
 
 		return entree;
 	}
