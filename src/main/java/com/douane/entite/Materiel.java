@@ -15,6 +15,8 @@ import javax.persistence.*;
 
 import javax.persistence.FetchType;
 
+import org.hibernate.engine.Cascade;
+
 @Entity
 @Inheritance(strategy=InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name="typeMateriels", discriminatorType=DiscriminatorType.INTEGER)
