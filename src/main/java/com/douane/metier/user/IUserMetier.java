@@ -4,7 +4,6 @@ import java.util.Date;
 import java.util.List;
 
 import com.douane.entite.*;
-import com.douane.entite.Useri;
 import com.douane.model.EtatOperation;
 
 public interface IUserMetier {
@@ -47,6 +46,7 @@ public interface IUserMetier {
 	//public Materiel attriuberMateriel (Long idMat, Long im);
 	//public Materiel attriuberMateriel (Materiel m, Agent d);
 	public Materiel attriuberMateriel(OpAttribution attr) throws Exception;
+	public Materiel attribuerMaterielEx (MaterielEx matex, Agent detenteur)throws Exception;
 	public OpAttribution reqAttrAModifier(OpAttribution attr, String motif)throws Exception;
 	public OpAttribution reqAttrRefuser(OpAttribution attr, String motif)throws Exception;
 

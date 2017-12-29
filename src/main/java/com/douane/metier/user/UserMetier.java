@@ -315,20 +315,15 @@ public class UserMetier implements IUserMetier{
 
 	@Override
 	public Materiel attriuberMateriel(OpAttribution attr) throws Exception{
-		// TODO Auto-generated method stub
-		/*System.out.println("Attribution begin");
-		Materiel m = attr.getMat();
-		m.setCodification("codified"+new Date());
-		//m.setDetenteur(attr.getDetenteur());
-		matrepos.save(m);
-		Agent detent = attr.getDetenteur();
-		detent.getMatdetenu().add(m);
-		agentrepos.save(detent);
-		attr.valider();
-		oprepos.save(attr);*/
-		//return m;
 		return operationdao.attribuerMat(attr);
 	}
+	@Override
+	public Materiel attribuerMaterielEx(MaterielEx matex, Agent detenteur) throws Exception {
+		// TODO Auto-generated method stub
+		return operationdao.attribuerMatEx(matex, detenteur);
+	}
+
+	
 
 	/*@Override
 	public Materiel dettacherMateriel(Materiel m) {

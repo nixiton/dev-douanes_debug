@@ -6,6 +6,7 @@ import java.util.List;
 import com.douane.entite.Agent;
 import com.douane.entite.Direction;
 import com.douane.entite.Materiel;
+import com.douane.entite.MaterielEx;
 import com.douane.entite.OpAttribution;
 import com.douane.entite.OpDettachement;
 import com.douane.entite.OpEntree;
@@ -15,6 +16,7 @@ import com.douane.entite.Operation;
 public interface IOperationDAO {
 	public Agent detacherMat(OpDettachement det)throws Exception;
 	public Materiel attribuerMat(OpAttribution attr)throws Exception;
+	public Materiel attribuerMatEx(MaterielEx matex, Agent detenteur)throws Exception;
 	
 	public List<Operation> getListOpByDate(Date startDate, Date endDate , int maxresult);
 	

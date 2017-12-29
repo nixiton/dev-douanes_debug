@@ -11,6 +11,7 @@ import javax.persistence.TypedQuery;
 import com.douane.entite.Agent;
 import com.douane.entite.Direction;
 import com.douane.entite.Materiel;
+import com.douane.entite.MaterielEx;
 import com.douane.entite.OpAttribution;
 import com.douane.entite.OpDettachement;
 import com.douane.entite.OpEntree;
@@ -71,6 +72,30 @@ public class OperationDAOImpl implements IOperationDAO{
 		em.merge(attr);
 		return m;
 	}
+	
+	@Override
+	public Materiel attribuerMatEx(MaterielEx matex, Agent detenteur) throws Exception {
+		// TODO Auto-generated method stub
+				System.out.println("Attribution Existant DAO begin");
+				Materiel m = em.find(Materiel.class, matex.getIdMateriel()) ;
+				if(m.getDetenteur()!=null) {
+					throw new Exception("Efa attribuer olona io fa mila detachena aloha");
+				}
+				//m.setCodification("codified"+new Date());
+				m.generateCode();
+				//m.setDetenteur(attr.getDetenteur());
+				//matrepos.save(m);
+				//em.persist(m);
+				//em.merge(m);
+				Agent detent = em.find(Agent.class, detenteur.getIm());
+				m.setDetenteur(detent);
+				detent.getMatdetenu().add(m);
+				//agentrepos.save(detent);
+				em.merge(m);
+				em.merge(detent);
+				return m;
+	}
+
 
 	@Override
 	public List<Operation> getListOpByDate(Date startDate, Date endDate, int maxresult) {
@@ -334,7 +359,6 @@ public class OperationDAOImpl implements IOperationDAO{
 		return operations;
 	
 	}
-
 	
 
 }
