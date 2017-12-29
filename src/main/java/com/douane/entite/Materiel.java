@@ -13,10 +13,6 @@ import java.util.Arrays;
 import javax.imageio.ImageIO;
 import javax.persistence.*;
 
-import javax.persistence.FetchType;
-
-import org.hibernate.annotations.Cascade;
-
 @Entity
 @Inheritance(strategy=InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name="typeMateriels", discriminatorType=DiscriminatorType.INTEGER)
@@ -387,20 +383,12 @@ public class Materiel implements Serializable{
 	public void setTypematerieladd(TypeMateriel typematerieladd) {
 		this.typematerieladd = typematerieladd;
 	}
-
+	@ManyToOne
 	private OpEntree myoperationEntree;
 
-	//@ManyToOne(fetch = FetchType.EAGER)
-	//@JoinColumn(name = "id")
-	@ManyToOne
-	@Cascade(value={org.hibernate.annotations.CascadeType.ALL})
-    //@JoinColumn(name="PARENT_ID")
 	public OpEntree getMyoperationEntree() {
-		return myoperationEntree; 
+		return myoperationEntree;
 	}
-	
-
-	
 
 	public void setMyoperationEntree(OpEntree myoperationEntree) {
 		this.myoperationEntree = myoperationEntree;

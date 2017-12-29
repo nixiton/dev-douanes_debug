@@ -13,12 +13,6 @@ import javax.persistence.OneToMany;
 
 import javax.persistence.FetchType;
 
-import javax.persistence.ElementCollection;
-
-import javax.persistence.*;
-
-import org.hibernate.annotations.*;
-
 @Entity
 @Table(name="operationentree")
 public class OpEntree extends Operation{
@@ -27,7 +21,6 @@ public class OpEntree extends Operation{
 	@ManyToOne
 	@JoinColumn(name="idMat")
 	private Materiel mat;
-
 	private String numentree;
 	
 	static {
@@ -79,20 +72,11 @@ public class OpEntree extends Operation{
 		return this.numentree;
 	}
 
-	private List<Materiel> listMat = new ArrayList<Materiel>();
 
 
 	//----CORRECTION---------
-	//@OneToMany(mappedBy="myoperationEntree", fetch=FetchType.EAGER)
-	//@Access(AccessType.PROPERTY)
-	//@OneToMany(fetch = FetchType.EAGER, mappedBy = "myoperationEntree", targetEntity=Materiel.class)
-	//@ElementCollection
-	//@Fetch(value = FetchMode.SUBSELECT)
-	@OneToMany(targetEntity = Materiel.class, mappedBy = "myoperationEntree",fetch = FetchType.EAGER)
-	public List<Materiel> getListMat() {
-		return listMat;
-	}
-
+	@OneToMany(mappedBy="myoperationEntree", fetch=FetchType.EAGER)
+	private List<Materiel> listMat = new ArrayList<Materiel>();
 
 	private String pathDoc;
 	private String refFact;
@@ -115,7 +99,9 @@ public class OpEntree extends Operation{
 
 
 
-	
+	public List<Materiel> getListMat() {
+		return listMat;
+	}
 
 	public void setListMat(List<Materiel> listMat) {
 		this.listMat = listMat;
