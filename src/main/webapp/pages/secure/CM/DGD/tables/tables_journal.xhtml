@@ -56,8 +56,13 @@
 
         <p:column headerText="Désignation des matières et objets" >
             
-            
-        #{c.mat.typematerieladd.designation} #{c.mat.renseignement} 
+        <p:panel rendered="#{c['class'].simpleName eq 'OpEntree'}">
+            #{c.mat.typematerieladd.designation} #{c.mat.renseignement} 
+        </p:panel>
+
+        <p:panel rendered="#{c['class'].simpleName eq 'OpSortie'}">
+            #{c.mat.typematerieladd.designation} #{c.mat.renseignement} 
+        </p:panel>
             
 
         </p:column>
