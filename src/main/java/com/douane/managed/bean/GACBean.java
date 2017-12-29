@@ -220,7 +220,7 @@ public class GACBean {
     		//usermetierimpl.attriuberMateriel((OpAttribution)this.getCurentOperation());
 
     	}catch(Exception e){
-    		System.out.println("EEEEEEEEERRRRRRRRRRRRRRROOOOOOOOOOORRRRRRRRR *************:"+e.getMessage()+"*******");
+    		System.out.println("EEEEEEEEERRRRRRRRRRRRRRROOOOOOOOOOORRRRRRRRR *******T******:"+e.getMessage()+"*******");
             //e.printStackTrace();
     	}
 
