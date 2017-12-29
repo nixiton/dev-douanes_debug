@@ -13,6 +13,8 @@ import javax.persistence.OneToMany;
 
 import javax.persistence.FetchType;
 
+import javax.persistence.ElementCollection;
+
 @Entity
 @Table(name="operationentree")
 public class OpEntree extends Operation{
@@ -75,7 +77,8 @@ public class OpEntree extends Operation{
 
 
 	//----CORRECTION---------
-	@OneToMany(mappedBy="myoperationEntree", fetch=FetchType.EAGER)	
+	//@OneToMany(mappedBy="myoperationEntree", fetch=FetchType.EAGER)	
+	@ElementCollection
 	private List<Materiel> listMat;// = new ArrayList<Materiel>();
 
 	private String pathDoc;
