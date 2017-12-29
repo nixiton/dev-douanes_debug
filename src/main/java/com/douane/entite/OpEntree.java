@@ -13,6 +13,8 @@ import javax.persistence.OneToMany;
 
 import javax.persistence.FetchType;
 
+import javax.persistence.ElementCollection;
+
 @Entity
 @Table(name="operationentree")
 public class OpEntree extends Operation{
