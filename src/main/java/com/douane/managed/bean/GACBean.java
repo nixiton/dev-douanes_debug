@@ -40,14 +40,14 @@ import com.itextpdf.text.pdf.PdfWriter;
 
 
 
-
+@SessionScoped
 /**
  * Created by hasina on 11/3/17.
  */
 
 
 @ManagedBean(name="gacBean")
-@SessionScoped
+
 public class GACBean {
     @ManagedProperty(value="#{usermetier}")
     IUserMetier usermetierimpl;
@@ -221,7 +221,7 @@ public class GACBean {
 
     	}catch(Exception e){
     		System.out.println("EEEEEEEEERRRRRRRRRRRRRRROOOOOOOOOOORRRRRRRRR *******T******:"+e.getMessage()+"*******");
-            e.printStackTrace();
+            //e.printStackTrace();
     	}
 
 
