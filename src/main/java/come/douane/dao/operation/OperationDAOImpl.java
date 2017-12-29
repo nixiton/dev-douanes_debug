@@ -56,7 +56,7 @@ public class OperationDAOImpl implements IOperationDAO{
 			throw new Exception("Efa attribuer olona io fa mila detachena aloha");
 		}
 		//m.setCodification("codified"+new Date());
-		m.generateCode();
+		//m.generateCode();
 		//m.setDetenteur(attr.getDetenteur());
 		//matrepos.save(m);
 		//em.persist(m);

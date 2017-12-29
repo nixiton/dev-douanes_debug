@@ -191,13 +191,14 @@ public class GACBean {
         //usermetierimpl.attriuberMateriel(attr);
     	try {
     		usermetierimpl.attriuberMateriel(attr);
-            this.setCurentOperation(null);
+            
 
     	}catch(Exception e){
     		System.out.println("EEEEEEEEERRRRRRRRRRRRRRROOOOOOOOOOORRRRRRRRR *******T******:"+e.getMessage()+"*******");
             //e.printStackTrace();
     	}
         
+        this.setCurentOperation(null);
 
     }
 
