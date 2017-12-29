@@ -1697,7 +1697,7 @@ System.out.println("****************************ADD3 ATTR**ERRORR***************
 		System.out.println("***************************SET LIST ******************************** " +this.getClass().getName());
 	}
 	private List<MaterielNouv> listMaterielNouveauValide;
-	public List<MaterielNouv> getListMaterielNouveauValide() {
+	public List<MaterielNouv> getListMaterielNouveauValide(){
 		return usermetierimpl.getListMaterielNouvValide();
 	}
 
