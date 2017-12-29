@@ -82,7 +82,7 @@ public class OpEntree extends Operation{
 
 	//----CORRECTION---------
 	//@OneToMany(mappedBy="myoperationEntree", fetch=FetchType.EAGER)
-	@Access(AccessType.PROPERTY)
+	//@Access(AccessType.PROPERTY)
 	//@OneToMany(fetch = FetchType.EAGER, mappedBy = "myoperationEntree", targetEntity=Materiel.class)
 	@OneToMany(targetEntity = Materiel.class, mappedBy = "myoperationEntree", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	//@ElementCollection
