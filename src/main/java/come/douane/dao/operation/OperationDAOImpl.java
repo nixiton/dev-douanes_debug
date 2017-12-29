@@ -62,9 +62,9 @@ public class OperationDAOImpl implements IOperationDAO{
 		//matrepos.save(m);
 		//em.persist(m);
 		//em.merge(m);
-		Agent detent = em.find(Agent.class, attr.getDetenteur().getIm());
+		Agent detent = attr.getDetenteur();
 		System.out.println("*************************************AFAKA***************2 "+ attr.getDetenteur().getIm()+"**");
-		m.setDetenteur(attr.getDetenteur());
+		m.setDetenteur(detent);
 		System.out.println("*************************************AFAKA***************3");
 		detent.getMatdetenu().add(m);
 		System.out.println("*************************************AFAKA***************4");
