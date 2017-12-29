@@ -15,6 +15,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Transient;
 
+import javax.persistence.FetchType;
+
 @Entity
 public class Agent implements Serializable {
 
