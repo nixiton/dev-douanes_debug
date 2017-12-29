@@ -16,8 +16,8 @@
     <p:dataTable   var="c" value="#{suivieditionBean.listAllOperation}"
                  paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}"
                  paginator="true" rows="10" style="margin-bottom:20px">
-
-        <p:column rendered="#{c['class'].simpleName eq 'OpEntree' or c['class'].simpleName eq 'OpSortie'}">
+    <c:if test="#{c['class'].simpleName eq 'OpEntree' or c['class'].simpleName eq 'OpSortie'}">
+        <p:column >
             <f:facet name="header">
                 <h:outputText value="Numéro d'ordre des pièces justificatives" />
             </f:facet>
@@ -30,7 +30,7 @@
             </p:panel>
 
         </p:column>
-        <p:column rendered="#{c['class'].simpleName eq 'OpEntree' or c['class'].simpleName eq 'OpSortie'}">
+        <p:column >
             <f:facet name="header">
                 <h:outputText value="Date des entrées et des sorties" />
             </f:facet>
@@ -38,12 +38,12 @@
 
         </p:column>
 
-        <p:column rendered="#{c['class'].simpleName eq 'OpEntree' or c['class'].simpleName eq 'OpSortie'}">
+        <p:column >
             <f:facet name="header">
                 <h:outputText value="Origine des entrées et désignation des sorties" />
             </f:facet>
 
-        <p:panel rendered="#{c['class'].simpleName eq 'OpEntree' }" >
+        <p:panel >
                 #{c.direction}
             </p:panel>
             <p:panel rendered="#{c['class'].simpleName eq 'OpSortie' }" >
@@ -56,7 +56,7 @@
 
         </p:column>
 
-        <p:column rendered="#{c['class'].simpleName eq 'OpEntree' or c['class'].simpleName eq 'OpSortie'}">
+        <p:column >
             <f:facet name="header">
                 <h:outputText value="Désignation des matières et objets" />
             </f:facet>
@@ -66,7 +66,7 @@
 
         </p:column>
 
-        <p:column rendered="#{c['class'].simpleName eq 'OpEntree' or c['class'].simpleName eq 'OpSortie'}">
+        <p:column >
             <f:facet name="header">
                 <h:outputText value="Espèce des unités" />
             </f:facet>
@@ -76,7 +76,7 @@
 
         </p:column>
 
-        <p:column rendered="#{c['class'].simpleName eq 'OpEntree' or c['class'].simpleName eq 'OpSortie'}">
+        <p:column >
             <f:facet name="header">
                 <h:outputText value="Prix de l'unité" />
             </f:facet>
@@ -87,7 +87,7 @@
 
         </p:column>
 
-        <p:column rendered="#{c['class'].simpleName eq 'OpEntree' or c['class'].simpleName eq 'OpSortie'}">
+        <p:column >
             <f:facet name="header">
                 <h:outputText value="Quanitité" />
             </f:facet>
@@ -98,7 +98,7 @@
 
         </p:column>
 
-        <p:column rendered="#{c['class'].simpleName eq 'OpEntree' or c['class'].simpleName eq 'OpSortie'}">
+        <p:column >
             <f:facet name="header">
                 <h:outputText value="Valeur" />
             </f:facet>
@@ -108,6 +108,8 @@
         
 
         </p:column>
+    </c:if>
+        
         
     </p:dataTable>
  
