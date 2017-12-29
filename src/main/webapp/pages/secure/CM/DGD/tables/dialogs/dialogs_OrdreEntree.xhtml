@@ -22,8 +22,8 @@
  		<br></br><br></br><br></br><br></br><br></br>
  			
  			<div class="col-md-3">
- 				(3)...........<br></br>
- 				(4)...........<br></br>
+ 				(3)<p:inputText style="text-align: center;"><br></br>
+ 				(4)<p:inputText style="text-align: center;"><br></br>
 
  			</div>
 
@@ -76,7 +76,7 @@
 
  			<div class="col-md-12">
  				
- 				Numero d'ordre du journal : #{gacBean.curentOperation1.numentree}
+ 				Numero d'ordre du journal : (2)  <p:inputText style="text-align: center;">
 
  			</div>
 
@@ -98,7 +98,7 @@
 
  			<div class="col-md-12">
 
- 			Seront portés en entrée dans les écritures du comptable ... #{gacBean.curentOperation1.operateur.nomAgent}...................les matières et objets ci-après désignés provenant de ..#{gacBean.curentOperation1.direction.designation}.........................................................
+ 			Seront portés en entrée dans les écritures du comptable ... #{gacBean.curentOperation1.direction.designation}...................les matières et objets ci-après désignés provenant de ..#{gacBean.curentOperation1.mat.origine}.........................................................
 
  		</div>
 
@@ -136,14 +136,14 @@
                     <th style="border-top: none;">Numéro de la pièce justificative de sortie ou indocation de référence</th>
                 </tr>
  				<tr class="entreeo">	
- 					<td>#{gacBean.curentOperation1.mat.nomenMat.nomenclature}</td>
+ 					<td><p:inputText style="text-align: center;">  |  #{gacBean.curentOperation1.mat.nomenMat.nomenclature}</td>
  					<td>#{gacBean.curentOperation1.mat.nomenMat.designation}</td>
- 					<td></td>
+ 					<td>#{gacBean.curentOperation1.mat.typematerieladd.designation} , #{gacBean.curentOperation1.mat.renseignement}</td>
  					<td></td>
  					<td>#{gacBean.curentOperation1.mat.pu}</td>
  					<td></td>
  					<td></td>
- 					<td></td>
+ 					<td>#{gacBean.curentOperation1.mat.reference}</td>
  				</tr>
  			</table>
 
@@ -153,17 +153,17 @@
 
  			<div class="col-md-6">Le comptable ..#{gacBean.curentOperation1.operateur.nomAgent}.. présent en charge des matières désignés et objets désignés ci-dessus dont j'ai vérifié la concordance avec le ......................................., le ........................<br></br><br></br>
 
- 			Le ..................................
+ 			Le ..#{gacBean.curentOperation1.date}..
 
  			</div>
 
  			<div class="col-md-6">
- 				A........................, le .......................<br></br>
+ 				A........................, le ..#{gacBean.curentOperation1.date}..<br></br>
  				Le comptable ...  #{gacBean.curentOperation1.operateur.nomAgent}.......................<br></br>
  				Déclaration de prise en charge <br></br>
  				le comptable déclare avoir reçu et pris en charge les matières et objets mentionnés dans le tableau ci-dessus.<br></br>
 
- 				A........................, le .......................<br></br>
+ 				A........................, le ..#{gacBean.curentOperation1.date}..<br></br>
 
  				Le comptable ...#{gacBean.curentOperation1.operateur.nomAgent}  <br></br><br></br><br></br><br></br><br></br>
 
