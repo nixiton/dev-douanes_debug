@@ -44,8 +44,8 @@
                 <h:outputText value="Origine des entrées et désignation des sorties" />
             </f:facet>
 
-        <p:panel rendered="#{c['class'].simpleName eq 'OpEntree' or c['class'].simpleName eq 'OpSortie'}">
-                #{c.direction}
+        <p:panel rendered="#{c['class'].simpleName eq 'OpEntree'}">
+                #{c.direction.designation}
             </p:panel>
             <p:panel rendered="#{c['class'].simpleName eq 'OpSortie' }" >
                 #{c.motifsortie.designation}
