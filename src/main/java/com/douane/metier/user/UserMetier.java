@@ -215,7 +215,7 @@ public class UserMetier implements IUserMetier{
 		entree.setListMat(l); 
 		opentreerepos.save(entree);
 
-		for (Materiel m:l)
+		for (Materiel m:entree.getListMat())
 		{
 			m.setDc(dc);
 			m = matrepos.save(m);
