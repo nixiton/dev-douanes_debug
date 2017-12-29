@@ -186,11 +186,9 @@ public class GACBean {
 
 
 
-    public void validateAttributionDetenteur(OpAttribution attr)
+    public void validateAttributionDetenteur(OpAttribution attr) throws Exception
     {
         usermetierimpl.attriuberMateriel(attr);
-    	
-
     }
 
 
