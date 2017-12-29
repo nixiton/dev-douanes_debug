@@ -190,7 +190,7 @@ public class GACBean {
     {
         //usermetierimpl.attriuberMateriel(attr);
     	try {
-    		usermetierimpl.attriuberMateriel((OpAttribution)this.getCurentOperation());
+    		usermetierimpl.attriuberMateriel(attr);
             this.setCurentOperation(null);
 
     	}catch(Exception e){
