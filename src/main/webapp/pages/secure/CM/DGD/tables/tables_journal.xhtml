@@ -16,12 +16,12 @@
     <p:dataTable   var="c" value="#{suivieditionBean.listAllOperation}"
                  paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}"
                  paginator="true" rows="10" style="margin-bottom:20px"  
-                 rowStyleClass="#{c['class'].simpleName eq 'OpEntree' ? 'ui-helper-hidden' : '' }">
+                 rowStyleClass="#{c['class'].simpleName ne 'OpEntree' and c['class'].simpleName ne 'OpSortie' ? 'ui-helper-hidden' : '' }">
 
 
 
     
-        <p:column headerText="Numéro d'ordre des pièces justificatives"  >
+        <p:column headerText="Numéro d'ordre des pièces justificatives"  >  
             
             <p:panel rendered="#{c['class'].simpleName eq 'OpEntree' }" >
             
