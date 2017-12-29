@@ -190,34 +190,8 @@ public class GACBean {
     {
         //usermetierimpl.attriuberMateriel(attr);
     	try {
-
-            
-
-
-
-            /*String FILE = "1.pdf";
-
-            File yourFile = new File("/pages/secure/CM/DC/","1.pdf");
-
-            yourFile.createNewFile(); 
-
-
-            File file = File.createTempFile("teste", "pdf", new File("pages/secure/CM/DC/"));
-
-
-            ((OpAttribution)this.getCurentOperation()).setDetenteurEffectif(FILE);
-
-            Document document = new Document();
-            PdfWriter.getInstance(document, new FileOutputStream(file));
-            document.open();
-            addContent(document);
-
-            document.close();*/
-
-
-
-            //usermetierimpl.attriuberMateriel((OpAttribution)attr);
     		usermetierimpl.attriuberMateriel((OpAttribution)this.getCurentOperation());
+            this.setCurentOperation(null);
 
     	}catch(Exception e){
     		System.out.println("EEEEEEEEERRRRRRRRRRRRRRROOOOOOOOOOORRRRRRRRR *******T******:"+e.getMessage()+"*******");
@@ -226,7 +200,7 @@ public class GACBean {
 
 
         
-        this.setCurentOperation(null);
+        
 
     }
 
