@@ -1226,6 +1226,8 @@ public class DepositaireBean {
 			return ERROR;
 		}*/
 	}
+
+
 	public String addPriseEncharge() {
 		try{
 			uploadFilesDocument();
@@ -1300,7 +1302,7 @@ public class DepositaireBean {
 		// m.setRefFacture(refFacture);
 
 		// set Operation requete entrer materiel nouveau
-		OpEntree opEntree = usermetierimpl.reqEntrerMateriel(listMaterielForOpEntree, agent, getFacturePath(), getRefFacture());
+		
 
 		return SUCCESS;
 		}
@@ -1309,6 +1311,13 @@ public class DepositaireBean {
 			return ERROR;
 		}
 
+	}
+
+
+	public String addPriseEnchargeOp(){
+		Agent agent = (Agent) RequestFilter.getSession().getAttribute("agent");
+		OpEntree opEntree = usermetierimpl.reqEntrerMateriel(listMaterielForOpEntree, agent, getFacturePath(), getRefFacture());
+		return SUCCESS;
 	}
 
 	public String addAttribution() {
