@@ -77,8 +77,7 @@ public class OpEntree extends Operation{
 
 
 	//----CORRECTION---------
-	//@OneToMany(mappedBy="myoperationEntree", fetch=FetchType.EAGER)	
-	@ElementCollection(fetch=FetchType.EAGER)
+	@OneToMany(mappedBy="myoperationEntree", fetch=FetchType.EAGER)	
 	private List<Materiel> listMat;// = new ArrayList<Materiel>();
 
 	private String pathDoc;
