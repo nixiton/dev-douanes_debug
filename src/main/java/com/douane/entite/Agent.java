@@ -41,7 +41,7 @@ public class Agent implements Serializable {
 	private Poste posteny;
 
 	//ADD OR NOT Getters and Setters//
-	@OneToMany(mappedBy="detenteur")
+	@OneToMany(mappedBy="detenteur", fetch = FetchType.EAGER)
 	private List<Materiel> matdetenu = new ArrayList<Materiel>();
 	
 	//Localisation
