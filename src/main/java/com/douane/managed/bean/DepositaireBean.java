@@ -28,6 +28,12 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
 import javax.faces.bean.ViewScoped;
+import javax.faces.component.UIComponent;
+import javax.faces.component.UIViewRoot;
+import javax.faces.component.html.HtmlInputText;
+import javax.faces.component.html.HtmlSelectBooleanCheckbox;
+import javax.faces.component.html.HtmlSelectManyCheckbox;
+import javax.faces.component.html.HtmlSelectOneMenu;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 import javax.faces.event.ValueChangeEvent;
@@ -40,6 +46,7 @@ import java.util.zip.ZipOutputStream;
 
 
 import java.util.Calendar;
+
 
 /**
  * Created by hasina on 10/29/17.
@@ -575,8 +582,7 @@ public class DepositaireBean {
 		// env = context.getEn;
 		//System.out.println(env.getProperty("fileupload.size"));
 		//System.out.println(fileupload);
-		ArrayList<DocumentModel> documentlist = (ArrayList<DocumentModel>) RequestFilter.getSession()
-				.getAttribute("documentList");
+		ArrayList<DocumentModel> documentlist = this.documentList;
 		if (documentlist != null) {
 			this.setDocumentList(documentlist);
 			return documentlist;
@@ -712,8 +718,7 @@ public class DepositaireBean {
 		docObj.setByteArrayImage(e.getFile().getContents());
 		docObj.setDocumentUploadedPath("" + e.getFile().getFileName());
 
-		ArrayList<DocumentModel> imagelist = (ArrayList<DocumentModel>) RequestFilter.getSession()
-				.getAttribute("imageList");
+		ArrayList<DocumentModel> imagelist = this.imageList;
 		if (imagelist != null)
 		{
 			this.setImageList(imageList);
@@ -723,8 +728,8 @@ public class DepositaireBean {
 			imagelist = this.imageList;
 		}
 
-		imagelist.set(imageList.indexOf(docObj), docObj);
-		RequestFilter.getSession().setAttribute("imageList", imagelist);
+		imageList.set(imageList.indexOf(docObj), docObj);
+		//RequestFilter.getSession().setAttribute("imageList", imagelist);
 		System.out.println("File Uploaded");
 
 		return null;
@@ -741,13 +746,15 @@ public class DepositaireBean {
 		docObj.setUploaded(true);
 		docObj.setDocumentUploadedPath("" + e.getFile().getFileName());
 
-		ArrayList<DocumentModel> documentlist = (ArrayList<DocumentModel>) RequestFilter.getSession()
-				.getAttribute("documentList");
+		//ArrayList<DocumentModel> documentlist = (ArrayList<DocumentModel>) RequestFilter.getSession()
+		//		.getAttribute("documentList");
+
+		ArrayList<DocumentModel> documentlist = documentList;
 		if (documentlist != null)
 			this.setDocumentList(documentlist);
 
 		documentList.set(documentList.indexOf(docObj), docObj);
-		RequestFilter.getSession().setAttribute("documentList", documentList);
+		//RequestFilter.getSession().setAttribute("documentList", documentList);
 		System.out.println("File Uploaded");
 
 		return null;
@@ -765,10 +772,9 @@ public class DepositaireBean {
 		docObj.setUploaded(true);
 		docObj.setDocumentUploadedPath("" + e.getFile().getFileName());
 
-		ArrayList<DocumentModel> documentlist = (ArrayList<DocumentModel>) RequestFilter.getSession()
-				.getAttribute("documentFacList");
-		if (documentlist != null)
-			this.setDocumentList(documentlist);
+		ArrayList<DocumentModel> documentFaclist = documentFacList;
+		if (documentFaclist != null)
+			this.setDocumentList(documentFaclist);
 
 		documentFacList.set(documentFacList.indexOf(docObj), docObj);
 		RequestFilter.getSession().setAttribute("documentFacList", documentFacList);
@@ -782,8 +788,7 @@ public class DepositaireBean {
 		SimpleDateFormat ft = new SimpleDateFormat("yyMMddhhmmssMs");
 		String datetime = ft.format(dNow);
 
-		ArrayList<DocumentModel> documentlist = (ArrayList<DocumentModel>) RequestFilter.getSession()
-				.getAttribute("documentFacList");
+		ArrayList<DocumentModel> documentlist = documentFacList;
 		String fileName;
 		try{
 		if(documentlist != null) {
@@ -852,8 +857,7 @@ public class DepositaireBean {
 		HashMap<String, HashMap<UploadedFile, byte[]>> hashOfhashmapfilebytecontent = (HashMap<String, HashMap<UploadedFile, byte[]>>) RequestFilter
 				.getSession().getAttribute("hashmapFileBytecontent");*/
 		ArrayList<String> filesTozip = new ArrayList<String>();
-		ArrayList<DocumentModel> documentlist = (ArrayList<DocumentModel>) RequestFilter.getSession()
-				.getAttribute("documentList");
+		ArrayList<DocumentModel> documentlist = this.documentList;
 		if(documentlist != null)
 		{
 			for (DocumentModel d : documentlist) {
@@ -1143,14 +1147,12 @@ public class DepositaireBean {
 		return ds;
 	}
 
-	public void addIntoListMateriel()
-	{
+	public String addIntoListMateriel() throws IOException {
 		System.out.println("Add it into list materiel");
 		Agent agent = (Agent) RequestFilter.getSession().getAttribute("agent");
 
 
-		ArrayList<DocumentModel> imagelist = (ArrayList<DocumentModel>) RequestFilter.getSession()
-				.getAttribute("imageList");
+		ArrayList<DocumentModel> imagelist = this.imageList;
 		// agent.setIp()
 		MaterielEx m = new MaterielEx();
 		//System.out.println("---------------SIZE IMAGE BYTE ARRAY="+imagelist.get(0).getByteArrayImage().length);
@@ -1196,9 +1198,30 @@ public class DepositaireBean {
 		m.setValidation(false);
 		listMaterielForOpEntree.add(m);
 		System.out.println("added to list");
+		clear();
+		return null;
+		//PrimeFaces.current().resetInputs("form:panel");
 		//listMaterielForOpEntree.add(getMatForEntree());
 	}
 
+	public void clear() throws IOException {
+		this.setTypematerielToAdd(null);
+		this.setNomencl(null);
+		this.setMarq(null);
+		this.setReference(null);
+		this.setNumSerie(null);
+		this.setRenseignement(null);
+		this.setAutre(null);
+		this.setEtat(null);
+		this.setOrigine(null);
+		this.setEspeceUnite(null);
+		this.setMontantFac(null);
+		this.setRefFacture(null);
+		this.setFournisseur(null);
+		documentList = initialize();
+		imageList = initializeImageFile();
+		documentFacList = initializeFacFile();
+	}
 	public String addMateriel() throws IOException
 	{
 		Agent agent = (Agent) RequestFilter.getSession().getAttribute("agent");
@@ -1210,9 +1233,11 @@ public class DepositaireBean {
 			//saveFacFile();
 
 
-		ArrayList<DocumentModel> imagelist = (ArrayList<DocumentModel>) RequestFilter.getSession()
-				.getAttribute("imageList");
+		//ArrayList<DocumentModel> imagelist = (ArrayList<DocumentModel>) RequestFilter.getSession()
+		//		.getAttribute("imageList");
 		// agent.setIp()
+
+		ArrayList<DocumentModel> imagelist = imageList;
 		MaterielEx m = new MaterielEx();
 		//System.out.println("---------------SIZE IMAGE BYTE ARRAY="+imagelist.get(0).getByteArrayImage().length);
 		if(imagelist !=null)
@@ -1274,7 +1299,7 @@ public class DepositaireBean {
 					//m.setDetenteur(getDetenteurMatEx());
 				}
 			}
-
+			clear();
 
 			//-----------DESTROY ALL SESSION------------------
 			RequestFilter.getSession().setAttribute("documentpath",null);
@@ -1314,8 +1339,7 @@ public class DepositaireBean {
 			uploadFilesDocument();
 		Agent agent = (Agent) RequestFilter.getSession().getAttribute("agent");
 		// agent.setIp()
-			ArrayList<DocumentModel> imagelist = (ArrayList<DocumentModel>) RequestFilter.getSession()
-					.getAttribute("imageList");
+			ArrayList<DocumentModel> imagelist = this.imageList;
 
 		MaterielNouv m = new MaterielNouv();
 

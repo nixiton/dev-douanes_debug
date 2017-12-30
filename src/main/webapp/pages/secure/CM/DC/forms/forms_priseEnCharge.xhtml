@@ -25,7 +25,7 @@
 
                     <div class="col-lg-6">
 
-                        <p:selectOneMenu id="zone"  styleClass="form-control top" converter="#{refConverter}" value="#{depositaireBean.typematerielToAdd}">
+                        <p:selectOneMenu id="zone"  styleClass="form-control top" converter="#{refConverter}" value="#{depositaireBean.typematerielToAdd}" ajax="false">
                             <f:selectItem itemValue="#{null}" itemLabel="--select--" /> 
                             <f:selectItems value="#{siseBean.listTypeMateriel}" var="type" itemLabel="#{type.designation}"/>
                             <p:ajax event="change" update="data" listener="#{depositaireBean.onTypeMaterielChange}" />
@@ -46,7 +46,7 @@
 
                     </h:selectOneMenu-->
 
-                        <h:inputText  id="data" value="#{depositaireBean.nomencl}" 
+                        <h:inputText  id="data" value="#{depositaireBean.nomencl}" ajax="false"
                         ></h:inputText>
 
                     <hr></hr>
@@ -103,7 +103,7 @@
                     <p:inputText required="true"
                         value="#{depositaireBean.numSerie}"
                         requiredMessage=""
-                        placeholder="Numero de Série" styleClass="form-control top"></p:inputText>
+                        placeholder="Numero de Série" styleClass="form-control top" ajax="false" resetValues="true"></p:inputText>
 
                 <hr></hr>
 
@@ -250,7 +250,7 @@
                     <p:inputText   required="true"
                         value="#{depositaireBean.montantFac}"
                         requiredMessage=""
-                        placeholder="Montant sur facture" styleClass="form-control top"></p:inputText>
+                        placeholder="Montant sur facture" styleClass="form-control top" resetValues="true"></p:inputText>
 
                 <hr></hr>
 
@@ -374,7 +374,7 @@
 
                 <div class="col-lg-4">
                     <h:commandButton id="btnSignId" action="#{depositaireBean.addIntoListMateriel}" value="Suivant"
-                        class="btn btn-lg btn-primary btn-block"/>
+                        class="btn btn-lg btn-primary btn-block" update="@form"/>
                 </div>
                 <div class="col-lg-4">
                     <h:commandButton  action="#{depositaireBean.addPriseEncharge}" value="Ajouter la liste"
