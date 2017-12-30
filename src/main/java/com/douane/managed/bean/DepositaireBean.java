@@ -1186,7 +1186,7 @@ public class DepositaireBean {
 		m.setDirec(agent.getDirection());
 
 		m.setEspeceUnite(getEspeceUnite());
-		m.setOrigine(getOrigine())
+		m.setOrigine(getOrigine());
 
 		// m.setCaract(caract);
 		// m.setCategorie(categorie);
