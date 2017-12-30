@@ -206,7 +206,14 @@ pre {
 </head>
 <body>
 <script language=javascript type="text/javascript">
-    window.location = "http://douane.herokuapp.com/pages/secure/choice.xhtml";
+
+	var base_url = window.location.origin;
+
+	var host = window.location.host;
+
+	var pathArray = window.location.pathname.split( '/' );
+
+    window.location = ""+pathArray+"pages/secure/choice.xhtml";
     //test
 </script>
 <section class='container'>
