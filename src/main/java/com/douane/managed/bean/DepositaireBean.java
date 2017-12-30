@@ -1242,7 +1242,7 @@ public class DepositaireBean {
 		m.setTypematerieladd(this.getTypematerielToAdd());
 		m.setNomenMat(this.getTypematerielToAdd().getNomenclaureParent());
 		m.setEspeceUnite(getEspeceUnite());
-		m.setOrigine(getOrigine())
+		m.setOrigine(getOrigine());
 
 
 		//m.setServ(getServiceforMat());
@@ -1347,7 +1347,7 @@ public class DepositaireBean {
 		m.setNomenMat(this.getTypematerielToAdd().getNomenclaureParent());
 
 		m.setEspeceUnite(getEspeceUnite());
-		m.setOrigine(getOrigine())
+		m.setOrigine(getOrigine());
 		
 
 		m.setNumSerie(getNumSerie());
