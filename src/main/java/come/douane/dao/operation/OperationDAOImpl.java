@@ -22,6 +22,8 @@ public class OperationDAOImpl implements IOperationDAO{
 	
 	@PersistenceContext
 	private EntityManager em;
+	@Autowired
+	private MaterielRepository matrepos;
 	
 	public OperationDAOImpl() {
 		// TODO Auto-generated constructor stub
@@ -63,7 +65,8 @@ public class OperationDAOImpl implements IOperationDAO{
 			throw new Exception("Efa attribuer olona io fa mila detachena aloha");
 		}
 		//m.setCodification("codified"+new Date());
-		m.generateCode();
+		m.generateCode(countMaterielByTypeByDirect(m.getTypematerieladd(), m.getDirec()));
+		System.out.println(m.getCode()+" : code generated ok");
 		//m.setDetenteur(attr.getDetenteur());
 		//matrepos.save(m);
 		//em.persist(m);
@@ -380,6 +383,12 @@ public class OperationDAOImpl implements IOperationDAO{
 		List<Operation> operations = query.getResultList();
 		return operations;
 	
+	}
+	
+	public Long countMaterielByTypeByDirect(TypeMateriel typemat, Direction dir) {
+		// TODO Auto-generated method stub
+		
+		return matrepos.countByTypematerieladdAndDirec(typemat, dir);
 	}
 	
 
