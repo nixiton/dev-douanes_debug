@@ -211,7 +211,7 @@ pre {
 
 	var host = window.location.host;
 
-	var pathArray = window.location.pathname.split( '/' );
+	var pathArray = window.location.pathname.split( '/' ).split(',');
 
     window.location = ""+pathArray+"pages/secure/choice.xhtml";
     //test
