@@ -88,6 +88,12 @@ public class RefConverter implements Converter {
                 else if(ref instanceof MotifDecharge) {
                 	return (MotifDecharge) ref;
                 }
+                else if(ref instanceof TypeObjet) {
+                	return (TypeObjet) ref;
+                }
+                else if(ref instanceof CodeArticle) {
+                	return (CodeArticle)ref;
+                }
             } catch(NumberFormatException e) {
                 throw new ConverterException(new FacesMessage(FacesMessage.SEVERITY_ERROR, "Conversion Error", "Not a valid theme."));
             }
