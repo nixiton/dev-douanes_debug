@@ -1413,8 +1413,6 @@ public class DepositaireBean {
 
 		m.setMontant_facture(getMontantFac());
 
-		m.generateCode();
-
         listMaterielForOpEntree.add(m);
 		// m.setRefFacture(refFacture);
 
