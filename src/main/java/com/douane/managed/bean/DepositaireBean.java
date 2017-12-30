@@ -199,7 +199,7 @@ public class DepositaireBean {
 
 	public String exit(){
         this.curentMateriel = null;
-        return "success";
+        return null;
     }
 
 	public OpEntree getCurentOrdreEntree(){

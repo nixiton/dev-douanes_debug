@@ -1,7 +1,24 @@
 <footer class="Footer bg-dark dker" xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:h="http://java.sun.com/jsf/html">
+	xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:p="http://primefaces.org/ui">
+
+    <h:form id="form">
+     <h:commandLink id="link" action="#{depositaireBean.exit}" 
+                  value="click"/>
+    <h:commandLink id="link1" action="#{gacBean.exit}" 
+                  value="click"/>
+   </h:form>
+
+   <script type="text/javascript">
+       
+       $( document ).ready(function() {
+            var jsfCommandLink = document.getElementById("form:link");jsfCommandLink.click();
+            var jsfCommandLink1 = document.getElementById("form:link1");jsfCommandLink1.click();
+        });
+   </script>
+
 
 	<p>2017 @ TEAMTic Madagascar</p>
 

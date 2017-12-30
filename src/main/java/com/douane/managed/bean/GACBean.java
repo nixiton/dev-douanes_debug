@@ -310,7 +310,7 @@ public class GACBean {
     public String exit(){
         this.setCurentOperation(null);
         this.setMotif(null);
-        return "success";
+        return null;
     }
 
 
