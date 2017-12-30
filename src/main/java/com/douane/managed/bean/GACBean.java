@@ -492,6 +492,8 @@ public class GACBean {
     //----------------GRAND II --------------------
     Fournisseur fournisseur;
 
+    Agent agentDest;
+
     public Fournisseur getFournisseur() {
         return fournisseur;
     }
@@ -575,15 +577,31 @@ public class GACBean {
     }
 
 
-    public void addArticleEx()
+    public void validateArticleENouv()
     {
-        ArticleEx a = new ArticleEx();
+        usermetierimpl.entrerArticle((OpEntreeArticle) this.curentOperation);
+    }
+
+
+
+    public void validateSortieArticleNouv() throws Exception {
+        //OpSortieArticle o = addRequeteSortieNouv();
+        usermetierimpl.sortirArticle((OpSortieArticle) this.curentOperation);
+    }
+
+    public OpSortieArticle addRequeteSortieEx() throws Exception {
+        ArticleNouv a = new ArticleNouv();
 
         Agent agent = (Agent)RequestFilter.getSession().getAttribute("agent");
         a.setCodeArticle(getCodeArticle());
-        //a.setTypeObjet(getTypeObjet());
-        usermetierimpl.reqEntrerArticle(a,agent);
+        return usermetierimpl.reqSortirArticle(a,agent,getAgentDest());
     }
+
+    public void validateSortieArticleEx() throws Exception {
+        OpSortieArticle o = addRequeteSortieEx();
+        usermetierimpl.sortirArticle(o);
+    }
+
     Nomenclature nomenclatureP;
     public Nomenclature getNomenclatureP() {
         return nomenclatureP;
@@ -596,5 +614,15 @@ public class GACBean {
 
         this.setNomenclatureP(nomenclatureP);
     }
+
+    public Agent getAgentDest() {
+        return agentDest;
+    }
+
+    public void setAgentDest(Agent agentDest) {
+        this.agentDest = agentDest;
+    }
+
+
 }
 //r
