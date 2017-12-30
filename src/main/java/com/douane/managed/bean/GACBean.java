@@ -471,6 +471,7 @@ public class GACBean {
     		//System.out.println("liste en cours = ");
     		return e;
     	}*/
+    	//okay
     	return this.curentOperation;
     	
     }

@@ -78,6 +78,7 @@ public class OpEntree extends Operation{
 	//----CORRECTION---------
 	@OneToMany(mappedBy="myoperationEntree", cascade=CascadeType.ALL, fetch=FetchType.EAGER)	
 	private List<Materiel> listMat = new ArrayList<Materiel>();
+	//oaky
 
 	private String pathDoc;
 	private String refFact;

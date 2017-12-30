@@ -121,7 +121,7 @@ public interface IUserMetier {
 	public List<Agent> findAllAgents();
 	public List<Agent> findAgentByNom(String name);
 	public List<Agent> listAgentByDirection(Direction direction);
-	
+	//okay
 	public OpEntree getOperationEntreeById(Long idopentree);
 	/**
 	 * Affichage
