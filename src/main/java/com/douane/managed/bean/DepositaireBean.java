@@ -198,7 +198,7 @@ public class DepositaireBean {
 	}
 
 	public String exit(){
-        this.setCurentMateriel(null);
+        this.curentMateriel = null;
         return "success";
     }
 
