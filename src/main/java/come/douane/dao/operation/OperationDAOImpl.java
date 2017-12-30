@@ -100,7 +100,7 @@ public class OperationDAOImpl implements IOperationDAO{
 					throw new Exception("Efa attribuer olona io fa mila detachena aloha");
 				}
 				//m.setCodification("codified"+new Date());
-				m.generateCode();
+				m.generateCode(countMaterielByTypeByDirect(m.getTypematerieladd(), m.getDirec()));
 				System.out.println(m.getCode()+" : code generated ok");
 				//m.setDetenteur(attr.getDetenteur());
 				//matrepos.save(m);
