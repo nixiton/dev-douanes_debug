@@ -1,15 +1,12 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html class="navbar navbar-inverse navbar-static-top"
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
     xmlns:ui="http://java.sun.com/jsf/facelets"
     xmlns:f="http://java.sun.com/jsf/core"
-    xmlns:h="http://java.sun.com/jsf/html"
-    xmlns:p="http://primefaces.org/ui"
-    xmlns:c="http://java.sun.com/jsp/jstl/core">
+    xmlns:h="http://java.sun.com/jsf/html">
 
 
 <ui:include src="/pages/unsecure/components/header.xhtml">
-    <ui:param name="title" value="Mot de pass" />
+    <ui:param name="title" value="Administration" />
 </ui:include>
 
 <h:body class="  ">
@@ -19,13 +16,18 @@
             <ui:include src="/pages/unsecure/components/navbar_top_CA.xhtml"></ui:include>
 
             <ui:include src="/pages/unsecure/components/top.xhtml">
-                <ui:param name="title" value="Mot de pass" />
+                <ui:param name="title" value="Administration" />
             </ui:include>
 
         </div>
 
+        <!--ui:include src="/pages/unsecure/components/left.xhtml"-->
+            
+        <!--/ui:include-->
 
-                <div id="content">
+        <!-- /#wrap -->
+
+        <div id="content">
         
             <div >
                 <div class="box dark">
@@ -33,7 +35,7 @@
                     <div class="icons">
                         <i class="fa fa-edit"></i>
                     </div>
-                    <h5>Mot de pass</h5>
+                    <h5>Administration</h5>
                     <!-- .toolbar -->
                     <div class="toolbar">
                         <nav style="padding: 8px;"> <a href="javascript:;"
@@ -48,9 +50,8 @@
                     <!-- /.toolbar --> </header>
                     <div class="body collapse">
 
-<div class="col-md-4"></div>
-
-    <div class="form-signin col-md-4">
+                        
+    <div class="form-signin">
         <div class="text-center">
             <h:graphicImage value="/pages/unsecure/assets/images/logo.jpeg" />
         </div>
@@ -97,9 +98,8 @@
         <hr></hr>
     </div>
 
-<div class="col-md-4"></div>
 
-
+                    </div>
                 </div>
             </div>
             
@@ -110,9 +110,6 @@
 
     </div>
 
-</div>
     <ui:include src="/pages/unsecure/components/footer.xhtml"></ui:include>
-
 </h:body>
-
 </html>
