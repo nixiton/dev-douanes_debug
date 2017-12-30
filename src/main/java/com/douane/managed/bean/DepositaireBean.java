@@ -1185,6 +1185,9 @@ public class DepositaireBean {
 		m.setServ(getServiceforMat());
 		m.setDirec(agent.getDirection());
 
+		m.setEspeceUnite(getEspeceUnite());
+		m.setOrigine(getOrigine())
+
 		// m.setCaract(caract);
 		// m.setCategorie(categorie);
 
@@ -1238,6 +1241,8 @@ public class DepositaireBean {
 		m.setRenseignement(getRenseignement());
 		m.setTypematerieladd(this.getTypematerielToAdd());
 		m.setNomenMat(this.getTypematerielToAdd().getNomenclaureParent());
+		m.setEspeceUnite(getEspeceUnite());
+		m.setOrigine(getOrigine())
 
 
 		//m.setServ(getServiceforMat());
@@ -1340,6 +1345,9 @@ public class DepositaireBean {
 		//m.setNomenMat(getTypemateriel());
 		m.setTypematerieladd(this.getTypematerielToAdd());
 		m.setNomenMat(this.getTypematerielToAdd().getNomenclaureParent());
+
+		m.setEspeceUnite(getEspeceUnite());
+		m.setOrigine(getOrigine())
 		
 
 		m.setNumSerie(getNumSerie());
@@ -1612,6 +1620,8 @@ System.out.println("****************************ADD3 ATTR**ERRORR***************
 	private Materiel materielSeclected;
 	private Marque marqueAutom;
 	private String referenceAutom;
+	private String origine;
+	private String especeUnite;
 	private String numSerieAutom;
 	private String nomenclatureAutom;
 	private List<Referentiel> listDestinaiton;
@@ -1642,6 +1652,26 @@ System.out.println("****************************ADD3 ATTR**ERRORR***************
 	public void setReferenceAutom(String referenceAutom) {
 		this.referenceAutom = referenceAutom;
 	}
+
+
+	public String getOrigine() {
+		return this.origine;
+	}
+
+	public void setOrigine(String o) {
+		this.origine = o;
+	}
+
+
+	public String getEspeceUnite() {
+		return this.especeUnite;
+	}
+
+	public void setEspeceUnite(String e) {
+		this.especeUnite = e;
+	}
+
+
 
 	public String getNumSerieAutom() {
 		return this.numSerieAutom;
