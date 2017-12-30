@@ -334,7 +334,7 @@ public class Materiel implements Serializable{
             this.fourni = fourni;
         }
         */
-	public void generateCode() {
+	public void generateCode(Long numerotype) {
 		String codeDirection = "xxx";
 		String codeTypeMateriel = "xxx";
 		String anneeacquisition = "xxx";
@@ -353,7 +353,7 @@ public class Materiel implements Serializable{
 				"DIR"+codeDirection+
 				"NOM"+codeNomenclature+
 				"TM"+codeTypeMateriel+
-				"INC"+"Default1"+
+				"INC"+numerotype+
 				"AA"+anneeacquisition;
 	}
 
