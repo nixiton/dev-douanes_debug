@@ -9,6 +9,10 @@ import com.douane.entite.*;
 import com.douane.repository.MaterielRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import com.douane.repository.MaterielRepository;
+import com.douane.entite.TypeMateriel;
+import org.springframework.beans.factory.annotation.Autowired;
+
 public class OperationDAOImpl implements IOperationDAO{
 	
 	@PersistenceContext
