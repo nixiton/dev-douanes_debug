@@ -197,6 +197,11 @@ public class DepositaireBean {
 		this.curentOrdreEntree = o;
 	}
 
+	public String exit(){
+        this.setCurentMateriel(null);
+        return "success";
+    }
+
 	public OpEntree getCurentOrdreEntree(){
 		return this.curentOrdreEntree;
 	}
