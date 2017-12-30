@@ -9,7 +9,7 @@
 
 
 <ui:include src="/pages/unsecure/components/header.xhtml">
-    <ui:param name="title" value="Administration" />
+    <ui:param name="title" value="Mot de pass" />
 </ui:include>
 
 <h:body class="  ">
@@ -95,73 +95,10 @@
 
                 <ul class="nav navbar-nav">
 
-                    <c:if test="#{topMenuMB.curentAgent.roleAgent.role eq 'ROLE_ADMIN'}">
-                        <li class="active"><h:commandLink
-                                action="#{topMenuMB.goToDashboardadmin}" immediate="true" >
-                                Taleau de bord
-                            </h:commandLink></li>
-                    </c:if>
-                    <c:if test="#{topMenuMB.curentAgent.roleAgent.role eq 'ROLE_GAC' or 
-                    topMenuMB.curentAgent.roleAgent.role eq 'ROLE_SISE' or
-                topMenuMB.curentAgent.roleAgent.role eq 'ROLE_DC'}">
-                        <li class="active"><h:commandLink
-                                action="#{topMenuMB.goToDashboardCA}" immediate="true" >
-                                Taleau de bord
-                            </h:commandLink></li>
-                    </c:if>
-                    <c:if test="#{topMenuMB.curentAgent.roleAgent.role eq 'ROLE_ADMIN' or topMenuMB.curentAgent.roleAgent.role eq 'ROLE_SISE' or topMenuMB.curentAgent.roleAgent.role eq 'ROLE_SE'}">
-
-                    <li><h:link value="Saisie
-                                des référentiels"
-                                    outcome="saisie_refCA" immediate="true" /></li>
-
-                    </c:if>
-
-                    <c:if test="#{topMenuMB.curentAgent.roleAgent.role eq 'ROLE_ADMIN' or topMenuMB.curentAgent.roleAgent.role eq 'ROLE_DC'}">
-
-                    <li class="dropdown"><a href="#" class="dropdown-toggle"
-                        data-toggle="dropdown"> Saisie et sortie des articles <b class="caret"></b>
-                    </a>
-                        <ul class="dropdown-menu">
-                            
-                            <li><h:link value="Entrée des articles existants" outcome="saisie_article" immediate="true"/></li>
-                            <li><h:link value="Entrée des nouveaux articles"
-                                    outcome="articles_priseEnCharge" immediate="true"/></li>
-                            <li><h:link value="Sortie articles" outcome="sortie_article" immediate="true" /></li>
-
-                        </ul></li>
-
-                </c:if>
-
-                    <c:if test="#{topMenuMB.curentAgent.roleAgent.role eq 'ROLE_ADMIN' or topMenuMB.curentAgent.roleAgent.role eq 'ROLE_DC' or topMenuMB.curentAgent.roleAgent.role eq 'ROLE_GAC' or topMenuMB.curentAgent.roleAgent.role eq 'ROLE_SE'}">
-
-                    <li class='dropdown '><a href="#" class="dropdown-toggle"
-                        data-toggle="dropdown"> Suivi et édition des états
-                            réglementaires <b class="caret"></b>
-                    </a>
-                        <ul class="dropdown-menu">
-                            <li><h:link value="Fiche de stock" outcome="tracabilite" immediate="true" /></li>
-                            <li><h:link
-                                    value="Journal" outcome="liste_mat" immediate="true"/></li>
-
-                        </ul></li>
-
-                    </c:if>
-
-                    <c:if test="#{topMenuMB.curentAgent.roleAgent.role eq 'ROLE_ADMIN' or topMenuMB.curentAgent.roleAgent.role eq 'ROLE_GAC'}">
-
-                    <li class='dropdown '><a href="#" class="dropdown-toggle"
-                        data-toggle="dropdown"> Validations <b class="caret"></b>
-                    </a>
-                        <ul class="dropdown-menu">
-                            <li><h:link value="Entrée nouveaux articles" outcome="v_prise_en_charge" immediate="true"/></li>
-                            <li><h:link value="Sortie articles" outcome="v_detenteur" immediate="true"/></li>
-                        </ul></li>
-
-                    </c:if>
+                    
 
                     <li>
-                        <a href="/pages/unsecure/login.xhtml">Comptabilité Matière</a>
+                        <a href="/pages/unsecure/login.xhtml">Retour</a>
                     </li>
 
                 </ul>
@@ -176,7 +113,7 @@
 
 
             <ui:include src="/pages/unsecure/components/top.xhtml">
-                <ui:param name="title" value="Administration" />
+                <ui:param name="title" value="Mot de pass" />
             </ui:include>
 
         </div>
@@ -195,7 +132,7 @@
                     <div class="icons">
                         <i class="fa fa-edit"></i>
                     </div>
-                    <h5>Administration</h5>
+                    <h5>Mot de pass</h5>
                     <!-- .toolbar -->
                     <div class="toolbar">
                         <nav style="padding: 8px;"> <a href="javascript:;"
