@@ -6,10 +6,22 @@
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:p="http://primefaces.org/ui">
 
-<ui:include src="components/header.xhtml"></ui:include>
 
+<ui:include src="/pages/unsecure/components/header.xhtml">
+    <ui:param name="title" value="Mot de pass" />
+</ui:include>
 
-<h:body styleClass="login">
+<h:body class="  ">
+    
+        <div id="top">
+
+            <ui:include src="/pages/unsecure/components/navbar_top.xhtml"></ui:include>
+
+            <ui:include src="/pages/unsecure/components/top.xhtml">
+                <ui:param name="title" value="Mot de pass" />
+            </ui:include>
+
+        </div>
 
 
     <div class="form-signin">
@@ -47,7 +59,7 @@
                     <hr></hr>
 
                     <h:commandButton id="addUser" action="#{userMB.changePass}"
-                                     value="S'enregistrer" ajax="false" class="btn btn-lg btn-primary btn-block" />
+                                     value="Enregistrer" ajax="false" class="btn btn-lg btn-primary btn-block" />
 
 
 
