@@ -492,8 +492,6 @@ public class GACBean {
     //----------------GRAND II --------------------
     Fournisseur fournisseur;
 
-    Agent agentDest;
-
     public Fournisseur getFournisseur() {
         return fournisseur;
     }
@@ -577,30 +575,16 @@ public class GACBean {
     }
 
 
-    public void validateArticleENouv()
+    public void addArticleEx()
     {
-        usermetierimpl.entrerArticle((OpEntreeArticle) this.curentOperation);
-    }
-
-
-
-    public void validateSortieArticleNouv() throws Exception {
-        //OpSortieArticle o = addRequeteSortieNouv();
-        usermetierimpl.sortirArticle((OpSortieArticle) this.curentOperation);
-    }
-
-    public OpSortieArticle addRequeteSortieEx() throws Exception {
-        ArticleNouv a = new ArticleNouv();
+        ArticleEx a = new ArticleEx();
 
         Agent agent = (Agent)RequestFilter.getSession().getAttribute("agent");
         a.setCodeArticle(getCodeArticle());
-        return usermetierimpl.reqSortirArticle(a,agent,getAgentDest());
+        //a.setTypeObjet(getTypeObjet());
+        usermetierimpl.reqEntrerArticle(a,agent);
     }
 
-    public void validateSortieArticleEx() throws Exception {
-        OpSortieArticle o = addRequeteSortieEx();
-        usermetierimpl.sortirArticle(o);
-    }
 
     Nomenclature nomenclatureP;
     public Nomenclature getNomenclatureP() {
@@ -615,14 +599,19 @@ public class GACBean {
         this.setNomenclatureP(nomenclatureP);
     }
 
-    public Agent getAgentDest() {
-        return agentDest;
+    public void validateArticleENouv()
+    {
+        usermetierimpl.entrerArticle((OpEntreeArticle) curentOperation);
     }
 
-    public void setAgentDest(Agent agentDest) {
-        this.agentDest = agentDest;
+    public void validateSortieArticleNouv() throws Exception {
+        usermetierimpl.sortirArticle((OpSortieArticle) curentOperation);
     }
 
+
+    public void validateSortieArticleEx() throws Exception {
+        usermetierimpl.sortirArticle((OpSortieArticle) curentOperation);
+    }
 
 }
 //r

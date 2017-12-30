@@ -40,7 +40,8 @@ public class Materiel implements Serializable{
 
 	private String documentPath;
 
-	public String getImage() throws IOException {
+	public String getImage() throws IOException
+	{
 		ByteArrayInputStream bais;
 		System.out.println("----------------------begint test");
 		if(image != null)
@@ -76,7 +77,8 @@ public class Materiel implements Serializable{
 		//return image;
 	}
 
-	private  BufferedImage resize(BufferedImage image, int newWidth, int newHeight) {
+	private  BufferedImage resize(BufferedImage image, int newWidth, int newHeight)
+	{
 		int currentWidth = image.getWidth();
 		int currentHeight = image.getHeight();
 		BufferedImage newImage = new BufferedImage(newWidth, newHeight, image.getType());
