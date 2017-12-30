@@ -84,18 +84,26 @@ public class OperationDAOImpl implements IOperationDAO{
 	@Override
 	public Materiel attribuerMatEx(MaterielEx matex, Agent detenteur) throws Exception {
 		// TODO Auto-generated method stub
-				System.out.println("Attribution Existant DAO begin");
+				
 				Materiel m = em.find(Materiel.class, matex.getIdMateriel()) ;
+				System.out.println("Attribution Existant DAO begin for :"+m.getNumSerie());
 				if(m.getDetenteur()!=null) {
 					throw new Exception("Efa attribuer olona io fa mila detachena aloha");
 				}
 				//m.setCodification("codified"+new Date());
 				m.generateCode();
+				System.out.println(m.getCode()+" : code generated ok");
 				//m.setDetenteur(attr.getDetenteur());
 				//matrepos.save(m);
 				//em.persist(m);
 				//em.merge(m);
-				Agent detent = em.find(Agent.class, detenteur.getIm());
+				TypedQuery<Agent> query = em.createQuery("select a from Agent a "
+			       		+ "where a.im=:immatricule"
+			       		,Agent.class);
+			       query.setParameter("immatricule", detenteur.getIm());
+			       Agent detent =  query.getSingleResult();
+			    System.out.println("denteur will be set"+ detent.getNomAgent());
+				//Agent detent = em.find(Agent.class, detenteur.getIm());
 				m.setDetenteur(detent);
 				detent.getMatdetenu().add(m);
 				//agentrepos.save(detent);
