@@ -17,7 +17,7 @@ public interface MaterielRepository extends CrudRepository<Materiel, Long>{
 	public List<Materiel> findByValidation(boolean validation);
 	public List<Materiel> findByDetenteurAndValidation(Agent detenteur, boolean validation);
 	public List<Materiel> findByDetenteurAndDirec(Agent detenteur, Direction direction);
-	
+	public Long countByTypematerieladdAndDirec(TypeMateriel typemat, Direction direction);
 	/*@Query("select m from Materiel m where m.direc == %?1 and m.validation == TRUE "
 			+ "group by m.typematerieladd.nomenclaureParent.designation	"
 			+ "order by m.typematerieladd.designation asc")
