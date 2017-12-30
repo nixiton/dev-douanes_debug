@@ -18,7 +18,7 @@ import com.douane.entite.OpEntree;
 import com.douane.entite.OpSortie;
 import com.douane.entite.Operation;
 
-import com.douane.repository.MaterielRepository
+import com.douane.repository.MaterielRepository;
 import com.douane.entite.TypeMateriel;
 import org.springframework.beans.factory.annotation.Autowired;
 
