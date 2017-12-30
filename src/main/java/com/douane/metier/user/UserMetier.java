@@ -8,6 +8,7 @@ import javax.faces.bean.ManagedProperty;
 import com.douane.entite.*;
 import com.douane.model.EtatOperation;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.douane.repository.*;
@@ -208,6 +209,7 @@ public class UserMetier implements IUserMetier{
 	@Override
 	public OpEntree reqEntrerMateriel(List<Materiel> l, Agent dc, String facturePath, String refFacture) {
 		// TODO Auto-generated method stub*
+		System.out.println("let entrer materiel");
 		OpEntree entree = new OpEntree(new Date(), new Date(), dc.getIp(), dc);
 		entree.setPathDoc(facturePath);
 		entree.setRefFact(refFacture);
@@ -893,6 +895,14 @@ public class UserMetier implements IUserMetier{
 		Agent agent = (Agent)RequestFilter.getSession().getAttribute("agent");
 		return materielNouvRepository.findByValidationAndDirec(true, agent.getDirection());
 		//return materielNouvRepository.findByValidationAndAModifier(true, true);
+	}
+
+	@Override
+	@Transactional(propagation=Propagation.REQUIRED, readOnly=true, noRollbackFor=Exception.class)
+	public OpEntree getOperationEntreeById(Long idopentree) {
+		// TODO Auto-generated method stub
+		
+		return opentreerepos.findOne(idopentree);
 	}
 
 

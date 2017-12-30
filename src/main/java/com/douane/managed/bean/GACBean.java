@@ -456,7 +456,23 @@ public class GACBean {
     }
 
     public Operation getCurentOperation(){
-        return this.curentOperation;
+        //return this.curentOperation;
+        //get opreation by id;
+    	/*if(this.curentOperation!=null) {
+    		System.out.println("it s not null and id is "+this.curentOperation.getId());
+    		OpEntree e = usermetierimpl.getOperationEntreeById(this.curentOperation.getId());
+    		System.out.println("Ok we  got it");
+    		if(e.getListMat() ==null) {
+    			System.out.println("Fucking null");
+    		}
+    		else {
+    			System.out.println("its not null bb ");
+    		}
+    		//System.out.println("liste en cours = ");
+    		return e;
+    	}*/
+    	return this.curentOperation;
+    	
     }
 
     public Operation getCurentOperation1(){

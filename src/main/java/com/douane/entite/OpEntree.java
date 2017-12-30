@@ -76,7 +76,7 @@ public class OpEntree extends Operation{
 
 
 	//----CORRECTION---------
-	@OneToMany(mappedBy="myoperationEntree", cascade=CascadeType.ALL)	
+	@OneToMany(mappedBy="myoperationEntree", cascade=CascadeType.ALL, fetch=FetchType.EAGER)	
 	private List<Materiel> listMat = new ArrayList<Materiel>();
 
 	private String pathDoc;
@@ -104,9 +104,9 @@ public class OpEntree extends Operation{
 		return listMat;
 	}
 
-	/*public void setListMat(List<Materiel> listMat) {
+	public void setListMat(List<Materiel> listMat) {
 		this.listMat = listMat;
-	}*/
+	}
 	public void addMateriel(Materiel m) {
 		listMat.add(m);
 		m.setMyoperationEntree(this);

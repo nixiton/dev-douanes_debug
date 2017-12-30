@@ -384,7 +384,7 @@ public class Materiel implements Serializable{
 		this.typematerieladd = typematerieladd;
 	}
 	
-	@ManyToOne(fetch=FetchType.LAZY)
+	@ManyToOne
 	@JoinColumn(name="opentreeid")
 	private OpEntree myoperationEntree;
 
