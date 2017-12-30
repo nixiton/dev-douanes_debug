@@ -3,20 +3,11 @@ package come.douane.dao.operation;
 import java.util.Date;
 import java.util.List;
 
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
-import javax.persistence.TemporalType;
-import javax.persistence.TypedQuery;
+import javax.persistence.*;
 
-import com.douane.entite.Agent;
-import com.douane.entite.Direction;
-import com.douane.entite.Materiel;
-import com.douane.entite.MaterielEx;
-import com.douane.entite.OpAttribution;
-import com.douane.entite.OpDettachement;
-import com.douane.entite.OpEntree;
-import com.douane.entite.OpSortie;
-import com.douane.entite.Operation;
+import com.douane.entite.*;
+import com.douane.repository.MaterielRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 
 public class OperationDAOImpl implements IOperationDAO{
 	
@@ -374,12 +365,14 @@ public class OperationDAOImpl implements IOperationDAO{
 	@Override
 	public List<Operation> getListOpEntreeAndSortieByDirectionByYearByDateAsc(Direction d,  Date startDate, Date endDate) {
 		// TODO Auto-generated method stub
-		TypedQuery<Operation> query = em.createQuery("select oe, os from OpEntree oe, OpSortie os "
+		Query query = em.createQuery("select oe, os from OpEntree oe, OpSortie os "
 				+ "where os.date>=:startDate AND os.date<=:endDate AND oe.date>=:startDate AND oe.date<=:endDate "
-				+ "and oe.direction = : direct and oe.direction = : direct"
-				+ "order by date asc"
-				,Operation.class);
+				+ "and oe.direction =:direct and oe.direction =:direct"
+				//+ "order by date asc"
+				);
 		query.setParameter("direct", d);
+		query.setParameter("startDate", startDate);
+		query.setParameter("endDate", endDate);
 		List<Operation> operations = query.getResultList();
 		return operations;
 	

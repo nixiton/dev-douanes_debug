@@ -628,6 +628,12 @@ public class UserMetier implements IUserMetier{
 	}
 
 	@Override
+	public List<Operation> getListOpEntreeAndSortieByDirectionByYearByDateAsc(Direction d, Date startDate, Date endDate)
+	{
+		return operationdao.getListOpEntreeAndSortieByDirectionByYearByDateAsc(d,startDate, endDate);
+	}
+
+	@Override
 	public List<Materiel> getListMat() {
 		// TODO Auto-generated method stub
 		return (List<Materiel>)matrepos.findAll();

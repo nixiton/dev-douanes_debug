@@ -3,6 +3,7 @@ package com.douane.managed.bean;
 import com.douane.entite.*;
 import com.douane.metier.user.IUserMetier;
 import com.douane.model.EtatOperation;
+import come.douane.dao.operation.IOperationDAO;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.faces.bean.ManagedBean;
@@ -10,14 +11,11 @@ import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.RequestScoped;
 import javax.faces.bean.ViewScoped;
 import javax.faces.bean.SessionScoped;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
+
 import org.springframework.stereotype.Component;
 
 import com.douane.requesthttp.RequestFilter;
-
-
-import java.util.ListIterator;
 
 /**
  * Created by hasina on 11/3/17.
@@ -38,6 +36,18 @@ public class SuiviEditionBean {
     private Date endDate;
     
     private Operation curentOperation;
+
+    public IOperationDAO getOperationdao() {
+        return operationdao;
+    }
+
+    public void setOperationdao(IOperationDAO operationdao) {
+        this.operationdao = operationdao;
+    }
+
+    @Autowired
+    @ManagedProperty(value="#{operationdao}")
+    private IOperationDAO operationdao;
 
     /*private List<OpEntree> listOperationEntree;
     private List<OpSortie> listOperationSortie;
@@ -475,4 +485,29 @@ public class SuiviEditionBean {
     public void setListOpDet(List<OpDettachement> listOpDet) {
         this.listOpDet = listOpDet;
     }
+
+
+    //-----------------TO DO 30 12--------------
+    private List<Operation> listOpEntreeAndSortieByDirectionByYearByDateAsc;
+
+    public List<Operation> getListOpEntreeAndSortieByDirectionByYearByDateAsc()
+    {
+        Agent cur = (Agent) RequestFilter.getSession().getAttribute("agent");
+        Date sdate = new GregorianCalendar(2010, Calendar.JANUARY, 1).getTime();
+        Date edate = new GregorianCalendar(2018, Calendar.DECEMBER, 30).getTime();
+        //List<Operation> l = usermetierimpl.getListOpEntreeAndSortieByDirectionByYearByDateAsc(cur.getDirection(), sdate, edate);
+        List<Operation> l = operationdao.getListOperationByOperator(cur, 100);
+        for(Operation o : l)
+        {
+            System.out.print("listOperation======="+o.getState());
+        }
+        return usermetierimpl.getListOpEntreeAndSortieByDirectionByYearByDateAsc(cur.getDirection(), sdate, edate);
+        //return usermetierimpl.getListOpEntreeAndSortieByDirectionByYearByDateAsc(cur.getDirection(), getStartDate(), getEndDate());
+    }
+
+    public void setListOpEntreeAndSortieByDirectionByYearByDateAsc(List<Operation> listOpEntreeAndSortieByDirectionByYearByDateAsc) {
+        this.listOpEntreeAndSortieByDirectionByYearByDateAsc = listOpEntreeAndSortieByDirectionByYearByDateAsc;
+    }
+
+
 }
