@@ -2024,14 +2024,6 @@ System.out.println("****************************ADD3 ATTR**ERRORR***************
 		return usermetierimpl.reqEntrerArticle(a,agent);
 	}
 
-	public void validateArticleENouv()
-	{
-		OpEntreeArticle o = addArticleNouv();
-		usermetierimpl.entrerArticle(o);
-	}
-
-
-
 
 	//sortie
 	private Agent agentDest;
@@ -2052,23 +2044,7 @@ System.out.println("****************************ADD3 ATTR**ERRORR***************
 		return usermetierimpl.reqSortirArticle(a,agent,getAgentDest());
 	}
 
-	public void validateSortieArticleNouv() throws Exception {
-		OpSortieArticle o = addRequeteSortieNouv();
-		usermetierimpl.sortirArticle(o);
-	}
 
-	public OpSortieArticle addRequeteSortieEx() throws Exception {
-		ArticleNouv a = new ArticleNouv();
-
-		Agent agent = (Agent)RequestFilter.getSession().getAttribute("agent");
-		a.setCodeArticle(getCodeArticle());
-		return usermetierimpl.reqSortirArticle(a,agent,getAgentDest());
-	}
-
-	public void validateSortieArticleEx() throws Exception {
-		OpSortieArticle o = addRequeteSortieEx();
-		usermetierimpl.sortirArticle(o);
-	}
 
 	public List<Materiel> getListAllMaterielValideSansDetenteurByDirection() {
 		return usermetierimpl.getMatByDetenteurAndDirection(null, getDirection());
