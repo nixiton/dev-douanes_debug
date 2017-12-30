@@ -45,7 +45,7 @@ import java.util.Calendar;
  * Created by hasina on 10/29/17.
  */
 @ManagedBean(name = "depositaireBean")
-@ViewScoped
+@SessionScoped
 @PropertySource("classpath:config.properties")
 public class DepositaireBean {
 
@@ -1145,6 +1145,7 @@ public class DepositaireBean {
 
 	public void addIntoListMateriel()
 	{
+		System.out.println("Add it into list materiel");
 		Agent agent = (Agent) RequestFilter.getSession().getAttribute("agent");
 
 
@@ -1194,8 +1195,8 @@ public class DepositaireBean {
 		// m.setDocumentPath(documentPath);
 		m.setValidation(false);
 		listMaterielForOpEntree.add(m);
-
-		listMaterielForOpEntree.add(getMatForEntree());
+		System.out.println("added to list");
+		//listMaterielForOpEntree.add(getMatForEntree());
 	}
 
 	public String addMateriel() throws IOException
@@ -1387,12 +1388,20 @@ public class DepositaireBean {
 		// m.setRefFacture(refFacture);
 
 		// set Operation requete entrer materiel nouveau
-		
+        System.out.println("ready to send request");
+		for(Materiel a:listMaterielForOpEntree) {
+			System.out.println("materiel: "+ a.getNumSerie());
+		}
+        
         OpEntree opEntree = usermetierimpl.reqEntrerMateriel(listMaterielForOpEntree, agent, getFacturePath(), getRefFacture());
+		
 		return SUCCESS;
 		}
 		catch(Exception e){
 			e.printStackTrace();
+			FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Error validating materiel", e.getMessage());
+			//FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Error operation "));
+			FacesContext.getCurrentInstance().addMessage(null, message);
 			return ERROR;
 		}
 
