@@ -12,7 +12,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 import javax.persistence.FetchType;
-
+import javax.persistence.CascadeType;
 import javax.persistence.ElementCollection;
 
 @Entity
@@ -34,9 +34,8 @@ public class OpEntree extends Operation{
 		this.setMat(mater);
 		this.numentree = "";
 	}
-    public OpEntree(Date date, Date time, String poste, Agent operateur, List<Materiel> listMater) {
+    public OpEntree(Date date, Date time, String poste, Agent operateur) {
         super(date, time, poste, operateur);
-        this.setListMat(listMater);
         this.numentree = "";
     }
 	public OpEntree() {
@@ -77,7 +76,7 @@ public class OpEntree extends Operation{
 
 
 	//----CORRECTION---------
-	@OneToMany(mappedBy="myoperationEntree", fetch=FetchType.EAGER)	
+	@OneToMany(mappedBy="myoperationEntree", cascade=CascadeType.ALL)	
 	private List<Materiel> listMat = new ArrayList<Materiel>();
 
 	private String pathDoc;
@@ -105,7 +104,52 @@ public class OpEntree extends Operation{
 		return listMat;
 	}
 
-	public void setListMat(List<Materiel> listMat) {
+	/*public void setListMat(List<Materiel> listMat) {
 		this.listMat = listMat;
+	}*/
+	public void addMateriel(Materiel m) {
+		listMat.add(m);
+		m.setMyoperationEntree(this);
 	}
+	public void removeMateriel(Materiel m) {
+		listMat.remove(m);
+		m.setMyoperationEntree(null);
+	}
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((listMat == null) ? 0 : listMat.hashCode());
+		result = prime * result + ((numentree == null) ? 0 : numentree.hashCode());
+		result = prime * result + ((refFact == null) ? 0 : refFact.hashCode());
+		return result;
+	}
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		OpEntree other = (OpEntree) obj;
+		if (listMat == null) {
+			if (other.listMat != null)
+				return false;
+		} else if (!listMat.equals(other.listMat))
+			return false;
+		if (numentree == null) {
+			if (other.numentree != null)
+				return false;
+		} else if (!numentree.equals(other.numentree))
+			return false;
+		if (refFact == null) {
+			if (other.refFact != null)
+				return false;
+		} else if (!refFact.equals(other.refFact))
+			return false;
+		return true;
+	}
+	
+	
 }
