@@ -1261,7 +1261,8 @@ public class DepositaireBean {
 			{
 				if(getDetenteurMatEx() !=null)
 				{
-					usermetierimpl.attribuerMaterielEx((MaterielEx) ma,getDetenteurMatEx());
+					//usermetierimpl.attribuerMaterielEx((MaterielEx) ma,getDetenteurMatEx());
+					usermetierimpl.reqAttribution((MaterielEx) ma, agent, getDetenteurMatEx());
 					//m.setDetenteur(getDetenteurMatEx());
 				}
 			}
