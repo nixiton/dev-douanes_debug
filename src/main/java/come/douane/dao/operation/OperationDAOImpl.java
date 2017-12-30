@@ -30,7 +30,13 @@ public class OperationDAOImpl implements IOperationDAO{
 	@Override
 	public Agent detacherMat(OpDettachement det) throws Exception{
 		// TODO Auto-generated method stub
-		Agent ancienDet = em.find(Agent.class,det.getMat().getDetenteur().getIm()) ;
+		//Agent ancienDet = em.find(Agent.class,det.getMat().getDetenteur().getIm()) ;
+		TypedQuery<Agent> query = em.createQuery("select a from Agent a "
+	       		+ "where a.im=:immatricule"
+	       		,Agent.class);
+	       query.setParameter("immatricule", det.getMat().getDetenteur().getIm());
+	       Agent ancienDet =  query.getSingleResult();
+	    System.out.println("denteur will be set"+ det.getMat().getDetenteur().getNomAgent());
 		if(ancienDet==null) {
 			throw new Exception("materiel non detenu");
 		}
