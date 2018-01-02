@@ -197,6 +197,11 @@ public class DepositaireBean {
 		this.curentOrdreEntree = o;
 	}
 
+	public String exit(){
+        this.setCurentMateriel(null);
+        return "success";
+    }
+
 	public OpEntree getCurentOrdreEntree(){
 		return this.curentOrdreEntree;
 	}
@@ -1407,8 +1412,6 @@ public class DepositaireBean {
 		m.setModAcq(getAcquisition());
 
 		m.setMontant_facture(getMontantFac());
-
-		//m.generateCode();
 
         listMaterielForOpEntree.add(m);
 		// m.setRefFacture(refFacture);

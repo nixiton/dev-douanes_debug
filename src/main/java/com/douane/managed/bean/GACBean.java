@@ -308,9 +308,11 @@ public class GACBean {
     }
 
     public String exit(){
-        this.setCurentOperation(null);
-        this.setMotif(null);
-        return "success";
+        System.out.println("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$   APPEL EXIT $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$");
+
+        this.curentOperation = null;
+        this.motif =null;
+        return null;
     }
 
 
