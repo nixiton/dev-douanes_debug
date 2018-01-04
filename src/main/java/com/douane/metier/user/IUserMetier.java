@@ -13,6 +13,7 @@ public interface IUserMetier {
 	public void remUser(Useri u);
 
 	public Agent addAgent(Agent a);
+	public Agent changeAgentPass(Agent a, String codedPassword);
 	public void remAgent (Agent a);
 
 

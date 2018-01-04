@@ -177,6 +177,15 @@ public class UserMetier implements IUserMetier{
 
 		return a;
 	}
+	
+	@Override
+	public Agent changeAgentPass(Agent a, String codedPassword) {
+		// TODO Auto-generated method stub
+		Agent av= agentrepos.findOne(a.getIdAgent());
+		av.setPassword(codedPassword);
+		agentrepos.save(av);
+		return av;
+	}
 
 	@Override
 	public void remAgent(Agent a) {
@@ -905,6 +914,8 @@ public class UserMetier implements IUserMetier{
 		return opentreerepos.findOne(idopentree);
 		//okay
 	}
+
+	
 
 
 
