@@ -601,8 +601,21 @@ public class UserManagedBean implements Serializable {
 				Authentication request = new UsernamePasswordAuthenticationToken(((Agent) RequestFilter.getSession().getAttribute("agent")).getIm(), getPass());
 				Authentication result = authenticationManager.authenticate(request);
 				SecurityContextHolder.getContext().setAuthentication(result);
+				Agent user = ((Agent) RequestFilter.getSession().getAttribute("agent"));
+				//user.setPassword(passwordEncoder.encode(getNewPass()));
 
-				((Agent) RequestFilter.getSession().getAttribute("agent")).setPassword(passwordEncoder.encode(getNewPass()));
+
+				Agent agent = usermetierimpl.findAgentByIm(user.getIm());
+				usermetierimpl.changeAgentPass(agent, passwordEncoder.encode(getNewPass()));
+
+				if (!passwordEncoder.matches(getNewPass(), usermetierimpl.findAgentByIm(user.getIm()).getPassword()))
+				{
+
+				}
+				//agent.setPassword(passwordEncoder.encode(getNewPass()));
+
+
+
 
 				message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Success", "Password updated");
 				FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Password updated"));
