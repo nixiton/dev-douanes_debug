@@ -166,9 +166,11 @@
         <!--c:forEach var="o" items="#{suivieditionBean.listOpEntreeAndSortieByDirectionByYearByDateAsc}"-->
         <c:forEach var="o" items="#{suivieditionBean.listOperationEntree}">
 
+            <c:set var="n" value="#{1}"/>
+
             <c:forEach var="materiel" items="#{o.listMat}">
 
-            <c:set var="n" value="#{1}"/>
+            
         
 
                 <tr class="entreeo">    
@@ -209,9 +211,11 @@
                     <td><h:outputText value="" /></td>
                 </tr>
 
-            <c:set var="n" value="#{n + 1}"/>
+            
 
         </c:forEach>
+
+        <c:set var="n" value="#{n + 1}"/>
 
     </c:forEach>
 
