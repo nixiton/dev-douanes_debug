@@ -146,7 +146,7 @@
                     <c:if test="#{mat['class'].simpleName eq 'MaterielNouv'}">
                     <td>#{mat.montant_facture}</td>
                     </c:if>
-                    
+
                     <td></td>
                     <td></td>
                     <td></td>
@@ -162,7 +162,7 @@
             </table>
 
 
- 	<p:dataTable  id="testingID" var="materiel" value="#{depositaireBean.listMaterielNouveauValide}">
+ 	<p:dataTable  id="testingID" var="mat" value="#{depositaireBean.listAllMateriel}">
 
  		<p:columnGroup type="header">
             <p:row>
@@ -191,39 +191,48 @@
         </p:columnGroup>
  
         <p:column>
-            <h:outputText value="" />
+            <p:inputText style="text-align: center;width: 80%"></p:inputText>
         </p:column>
         <p:column>
-            <h:outputText value="#{materiel.nomenMat.designation}" />
+            <h:outputText value="#{mat.nomenMat.designation}, #{mat.typematerieladd.designation} , #{mat.renseignement}" />
         </p:column>
         <p:column>
-            <h:outputText value="" />
-        </p:column>
-
-        <p:column>
-            <h:outputText value="#{materiel.pu}" />
+            <h:outputText value="#{mat.especeUnite}" />
         </p:column>
 
         <p:column>
-            <h:outputText value="" />
-        </p:column>
+             <p:panel rendered="#{mat['class'].simpleName eq 'MaterielEx'}">
+                    
+                    #{mat.pu}
+                    </p:panel>
 
-        <p:column>
-            <h:outputText value="" />
-        </p:column>
-
-        <p:column>
-            <h:outputText value="" />
+                    <p:panel rendered="#{mat['class'].simpleName eq 'MaterielNouv'}">
+                    
+                    #{mat.montant_facture}
+                    </p:panel>
         </p:column>
 
         <p:column>
             <h:outputText value="" />
         </p:column>
+
+        <p:column>
+            <h:outputText value="" />
+        </p:column>
+
+        <p:column>
+            <h:outputText value="" />
+        </p:column>
+
         <p:column>
             <h:outputText value="" />
         </p:column>
         <p:column>
             <h:outputText value="" />
+        </p:column>
+        <p:column>
+            
+            <p:inputText style="text-align: center;width: 80%"></p:inputText>
         </p:column>
 
 
