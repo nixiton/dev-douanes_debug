@@ -239,9 +239,11 @@
                     <td><h:outputText value="" /></td>
                     <td><h:outputText value="" /></td>
                     <td>
-                        <c:forEach var="value" items="#{suivieditionBean.getListOperationAttributionByMateriel1(materiel)">
+                        <c:set var="materiel1" value="#{suivieditionBean.setMateriel(materiel)}" />
+                        <c:forEach var="value" items="#{suivieditionBean.getListOperationAttributionByMateriel">
                             #{value.detenteur.im} =>
                         </c:forEach>
+                        <c:set var="materiel1" value="#{suivieditionBean.setMateriel(null)}" />
                     </td>
                 </tr>
 
