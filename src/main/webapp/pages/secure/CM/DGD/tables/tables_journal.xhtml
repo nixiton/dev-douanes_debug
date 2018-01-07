@@ -23,10 +23,11 @@
                  paginator="true" rows="10" style="margin-bottom:20px"  
                  rowStyleClass="#{c['class'].simpleName ne 'OpEntree' and c['class'].simpleName ne 'OpSortie' ? 'ui-helper-hidden' : '' }">
 
+        <p:dataTable   var="mat" value="#{c.listMat}">
     
-        <p:column headerText="Numéro d'ordre des pièces justificatives"  value="#{suivieditionBean.listOperationEntree[0]}" columnIndexVar="i">  
+        <p:column headerText="Numéro d'ordre des pièces justificatives" >  
             
-            <p:panel rendered="#{c[i]['class'].simpleName eq 'OpEntree' }" >
+            <p:panel rendered="#{c['class'].simpleName eq 'OpEntree' }" >
             
                 #{c.numentree}
             </p:panel>
@@ -165,7 +166,7 @@
         </p:column>
     
     
-        
+        </p:dataTable>
     </p:dataTable>
  
 
