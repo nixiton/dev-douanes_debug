@@ -114,8 +114,7 @@
 
         <br></br><br></br><br></br>
 
-
- 			<table>
+<table>
                 <tr class="entreeo">
                     <th colspan="2"  style="border-bottom: none;">Numéro</th>
                     <th style="border-bottom: none;"></th>
@@ -156,9 +155,23 @@
                     <td> #{mat.nomenMat.nomenclature}</td>
                     <td>#{mat.nomenMat.designation}, #{mat.typematerieladd.designation} , #{mat.renseignement}</td>
                     <td>#{mat.especeUnite}</td>
-                    <td></td>
+                    <td>1</td>
+                    <c:if test="#{mat['class'].simpleName eq 'MaterielEx'}">
+                    <td>#{mat.pu}</td>
+                    </c:if>
+
+                    <c:if test="#{mat['class'].simpleName eq 'MaterielNouv'}">
                     <td>#{mat.montant_facture}</td>
-                    <td></td>
+                    </c:if>
+
+                    <c:if test="#{mat['class'].simpleName eq 'MaterielEx'}">
+                    <td>#{1*mat.pu}</td>
+                    </c:if>
+
+                    <c:if test="#{mat['class'].simpleName eq 'MaterielNouv'}">
+                    <td>#{1*mat.montant_facture}</td>
+                    </c:if>
+
                     <td></td>
                     <td>#{mat.reference}</td>
                 </tr>

@@ -220,7 +220,8 @@
                 </tr>
 
                 
-        <c:forEach var="o" items="#{suivieditionBean.listOpEntreeAndSortieByDirectionByYearByDateAsc}">
+        <!--c:forEach var="o" items="#{suivieditionBean.listOpEntreeAndSortieByDirectionByYearByDateAsc}"-->
+        <c:forEach var="o" items="#{suivieditionBean.listOperationEntree}">
         <c:forEach var="materiel" items="#{o.listMat}">
 
                 <tr class="entreeo">    
@@ -276,7 +277,8 @@
                 </tr>
 
                 
-        <c:forEach var="o" items="#{suivieditionBean.listOpEntreeAndSortieByDirectionByYearByDateAsc}">
+        <!--c:forEach var="o" items="#{suivieditionBean.listOpEntreeAndSortieByDirectionByYearByDateAsc}"-->
+        <c:forEach var="o" items="#{suivieditionBean.listOperationEntree}">
         <c:forEach var="materiel" items="#{o.listMat}">
 
                 <tr class="entreeo">    
