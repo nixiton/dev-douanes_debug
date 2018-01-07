@@ -287,6 +287,9 @@ public class SuiviEditionBean {
     }
 
     public void setMateriel(Materiel materiel) {
+
+        System.out.print("======================================SET MAT=================================================================");
+
         this.materiel = materiel;
     }
 
