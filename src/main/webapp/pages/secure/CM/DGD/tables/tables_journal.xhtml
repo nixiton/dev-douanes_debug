@@ -73,12 +73,14 @@
 
         <p:column headerText="Désignation des matières et objets" >
 
-        #{c.listMat}
+        <c:forEach var="mat1" items="#{c.listMat}">
+                #{mat1.typematerieladd.designation} - #{mat1.renseignement}, 
+            </c:forEach>
             
         <p:panel rendered="#{c['class'].simpleName eq 'OpEntree'}">
 
-            <c:forEach var="mat" items="#{c.listMat}">
-                #{mat.typematerieladd.designation} #{mat.renseignement},
+            <c:forEach var="mat1" items="#{c.listMat}">
+                #{mat1.typematerieladd.designation} - #{mat1.renseignement}, 
             </c:forEach>
 
         </p:panel>
