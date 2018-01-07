@@ -48,15 +48,16 @@
 
                 <ui:repeat value="#{c.listMat}" var="mat">
 
-                    #{mat['class'].simpleName}
-
-                    <c:if test="#{mat['class'].simpleName eq 'MaterielEx'}">
+                    
+                    <p:panel rendered="#{mat['class'].simpleName eq 'MaterielEx'}">
+                    
                     #{mat.direc.designation}
-                    </c:if>
+                    </p:panel>
 
-                    <c:if test="#{mat['class'].simpleName eq 'MaterielNouv'}">
+                    <p:panel rendered="#{mat['class'].simpleName eq 'MaterielNouv'}">
+                    
                     #{mat.fournisseur.designation}
-                    </c:if>
+                    </p:panel>
                </ui:repeat>
 
                 
@@ -109,13 +110,16 @@
             <p:panel rendered="#{c['class'].simpleName eq 'OpEntree'}">
 
             <ui:repeat value="#{c.listMat}" var="mat">
-                <c:if test="#{mat['class'].simpleName eq 'MaterielEx'}">
-                    #{mat.pu}
-                    </c:if>
 
-                    <c:if test="#{mat['class'].simpleName eq 'MaterielNouv'}">
+                <p:panel rendered="#{mat['class'].simpleName eq 'MaterielEx'}">
+                    
+                    #{mat.pu}
+                    </p:panel>
+
+                    <p:panel rendered="#{mat['class'].simpleName eq 'MaterielNouv'}">
+                    
                     #{mat.montant_facture}
-                    </c:if>
+                    </p:panel>
 
             </ui:repeat>
 
@@ -124,13 +128,15 @@
 
         <p:panel rendered="#{c['class'].simpleName eq 'OpSortie'}">
             <ui:repeat value="#{c.listMat}" var="mat">
-                <c:if test="#{mat['class'].simpleName eq 'MaterielEx'}">
+                <p:panel rendered="#{mat['class'].simpleName eq 'MaterielEx'}">
+                    
                     #{mat.pu}
-                    </c:if>
+                    </p:panel>
 
-                    <c:if test="#{mat['class'].simpleName eq 'MaterielNouv'}">
+                    <p:panel rendered="#{mat['class'].simpleName eq 'MaterielNouv'}">
+                    
                     #{mat.montant_facture}
-                    </c:if>
+                    </p:panel>
 
             </ui:repeat>
         </p:panel>
