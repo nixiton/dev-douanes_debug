@@ -140,6 +140,7 @@
                     <th>Du folio du grand livre </th>
                     <th> de nomenclature somaire</th>
                     <th style="border-top: none;">Désignation des matériels et objets</th>
+
                     <th style="border-top: none;">Espèce des unités</th>
                     <th style="border-top: none;">Quantité</th>
                     <th style="border-top: none;">Prix unitaire</th>
@@ -152,12 +153,12 @@
 
                 <tr class="entreeo">    
                     <td><p:inputText style="text-align: center;"></p:inputText>  </td>
-                    <td>  #{mat.nomenMat.nomenclature}</td>
-                    <td>#{mat.nomenMat.designation}</td>
-                    <td>#{mat.typematerieladd.designation} , #{mat.renseignement}</td>
+                    <td> #{mat.nomenMat.nomenclature}</td>
+                    <td>#{mat.nomenMat.designation}, #{mat.typematerieladd.designation} , #{mat.renseignement}</td>
+                    <td>#{mat.especeUnite}</td>
                     <td></td>
                     <td>#{mat.pu}</td>
-                    <td>#{mat.pu}</td>
+                    <td></td>
                     <td></td>
                     <td>#{mat.reference}</td>
                 </tr>
