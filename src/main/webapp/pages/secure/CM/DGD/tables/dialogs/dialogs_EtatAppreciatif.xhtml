@@ -166,6 +166,8 @@
         <!--c:forEach var="o" items="#{suivieditionBean.listOpEntreeAndSortieByDirectionByYearByDateAsc}"-->
         <c:forEach var="o" items="#{suivieditionBean.listOperationEntree}">
 
+            <c:forEach var="materiel" items="#{o.listMat}">
+
             <c:set var="n" value="#{1}"/>
         
 
@@ -209,6 +211,8 @@
 
             <c:set var="n" value="#{n + 1}"/>
 
+        </c:forEach>
+
     </c:forEach>
 
             </table>
@@ -230,10 +234,6 @@
 
                 </tr>
                 <tr class="entreeo">
-                    <th >Charge</th>
-                    <th >Décharge</th>
-                    <th >Charge</th>
-                    <th >Décharge</th>
                     <th >Charge</th>
                     <th >Décharge</th>
                     <th >Charge</th>
