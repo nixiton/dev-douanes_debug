@@ -171,8 +171,32 @@
 
                 <tr class="entreeo">    
                     <td><h:outputText value="#{n}" /></td>
-                    <td><h:outputText value="" /></td>
-                    <td><h:outputText value="" /></td>
+                    <td><h:outputText value="#{o.date}" /></td>
+                    <td>
+
+                        <p:panel rendered="#{o['class'].simpleName eq 'OpEntree'}">
+
+                
+
+                    
+                    <p:panel rendered="#{materiel['class'].simpleName eq 'MaterielEx'}">
+                    
+                    #{materiel.direc.designation}
+                    </p:panel>
+
+                    <p:panel rendered="#{materiel['class'].simpleName eq 'MaterielNouv'}">
+                    
+                    #{materiel.fournisseur.designation}
+                    </p:panel>
+               
+
+                
+                    </p:panel>
+                    <p:panel rendered="#{o['class'].simpleName eq 'OpSortie' }" >
+                        #{o.motifsortie.designation}
+                    </p:panel>
+
+                    </td>
                     <td><h:outputText value="" /></td>
                     <td><h:outputText value="" /></td>
                     <td><h:outputText value="" /></td>
