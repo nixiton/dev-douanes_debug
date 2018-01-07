@@ -134,78 +134,132 @@
  		<br></br><br></br><br></br>
 
 
- 	<p:dataTable  id="testingID" var="materiel" value="#{depositaireBean.listMaterielNouveauValide}">
+            <table>
+                <tr class="entreeo">
+                    <th colspan="2">Pièces justificatives</th>
+                    <th style="border-bottom: none;">Désignation des opérations</th>
+                    <th colspan="2">1 opération A</th>
+                    <th colspan="2">2 opération A</th>
+                    <th colspan="2">3 opération A</th>
+                    <th colspan="2">4 opération A</th>
 
- 		<p:columnGroup type="header">
-            <p:row>
 
-                <p:column colspan="2" headerText="Pièces justificatives" />
+                </tr>
+                <tr class="entreeo">
+                    <th >N°</th>
+                    <th >Date</th>
+                    <th style="border-top: none"></th>
+                    <th >Charge</th>
+                    <th >Décharge</th>
+                    <th >Charge</th>
+                    <th >Décharge</th>
+                    <th >Charge</th>
+                    <th >Décharge</th>
+                    <th >Charge</th>
+                    <th >Décharge</th>
+                    
+                    
+                </tr>
 
-                <p:column rowspan="2" headerText="Désignation des opérations" />
-                <p:column colspan="2" headerText="1 opération A" />
-                <p:column colspan="2" headerText="2 opération A" />
-                <p:column colspan="2" headerText="3 opération A" />
-                <p:column colspan="2" headerText="4 opération A" />
                 
+        <c:forEach var="o" items="#{suivieditionBean.listOpEntreeAndSortieByDirectionByYearByDateAsc}">
+        <c:forEach var="materiel" items="#{o.listMat}">
+
+                <tr class="entreeo">    
+                    <td><h:outputText value="" /></td>
+                    <td><h:outputText value="" /></td>
+                    <td><h:outputText value="" /></td>
+                    <td><h:outputText value="" /></td>
+                    <td><h:outputText value="" /></td>
+                    <td><h:outputText value="" /></td>
+                    <td><h:outputText value="" /></td>
+                    <td><h:outputText value="" /></td>
+                    <td><h:outputText value="" /></td>
+                    <td><h:outputText value="" /></td>
+                    <td><h:outputText value="" /></td>
+                </tr>
+
+        </c:forEach>
+
+    </c:forEach>
+
+            </table>
+
+
+                <table>
+                <tr class="entreeo">
+                    
+                    <th colspan="2">5 opération A</th>
+                    <th colspan="2">6 opération A</th>
+                    <th colspan="2">7 opération A</th>
+                    <th colspan="2">8 opération A</th>
+                    <th colspan="2">9 opération A</th>
+                    <th colspan="2">10 opération A</th>
+                    <th colspan="2">11 opération A</th>
+                    <th colspan="2">12 opération A</th>
+
+
+                </tr>
+                <tr class="entreeo">
+                    <th >Charge</th>
+                    <th >Décharge</th>
+                    <th >Charge</th>
+                    <th >Décharge</th>
+                    <th >Charge</th>
+                    <th >Décharge</th>
+                    <th >Charge</th>
+                    <th >Décharge</th>
+                    <th >Charge</th>
+                    <th >Décharge</th>
+                    <th >Charge</th>
+                    <th >Décharge</th>
+                    <th >Charge</th>
+                    <th >Décharge</th>
+                    <th >Charge</th>
+                    <th >Décharge</th>
+                    <th >Charge</th>
+                    <th >Décharge</th>
+                    <th >Charge</th>
+                    <th >Décharge</th>
+                    <th >Charge</th>
+                    <th >Décharge</th>
+                    <th >Charge</th>
+                    <th >Décharge</th>
+                    
+                    
+                </tr>
+
                 
-            </p:row>
-            <p:row>
-                <p:column  headerText="N°" />
-                <p:column  headerText="Date" />
-                <p:column  headerText="Charge" />
-                <p:column  headerText="Décharge" />
-                <p:column  headerText="Charge" />
-                <p:column  headerText="Décharge" />
-                <p:column  headerText="Charge" />
-                <p:column  headerText="Décharge" />
-                <p:column  headerText="Charge" />
-                <p:column  headerText="Décharge" />
-                
-            </p:row>
-        </p:columnGroup>
- 
-        <p:column>
-            <h:outputText value="#{materiel.nomenMat.nomenclature}" />
-        </p:column>
-        <p:column>
-            <h:outputText value="" />
-        </p:column>
-        <p:column>
-            <h:outputText value="" />
-        </p:column>
+        <c:forEach var="o" items="#{suivieditionBean.listOpEntreeAndSortieByDirectionByYearByDateAsc}">
+        <c:forEach var="materiel" items="#{o.listMat}">
 
-        <p:column>
-            <h:outputText value="" />
-        </p:column>
+                <tr class="entreeo">    
+                    <td><h:outputText value="" /></td>
+                    <td><h:outputText value="" /></td>
+                    <td><h:outputText value="" /></td>
+                    <td><h:outputText value="" /></td>
+                    <td><h:outputText value="" /></td>
+                    <td><h:outputText value="" /></td>
+                    <td><h:outputText value="" /></td>
+                    <td><h:outputText value="" /></td>
+                    <td><h:outputText value="" /></td>
+                    <td><h:outputText value="" /></td>
+                    <td><h:outputText value="" /></td>
+                    <td><h:outputText value="" /></td>
+                    <td><h:outputText value="" /></td>
+                    <td><h:outputText value="" /></td>
+                    <td><h:outputText value="" /></td>
+                    <td><h:outputText value="" /></td>
+                </tr>
 
-        <p:column>
-            <h:outputText value="" />
-        </p:column>
+        </c:forEach>
 
-        <p:column>
-            <h:outputText value="" />
-        </p:column>
+    </c:forEach>
 
-        <p:column>
-            <h:outputText value="" />
-        </p:column>
-
-        <p:column>
-            <h:outputText value="" />
-        </p:column>
-        <p:column>
-            <h:outputText value="" />
-        </p:column>
-        <p:column>
-            <h:outputText value="" />
-        </p:column>
-        <p:column>
-            <h:outputText value="" />
-        </p:column>
+            </table>
 
 
-       
-    </p:dataTable>
+
 
     <br></br><br></br><br></br>
 
