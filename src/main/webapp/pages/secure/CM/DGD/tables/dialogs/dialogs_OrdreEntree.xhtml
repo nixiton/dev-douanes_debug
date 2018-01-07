@@ -122,7 +122,7 @@
 
  			<table>
  				<tr class="entreeo">
-                    <th>Numéro</th>
+                    <th style="border-bottom: none;">Numéro</th>
                     <th style="border-bottom: none;"></th>
                     <th style="border-bottom: none;"></th>
                     <th style="border-bottom: none;"></th>
@@ -131,7 +131,8 @@
 
  				</tr>
                 <tr class="entreeo">
-                    <th></th>
+                    <th style="border-bottom: none;border-top: none"></th>
+                    <th style="border-bottom: none;border-top: none"></th>
                     <th style="border-bottom: none;border-top: none"></th>
                     <th style="border-bottom: none;border-top: none"></th>
                     <th style="border-bottom: none;border-top: none"></th>
@@ -140,7 +141,8 @@
                     <th style="border-bottom: none;border-top: none"></th>
                 </tr>
                 <tr class="entreeo">
-                    <th>Du folio du grand livre| de nomenclature somaire</th>
+                    <th>Du folio du grand livre </th> <th> de nomenclature somaire</th>
+                    <th> de nomenclature somaire</th>
                     <th style="border-top: none;">Désignation des matériels et objets</th>
                     <th style="border-top: none;">Espèce des unités</th>
                     <th style="border-top: none;">Quantité</th>
@@ -153,7 +155,8 @@
         <c:forEach var="mat" items="#{gacBean.curentOperation1.listMat}">
 
  				<tr class="entreeo">	
- 					<td><p:inputText style="text-align: center;"></p:inputText>  |  #{mat.nomenMat.nomenclature}</td>
+ 					<td><p:inputText style="text-align: center;"></p:inputText>  </td>
+                    <td>  #{mat.nomenMat.nomenclature}</td>
  					<td>#{mat.nomenMat.designation}</td>
  					<td>#{mat.typematerieladd.designation} , #{mat.renseignement}</td>
  					<td></td>
