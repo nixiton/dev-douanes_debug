@@ -162,11 +162,11 @@
  					<td>#{mat.nomenMat.designation}, #{mat.typematerieladd.designation} , #{mat.renseignement}</td>
  					<td>#{mat.especeUnite}</td>
  					<td></td>
-                    <c:if test="#{mat['class'].simpleName eq MaterielEx}">
+                    <c:if test="#{mat['class'].simpleName eq 'MaterielEx'}">
  					<td>#{mat.pu}</td>
                     </c:if>
 
-                    <c:if test="#{mat['class'].simpleName eq MaterielNouv}">
+                    <c:if test="#{mat['class'].simpleName eq 'MaterielNouv'}">
                     <td>#{mat.montant_facture}</td>
                     </c:if>
 
