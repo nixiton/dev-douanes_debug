@@ -23,7 +23,9 @@
                  paginator="true" rows="10" style="margin-bottom:20px"  
                  rowStyleClass="#{c['class'].simpleName ne 'OpEntree' and c['class'].simpleName ne 'OpSortie' ? 'ui-helper-hidden' : '' }">
 
-    <ui:repeat value="#{c.listMat}" var="mat">
+    <!--ui:repeat value="#{c.listMat}" var="mat"-->
+
+     <c:forEach var="mat" items="#{c.listMat}">
 
     
         <p:column headerText="Numéro d'ordre des pièces justificatives"  >  
@@ -165,7 +167,9 @@
 
         </p:column>
     
-    </ui:repeat>
+    <!--/ui:repeat-->
+
+</c:forEach>
     
         
     </p:dataTable>
