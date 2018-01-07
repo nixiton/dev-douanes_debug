@@ -236,13 +236,19 @@
                     <h:outputText value="#{materiel.montant_facture}" />                    
                 </c:if>
             </td>
-                    <td><h:outputText value="" /></td>
-                    <td><h:outputText value="" /></td>
+                    <td><h:outputText value="" />1</td>
+                    <td><h:outputText value="" /><c:if test="#{materiel['class'].simpleName eq 'MaterielEx'}">
+                    <h:outputText value="#{1*materiel.pu}" />
+                    </c:if>
+
+                    <c:if test="#{materiel['class'].simpleName eq 'MaterielNouv'}">
+                    <h:outputText value="#{1*materiel.montant_facture}" />                    
+                </c:if></td>
                     <td>
                         <c:set target="#{suivieditionBean}" property="materiel" value="#{materiel}" />
-                        #{suivieditionBean.listOperationAttributionByMateriel}
+
                         <c:forEach var="op" items="#{suivieditionBean.listOperationAttributionByMateriel}">
-                            #{op.detenteur.im} =>
+                            => #{op.detenteur.im}
                         </c:forEach>
                     </td>
                 </tr>
