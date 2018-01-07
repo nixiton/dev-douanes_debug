@@ -73,36 +73,32 @@
 
         <p:column headerText="Désignation des matières et objets" >
 
-
-        #{c.listMat}
-        
-
-        <c:forEach var="mat" items="#{c.listMat}">
-                #{mat.typematerieladd.designation} - #{mat.renseignement}, 
-            </c:forEach>
-            
         <p:panel rendered="#{c['class'].simpleName eq 'OpEntree'}">
 
-            <c:forEach var="mat" items="#{c.listMat}">
+        
+            <ui:repeat value="#{c.listMat}" var="mat">
                 #{mat.typematerieladd.designation} - #{mat.renseignement}, 
-            </c:forEach>
+
+            </ui:repeat>
 
         </p:panel>
 
         <p:panel rendered="#{c['class'].simpleName eq 'OpSortie'}">
-            <c:forEach var="mat" items="#{c.listMat}">
-                #{mat.typematerieladd.designation} #{mat.renseignement},
-            </c:forEach>
+            <ui:repeat value="#{c.listMat}" var="mat">
+                #{mat.typematerieladd.designation} - #{mat.renseignement}, 
+
+            </ui:repeat>
         </p:panel>
             
 
         </p:column>
 
         <p:column headerText="Espèce des unités"  >
-            
-            <c:forEach var="mat" items="#{c.listMat}">
+
+            <ui:repeat value="#{c.listMat}" var="mat">
                 #{mat.especeUnite}, 
-            </c:forEach>
+
+            </ui:repeat>
         
             
 
@@ -111,7 +107,8 @@
         <p:column headerText="Prix de l'unité" >
             
             <p:panel rendered="#{c['class'].simpleName eq 'OpEntree'}">
-            <c:forEach var="mat" items="#{c.listMat}">
+
+            <ui:repeat value="#{c.listMat}" var="mat">
                 <c:if test="#{mat['class'].simpleName eq 'MaterielEx'}">
                     #{mat.pu}
                     </c:if>
@@ -120,13 +117,14 @@
                     #{mat.montant_facture}
                     </c:if>
 
-                
-            </c:forEach>
+            </ui:repeat>
+
             
         </p:panel>
 
         <p:panel rendered="#{c['class'].simpleName eq 'OpSortie'}">
-            <c:if test="#{mat['class'].simpleName eq 'MaterielEx'}">
+            <ui:repeat value="#{c.listMat}" var="mat">
+                <c:if test="#{mat['class'].simpleName eq 'MaterielEx'}">
                     #{mat.pu}
                     </c:if>
 
@@ -134,6 +132,7 @@
                     #{mat.montant_facture}
                     </c:if>
 
+            </ui:repeat>
         </p:panel>
             
             
