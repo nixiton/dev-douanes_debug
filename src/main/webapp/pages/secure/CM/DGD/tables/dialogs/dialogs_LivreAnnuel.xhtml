@@ -239,11 +239,11 @@
                     <td><h:outputText value="" /></td>
                     <td><h:outputText value="" /></td>
                     <td>
-                        <c:set var="materiel1" value="#{suivieditionBean.setMateriel(materiel)}" />
+                        <c:set var="#{suivieditionBean.materiel}" value="materiel" />
                         <c:forEach var="value" items="#{suivieditionBean.listOperationAttributionByMateriel}">
                             #{value.detenteur.im} =>
                         </c:forEach>
-                        <c:set var="materiel1" value="#{suivieditionBean.setMateriel(null)}" />
+                        <c:set var="#{suivieditionBean.materiel}" value="null" />
                     </td>
                 </tr>
 
