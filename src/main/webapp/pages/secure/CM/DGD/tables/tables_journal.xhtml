@@ -164,12 +164,10 @@
             
             <ui:repeat value="#{c.listMat}" var="mat">
                 <p:panel rendered="#{mat['class'].simpleName eq 'MaterielEx'}">
-                    
                     #{1*mat.pu}
                     </p:panel>
 
                     <p:panel rendered="#{mat['class'].simpleName eq 'MaterielNouv'}">
-                    
                     #{1*mat.montant_facture}
                     </p:panel>
 

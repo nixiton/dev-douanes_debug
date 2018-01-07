@@ -161,7 +161,7 @@
                     <td> #{mat.nomenMat.nomenclature}</td>
  					<td>#{mat.nomenMat.designation}, #{mat.typematerieladd.designation} , #{mat.renseignement}</td>
  					<td>#{mat.especeUnite}</td>
- 					<td></td>
+ 					<td>1</td>
                     <c:if test="#{mat['class'].simpleName eq 'MaterielEx'}">
  					<td>#{mat.pu}</td>
                     </c:if>
@@ -170,7 +170,14 @@
                     <td>#{mat.montant_facture}</td>
                     </c:if>
 
- 					<td></td>
+ 					<c:if test="#{mat['class'].simpleName eq 'MaterielEx'}">
+                    <td>#{1*mat.pu}</td>
+                    </c:if>
+
+                    <c:if test="#{mat['class'].simpleName eq 'MaterielNouv'}">
+                    <td>#{1*mat.montant_facture}</td>
+                    </c:if>
+
                     <td></td>
  					<td>#{mat.reference}</td>
  				</tr>
