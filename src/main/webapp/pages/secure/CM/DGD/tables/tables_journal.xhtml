@@ -24,11 +24,9 @@
                  rowStyleClass="#{c['class'].simpleName ne 'OpEntree' and c['class'].simpleName ne 'OpSortie' ? 'ui-helper-hidden' : '' }">
 
     
-
-    
-        <p:column headerText="Numéro d'ordre des pièces justificatives"  >  
+        <p:column headerText="Numéro d'ordre des pièces justificatives"  value="#{suivieditionBean.listOperationEntree[0]}" columnIndexVar="i">  
             
-            <p:panel rendered="#{c['class'].simpleName eq 'OpEntree' }" >
+            <p:panel rendered="#{c[i]['class'].simpleName eq 'OpEntree' }" >
             
                 #{c.numentree}
             </p:panel>
