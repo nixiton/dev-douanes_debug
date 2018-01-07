@@ -23,9 +23,7 @@
                  paginator="true" rows="10" style="margin-bottom:20px"  
                  rowStyleClass="#{c['class'].simpleName ne 'OpEntree' and c['class'].simpleName ne 'OpSortie' ? 'ui-helper-hidden' : '' }">
 
-    <!--ui:repeat value="#{c.listMat}" var="mat"-->
-
-     <c:forEach var="mat" items="#{c.listMat}">
+    
 
     
         <p:column headerText="Numéro d'ordre des pièces justificatives"  >  
@@ -50,7 +48,7 @@
 
         <p:panel rendered="#{c['class'].simpleName eq 'OpEntree'}">
 
-                
+                <ui:repeat value="#{c.listMat}" var="mat">
 
                     
                     <p:panel rendered="#{mat['class'].simpleName eq 'MaterielEx'}">
@@ -62,7 +60,7 @@
                     
                     #{mat.fournisseur.designation}
                     </p:panel>
-               
+               </ui:repeat>
 
                 
             </p:panel>
@@ -81,18 +79,18 @@
         <p:panel rendered="#{c['class'].simpleName eq 'OpEntree'}">
 
         
-            
+            <ui:repeat value="#{c.listMat}" var="mat">
                 #{mat.typematerieladd.designation} - #{mat.renseignement}, 
 
-            
+            </ui:repeat>
 
         </p:panel>
 
         <p:panel rendered="#{c['class'].simpleName eq 'OpSortie'}">
-            
+            <ui:repeat value="#{c.listMat}" var="mat">
                 #{mat.typematerieladd.designation} - #{mat.renseignement}, 
 
-
+            </ui:repeat>
         </p:panel>
             
 
@@ -100,10 +98,10 @@
 
         <p:column headerText="Espèce des unités"  >
 
-            
+            <ui:repeat value="#{c.listMat}" var="mat">
                 #{mat.especeUnite}, 
 
-            
+            </ui:repeat>
         
             
 
@@ -113,7 +111,7 @@
             
             <p:panel rendered="#{c['class'].simpleName eq 'OpEntree'}">
 
-            
+            <ui:repeat value="#{c.listMat}" var="mat">
 
                 <p:panel rendered="#{mat['class'].simpleName eq 'MaterielEx'}">
                     
@@ -125,12 +123,13 @@
                     #{mat.montant_facture}
                     </p:panel>
 
-            
+            </ui:repeat>
+
             
         </p:panel>
 
         <p:panel rendered="#{c['class'].simpleName eq 'OpSortie'}">
-            
+            <ui:repeat value="#{c.listMat}" var="mat">
                 <p:panel rendered="#{mat['class'].simpleName eq 'MaterielEx'}">
                     
                     #{mat.pu}
@@ -141,7 +140,7 @@
                     #{mat.montant_facture}
                     </p:panel>
 
-            
+            </ui:repeat>
         </p:panel>
             
             
@@ -167,9 +166,6 @@
 
         </p:column>
     
-    <!--/ui:repeat-->
-
-</c:forEach>
     
         
     </p:dataTable>
