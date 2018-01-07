@@ -496,7 +496,7 @@ public class SuiviEditionBean {
         Date sdate = new GregorianCalendar(2010, Calendar.JANUARY, 1).getTime();
         Date edate = new GregorianCalendar(2018, Calendar.DECEMBER, 30).getTime();
         //List<Operation> l = usermetierimpl.getListOpEntreeAndSortieByDirectionByYearByDateAsc(cur.getDirection(), sdate, edate);
-        List<Operation> l = operationdao.getListOperationByOperator(cur, 100);
+        List<Operation> l = operationdao.getListOpEntreeAndSortieByDirectionByYearByDateAsc(cur.getDirection(), sdate, edate);
         for(Operation o : l)
         {
             System.out.print("listOperation======="+o.getState());
