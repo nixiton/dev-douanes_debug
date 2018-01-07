@@ -46,7 +46,7 @@
 
         <p:panel rendered="#{c['class'].simpleName eq 'OpEntree'}">
 
-                <c:forEach var="mat" items="#{c.listMat}">
+                <ui:repeat value="#{c.listMat}" var="mat">
 
                     
 
@@ -57,7 +57,7 @@
                     <c:if test="#{mat['class'].simpleName eq 'MaterielNouv'}">
                     #{mat.fournisseur.designation}
                     </c:if>
-               </c:forEach>
+               </ui:repeat>
 
                 
             </p:panel>
@@ -145,14 +145,14 @@
           
             
             
-            000
+            
         
 
         </p:column>
 
         <p:column headerText="Valeur"  >
             
-            000
+            
         
         
 
