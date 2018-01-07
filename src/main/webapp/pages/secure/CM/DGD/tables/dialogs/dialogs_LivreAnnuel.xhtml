@@ -239,7 +239,7 @@
                     <td><h:outputText value="" /></td>
                     <td><h:outputText value="" /></td>
                     <td>
-                        <c:set arget="#{suivieditionBean}" property="materiel" value="materiel" />
+                        <c:set target="#{suivieditionBean}" property="materiel" value="materiel" />
                         <c:forEach var="value" items="#{suivieditionBean.listOperationAttributionByMateriel}">
                             #{value.detenteur.im} =>
                         </c:forEach>
