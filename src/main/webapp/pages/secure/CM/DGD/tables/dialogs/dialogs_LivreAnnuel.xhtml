@@ -228,17 +228,21 @@
                     <td><h:outputText value="#{materiel.nomenMat.nomenclature}" /> </td>
                     <td> <h:outputText value="#{materiel.especeUnite}" /></td>
                     <td><h:outputText value="#{materiel.nomenMat.designation}, #{materiel.typematerieladd.designation} , #{materiel.renseignement}" /></td>
-                    <td><c:if test="#{mat['class'].simpleName eq 'MaterielEx'}">
+                    <td><c:if test="#{materiel['class'].simpleName eq 'MaterielEx'}">
                     <h:outputText value="#{materiel.pu}" />
                     </c:if>
 
-                    <c:if test="#{mat['class'].simpleName eq 'MaterielNouv'}">
+                    <c:if test="#{materiel['class'].simpleName eq 'MaterielNouv'}">
                     <h:outputText value="#{materiel.montant_facture}" />                    
                 </c:if>
             </td>
                     <td><h:outputText value="" /></td>
                     <td><h:outputText value="" /></td>
-                    <td><h:outputText value="" /></td>
+                    <td>
+                        <c:forEach var="value" items="#{suivieditionBean.getListOperationAttributionByMateriel1(materiel)">
+                            #{value.detenteur.im} =>
+                        </c:forEach>
+                    </td>
                 </tr>
 
         </c:forEach>

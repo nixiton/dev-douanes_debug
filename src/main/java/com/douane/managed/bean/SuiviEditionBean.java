@@ -391,6 +391,12 @@ public class SuiviEditionBean {
     {
         return usermetierimpl.getListOpAttrByMat(getMateriel());
     }
+
+    public List<OpAttribution> getListOperationAttributionByMateriel1(Materiel m)
+    {
+        return usermetierimpl.getListOpAttrByMat(m);
+    }
+
     public void setListOperationAttributionByMateriel(List<OpAttribution> l)
     {
         this.listOperationAttributionByMateriel = l;
