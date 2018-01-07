@@ -240,7 +240,7 @@
                     <td><h:outputText value="" /></td>
                     <td>
                         <c:set var="materiel1" value="#{suivieditionBean.setMateriel(materiel)}" />
-                        <c:forEach var="value" items="#{suivieditionBean.listOperationAttributionByMateriel">
+                        <c:forEach var="value" items="#{suivieditionBean.listOperationAttributionByMateriel}">
                             #{value.detenteur.im} =>
                         </c:forEach>
                         <c:set var="materiel1" value="#{suivieditionBean.setMateriel(null)}" />
