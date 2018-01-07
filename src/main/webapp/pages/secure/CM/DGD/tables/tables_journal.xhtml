@@ -48,7 +48,7 @@
 
                 <ui:repeat value="#{c.listMat}" var="mat">
 
-                    
+                    #{mat['class'].simpleName}
 
                     <c:if test="#{mat['class'].simpleName eq 'MaterielEx'}">
                     #{mat.direc.designation}
