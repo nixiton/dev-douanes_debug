@@ -13,12 +13,15 @@
 
 
      <h:form>
-    <p:dataTable   var="c" value="#{suivieditionBean.listOpEntreeAndSortieByDirectionByYearByDateAsc}"
+    <!--p:dataTable   var="c" value="#{suivieditionBean.listOpEntreeAndSortieByDirectionByYearByDateAsc}"
+                 paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}"
+                 paginator="true" rows="10" style="margin-bottom:20px"  
+                 rowStyleClass="#{c['class'].simpleName ne 'OpEntree' and c['class'].simpleName ne 'OpSortie' ? 'ui-helper-hidden' : '' }"-->
+
+    <p:dataTable   var="c" value="#{suivieditionBean.listOperationEntree}"
                  paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}"
                  paginator="true" rows="10" style="margin-bottom:20px"  
                  rowStyleClass="#{c['class'].simpleName ne 'OpEntree' and c['class'].simpleName ne 'OpSortie' ? 'ui-helper-hidden' : '' }">
-
-
 
     
         <p:column headerText="Numéro d'ordre des pièces justificatives"  >  
