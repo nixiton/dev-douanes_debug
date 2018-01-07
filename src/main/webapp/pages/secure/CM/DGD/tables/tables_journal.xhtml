@@ -27,6 +27,8 @@
 
     
         <p:column headerText="Numéro d'ordre des pièces justificatives" >  
+
+        <ui:repeat value="#{c.listMat}" var="mat">
             
             <p:panel rendered="#{c['class'].simpleName eq 'OpEntree' }" >
             
@@ -36,10 +38,16 @@
                 #{c.numSortie}
             </p:panel>
 
+        </ui:repeat>
+
         </p:column>
         <p:column headerText="Date des entrées et des sorties"  >
+
+            <ui:repeat value="#{c.listMat}" var="mat">
             
             #{c.date}
+
+        </ui:repeat>
 
         </p:column>
 
@@ -76,6 +84,8 @@
 
         <p:column headerText="Désignation des matières et objets" >
 
+        <ui:repeat value="#{c.listMat}" var="mat">
+
         <p:panel rendered="#{c['class'].simpleName eq 'OpEntree'}">
 
         
@@ -92,7 +102,8 @@
 
             </ui:repeat>
         </p:panel>
-            
+        
+        </ui:repeat>
 
         </p:column>
 
