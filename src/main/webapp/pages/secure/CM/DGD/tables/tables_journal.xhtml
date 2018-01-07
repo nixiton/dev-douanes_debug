@@ -27,27 +27,19 @@
 
     
         <p:column headerText="Numéro d'ordre des pièces justificatives" >  
-
-        <ui:repeat value="#{c.listMat}" var="mat">
             
             <p:panel rendered="#{c['class'].simpleName eq 'OpEntree' }" >
             
-                #{c.numentree}<br></br>
+                #{c.numentree}
             </p:panel>
             <p:panel rendered="#{c['class'].simpleName eq 'OpSortie' }" >
-                #{c.numSortie}<br></br>
+                #{c.numSortie}
             </p:panel>
-
-        </ui:repeat>
 
         </p:column>
         <p:column headerText="Date des entrées et des sorties"  >
-
-            <ui:repeat value="#{c.listMat}" var="mat">
             
-            #{c.date}<br></br>
-
-        </ui:repeat>
+            #{c.date}
 
         </p:column>
 
@@ -61,19 +53,19 @@
                     
                     <p:panel rendered="#{mat['class'].simpleName eq 'MaterielEx'}">
                     
-                    #{mat.direc.designation}<br></br>
+                    #{mat.direc.designation}
                     </p:panel>
 
                     <p:panel rendered="#{mat['class'].simpleName eq 'MaterielNouv'}">
                     
-                    #{mat.fournisseur.designation}<br></br>
+                    #{mat.fournisseur.designation}
                     </p:panel>
                </ui:repeat>
 
                 
             </p:panel>
             <p:panel rendered="#{c['class'].simpleName eq 'OpSortie' }" >
-                #{c.motifsortie.designation}<br></br>
+                #{c.motifsortie.designation}
             </p:panel>
             
         
@@ -83,8 +75,6 @@
         </p:column>
 
         <p:column headerText="Désignation des matières et objets" >
-
-        <ui:repeat value="#{c.listMat}" var="mat">
 
         <p:panel rendered="#{c['class'].simpleName eq 'OpEntree'}">
 
@@ -102,8 +92,7 @@
 
             </ui:repeat>
         </p:panel>
-        
-        </ui:repeat>
+            
 
         </p:column>
 
@@ -126,12 +115,12 @@
 
                 <p:panel rendered="#{mat['class'].simpleName eq 'MaterielEx'}">
                     
-                    #{mat.pu}<br></br>
+                    #{mat.pu}
                     </p:panel>
 
                     <p:panel rendered="#{mat['class'].simpleName eq 'MaterielNouv'}">
                     
-                    #{mat.montant_facture}<br></br>
+                    #{mat.montant_facture}
                     </p:panel>
 
             </ui:repeat>
@@ -143,12 +132,12 @@
             <ui:repeat value="#{c.listMat}" var="mat">
                 <p:panel rendered="#{mat['class'].simpleName eq 'MaterielEx'}">
                     
-                    #{mat.pu}<br></br>
+                    #{mat.pu}
                     </p:panel>
 
                     <p:panel rendered="#{mat['class'].simpleName eq 'MaterielNouv'}">
                     
-                    #{mat.montant_facture}<br></br>
+                    #{mat.montant_facture}
                     </p:panel>
 
             </ui:repeat>
@@ -176,12 +165,12 @@
             <ui:repeat value="#{c.listMat}" var="mat">
                 <p:panel rendered="#{mat['class'].simpleName eq 'MaterielEx'}">
                     
-                    #{1*mat.pu}<br></br>
+                    #{1*mat.pu}
                     </p:panel>
 
                     <p:panel rendered="#{mat['class'].simpleName eq 'MaterielNouv'}">
                     
-                    #{1*mat.montant_facture}<br></br>
+                    #{1*mat.montant_facture}
                     </p:panel>
 
 
