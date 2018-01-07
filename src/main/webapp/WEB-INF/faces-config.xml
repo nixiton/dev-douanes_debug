@@ -800,12 +800,12 @@
 			<redirect />
 		</navigation-case>
 
-		<navigation-case>
+		<!--navigation-case>
 			<from-action>#{depositaireBean.exit}</from-action>
 			<from-outcome>success</from-outcome>
 			<to-view-id>/pages/secure/CM/DC/saisieMatEx.xhtml</to-view-id>
 			<redirect />
-		</navigation-case>
+		</navigation-case-->
 		
 		
 
