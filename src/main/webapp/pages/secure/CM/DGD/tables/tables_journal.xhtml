@@ -18,12 +18,13 @@
                  paginator="true" rows="10" style="margin-bottom:20px"  
                  rowStyleClass="#{c['class'].simpleName ne 'OpEntree' and c['class'].simpleName ne 'OpSortie' ? 'ui-helper-hidden' : '' }"-->
 
+
     <p:dataTable   var="c" value="#{suivieditionBean.listOperationEntree}"
                  paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}"
                  paginator="true" rows="10" style="margin-bottom:20px"  
                  rowStyleClass="#{c['class'].simpleName ne 'OpEntree' and c['class'].simpleName ne 'OpSortie' ? 'ui-helper-hidden' : '' }">
 
-        
+
     
         <p:column headerText="Numéro d'ordre des pièces justificatives" >  
             
@@ -79,7 +80,7 @@
 
         
             <ui:repeat value="#{c.listMat}" var="mat">
-                #{mat.typematerieladd.designation} - #{mat.renseignement}, 
+                #{mat.typematerieladd.designation} - #{mat.renseignement}<br></br>
 
             </ui:repeat>
 
@@ -87,7 +88,7 @@
 
         <p:panel rendered="#{c['class'].simpleName eq 'OpSortie'}">
             <ui:repeat value="#{c.listMat}" var="mat">
-                #{mat.typematerieladd.designation} - #{mat.renseignement}, 
+                #{mat.typematerieladd.designation} - #{mat.renseignement}<br></br>
 
             </ui:repeat>
         </p:panel>
@@ -98,7 +99,7 @@
         <p:column headerText="Espèce des unités"  >
 
             <ui:repeat value="#{c.listMat}" var="mat">
-                #{mat.especeUnite}, 
+                #{mat.especeUnite}<br></br>
 
             </ui:repeat>
         
@@ -150,8 +151,10 @@
 
         <p:column headerText="Quanitité" >
           
-            
-            
+            <ui:repeat value="#{c.listMat}" var="mat">
+                1<br></br>
+
+            </ui:repeat>
             
         
 
@@ -159,7 +162,19 @@
 
         <p:column headerText="Valeur"  >
             
-            
+            <ui:repeat value="#{c.listMat}" var="mat">
+                <p:panel rendered="#{mat['class'].simpleName eq 'MaterielEx'}">
+                    
+                    #{1*mat.pu}
+                    </p:panel>
+
+                    <p:panel rendered="#{mat['class'].simpleName eq 'MaterielNouv'}">
+                    
+                    #{1*mat.montant_facture}
+                    </p:panel>
+
+
+            </ui:repeat>
         
         
 
