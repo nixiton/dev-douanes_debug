@@ -45,7 +45,21 @@
             
 
         <p:panel rendered="#{c['class'].simpleName eq 'OpEntree'}">
-                #{c.direction.designation}
+
+                <c:forEach var="mat" items="#{c.listMat}">
+
+                    
+
+                    <c:if test="#{mat['class'].simpleName eq 'MaterielEx'}">
+                    #{mat.direc.designation}
+                    </c:if>
+
+                    <c:if test="#{mat['class'].simpleName eq 'MaterielNouv'}">
+                    #{mat.fournisseur.designation}
+                    </c:if>
+               </c:forEach>
+
+                
             </p:panel>
             <p:panel rendered="#{c['class'].simpleName eq 'OpSortie' }" >
                 #{c.motifsortie.designation}
