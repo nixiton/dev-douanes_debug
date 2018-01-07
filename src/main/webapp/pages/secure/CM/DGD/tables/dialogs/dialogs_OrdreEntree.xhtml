@@ -6,6 +6,7 @@
     xmlns:f="http://java.sun.com/jsf/core"
     xmlns:h="http://java.sun.com/jsf/html"
     xmlns:p="http://primefaces.org/ui"
+    xmlns:c="http://java.sun.com/jsp/jstl/core"
     >
 
 
@@ -148,6 +149,9 @@
                     <th>Par numero de nomanclature somaire</th>
                     <th style="border-top: none;">Numéro de la pièce justificative de sortie ou indocation de référence</th>
                 </tr>
+
+        <c:forEach var="mat" items="#{gacBean.curentOperation.listMat}">
+
  				<tr class="entreeo">	
  					<td><p:inputText style="text-align: center;"></p:inputText>  |  #{gacBean.curentOperation1.mat.nomenMat.nomenclature}</td>
  					<td>#{gacBean.curentOperation1.mat.nomenMat.designation}</td>
@@ -158,6 +162,9 @@
  					<td></td>
  					<td>#{gacBean.curentOperation1.mat.reference}</td>
  				</tr>
+
+        </c:forEach>
+
  			</table>
 
  			<br></br><br></br><br></br><br></br>
