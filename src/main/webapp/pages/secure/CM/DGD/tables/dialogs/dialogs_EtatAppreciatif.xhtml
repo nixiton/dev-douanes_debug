@@ -163,11 +163,14 @@
                 </tr>
 
                 
-        <c:forEach var="o" items="#{suivieditionBean.listOpEntreeAndSortieByDirectionByYearByDateAsc}">
-        <c:forEach var="materiel" items="#{o.listMat}">
+        <!--c:forEach var="o" items="#{suivieditionBean.listOpEntreeAndSortieByDirectionByYearByDateAsc}"-->
+        <c:forEach var="o" items="#{suivieditionBean.listOperationEntree}">
+
+            <c:set var="n" value="#{1}"/>
+        
 
                 <tr class="entreeo">    
-                    <td><h:outputText value="" /></td>
+                    <td><h:outputText value="#{n}" /></td>
                     <td><h:outputText value="" /></td>
                     <td><h:outputText value="" /></td>
                     <td><h:outputText value="" /></td>
@@ -180,7 +183,7 @@
                     <td><h:outputText value="" /></td>
                 </tr>
 
-        </c:forEach>
+            <c:set var="n" value="#{n + 1}"/>
 
     </c:forEach>
 
@@ -223,15 +226,14 @@
                     <th >Décharge</th>
                     <th >Charge</th>
                     <th >Décharge</th>
-                    <th >Charge</th>
-                    <th >Décharge</th>
                     
                     
                 </tr>
 
                 
-        <c:forEach var="o" items="#{suivieditionBean.listOpEntreeAndSortieByDirectionByYearByDateAsc}">
-        <c:forEach var="materiel" items="#{o.listMat}">
+        <!--c:forEach var="o" items="#{suivieditionBean.listOpEntreeAndSortieByDirectionByYearByDateAsc}"-->
+        <c:forEach var="o" items="#{suivieditionBean.listOperationEntree}">
+        
 
                 <tr class="entreeo">    
                     <td><h:outputText value="" /></td>
@@ -252,7 +254,7 @@
                     <td><h:outputText value="" /></td>
                 </tr>
 
-        </c:forEach>
+        
 
     </c:forEach>
 
