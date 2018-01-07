@@ -197,116 +197,105 @@
  			</div>
  		</div>
 
- 	<p:dataTable  id="testingID" var="materiel" value="#{depositaireBean.listMaterielNouveauValide}">
 
- 		<p:columnGroup type="header">
-            <p:row>
-                <p:column rowspan="2" headerText="Numero d'ordre de la nomenclature" />
-                <p:column rowspan="2" headerText="Espèce des unités" />
-                <p:column rowspan="2" headerText="Désignation des objets" />
-                <p:column rowspan="2" headerText="Prix de l'unité" />
+        <table>
+                <tr class="entreeo">
+                    <th style="border-bottom: none;">Numero d'ordre de la nomenclature</th>
+                    <th style="border-bottom: none;">Espèce des unités  </th>
+                    <th style="border-bottom: none;">Désignation des objets</th>
+                    <th style="border-bottom: none;"> Prix de l'unité</th>
+                    <th colspan="2">Existant au 1er Janvier 2017</th>
+                    <th style="border-bottom: none;">Mouvements effectués</th>
 
-                <p:column colspan="2" headerText="Existant au 1er Janvier #{gacBean.annee}" />
-                <p:column rowspan="2" headerText="Mouvements effectués" />
-            </p:row>
-            <p:row>
-                <p:column  headerText="Quantité" />
-                <p:column  headerText="Valeurs" />
+                </tr>
+                <tr class="entreeo">
+                    <th style="border-top: none"></th>
+                    <th style="border-top: none"></th>
+                    <th style="border-top: none"></th>
+                    <th style="border-top: none"></th>
+                    <th >Quantité</th>
+                    <th >Valeurs</th>
+                    <th style="border-top: none"></th>
+                </tr>
+
                 
-            </p:row>
-        </p:columnGroup>
- 
-        <p:column>
-            <h:outputText value="#{materiel.nomenMat.nomenclature}" />
-        </p:column>
-        <p:column>
-            <h:outputText value="" />
-        </p:column>
-        <p:column>
-            <h:outputText value="#{materiel.nomenMat.designation}" />
-        </p:column>
+        <c:forEach var="o" items="#{suivieditionBean.listOpEntreeAndSortieByDirectionByYearByDateAsc}">
+        <c:forEach var="materiel" items="#{o.listMat}">
 
-        <p:column>
-            <h:outputText value="#{materiel.pu}" />
-        </p:column>
+                <tr class="entreeo">    
+                    <td><h:outputText value="#{materiel.nomenMat.nomenclature}" /> </td>
+                    <td> <h:outputText value="#{materiel.especeUnite}" /></td>
+                    <td><h:outputText value="#{materiel.nomenMat.designation}, #{materiel.typematerieladd.designation} , #{materiel.renseignement}" /></td>
+                    <td><c:if test="#{mat['class'].simpleName eq 'MaterielEx'}">
+                    <h:outputText value="#{materiel.pu}" />
+                    </c:if>
 
-        <p:column>
-            <h:outputText value="" />
-        </p:column>
+                    <c:if test="#{mat['class'].simpleName eq 'MaterielNouv'}">
+                    <h:outputText value="#{materiel.montant_facture}" />                    
+                </c:if>
+            </td>
+                    <td><h:outputText value="" /></td>
+                    <td><h:outputText value="" /></td>
+                    <td><h:outputText value="" /></td>
+                </tr>
 
-        <p:column>
-            <h:outputText value="" />
-        </p:column>
+        </c:forEach>
 
-        <p:column>
-            <h:outputText value="" />
-        </p:column>
+    </c:forEach>
+
+            </table>
 
 
-       
-    </p:dataTable>
+
 
 
     <br></br><br></br><br></br>
 
 
-     	<p:dataTable  id="testingID1" var="materiel" value="#{depositaireBean.listMaterielNouveauValide}">
+            <table>
+                <tr class="entreeo">
+                    <th style="border-bottom: none;">Numero de pièce justificative</th>
+                    <th style="border-bottom: none;">Date des entrée et des sorties</th>
+                    <th style="border-bottom: none;">Origine des entrées et désignation des sotries</th>
+                    <th colspan="2">Entrées</th>
+                    <th colspan="2">Sortie</th>
+                    <th colspan="2">Reste au 31 Décembre 2017</th>
 
- 		<p:columnGroup type="header">
-            <p:row>
-                <p:column rowspan="2" headerText="Numero de pièce justificative" />
-                <p:column rowspan="2" headerText="Date des entrée et des sorties" />
-                <p:column rowspan="2" headerText="Origine des entrées et désignation des sotries" />
-        
-                <p:column colspan="2" headerText="Entrées" />
-                <p:column colspan="2" headerText="Sorties" />
-                <p:column colspan="2" headerText="Reste au 31 Décembre #{gacBean.annee}" />
-            </p:row>
-            <p:row>
-                <p:column  headerText="Quantité" />
-                <p:column  headerText="Valeurs" />
-                <p:column  headerText="Quantité" />
-                <p:column  headerText="Valeurs" />
-                <p:column  headerText="Quantité" />
-                <p:column  headerText="Valeurs" />
-            </p:row>
-        </p:columnGroup>
- 
-        <p:column>
-            <h:outputText value="#{materiel.nomenMat.nomenclature}" />
-        </p:column>
-		<p:column>
-            <h:outputText value="" />
-        </p:column>
-		<p:column>
-            <h:outputText value="" />
-        </p:column>
-		<p:column>
-            <h:outputText value="" />
-        </p:column>
-		<p:column>
-            <h:outputText value="" />
-        </p:column>
-		<p:column>
-            <h:outputText value="" />
-        </p:column>
+                </tr>
+                <tr class="entreeo">
+                    <th style="border-top: none"></th>
+                    <th style="border-top: none"></th>
+                    <th style="border-top: none"></th>
+                    <th >Quantité</th>
+                    <th >Valeurs</th>
+                    <th >Quantité</th>
+                    <th >Valeurs</th>
+                    <th >Quantité</th>
+                    <th >Valeurs</th>
+                </tr>
 
+                
+        <c:forEach var="o" items="#{suivieditionBean.listOpEntreeAndSortieByDirectionByYearByDateAsc}">
+        <c:forEach var="materiel" items="#{o.listMat}">
 
-        <p:column>
-            <h:outputText value="" />
-        </p:column>
+                <tr class="entreeo">    
+                    <td><h:outputText value="#{materiel.nomenMat.nomenclature}" /></td>
+                    <td> <h:outputText value="" /></td>
+                    <td> <h:outputText value="" /></td>
+                    <td> <h:outputText value="" /></td>
+                    <td> <h:outputText value="" /></td>
+                    <td> <h:outputText value="" /></td>
+                    <td> <h:outputText value="" /></td>
+                    <td> <h:outputText value="" /></td>
+                    <td> <h:outputText value="" /></td>
+                </tr>
 
-        <p:column>
-            <h:outputText value="" />
-        </p:column>
+        </c:forEach>
 
-        <p:column>
-            <h:outputText value="" />
-        </p:column>
+    </c:forEach>
 
+            </table>
 
-       
-    </p:dataTable>
 
  	</div>
 

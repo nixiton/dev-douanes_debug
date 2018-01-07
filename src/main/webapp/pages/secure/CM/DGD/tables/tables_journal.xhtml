@@ -57,11 +57,17 @@
         <p:column headerText="Désignation des matières et objets" >
             
         <p:panel rendered="#{c['class'].simpleName eq 'OpEntree'}">
-            #{c.mat.typematerieladd.designation} #{c.mat.renseignement} 
+
+            <c:forEach var="mat" items="#{c.listMat}">
+                #{mat.typematerieladd.designation} #{mat.renseignement},
+            </c:forEach>
+
         </p:panel>
 
         <p:panel rendered="#{c['class'].simpleName eq 'OpSortie'}">
-            #{c.mat.typematerieladd.designation} #{c.mat.renseignement} 
+            <c:forEach var="mat" items="#{c.listMat}">
+                #{mat.typematerieladd.designation} #{mat.renseignement},
+            </c:forEach>
         </p:panel>
             
 
@@ -69,20 +75,40 @@
 
         <p:column headerText="Espèce des unités"  >
             
-            
+            <c:forEach var="mat" items="#{c.listMat}">
+                #{mat.especeUnite}, 
+            </c:forEach>
         
-            000 
+            
 
         </p:column>
 
         <p:column headerText="Prix de l'unité" >
             
             <p:panel rendered="#{c['class'].simpleName eq 'OpEntree'}">
-            #{c.mat.pu} 
+            <c:forEach var="mat" items="#{c.listMat}">
+                <c:if test="#{mat['class'].simpleName eq 'MaterielEx'}">
+                    #{mat.pu}
+                    </c:if>
+
+                    <c:if test="#{mat['class'].simpleName eq 'MaterielNouv'}">
+                    #{mat.montant_facture}
+                    </c:if>
+
+                
+            </c:forEach>
+            
         </p:panel>
 
         <p:panel rendered="#{c['class'].simpleName eq 'OpSortie'}">
-            #{c.mat.pu} 
+            <c:if test="#{mat['class'].simpleName eq 'MaterielEx'}">
+                    #{mat.pu}
+                    </c:if>
+
+                    <c:if test="#{mat['class'].simpleName eq 'MaterielNouv'}">
+                    #{mat.montant_facture}
+                    </c:if>
+
         </p:panel>
             
             
