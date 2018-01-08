@@ -1093,6 +1093,24 @@ public class UserMetier implements IUserMetier{
 		//okay
 	}
 
+	@Override
+	public List<OpEntree> getListOpEntreeByDirectionByYearByDateAsc(Direction d, Date startDate, Date endDate) {
+		// TODO Auto-generated method stub
+		return operationdao.getListOpEntreeByDirectionByYearByDateAsc(d, startDate, endDate);
+	}
+
+	@Override
+	public List<OpSortie> getListOpSortieByDirectionByYearByDateAsc(Direction d, Date startDate, Date endDate) {
+		// TODO Auto-generated method stub
+		return operationdao.getListOpSortieByDirectionByYearByDateAsc(d, startDate, endDate);
+	}
+
+	@Override
+	public List<Operation> getListOperationByDirectionByYearByDateAsc(Direction d, Date startDate, Date endDate) {
+		// TODO Auto-generated method stub
+		return operationdao.getListOperationByDirectionByYearByDateAsc(d, startDate, endDate);
+	}
+
 	
 
 

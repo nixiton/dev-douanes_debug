@@ -116,6 +116,9 @@ public interface IUserMetier {
 	public List<OpEntree> getListOpEntreeByMatBDate(Materiel m, Date startDate, Date endDate);
 	public List<OpSortie> getListOpSortieByMatBDate(Materiel m, Date startDate, Date endDate);
 	public List<Operation> getListOpEntreeAndSortieByDirectionByYearByDateAsc(Direction d,  Date startDate, Date endDate);
+	public List<OpEntree> getListOpEntreeByDirectionByYearByDateAsc(Direction d,  Date startDate, Date endDate);
+	public List<OpSortie> getListOpSortieByDirectionByYearByDateAsc(Direction d,  Date startDate, Date endDate);
+	public List<Operation> getListOperationByDirectionByYearByDateAsc(Direction d,  Date startDate, Date endDate);
 
 
 	public List<Useri> listUser();

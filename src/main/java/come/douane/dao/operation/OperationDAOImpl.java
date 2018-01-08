@@ -6,11 +6,12 @@ import java.util.List;
 import javax.persistence.*;
 
 import com.douane.entite.*;
+import com.douane.model.EtatOperation;
 import com.douane.repository.MaterielRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.douane.repository.MaterielRepository;
-import com.douane.entite.TypeMateriel;
+
 import org.springframework.beans.factory.annotation.Autowired;
 
 public class OperationDAOImpl implements IOperationDAO{
@@ -386,6 +387,59 @@ public class OperationDAOImpl implements IOperationDAO{
 		// TODO Auto-generated method stub
 		
 		return matrepos.countByTypematerieladdAndDirec(typemat, dir);
+	}
+
+	@Override
+	public List<OpEntree> getListOpEntreeByDirectionByYearByDateAsc(Direction d, Date startDate, Date endDate) {
+		// TODO Auto-generated method stub
+				TypedQuery<OpEntree> query = em.createQuery("select oe from OpEntree oe "
+						+ "where oe.date>=:startDate AND oe.date<=:endDate"
+						+ " where oe.direction =:direct"
+						+ " and oe.state=:etat"
+			       		+ " order by oe.date desc "
+			       		,OpEntree.class);
+				query.setParameter("direct", d);
+				query.setParameter("startDate", startDate);
+				query.setParameter("endDate", endDate);
+				query.setParameter("etat", EtatOperation.ACCEPTED);
+				   
+			    List<OpEntree> operations = query.getResultList();
+				return operations;
+	}
+
+	@Override
+	public List<OpSortie> getListOpSortieByDirectionByYearByDateAsc(Direction d, Date startDate, Date endDate) {
+		// TODO Auto-generated method stub
+		TypedQuery<OpSortie> query = em.createQuery("select os from OpSortie os "
+				+ "where os.date>=:startDate AND os.date<=:endDate"
+				+ " where os.direction =:direct"
+				+ " and os.state=:etat"
+	       		+ " order by os.date desc "
+	       		,OpSortie.class);
+		query.setParameter("direct", d);
+		query.setParameter("startDate", startDate);
+		query.setParameter("endDate", endDate);
+		query.setParameter("etat", EtatOperation.ACCEPTED);   
+	    List<OpSortie> operations = query.getResultList();
+		return operations;
+	}
+
+	@Override
+	public List<Operation> getListOperationByDirectionByYearByDateAsc(Direction d, Date startDate, Date endDate) {
+		// TODO Auto-generated method stub
+		TypedQuery<Operation> query = em.createQuery("select o from Operation o "
+				+ "where o.date>=:startDate AND o.date<=:endDate"
+				+ " where o.direction =:direct"
+				+ " and o.state=:etat"
+	       		+ " order by o.date desc "
+	       		,Operation.class);
+		query.setParameter("direct", d);
+		query.setParameter("startDate", startDate);
+		query.setParameter("endDate", endDate);
+		query.setParameter("etat", EtatOperation.ACCEPTED);
+		   
+	    List<Operation> operations = query.getResultList();
+		return operations;
 	}
 	
 
