@@ -1054,18 +1054,21 @@ public class UserMetier implements IUserMetier{
 	}
 
 	@Override
-	public ArticleNouv addArticleNouv(CodeArticle cde, Agent ben, Agent depo, Fournisseur fourn, Float prix, Long nombre) {
+	public ArticleNouv addArticleNouv(CodeArticle cde, Agent ben, Agent depo, Fournisseur fourn, Float prix, Long nombre, Marque marqueArt,String caraArt) {
 		ArticleNouv a =new ArticleNouv(fourn, prix);
 		a.setCodeArticle(cde);
 		a.setBeneficiaire(ben);
 		a.setDc(depo);
 		a.setNombre(nombre);
+		a.setMarqueArticle(marqueArt);
+		a.setCaracteristiqueArticle(caraArt);
+		
 		artnouvreops.save(a);
 		return a;
 	}
 
 	@Override
-	public ArticleEx addArticleEx(CodeArticle cde, Agent ben, Agent depo, Float prix, Long nombre) {
+	public ArticleEx addArticleEx(CodeArticle cde, Agent ben, Agent depo, Float prix, Long nombre, Marque marqueArt,String caraArt) {
 		ArticleEx a = new ArticleEx();
 		a.setCodeArticle(cde);
 		a.setBeneficiaire(ben);
