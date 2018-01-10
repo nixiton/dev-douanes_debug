@@ -57,7 +57,7 @@
                         <f:selectItem itemValue="#{null}" itemLabel="--select--" /> 
                             <f:selectItems value="#{siseBean.listArticleNonDetenuValideByDirection}" var="theme" itemLabel="#{theme.codeArticle}" itemValue="#{theme}" />
                         <p:column>
-                            <h:outputText value="#{t.numSerie}" />
+                            <h:outputText value="#{t.codeArticle.designation}" />
                         </p:column>
                     </p:selectOneMenu>
 
