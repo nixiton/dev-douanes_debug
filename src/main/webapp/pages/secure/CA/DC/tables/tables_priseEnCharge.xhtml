@@ -30,6 +30,13 @@
             </f:facet>
             <h:outputText value="#{a.idArticle}" />
         </p:column>
+
+        <p:column>
+            <f:facet name="header">
+                <h:outputText value="Codification" />
+            </f:facet>
+            <h:outputText value="#{a.codeArticle.designation}" />
+        </p:column>
         
         <p:column>
 
