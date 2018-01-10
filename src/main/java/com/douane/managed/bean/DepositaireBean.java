@@ -190,6 +190,10 @@ public class DepositaireBean {
 		this.curentArticle =a;
 	}
 
+	public void mySetCurentArticle(Article a){
+		this.curentArticle =a;
+	}
+
 	public Article getCurentArticle(){
 		return this.curentArticle;
 	}
