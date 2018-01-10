@@ -1117,25 +1117,25 @@ public class UserMetier implements IUserMetier{
 	@Override
 	public List<Article> getListArticleValideByDirection(Direction d) {
 		// TODO Auto-generated method stub
-		return artreops.findByValidationByDirecArt(true,d);
+		return artreops.findByValidationAndDirecArt(true,d);
 	}
 
 	@Override
 	public List<Article> getListArticleNonDetenuValideByDirection(Direction d) {
 		// TODO Auto-generated method stub
-		return artreops.findByValidationByBeneficiaireByDirecArt(true,null,d);
+		return artreops.findByValidationAndBeneficiaireAndDirecArt(true,null,d);
 	}
 
 	@Override
 	public List<Article> getListArticleByDetenteurByValida(boolean valide, Agent detenteur) {
 		// TODO Auto-generated method stub
-		return artreops.findByValidationByBeneficiaire(valide, detenteur);
+		return artreops.findByValidationAndBeneficiaire(valide, detenteur);
 	}
 
 	@Override
 	public List<Article> getListArticleByValidationByDirection(boolean valide, Direction d) {
 		// TODO Auto-generated method stub
-		return artreops.findByValidationByDirecArt(valide, d);
+		return artreops.findByValidationAndDirecArt(valide, d);
 	}
 
 	@Override

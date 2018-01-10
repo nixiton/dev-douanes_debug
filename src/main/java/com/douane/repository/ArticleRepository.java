@@ -14,10 +14,10 @@ public interface ArticleRepository extends CrudRepository<Article,Long>{
 
 	public List<Article> findByValidation(boolean validation);
 
-	public List<Article> findByValidationByBeneficiaire(boolean b, Agent beneficiaire);
+	public List<Article> findByValidationAndBeneficiaire(boolean b, Agent beneficiaire);
 
-	public List<Article> findByValidationByDirecArt(boolean b, Direction d);
+	public List<Article> findByValidationAndDirecArt(boolean b, Direction d);
 
 
-	public List<Article> findByValidationByBeneficiaireByDirecArt(boolean b, Object object, Direction d);
+	public List<Article> findByValidationAndBeneficiaireAndDirecArt(boolean b, Object object, Direction d);
 }
