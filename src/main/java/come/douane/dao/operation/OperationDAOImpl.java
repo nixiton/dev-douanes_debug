@@ -479,6 +479,7 @@ public class OperationDAOImpl implements IOperationDAO{
 		return operations;
 	}
 	
+	@Override
 	public Long countOpEntreeByYearByDirection(Date date,Direction d) {
 		Calendar cal = Calendar.getInstance();
 		cal.setTime(date);
@@ -487,6 +488,24 @@ public class OperationDAOImpl implements IOperationDAO{
 				+ "where YEAR(oe.date)=:year "
 				+ " and oe.direction =:direct"
 				+ " and oe.state=:etat");
+		q.setParameter("direct", d);
+		q.setParameter("year", year);
+		q.setParameter("etat", EtatOperation.ACCEPTED);
+		
+		Long r = (Long) q.getSingleResult();
+		return r;
+		   
+	}
+	
+	@Override
+	public Long countOpSortieByYearByDirection(Date date,Direction d) {
+		Calendar cal = Calendar.getInstance();
+		cal.setTime(date);
+		int year = cal.get(Calendar.YEAR);
+		Query q= em.createQuery("SELECT COUNT(os.id) FROM OpSortie os"
+				+ "where YEAR(os.date)=:year "
+				+ " and os.direction =:direct"
+				+ " and os.state=:etat");
 		q.setParameter("direct", d);
 		q.setParameter("year", year);
 		q.setParameter("etat", EtatOperation.ACCEPTED);

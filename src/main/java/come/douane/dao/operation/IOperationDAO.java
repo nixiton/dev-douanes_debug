@@ -55,5 +55,8 @@ public interface IOperationDAO {
 	public List<OpEntreeArticle> getListOpEntreeArtByValideByDirection(EtatOperation etat, Direction direction, Date startDate, Date endDate);
 	
 	public List<OpSortieArticle> getListOpSortieArtByValideByDirection(EtatOperation etat, Direction direction, Date startDate, Date endDate);
-
+	
+	
+	public Long countOpSortieByYearByDirection(Date date,Direction d);
+	public Long countOpEntreeByYearByDirection(Date date,Direction d);
 }

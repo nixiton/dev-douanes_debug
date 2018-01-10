@@ -18,15 +18,18 @@ public class OpSortie extends Operation{
 	@JoinColumn(name="idMat")
 	private Materiel mat;
 	private String numSortie;
+	
 	@ManyToOne
 	@JoinColumn(name="idDirect")
 	private Direction direc;
+	
 	@ManyToOne
 	@JoinColumn(name="idServ")
 	private Service serv;
 	@ManyToOne
 	@JoinColumn(name="idBureau")
 	private Bureau bureau;
+
 	@ManyToOne
 	@JoinColumn(name="idMotif")
 	private MotifSortie motifsortie;
@@ -42,6 +45,7 @@ public class OpSortie extends Operation{
 			Materiel mater, Direction d, Service s, Bureau b, MotifSortie mot) {
 		super(date, time, poste, operateur);
 		this.setMat(mater);
+		//this.setDirection(operateur.getDirection());
 		this.setDirec(d);
 		this.setService(s);
 		this.setBureau(b);
@@ -53,6 +57,7 @@ public class OpSortie extends Operation{
 		super(date, time, poste, operateur);
 		this.setMat(mater);
 		this.setDirec(d);
+		//this.setDirec(operateur.getDirection());
 		this.setMotifsortie(mot);
 	}
 
@@ -76,7 +81,7 @@ public class OpSortie extends Operation{
 		return numSortie;
 	}
 
-	public void generateNumSortie() {
+	public void generateNumSortie(Long currentNum) {
 		int d = Calendar.getInstance().get(Calendar.DAY_OF_MONTH); String dd="x";
 	    int m = Calendar.getInstance().get(Calendar.MONTH); String mm="x";
 	    int y = Calendar.getInstance().get(Calendar.YEAR); String yy="x";
@@ -91,11 +96,15 @@ public class OpSortie extends Operation{
 	    	mm=""+m;
 	    }
 		yy=""+y%200; 
-		
-		this.numSortie="OS "+ numerochronos+ "/"+mat.getServ().getCodeService()+ "/" +dd+ "/" +mm+ "/" +yy;
+		String codeDirection ="tsy misy";
+		if(this.getDirection()!=null) {
+			codeDirection = this.getDirection().getCodeDirection();
+		}
+		this.numSortie="OS "+ currentNum+ "/"+codeDirection+ "/" +dd+ "/" +mm+ "/" +yy;
 		numerochronos+=1;
 	}
 
+	
 	public Direction getDirec() {
 		return direc;
 	}
