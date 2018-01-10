@@ -46,8 +46,19 @@ public class Article  implements Serializable{
     //@Transient
     private Agent dc;
 
+    @ManyToOne
+	@JoinColumn(name="idDirectionArt")
+	private Direction direcArt;
+    
+    public Direction getDirecArt() {
+		return direcArt;
+	}
 
-    public Agent getDc() {
+	public void setDirecArt(Direction direcArt) {
+		this.direcArt = direcArt;
+	}
+
+	public Agent getDc() {
         return dc;
     }
 
