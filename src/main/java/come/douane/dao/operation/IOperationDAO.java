@@ -10,8 +10,11 @@ import com.douane.entite.MaterielEx;
 import com.douane.entite.OpAttribution;
 import com.douane.entite.OpDettachement;
 import com.douane.entite.OpEntree;
+import com.douane.entite.OpEntreeArticle;
 import com.douane.entite.OpSortie;
+import com.douane.entite.OpSortieArticle;
 import com.douane.entite.Operation;
+import com.douane.model.EtatOperation;
 
 public interface IOperationDAO {
 	public Agent detacherMat(OpDettachement det)throws Exception;
@@ -48,6 +51,9 @@ public interface IOperationDAO {
 	public List<OpSortie> getListOpSortieByDirectionByYearByDateAsc(Direction d, Date startDate, Date endDate);
 	public List<Operation> getListOperationByDirectionByYearByDateAsc(Direction d, Date startDate, Date endDate);
 	
-	public List<Operation> getListOpEntreeArticleByDirectionBetweenDateByDateEsc(Direction d, Date startDate, Date endDate);
 	
+	public List<OpEntreeArticle> getListOpEntreeArtByValideByDirection(EtatOperation etat, Direction direction, Date startDate, Date endDate);
+	
+	public List<OpSortieArticle> getListOpSortieArtByValideByDirection(EtatOperation etat, Direction direction, Date startDate, Date endDate);
+
 }

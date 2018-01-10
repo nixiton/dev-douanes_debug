@@ -441,6 +441,42 @@ public class OperationDAOImpl implements IOperationDAO{
 	    List<Operation> operations = query.getResultList();
 		return operations;
 	}
+
+	@Override
+	public List<OpEntreeArticle> getListOpEntreeArtByValideByDirection(EtatOperation etat, Direction direction,
+			Date startDate, Date endDate) {
+		// TODO Auto-generated method stub
+		TypedQuery<OpEntreeArticle> query = em.createQuery("select oeart from OpEntreeArticle oeart "
+				+ "where oeart.date>=:startDate AND oeart.date<=:endDate"
+				+ " where oeart.direction =:direct"
+				+ " and oeart.state=:etat"
+	       		+ " order by oeart.date desc "
+	       		,OpEntreeArticle.class);
+		query.setParameter("direct", direction);
+		query.setParameter("startDate", startDate);
+		query.setParameter("endDate", endDate);
+		query.setParameter("etat", etat);   
+	    List<OpEntreeArticle> operations = query.getResultList();
+		return operations;
+	}
+
+	@Override
+	public List<OpSortieArticle> getListOpSortieArtByValideByDirection(EtatOperation etat, Direction direction,
+			Date startDate, Date endDate) {
+		// TODO Auto-generated method stub
+		TypedQuery<OpSortieArticle> query = em.createQuery("select osart from OpSortieArticle osart "
+				+ "where osart.date>=:startDate AND osart.date<=:endDate"
+				+ " where osart.direction =:direct"
+				+ " and osart.state=:etat"
+	       		+ " order by osart.date desc "
+	       		,OpSortieArticle.class);
+		query.setParameter("direct", direction);
+		query.setParameter("startDate", startDate);
+		query.setParameter("endDate", endDate);
+		query.setParameter("etat", etat);   
+	    List<OpSortieArticle> operations = query.getResultList();
+		return operations;
+	}
 	
 
 }

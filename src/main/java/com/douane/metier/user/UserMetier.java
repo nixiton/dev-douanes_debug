@@ -1115,15 +1115,15 @@ public class UserMetier implements IUserMetier{
 	}
 
 	@Override
-	public List<Article> getListArticleValide() {
+	public List<Article> getListArticleValideByDirection(Direction d) {
 		// TODO Auto-generated method stub
-		return artreops.findByValidation(true);
+		return artreops.findByValidationByDirecArt(true,d);
 	}
 
 	@Override
-	public List<Article> getListArticleNonDetenuValide() {
+	public List<Article> getListArticleNonDetenuValideByDirection(Direction d) {
 		// TODO Auto-generated method stub
-		return artreops.findByValidationByBeneficiaire(true,null);
+		return artreops.findByValidationByBeneficiaireByDirecArt(true,null,d);
 	}
 
 	@Override
@@ -1132,7 +1132,24 @@ public class UserMetier implements IUserMetier{
 		return artreops.findByValidationByBeneficiaire(valide, detenteur);
 	}
 
-	
+	@Override
+	public List<Article> getListArticleByValidationByDirection(boolean valide, Direction d) {
+		// TODO Auto-generated method stub
+		return artreops.findByValidationByDirecArt(valide, d);
+	}
+
+	@Override
+	public List<OpEntreeArticle> getListOpEntreeArtByValideByDirection(EtatOperation etat,Direction direction, Date startDate, Date endDate ) {
+		// TODO Auto-generated method stub
+		
+		return operationdao.getListOpEntreeArtByValideByDirection(etat, direction, startDate, endDate);
+	}
+
+	@Override
+	public List<OpSortieArticle> getListOpSortieArtByValideByDirection(EtatOperation etat,Direction direction, Date startDate, Date endDate) {
+		// TODO Auto-generated method stub
+		return operationdao.getListOpSortieArtByValideByDirection(etat, direction, startDate, endDate);
+	}
 
 
 
