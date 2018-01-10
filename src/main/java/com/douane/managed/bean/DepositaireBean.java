@@ -2069,9 +2069,9 @@ System.out.println("****************************ADD3 ATTR**ERRORR***************
 		a.setCodeArticle(getCodeArticle());
 		a.setFournisseur(getFournisseur());
 		a.setPrix(getPrix());
-		//a.setFinancement(getFinancement());
+		a.setFinancementArt(getFinancement());
 
-		//a.setDirec(agent.getDirection());
+		a.setDirecArt(agent.getDirection());
 
 		a.setMarqueArticle(getMarq());
 		a.setCaracteristiqueArticle(getRenseignement());
