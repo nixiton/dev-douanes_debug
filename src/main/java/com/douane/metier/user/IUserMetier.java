@@ -162,15 +162,17 @@ public interface IUserMetier {
 	public List<Article> getListArticleByDetenteurByValida(boolean valide, Agent detenteur);
 	public List<Article> getListArticleByValidationByDirection(boolean valide, Direction d);
 	
-	public ArticleNouv addArticleNouv(CodeArticle cde, Agent ben, Agent depo, Fournisseur fourn, Float prix, Long nombre, Marque marqueArt,String caraArt);
-	public ArticleEx addArticleEx(CodeArticle cde, Agent ben, Agent depo, Float prix, Long nombre, Marque marqueArt,String caraArt);
-	
 	
 	public List<OpEntreeArticle> getListOpEntreeArtByValideByDirection(EtatOperation etat, Direction direction, Date startDate, Date endDate);
 	
 	public List<OpSortieArticle> getListOpSortieArtByValideByDirection(EtatOperation etat,Direction direction, Date startDate, Date endDate);
 
+	
 
+	public ArticleNouv addArticleNouv(CodeArticle cde, Agent ben, Agent depo, Fournisseur fourn, Float prix, Long nombre, Marque marqueArt,String caraArt);
+	public ArticleEx addArticleEx(CodeArticle cde, Agent ben, Agent depo, Float prix, Long nombre, Marque marqueArt,String caraArt);
+	
+	
 	public OpSortie reqSortirMateriel(Materiel m, MotifSortie motif, Direction d, Agent oper)throws Exception;;
 	public OpSortie reqSortirMateriel(Materiel m, MotifSortie motif, Agent oper)throws Exception;;
 
