@@ -10,6 +10,7 @@ import javax.faces.bean.SessionScoped;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
+import java.text.SimpleDateFormat;
 import java.util.HashMap;
 import java.util.List;
 import java.util.ListIterator;
@@ -21,6 +22,8 @@ import java.util.*;
 
 import java.io.*;
 import java.util.Date;
+import java.util.zip.ZipEntry;
+import java.util.zip.ZipOutputStream;
 
 import com.itextpdf.text.Anchor;
 import com.itextpdf.text.BadElementException;
@@ -37,7 +40,8 @@ import com.itextpdf.text.Section;
 import com.itextpdf.text.pdf.PdfPCell;
 import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
-
+import org.primefaces.model.DefaultStreamedContent;
+import org.primefaces.model.StreamedContent;
 
 
 @SessionScoped
@@ -614,6 +618,93 @@ public class GACBean {
     public void validateSortieArticleEx() throws Exception {
         usermetierimpl.sortirArticle((OpSortieArticle) curentOperation);
     }
+
+
+    //------------DEBUG FARANY
+    private StreamedContent filedownload;
+    private int fileZipSize;
+    private String fileZipPath;
+
+    public StreamedContent getFiledownload() throws IOException {
+        if(RequestFilter.getSession().getAttribute("fileZipPath") == null || RequestFilter.getSession().getAttribute("fileZipPath") == "")
+            return null;
+        try
+        {
+            FileInputStream fstream = new FileInputStream((String) RequestFilter.getSession().getAttribute("fileZipPath"));
+            if (fstream == null)
+                return null;
+            if (fstream.getChannel().size() == 0)
+                return null;
+
+            InputStream stream = new FileInputStream((String) RequestFilter.getSession().getAttribute("fileZipPath"));
+            fileZipSize = stream.available();
+            filedownload = new DefaultStreamedContent(stream,
+                    "application/zip", "doc.zip");
+        }catch (FileNotFoundException f)
+        {
+            return null;
+        }
+        //RequestFilter.getSession().setAttribute("fileZipPath",null);
+        return filedownload;
+    }
+
+    public String getFileZipPath() {
+
+        List <Materiel> lstM = ((OpEntree)curentOperation).getListMat();
+        FileOutputStream fos = null;
+        ZipOutputStream zipOut = null;
+        FileInputStream fis = null;
+        Date dNow = new Date();
+        SimpleDateFormat ft = new SimpleDateFormat("yyMMddhhmmssMs");
+        String datetime = ft.format(dNow);
+        try {
+
+
+            File file = new File(datetime);
+            String absolutePath = file.getAbsolutePath();
+
+            RequestFilter.getSession().setAttribute("documentpath", absolutePath + ".zip");
+            // eto miset an le documentpath
+            String a = (String) RequestFilter.getSession().getAttribute("documentpath");
+
+            fos = new FileOutputStream(datetime + ".zip");
+            RequestFilter.getSession().setAttribute("fileZipPath",datetime + ".zip");
+            zipOut = new ZipOutputStream(new BufferedOutputStream(fos));
+            for (Materiel m : lstM) {
+                File input = new File(m.getDocumentPath());
+                fis = new FileInputStream(input);
+                ZipEntry ze = new ZipEntry(input.getName());
+                System.out.println("Zipping the file: " + input.getName());
+                zipOut.putNextEntry(ze);
+                byte[] tmp = new byte[4 * 1024];
+                int size = 0;
+                while ((size = fis.read(tmp)) != -1) {
+                    zipOut.write(tmp, 0, size);
+                }
+                // zipOut.flush();
+                fis.close();
+                input.delete();
+            }
+            zipOut.close();
+
+
+        }catch (FileNotFoundException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        } finally {
+            try {
+                if (fos != null)
+                    fos.close();
+            } catch (Exception ex) {
+
+            }
+        }
+        return datetime + ".zip";
+    }
+
 
 }
 //r
