@@ -47,4 +47,7 @@ public interface IOperationDAO {
 	public List<OpEntree> getListOpEntreeByDirectionByYearByDateAsc(Direction d, Date startDate, Date endDate);
 	public List<OpSortie> getListOpSortieByDirectionByYearByDateAsc(Direction d, Date startDate, Date endDate);
 	public List<Operation> getListOperationByDirectionByYearByDateAsc(Direction d, Date startDate, Date endDate);
+	
+	public List<Operation> getListOpEntreeArticleByDirectionBetweenDateByDateEsc(Direction d, Date startDate, Date endDate);
+	
 }
