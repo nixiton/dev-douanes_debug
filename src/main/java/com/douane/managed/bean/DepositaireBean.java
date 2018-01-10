@@ -1214,6 +1214,27 @@ public class DepositaireBean {
 		m.setEspeceUnite(getEspeceUnite());
 		m.setOrigine(getOrigine());
 
+		m.setRefFacture(getRefFacture());
+		
+		m.setDirec(agent.getDirection());
+
+		// m.setCaract(caract);
+		// m.setCategorie(categorie);
+
+		//m.setImage((byte[]) RequestFilter.getSession().getAttribute("imageMat"));
+
+		//m.setDocumentPath((String) RequestFilter.getSession().getAttribute("documentpath"));
+
+		// proprietes propre aux materiels nouveaux
+
+		m.setFinancement(getFinancement());
+
+		m.setFournisseur(getFournisseur());
+
+		m.setModAcq(getAcquisition());
+
+		m.setMontant_facture(getMontantFac());
+
 		// m.setCaract(caract);
 		// m.setCategorie(categorie);
 
@@ -1964,7 +1985,7 @@ System.out.println("****************************ADD3 ATTR**ERRORR***************
 
 	private String filePathsecond;
 
-	public ArticleNouv addArticleNouv(CodeArticle cde, Agent ben, Agent depo, Fournisseur fourn, Float prix, Long nombre)
+	/*public ArticleNouv addArticleNouv(CodeArticle cde, Agent ben, Agent depo, Fournisseur fourn, Float prix, Long nombre)
 	{
 		ArticleNouv an = usermetierimpl.addArticleNouv( cde,  ben,  depo,  fourn,  prix,  nombre);
 		return an;
@@ -1974,7 +1995,7 @@ System.out.println("****************************ADD3 ATTR**ERRORR***************
 	{
 		ArticleEx ae = usermetierimpl.addArticleEx( cde,  ben,  depo,  prix,  nombre);
 		return ae;
-	}
+	}*/
 
 
 	public TypeObjet getTypeObjet() {
@@ -2024,6 +2045,10 @@ System.out.println("****************************ADD3 ATTR**ERRORR***************
 
 		Agent agent = (Agent)RequestFilter.getSession().getAttribute("agent");
 		a.setCodeArticle(getCodeArticle());
+		a.setMarque(getMarque());
+		a.setCaracteristiqueArticle(getRenseignement());
+		
+
 		//a.setTypeObjet(getTypeObjet());
 		return usermetierimpl.reqEntrerArticle(a,agent);
 	}
@@ -2042,6 +2067,10 @@ System.out.println("****************************ADD3 ATTR**ERRORR***************
 		a.setCodeArticle(getCodeArticle());
 		a.setFournisseur(getFournisseur());
 		a.setPrix(getPrix());
+		a.setFinancement(getFinancement());
+		a.setMarque(getMarque());
+		a.setCaracteristiqueArticle(getRenseignement());
+		a.setModAcq(getAcquisition());
 		return usermetierimpl.reqEntrerArticle(a,agent);
 	}
 
