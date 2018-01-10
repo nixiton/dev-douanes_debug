@@ -2092,12 +2092,24 @@ System.out.println("****************************ADD3 ATTR**ERRORR***************
 		this.agentDest = agentDest;
 	}
 
+
+	private ArticleNouv articleNouv;
+
+	public void setArticleNouv(ArticleNouv a){
+		this.articleNouv = a;
+	}
+
+	public ArticleNouv getArticleNouv(){
+		return articleNouv;
+	}
+
 	public OpSortieArticle addRequeteSortieNouv() throws Exception {
-		ArticleNouv a = new ArticleNouv();
+		//ArticleNouv a = new ArticleNouv();
+
 		Agent agent = (Agent)RequestFilter.getSession().getAttribute("agent");
-		a.setFournisseur(getFournisseur());
-		a.setPrix(getPrix());
-		return usermetierimpl.reqSortirArticle(a,agent,getAgentDest());
+		//a.setFournisseur(getFournisseur());
+		//a.setPrix(getPrix());
+		return usermetierimpl.reqSortirArticle(getArticleNouv(),agent,getAgentDest());
 	}
 
 
