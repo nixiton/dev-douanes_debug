@@ -1964,7 +1964,7 @@ System.out.println("****************************ADD3 ATTR**ERRORR***************
 
 	private String filePathsecond;
 
-	/*public ArticleNouv addArticleNouv(CodeArticle cde, Agent ben, Agent depo, Fournisseur fourn, Float prix, Long nombre)
+	public ArticleNouv addArticleNouv(CodeArticle cde, Agent ben, Agent depo, Fournisseur fourn, Float prix, Long nombre)
 	{
 		ArticleNouv an = usermetierimpl.addArticleNouv( cde,  ben,  depo,  fourn,  prix,  nombre);
 		return an;
@@ -1974,7 +1974,7 @@ System.out.println("****************************ADD3 ATTR**ERRORR***************
 	{
 		ArticleEx ae = usermetierimpl.addArticleEx( cde,  ben,  depo,  prix,  nombre);
 		return ae;
-	}*/
+	}
 
 
 	public TypeObjet getTypeObjet() {
