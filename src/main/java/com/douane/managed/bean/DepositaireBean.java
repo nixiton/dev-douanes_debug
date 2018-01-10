@@ -1177,7 +1177,7 @@ public class DepositaireBean {
 
 		ArrayList<DocumentModel> imagelist = this.imageList;
 		// agent.setIp()
-		MaterielEx m = new MaterielEx();
+		MaterielNouv m = new MaterielNouv();
 		//System.out.println("---------------SIZE IMAGE BYTE ARRAY="+imagelist.get(0).getByteArrayImage().length);
 		if(imagelist !=null)
 		{
