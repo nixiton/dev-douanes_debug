@@ -241,7 +241,7 @@ public class UserMetier implements IUserMetier{
 	@Override
 	public OpSortie reqSortirMateriel(Materiel m, MotifSortie motif, Direction d, Service s, Bureau b, Agent oper) throws Exception {
 		// TODO Auto-generated method stub
-		try {
+
 			if (m.getDetenteur() != null) {
 
 				throw new Exception("Materiel deja detenu");
@@ -250,19 +250,13 @@ public class UserMetier implements IUserMetier{
 
 			oprepos.save(sortie);
 			return sortie;
-		}catch(Exception e)
-		{
-		FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Erreur requete pour operation sortie", e.getMessage());
-		FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(e.getMessage()));
-		FacesContext.getCurrentInstance().addMessage(null, message);
-			return null;
-		}
+
 	}
 
 	@Override
 	public OpSortie reqSortirMateriel(Materiel m, MotifSortie motif, Direction d, Agent oper) throws Exception {
 		// TODO Auto-generated method stub
-		try {
+
 			if (m.getDetenteur() != null) {
 				throw new Exception("Materiel deja detenu");
 			}
@@ -270,20 +264,14 @@ public class UserMetier implements IUserMetier{
 
 			oprepos.save(sortie);
 			return sortie;
-		}
-		catch(Exception e)
-		{
-			FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Erreur requete pour operation sortie", e.getMessage());
-			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(e.getMessage()));
-			FacesContext.getCurrentInstance().addMessage(null, message);
-			return null;
-		}
+
+
 	}
 
 	@Override
 	public OpSortie reqSortirMateriel(Materiel m, MotifSortie motif, Agent oper) throws Exception {
 		// TODO Auto-generated method stub
-		try{
+
 		if(m.getDetenteur()!=null) {
 			throw new Exception("Materiel deja detenu");
 		}
@@ -291,14 +279,8 @@ public class UserMetier implements IUserMetier{
 		
 		oprepos.save(sortie);
 		return sortie;
-		}
-		catch(Exception e)
-		{
-			FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Erreur requete pour operation sortie", e.getMessage());
-			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(e.getMessage()));
-			FacesContext.getCurrentInstance().addMessage(null, message);
-			return null;
-		}
+
+
 	}
 
 	public Materiel entrerMateriel(OpEntree op) {
@@ -322,7 +304,7 @@ public class UserMetier implements IUserMetier{
 	@Override
 	public Materiel sortirMateriel(OpSortie sortie) throws Exception{
 		// TODO Auto-generated method stub
-		try{
+
 			Materiel m = sortie.getMat();
 			if(m.getDetenteur()!=null) {
 				System.out.println("DETENU");
@@ -335,14 +317,8 @@ public class UserMetier implements IUserMetier{
 			sortie.generateNumSortie();
 			oprepos.save(sortie);
 			return m;
-		}
-		catch(Exception e)
-		{
-			FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Erreur pour operation sortie", e.getMessage());
-			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(e.getMessage()));
-			FacesContext.getCurrentInstance().addMessage(null, message);
-			return null;
-		}
+
+
 	}
 
 	/*Old function
@@ -358,30 +334,17 @@ public class UserMetier implements IUserMetier{
 
 	@Override
 	public Materiel attriuberMateriel(OpAttribution attr) throws Exception{
-		try {
+
 			return operationdao.attribuerMat(attr);
-		}
-		catch(Exception e)
-		{
-			FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Erreur pour attribution de materiel", e.getMessage());
-			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(e.getMessage()));
-			FacesContext.getCurrentInstance().addMessage(null, message);
-			return null;
-		}
+
+
 	}
 	@Override
 	public Materiel attribuerMaterielEx(MaterielEx matex, Agent detenteur) throws Exception {
 		// TODO Auto-generated method stub
-		try {
 			return operationdao.attribuerMatEx(matex, detenteur);
-		}
-		catch(Exception e)
-		{
-			FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Erreur pour attribution de materiel existant", e.getMessage());
-			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(e.getMessage()));
-			FacesContext.getCurrentInstance().addMessage(null, message);
-			return null;
-		}
+
+
 	}
 
 	
@@ -444,42 +407,29 @@ public class UserMetier implements IUserMetier{
 	@Override
 	public OpAttribution reqAttribution(Materiel m, Agent oper, Agent detenteur) throws Exception {
 		// TODO Auto-generated method stub
-		try
-		{
+
 		if(!m.isValidation()) {
 			throw new Exception("Materiel non validé");
 		}
 		OpAttribution attroper= new OpAttribution(new Date(), new Date(),oper.getIp(), oper, m, detenteur);
 		oprepos.save(attroper);
 		return attroper;
-		}
-		catch(Exception e)
-		{
-			FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Erreur pour requete d'attribution", e.getMessage());
-			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(e.getMessage()));
-			FacesContext.getCurrentInstance().addMessage(null, message);
-			return null;
-		}
+
+
 	}
 
 	@Override
 	public OpEntree reqMatAModifier(OpEntree entree, String motif) throws Exception {
 		// TODO Auto-generated method stub
-		try{
+
 			if(entree.getMat().isValidation()) {
 				throw new Exception("Materiel deja validé");
 			}
 			entree.amodifier(motif);
 			oprepos.save(entree);
 			return entree;
-		}
-		catch(Exception e)
-		{
-			FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Erreur pour requete de modification materiel", e.getMessage());
-			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(e.getMessage()));
-			FacesContext.getCurrentInstance().addMessage(null, message);
-			return null;
-		}
+
+
 	}
 	@Override
 	public OpSortie reqSortirAModifier(OpSortie sort, String motif){
@@ -490,21 +440,15 @@ public class UserMetier implements IUserMetier{
 	}
 	public OpEntree reqMatRefuser(OpEntree entree, String motif) throws Exception {
 		// TODO Auto-generated method stub
-		try {
+
 			if (entree.getMat().isValidation()) {
 				throw new Exception("Materiel deja validé");
 			}
 			entree.arefuser(motif);
 			oprepos.save(entree);
 			return entree;
-		}
-		catch(Exception e)
-		{
-			FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Erreur pour attribution de sortie", e.getMessage());
-			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(e.getMessage()));
-			FacesContext.getCurrentInstance().addMessage(null, message);
-			return null;
-		}
+
+
 	}
 
 	@Override
@@ -518,61 +462,43 @@ public class UserMetier implements IUserMetier{
 	@Override
 	public OpAttribution reqAttrAModifier(OpAttribution attr, String motif) throws Exception {
 		// TODO Auto-generated method stub
-		try{
+
 		if(attr.getMat().getDetenteur()!=null) {
 			throw new Exception("Materiel deja detenu");
 		}
 		attr.amodifier(motif);
 		oprepos.save(attr);
 		return attr;
-		}
-		catch(Exception e)
-		{
-			FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Erreur de modficiation d'attribution", e.getMessage());
-			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(e.getMessage()));
-			FacesContext.getCurrentInstance().addMessage(null, message);
-			return null;
-		}
+
+
 	}
 
 	@Override
 	public OpAttribution reqAttrRefuser(OpAttribution attr, String motif) throws Exception {
 		// TODO Auto-generated method stub
-		try{
+
 		if(attr.getMat().getDetenteur()!=null) {
 			throw new Exception("Materiel deja detenu");
 		}
 		attr.arefuser(motif);
 		oprepos.save(attr);
 		return attr;
-		}
-		catch(Exception e)
-		{
-			FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Erreur de requete pour refus d'attribution", e.getMessage());
-			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(e.getMessage()));
-			FacesContext.getCurrentInstance().addMessage(null, message);
-			return null;
-		}
+
+
 	}
 
 	@Override
 	public OpDettachement reqDettachement(Materiel mat1, Agent oper, Agent dete) throws Exception {
 		// TODO Auto-generated method stub
-		try{
+
 		if(mat1.getDetenteur()==null) {
 			throw new Exception("aucun");
 		}
 		OpDettachement opdet = new OpDettachement(new Date(), new Date(), oper.getIp(), oper, mat1, dete);
 		oprepos.save(opdet);
 		return opdet;
-		}
-		catch(Exception e)
-		{
-			FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Erreur pour requete de detachement", e.getMessage());
-			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(e.getMessage()));
-			FacesContext.getCurrentInstance().addMessage(null, message);
-			return null;
-		}
+
+
 	}
 
 	@Override
@@ -586,16 +512,10 @@ public class UserMetier implements IUserMetier{
 		oprepos.save(det);
 
 		return ancienDet;*/
-		try {
-			return operationdao.detacherMat(det);
-		}
-		catch(Exception e)
-		{
-			FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Erreur de detachement materiel", e.getMessage());
-			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(e.getMessage()));
-			FacesContext.getCurrentInstance().addMessage(null, message);
-			return null;
-		}
+
+		return operationdao.detacherMat(det);
+
+
 	}
 
 	@Override
@@ -909,103 +829,71 @@ public class UserMetier implements IUserMetier{
 	public OpSortieArticle reqSortirArticle(Article article, Agent op, Agent destinataire) throws Exception {
 		// TODO Auto-generated method stub
 		// TODO Auto-generated method stub
-		try {
+
 			if (!article.isValidation()) {
 				throw new Exception("Requete non validée");
 			}
 			OpSortieArticle opsortieart = new OpSortieArticle(new Date(), new Date(), op.getIp(), op, article, destinataire);
 			opsortieartrepos.save(opsortieart);
 			return opsortieart;
-		}
-		catch(Exception e)
-		{
-			FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Erreur de requete de sortie materiel", e.getMessage());
-			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(e.getMessage()));
-			FacesContext.getCurrentInstance().addMessage(null, message);
-			return null;
-		}
+
+
 	}
 
 	@Override
 	public OpEntreeArticle reqArtAModifier(OpEntreeArticle entreeArt, String motif) throws Exception {
 		// TODO Auto-generated method stub
 		// TODO Auto-generated method stub
-		try{
+
 			if(entreeArt.getArticle().isValidation()) {
 				throw new Exception("Requete deja validée");
 			}
 			entreeArt.amodifier(motif);
 			opentreeartrepos.save(entreeArt);
 			return entreeArt;
-		}
-		catch(Exception e)
-		{
-			FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Erreur de requete d'article à modifier", e.getMessage());
-			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(e.getMessage()));
-			FacesContext.getCurrentInstance().addMessage(null, message);
-			return null;
-		}
+
+
 	}
 
 	@Override
 	public OpSortieArticle reqSortirArtAModifier(OpSortieArticle sortArt, String motif) throws Exception{
 		// TODO Auto-generated method stub
 		// TODO Auto-generated method stub
-		try {
+
 			if (sortArt.getArticle().isValidation()) {
 				throw new Exception("dejavalider");
 			}
 			sortArt.amodifier(motif);
 			opsortieartrepos.save(sortArt);
 			return sortArt;
-		}
-		catch(Exception e)
-		{
-			FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Erreur de requete de sortie d'article à modifier", e.getMessage());
-			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(e.getMessage()));
-			FacesContext.getCurrentInstance().addMessage(null, message);
-			return null;
-		}
+
+
 	}
 
 	@Override
 	public OpEntreeArticle reqArtRefuser(OpEntreeArticle entreeArt, String motif) throws Exception {
 		// TODO Auto-generated method stub
-		try{
 			if(entreeArt.getArticle().isValidation()) {
 				throw new Exception("dejavalider");
 			}
 			entreeArt.arefuser(motif);
 			opentreeartrepos.save(entreeArt);
 			return entreeArt;
-		}
-		catch(Exception e)
-		{
-			FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Erreur de requete d'article à refuser", e.getMessage());
-			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(e.getMessage()));
-			FacesContext.getCurrentInstance().addMessage(null, message);
-			return null;
-		}
+
 	}
 
 	@Override
 	public OpSortieArticle reqSortirRefuser(OpSortieArticle sortArt, String motif) throws Exception {
 		// TODO Auto-generated method stub
-		try{
+
 		if(sortArt.getArticle().isValidation()) {
 			throw new Exception("Requete deja validée");
 		}
 		sortArt.arefuser(motif);
 		opsortieartrepos.save(sortArt);
 		return sortArt;
-		}
-		catch(Exception e)
-		{
-			FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Erreur de requete, sortie de matériel refusée", e.getMessage());
-			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(e.getMessage()));
-			FacesContext.getCurrentInstance().addMessage(null, message);
-			return null;
-		}
+
+
 	}
 
 	@Override
@@ -1022,7 +910,7 @@ public class UserMetier implements IUserMetier{
 	@Override
 	public Article sortirArticle(OpSortieArticle sortieart) throws Exception {
 		// TODO Auto-generated method stub
-		try{
+
 		Article a  = sortieart.getArticle();
 
 		Agent beneficiaire = sortieart.getBeneficiaire();
@@ -1033,14 +921,8 @@ public class UserMetier implements IUserMetier{
 		//oprepos.save(attr);
 		opsortieartrepos.save(sortieart);
 		return a;
-		}
-		catch(Exception e)
-		{
-			FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Erreur de sortie d'article", e.getMessage());
-			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(e.getMessage()));
-			FacesContext.getCurrentInstance().addMessage(null, message);
-			return null;
-		}
+
+
 	}
 
 	@Override

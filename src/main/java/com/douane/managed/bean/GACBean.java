@@ -4,12 +4,15 @@ import com.douane.entite.*;
 import com.douane.metier.user.IUserMetier;
 import com.douane.repository.OpRepository;
 import com.douane.requesthttp.RequestFilter;
+
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.RequestScoped;
 import javax.faces.bean.ViewScoped;
 import javax.faces.bean.SessionScoped;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
+import javax.faces.context.FacesContext;
 import java.text.SimpleDateFormat;
 import java.util.HashMap;
 import java.util.List;
@@ -171,9 +174,18 @@ public class GACBean {
     public void refusePrisEnChargeEntreMat(Operation op) throws Exception
     {
         //usermetierimpl.entrerMateriel(op);
+        try{
         usermetierimpl.reqMatRefuser((OpEntree)this.getCurentOperation(), this.getMotif());
         this.setCurentOperation(null);
         this.setMotif(null);
+        }
+        catch(Exception e)
+        {
+            FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Erreur pour attribution de sortie", e.getMessage());
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(e.getMessage()));
+            FacesContext.getCurrentInstance().addMessage(null, message);
+
+        }
     }
 
 
@@ -182,10 +194,18 @@ public class GACBean {
         //usermetierimpl.entrerMateriel(op);
 
         //((OpEntree)this.getCurentOperation()).getMat().setAModifier(true);
+        try{
         usermetierimpl.reqMatAModifier((OpEntree)this.getCurentOperation(), this.getMotif());
 
         this.setCurentOperation(null);
         this.setMotif(null);
+        }catch(Exception e)
+        {
+            FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Erreur pour requete de modification materiel", e.getMessage());
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(e.getMessage()));
+            FacesContext.getCurrentInstance().addMessage(null, message);
+
+        }
     }
 
 
@@ -197,10 +217,12 @@ public class GACBean {
     		usermetierimpl.attriuberMateriel(attr);
             
 
-    	}catch(Exception e){
-    		System.out.println("EEEEEEEEERRRRRRRRRRRRRRROOOOOOOOOOORRRRRRRRR *******T******:"+e.getMessage()+"*******");
-            //e.printStackTrace();
-    	}
+    	}catch(Exception e)
+        {
+            FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Erreur pour attribution de materiel existant", e.getMessage());
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(e.getMessage()));
+            FacesContext.getCurrentInstance().addMessage(null, message);
+        }
         
         this.setCurentOperation(null);
 
@@ -281,18 +303,36 @@ public class GACBean {
     public void refuseAttributionDetenteur(OpAttribution attr) throws Exception
     {
         //usermetierimpl.attriuberMateriel(attr);
-        usermetierimpl.reqAttrRefuser((OpAttribution)this.getCurentOperation(), this.getMotif());
-        this.setCurentOperation(null);
-        this.setMotif(null);
+        try {
+            usermetierimpl.reqAttrRefuser((OpAttribution) this.getCurentOperation(), this.getMotif());
+            this.setCurentOperation(null);
+            this.setMotif(null);
+        }
+        catch(Exception e)
+        {
+            FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Erreur de requete pour refus d'attribution", e.getMessage());
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(e.getMessage()));
+            FacesContext.getCurrentInstance().addMessage(null, message);
+
+        }
     }
 
 
     public void aModifierAttributionDetenteur(OpAttribution attr) throws Exception
     {
         //usermetierimpl.attriuberMateriel(attr);
-        usermetierimpl.reqAttrAModifier((OpAttribution)this.getCurentOperation(), this.getMotif());
-        this.setCurentOperation(null);
-        this.setMotif(null);
+        try {
+            usermetierimpl.reqAttrAModifier((OpAttribution) this.getCurentOperation(), this.getMotif());
+            this.setCurentOperation(null);
+            this.setMotif(null);
+        }
+        catch(Exception e)
+        {
+            FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Erreur de modficiation d'attribution", e.getMessage());
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(e.getMessage()));
+            FacesContext.getCurrentInstance().addMessage(null, message);
+
+        }
     }
 
 
@@ -301,10 +341,13 @@ public class GACBean {
     	System.out.println("VALDATION DECHARGE SORTIE");
     	try {
     		usermetierimpl.sortirMateriel(sortie);
-		} catch (Exception e) {
-			// TODO: handle exception
-			e.getMessage();
-		}finally {
+		} catch(Exception e)
+        {
+            FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Erreur pour operation sortie", e.getMessage());
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(e.getMessage()));
+            FacesContext.getCurrentInstance().addMessage(null, message);
+
+        }finally {
 
 	        this.setCurentOperation(null);
 		}
@@ -341,10 +384,12 @@ public class GACBean {
     	//usermetierimpl.sortirMateriel(sortie);
         try {
         	usermetierimpl.detacherMateriel((OpDettachement)this.getCurentOperation());
-		} catch (Exception e) {
-			// TODO: handle exception
-			System.out.println(e.getMessage());
-		}finally {
+		} catch(Exception e)
+        {
+            FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Erreur de detachement materiel", e.getMessage());
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(e.getMessage()));
+            FacesContext.getCurrentInstance().addMessage(null, message);
+        }finally {
 			this.setCurentOperation(null);
 	        this.setMotif(null);
 		}
@@ -559,17 +604,48 @@ public class GACBean {
         usermetierimpl.entrerArticle(o);
     }
     public void reqArtAModifier() throws Exception {
-        usermetierimpl.reqArtAModifier(getOpEntreeArticle(),getMotif());
+        try {
+            usermetierimpl.reqArtAModifier(getOpEntreeArticle(), getMotif());
+        }
+        catch(Exception e)
+        {
+            FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Erreur de requete d'article à modifier", e.getMessage());
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(e.getMessage()));
+            FacesContext.getCurrentInstance().addMessage(null, message);
+        }
     }
     public void reqSortirArtAModifier() throws Exception {
+        try{
         usermetierimpl.reqSortirArtAModifier(getOpSortieArticle(),getMotif());
+        }
+        catch(Exception e)
+        {
+            FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Erreur de requete de sortie d'article à modifier", e.getMessage());
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(e.getMessage()));
+            FacesContext.getCurrentInstance().addMessage(null, message);
+        }
     }
     public void reqArtRefuser() throws  Exception{
+        try{
         usermetierimpl.reqArtRefuser(getOpEntreeArticle(),getMotif());
+        }
+            catch(Exception e)
+            {
+                FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Erreur de requete d'article à refuser", e.getMessage());
+                FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(e.getMessage()));
+                FacesContext.getCurrentInstance().addMessage(null, message);
+            }
     }
     public void reqSortirRefuser() throws Exception
     {
-        usermetierimpl.reqSortirRefuser(getOpSortieArticle(),getMotif());
+        try {
+            usermetierimpl.reqSortirRefuser(getOpSortieArticle(), getMotif());
+        }catch(Exception e)
+        {
+            FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Erreur de requete, sortie de matériel refusée", e.getMessage());
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(e.getMessage()));
+            FacesContext.getCurrentInstance().addMessage(null, message);
+        }
     }
     public void entrerArticle() throws  Exception
     {
@@ -577,7 +653,15 @@ public class GACBean {
     }
     public void sortirArticle() throws  Exception
     {
-        usermetierimpl.sortirArticle(getOpSortieArticle());
+        try {
+            usermetierimpl.sortirArticle(getOpSortieArticle());
+        }
+        catch(Exception e)
+        {
+            FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Erreur de sortie d'article", e.getMessage());
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(e.getMessage()));
+            FacesContext.getCurrentInstance().addMessage(null, message);
+        }
     }
 
 
@@ -611,12 +695,28 @@ public class GACBean {
     }
 
     public void validateSortieArticleNouv() throws Exception {
-        usermetierimpl.sortirArticle((OpSortieArticle) curentOperation);
+        try{
+            usermetierimpl.sortirArticle((OpSortieArticle) curentOperation);
+        }
+        catch(Exception e)
+        {
+            FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Erreur de sortie d'article", e.getMessage());
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(e.getMessage()));
+            FacesContext.getCurrentInstance().addMessage(null, message);
+        }
     }
 
 
     public void validateSortieArticleEx() throws Exception {
-        usermetierimpl.sortirArticle((OpSortieArticle) curentOperation);
+        try{
+            usermetierimpl.sortirArticle((OpSortieArticle) curentOperation);
+        }
+        catch(Exception e)
+        {
+            FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Erreur de sortie d'article", e.getMessage());
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(e.getMessage()));
+            FacesContext.getCurrentInstance().addMessage(null, message);
+        }
     }
 
 

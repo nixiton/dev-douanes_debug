@@ -864,11 +864,21 @@ public class SISEformBean {
 
     //-----------FIN SISE------------------
     public OpSortieArticle addRequeteSortie() throws Exception {
-        ArticleNouv a = new ArticleNouv();
-        Agent agent = (Agent)RequestFilter.getSession().getAttribute("agent");
-        a.setFournisseur(getFournisseur());
-        a.setPrix(getPrix());
-        return usermetierimpl.reqSortirArticle(a,agent,getAgentDest());
+        try {
+            ArticleNouv a = new ArticleNouv();
+            Agent agent = (Agent) RequestFilter.getSession().getAttribute("agent");
+            a.setFournisseur(getFournisseur());
+            a.setPrix(getPrix());
+
+            return usermetierimpl.reqSortirArticle(a, agent, getAgentDest());
+        }
+        catch(Exception e)
+        {
+            FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Erreur de requete de sortie materiel", e.getMessage());
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(e.getMessage()));
+            FacesContext.getCurrentInstance().addMessage(null, message);
+            return null;
+        }
     }
 
     public List<OpEntreeArticle> getListOpEntreeArticle() {
@@ -939,17 +949,49 @@ public class SISEformBean {
         usermetierimpl.entrerArticle(o);
     }
     public void reqArtAModifier() throws Exception {
-        usermetierimpl.reqArtAModifier(getOpEntreeArticle(),getMotif());
+        try {
+            usermetierimpl.reqArtAModifier(getOpEntreeArticle(), getMotif());
+        }
+        catch(Exception e)
+        {
+            FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Erreur de requete d'article à modifier", e.getMessage());
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(e.getMessage()));
+            FacesContext.getCurrentInstance().addMessage(null, message);
+        }
     }
      public void reqSortirArtAModifier() throws Exception {
-         usermetierimpl.reqSortirArtAModifier(getOpSortieArticle(),getMotif());
+         try {
+             usermetierimpl.reqSortirArtAModifier(getOpSortieArticle(), getMotif());
+         }
+         catch(Exception e)
+         {
+             FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Erreur de requete de sortie d'article à modifier", e.getMessage());
+             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(e.getMessage()));
+             FacesContext.getCurrentInstance().addMessage(null, message);
+         }
      }
      public void reqArtRefuser() throws  Exception{
-         usermetierimpl.reqArtRefuser(getOpEntreeArticle(),getMotif());
+         try {
+             usermetierimpl.reqArtRefuser(getOpEntreeArticle(), getMotif());
+         }
+         catch(Exception e)
+         {
+             FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Erreur de requete d'article à refuser", e.getMessage());
+             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(e.getMessage()));
+             FacesContext.getCurrentInstance().addMessage(null, message);
+         }
      }
      public void reqSortirRefuser() throws Exception
      {
-         usermetierimpl.reqSortirRefuser(getOpSortieArticle(),getMotif());
+         try {
+             usermetierimpl.reqSortirRefuser(getOpSortieArticle(), getMotif());
+         }
+         catch(Exception e)
+         {
+             FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Erreur de requete, sortie de matériel refusée", e.getMessage());
+             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(e.getMessage()));
+             FacesContext.getCurrentInstance().addMessage(null, message);
+         }
      }
      public void entrerArticle() throws  Exception
      {
@@ -957,7 +999,15 @@ public class SISEformBean {
      }
      public void sortirArticle() throws  Exception
      {
+         try{
          usermetierimpl.sortirArticle(getOpSortieArticle());
+         }
+         catch(Exception e)
+         {
+             FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Erreur de sortie d'article", e.getMessage());
+             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(e.getMessage()));
+             FacesContext.getCurrentInstance().addMessage(null, message);
+         }
      }
 
 
