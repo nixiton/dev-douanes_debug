@@ -522,4 +522,15 @@ public class SuiviEditionBean {
     }
 
 
+    //-------TEST FINAL-------
+    public List<OpEntree> getListOpEntreeByDirectionByYearByDateAsc(Direction d,  Date startDate, Date endDate)
+    {
+        return usermetierimpl.getListOpEntreeByDirectionByYearByDateAsc(d,startDate,endDate);
+    }
+    public List<OpSortie> getListOpSortieByDirectionByYearByDateAsc(Direction d,  Date startDate, Date endDate)
+    {
+        return usermetierimpl.getListOpSortieByDirectionByYearByDateAsc(d,startDate,endDate);
+    }
+
+
 }
