@@ -2045,7 +2045,7 @@ System.out.println("****************************ADD3 ATTR**ERRORR***************
 
 		Agent agent = (Agent)RequestFilter.getSession().getAttribute("agent");
 		a.setCodeArticle(getCodeArticle());
-		a.setMarque(getMarque());
+		a.setMarqueArticle(getMarque());
 		a.setCaracteristiqueArticle(getRenseignement());
 		
 
@@ -2067,10 +2067,10 @@ System.out.println("****************************ADD3 ATTR**ERRORR***************
 		a.setCodeArticle(getCodeArticle());
 		a.setFournisseur(getFournisseur());
 		a.setPrix(getPrix());
-		a.setFinancement(getFinancement());
-		a.setMarque(getMarque());
+		//a.setFinancement(getFinancement());
+		a.setMarqueArticle(getMarque());
 		a.setCaracteristiqueArticle(getRenseignement());
-		a.setModAcq(getAcquisition());
+		//a.setModAcq(getAcquisition());
 		return usermetierimpl.reqEntrerArticle(a,agent);
 	}
 
