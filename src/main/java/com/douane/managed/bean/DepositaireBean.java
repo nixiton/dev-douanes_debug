@@ -1195,6 +1195,7 @@ public class DepositaireBean {
 		RequestFilter.getSession().removeAttribute("documentpath");
 		m.setAutre(getAutre());
 		m.setBureau(getBureau());
+		m.setFournisseur(getFournisseur());
 		// m.setDirec(getDirection());
 		//m.setDirec(agent.getDirection());
 		m.setEtat(getEtat());

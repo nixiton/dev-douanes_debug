@@ -988,5 +988,22 @@ public class SISEformBean {
 
 
 
+    //------DEBUG FARANY
+    private String direction;
+
+    public List<Article> getListArticleNonDetenuValideByDirection(Direction d)
+    {
+        return usermetierimpl.getListArticleNonDetenuValideByDirection(d);
+    }
+
+    public String getDirection() {
+        return direction;
+    }
+
+    public void setDirection(String direction) {
+        this.direction = direction;
+    }
+
+
 
 }
