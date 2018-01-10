@@ -57,7 +57,7 @@
                                 </h:form>
                             </c:if-->
 
-                            <!c:if test="#{gacBean.filedownload ne null}" >
+                            <c:if test="#{gacBean.filedownload ne null}" >
                                 <h:form>
                                     <p:commandButton id="downloadLink" value="Download" ajax="false">
                                         <f:setPropertyActionListener target="#{gacBean.fileZipPath}" value="delete" />
