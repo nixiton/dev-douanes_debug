@@ -41,7 +41,7 @@ public class OpEntree extends Operation{
 	public OpEntree() {
 		
 	}
-	public void generateNumEntree() {
+	public void generateNumEntree(Long currentNum) {
 		//Date today = new Date();
 		
 	    int d = Calendar.getInstance().get(Calendar.DAY_OF_MONTH); String dd="x";
@@ -59,8 +59,11 @@ public class OpEntree extends Operation{
 	    }
 		yy=""+y%200;
 		String codeDirection ="tsy misy";
+		if(this.getDirection()!=null) {
+			codeDirection = this.getDirection().getCodeDirection();
+		}
 		
-		this.numentree="OE "+ numerochronoe+ "/"+codeDirection+ "/" +dd+ "/" +mm+ "/" +yy;
+		this.numentree="OE "+ currentNum+ "/"+codeDirection+ "/" +dd+ "/" +mm+ "/" +yy;
 		numerochronoe+=1;
 	}
 	public Materiel getMat() {

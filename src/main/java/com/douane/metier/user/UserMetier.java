@@ -296,7 +296,7 @@ public class UserMetier implements IUserMetier{
 			matrepos.save(m);
 		}
 		op.valider();
-		op.generateNumEntree();
+		op.generateNumEntree(operationdao.countOpEntreeByYearByDirection(new Date(), op.getDirection()));
 		oprepos.save(op);
 		return null;
 	}
@@ -314,7 +314,7 @@ public class UserMetier implements IUserMetier{
 			matrepos.save(m);
 
 			sortie.valider();
-			sortie.generateNumSortie();
+			sortie.generateNumSortie(operationdao.countOpSortieByYearByDirection(new Date(), sortie.getDirection()));
 			oprepos.save(sortie);
 			return m;
 

@@ -1497,12 +1497,12 @@ System.out.println("****************************ADD2 ATTR**ERRORR*****NULL******
 			OpAttribution opAt = usermetierimpl.reqAttribution(getMaterielSeclected(), agent, getDetenteur());
 System.out.println("****************************ADD3 ATTR**ERRORR********************************");
 			return SUCCESS;
-		} catch(Exception e)
-		{
-			FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Erreur pour requete d'attribution", e.getMessage());
-			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(e.getMessage()));
-			FacesContext.getCurrentInstance().addMessage(null, message);
-			return null;
+		} catch (Exception e) {
+			// TODO: handle exception
+			
+			e.printStackTrace();
+			System.out.println(e.getMessage());
+			return ERROR;
 		}
 
 	}
@@ -1520,12 +1520,11 @@ System.out.println("****************************ADD3 ATTR**ERRORR***************
 			// getCurrent Materiel ve?????
 			opDet = usermetierimpl.reqDettachement(this.getMaterielSeclected(), agent, getDetenteur());
 			return SUCCESS;
-		} catch(Exception e)
-		{
-			FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Erreur pour requete de detachement", e.getMessage());
-			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(e.getMessage()));
-			FacesContext.getCurrentInstance().addMessage(null, message);
-			return null;
+		} catch (Exception e) {
+			// TODO: handle exception
+
+			System.out.println(e.getMessage());
+			return ERROR;
 		}
 
 
@@ -1547,12 +1546,11 @@ System.out.println("****************************ADD3 ATTR**ERRORR***************
 			}
 			
 			return SUCCESS;
-		} catch(Exception e)
-		{
-			FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Erreur requete pour operation sortie", e.getMessage());
-			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(e.getMessage()));
-			FacesContext.getCurrentInstance().addMessage(null, message);
-			return null;
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+
+			System.out.println(e.getMessage());
+			return ERROR;
 		}
 
 
@@ -2095,19 +2093,11 @@ System.out.println("****************************ADD3 ATTR**ERRORR***************
 	}
 
 	public OpSortieArticle addRequeteSortieNouv() throws Exception {
-		try{
-			ArticleNouv a = new ArticleNouv();
-			Agent agent = (Agent)RequestFilter.getSession().getAttribute("agent");
-			a.setFournisseur(getFournisseur());
-			a.setPrix(getPrix());
-			return usermetierimpl.reqSortirArticle(a,agent,getAgentDest());
-		}catch(Exception e)
-		{
-			FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Erreur de requete de sortie materiel", e.getMessage());
-			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(e.getMessage()));
-			FacesContext.getCurrentInstance().addMessage(null, message);
-			return null;
-		}
+		ArticleNouv a = new ArticleNouv();
+		Agent agent = (Agent)RequestFilter.getSession().getAttribute("agent");
+		a.setFournisseur(getFournisseur());
+		a.setPrix(getPrix());
+		return usermetierimpl.reqSortirArticle(a,agent,getAgentDest());
 	}
 
 

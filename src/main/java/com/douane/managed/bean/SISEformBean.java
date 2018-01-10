@@ -1041,9 +1041,16 @@ public class SISEformBean {
     //------DEBUG FARANY
     private String direction;
 
-    public List<Article> getListArticleNonDetenuValideByDirection(Direction d)
+    private List<Article> listArticleNonDetenuValideByDirection;
+
+    public List<Article> getListArticleNonDetenuValideByDirection()
     {
-        return usermetierimpl.getListArticleNonDetenuValideByDirection(d);
+        Agent agent =(Agent) RequestFilter.getSession().getAttribute("agent");
+        return usermetierimpl.getListArticleNonDetenuValideByDirection(agent.getDirection());
+    }
+
+    public void setListArticleNonDetenuValideByDirection(List<Article> d){
+        this.listArticleNonDetenuValideByDirection =d;
     }
 
     public String getDirection() {

@@ -4,6 +4,7 @@
     xmlns:f="http://java.sun.com/jsf/core"
     xmlns:h="http://java.sun.com/jsf/html"
     xmlns:p="http://primefaces.org/ui"
+    xmlns:c="http://java.sun.com/jsp/jstl/core"
     >
 
  <h:head></h:head>
@@ -296,11 +297,14 @@
 
 
 
+            
 
 
                 <!-- *********************************FILE UPLOAD ****************************************************-->
 
             <p:outputPanel id="testContainer">
+
+                <c:if test="#{depositaireBean.filedownload null}" >
 
                 <p:dataTable id="docId" var="row"
                              value="#{depositaireBean.documentList}" editable="true"
@@ -313,7 +317,7 @@
                             <p:fileUpload value="#{depositaireBean.document}"
                                           fileUploadListener="#{depositaireBean.uploadDoc_Advanced}"
                                           mode="advanced" dragDropSupport="false" update="@this,docId"
-                                          allowTypes="/(\.|\/)(gif|jpe?g|png|txt)$/">
+                                          allowTypes="/(\.|\/)(gif|jpeg|png|txt)$/">
                                 <f:attribute name="docObj" value="#{row}"></f:attribute>
                             </p:fileUpload>
                         </p:panel>
@@ -328,6 +332,8 @@
 
 
                 </p:dataTable>
+
+            </c:if>
                 <!-- **IMAGE UPLOAD** -->
                 <p:dataTable id="imId" var="rowIm"
                              value="#{depositaireBean.imageList}" editable="true"
@@ -338,7 +344,7 @@
                             <p:fileUpload value="#{depositaireBean.byteDoc}"
                                           fileUploadListener="#{depositaireBean.uploadIm_Advanced}"
                                           mode="advanced" dragDropSupport="false" update="@this,imId"
-                                          allowTypes="/(\.|\/)(gif|jpe?g|png|txt)$/" required="true">
+                                          allowTypes="/(\.|\/)(gif|jpeg|png|txt)$/" required="true">
                                 <f:attribute name="docObj" value="#{rowIm}"></f:attribute>
                             </p:fileUpload>
                         </p:panel>
