@@ -2047,6 +2047,8 @@ System.out.println("****************************ADD3 ATTR**ERRORR***************
 		a.setCodeArticle(getCodeArticle());
 		a.setMarqueArticle(getMarq());
 		a.setCaracteristiqueArticle(getRenseignement());
+
+
 		
 
 		//a.setTypeObjet(getTypeObjet());
@@ -2068,6 +2070,9 @@ System.out.println("****************************ADD3 ATTR**ERRORR***************
 		a.setFournisseur(getFournisseur());
 		a.setPrix(getPrix());
 		//a.setFinancement(getFinancement());
+
+		a.setDirec(agent.getDirection());
+
 		a.setMarqueArticle(getMarq());
 		a.setCaracteristiqueArticle(getRenseignement());
 		//a.setModAcq(getAcquisition());
