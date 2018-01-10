@@ -11,14 +11,13 @@
 
 	<p:panel rendered="#{loginMgmtBean.im != null}">
 		<script type="text/javascript">
-		    
-	var base_url = window.location.origin;
+		    var base_url = window.location.origin;
 
 	var host = window.location.host;
 
 	var pathArray = window.location.pathname;
 
-    window.location = base_url+""+pathArray+"pages/secure/choice.xhtml";
+    window.location = ""+pathArray+"pages/secure/choice.xhtml";
 		</script>
 	</p:panel>
 
