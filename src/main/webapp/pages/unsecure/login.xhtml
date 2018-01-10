@@ -11,8 +11,13 @@
 
 	<p:panel rendered="#{loginMgmtBean.im != null}">
 		<script type="text/javascript">
-		    window.location = "http://douane.herokuapp.com/pages/secure/choice.xhtml";
-		    //test
+		    var base_url = window.location.origin;
+
+	var host = window.location.host;
+
+	var pathArray = window.location.pathname;
+
+    window.location = ""+pathArray+"pages/secure/choice.xhtml";
 		</script>
 	</p:panel>
 
