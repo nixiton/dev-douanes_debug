@@ -157,6 +157,9 @@ public interface IUserMetier {
 
 	public List<ArticleNouv> getListAllArticleNouv();
 	public List<Article> getListAllArticle();
+	public List<Article> getListArticleValide();
+	public List<Article> getListArticleNonDetenuValide();
+	public List<Article> getListArticleByDetenteurByValida(boolean valide, Agent detenteur);
 	public ArticleNouv addArticleNouv(CodeArticle cde, Agent ben, Agent depo, Fournisseur fourn, Float prix, Long nombre, Marque marqueArt,String caraArt);
 	public ArticleEx addArticleEx(CodeArticle cde, Agent ben, Agent depo, Float prix, Long nombre, Marque marqueArt,String caraArt);
 
