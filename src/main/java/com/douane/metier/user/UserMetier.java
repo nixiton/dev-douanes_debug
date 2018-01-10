@@ -1114,6 +1114,24 @@ public class UserMetier implements IUserMetier{
 		return operationdao.getListOperationByDirectionByYearByDateAsc(d, startDate, endDate);
 	}
 
+	@Override
+	public List<Article> getListArticleValide() {
+		// TODO Auto-generated method stub
+		return artreops.findByValidation(true);
+	}
+
+	@Override
+	public List<Article> getListArticleNonDetenuValide() {
+		// TODO Auto-generated method stub
+		return artreops.findByValidationByBeneficiaire(true,null);
+	}
+
+	@Override
+	public List<Article> getListArticleByDetenteurByValida(boolean valide, Agent detenteur) {
+		// TODO Auto-generated method stub
+		return artreops.findByValidationByBeneficiaire(valide, detenteur);
+	}
+
 	
 
 
