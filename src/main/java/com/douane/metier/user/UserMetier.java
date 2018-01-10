@@ -252,7 +252,7 @@ public class UserMetier implements IUserMetier{
 			return sortie;
 		}catch(Exception e)
 		{
-		FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Error request operation sortie", e.getMessage());
+		FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Erreur requete pour operation sortie", e.getMessage());
 		FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(e.getMessage()));
 		FacesContext.getCurrentInstance().addMessage(null, message);
 			return null;
@@ -273,7 +273,7 @@ public class UserMetier implements IUserMetier{
 		}
 		catch(Exception e)
 		{
-			FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Error request operation sortie", e.getMessage());
+			FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Erreur requete pour operation sortie", e.getMessage());
 			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(e.getMessage()));
 			FacesContext.getCurrentInstance().addMessage(null, message);
 			return null;
@@ -294,7 +294,7 @@ public class UserMetier implements IUserMetier{
 		}
 		catch(Exception e)
 		{
-			FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Error request operation sortie", e.getMessage());
+			FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Erreur requete pour operation sortie", e.getMessage());
 			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(e.getMessage()));
 			FacesContext.getCurrentInstance().addMessage(null, message);
 			return null;
@@ -338,7 +338,7 @@ public class UserMetier implements IUserMetier{
 		}
 		catch(Exception e)
 		{
-			FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Error operation sortie", e.getMessage());
+			FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Erreur pour operation sortie", e.getMessage());
 			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(e.getMessage()));
 			FacesContext.getCurrentInstance().addMessage(null, message);
 			return null;
@@ -363,7 +363,7 @@ public class UserMetier implements IUserMetier{
 		}
 		catch(Exception e)
 		{
-			FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Error attribution materiel", e.getMessage());
+			FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Erreur pour attribution de materiel", e.getMessage());
 			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(e.getMessage()));
 			FacesContext.getCurrentInstance().addMessage(null, message);
 			return null;
@@ -377,7 +377,7 @@ public class UserMetier implements IUserMetier{
 		}
 		catch(Exception e)
 		{
-			FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Error attribution materiel existant", e.getMessage());
+			FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Erreur pour attribution de materiel existant", e.getMessage());
 			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(e.getMessage()));
 			FacesContext.getCurrentInstance().addMessage(null, message);
 			return null;
@@ -455,7 +455,7 @@ public class UserMetier implements IUserMetier{
 		}
 		catch(Exception e)
 		{
-			FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Error request attribution", e.getMessage());
+			FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Erreur pour requete d'attribution", e.getMessage());
 			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(e.getMessage()));
 			FacesContext.getCurrentInstance().addMessage(null, message);
 			return null;
@@ -475,7 +475,7 @@ public class UserMetier implements IUserMetier{
 		}
 		catch(Exception e)
 		{
-			FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Error request modification materiel", e.getMessage());
+			FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Erreur pour requete de modification materiel", e.getMessage());
 			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(e.getMessage()));
 			FacesContext.getCurrentInstance().addMessage(null, message);
 			return null;
@@ -500,7 +500,7 @@ public class UserMetier implements IUserMetier{
 		}
 		catch(Exception e)
 		{
-			FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Error attribution sortie", e.getMessage());
+			FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Erreur pour attribution de sortie", e.getMessage());
 			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(e.getMessage()));
 			FacesContext.getCurrentInstance().addMessage(null, message);
 			return null;
@@ -528,7 +528,7 @@ public class UserMetier implements IUserMetier{
 		}
 		catch(Exception e)
 		{
-			FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Error modficiation attribution", e.getMessage());
+			FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Erreur de modficiation d'attribution", e.getMessage());
 			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(e.getMessage()));
 			FacesContext.getCurrentInstance().addMessage(null, message);
 			return null;
@@ -548,7 +548,7 @@ public class UserMetier implements IUserMetier{
 		}
 		catch(Exception e)
 		{
-			FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Error requete refus attribution", e.getMessage());
+			FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Erreur de requete pour refus d'attribution", e.getMessage());
 			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(e.getMessage()));
 			FacesContext.getCurrentInstance().addMessage(null, message);
 			return null;
@@ -568,7 +568,7 @@ public class UserMetier implements IUserMetier{
 		}
 		catch(Exception e)
 		{
-			FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Error requete detachement", e.getMessage());
+			FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Erreur pour requete de detachement", e.getMessage());
 			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(e.getMessage()));
 			FacesContext.getCurrentInstance().addMessage(null, message);
 			return null;
@@ -591,7 +591,7 @@ public class UserMetier implements IUserMetier{
 		}
 		catch(Exception e)
 		{
-			FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Error detachement materiel", e.getMessage());
+			FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Erreur de detachement materiel", e.getMessage());
 			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(e.getMessage()));
 			FacesContext.getCurrentInstance().addMessage(null, message);
 			return null;
@@ -919,7 +919,7 @@ public class UserMetier implements IUserMetier{
 		}
 		catch(Exception e)
 		{
-			FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Error requete sortie materiel", e.getMessage());
+			FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Erreur de requete de sortie materiel", e.getMessage());
 			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(e.getMessage()));
 			FacesContext.getCurrentInstance().addMessage(null, message);
 			return null;
@@ -940,7 +940,7 @@ public class UserMetier implements IUserMetier{
 		}
 		catch(Exception e)
 		{
-			FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Error requete article à modifier", e.getMessage());
+			FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Erreur de requete d'article à modifier", e.getMessage());
 			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(e.getMessage()));
 			FacesContext.getCurrentInstance().addMessage(null, message);
 			return null;
@@ -961,7 +961,7 @@ public class UserMetier implements IUserMetier{
 		}
 		catch(Exception e)
 		{
-			FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Error requete sortie article à modifier", e.getMessage());
+			FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Erreur de requete de sortie d'article à modifier", e.getMessage());
 			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(e.getMessage()));
 			FacesContext.getCurrentInstance().addMessage(null, message);
 			return null;
@@ -981,7 +981,7 @@ public class UserMetier implements IUserMetier{
 		}
 		catch(Exception e)
 		{
-			FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Error requete article à refuser", e.getMessage());
+			FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Erreur de requete d'article à refuser", e.getMessage());
 			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(e.getMessage()));
 			FacesContext.getCurrentInstance().addMessage(null, message);
 			return null;
@@ -1001,7 +1001,7 @@ public class UserMetier implements IUserMetier{
 		}
 		catch(Exception e)
 		{
-			FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Error requete sortie de matériel refusée", e.getMessage());
+			FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Erreur de requete, sortie de matériel refusée", e.getMessage());
 			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(e.getMessage()));
 			FacesContext.getCurrentInstance().addMessage(null, message);
 			return null;
@@ -1036,7 +1036,7 @@ public class UserMetier implements IUserMetier{
 		}
 		catch(Exception e)
 		{
-			FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Error sortie article", e.getMessage());
+			FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Erreur de sortie d'article", e.getMessage());
 			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(e.getMessage()));
 			FacesContext.getCurrentInstance().addMessage(null, message);
 			return null;
