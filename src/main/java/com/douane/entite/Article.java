@@ -30,6 +30,12 @@ public class Article  implements Serializable{
     private Long nombre;
 
     private boolean validation;
+    
+    @ManyToOne
+	@JoinColumn(name="idMarqueArt")
+    private Marque marqueArticle;
+    
+    private String caracteristiqueArticle;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="imBeneficiaire")
@@ -85,6 +91,22 @@ public class Article  implements Serializable{
     public void setBeneficiaire(Agent beneficiaire) {
         this.beneficiaire = beneficiaire;
     }
+
+	public Marque getMarqueArticle() {
+		return marqueArticle;
+	}
+
+	public void setMarqueArticle(Marque marqueArticle) {
+		this.marqueArticle = marqueArticle;
+	}
+
+	public String getCaracteristiqueArticle() {
+		return caracteristiqueArticle;
+	}
+
+	public void setCaracteristiqueArticle(String caracteristiqueArticle) {
+		this.caracteristiqueArticle = caracteristiqueArticle;
+	}
 
 
 
