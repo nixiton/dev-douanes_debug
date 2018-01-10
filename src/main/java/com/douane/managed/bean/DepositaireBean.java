@@ -2050,7 +2050,7 @@ System.out.println("****************************ADD3 ATTR**ERRORR***************
 		a.setCaracteristiqueArticle(getRenseignement());
 
 
-		
+		a.setValidation(true);
 
 		//a.setTypeObjet(getTypeObjet());
 		return usermetierimpl.reqEntrerArticle(a,agent);
