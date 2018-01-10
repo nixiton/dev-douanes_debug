@@ -2071,7 +2071,7 @@ System.out.println("****************************ADD3 ATTR**ERRORR***************
 		a.setPrix(getPrix());
 		//a.setFinancement(getFinancement());
 
-		a.setDirec(agent.getDirection());
+		//a.setDirec(agent.getDirection());
 
 		a.setMarqueArticle(getMarq());
 		a.setCaracteristiqueArticle(getRenseignement());
