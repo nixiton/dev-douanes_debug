@@ -186,7 +186,7 @@ public class DepositaireBean {
 	private Article curentArticle;
 
 
-	public setCurentArticle(Article a){
+	public void setCurentArticle(Article a){
 		this.curentArticle =a;
 	}
 
