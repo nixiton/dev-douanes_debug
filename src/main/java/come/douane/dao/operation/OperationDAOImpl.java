@@ -1,5 +1,6 @@
 package come.douane.dao.operation;
 
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -394,7 +395,7 @@ public class OperationDAOImpl implements IOperationDAO{
 		// TODO Auto-generated method stub
 				TypedQuery<OpEntree> query = em.createQuery("select oe from OpEntree oe "
 						+ "where oe.date>=:startDate AND oe.date<=:endDate"
-						+ " where oe.direction =:direct"
+						+ " and oe.direction =:direct"
 						+ " and oe.state=:etat"
 			       		+ " order by oe.date desc "
 			       		,OpEntree.class);
@@ -412,7 +413,7 @@ public class OperationDAOImpl implements IOperationDAO{
 		// TODO Auto-generated method stub
 		TypedQuery<OpSortie> query = em.createQuery("select os from OpSortie os "
 				+ "where os.date>=:startDate AND os.date<=:endDate"
-				+ " where os.direction =:direct"
+				+ " and os.direction =:direct"
 				+ " and os.state=:etat"
 	       		+ " order by os.date desc "
 	       		,OpSortie.class);
@@ -429,7 +430,7 @@ public class OperationDAOImpl implements IOperationDAO{
 		// TODO Auto-generated method stub
 		TypedQuery<Operation> query = em.createQuery("select o from Operation o "
 				+ "where o.date>=:startDate AND o.date<=:endDate"
-				+ " where o.direction =:direct"
+				+ " and o.direction =:direct"
 				+ " and o.state=:etat"
 	       		+ " order by o.date desc "
 	       		,Operation.class);
@@ -448,7 +449,7 @@ public class OperationDAOImpl implements IOperationDAO{
 		// TODO Auto-generated method stub
 		TypedQuery<OpEntreeArticle> query = em.createQuery("select oeart from OpEntreeArticle oeart "
 				+ "where oeart.date>=:startDate AND oeart.date<=:endDate"
-				+ " where oeart.direction =:direct"
+				+ " and oeart.direction =:direct"
 				+ " and oeart.state=:etat"
 	       		+ " order by oeart.date desc "
 	       		,OpEntreeArticle.class);
@@ -466,7 +467,7 @@ public class OperationDAOImpl implements IOperationDAO{
 		// TODO Auto-generated method stub
 		TypedQuery<OpSortieArticle> query = em.createQuery("select osart from OpSortieArticle osart "
 				+ "where osart.date>=:startDate AND osart.date<=:endDate"
-				+ " where osart.direction =:direct"
+				+ " and osart.direction =:direct"
 				+ " and osart.state=:etat"
 	       		+ " order by osart.date desc "
 	       		,OpSortieArticle.class);
@@ -476,6 +477,23 @@ public class OperationDAOImpl implements IOperationDAO{
 		query.setParameter("etat", etat);   
 	    List<OpSortieArticle> operations = query.getResultList();
 		return operations;
+	}
+	
+	public Long countOpEntreeByYearByDirection(Date date,Direction d) {
+		Calendar cal = Calendar.getInstance();
+		cal.setTime(date);
+		int year = cal.get(Calendar.YEAR);
+		Query q= em.createQuery("SELECT COUNT(oe.id) FROM OpEntree oe"
+				+ "where YEAR(oe.date)=:year "
+				+ " and oe.direction =:direct"
+				+ " and oe.state=:etat");
+		q.setParameter("direct", d);
+		q.setParameter("year", year);
+		q.setParameter("etat", EtatOperation.ACCEPTED);
+		
+		Long r = (Long) q.getSingleResult();
+		return r;
+		   
 	}
 	
 
