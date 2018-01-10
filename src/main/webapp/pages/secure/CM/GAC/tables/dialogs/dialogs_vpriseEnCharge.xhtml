@@ -84,8 +84,8 @@
                         <td>#{mat.renseignement}</td>
                         <td><strong>Image</strong></td>
                         <td>
-                            <p:panel rendered="#{depositaireBean.curentMateriel.image != null}">
-                                <h:graphicImage url="data:image/jpg;base64,#{depositaireBean.curentMateriel.image}"
+                            <p:panel rendered="#{mat.image != null}">
+                                <h:graphicImage url="data:image/jpg;base64,#{mat.image}"
                                                 width="275px" height="75px"></h:graphicImage>
                             </p:panel>
                         </td>
