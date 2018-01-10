@@ -36,12 +36,12 @@
             <f:facet name="header">
                 <h:outputText value="Détail" />
             </f:facet>
-            <p:commandButton
+            <p:commandButton action="#{depositaireBean.mySetCurentArticle(a)}"
             oncomplete="PF('detail').show()" icon="ui-icon-zoomin" update=":detail"/>
         </p:column>
     </p:dataTable>
 </div>
 
-<ui:include src="/pages/secure/CM/DC/tables/dialogs/dialogs_priseEnCharge.xhtml"></ui:include>
+<ui:include src="/pages/secure/CA/DC/tables/dialogs/dialogs_priseEnCharge.xhtml"></ui:include>
 
 </html>

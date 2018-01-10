@@ -26,20 +26,20 @@
 
 
 
-                    <label for="text1" class="control-label col-lg-4">Type des objets
+                    <!--label for="text1" class="control-label col-lg-4">Type des objets
                     </label>
 
                     <div class="col-lg-6">
 
                         <p:selectOneMenu     styleClass="form-control top" converter="#{refConverter}" value="#{depositaireBean.typeObjet}">
-                            <f:selectItem itemValue="#{null}" itemLabel="--select--" /> 
+                            <f:selectItem itemValue="#{null}" itemLabel="select" /> 
                             <f:selectItems value="#{siseBean.listTypeObjet}" var="type" itemLabel="#{type.designation}"/>
                             
                         </p:selectOneMenu>
 
                     <hr></hr>
 
-                    </div>
+                    </div-->
                 
                     
 
@@ -70,14 +70,14 @@
                     
 
 
-                    <label for="text1" class="control-label col-lg-4">Marque
+                    <!--label for="text1" class="control-label col-lg-4">Marque
                     </label>
 
                     <div class="col-lg-6">
 
                     <p:selectOneMenu value="#{depositaireBean.marq}" converter="#{refConverter}" panelStyle="width:180px"  style="width:160px"
                          effect="fade" var="t" filter="true" filterMatchMode="startsWith">
-                        <f:selectItem itemValue="#{null}" itemLabel="--select--" /> 
+                        <f:selectItem itemValue="#{null}" itemLabel="select" /> 
                             <f:selectItems value="#{siseBean.listMarque}" var="theme" itemLabel="#{theme.designation}" itemValue="#{theme}" />
                         <p:column>
                             <h:outputText value="#{t.designation}" />
@@ -87,38 +87,33 @@
 
                     <hr></hr>
 
-                    </div>
+                    </div-->
 
                     
 
 
 
-                    <label for="text1" class="control-label col-lg-4">Caractéristiques
+                    <!--label for="text1" class="control-label col-lg-4">Caractéristiques
                     </label>
 
                     <div class="col-lg-6">
-
-                        <!-- p:inputText id="caratceristique" required="true"
-                        value="#{depositaireBean.renseignement}"
-                        requiredMessage=""
-                        placeholder="Caractéristiques" styleClass="form-control top"></p:inputText-->
                         
                         <p:inputTextarea value="#{depositaireBean.renseignement}" rows="5" cols="20" counter="display" maxlength="250" counterTemplate="{0} restants." autoResize="false" />
                             <h:outputText id="display" />
                         <hr></hr>
 
-                    </div>
+                    </div-->
 
 
 
-                <label for="text1" class="control-label col-lg-4">Mode d'aquisition
+                <!--label for="text1" class="control-label col-lg-4">Mode d'aquisition
                 </label>
 
                 <div class="col-lg-6">
 
                      <p:selectOneMenu value="#{depositaireBean.acquisition}" converter="#{refConverter}" panelStyle="width:180px"  style="width:160px"
                          effect="fade" var="t" filter="true" filterMatchMode="startsWith">
-                        <f:selectItem itemValue="#{null}" itemLabel="--select--" /> 
+                        <f:selectItem itemValue="#{null}" itemLabel="select" /> 
                             <f:selectItems value="#{siseBean.listModeAcquisition}" var="theme" itemLabel="#{theme.designation}" itemValue="#{theme}" />
                         <p:column>
                             <h:outputText value="#{t.designation}" />
@@ -129,9 +124,9 @@
 
                 <hr></hr>
 
-                </div>
+                </div-->
 
-                <label for="text1" class="control-label col-lg-4">Financement
+                <!--label for="text1" class="control-label col-lg-4">Financement
                 </label>
 
                 <div class="col-lg-6">
@@ -139,7 +134,7 @@
 
                     <p:selectOneMenu value="#{depositaireBean.financement}" converter="#{refConverter}" panelStyle="width:180px"  style="width:160px"
                          effect="fade" var="t" filter="true" filterMatchMode="startsWith">
-                        <f:selectItem itemValue="#{null}" itemLabel="--select--" /> 
+                        <f:selectItem itemValue="#{null}" itemLabel="select" /> 
                             <f:selectItems value="#{siseBean.listFinancement}" var="theme" itemLabel="#{theme.designation}" itemValue="#{theme}" />
                         <p:column>
                             <h:outputText value="#{t.designation}" />
@@ -148,7 +143,7 @@
 
                 <hr></hr>
 
-                </div>
+                </div-->
                 
                 
                 <label for="text1" class="control-label col-lg-4">Fournisseur
@@ -167,6 +162,19 @@
 
 
                 <hr></hr>
+
+                </div>
+
+
+                <label for="text2" class="control-label col-lg-4">Prix
+                </label>
+
+                <div class="col-lg-6">
+
+                    <p:inputText id="nomenclature" required="true"
+                        value="#{depositaireBean.prix}"
+                        requiredMessage=""
+                        placeholder="Prix" styleClass="form-control top"></p:inputText>
 
                 </div>
                     
@@ -190,6 +198,9 @@
                 <div class="col-lg-4"></div>
 
             </div>
+
+
+
 
             
 

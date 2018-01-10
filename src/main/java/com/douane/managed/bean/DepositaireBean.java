@@ -183,6 +183,18 @@ public class DepositaireBean {
 
 	private OpSortie curentOrdreSortie; 
 
+	private Article curentArticle;
+
+
+	public setCurentArticle(Article a){
+		this.curentArticle =a;
+	}
+
+	public Article getCurentArticle(){
+		return this.curentArticle;
+	}
+
+
 	public List<Materiel> getListMaterielByDet() {
 		//List<Materiel> listmatcorrespondant;
 		if(usermetierimpl.getListMatByDet(getDetenteur())==null){
@@ -200,6 +212,7 @@ public class DepositaireBean {
 	public String exit(){
         //this.setCurentMateriel(null);
         this.curentMateriel = null;
+        this.curentArticle = null;
         return "success";
     }
 
