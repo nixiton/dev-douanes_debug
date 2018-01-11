@@ -2057,7 +2057,7 @@ System.out.println("****************************ADD3 ATTR**ERRORR***************
 
 
 
-	Long prix;
+	Long nombre;
 
 	public Long getNombre() {
 		return nombre;
