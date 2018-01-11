@@ -1520,7 +1520,7 @@ System.out.println("****************************ADD3 ATTR**ERRORR***************
 		System.out.println("****************************ADD DETACHEMENT********************************");
 		try {
 			// getCurrent Materiel ve?????
-			opDet = usermetierimpl.reqDettachement(this.getMaterielSeclected(), agent, getDetenteur());
+			opDet = usermetierimpl.reqDettachement(this.getMaterielSeclected(), agent, getDetenteur(), this.getMotifSortie());
 			return SUCCESS;
 		} catch (Exception e) {
 			// TODO: handle exception
