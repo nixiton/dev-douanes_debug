@@ -1341,6 +1341,7 @@ public class DepositaireBean {
 					System.out.println("Begin Attribution");
 					OpAttribution oa= usermetierimpl.reqAttribution((MaterielEx) ma, agent, getDetenteurMatEx());
 					usermetierimpl.attriuberMateriel(oa);
+					System.out.println("End Attribution");
 					//m.setDetenteur(getDetenteurMatEx());
 				}
 			}
@@ -1367,7 +1368,7 @@ public class DepositaireBean {
 			return null;
 		} catch (Exception e) {
 			FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Error validating materiel", "Error operation");
-			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Error operation exception"));
+			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Error operation exception :"+e.getMessage()));
 			FacesContext.getCurrentInstance().addMessage(null, message);
 			return null;
 		}
