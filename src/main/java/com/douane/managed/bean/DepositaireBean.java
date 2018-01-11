@@ -2042,7 +2042,7 @@ System.out.println("****************************ADD3 ATTR**ERRORR***************
 		this.prix = prix;
 	}
 
-	public OpEntreeArticle addArticleEx()
+	public String addArticleEx()
 	{
 		ArticleEx a = new ArticleEx();
 
@@ -2055,16 +2055,13 @@ System.out.println("****************************ADD3 ATTR**ERRORR***************
 		a.setValidation(true);
 
 		//a.setTypeObjet(getTypeObjet());
-		return usermetierimpl.reqEntrerArticle(a,agent);
+		OpEntreeArticle oeart=usermetierimpl.reqEntrerArticle(a,agent);
+		usermetierimpl.entrerArticle(oeart);
+		return SUCCESS;
 	}
 
-	public void validateArticleEx()
-	{
-		OpEntreeArticle o = addArticleEx();
-		usermetierimpl.entrerArticle(o);
-	}
 
-	public OpEntreeArticle addArticleNouv()
+	public String addArticleNouv()
 	{
 		ArticleNouv a = new ArticleNouv();
 
@@ -2079,7 +2076,8 @@ System.out.println("****************************ADD3 ATTR**ERRORR***************
 		a.setMarqueArticle(getMarq());
 		a.setCaracteristiqueArticle(getRenseignement());
 		//a.setModAcq(getAcquisition());
-		return usermetierimpl.reqEntrerArticle(a,agent);
+		usermetierimpl.reqEntrerArticle(a,agent);
+		return SUCCESS;
 	}
 
 
