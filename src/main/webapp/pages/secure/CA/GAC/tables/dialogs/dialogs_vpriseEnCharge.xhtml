@@ -53,7 +53,7 @@
                             </h:commandButton>
                             </h:form>
                         </td>
-                        <!--td>
+                        <td>
                             <h:form>
 
                                     <label for="text1" >Motif de refus
@@ -62,7 +62,7 @@
                                     <h:inputText value="#{gacBean.motif}" 
                                                 styleClass="form-control top"></h:inputText>
 
-                                    <h:commandButton  action="#{gacBean.refuserArticlENouv(gacBean.curentOperation)}" value="Refuser"
+                                    <h:commandButton  action="#{gacBean.reqArtRefuser(gacBean.curentOperation)}" value="Refuser"
                                                 class="btn btn-lg btn-primary btn-block">
                                         
                                     </h:commandButton>
@@ -80,14 +80,14 @@
                                 <h:inputText value="#{gacBean.motif}" 
                                             styleClass="form-control top"></h:inputText>
 
-                                <h:commandButton  action="#{gacBean.corrigerArticleNouv(gacBean.curentOperation)}" value="A modifier"
+                                <h:commandButton  action="#{gacBean.reqArtAModifier(gacBean.curentOperation)}" value="A modifier"
                                             class="btn btn-lg btn-primary btn-block">
                                     
                                 </h:commandButton>
 
                                 
                             </h:form>
-                        </td-->
+                        </td>
                     </tr>
 
                     </p:panel>
