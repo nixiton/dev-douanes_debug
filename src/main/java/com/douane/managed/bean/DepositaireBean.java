@@ -199,6 +199,18 @@ public class DepositaireBean {
 	}
 
 
+	private Article article;
+
+
+	public void setArticle(Article a){
+		this.article =a;
+	}
+
+	public Article getArticle(){
+		return this.article;
+	}
+
+
 	public List<Materiel> getListMaterielByDet() {
 		//List<Materiel> listmatcorrespondant;
 		if(usermetierimpl.getListMatByDet(getDetenteur())==null){
@@ -2109,7 +2121,7 @@ System.out.println("****************************ADD3 ATTR**ERRORR***************
 		Agent agent = (Agent)RequestFilter.getSession().getAttribute("agent");
 		//a.setFournisseur(getFournisseur());
 		//a.setPrix(getPrix());
-		 usermetierimpl.reqSortirArticle(this.getArticleNouv(),agent,getAgentDest());
+		 usermetierimpl.reqSortirArticle(this.getArticle(),agent,getAgentDest());
 		 return SUCCESS;
 	}
 
