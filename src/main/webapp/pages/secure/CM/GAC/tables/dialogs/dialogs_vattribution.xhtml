@@ -45,15 +45,16 @@
                         <td><strong>Prénom détenteur</strong></td>
                         <td>#{gacBean.curentOperation.detenteur.prenomAgent}</td>
                         <td><strong>Détenteur effectif</strong></td>
-                        <td> <h:commandLink  action="#{gacBean.setCurentOperation2(o)}" target="_blank">
-                    <i class="fa fa-file-archive-o"></i>
-                </h:commandLink></td>
+                        <td>
+                            <h:form>
 
-                        
-                        
+                                    <h:commandLink  action="#{gacBean.setCurentOperation2(gacBean.curentOperation)}" target="_blank">
+                                            <i class="fa fa-file-archive-o"></i>
+                                        </h:commandLink>
+                                </h:form>
+                        </td>
 
-           
-        
+
 
 
                     </tr>
