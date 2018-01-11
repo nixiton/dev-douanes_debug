@@ -57,11 +57,23 @@
                         <f:selectItem itemValue="#{null}" itemLabel="--select--" /> 
                             <f:selectItems value="#{depositaireBean.listArticleValide}" var="theme" itemLabel="#{theme.codeArticle}" itemValue="#{theme}" />
                         <p:column>
-                            <h:outputText value="#{t.codeArticle.designation}" />
+                            <h:outputText value="#{theme.codeArticle.designation}" />
                         </p:column>
                     </p:selectOneMenu>
 
                 <hr></hr>
+
+                </div>
+
+                <label for="text2" class="control-label col-lg-4">Nombre
+                </label>
+
+                <div class="col-lg-6">
+
+                    <p:inputText required="true"
+                        value="#{depositaireBean.nombre}"
+                        requiredMessage=""
+                        placeholder="Nombre" styleClass="form-control top"></p:inputText>
 
                 </div>
                 
