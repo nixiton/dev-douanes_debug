@@ -1,0 +1,80 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:p="http://primefaces.org/ui"
+    >
+
+<h:head></h:head>
+
+<div   class="body collapse in table-responsive">
+
+    <!--div class="col-lg-3">
+
+        <h:link value="Types de matériels" outcome="filtre_type_mat"
+            class="btn btn-default" immediate="true" />
+        <hr></hr>
+
+    </div> 
+    <div class="col-lg-3">
+
+        <h:link value="Nomenclatures" outcome="filtre_nom"
+            class="btn btn-default" immediate="true" />
+        <hr></hr>
+
+    </div>     
+    <div class="col-lg-3">
+
+        <h:link value="Porte" outcome="filtre_porte"
+            class="btn btn-default" immediate="true" />
+        <hr></hr>
+
+    </div> 
+    <div class="col-lg-3">
+
+        <h:link value="Localité" outcome="filtre_localite"
+            class="btn btn-default" immediate="true" />
+        <hr></hr>
+
+    </div-->   
+    <p:dataTable   var="a" value="#{siseBean.listArticleNouv}" 
+                 paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}  "
+                 paginator="true" rows="10" style="margin-bottom:20px" filteredValue="#{depositaireBean.listAllMateriel}">
+         <p:column>
+            <f:facet name="header">
+                <h:outputText value="ID"/>
+            </f:facet>
+            <h:outputText value="#{a.idArticle}" />
+        </p:column>
+
+        <p:column>
+            <f:facet name="header">
+                <h:outputText value="Codification" />
+            </f:facet>
+            <h:outputText value="#{a.codeArticle.designation}" />
+        </p:column>
+        
+
+        <p:column>
+
+            <f:facet name="header">
+                <h:outputText value="Détail" />
+            </f:facet>
+            <p:commandButton action="#{depositaireBean.mySetCurentArticle(a)}"
+            oncomplete="PF('historique').show()" icon="ui-icon-zoomin" update=":historique"/>
+            </p:column>
+    </p:dataTable>
+
+
+
+
+<ui:include src="/pages/secure/CA/DGD/tables/dialogs/dialogs_listeMatStatHisto.xhtml"></ui:include>
+
+
+</div>
+
+</html>

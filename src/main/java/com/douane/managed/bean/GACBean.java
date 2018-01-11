@@ -614,6 +614,7 @@ public class GACBean {
 
         Agent agent = (Agent)RequestFilter.getSession().getAttribute("agent");
         a.setCodeArticle(getCodeArticle());
+        a.setDirecArt(agent.getDirection());
         //a.setTypeObjet(getTypeObjet());
         usermetierimpl.reqEntrerArticle(a,agent);
     }
