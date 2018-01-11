@@ -790,6 +790,10 @@ public class UserMetier implements IUserMetier {
 	public List<Materiel> getMatByDetenteurAndDirection(Agent detenteur, Direction direction) {
 		return matrepos.findByDetenteurAndDirec(detenteur, direction);
 	}
+	@Override
+	public List<Materiel> getMatByValidationAndDetenteurAndDirection(boolean val,Agent detenteur, Direction direction) {
+		return matrepos.findByValidationAndDetenteurAndDirec(val,detenteur, direction);
+	}
 
 	@Override
 	public List<Agent> listAgentByDirection(Direction direction) {
