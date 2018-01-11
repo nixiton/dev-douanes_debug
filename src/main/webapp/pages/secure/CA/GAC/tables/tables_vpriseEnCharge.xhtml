@@ -1,78 +1,57 @@
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
     xmlns:ui="http://java.sun.com/jsf/facelets"
     xmlns:f="http://java.sun.com/jsf/core"
     xmlns:h="http://java.sun.com/jsf/html"
-    xmlns:p="http://primefaces.org/ui"
-      xmlns:c="http://java.sun.com/jsp/jstl/core">
+    xmlns:p="http://primefaces.org/ui">
 
 <h:head></h:head>
 
 <div   class="body collapse in table-responsive">
 
+    <div class="col-lg-4">
 
-    <p:dataTable   var="c" value="#{suivieditionBean.listOperationEntreeByDirection}" 
-                 paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}  "
-                 paginator="true" rows="10" style="margin-bottom:20px" >
-        
-        <p:column sortBy="#{c.id}" >
-            <f:facet name="header">
-                <h:outputText value="Id" />
-            </f:facet>
-            <h:outputText value="#{c.id}" />
-        </p:column>
- 
-        <p:column sortBy="#{c.date}" >
-            <f:facet name="header">
-                <h:outputText value="Date"/>
-            </f:facet>
-            <h:outputText value="#{c.date}" />
-        </p:column>
- 
-        <p:column sortBy="#{c.time}" >
-            <f:facet name="header">
-                <h:outputText value="Heure" />
-            </f:facet>
-            <h:outputText value="#{c.time}" />
-        </p:column>
- 
-        <p:column sortBy="#{c.poste}" >
-            <f:facet name="header">
-                <h:outputText value="Poste" />
-            </f:facet>
-            <h:outputText value="#{c.poste}" />
-        </p:column>
-        <p:column sortBy="#{c.operateur.im}" >
-            <f:facet name="header">
-                <h:outputText value="Operateur" />
-            </f:facet>
-            <h:outputText value="#{c.operateur.im}" />
-        </p:column>
-        <p:column >
-            <f:facet name="header" >
-                <h:outputText value="Etat" />
-            </f:facet>
-            <h:outputText value="#{c.state}" />
-        </p:column>
-        <p:column >
+        <h:link value="Ajouter" outcome="add_PriseEnChargeCA"
+            class="btn btn-lg btn-primary btn-block " immediate="true" />
             
+        <hr></hr>
+
+    </div>    
+
+
+
+    <p:dataTable   var="a" value="#{siseBean.listArticleNouv}"
+                 paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}  "
+                 paginator="true" rows="10" style="margin-bottom:20px">
+ 
+        <p:column>
             <f:facet name="header">
-                <h:outputText value="Validation" />
+                <h:outputText value="ID"/>
             </f:facet>
-            <p:commandButton rendered="#{c.state eq 'WAITING' }" action="#{gacBean.setCurentOperation3(c)}" update=":detail"
+            <h:outputText value="#{a.idArticle}" />
+        </p:column>
+
+        <p:column>
+            <f:facet name="header">
+                <h:outputText value="Codification" />
+            </f:facet>
+            <h:outputText value="#{a.codeArticle.designation}" />
+        </p:column>
+        
+        <p:column>
+
+            <f:facet name="header">
+                <h:outputText value="Détail" />
+            </f:facet>
+            <p:commandButton rendered="#{a.state eq 'WAITING' }" action="#{gacBean.setCurentOperation3(a)}" update=":detail"
             oncomplete="PF('detail').show()" icon="ui-icon-circle-check"/>
 
-            <p:commandButton action="#{gacBean.setCurentOperation3(c)}" update=":detail"
+            <p:commandButton action="#{gacBean.setCurentOperation3(a)}" update=":detail"
             oncomplete="PF('detail').show()" icon="ui-icon-zoomin"/>
+        
         </p:column>
-    
     </p:dataTable>
-
-
-
 </div>
 
-<ui:include src="/pages/secure/CM/GAC/tables/dialogs/dialogs_vpriseEnCharge.xhtml"></ui:include>
-
+<ui:include src="/pages/secure/CA/GAC/tables/dialogs/dialogs_vpriseEnCharge.xhtml"></ui:include>
 </html>
