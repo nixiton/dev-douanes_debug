@@ -2103,13 +2103,14 @@ System.out.println("****************************ADD3 ATTR**ERRORR***************
 		return articleNouv;
 	}
 
-	public OpSortieArticle addRequeteSortieNouv() throws Exception {
+	public String addRequeteSortieNouv() throws Exception {
 		//ArticleNouv a = new ArticleNouv();
 
 		Agent agent = (Agent)RequestFilter.getSession().getAttribute("agent");
 		//a.setFournisseur(getFournisseur());
 		//a.setPrix(getPrix());
-		return usermetierimpl.reqSortirArticle(getArticleNouv(),agent,getAgentDest());
+		 usermetierimpl.reqSortirArticle(this.getArticleNouv(),agent,getAgentDest());
+		 return SUCCESS;
 	}
 
 

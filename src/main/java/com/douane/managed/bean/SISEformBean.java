@@ -778,12 +778,13 @@ public class SISEformBean {
         this.typeObjet = typeObjet;
     }
 
-    public void addCodeArticle()
+    public String addCodeArticle()
     {
         CodeArticle c = new CodeArticle();
         c.setDesignation(getDesignation());
         c.setTypeObjet(getTypeObjet());
         usermetierimpl.addCodeArticle(c);
+        return SUCCESS;
     }
 
 
