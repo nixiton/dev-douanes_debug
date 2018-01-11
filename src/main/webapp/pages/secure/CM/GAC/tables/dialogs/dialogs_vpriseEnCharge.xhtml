@@ -20,11 +20,15 @@
     <div   class="body collapse in table-responsive">
         
 
+
+
+
+<p:tabView>
         
 
-            <c:forEach var="mat" items="#{gacBean.curentOperation.listMat}">
+<c:forEach var="mat" items="#{gacBean.curentOperation.listMat}">
             
-                
+<p:tab title="#{mat.typematerieladd.designation}">
 
 <table class="table responsive-table">
                     <tr>
@@ -101,7 +105,10 @@
                         </td>
                     </tr>
 </table>
+</p:tab>
             </c:forEach>
+
+</p:tabView>
 <table class="table responsive-table">
                     <p:panel rendered="#{gacBean.curentOperation.state eq 'WAITING' }">
 
