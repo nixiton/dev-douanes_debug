@@ -2054,6 +2054,19 @@ System.out.println("****************************ADD3 ATTR**ERRORR***************
 		this.prix = prix;
 	}
 
+
+
+
+	Long prix;
+
+	public Long getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(Long n) {
+		this.nombre = n;
+	}
+
 	public String addArticleEx()
 	{
 		ArticleEx a = new ArticleEx();
@@ -2065,6 +2078,8 @@ System.out.println("****************************ADD3 ATTR**ERRORR***************
 
 
 		a.setValidation(true);
+
+		a.setNombre(getNombre());
 
 		//a.setTypeObjet(getTypeObjet());
 		OpEntreeArticle oeart=usermetierimpl.reqEntrerArticle(a,agent);
@@ -2088,6 +2103,9 @@ System.out.println("****************************ADD3 ATTR**ERRORR***************
 		a.setMarqueArticle(getMarq());
 		a.setCaracteristiqueArticle(getRenseignement());
 		//a.setModAcq(getAcquisition());
+
+		a.setNombre(getNombre());
+
 		usermetierimpl.reqEntrerArticle(a,agent);
 		return SUCCESS;
 	}
