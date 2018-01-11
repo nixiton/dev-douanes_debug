@@ -563,7 +563,7 @@ public class UserMetier implements IUserMetier{
 			throw new Exception("aucun");
 		}
 		OpDettachement opdet = new OpDettachement(new Date(), new Date(), oper.getIp(), oper, mat1, dete);
-		opder.setMotifS(m);
+		opdet.setMotifS(m);
 		oprepos.save(opdet);
 		return opdet;
 		}
