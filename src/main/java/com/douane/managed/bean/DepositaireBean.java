@@ -1303,6 +1303,7 @@ public class DepositaireBean {
 		//m.setBureau(getBureau());
 		// m.setDirec(getDirection());
 		//m.setDirec(agent.getDirection());
+		m.setDirec(agent.getDirection());
 		m.setEtat(getEtat());
 		m.setMarque(getMarq());
 		//m.setNomenMat(getTypemateriel());
