@@ -168,10 +168,20 @@ public class GACBean {
     }
 
 
-    public void refusePrisEnChargeEntreMat(Operation op) throws Exception
+    public void refusePrisEnChargeEntreMat(Operation op)
     {
         //usermetierimpl.entrerMateriel(op);
-        usermetierimpl.reqMatRefuser((OpEntree)this.getCurentOperation(), this.getMotif());
+    	System.out.println("begin refuser prise en charge");
+    	
+    	try {
+    		usermetierimpl.reqMatRefuser((OpEntree)op, this.getMotif());
+    	}catch (Exception e) {
+			// TODO: handle exception
+    		System.out.println("erreur refuser prise en charge");
+    		e.printStackTrace(System.out);
+		}
+        
+        System.out.println("end refuser prise en charge");
         this.setCurentOperation(null);
         this.setMotif(null);
     }
