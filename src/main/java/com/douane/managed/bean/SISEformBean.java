@@ -1010,6 +1010,24 @@ public class SISEformBean {
     public void setDirection(String direction) {
         this.direction = direction;
     }
+    
+	private List<Article> listArticleValide;
+	public List<Article> getListArticleValide() {
+		Agent agent = (Agent)RequestFilter.getSession().getAttribute("agent");
+		return usermetierimpl.getListArticleValideByDirection(agent.getDirection());
+	}
+	public void setListArticleValide(List<Article> listArticleValide) {
+		this.listArticleValide = listArticleValide;
+	}
+
+	private List<ArticleNouv> listArtNouvValide;
+	public List<ArticleNouv> getListArtNouvValide() {
+		Agent agent = (Agent)RequestFilter.getSession().getAttribute("agent");
+		return usermetierimpl.getListArtNouvValideByDirection(agent.getDirection());
+	}
+	public void setListArtNouvValide(List<ArticleNouv> listArtNouvValide) {
+		this.listArtNouvValide = listArtNouvValide;
+	}
 
 
 
