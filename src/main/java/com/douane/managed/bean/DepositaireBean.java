@@ -2117,7 +2117,8 @@ System.out.println("****************************ADD3 ATTR**ERRORR***************
 
 
 	public List<Materiel> getListAllMaterielValideSansDetenteurByDirection() {
-		return usermetierimpl.getMatByDetenteurAndDirection(null, getDirection());
+		Agent agent = (Agent)RequestFilter.getSession().getAttribute("agent");
+		return usermetierimpl.getMatByDetenteurAndDirection(null, agent.getDirection());
 	}
 
 	public void setListAllMaterielValideSansDetenteurByDirection(List<Materiel> listAllMaterielValideSansDetenteurByDirection) {
