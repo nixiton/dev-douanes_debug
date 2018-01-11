@@ -103,6 +103,15 @@
                         <p:barcode value="142536" type="code128" format="png" orientation="0" height="128px" width="302px"/></td>
                     	
                     </tr>
+                    <tr>
+                    	<td><strong>QRCODE</strong></td>
+                        <td>           					
+            				<p:barcode value="${depositaireBean.curentMateriel.direc.designation}/ 
+            				${depositaireBean.curentMateriel.typematerieladd.designation  } /
+            				NUM1 /
+            				${depositaireBean.curentMateriel.anneeAcquisition}/" type="qr"/>
+           				</td>
+                    </tr>
                          
             </table>
         </div>
