@@ -55,7 +55,7 @@
                     <p:selectOneMenu value="#{depositaireBean.article}" converter="#{articleConverter}"   panelStyle="width:180px"  style="width:160px"
                          effect="fade" var="t" filter="true" filterMatchMode="startsWith">
                         <f:selectItem itemValue="#{null}" itemLabel="--select--" /> 
-                            <f:selectItems value="#{depositaireBean.listArticleNouv}" var="theme" itemLabel="#{theme.codeArticle.designation}" itemValue="#{theme}" />
+                            <f:selectItems value="#{siseBean.listArticleNouv}" var="theme" itemLabel="#{theme.codeArticle.designation}" itemValue="#{theme}" />
                         <p:column>
                             <h:outputText value="#{t.codeArticle.designation}" />
                         </p:column>
