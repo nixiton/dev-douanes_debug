@@ -2211,6 +2211,13 @@ System.out.println("****************************ADD3 ATTR**ERRORR***************
 		this.matForEntree = matForEntree;
 	}
 
+	private List<Article> listArticleValide;
 
+	public List<Article> getListArticleValide() {
+		return usermetierimpl.getListArticleValideByDirection(getCurrentAgent().getDirection());
+	}
 
+	public void setListArticleValide(List<Article> listArticleValide) {
+		this.listArticleValide = listArticleValide;
+	}
 }
