@@ -192,12 +192,23 @@ public class GACBean {
     }
 
 
-    public void aModifierPrisEnChargeEntreMat(Operation op) throws Exception
+    public void aModifierPrisEnChargeEntreMat(Operation op)
     {
         //usermetierimpl.entrerMateriel(op);
 
         //((OpEntree)this.getCurentOperation()).getMat().setAModifier(true);
-        usermetierimpl.reqMatAModifier((OpEntree)this.getCurentOperation(), this.getMotif());
+        try {
+			usermetierimpl.reqMatAModifier((OpEntree)this.getCurentOperation(), this.getMotif());
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			// TODO: handle exception
+    		FacesContext context = FacesContext.getCurrentInstance();
+            
+            context.addMessage("myerror", new FacesMessage("Erreur","La prise en charge n'a pas pu être à modifier car: "+e.getMessage()) );
+            //context.addMessage(null, new FacesMessage("Second Message", "Additional Message Detail"));
+    		System.out.println("erreur à modifier prise en charge");
+    		e.printStackTrace(System.out);
+		}
 
         this.setCurentOperation(null);
         this.setMotif(null);
@@ -304,7 +315,7 @@ public class GACBean {
         	// TODO: handle exception
     		FacesContext context = FacesContext.getCurrentInstance();
             
-            context.addMessage(null, new FacesMessage("Erreur","L'attribution n'a pas pu être refusée") );
+            context.addMessage(null, new FacesMessage("myerror","L'attribution n'a pas pu être refusée") );
             //context.addMessage(null, new FacesMessage("Second Message", "Additional Message Detail"));
     		System.out.println("erreur refuser Attribution");
     		e.printStackTrace(System.out);
@@ -314,10 +325,20 @@ public class GACBean {
     }
 
 
-    public void aModifierAttributionDetenteur(OpAttribution attr) throws Exception
+    public void aModifierAttributionDetenteur(OpAttribution attr)
     {
         //usermetierimpl.attriuberMateriel(attr);
-        usermetierimpl.reqAttrAModifier((OpAttribution)this.getCurentOperation(), this.getMotif());
+        try {
+			usermetierimpl.reqAttrAModifier(attr, this.getMotif());
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			FacesContext context = FacesContext.getCurrentInstance();
+            
+            context.addMessage(null, new FacesMessage("myerror","L'attribution n'a pas pu être à modifier") );
+            //context.addMessage(null, new FacesMessage("Second Message", "Additional Message Detail"));
+    		System.out.println("erreur à modifier Attribution");
+    		e.printStackTrace(System.out);
+		}
         this.setCurentOperation(null);
         this.setMotif(null);
     }
@@ -330,7 +351,12 @@ public class GACBean {
     		usermetierimpl.sortirMateriel(sortie);
 		} catch (Exception e) {
 			// TODO: handle exception
-			e.getMessage();
+			FacesContext context = FacesContext.getCurrentInstance();
+            
+            context.addMessage(null, new FacesMessage("myerror","La Décharge n'a pas pu être validée car: "+e.getMessage()) );
+            //context.addMessage(null, new FacesMessage("Second Message", "Additional Message Detail"));
+    		System.out.println("erreur valider Decharge");
+    		e.printStackTrace(System.out);
 		}finally {
 
 	        this.setCurentOperation(null);
@@ -347,16 +373,16 @@ public class GACBean {
     }
 
 
-    public void refuseDechargeSortie(OpSortie sortie) throws Exception {
+    public void refuseDechargeSortie(OpSortie sortie) {
         //usermetierimpl.sortirMateriel(sortie);
         usermetierimpl.reqSortirRefuser((OpSortie)this.getCurentOperation(), this.getMotif());
         this.setCurentOperation(null);
         this.setMotif(null);
     }
 
-    public void aModifierDechargeSortie(OpSortie sortie) throws Exception {
+    public void aModifierDechargeSortie(OpSortie sortie) {
         //usermetierimpl.sortirMateriel(sortie);
-        usermetierimpl.reqSortirAModifier((OpSortie)this.getCurentOperation(), this.getMotif());
+        usermetierimpl.reqSortirAModifier(sortie, this.getMotif());
         this.setCurentOperation(null);
         this.setMotif(null);
     }
@@ -370,6 +396,12 @@ public class GACBean {
         	usermetierimpl.detacherMateriel((OpDettachement)this.getCurentOperation());
 		} catch (Exception e) {
 			// TODO: handle exception
+			FacesContext context = FacesContext.getCurrentInstance();
+            
+            context.addMessage(null, new FacesMessage("myerror","Le Détachement n'a pas pu être validée car: "+e.getMessage()) );
+            //context.addMessage(null, new FacesMessage("Second Message", "Additional Message Detail"));
+    		System.out.println("erreur valider Détachement");
+    		e.printStackTrace(System.out);
 			System.out.println(e.getMessage());
 		}finally {
 			this.setCurentOperation(null);
@@ -381,16 +413,17 @@ public class GACBean {
     }
 
 
-    public void refuseDetachement(OpDettachement det) throws Exception {
+    public void refuseDetachement(OpDettachement det) {
         //usermetierimpl.sortirMateriel(sortie);
-        usermetierimpl.reqDetRefuser((OpDettachement)this.getCurentOperation(), this.getMotif());
+        usermetierimpl.reqDetRefuser(det, this.getMotif());
         this.setCurentOperation(null);
         this.setMotif(null);
     }
 
-    public void aModifierDetachement(OpDettachement det) throws Exception {
+    public void aModifierDetachement(OpDettachement det){
         //usermetierimpl.sortirMateriel(sortie);
         //usermetierimpl.reqSortirAModifier((OpDettachement)this.getCurentOperation(), this.getMotif());
+        usermetierimpl.reqDetRefuser(det, this.getMotif());
         this.setCurentOperation(null);
         this.setMotif(null);
     }
