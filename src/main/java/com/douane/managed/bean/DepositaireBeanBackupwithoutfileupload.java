@@ -520,7 +520,7 @@ public class DepositaireBeanBackupwithoutfileupload {
 		OpDettachement opDet = null;
 		try {
 			//getCurrent Materiel ve?????
-			opDet =usermetierimpl.reqDettachement(this.getMateriel(), agent, getDetenteur());
+			//opDet =usermetierimpl.reqDettachement(this.getMateriel(), agent, getDetenteur());
 		}catch (Exception e) {
 			// TODO: handle exception
 			System.out.println(e.getMessage());
