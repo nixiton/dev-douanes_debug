@@ -28,7 +28,7 @@ public interface IUserMetier {
 
 	public OpAttribution reqAttribution(Materiel m, Agent oper, Agent detenteur) throws Exception;
 
-	public OpDettachement reqDettachement(Materiel mat1, Agent agent2, Agent agent1)throws Exception;
+	public OpDettachement reqDettachement(Materiel mat1, Agent agent2, Agent agent1, MotifSortie m)throws Exception;
 	//les validations
 
 	public Materiel entrerMateriel(OpEntree op);

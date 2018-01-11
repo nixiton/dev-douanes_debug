@@ -556,13 +556,14 @@ public class UserMetier implements IUserMetier{
 	}
 
 	@Override
-	public OpDettachement reqDettachement(Materiel mat1, Agent oper, Agent dete) throws Exception {
+	public OpDettachement reqDettachement(Materiel mat1, Agent oper, Agent dete, MotifSortie m) throws Exception {
 		// TODO Auto-generated method stub
 		try{
 		if(mat1.getDetenteur()==null) {
 			throw new Exception("aucun");
 		}
 		OpDettachement opdet = new OpDettachement(new Date(), new Date(), oper.getIp(), oper, mat1, dete);
+		opder.setMotifS(m);
 		oprepos.save(opdet);
 		return opdet;
 		}
