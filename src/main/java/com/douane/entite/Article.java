@@ -119,6 +119,14 @@ public class Article  implements Serializable{
 		this.caracteristiqueArticle = caracteristiqueArticle;
 	}
 
+	@Override
+	public boolean equals(Object o) {
 
+		System.out.println("herherArticle");
+		if (this.getIdArticle().equals(((Article)o).getIdArticle()))
+			return true;
+		return false;
+
+	}
 
 }

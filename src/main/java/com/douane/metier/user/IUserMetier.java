@@ -164,8 +164,10 @@ public interface IUserMetier {
 	
 	
 	public List<OpEntreeArticle> getListOpEntreeArtByValideByDirection(EtatOperation etat, Direction direction, Date startDate, Date endDate);
+	public List<OpEntreeArticle> getListOpEntreeArtByDirection(Direction direction, Date startDate, Date endDate);
 	
 	public List<OpSortieArticle> getListOpSortieArtByValideByDirection(EtatOperation etat,Direction direction, Date startDate, Date endDate);
+	public List<OpSortieArticle> getListOpSortieArtByDirection(Direction direction, Date startDate, Date endDate);
 
 	
 
@@ -175,5 +177,11 @@ public interface IUserMetier {
 	
 	public OpSortie reqSortirMateriel(Materiel m, MotifSortie motif, Direction d, Agent oper)throws Exception;;
 	public OpSortie reqSortirMateriel(Materiel m, MotifSortie motif, Agent oper)throws Exception;;
-
+	
+	public List<ArticleNouv> getListArtNouvValideByDirection(Direction d);
+	public List<ArticleNouv> getListArtNouvByValidationByDirection(boolean val,Direction d);
+	public List<ArticleEx> getListArtExByDirction(Direction d);
+	
+	public Article getArticleById(Long id);
+	
 }

@@ -1151,6 +1151,42 @@ public class UserMetier implements IUserMetier{
 		return operationdao.getListOpSortieArtByValideByDirection(etat, direction, startDate, endDate);
 	}
 
+	@Override
+	public List<ArticleNouv> getListArtNouvValideByDirection(Direction d) {
+		// TODO Auto-generated method stub
+		return artnouvreops.findByValidationAndDirecArt(true, d);
+	}
+
+	@Override
+	public List<ArticleNouv> getListArtNouvByValidationByDirection(boolean val, Direction d) {
+		// TODO Auto-generated method stub
+		return artnouvreops.findByValidationAndDirecArt(val, d);
+	}
+
+	@Override
+	public List<ArticleEx> getListArtExByDirction(Direction d) {
+		// TODO Auto-generated method stub
+		return artexreops.findByDirecArt(d);
+	}
+
+	@Override
+	public Article getArticleById(Long id) {
+		// TODO Auto-generated method stub
+		return artreops.findOne(id);
+	}
+
+	@Override
+	public List<OpEntreeArticle> getListOpEntreeArtByDirection(Direction direction, Date startDate, Date endDate) {
+		// TODO Auto-generated method stub
+		return operationdao.getListOpEntreeArtByDirection(direction, startDate, endDate);
+	}
+
+	@Override
+	public List<OpSortieArticle> getListOpSortieArtByDirection(Direction direction, Date startDate, Date endDate) {
+		// TODO Auto-generated method stub
+		return operationdao.getListOpSortieArtByDirection(direction, startDate, endDate);
+	}
+	
 
 
 }

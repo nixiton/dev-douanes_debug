@@ -34,7 +34,7 @@ public class MaterielConverter implements Converter {
             } catch(Exception e) {
                 System.out.println("***************************MATERIEL1 CONV*****ERRORR********************************");
                 e.printStackTrace();
-                throw new ConverterException(new FacesMessage(FacesMessage.SEVERITY_ERROR, "Conversion Error", "Not a valid theme."));
+                throw new ConverterException(new FacesMessage(FacesMessage.SEVERITY_ERROR, "Erreur Materiel", "Materiel non valide"));
             }
         }
         return null;

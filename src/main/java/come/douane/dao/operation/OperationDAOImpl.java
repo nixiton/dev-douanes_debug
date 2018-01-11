@@ -514,6 +514,37 @@ public class OperationDAOImpl implements IOperationDAO{
 		return r;
 		   
 	}
+	@Override
+	public List<OpEntreeArticle> getListOpEntreeArtByDirection(Direction direction,
+			Date startDate, Date endDate) {
+		// TODO Auto-generated method stub
+		TypedQuery<OpEntreeArticle> query = em.createQuery("select oeart from OpEntreeArticle oeart "
+				+ "where oeart.date>=:startDate AND oeart.date<=:endDate"
+				+ " and oeart.direction =:direct"
+	       		+ " order by oeart.date desc "
+	       		,OpEntreeArticle.class);
+		query.setParameter("direct", direction);
+		query.setParameter("startDate", startDate);
+		query.setParameter("endDate", endDate);  
+	    List<OpEntreeArticle> operations = query.getResultList();
+		return operations;
+	}
+
+	@Override
+	public List<OpSortieArticle> getListOpSortieArtByDirection(Direction direction,
+			Date startDate, Date endDate) {
+		// TODO Auto-generated method stub
+		TypedQuery<OpSortieArticle> query = em.createQuery("select osart from OpSortieArticle osart "
+				+ "where osart.date>=:startDate AND osart.date<=:endDate"
+				+ " and osart.direction =:direct"
+	       		+ " order by osart.date desc "
+	       		,OpSortieArticle.class);
+		query.setParameter("direct", direction);
+		query.setParameter("startDate", startDate);
+		query.setParameter("endDate", endDate);  
+	    List<OpSortieArticle> operations = query.getResultList();
+		return operations;
+	}
 	
 
 }
