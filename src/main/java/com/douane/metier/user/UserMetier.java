@@ -556,7 +556,7 @@ public class UserMetier implements IUserMetier{
 	}
 
 	@Override
-	public OpDettachement reqDettachement(Materiel mat1, Agent oper, Agent dete, MotifSortie m) throws Exception {
+	public OpDettachement reqDettachement(Materiel mat1, Agent oper, Agent dete,MotifSortie m) throws Exception {
 		// TODO Auto-generated method stub
 		try{
 		if(mat1.getDetenteur()==null) {
