@@ -816,8 +816,8 @@ public class SISEformBean {
         return usermetierimpl.getListArtNouvByValidationByDirection(true, agent.getDirection());
     }
 
-    public void setListArticleNouv(List<ArticleNouv> list) {
-        this.listArticleNouv = list;
+    public void setListArticleNouvValide(List<ArticleNouv> list) {
+        this.listArticleNouvValide = list;
     }
 
 
