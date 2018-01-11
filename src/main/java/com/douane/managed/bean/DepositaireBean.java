@@ -2139,6 +2139,9 @@ System.out.println("****************************ADD3 ATTR**ERRORR***************
 		Agent agent = (Agent)RequestFilter.getSession().getAttribute("agent");
 		//a.setFournisseur(getFournisseur());
 		//a.setPrix(getPrix());
+		
+
+		
 		 usermetierimpl.reqSortirArticle(this.getArticle(),agent,getAgentDest());
 		 return SUCCESS;
 	}

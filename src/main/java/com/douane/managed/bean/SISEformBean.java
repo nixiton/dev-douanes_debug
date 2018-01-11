@@ -887,7 +887,10 @@ public class SISEformBean {
     }
 
     public List<OpEntreeArticle> getListOpEntreeArticle() {
-        return listOpEntreeArticle;
+        Agent agent = (Agent)RequestFilter.getSession().getAttribute("agent");
+        Date sdate = new GregorianCalendar(2010, Calendar.JANUARY, 1).getTime();
+        Date edate = new GregorianCalendar(2200, Calendar.DECEMBER, 30).getTime();
+        return usermetierimpl.getListOpEntreeArtByDirection(agent.getDirection(), sdate, edate);
     }
 
     public void setListOpEntreeArticle(List<OpEntreeArticle> listOpEntreeArticle) {
@@ -896,7 +899,11 @@ public class SISEformBean {
 
 
     public List<OpSortieArticle> getListOpSortieArticle() {
-        return listOpSortieArticle;
+         Agent agent = (Agent)RequestFilter.getSession().getAttribute("agent");
+        Date sdate = new GregorianCalendar(2010, Calendar.JANUARY, 1).getTime();
+        Date edate = new GregorianCalendar(2200, Calendar.DECEMBER, 30).getTime();
+        return usermetierimpl.getListOpSortieArtByDirection(agent.getDirection(), sdate, edate);
+        
     }
 
     public void setListOpSortieArticle(List<OpSortieArticle> listOpSortieArticle) {
