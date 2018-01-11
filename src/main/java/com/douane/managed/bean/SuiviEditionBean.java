@@ -98,6 +98,7 @@ public class SuiviEditionBean {
     private List<OpDettachement> listOperationDeetachementByDirection;
     private List<OpAttribution> listOperationAttributionByMateriel;
     private List<OpDettachement> listOperationDetachementByMateriel;
+    
     //----------ALL LIST BY METHOD------------------
 
 
@@ -532,7 +533,7 @@ public class SuiviEditionBean {
     {
         return usermetierimpl.getListOpSortieByDirectionByYearByDateAsc(d,startDate,endDate);
     }
-
+     
     
 
 }
