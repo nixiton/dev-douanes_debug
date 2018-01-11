@@ -732,6 +732,8 @@ public class SISEformBean {
     private List<ArticleEx> listArticleEx;
     private List<ArticleNouv> listArticleNouv;
 
+    private List<ArticleNouv> listArticleNouvValide;
+
 
 
     public void setCaracteristiqueObjet()
@@ -806,6 +808,16 @@ public class SISEformBean {
     public void setListArticleNouv(List<ArticleNouv> list) {
         this.listArticleNouv = list;
     }
+
+
+    public List<ArticleNouv> getListArticleNouvValide() {
+        return usermetierimpl.getListAllArticleNouvValide();
+    }
+
+    public void setListArticleNouv(List<listArticleNouvValide> list) {
+        this.listArticleNouv = list;
+    }
+
 
 
 
