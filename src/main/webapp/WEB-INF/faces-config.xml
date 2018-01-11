@@ -245,6 +245,12 @@
 			<redirect />
 		</navigation-case>
 
+		<navigation-case>
+			<from-outcome>v_prise_en_chargeCA</from-outcome>
+			<to-view-id>/pages/secure/CA/GAC/validation/priseEnCharge.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+
 
 
 
@@ -260,6 +266,13 @@
 		<navigation-case>
 			<from-outcome>v_detenteur </from-outcome>
 			<to-view-id>/pages/secure/CM/GAC/validation/attribution.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+
+
+		<navigation-case>
+			<from-outcome>v_detenteurCA</from-outcome>
+			<to-view-id>/pages/secure/CA/GAC/validation/attribution.xhtml</to-view-id>
 			<redirect />
 		</navigation-case>
 
