@@ -183,5 +183,7 @@ public interface IUserMetier {
 	public List<ArticleEx> getListArtExByDirction(Direction d);
 	
 	public Article getArticleById(Long id);
+
+	List<Materiel> getMatByValidationAndDetenteurAndDirection(boolean val, Agent detenteur, Direction direction);
 	
 }
