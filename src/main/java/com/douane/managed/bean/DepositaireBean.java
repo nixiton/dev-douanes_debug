@@ -1362,12 +1362,12 @@ public class DepositaireBean {
 			return null;
 		}catch (NullPointerException e) {
 			FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Error validating materiel", "Error operation");
-			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Error operation "));
+			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Error operation valeur null"));
 			FacesContext.getCurrentInstance().addMessage(null, message);
 			return null;
 		} catch (Exception e) {
 			FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Error validating materiel", "Error operation");
-			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Error operation "));
+			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Error operation exception"));
 			FacesContext.getCurrentInstance().addMessage(null, message);
 			return null;
 		}
