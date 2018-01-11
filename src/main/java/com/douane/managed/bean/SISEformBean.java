@@ -811,7 +811,9 @@ public class SISEformBean {
 
 
     public List<ArticleNouv> getListArticleNouvValide() {
-        return usermetierimpl.getListAllArticleNouvValide();
+        Agent agent = (Agent)RequestFilter.getSession().getAttribute("agent");
+
+        return usermetierimpl.getListArtNouvByValidationByDirection(true, agent.getDirection());
     }
 
     public void setListArticleNouv(List<listArticleNouvValide> list) {
