@@ -41,7 +41,7 @@
         <hr></hr>
 
     </div-->   
-    <p:dataTable   var="materiel" value="#{siseBean.listArticleNouv}" 
+    <p:dataTable   var="a" value="#{siseBean.listArticleNouv}" 
                  paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}  "
                  paginator="true" rows="10" style="margin-bottom:20px" filteredValue="#{depositaireBean.listAllMateriel}">
          <p:column>
