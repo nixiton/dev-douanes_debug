@@ -12,35 +12,7 @@
 <h:head></h:head>
 
 <div   class="body collapse in table-responsive">
-
-    <!--div class="col-lg-3">
-
-        <h:link value="Types de matériels" outcome="filtre_type_mat"
-            class="btn btn-default" immediate="true" />
-        <hr></hr>
-
-    </div> 
-    <div class="col-lg-3">
-
-        <h:link value="Nomenclatures" outcome="filtre_nom"
-            class="btn btn-default" immediate="true" />
-        <hr></hr>
-
-    </div>     
-    <div class="col-lg-3">
-
-        <h:link value="Porte" outcome="filtre_porte"
-            class="btn btn-default" immediate="true" />
-        <hr></hr>
-
-    </div> 
-    <div class="col-lg-3">
-
-        <h:link value="Localité" outcome="filtre_localite"
-            class="btn btn-default" immediate="true" />
-        <hr></hr>
-
-    </div-->   
+ 
     <p:dataTable   var="a" value="#{siseBean.listArticleNouv}" 
                  paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}  "
                  paginator="true" rows="10" style="margin-bottom:20px" filteredValue="#{depositaireBean.listAllMateriel}">
