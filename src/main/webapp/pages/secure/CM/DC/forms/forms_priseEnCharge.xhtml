@@ -304,7 +304,7 @@
 
             <p:outputPanel id="testContainer">
 
-                <c:if test="#{depositaireBean.filedownload null}" >
+                <c:if test="#{depositaireBean.filedownload eq null}" >
 
                 <p:dataTable id="docId" var="row"
                              value="#{depositaireBean.documentList}" editable="true"
