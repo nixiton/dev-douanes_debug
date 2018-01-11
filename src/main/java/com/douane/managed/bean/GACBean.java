@@ -6,8 +6,9 @@ import com.douane.repository.OpRepository;
 import com.douane.requesthttp.RequestFilter;
 import javax.faces.bean.RequestScoped;
 import javax.faces.bean.ViewScoped;
+import javax.faces.context.FacesContext;
 import javax.faces.bean.SessionScoped;
-
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import java.text.SimpleDateFormat;
@@ -177,6 +178,10 @@ public class GACBean {
     		usermetierimpl.reqMatRefuser((OpEntree)op, this.getMotif());
     	}catch (Exception e) {
 			// TODO: handle exception
+    		FacesContext context = FacesContext.getCurrentInstance();
+            
+            context.addMessage("myerror", new FacesMessage("Erreur","La prise en charge n'a pas pu être refusée car: "+e.getMessage()) );
+            //context.addMessage(null, new FacesMessage("Second Message", "Additional Message Detail"));
     		System.out.println("erreur refuser prise en charge");
     		e.printStackTrace(System.out);
 		}
@@ -205,10 +210,11 @@ public class GACBean {
         //usermetierimpl.attriuberMateriel(attr);
     	try {
     		usermetierimpl.attriuberMateriel(attr);
-            
 
     	}catch(Exception e){
-    		System.out.println("EEEEEEEEERRRRRRRRRRRRRRROOOOOOOOOOORRRRRRRRR *******T******:"+e.getMessage()+"*******");
+    		FacesContext context = FacesContext.getCurrentInstance();
+            context.addMessage("myerror", new FacesMessage("Erreur",  "l'attribution n'a pas pu être validée car " + e.getMessage()) );
+            System.out.println("EEEEEEEEERRRRRRRRRRRRRRROOOOOOOOOOORRRRRRRRR *******T******:"+e.getMessage()+"*******");
             //e.printStackTrace();
     	}
         
@@ -288,10 +294,21 @@ public class GACBean {
 
 
 
-    public void refuseAttributionDetenteur(OpAttribution attr) throws Exception
+    public void refuseAttributionDetenteur(OpAttribution attr)
     {
         //usermetierimpl.attriuberMateriel(attr);
-        usermetierimpl.reqAttrRefuser((OpAttribution)this.getCurentOperation(), this.getMotif());
+    	try {
+    		usermetierimpl.reqAttrRefuser((OpAttribution)this.getCurentOperation(), this.getMotif());
+    	}
+        catch(Exception e){
+        	// TODO: handle exception
+    		FacesContext context = FacesContext.getCurrentInstance();
+            
+            context.addMessage(null, new FacesMessage("Erreur","L'attribution n'a pas pu être refusée") );
+            //context.addMessage(null, new FacesMessage("Second Message", "Additional Message Detail"));
+    		System.out.println("erreur refuser Attribution");
+    		e.printStackTrace(System.out);
+        }
         this.setCurentOperation(null);
         this.setMotif(null);
     }

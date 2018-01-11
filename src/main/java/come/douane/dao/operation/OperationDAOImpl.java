@@ -57,6 +57,9 @@ public class OperationDAOImpl implements IOperationDAO{
 		// TODO Auto-generated method stub
 		System.out.println("Attribution DAO begin");
 		Materiel m = em.find(Materiel.class, attr.getMat().getIdMateriel()) ;
+		if(m==null) {
+			throw new Exception("Pas de materiel de avec cette Identifiant");
+		}
 		System.out.println("*************************************AFAKA***************1");
 		if(m.getDetenteur()!=null) {
 			throw new Exception("Efa attribuer olona io fa mila detachena aloha");
