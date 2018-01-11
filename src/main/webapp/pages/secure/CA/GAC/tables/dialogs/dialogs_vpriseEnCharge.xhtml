@@ -21,18 +21,21 @@
                     <tr>
                         <td><strong>ID</strong></td>
                         <td>#{gacBean.curentOperation.article.idArticle}</td>
-                        <td><strong>Type des objets</strong></td>
-                        <td>#{gacBean.curentOperation.article.typeObjet.designation}</td>
                         <td><strong>Codification</strong></td>
-
                         <td>#{gacBean.curentOperation.article.codeArticle.designation}</td>
                     </tr>
                     <tr>
+                        <td><strong>Nombre</strong></td>
+                        <td>#{gacBean.curentOperation.article.nombre}</td>
                         <td></td>
+
+                        <c:if test="#{gacBean.curentOperation.article['class'].simpleName eq 'ArticleNouv'}">
+
                         <td><strong>Fournisseur</strong></td>
                         <td>#{gacBean.curentOperation.article.fournisseur.designation}</td>
                         <td><strong>Prix</strong></td>
                         <td>#{gacBean.curentOperation.article.prix}</td>
+                        </c:if>
                     </tr>
 
 
