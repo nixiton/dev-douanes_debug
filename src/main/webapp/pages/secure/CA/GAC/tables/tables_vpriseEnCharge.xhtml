@@ -28,22 +28,31 @@
             <f:facet name="header">
                 <h:outputText value="ID"/>
             </f:facet>
-            <h:outputText value="#{a.idArticle}" />
+            <h:outputText value="#{a.article.idArticle}" />
         </p:column>
 
         <p:column>
             <f:facet name="header">
                 <h:outputText value="Codification" />
             </f:facet>
-            <h:outputText value="#{a.codeArticle.designation}" />
+            <h:outputText value="#{a.article.codeArticle.designation}" />
         </p:column>
+
+        <p:column>
+            <f:facet name="header">
+                <h:outputText value="Opérateur" />
+            </f:facet>
+    
+            <h:outputText value="#{a.operateur.im}" />
+        </p:column>
+        
         
         <p:column>
 
             <f:facet name="header">
                 <h:outputText value="Détail" />
             </f:facet>
-            <p:commandButton rendered="#{a.validation eq 'false' }" action="#{gacBean.setCurentOperation3(a)}" update=":detail"
+            <p:commandButton rendered="#{a.state eq 'WAITING' }" action="#{gacBean.setCurentOperation3(a)}" update=":detail"
             oncomplete="PF('detail').show()" icon="ui-icon-circle-check"/>
 
             <p:commandButton action="#{gacBean.setCurentOperation3(a)}" update=":detail"
