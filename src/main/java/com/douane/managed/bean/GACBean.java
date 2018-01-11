@@ -605,7 +605,7 @@ public class GACBean {
         this.setNomenclatureP(nomenclatureP);
     }
 
-    public void validateArticleENouv(OpEntreeArticle cperation)
+    public void validateArticleENouv(OpEntreeArticle operation)
     {
         usermetierimpl.entrerArticle(operation);
     }
