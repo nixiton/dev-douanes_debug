@@ -615,18 +615,18 @@ public class GACBean {
         this.setNomenclatureP(nomenclatureP);
     }
 
-    public void validateArticleENouv()
+    public void validateArticleENouv(OpEntreeArticle operation)
     {
-        usermetierimpl.entrerArticle((OpEntreeArticle) curentOperation);
+        usermetierimpl.entrerArticle(operation);
     }
 
-    public void validateSortieArticleNouv() throws Exception {
-        usermetierimpl.sortirArticle((OpSortieArticle) curentOperation);
+    public void validateSortieArticleNouv(OpSortieArticle operation) throws Exception {
+        usermetierimpl.sortirArticle(operation);
     }
 
 
-    public void validateSortieArticleEx() throws Exception {
-        usermetierimpl.sortirArticle((OpSortieArticle) curentOperation);
+    public void validateSortieArticleEx(OpSortieArticle operation) throws Exception {
+        usermetierimpl.sortirArticle(operation);
     }
 
 
