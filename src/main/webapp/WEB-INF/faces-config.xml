@@ -223,12 +223,28 @@
 			<to-view-id>/pages/secure/CM/DGD/tracabilite.xhtml</to-view-id>
 			<redirect />
 		</navigation-case>
+
+		<navigation-case>
+			<from-outcome>tracabiliteCA</from-outcome>
+			<to-view-id>/pages/secure/CA/DGD/tracabilite.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
 		
 		<navigation-case>
 			<from-outcome>liste_mat</from-outcome>
 			<to-view-id>/pages/secure/CM/DGD/listeMatStatHisto.xhtml</to-view-id>
 			<redirect />
 		</navigation-case>
+
+
+		<navigation-case>
+			<from-outcome>liste_matCA</from-outcome>
+			<to-view-id>/pages/secure/CA/DGD/listeMatStatHisto.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+
+
+
 		
 		<navigation-case>
 			<from-outcome>edition_etats</from-outcome>
