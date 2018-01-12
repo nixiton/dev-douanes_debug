@@ -287,7 +287,7 @@ public class SuiviEditionBean {
 
 
 
-    public List<Operation> getListOperationByDirectionByYearByDateAsc(Date startDate, Date endDate)
+    public List<Operation> getListOperationByDirectionByYearByDateAsc()
     {
         //return getListOperationBetween(startDate, endDate);
         Agent cur = (Agent) RequestFilter.getSession().getAttribute("agent");
