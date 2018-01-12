@@ -536,7 +536,7 @@ public class SuiviEditionBean {
         {
             System.out.print("listOperation======="+o.getState());
         }
-        //return usermetierimpl.getListOpEntreeAndSortieByDirectionByYearByDateAsc(cur.getDirection(), sdate, edate);
+        return usermetierimpl.getListOpEntreeAndSortieByDirectionByYearByDateAsc(cur.getDirection(), sdate, edate);
         //return usermetierimpl.getListOpEntreeAndSortieByDirectionByYearByDateAsc(cur.getDirection(), getStartDate(), getEndDate());
     }
 
