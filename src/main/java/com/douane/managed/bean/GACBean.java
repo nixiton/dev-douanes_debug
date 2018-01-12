@@ -93,6 +93,26 @@ public class GACBean {
 
 
 
+    private List<Operation> listOperationByDirectionByYearByDateAsc;
+
+
+    public List<Operation> getListOperationByDirectionByYearByDateAsc()
+    {
+        //return getListOperationBetween(startDate, endDate);
+        
+        Agent cur = (Agent) RequestFilter.getSession().getAttribute("agent");
+        Date sdate = new GregorianCalendar(getAnnee(), Calendar.JANUARY, 1).getTime();
+        Date edate = new GregorianCalendar(getAnnee(), Calendar.DECEMBER, 30).getTime();
+        return usermetierimpl.getListOperationByDirectionByYearByDateAsc(cur.getDirection(), sdate, edate);
+    }
+
+    public void setListOperationByDirectionByYearByDateAsc(List<Operation> l)
+    {
+        this.listOperationByDirectionByYearByDateAsc = l;
+    }
+
+
+
     public HashMap<Agent,List<Operation>> getOperationAndDepositaire()
     {
         //first get direction of GAC

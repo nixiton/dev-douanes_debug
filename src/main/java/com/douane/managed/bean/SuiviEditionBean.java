@@ -23,8 +23,7 @@ import com.douane.requesthttp.RequestFilter;
 
 
 @ManagedBean(name="suivieditionBean")
-//@ViewScoped
-@SessionScoped
+@ViewScoped
 public class SuiviEditionBean {
 
 
