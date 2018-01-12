@@ -85,6 +85,9 @@ public class SuiviEditionBean {
     private List<OpEntree> listOperationEntreeByDirection;
     private List<OpSortie> listOperationSortieByDirection;
     private List<Operation> listOperationBetween;
+
+    private List<Operation> listOperationByDirectionByYearByDateAsc;
+
     private List<OpEntree> listOperationEntreeByMateriel;
     private List<OpSortie> listOperationSortieByMateriel;
     private List<OpEntree> listOperationEntreeByMaterielByDate;
@@ -281,6 +284,25 @@ public class SuiviEditionBean {
     {
         this.listOperationBetween = l;
     }
+
+
+
+    public List<Operation> getListOperationByDirectionByYearByDateAsc(Date startDate, Date endDate)
+    {
+        //return getListOperationBetween(startDate, endDate);
+        Agent cur = (Agent) RequestFilter.getSession().getAttribute("agent");
+        Date sdate = new GregorianCalendar(2010, Calendar.JANUARY, 1).getTime();
+        Date edate = new GregorianCalendar(2018, Calendar.DECEMBER, 30).getTime();
+        return usermetierimpl.getListOperationByDirectionByYearByDateAsc(cur.getDirection(), sdate, edate);
+    }
+
+    public void setListOperationByDirectionByYearByDateAsc(List<Operation> l)
+    {
+        this.listOperationByDirectionByYearByDateAsc = l;
+    }
+
+
+
 
     //------------GET List of Operations By Materiel-------------------
     public Materiel getMateriel() {
@@ -500,7 +522,7 @@ public class SuiviEditionBean {
     //-----------------TO DO 30 12--------------
     private List<Operation> listOpEntreeAndSortieByDirectionByYearByDateAsc;
 
-    public List<Operation> getListOpEntreeAndSortieByDirectionByYearByDateAsc()
+    public List<Operation>getListOpEntreeAndSortieByDirectionByYearByDateAsc()
     {
         Agent cur = (Agent) RequestFilter.getSession().getAttribute("agent");
         Date sdate = new GregorianCalendar(2010, Calendar.JANUARY, 1).getTime();
@@ -514,7 +536,7 @@ public class SuiviEditionBean {
         {
             System.out.print("listOperation======="+o.getState());
         }
-        return usermetierimpl.getListOpEntreeAndSortieByDirectionByYearByDateAsc(cur.getDirection(), sdate, edate);
+        //return usermetierimpl.getListOpEntreeAndSortieByDirectionByYearByDateAsc(cur.getDirection(), sdate, edate);
         //return usermetierimpl.getListOpEntreeAndSortieByDirectionByYearByDateAsc(cur.getDirection(), getStartDate(), getEndDate());
     }
 
