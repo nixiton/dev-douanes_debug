@@ -194,10 +194,11 @@
  				
  			</div>
  			<div class="col-md-3">
- 				ANNEE ..#{gacBean.annee}........
+ 				ANNEE ..#{suivieditionBean.annee}........
  			</div>
  		</div>
 
+        #{suivieditionBean.listOperationByDirectionByYearByDateAsc}
 
         <table>
                 <tr class="entreeo">
@@ -205,7 +206,7 @@
                     <th style="border-bottom: none;">Espèce des unités  </th>
                     <th style="border-bottom: none;">Désignation des objets</th>
                     <th style="border-bottom: none;"> Prix de l'unité</th>
-                    <th colspan="2">Existant au 1er Janvier 2017</th>
+                    <th colspan="2">Existant au 1er Janvier #{suivieditionBean.annee}</th>
                     <th style="border-bottom: none;">Mouvements effectués</th>
 
                 </tr>
@@ -219,7 +220,9 @@
                     <th style="border-top: none"></th>
                 </tr>
 
-                
+        
+
+
         <c:forEach var="o" items="#{suivieditionBean.listOperationByDirectionByYearByDateAsc}">
         <!--c:forEach var="o" items="#{suivieditionBean.listOperationEntree}"-->
         <c:if test="o['class'].simpleName eq 'OpEntree'">
@@ -332,8 +335,8 @@
                 </tr>
 
                 
-        <!--c:forEach var="o" items="#{suivieditionBean.listOperationByDirectionByYearByDateAsc}"-->
-        <c:forEach var="o" items="#{suivieditionBean.listOperationEntree}">
+        <c:forEach var="o" items="#{suivieditionBean.listOperationByDirectionByYearByDateAsc}">
+        <!--c:forEach var="o" items="#{suivieditionBean.listOperationEntree}"-->
         <c:forEach var="materiel" items="#{o.listMat}">
 
                 <tr class="entreeo">    
