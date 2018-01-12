@@ -157,19 +157,19 @@
                     <td>#{gacBean.curentOperation1.mat.nomenMat.designation}, #{gacBean.curentOperation1.mat.typematerieladd.designation} , #{gacBean.curentOperation1.mat.renseignement}</td>
                     <td>#{gacBean.curentOperation1.mat.especeUnite}</td>
                     <td>1</td>
-                    <c:if test="#{mat['class'].simpleName eq 'MaterielEx'}">
+                    <c:if test="#{gacBean.curentOperation1.mat['class'].simpleName eq 'MaterielEx'}">
                     <td>#{gacBean.curentOperation1.mat.pu}</td>
                     </c:if>
 
-                    <c:if test="#{mat['class'].simpleName eq 'MaterielNouv'}">
+                    <c:if test="#{gacBean.curentOperation1.mat['class'].simpleName eq 'MaterielNouv'}">
                     <td>#{gacBean.curentOperation1.mat.montant_facture}</td>
                     </c:if>
 
-                    <c:if test="#{mat['class'].simpleName eq 'MaterielEx'}">
+                    <c:if test="#{gacBean.curentOperation1.mat['class'].simpleName eq 'MaterielEx'}">
                     <td>#{1*gacBean.curentOperation1.mat.pu}</td>
                     </c:if>
 
-                    <c:if test="#{mat['class'].simpleName eq 'MaterielNouv'}">
+                    <c:if test="#{gacBean.curentOperation1.mat['class'].simpleName eq 'MaterielNouv'}">
                     <td>#{1*gacBean.curentOperation1.mat.montant_facture}</td>
                     </c:if>
 

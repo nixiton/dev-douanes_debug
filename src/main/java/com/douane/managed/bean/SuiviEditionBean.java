@@ -74,6 +74,9 @@ public class SuiviEditionBean {
     private Materiel materiel;
 
 
+    private int annee;
+
+
     //----------ALL LIST BY METHOD------------------
     private List<Operation> listAllOperation;
     private List<OpEntree> listOperationEntree;
@@ -108,6 +111,21 @@ public class SuiviEditionBean {
     private List<Materiel> listMaterielByDet;
 
     private Float total;
+
+
+        public void setAnnee(int t){
+        this.annee = t;
+    }
+
+
+        public int getAnnee(){
+        return this.annee;
+    }
+
+        public String setAnnee1(int t){
+        this.annee = t;
+        return "annee";
+    }
 
 
         public void setTotal(Float t){
@@ -291,8 +309,8 @@ public class SuiviEditionBean {
     {
         //return getListOperationBetween(startDate, endDate);
         Agent cur = (Agent) RequestFilter.getSession().getAttribute("agent");
-        Date sdate = new GregorianCalendar(2010, Calendar.JANUARY, 1).getTime();
-        Date edate = new GregorianCalendar(2018, Calendar.DECEMBER, 30).getTime();
+        Date sdate = new GregorianCalendar(getAnnee(), Calendar.JANUARY, 1).getTime();
+        Date edate = new GregorianCalendar(getAnnee(), Calendar.DECEMBER, 30).getTime();
         return usermetierimpl.getListOperationByDirectionByYearByDateAsc(cur.getDirection(), sdate, edate);
     }
 
