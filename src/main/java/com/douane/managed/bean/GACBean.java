@@ -77,7 +77,7 @@ public class GACBean {
 
     private List<Materiel> listMaterielByDet;
 
-    private int Annee;
+    private int annee;
 
     private List<Integer> listAnnee;
 
@@ -149,29 +149,29 @@ public class GACBean {
 
 
     public void setAnnee(int t){
-        this.Annee = t;
+        this.annee = t;
     }
 
     public String setAnnee1(int t){
-        this.Annee = t;
+        this.annee = t;
         return "annee";
     }
 
     public String setAnneeEtatAp(int t){
-        this.Annee = t;
+        this.annee = t;
         return "anneeEtatAp";
     }
 
 
     public String setAnneeInv(int t){
-        this.Annee = t;
+        this.annee = t;
         return "anneeInv";
     }
 
     
 
     public int getAnnee(){
-        return this.Annee;
+        return this.annee;
     }
 
     public void setListAnnee(List<Integer> listAnnee){
