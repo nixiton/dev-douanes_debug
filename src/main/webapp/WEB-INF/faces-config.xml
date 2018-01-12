@@ -415,6 +415,12 @@
 			<to-view-id>/pages/secure/CM/SISE/content_forms/content_forms_saisieFinancement.xhtml</to-view-id>
 			<redirect />
 		</navigation-case>
+
+		<navigation-case>
+			<from-outcome>add_FinancementCA</from-outcome>
+			<to-view-id>/pages/secure/CA/SISE/content_forms/content_forms_saisieFinancement.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
 		
 		<navigation-case>
 			<from-outcome>add_Fournisseur</from-outcome>
@@ -642,6 +648,13 @@
 			<from-action>#{siseBean.addFinancement}</from-action>
 			<from-outcome>success</from-outcome>
 			<to-view-id>/pages/secure/CM/SISE/saisieRef.xhtml#fin</to-view-id>
+			<redirect />
+		</navigation-case>
+
+		<navigation-case>
+			<from-action>#{siseBean.addFinancementCA}</from-action>
+			<from-outcome>success</from-outcome>
+			<to-view-id>/pages/secure/CA/SISE/saisieRef.xhtml#fin</to-view-id>
 			<redirect />
 		</navigation-case>
 		
