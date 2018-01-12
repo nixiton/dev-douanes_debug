@@ -444,6 +444,14 @@ public class SISEformBean {
         return SUCCESS;
     }
 
+    public String addFinancementCA()
+    {
+        financement = new Financement(getDesignation());
+        Agent agent = (Agent)RequestFilter.getSession().getAttribute("agent");
+        refmetierimpl.addRef(financement,agent);
+        return SUCCESS;
+    }
+
     public String addFournisseur()
     {
         fournisseur = new Fournisseur(getDesignation());
