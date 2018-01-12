@@ -1,7 +1,9 @@
 package com.douane.converter;
 
 import javax.faces.application.FacesMessage;
+import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
+import javax.faces.bean.RequestScoped;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
@@ -11,6 +13,8 @@ import com.douane.entite.Article;
 import com.douane.entite.Materiel;
 import com.douane.metier.user.IUserMetier;
 
+@ManagedBean
+@RequestScoped
 public class ArticleConverter implements Converter {
 	@ManagedProperty(value="#{usermetier}")
     IUserMetier userMetier;
