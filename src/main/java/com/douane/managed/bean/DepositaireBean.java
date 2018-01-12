@@ -2246,6 +2246,8 @@ System.out.println("****************************ADD3 ATTR**ERRORR***************
 
 	private List<Article> listArticleValide;
 
+	private List<Article> listArticleValideByDirecNondetenu;
+	
 	private List<Article> listArticleValideByDirec;
 
 	public List<Article> getListArticleValide() {
@@ -2257,12 +2259,22 @@ System.out.println("****************************ADD3 ATTR**ERRORR***************
 	}
 
 
-	public List<Article> getListArticleValideByDirec() {
+	public List<Article> getListArticleValideByDirecNondetenu() {
 		return usermetierimpl.getListArticleNonDetenuValideByDirection(getCurrentAgent().getDirection());
 	}
 
-	public void setListArticleValideByDirec(List<Article> listArticleValide) {
-		this.listArticleValideByDirec = listArticleValide;
+	public void setListArticleValideByDirecNondetenu(List<Article> listArticleValide) {
+		this.listArticleValideByDirecNondetenu = listArticleValide;
 	}
+
+	public List<Article> getListArticleValideByDirec() {
+		return usermetierimpl.getListArticleByValidationByDirection(true, getCurrentAgent().getDirection());
+	}
+
+	public void setListArticleValideByDirec(List<Article> listArticleValideByDirec) {
+		this.listArticleValideByDirec = listArticleValideByDirec;
+	}
+	
+	
 	
 }
