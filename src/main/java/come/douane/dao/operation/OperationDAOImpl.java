@@ -380,8 +380,8 @@ public class OperationDAOImpl implements IOperationDAO{
 				//+ "order by date asc"
 				);
 		query.setParameter("direct", d);
-		query.setParameter("startDate", startDate);
-		query.setParameter("endDate", endDate);
+		query.setParameter("startDate", startDate, TemporalType.DATE);
+		query.setParameter("endDate", endDate, TemporalType.DATE);
 		List<Operation> operations = query.getResultList();
 		return operations;
 	
@@ -403,8 +403,8 @@ public class OperationDAOImpl implements IOperationDAO{
 			       		+ " order by oe.date desc "
 			       		,OpEntree.class);
 				query.setParameter("direct", d);
-				query.setParameter("startDate", startDate);
-				query.setParameter("endDate", endDate);
+				query.setParameter("startDate", startDate, TemporalType.DATE);
+				query.setParameter("endDate", endDate, TemporalType.DATE);
 				query.setParameter("etat", EtatOperation.ACCEPTED);
 				   
 			    List<OpEntree> operations = query.getResultList();
@@ -421,8 +421,8 @@ public class OperationDAOImpl implements IOperationDAO{
 	       		+ " order by os.date desc "
 	       		,OpSortie.class);
 		query.setParameter("direct", d);
-		query.setParameter("startDate", startDate);
-		query.setParameter("endDate", endDate);
+		query.setParameter("startDate", startDate, TemporalType.DATE);
+		query.setParameter("endDate", endDate, TemporalType.DATE);
 		query.setParameter("etat", EtatOperation.ACCEPTED);   
 	    List<OpSortie> operations = query.getResultList();
 		return operations;
@@ -438,8 +438,8 @@ public class OperationDAOImpl implements IOperationDAO{
 	       		+ " order by o.date desc "
 	       		,Operation.class);
 		query.setParameter("direct", d);
-		query.setParameter("startDate", startDate);
-		query.setParameter("endDate", endDate);
+		query.setParameter("startDate", startDate, TemporalType.DATE);
+		query.setParameter("endDate", endDate, TemporalType.DATE);
 		query.setParameter("etat", EtatOperation.ACCEPTED);
 		   
 	    List<Operation> operations = query.getResultList();
@@ -457,8 +457,8 @@ public class OperationDAOImpl implements IOperationDAO{
 	       		+ " order by oeart.date desc "
 	       		,OpEntreeArticle.class);
 		query.setParameter("direct", direction);
-		query.setParameter("startDate", startDate);
-		query.setParameter("endDate", endDate);
+		query.setParameter("startDate", startDate, TemporalType.DATE);
+		query.setParameter("endDate", endDate, TemporalType.DATE);
 		query.setParameter("etat", etat);   
 	    List<OpEntreeArticle> operations = query.getResultList();
 		return operations;
@@ -475,8 +475,8 @@ public class OperationDAOImpl implements IOperationDAO{
 	       		+ " order by osart.date desc "
 	       		,OpSortieArticle.class);
 		query.setParameter("direct", direction);
-		query.setParameter("startDate", startDate);
-		query.setParameter("endDate", endDate);
+		query.setParameter("startDate", startDate, TemporalType.DATE);
+		query.setParameter("endDate", endDate, TemporalType.DATE);
 		query.setParameter("etat", etat);   
 	    List<OpSortieArticle> operations = query.getResultList();
 		return operations;
@@ -522,15 +522,26 @@ public class OperationDAOImpl implements IOperationDAO{
 	public List<OpEntreeArticle> getListOpEntreeArtByDirection(Direction direction,
 			Date startDate, Date endDate) {
 		// TODO Auto-generated method stub
+		String filtreDirection="";
+		if(direction!=null) {
+			filtreDirection = " and oeart.direction =:direct ";
+		}
 		TypedQuery<OpEntreeArticle> query = em.createQuery("select oeart from OpEntreeArticle oeart "
-				+ "where oeart.date>=:startDate AND oeart.date<=:endDate"
-				+ " and oeart.direction =:direct"
+				+ "where "
+				+ " oeart.date>=:startDate AND oeart.date<=:endDate"
+				+ filtreDirection
 	       		+ " order by oeart.date desc "
 	       		,OpEntreeArticle.class);
-		query.setParameter("direct", direction);
-		query.setParameter("startDate", startDate);
-		query.setParameter("endDate", endDate);  
+		if(direction!=null) {
+			query.setParameter("direct", direction);
+		}
+		query.setParameter("startDate", startDate, TemporalType.DATE);
+		query.setParameter("endDate", endDate, TemporalType.DATE);  
 	    List<OpEntreeArticle> operations = query.getResultList();
+	   /* System.out.println("QUERRYY : select oeart from OpEntreeArticle oeart "
+				+ "where oeart.date>="+startDate+" AND oeart.date<="+endDate
+				+ " and oeart.direction =:"
+	       		+ " order by oeart.date desc ");*/
 		return operations;
 	}
 
@@ -544,8 +555,8 @@ public class OperationDAOImpl implements IOperationDAO{
 	       		+ " order by osart.date desc "
 	       		,OpSortieArticle.class);
 		query.setParameter("direct", direction);
-		query.setParameter("startDate", startDate);
-		query.setParameter("endDate", endDate);  
+		query.setParameter("startDate", startDate, TemporalType.DATE);
+		query.setParameter("endDate", endDate, TemporalType.DATE); 
 	    List<OpSortieArticle> operations = query.getResultList();
 		return operations;
 	}

@@ -2076,7 +2076,7 @@ System.out.println("****************************ADD3 ATTR**ERRORR***************
 		a.setMarqueArticle(getMarq());
 		a.setCaracteristiqueArticle(getRenseignement());
 
-
+		a.setDirecArt(agent.getDirection());
 		a.setValidation(true);
 
 		a.setNombre(getNombre());
