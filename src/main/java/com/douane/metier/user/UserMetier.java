@@ -897,10 +897,13 @@ public class UserMetier implements IUserMetier {
 	public OpEntreeArticle reqEntrerArticle(Article article, Agent dc) {
 		// TODO Auto-generated method stub
 		article.setDc(dc);
-		artreops.save(article);
-
+		System.out.println("First Save article");
+		article = artreops.save(article);
+		
 		OpEntreeArticle entreeart = new OpEntreeArticle(new Date(), new Date(), dc.getIp(), dc, article);
+		System.out.println("second Save article");
 		opentreeartrepos.save(entreeart);
+		
 		return entreeart;
 
 	}
