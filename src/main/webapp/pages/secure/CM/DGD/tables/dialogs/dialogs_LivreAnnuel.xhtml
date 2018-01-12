@@ -222,6 +222,7 @@
                 
         <c:forEach var="o" items="#{suivieditionBean.listOperationByDirectionByYearByDateAsc}">
         <!--c:forEach var="o" items="#{suivieditionBean.listOperationEntree}"-->
+        <c:if test="o['class'].simpleName eq 'OpEntree'">
         <c:forEach var="materiel" items="#{o.listMat}">
 
                 <tr class="entreeo">    
@@ -253,7 +254,49 @@
                     </td>
                 </tr>
 
+
+
         </c:forEach>
+
+        </c:if>
+
+        <c:if test="o['class'].simpleName eq 'OpSortie'">
+        
+
+                <tr class="entreeo">    
+                    <td><h:outputText value="#{o.mat.nomenMat.nomenclature}" /> </td>
+                    <td> <h:outputText value="#{o.mat.especeUnite}" /></td>
+                    <td><h:outputText value="#{o.mat.nomenMat.designation}, #{o.mat.typematerieladd.designation} , #{o.mat.renseignement}" /></td>
+                    <td><c:if test="#{o.mat['class'].simpleName eq 'MaterielEx'}">
+                    <h:outputText value="#{o.mat.pu}" />
+                    </c:if>
+
+                    <c:if test="#{o.mat['class'].simpleName eq 'MaterielNouv'}">
+                    <h:outputText value="#{o.mat.montant_facture}" />                    
+                </c:if>
+            </td>
+                    <td><h:outputText value="" />1</td>
+                    <td><h:outputText value="" /><c:if test="#{o.mat['class'].simpleName eq 'MaterielEx'}">
+                    <h:outputText value="#{1*o.mat.pu}" />
+                    </c:if>
+
+                    <c:if test="#{o.mat['class'].simpleName eq 'MaterielNouv'}">
+                    <h:outputText value="#{1*o.mat.montant_facture}" />                    
+                </c:if></td>
+                    <td>
+                        <c:set target="#{suivieditionBean}" property="materiel" value="#{o.mat}" />
+
+                        <c:forEach var="op" items="#{suivieditionBean.listOperationAttributionByMateriel}">
+                            => #{op.detenteur.im}
+                        </c:forEach>
+                    </td>
+                </tr>
+
+
+
+        
+
+        </c:if>
 
     </c:forEach>
 
