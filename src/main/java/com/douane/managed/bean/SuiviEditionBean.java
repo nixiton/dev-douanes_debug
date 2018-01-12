@@ -308,6 +308,7 @@ public class SuiviEditionBean {
     public List<Operation> getListOperationByDirectionByYearByDateAsc()
     {
         //return getListOperationBetween(startDate, endDate);
+    	
         Agent cur = (Agent) RequestFilter.getSession().getAttribute("agent");
         Date sdate = new GregorianCalendar(getAnnee(), Calendar.JANUARY, 1).getTime();
         Date edate = new GregorianCalendar(getAnnee(), Calendar.DECEMBER, 30).getTime();

@@ -431,6 +431,7 @@ public class OperationDAOImpl implements IOperationDAO{
 	@Override
 	public List<Operation> getListOperationByDirectionByYearByDateAsc(Direction d, Date startDate, Date endDate) {
 		// TODO Auto-generated method stub
+		System.out.println("List OpBYDBYYBDA Refused");
 		TypedQuery<Operation> query = em.createQuery("select o from Operation o "
 				+ " where o.date>=:startDate AND o.date<=:endDate"
 				+ " and o.direction =:direct"
@@ -443,6 +444,7 @@ public class OperationDAOImpl implements IOperationDAO{
 		query.setParameter("etat", EtatOperation.ACCEPTED);
 		   
 	    List<Operation> operations = query.getResultList();
+	    System.out.println("operations :"+operations.size());
 		return operations;
 	}
 
