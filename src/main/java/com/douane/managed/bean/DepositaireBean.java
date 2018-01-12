@@ -2246,6 +2246,8 @@ System.out.println("****************************ADD3 ATTR**ERRORR***************
 
 	private List<Article> listArticleValide;
 
+	private List<Article> listArticleValideByDirec;
+
 	public List<Article> getListArticleValide() {
 		return usermetierimpl.getListArticleValideByDirection(getCurrentAgent().getDirection());
 	}
@@ -2253,4 +2255,14 @@ System.out.println("****************************ADD3 ATTR**ERRORR***************
 	public void setListArticleValide(List<Article> listArticleValide) {
 		this.listArticleValide = listArticleValide;
 	}
+
+
+	public List<Article> getListArticleValideByDirec() {
+		return usermetierimpl.getListArticleNonDetenuValideByDirection(getCurrentAgent().getDirection());
+	}
+
+	public void setListArticleValideByDirec(List<Article> listArticleValide) {
+		this.listArticleValideByDirec = listArticleValide;
+	}
+	
 }
