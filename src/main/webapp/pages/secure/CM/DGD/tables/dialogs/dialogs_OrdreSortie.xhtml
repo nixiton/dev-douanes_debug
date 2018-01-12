@@ -149,35 +149,35 @@
                     <th style="border-top: none;">Numéro de la pièce justificative de sortie ou indocation de référence</th>
                 </tr>
 
-        <c:forEach var="mat" items="#{gacBean.curentOperation1.listMat}">
+        <!--c:forEach var="mat" items="#{gacBean.curentOperation1.listMat}"-->
 
                 <tr class="entreeo">    
                     <td><p:inputText style="text-align: center;"></p:inputText>  </td>
-                    <td> #{mat.nomenMat.nomenclature}</td>
-                    <td>#{mat.nomenMat.designation}, #{mat.typematerieladd.designation} , #{mat.renseignement}</td>
-                    <td>#{mat.especeUnite}</td>
+                    <td> #{gacBean.curentOperation1.mat.nomenMat.nomenclature}</td>
+                    <td>#{gacBean.curentOperation1.mat.nomenMat.designation}, #{gacBean.curentOperation1.mat.typematerieladd.designation} , #{gacBean.curentOperation1.mat.renseignement}</td>
+                    <td>#{gacBean.curentOperation1.mat.especeUnite}</td>
                     <td>1</td>
                     <c:if test="#{mat['class'].simpleName eq 'MaterielEx'}">
-                    <td>#{mat.pu}</td>
+                    <td>#{gacBean.curentOperation1.mat.pu}</td>
                     </c:if>
 
                     <c:if test="#{mat['class'].simpleName eq 'MaterielNouv'}">
-                    <td>#{mat.montant_facture}</td>
+                    <td>#{gacBean.curentOperation1.mat.montant_facture}</td>
                     </c:if>
 
                     <c:if test="#{mat['class'].simpleName eq 'MaterielEx'}">
-                    <td>#{1*mat.pu}</td>
+                    <td>#{1*gacBean.curentOperation1.mat.pu}</td>
                     </c:if>
 
                     <c:if test="#{mat['class'].simpleName eq 'MaterielNouv'}">
-                    <td>#{1*mat.montant_facture}</td>
+                    <td>#{1*gacBean.curentOperation1.mat.montant_facture}</td>
                     </c:if>
 
                     <td></td>
-                    <td>#{mat.reference}</td>
+                    <td>#{gacBean.curentOperation1.mat.reference}</td>
                 </tr>
 
-        </c:forEach>
+        <!--/c:forEach-->
 
             </table>
 
