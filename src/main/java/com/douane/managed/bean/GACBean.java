@@ -218,7 +218,7 @@ public class GACBean {
 
         //((OpEntree)this.getCurentOperation()).getMat().setAModifier(true);
         try {
-			usermetierimpl.reqMatAModifier((OpEntree)this.getCurentOperation(), this.getMotif());
+			usermetierimpl.reqMatAModifier((OpEntree)op, this.getMotif());
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			// TODO: handle exception
