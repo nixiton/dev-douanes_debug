@@ -224,7 +224,7 @@ public class GACBean {
 			// TODO: handle exception
     		FacesContext context = FacesContext.getCurrentInstance();
             
-            context.addMessage("myerror", new FacesMessage("Erreur","La prise en charge n'a pas pu être à modifier car: "+e.getMessage()) );
+            context.addMessage("myerror", new FacesMessage("Erreur","La prise en charge n'a pas pu être à modifier car: "+op+"   "+e.getMessage()) );
             //context.addMessage(null, new FacesMessage("Second Message", "Additional Message Detail"));
     		System.out.println("erreur à modifier prise en charge");
     		e.printStackTrace(System.out);
