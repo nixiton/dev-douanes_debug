@@ -462,9 +462,16 @@ public class UserMetier implements IUserMetier {
 	public OpEntree reqMatAModifier(OpEntree entree, String motif) throws Exception {
 		// TODO Auto-generated method stub
 		// try{
-		if (entree.getMat().isValidation()) {
+		/*if (entree.getMat().isValidation()) {
 			throw new Exception("Materiel deja validé");
+		}*/
+
+		for (Materiel m : entree.getListMat()) {
+			if (m.isValidation()) {
+				throw new Exception("Materiel deja validé");
+			}
 		}
+
 		entree.amodifier(motif);
 		oprepos.save(entree);
 		return entree;
