@@ -336,27 +336,18 @@
         <c:forEach var="o" items="#{gacBean.listOperationByDirectionByYearByDateAsc}">
         <!--c:forEach var="o" items="#{suivieditionBean.listOperationEntree}"-->
 
-        <!--c:if test="o['class'].simpleName eq 'OpEntree' OR o['class'].simpleName eq 'OpSortie'"-->
+        <c:if test="o['class'].simpleName eq 'OpEntree'">
         <c:forEach var="materiel" items="#{o.listMat}">
 
                 <tr class="entreeo">    
                     <td>
-                        <p:panel rendered="#{o['class'].simpleName eq 'OpEntree' }" >
             
                             #{o.numentree}
-                        </p:panel>
-                        <p:panel rendered="#{o['class'].simpleName eq 'OpSortie' }" >
-                            #{o.numSortie}
-                        </p:panel>
 
 
                     </td>
                     <td> <h:outputText value="#{o.date}" /></td>
                     <td> 
-
-
-            <p:panel rendered="#{o['class'].simpleName eq 'OpEntree'}">
-
                 
 
                     
@@ -370,13 +361,6 @@
                     #{materiel.fournisseur.designation}
                     </p:panel>
                
-
-                
-            </p:panel>
-            <p:panel rendered="#{o['class'].simpleName eq 'OpSortie' }" >
-                #{o.motifsortie.designation}
-            </p:panel>
-            
                     </td>
                     <td> <h:outputText value="" /></td>
                     <td> <h:outputText value="" /></td>
@@ -394,7 +378,39 @@
 
         </c:forEach>
 
-    <!--/c:if-->
+    </c:if>
+
+    <c:if test="o['class'].simpleName eq 'OpSortie'">
+
+                <tr class="entreeo">    
+                    <td>
+                            #{o.mat.numSortie}
+
+
+                    </td>
+                    <td> <h:outputText value="#{o.date}" /></td>
+                    <td> 
+
+            
+                #{o.motifsortie.designation}
+            
+                    </td>
+                    <td> <h:outputText value="" /></td>
+                    <td> <h:outputText value="" /></td>
+                    <td> <h:outputText value="" /></td>
+                    <td> <h:outputText value="" /></td>
+                    <td><h:outputText value="" />1</td>
+                    <td><h:outputText value="" /><c:if test="#{o.mat['class'].simpleName eq 'MaterielEx'}">
+                    <h:outputText value="#{1*o.mat.pu}" />
+                    </c:if>
+
+                    <c:if test="#{o.mat['class'].simpleName eq 'MaterielNouv'}">
+                    <h:outputText value="#{1*o.mat.montant_facture}" />                    
+                </c:if></td>
+                </tr>
+
+
+    </c:if>
 
     </c:forEach>
 
