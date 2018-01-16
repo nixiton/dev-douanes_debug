@@ -433,14 +433,14 @@ public class OperationDAOImpl implements IOperationDAO{
 		// TODO Auto-generated method stub
 		System.out.println("List OpBYDBYYBDA Refused");
 		TypedQuery<Operation> query = em.createQuery("select o from Operation o "
-				//+ " where o.date>=:startDate AND o.date<=:endDate"
+				+ " where o.date>=:startDate AND o.date<=:endDate"
 				+ " and o.direction =:direct"
 				+ " and o.state=:etat"
 	       		+ " order by o.date desc "
 	       		,Operation.class);
 		query.setParameter("direct", d);
-		//query.setParameter("startDate", startDate, TemporalType.DATE);
-		//query.setParameter("endDate", endDate, TemporalType.DATE);
+		query.setParameter("startDate", startDate, TemporalType.DATE);
+		query.setParameter("endDate", endDate, TemporalType.DATE);
 		query.setParameter("etat", EtatOperation.ACCEPTED);
 		   
 	    List<Operation> operations = query.getResultList();
