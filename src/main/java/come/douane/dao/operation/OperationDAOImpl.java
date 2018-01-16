@@ -438,10 +438,10 @@ public class OperationDAOImpl implements IOperationDAO{
 				//+ " and o.state=:etat"
 	       		//+ " order by o.date desc "
 	       		,Operation.class);
-		query.setParameter("direct", d);
-		query.setParameter("startDate", startDate, TemporalType.DATE);
-		query.setParameter("endDate", endDate, TemporalType.DATE);
-		query.setParameter("etat", EtatOperation.ACCEPTED);
+		//query.setParameter("direct", d);
+		//query.setParameter("startDate", startDate, TemporalType.DATE);
+		//query.setParameter("endDate", endDate, TemporalType.DATE);
+		//query.setParameter("etat", EtatOperation.ACCEPTED);
 		   
 	    List<Operation> operations = query.getResultList();
 	    System.out.println("******************************************************************************operations :"+operations.size());
