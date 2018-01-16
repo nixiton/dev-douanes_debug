@@ -198,12 +198,6 @@
  			</div>
  		</div>
 
-
-        <c:forEach var="o" items="#{gacBean.listOperationByDirectionByYearByDateAsc}">
-
-            #{o['class'].simpleName}<br></br>
-        </c:forEach>
-
         <table>
                 <tr class="entreeo">
                     <th style="border-bottom: none;">Numero d'ordre de la nomenclature</th>
@@ -227,9 +221,9 @@
         
 
 
-        <!--c:forEach var="o" items="#{gacBean.listOperationByDirectionByYearByDateAsc}"-->
-        <c:forEach var="o" items="#{suivieditionBean.listOperationEntree}">
-        <c:if test="o['class'].simpleName eq 'OpEntree'">
+        <c:forEach var="o" items="#{gacBean.listOperationByDirectionByYearByDateAsc}">
+        <!--c:forEach var="o" items="#{suivieditionBean.listOperationEntree}"-->
+        <c:if test="#{o['class'].simpleName eq 'OpEntree'}">
         <c:forEach var="materiel" items="#{o.listMat}">
 
                 <tr class="entreeo">    
@@ -267,7 +261,7 @@
 
         </c:if>
 
-        <c:if test="o['class'].simpleName eq 'OpSortie'">
+        <c:if test="#{o['class'].simpleName eq 'OpSortie'}">
         
 
                 <tr class="entreeo">    
@@ -342,7 +336,7 @@
         <c:forEach var="o" items="#{gacBean.listOperationByDirectionByYearByDateAsc}">
         <!--c:forEach var="o" items="#{suivieditionBean.listOperationEntree}"-->
 
-        <c:if test="o['class'].simpleName eq 'OpEntree'">
+        <c:if test="#{o['class'].simpleName eq 'OpEntree'}">
         <c:forEach var="materiel" items="#{o.listMat}">
 
                 <tr class="entreeo">    
@@ -386,7 +380,7 @@
 
     </c:if>
 
-    <c:if test="o['class'].simpleName eq 'OpSortie'">
+    <c:if test="#{o['class'].simpleName eq 'OpSortie'}">
 
                 <tr class="entreeo">    
                     <td>
