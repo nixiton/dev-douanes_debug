@@ -451,7 +451,7 @@ public class OperationDAOImpl implements IOperationDAO{
 		
 	    for(Operation o : operations)
 			{
-					System.out.println(o.state);
+					System.out.println(o.getState());
 			}
 
 		return operations;
