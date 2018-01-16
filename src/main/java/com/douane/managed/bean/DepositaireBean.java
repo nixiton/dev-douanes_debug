@@ -122,7 +122,7 @@ public class DepositaireBean {
 	}
 
 
-	private int imgPosition = -1;
+	private int imgPosition = 0;
 
 	public int getImgPosition(){
 		return imgPosition;
@@ -1373,24 +1373,29 @@ public class DepositaireBean {
 			RequestFilter.getSession().setAttribute("documentpath",null);
 			RequestFilter.getSession().setAttribute("documentList",null);
 			RequestFilter.getSession().setAttribute("imageList",null);
+			listMaterielForOpEntree = null;
 			return SUCCESS;
 		}
 		catch(JDBCException jdbce){
 			jdbce.getSQLException().getNextException().printStackTrace();
+			listMaterielForOpEntree = null;
 			return ERROR;
 		} catch (IOException e) {
 			FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Error file not found", "Facture's file not found ");
 			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Facture's file not found "));
+			listMaterielForOpEntree = null;
 			FacesContext.getCurrentInstance().addMessage(null, message);
 			return null;
 		}catch (NullPointerException e) {
 			FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Error validating materiel", "Error operation");
 			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Error operation valeur null"));
+			listMaterielForOpEntree = null;
 			FacesContext.getCurrentInstance().addMessage(null, message);
 			return null;
 		} catch (Exception e) {
 			FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Error validating materiel", "Error operation");
 			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Error operation exception :"+e.getMessage()));
+			listMaterielForOpEntree = null;
 			FacesContext.getCurrentInstance().addMessage(null, message);
 			return null;
 		}
@@ -1497,6 +1502,7 @@ public class DepositaireBean {
 			e.printStackTrace();
 			FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Error validating materiel", e.getMessage());
 			//FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Error operation "));
+			listMaterielForOpEntree = null;
 			FacesContext.getCurrentInstance().addMessage(null, message);
 			return ERROR;
 		}
