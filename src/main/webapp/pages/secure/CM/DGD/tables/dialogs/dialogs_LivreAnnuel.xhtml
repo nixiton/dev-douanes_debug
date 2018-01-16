@@ -227,8 +227,8 @@
         
 
 
-        <c:forEach var="o" items="#{gacBean.listOperationByDirectionByYearByDateAsc}">
-        <!--c:forEach var="o" items="#{suivieditionBean.listOperationEntree}"-->
+        <!--c:forEach var="o" items="#{gacBean.listOperationByDirectionByYearByDateAsc}"-->
+        <c:forEach var="o" items="#{suivieditionBean.listOperationEntree}">
         <c:if test="o['class'].simpleName eq 'OpEntree'">
         <c:forEach var="materiel" items="#{o.listMat}">
 
