@@ -336,7 +336,7 @@
         <c:forEach var="o" items="#{gacBean.listOperationByDirectionByYearByDateAsc}">
         <!--c:forEach var="o" items="#{suivieditionBean.listOperationEntree}"-->
 
-        <c:if test="o['class'].simpleName eq 'OpEntree' OR o['class'].simpleName eq 'OpSortie'">
+        <!--c:if test="o['class'].simpleName eq 'OpEntree' OR o['class'].simpleName eq 'OpSortie'"-->
         <c:forEach var="materiel" items="#{o.listMat}">
 
                 <tr class="entreeo">    
@@ -394,7 +394,7 @@
 
         </c:forEach>
 
-    </c:if>
+    <!--/c:if-->
 
     </c:forEach>
 
