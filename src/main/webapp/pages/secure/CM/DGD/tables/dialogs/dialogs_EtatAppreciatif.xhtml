@@ -163,10 +163,12 @@
                 </tr>
 
                 
-        <!--c:forEach var="o" items="#{suivieditionBean.listOperationByDirectionByYearByDateAsc}"-->
-        <c:forEach var="o" items="#{suivieditionBean.listOperationEntree}">
+        <c:forEach var="o" items="#{suivieditionBean.listOperationByDirectionByYearByDateAsc}">
+        <!--c:forEach var="o" items="#{suivieditionBean.listOperationEntree}"-->
 
             <c:set var="n" value="#{1}"/>
+
+            <c:if test="#{o['class'].simpleName eq 'OpEntree'}">
 
             <c:forEach var="materiel" items="#{o.listMat}">
 
@@ -177,8 +179,6 @@
                     <td><h:outputText value="#{n}" /></td>
                     <td><h:outputText value="#{o.date}" /></td>
                     <td>
-
-                        <p:panel rendered="#{o['class'].simpleName eq 'OpEntree'}">
 
                 
 
@@ -192,13 +192,7 @@
                     
                     #{materiel.fournisseur.designation}
                     </p:panel>
-               
-
-                
-                    </p:panel>
-                    <p:panel rendered="#{o['class'].simpleName eq 'OpSortie' }" >
-                        #{o.motifsortie.designation}
-                    </p:panel>
+            
 
                     </td>
                     <td><h:outputText value="" /></td>
@@ -214,6 +208,38 @@
             
 
         </c:forEach>
+
+        </c:if>
+
+
+         <c:if test="#{o['class'].simpleName eq 'OpSortie'}">
+
+
+            
+        
+
+                <tr class="entreeo">    
+                    <td><h:outputText value="#{n}" /></td>
+                    <td><h:outputText value="#{o.date}" /></td>
+                    <td>
+
+                        #{o.motifsortie.designation}
+                    
+
+                    </td>
+                    <td><h:outputText value="" /></td>
+                    <td><h:outputText value="" /></td>
+                    <td><h:outputText value="" /></td>
+                    <td><h:outputText value="" /></td>
+                    <td><h:outputText value="" /></td>
+                    <td><h:outputText value="" /></td>
+                    <td><h:outputText value="" /></td>
+                    <td><h:outputText value="" /></td>
+                </tr>
+
+        
+
+        </c:if>
 
         <c:set var="n" value="#{n + 1}"/>
 
@@ -259,12 +285,12 @@
                 </tr>
 
                 
-        <!--c:forEach var="o" items="#{suivieditionBean.listOperationByDirectionByYearByDateAsc}"-->
-        <c:forEach var="o" items="#{suivieditionBean.listOperationEntree}">
+        <c:forEach var="o" items="#{suivieditionBean.listOperationByDirectionByYearByDateAsc}">
+        <!--c:forEach var="o" items="#{suivieditionBean.listOperationEntree}"-->
         
 
                 <tr class="entreeo">    
-                    <td><h:outputText value="" /></td>
+                    <td><h:outputText value="1" /></td>
                     <td><h:outputText value="" /></td>
                     <td><h:outputText value="" /></td>
                     <td><h:outputText value="" /></td>
