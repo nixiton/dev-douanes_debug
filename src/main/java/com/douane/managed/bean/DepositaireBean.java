@@ -1418,7 +1418,7 @@ public class DepositaireBean {
 
 			if(imagelist !=null)
 			{
-				m.setImage(imagelist.get(getImgPosition()).getByteArrayImage());
+				m.setImage(imagelist.get(0).getByteArrayImage());
 			}
 			else
 			{
@@ -1494,7 +1494,7 @@ public class DepositaireBean {
 
         listMaterielForOpEntree = null;
 
-        setImgPosition(-1);
+        setImgPosition(0);
 		
 		return SUCCESS;
 		}
