@@ -122,7 +122,15 @@ public class DepositaireBean {
 	}
 
 
+	private int imgPosition = -1;
 
+	public int getImgPosition(){
+		return imgPosition;
+	}
+
+	public void setImgPosition(int i){
+		imgPosition =i;
+	}
 
 	/* attribute for file upload */
 	private static final long serialVersionUID = 1L;
@@ -1193,7 +1201,7 @@ public class DepositaireBean {
 		//System.out.println("---------------SIZE IMAGE BYTE ARRAY="+imagelist.get(0).getByteArrayImage().length);
 		if(imagelist !=null)
 		{
-			m.setImage(imagelist.get(0).getByteArrayImage());
+			m.setImage(imagelist.get(getImgPosition()).getByteArrayImage());
 		}
 		else
 		{
@@ -1254,6 +1262,7 @@ public class DepositaireBean {
 		// m.setDocumentPath(documentPath);
 		m.setValidation(false);
 		listMaterielForOpEntree.add(m);
+		setImgPosition(getImgPosition()+1);
 		System.out.println("added to list");
 		clear();
 		return null;
@@ -1404,7 +1413,7 @@ public class DepositaireBean {
 
 			if(imagelist !=null)
 			{
-				m.setImage(imagelist.get(0).getByteArrayImage());
+				m.setImage(imagelist.get(getImgPosition()).getByteArrayImage());
 			}
 			else
 			{
@@ -1477,6 +1486,10 @@ public class DepositaireBean {
 		}
         
         OpEntree opEntree = usermetierimpl.reqEntrerMateriel(listMaterielForOpEntree, agent, getFacturePath(), getRefFacture());
+
+        listMaterielForOpEntree = null;
+
+        setImgPosition(-1);
 		
 		return SUCCESS;
 		}
