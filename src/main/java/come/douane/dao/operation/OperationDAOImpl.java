@@ -444,7 +444,7 @@ public class OperationDAOImpl implements IOperationDAO{
 		query.setParameter("etat", EtatOperation.ACCEPTED);
 		   
 	    List<Operation> operations = query.getResultList();
-	    System.out.println("operations :"+operations.size());
+	    System.out.println("******************************************************************************operations :"+operations.size());
 		return operations;
 	}
 
