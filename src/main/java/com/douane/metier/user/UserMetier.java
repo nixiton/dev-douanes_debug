@@ -20,7 +20,7 @@ import com.douane.requesthttp.RequestFilter;
 import come.douane.dao.operation.IOperationDAO;
 
 @Transactional
-public class UserMetier implements IUserMetier{
+public class UserMetier implements IUserMetier {
 
 	@Autowired
 	private UserRepository userrepos;
@@ -141,7 +141,7 @@ public class UserMetier implements IUserMetier{
 	private OpSortArtRepository opsortieartrepos;
 
 	@Autowired
-	@ManagedProperty(value="#{operationdao}")
+	@ManagedProperty(value = "#{operationdao}")
 	private IOperationDAO operationdao;
 
 	@Override
@@ -154,7 +154,7 @@ public class UserMetier implements IUserMetier{
 	@Override
 	public List<Useri> listUser() {
 		// TODO Auto-generated method stub
-		return (List<Useri>)userrepos.findAll();
+		return (List<Useri>) userrepos.findAll();
 	}
 
 	@Override
@@ -174,16 +174,16 @@ public class UserMetier implements IUserMetier{
 	public Agent addAgentUser(Agent a, Useri u) {
 		// TODO Auto-generated method stub
 		a.setRoleAgent(u);
-		//u.addAgentToList(a);
+		// u.addAgentToList(a);
 		agentrepos.save(a);
 
 		return a;
 	}
-	
+
 	@Override
 	public Agent changeAgentPass(Agent a, String codedPassword) {
 		// TODO Auto-generated method stub
-		Agent av= agentrepos.findOne(a.getIdAgent());
+		Agent av = agentrepos.findOne(a.getIdAgent());
 		av.setPassword(codedPassword);
 		agentrepos.save(av);
 		return av;
@@ -192,7 +192,7 @@ public class UserMetier implements IUserMetier{
 	@Override
 	public void remAgent(Agent a) {
 		// TODO Auto-generated method stub
-		System.out.println("remove agent "+a.getIm());
+		System.out.println("remove agent " + a.getIm());
 		agentrepos.delete(a.getIm());
 
 	}
@@ -210,7 +210,7 @@ public class UserMetier implements IUserMetier{
 		return (Agent) agentrepos.findByIm(im_agent);
 	}
 
-	//temporary
+	// temporary
 	@Override
 	public List<Agent> findAllAgents() {
 		// TODO Auto-generated method stub
@@ -224,75 +224,94 @@ public class UserMetier implements IUserMetier{
 		OpEntree entree = new OpEntree(new Date(), new Date(), dc.getIp(), dc);
 		entree.setPathDoc(facturePath);
 		entree.setRefFact(refFacture);
-		//entree.setListMat(l); 
+		// entree.setListMat(l);
 
-		for (Materiel m:l)
-		{
+		for (Materiel m : l) {
 			m.setDc(dc);
 			entree.addMateriel(m);
 		}
 		entree = opentreerepos.save(entree);
-		/*MaterielEx ma= new MaterielEx();
-		ma = matrepos.save(ma);*/
-		//m = materielExRepository.save((MaterielEx) m);
+		/*
+		 * MaterielEx ma= new MaterielEx(); ma = matrepos.save(ma);
+		 */
+		// m = materielExRepository.save((MaterielEx) m);
 		return entree;
 	}
 
 	@Override
-	public OpSortie reqSortirMateriel(Materiel m, MotifSortie motif, Direction d, Service s, Bureau b, Agent oper) throws Exception {
+	public OpSortie reqSortirMateriel(Materiel m, MotifSortie motif, Direction d, Service s, Bureau b, Agent oper)
+			throws Exception {
 		// TODO Auto-generated method stub
+		// try {
+		if (m.getDetenteur() != null) {
 
-			if (m.getDetenteur() != null) {
+			throw new Exception("Materiel deja detenu");
+		}
+		OpSortie sortie = new OpSortie(new Date(), new Date(), oper.getIp(), oper, m, d, s, b, motif);
 
-				throw new Exception("Materiel deja detenu");
-			}
-			OpSortie sortie = new OpSortie(new Date(), new Date(), oper.getIp(), oper, m, d, s, b, motif);
-
-			oprepos.save(sortie);
-			return sortie;
-
+		oprepos.save(sortie);
+		return sortie;
+		/*
+		 * }catch(Exception e) { FacesMessage message = new
+		 * FacesMessage(FacesMessage.SEVERITY_WARN,
+		 * "Erreur requete pour operation sortie", e.getMessage());
+		 * FacesContext.getCurrentInstance().addMessage(null, new
+		 * FacesMessage(e.getMessage()));
+		 * FacesContext.getCurrentInstance().addMessage(null, message); return null; }
+		 */
 	}
 
 	@Override
 	public OpSortie reqSortirMateriel(Materiel m, MotifSortie motif, Direction d, Agent oper) throws Exception {
 		// TODO Auto-generated method stub
+		// try {
+		if (m.getDetenteur() != null) {
+			throw new Exception("Materiel deja detenu");
+		}
+		OpSortie sortie = new OpSortie(new Date(), new Date(), oper.getIp(), oper, m, d, motif);
 
-			if (m.getDetenteur() != null) {
-				throw new Exception("Materiel deja detenu");
-			}
-			OpSortie sortie = new OpSortie(new Date(), new Date(), oper.getIp(), oper, m, d, motif);
-
-			oprepos.save(sortie);
-			return sortie;
-
-
+		oprepos.save(sortie);
+		return sortie;
+		/*
+		 * } catch(Exception e) { FacesMessage message = new
+		 * FacesMessage(FacesMessage.SEVERITY_WARN,
+		 * "Erreur requete pour operation sortie", e.getMessage());
+		 * FacesContext.getCurrentInstance().addMessage(null, new
+		 * FacesMessage(e.getMessage()));
+		 * FacesContext.getCurrentInstance().addMessage(null, message); return null; }
+		 */
 	}
 
 	@Override
 	public OpSortie reqSortirMateriel(Materiel m, MotifSortie motif, Agent oper) throws Exception {
 		// TODO Auto-generated method stub
-
-		if(m.getDetenteur()!=null) {
+		// try{
+		if (m.getDetenteur() != null) {
 			throw new Exception("Materiel deja detenu");
 		}
 		OpSortie sortie = new OpSortie(new Date(), new Date(), oper.getIp(), oper, m, motif);
-		
+
 		oprepos.save(sortie);
 		return sortie;
-
-
+		/*
+		 * } catch(Exception e) { FacesMessage message = new
+		 * FacesMessage(FacesMessage.SEVERITY_WARN,
+		 * "Erreur requete pour operation sortie", e.getMessage());
+		 * FacesContext.getCurrentInstance().addMessage(null, new
+		 * FacesMessage(e.getMessage()));
+		 * FacesContext.getCurrentInstance().addMessage(null, message); return null; }
+		 */
 	}
 
 	public Materiel entrerMateriel(OpEntree op) {
-		if(op ==null){
-		//System.out.println("-------FUCK ETO ARY EH----------");
+		if (op == null) {
+			// System.out.println("-------FUCK ETO ARY EH----------");
 		}
 		List<Materiel> mat = op.getListMat();
-		for(Materiel m: mat)
-		{
+		for (Materiel m : mat) {
 			m.setValidation(true);
 
-			System.out.println("materiel m"+ m.getDc());
+			System.out.println("materiel m" + m.getDc());
 			matrepos.save(m);
 		}
 		op.valider();
@@ -302,60 +321,75 @@ public class UserMetier implements IUserMetier{
 	}
 
 	@Override
-	public Materiel sortirMateriel(OpSortie sortie) throws Exception{
+	public Materiel sortirMateriel(OpSortie sortie) throws Exception {
 		// TODO Auto-generated method stub
-
-			Materiel m = sortie.getMat();
-			if(m.getDetenteur()!=null) {
-				System.out.println("DETENU");
-				throw new Exception("Materiel deja detenu");
-			}
-			m.setDirec(sortie.getDirec());
-			matrepos.save(m);
-
-			sortie.valider();
-			sortie.generateNumSortie(operationdao.countOpSortieByYearByDirection(new Date(), sortie.getDirection()));
-			oprepos.save(sortie);
-			return m;
-
-
-	}
-
-	/*Old function
-	@Override
-	public Materiel attriuberMateriel(Long idMat, Long im) {
-		// TODO Auto-generated method stub
-		Materiel m = (Materiel) matrepos.findOne(idMat);
-		Agent detenteur = (Agent) agentrepos.findOne(im);
-		m.setDetenteur(detenteur);
+		// try{
+		Materiel m = sortie.getMat();
+		if (m.getDetenteur() != null) {
+			System.out.println("DETENU");
+			throw new Exception("Materiel deja detenu");
+		}
+		m.setDirec(sortie.getDirec());
 		matrepos.save(m);
+
+		sortie.valider();
+		sortie.generateNumSortie(operationdao.countOpSortieByYearByDirection(new Date(), sortie.getDirection()));
+		oprepos.save(sortie);
 		return m;
-	}*/
+		/*
+		 * } catch(Exception e) { FacesMessage message = new
+		 * FacesMessage(FacesMessage.SEVERITY_WARN, "Erreur pour operation sortie",
+		 * e.getMessage()); FacesContext.getCurrentInstance().addMessage(null, new
+		 * FacesMessage(e.getMessage()));
+		 * FacesContext.getCurrentInstance().addMessage(null, message); return null; }
+		 */
+	}
+
+	/*
+	 * Old function
+	 * 
+	 * @Override public Materiel attriuberMateriel(Long idMat, Long im) { // TODO
+	 * Auto-generated method stub Materiel m = (Materiel) matrepos.findOne(idMat);
+	 * Agent detenteur = (Agent) agentrepos.findOne(im); m.setDetenteur(detenteur);
+	 * matrepos.save(m); return m; }
+	 */
 
 	@Override
-	public Materiel attriuberMateriel(OpAttribution attr) throws Exception{
-
-			return operationdao.attribuerMat(attr);
-
-
+	public Materiel attriuberMateriel(OpAttribution attr) throws Exception {
+		// try {
+		return operationdao.attribuerMat(attr);
+		// }
+		/*
+		 * catch(Exception e) { FacesMessage message = new
+		 * FacesMessage(FacesMessage.SEVERITY_WARN,
+		 * "Erreur pour attribution de materiel", e.getMessage());
+		 * FacesContext.getCurrentInstance().addMessage(null, new
+		 * FacesMessage(e.getMessage()));
+		 * FacesContext.getCurrentInstance().addMessage(null, message); return null; }
+		 */
 	}
+
 	@Override
 	public Materiel attribuerMaterielEx(MaterielEx matex, Agent detenteur) throws Exception {
 		// TODO Auto-generated method stub
-			return operationdao.attribuerMatEx(matex, detenteur);
-
-
+		// try {
+		return operationdao.attribuerMatEx(matex, detenteur);
+		// }
+		/*
+		 * catch(Exception e) { FacesMessage message = new
+		 * FacesMessage(FacesMessage.SEVERITY_WARN,
+		 * "Erreur pour attribution de materiel existant", e.getMessage());
+		 * FacesContext.getCurrentInstance().addMessage(null, new
+		 * FacesMessage(e.getMessage()));
+		 * FacesContext.getCurrentInstance().addMessage(null, message); return null; }
+		 */
 	}
 
-	
-
-	/*@Override
-	public Materiel dettacherMateriel(Materiel m) {
-		// TODO Auto-generated method stub
-		m.setDetenteur(null);
-		matrepos.save(m);
-		return null;
-	}*/
+	/*
+	 * @Override public Materiel dettacherMateriel(Materiel m) { // TODO
+	 * Auto-generated method stub m.setDetenteur(null); matrepos.save(m); return
+	 * null; }
+	 */
 
 	@Override
 	public void delMat(Materiel m) {
@@ -363,37 +397,36 @@ public class UserMetier implements IUserMetier{
 		matrepos.delete(m);
 	}
 
-
 	/*
 	 * Affichage
 	 */
 	@Override
 	public void seeMat(Materiel m) {
 		// TODO Auto-generated method stub
-		ModeAcquisition ma=null;
-		Financement fi=null;
-		Fournisseur f=null;
-		Float mont=0f;
-		String refFact=null;
+		ModeAcquisition ma = null;
+		Financement fi = null;
+		Fournisseur f = null;
+		Float mont = 0f;
+		String refFact = null;
 
-		if(m instanceof MaterielNouv){
-			ma = ((MaterielNouv)m).getModAcq();
-			fi = ((MaterielNouv)m).getFinancement();
-			f = ((MaterielNouv)m).getFournisseur();
-			mont = ((MaterielNouv)m).getMontant_facture();
-			refFact = ((MaterielNouv)m).getRefFacture();
+		if (m instanceof MaterielNouv) {
+			ma = ((MaterielNouv) m).getModAcq();
+			fi = ((MaterielNouv) m).getFinancement();
+			f = ((MaterielNouv) m).getFournisseur();
+			mont = ((MaterielNouv) m).getMontant_facture();
+			refFact = ((MaterielNouv) m).getRefFacture();
 		}
-		String detenteur ="aucun";
-		if(m.getDetenteur()!=null) {
+		String detenteur = "aucun";
+		if (m.getDetenteur() != null) {
 			detenteur = m.getDetenteur().getNomAgent();
 		}
 		System.out.println("MATERIEL:");
 		System.out.println("--------");
 		System.out.println("Type| Nomenclature| marque | pu| ref| numSerie | caract | detenteur | autre |"
 				+ "|Etat | Mode Acqui | Financement | Montant | ref Fact | Fournisseur| :");
-		System.out.println(m.getCaract()+"|"+m.getNomenMat()+"|"+ m.getMarque()+"|"+ m.getPu()+"|"+ m.getReference()+"|"+
-				m.getNumSerie()+"|"+ "XX"+"|"+ detenteur+"|"+ m.getAutre()+"|"+m.getEtat()+"|"+ma+"|"+
-				fi+"|"+mont+"|"+refFact+"|"+f);
+		System.out.println(m.getCaract() + "|" + m.getNomenMat() + "|" + m.getMarque() + "|" + m.getPu() + "|"
+				+ m.getReference() + "|" + m.getNumSerie() + "|" + "XX" + "|" + detenteur + "|" + m.getAutre() + "|"
+				+ m.getEtat() + "|" + ma + "|" + fi + "|" + mont + "|" + refFact + "|" + f);
 
 	}
 
@@ -407,48 +440,79 @@ public class UserMetier implements IUserMetier{
 	@Override
 	public OpAttribution reqAttribution(Materiel m, Agent oper, Agent detenteur) throws Exception {
 		// TODO Auto-generated method stub
-
-		if(!m.isValidation()) {
+		// try
+		// {
+		if (!m.isValidation()) {
 			throw new Exception("Materiel non validé");
 		}
-		OpAttribution attroper= new OpAttribution(new Date(), new Date(),oper.getIp(), oper, m, detenteur);
+		OpAttribution attroper = new OpAttribution(new Date(), new Date(), oper.getIp(), oper, m, detenteur);
 		oprepos.save(attroper);
 		return attroper;
-
-
+		// }
+		/*
+		 * catch(Exception e) { FacesMessage message = new
+		 * FacesMessage(FacesMessage.SEVERITY_WARN, "Erreur pour requete d'attribution",
+		 * e.getMessage()); FacesContext.getCurrentInstance().addMessage(null, new
+		 * FacesMessage(e.getMessage()));
+		 * FacesContext.getCurrentInstance().addMessage(null, message); return null; }
+		 */
 	}
 
 	@Override
 	public OpEntree reqMatAModifier(OpEntree entree, String motif) throws Exception {
 		// TODO Auto-generated method stub
+		// try{
+		/*if (entree.getMat().isValidation()) {
+			throw new Exception("Materiel deja validé");
+		}*/
 
-			if(entree.getMat().isValidation()) {
+		for (Materiel m : entree.getListMat()) {
+			if (m.isValidation()) {
 				throw new Exception("Materiel deja validé");
 			}
-			entree.amodifier(motif);
-			oprepos.save(entree);
-			return entree;
+		}
 
-
+		entree.amodifier(motif);
+		oprepos.save(entree);
+		return entree;
+		// }
+		/*
+		 * catch(Exception e) { FacesMessage message = new
+		 * FacesMessage(FacesMessage.SEVERITY_WARN,
+		 * "Erreur pour requete de modification materiel", e.getMessage());
+		 * FacesContext.getCurrentInstance().addMessage(null, new
+		 * FacesMessage(e.getMessage()));
+		 * FacesContext.getCurrentInstance().addMessage(null, message); return null; }
+		 */
 	}
+
 	@Override
-	public OpSortie reqSortirAModifier(OpSortie sort, String motif){
+	public OpSortie reqSortirAModifier(OpSortie sort, String motif) {
 		// TODO Auto-generated method stub
 		sort.amodifier(motif);
 		oprepos.save(sort);
 		return sort;
 	}
+
 	public OpEntree reqMatRefuser(OpEntree entree, String motif) throws Exception {
 		// TODO Auto-generated method stub
-
-			if (entree.getMat().isValidation()) {
+		// try {
+		for (Materiel m : entree.getListMat()) {
+			if (m.isValidation()) {
 				throw new Exception("Materiel deja validé");
 			}
-			entree.arefuser(motif);
-			oprepos.save(entree);
-			return entree;
+		}
 
-
+		entree.arefuser(motif);
+		oprepos.save(entree);
+		return entree;
+		/*
+		 * } catch(Exception e) { FacesMessage message = new
+		 * FacesMessage(FacesMessage.SEVERITY_WARN, "Erreur pour attribution de sortie",
+		 * e.getMessage()); FacesContext.getCurrentInstance().addMessage(null, new
+		 * FacesMessage(e.getMessage()));
+		 * FacesContext.getCurrentInstance().addMessage(null, message); return null; }
+		 */
 	}
 
 	@Override
@@ -462,60 +526,83 @@ public class UserMetier implements IUserMetier{
 	@Override
 	public OpAttribution reqAttrAModifier(OpAttribution attr, String motif) throws Exception {
 		// TODO Auto-generated method stub
-
-		if(attr.getMat().getDetenteur()!=null) {
+		// try{
+		if (attr.getMat().getDetenteur() != null) {
 			throw new Exception("Materiel deja detenu");
 		}
 		attr.amodifier(motif);
 		oprepos.save(attr);
 		return attr;
-
-
+		/*
+		 * } catch(Exception e) { FacesMessage message = new
+		 * FacesMessage(FacesMessage.SEVERITY_WARN,
+		 * "Erreur de modficiation d'attribution", e.getMessage());
+		 * FacesContext.getCurrentInstance().addMessage(null, new
+		 * FacesMessage(e.getMessage()));
+		 * FacesContext.getCurrentInstance().addMessage(null, message); return null; }
+		 */
 	}
 
 	@Override
 	public OpAttribution reqAttrRefuser(OpAttribution attr, String motif) throws Exception {
 		// TODO Auto-generated method stub
-
-		if(attr.getMat().getDetenteur()!=null) {
+		// try{
+		if (attr.getMat().getDetenteur() != null) {
 			throw new Exception("Materiel deja detenu");
 		}
 		attr.arefuser(motif);
 		oprepos.save(attr);
 		return attr;
-
-
+		/*
+		 * } catch(Exception e) { FacesMessage message = new
+		 * FacesMessage(FacesMessage.SEVERITY_WARN,
+		 * "Erreur de requete pour refus d'attribution", e.getMessage());
+		 * FacesContext.getCurrentInstance().addMessage(null, new
+		 * FacesMessage(e.getMessage()));
+		 * FacesContext.getCurrentInstance().addMessage(null, message); return null; }
+		 */
 	}
 
 	@Override
-	public OpDettachement reqDettachement(Materiel mat1, Agent oper, Agent dete) throws Exception {
+	public OpDettachement reqDettachement(Materiel mat1, Agent oper, Agent dete, MotifSortie m) throws Exception {
 		// TODO Auto-generated method stub
-
-		if(mat1.getDetenteur()==null) {
+		// try{
+		if (mat1.getDetenteur() == null) {
 			throw new Exception("aucun");
 		}
 		OpDettachement opdet = new OpDettachement(new Date(), new Date(), oper.getIp(), oper, mat1, dete);
+		opdet.setMotifS(m);
 		oprepos.save(opdet);
 		return opdet;
-
-
+		/*
+		 * } catch(Exception e) { FacesMessage message = new
+		 * FacesMessage(FacesMessage.SEVERITY_WARN,
+		 * "Erreur pour requete de detachement", e.getMessage());
+		 * FacesContext.getCurrentInstance().addMessage(null, new
+		 * FacesMessage(e.getMessage()));
+		 * FacesContext.getCurrentInstance().addMessage(null, message); return null; }
+		 */
 	}
 
 	@Override
-	public Agent detacherMateriel(OpDettachement det) throws Exception{
+	public Agent detacherMateriel(OpDettachement det) throws Exception {
 		// TODO Auto-generated method stub
-		/*Agent ancienDet = det.getMat().getDetenteur();
-		Materiel m = det.getMat();
-		ancienDet.getMatdetenu().remove(m);
-		agentrepos.save(ancienDet);
-		det.valider();
-		oprepos.save(det);
-
-		return ancienDet;*/
-
+		/*
+		 * Agent ancienDet = det.getMat().getDetenteur(); Materiel m = det.getMat();
+		 * ancienDet.getMatdetenu().remove(m); agentrepos.save(ancienDet);
+		 * det.valider(); oprepos.save(det);
+		 * 
+		 * return ancienDet;
+		 */
+		// try {
 		return operationdao.detacherMat(det);
-
-
+		/*
+		 * } catch(Exception e) { FacesMessage message = new
+		 * FacesMessage(FacesMessage.SEVERITY_WARN, "Erreur de detachement materiel",
+		 * e.getMessage()); FacesContext.getCurrentInstance().addMessage(null, new
+		 * FacesMessage(e.getMessage()));
+		 * FacesContext.getCurrentInstance().addMessage(null, message); return null; }
+		 */
 	}
 
 	@Override
@@ -548,17 +635,15 @@ public class UserMetier implements IUserMetier{
 	public List<Materiel> getListMatByDet(Agent detenteur) {
 		// TODO Auto-generated method stub
 		return matrepos.findByDetenteur(detenteur);
-		//return null;
+		// return null;
 	}
-
 
 	@Override
 	public List<ArticleEx> getListArticleEx() {
 		// TODO Auto-generated method stub
-		return (List<ArticleEx>)artexreops.findAll();
-		//return null;
+		return (List<ArticleEx>) artexreops.findAll();
+		// return null;
 	}
-
 
 	@Override
 	public List<Operation> getListOp() {
@@ -569,7 +654,7 @@ public class UserMetier implements IUserMetier{
 	@Override
 	public List<OpEntree> getListOpEntree() {
 		// TODO Auto-generated method stub
-		
+
 		return opentreerepos.findAll();
 	}
 
@@ -582,7 +667,7 @@ public class UserMetier implements IUserMetier{
 	@Override
 	public List<Operation> getListOpByOperator(Agent operator) {
 		// TODO Auto-generated method stub
-		//return oprepos.findByOperateur(operator);
+		// return oprepos.findByOperateur(operator);
 		int maxresult = 200;
 		return operationdao.getListOperationByOperator(operator, maxresult);
 	}
@@ -664,39 +749,37 @@ public class UserMetier implements IUserMetier{
 	public List<OpEntree> getListOpEntreeByMatBDate(Materiel m, Date startDate, Date endDate) {
 		// TODO Auto-generated method stub
 		int maxresult = 100;
-		return operationdao.getListOpEntreeByByMaterielBDate(m, startDate, endDate,maxresult);
+		return operationdao.getListOpEntreeByByMaterielBDate(m, startDate, endDate, maxresult);
 	}
 
 	@Override
 	public List<OpSortie> getListOpSortieByMatBDate(Materiel m, Date startDate, Date endDate) {
 		// TODO Auto-generated method stub
 		int maxresult = 100;
-		return operationdao.getListOpSortieByByMaterielBDate(m, startDate, endDate,maxresult);
+		return operationdao.getListOpSortieByByMaterielBDate(m, startDate, endDate, maxresult);
 	}
 
 	@Override
-	public List<Operation> getListOpEntreeAndSortieByDirectionByYearByDateAsc(Direction d, Date startDate, Date endDate)
-	{
-		return operationdao.getListOpEntreeAndSortieByDirectionByYearByDateAsc(d,startDate, endDate);
+	public List<Operation> getListOpEntreeAndSortieByDirectionByYearByDateAsc(Direction d, Date startDate,
+			Date endDate) {
+		return operationdao.getListOpEntreeAndSortieByDirectionByYearByDateAsc(d, startDate, endDate);
 	}
 
 	@Override
 	public List<Materiel> getListMat() {
 		// TODO Auto-generated method stub
-		return (List<Materiel>)matrepos.findAll();
+		return (List<Materiel>) matrepos.findAll();
 	}
 
 	@Override
-	public List<MaterielEx> getListMatEx()
-	{
-		Agent agent = (Agent)RequestFilter.getSession().getAttribute("agent");
-		//return (List<MaterielEx>) materielExRepository.findAll();
+	public List<MaterielEx> getListMatEx() {
+		Agent agent = (Agent) RequestFilter.getSession().getAttribute("agent");
+		// return (List<MaterielEx>) materielExRepository.findAll();
 		return (List<MaterielEx>) materielExRepository.findByDirec(agent.getDirection());
 	}
 
 	@Override
-	public List<MaterielNouv> getListMatNouv()
-	{
+	public List<MaterielNouv> getListMatNouv() {
 		return (List<MaterielNouv>) materielNouvRepository.findAll();
 	}
 
@@ -707,12 +790,16 @@ public class UserMetier implements IUserMetier{
 
 	@Override
 	public List<Materiel> getMatByDetenteurAndValidation(Agent detenteur, boolean validation) {
-		return matrepos.findByDetenteurAndValidation(detenteur,validation);
+		return matrepos.findByDetenteurAndValidation(detenteur, validation);
 	}
 
 	@Override
 	public List<Materiel> getMatByDetenteurAndDirection(Agent detenteur, Direction direction) {
 		return matrepos.findByDetenteurAndDirec(detenteur, direction);
+	}
+	@Override
+	public List<Materiel> getMatByValidationAndDetenteurAndDirection(boolean val,Agent detenteur, Direction direction) {
+		return matrepos.findByValidationAndDetenteurAndDirec(val,detenteur, direction);
 	}
 
 	@Override
@@ -771,22 +858,22 @@ public class UserMetier implements IUserMetier{
 
 	@Override
 	public List<OpEntree> getListOpEntreeByMatAndByState(Materiel m, EtatOperation e) {
-		return opentreerepos.findByMatAndState(m,e);
+		return opentreerepos.findByMatAndState(m, e);
 	}
 
 	@Override
 	public List<OpSortie> getListOpSortieByMatAndByState(Materiel m, EtatOperation e) {
-		return opsortierepos.findByMatAndState(m,e);
+		return opsortierepos.findByMatAndState(m, e);
 	}
 
 	@Override
 	public List<OpAttribution> getListOpAttrByMatAndByState(Materiel m, EtatOperation e) {
-		return opattrrepos.findByMatAndState(m,e);
+		return opattrrepos.findByMatAndState(m, e);
 	}
 
 	@Override
 	public List<OpDettachement> getListOpDettByMatAndByState(Materiel m, EtatOperation e) {
-		return opdettrepos.findByMatAndState(m,e);
+		return opdettrepos.findByMatAndState(m, e);
 	}
 
 	@Override
@@ -817,10 +904,13 @@ public class UserMetier implements IUserMetier{
 	public OpEntreeArticle reqEntrerArticle(Article article, Agent dc) {
 		// TODO Auto-generated method stub
 		article.setDc(dc);
-		artreops.save(article);
-
+		System.out.println("First Save article");
+		article = artreops.save(article);
+		
 		OpEntreeArticle entreeart = new OpEntreeArticle(new Date(), new Date(), dc.getIp(), dc, article);
+		System.out.println("second Save article");
 		opentreeartrepos.save(entreeart);
+		
 		return entreeart;
 
 	}
@@ -829,71 +919,104 @@ public class UserMetier implements IUserMetier{
 	public OpSortieArticle reqSortirArticle(Article article, Agent op, Agent destinataire) throws Exception {
 		// TODO Auto-generated method stub
 		// TODO Auto-generated method stub
-
-			if (!article.isValidation()) {
-				throw new Exception("Requete non validée");
-			}
-			OpSortieArticle opsortieart = new OpSortieArticle(new Date(), new Date(), op.getIp(), op, article, destinataire);
-			opsortieartrepos.save(opsortieart);
-			return opsortieart;
-
-
+		// try {
+		if (!article.isValidation()) {
+			throw new Exception("Requete non validée");
+		}
+		OpSortieArticle opsortieart = new OpSortieArticle(new Date(), new Date(), op.getIp(), op, article,
+				destinataire);
+		opsortieartrepos.save(opsortieart);
+		return opsortieart;
+		/*
+		 * } catch(Exception e) { FacesMessage message = new
+		 * FacesMessage(FacesMessage.SEVERITY_WARN,
+		 * "Erreur de requete de sortie materiel", e.getMessage());
+		 * FacesContext.getCurrentInstance().addMessage(null, new
+		 * FacesMessage(e.getMessage()));
+		 * FacesContext.getCurrentInstance().addMessage(null, message); return null; }
+		 */
 	}
 
 	@Override
 	public OpEntreeArticle reqArtAModifier(OpEntreeArticle entreeArt, String motif) throws Exception {
 		// TODO Auto-generated method stub
 		// TODO Auto-generated method stub
-
-			if(entreeArt.getArticle().isValidation()) {
-				throw new Exception("Requete deja validée");
-			}
-			entreeArt.amodifier(motif);
-			opentreeartrepos.save(entreeArt);
-			return entreeArt;
-
-
+		// try{
+		if (entreeArt.getArticle().isValidation()) {
+			throw new Exception("Requete deja validée");
+		}
+		entreeArt.amodifier(motif);
+		opentreeartrepos.save(entreeArt);
+		return entreeArt;
+		/*
+		 * } catch(Exception e) { FacesMessage message = new
+		 * FacesMessage(FacesMessage.SEVERITY_WARN,
+		 * "Erreur de requete d'article à modifier", e.getMessage());
+		 * FacesContext.getCurrentInstance().addMessage(null, new
+		 * FacesMessage(e.getMessage()));
+		 * FacesContext.getCurrentInstance().addMessage(null, message); return null; }
+		 */
 	}
 
 	@Override
-	public OpSortieArticle reqSortirArtAModifier(OpSortieArticle sortArt, String motif) throws Exception{
+	public OpSortieArticle reqSortirArtAModifier(OpSortieArticle sortArt, String motif) throws Exception {
 		// TODO Auto-generated method stub
 		// TODO Auto-generated method stub
-
-			if (sortArt.getArticle().isValidation()) {
-				throw new Exception("dejavalider");
-			}
-			sortArt.amodifier(motif);
-			opsortieartrepos.save(sortArt);
-			return sortArt;
-
-
+		// try {
+		if (sortArt.getArticle().isValidation()) {
+			throw new Exception("dejavalider");
+		}
+		sortArt.amodifier(motif);
+		opsortieartrepos.save(sortArt);
+		return sortArt;
+		/*
+		 * } catch(Exception e) { FacesMessage message = new
+		 * FacesMessage(FacesMessage.SEVERITY_WARN,
+		 * "Erreur de requete de sortie d'article à modifier", e.getMessage());
+		 * FacesContext.getCurrentInstance().addMessage(null, new
+		 * FacesMessage(e.getMessage()));
+		 * FacesContext.getCurrentInstance().addMessage(null, message); return null; }
+		 */
 	}
 
 	@Override
 	public OpEntreeArticle reqArtRefuser(OpEntreeArticle entreeArt, String motif) throws Exception {
 		// TODO Auto-generated method stub
-			if(entreeArt.getArticle().isValidation()) {
-				throw new Exception("dejavalider");
-			}
-			entreeArt.arefuser(motif);
-			opentreeartrepos.save(entreeArt);
-			return entreeArt;
-
+		// try{
+		if (entreeArt.getArticle().isValidation()) {
+			throw new Exception("dejavalider");
+		}
+		entreeArt.arefuser(motif);
+		opentreeartrepos.save(entreeArt);
+		return entreeArt;
+		/*
+		 * } catch(Exception e) { FacesMessage message = new
+		 * FacesMessage(FacesMessage.SEVERITY_WARN,
+		 * "Erreur de requete d'article à refuser", e.getMessage());
+		 * FacesContext.getCurrentInstance().addMessage(null, new
+		 * FacesMessage(e.getMessage()));
+		 * FacesContext.getCurrentInstance().addMessage(null, message); return null; }
+		 */
 	}
 
 	@Override
 	public OpSortieArticle reqSortirRefuser(OpSortieArticle sortArt, String motif) throws Exception {
 		// TODO Auto-generated method stub
-
-		if(sortArt.getArticle().isValidation()) {
+		// try{
+		if (sortArt.getArticle().isValidation()) {
 			throw new Exception("Requete deja validée");
 		}
 		sortArt.arefuser(motif);
 		opsortieartrepos.save(sortArt);
 		return sortArt;
-
-
+		/*
+		 * } catch(Exception e) { FacesMessage message = new
+		 * FacesMessage(FacesMessage.SEVERITY_WARN,
+		 * "Erreur de requete, sortie de matériel refusée", e.getMessage());
+		 * FacesContext.getCurrentInstance().addMessage(null, new
+		 * FacesMessage(e.getMessage()));
+		 * FacesContext.getCurrentInstance().addMessage(null, message); return null; }
+		 */
 	}
 
 	@Override
@@ -910,19 +1033,24 @@ public class UserMetier implements IUserMetier{
 	@Override
 	public Article sortirArticle(OpSortieArticle sortieart) throws Exception {
 		// TODO Auto-generated method stub
-
-		Article a  = sortieart.getArticle();
+		// try{
+		Article a = sortieart.getArticle();
 
 		Agent beneficiaire = sortieart.getBeneficiaire();
 		a.setBeneficiaire(beneficiaire);
 
 		artreops.save(a);
 		sortieart.valider();
-		//oprepos.save(attr);
+		// oprepos.save(attr);
 		opsortieartrepos.save(sortieart);
 		return a;
-
-
+		/*
+		 * } catch(Exception e) { FacesMessage message = new
+		 * FacesMessage(FacesMessage.SEVERITY_WARN, "Erreur de sortie d'article",
+		 * e.getMessage()); FacesContext.getCurrentInstance().addMessage(null, new
+		 * FacesMessage(e.getMessage()));
+		 * FacesContext.getCurrentInstance().addMessage(null, message); return null; }
+		 */
 	}
 
 	@Override
@@ -936,21 +1064,23 @@ public class UserMetier implements IUserMetier{
 	}
 
 	@Override
-	public ArticleNouv addArticleNouv(CodeArticle cde, Agent ben, Agent depo, Fournisseur fourn, Float prix, Long nombre, Marque marqueArt,String caraArt) {
-		ArticleNouv a =new ArticleNouv(fourn, prix);
+	public ArticleNouv addArticleNouv(CodeArticle cde, Agent ben, Agent depo, Fournisseur fourn, Float prix,
+			Long nombre, Marque marqueArt, String caraArt) {
+		ArticleNouv a = new ArticleNouv(fourn, prix);
 		a.setCodeArticle(cde);
 		a.setBeneficiaire(ben);
 		a.setDc(depo);
 		a.setNombre(nombre);
 		a.setMarqueArticle(marqueArt);
 		a.setCaracteristiqueArticle(caraArt);
-		
+
 		artnouvreops.save(a);
 		return a;
 	}
 
 	@Override
-	public ArticleEx addArticleEx(CodeArticle cde, Agent ben, Agent depo, Float prix, Long nombre, Marque marqueArt,String caraArt) {
+	public ArticleEx addArticleEx(CodeArticle cde, Agent ben, Agent depo, Float prix, Long nombre, Marque marqueArt,
+			String caraArt) {
 		ArticleEx a = new ArticleEx();
 		a.setCodeArticle(cde);
 		a.setBeneficiaire(ben);
@@ -963,19 +1093,19 @@ public class UserMetier implements IUserMetier{
 	@Override
 	public List<MaterielNouv> getListMaterielNouvValide() {
 		// TODO Auto-generated method stub
-		//return materielNouvRepository.findByValidation(true);
-		Agent agent = (Agent)RequestFilter.getSession().getAttribute("agent");
+		// return materielNouvRepository.findByValidation(true);
+		Agent agent = (Agent) RequestFilter.getSession().getAttribute("agent");
 		return materielNouvRepository.findByValidationAndDirec(true, agent.getDirection());
-		//return materielNouvRepository.findByValidationAndAModifier(true, true);
+		// return materielNouvRepository.findByValidationAndAModifier(true, true);
 	}
 
 	@Override
-	@Transactional(propagation=Propagation.REQUIRED, readOnly=true, noRollbackFor=Exception.class)
+	@Transactional(propagation = Propagation.REQUIRED, readOnly = true, noRollbackFor = Exception.class)
 	public OpEntree getOperationEntreeById(Long idopentree) {
 		// TODO Auto-generated method stub
-		
+
 		return opentreerepos.findOne(idopentree);
-		//okay
+		// okay
 	}
 
 	@Override
@@ -999,13 +1129,13 @@ public class UserMetier implements IUserMetier{
 	@Override
 	public List<Article> getListArticleValideByDirection(Direction d) {
 		// TODO Auto-generated method stub
-		return artreops.findByValidationAndDirecArt(true,d);
+		return artreops.findByValidationAndDirecArt(true, d);
 	}
 
 	@Override
 	public List<Article> getListArticleNonDetenuValideByDirection(Direction d) {
 		// TODO Auto-generated method stub
-		return artreops.findByValidationAndBeneficiaireAndDirecArt(true,null,d);
+		return artreops.findByValidationAndBeneficiaireAndDirecArt(true, null, d);
 	}
 
 	@Override
@@ -1021,18 +1151,54 @@ public class UserMetier implements IUserMetier{
 	}
 
 	@Override
-	public List<OpEntreeArticle> getListOpEntreeArtByValideByDirection(EtatOperation etat,Direction direction, Date startDate, Date endDate ) {
+	public List<OpEntreeArticle> getListOpEntreeArtByValideByDirection(EtatOperation etat, Direction direction,
+			Date startDate, Date endDate) {
 		// TODO Auto-generated method stub
-		
+
 		return operationdao.getListOpEntreeArtByValideByDirection(etat, direction, startDate, endDate);
 	}
 
 	@Override
-	public List<OpSortieArticle> getListOpSortieArtByValideByDirection(EtatOperation etat,Direction direction, Date startDate, Date endDate) {
+	public List<OpSortieArticle> getListOpSortieArtByValideByDirection(EtatOperation etat, Direction direction,
+			Date startDate, Date endDate) {
 		// TODO Auto-generated method stub
 		return operationdao.getListOpSortieArtByValideByDirection(etat, direction, startDate, endDate);
 	}
 
+	@Override
+	public List<ArticleNouv> getListArtNouvValideByDirection(Direction d) {
+		// TODO Auto-generated method stub
+		return artnouvreops.findByValidationAndDirecArt(true, d);
+	}
 
+	@Override
+	public List<ArticleNouv> getListArtNouvByValidationByDirection(boolean val, Direction d) {
+		// TODO Auto-generated method stub
+		return artnouvreops.findByValidationAndDirecArt(val, d);
+	}
+
+	@Override
+	public List<ArticleEx> getListArtExByDirction(Direction d) {
+		// TODO Auto-generated method stub
+		return artexreops.findByDirecArt(d);
+	}
+
+	@Override
+	public Article getArticleById(Long id) {
+		// TODO Auto-generated method stub
+		return artreops.findOne(id);
+	}
+
+	@Override
+	public List<OpEntreeArticle> getListOpEntreeArtByDirection(Direction direction, Date startDate, Date endDate) {
+		// TODO Auto-generated method stub
+		return operationdao.getListOpEntreeArtByDirection(direction, startDate, endDate);
+	}
+
+	@Override
+	public List<OpSortieArticle> getListOpSortieArtByDirection(Direction direction, Date startDate, Date endDate) {
+		// TODO Auto-generated method stub
+		return operationdao.getListOpSortieArtByDirection(direction, startDate, endDate);
+	}
 
 }

@@ -4,15 +4,13 @@ import com.douane.entite.*;
 import com.douane.metier.user.IUserMetier;
 import com.douane.repository.OpRepository;
 import com.douane.requesthttp.RequestFilter;
-
-import javax.faces.application.FacesMessage;
 import javax.faces.bean.RequestScoped;
 import javax.faces.bean.ViewScoped;
+import javax.faces.context.FacesContext;
 import javax.faces.bean.SessionScoped;
-
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
-import javax.faces.context.FacesContext;
 import java.text.SimpleDateFormat;
 import java.util.HashMap;
 import java.util.List;
@@ -79,7 +77,7 @@ public class GACBean {
 
     private List<Materiel> listMaterielByDet;
 
-    private int Annee;
+    private int annee;
 
     private List<Integer> listAnnee;
 
@@ -92,6 +90,26 @@ public class GACBean {
 
     private static Font catFont = new Font(Font.FontFamily.TIMES_ROMAN, 18,Font.BOLD);
     private static Font subFont = new Font(Font.FontFamily.TIMES_ROMAN, 16,Font.BOLD);
+
+
+
+    private List<Operation> listOperationByDirectionByYearByDateAsc;
+
+
+    public List<Operation> getListOperationByDirectionByYearByDateAsc()
+    {
+        //return getListOperationBetween(startDate, endDate);
+        
+        Agent cur = (Agent) RequestFilter.getSession().getAttribute("agent");
+        Date sdate = new GregorianCalendar(getAnnee(), Calendar.JANUARY, 1).getTime();
+        Date edate = new GregorianCalendar(getAnnee(), Calendar.DECEMBER, 30).getTime();
+        return usermetierimpl.getListOperationByDirectionByYearByDateAsc(cur.getDirection(), sdate, edate);
+    }
+
+    public void setListOperationByDirectionByYearByDateAsc(List<Operation> l)
+    {
+        this.listOperationByDirectionByYearByDateAsc = l;
+    }
 
 
 
@@ -131,29 +149,29 @@ public class GACBean {
 
 
     public void setAnnee(int t){
-        this.Annee = t;
+        this.annee = t;
     }
 
     public String setAnnee1(int t){
-        this.Annee = t;
+        this.annee = t;
         return "annee";
     }
 
     public String setAnneeEtatAp(int t){
-        this.Annee = t;
+        this.annee = t;
         return "anneeEtatAp";
     }
 
 
     public String setAnneeInv(int t){
-        this.Annee = t;
+        this.annee = t;
         return "anneeInv";
     }
 
     
 
     public int getAnnee(){
-        return this.Annee;
+        return this.annee;
     }
 
     public void setListAnnee(List<Integer> listAnnee){
@@ -162,8 +180,8 @@ public class GACBean {
 
     public List<Integer> getListAnnee(){
         this.listAnnee = new ArrayList<Integer>();
-        int k = 2017;
-        while(k<2022){
+        int k = 2018;
+        while(k<=Calendar.getInstance().get(Calendar.YEAR)){
             this.listAnnee.add(k);
             k = k+1;
         }
@@ -171,41 +189,49 @@ public class GACBean {
     }
 
 
-    public void refusePrisEnChargeEntreMat(Operation op) throws Exception
+    public void refusePrisEnChargeEntreMat(Operation op)
     {
         //usermetierimpl.entrerMateriel(op);
-        try{
-        usermetierimpl.reqMatRefuser((OpEntree)this.getCurentOperation(), this.getMotif());
+    	System.out.println("begin refuser prise en charge");
+    	
+    	try {
+    		usermetierimpl.reqMatRefuser((OpEntree)op, this.getMotif());
+    	}catch (Exception e) {
+			// TODO: handle exception
+    		FacesContext context = FacesContext.getCurrentInstance();
+            
+            context.addMessage("myerror", new FacesMessage("Erreur","La prise en charge n'a pas pu être refusée car: "+e.getMessage()) );
+            //context.addMessage(null, new FacesMessage("Second Message", "Additional Message Detail"));
+    		System.out.println("erreur refuser prise en charge");
+    		e.printStackTrace(System.out);
+		}
+        
+        System.out.println("end refuser prise en charge");
         this.setCurentOperation(null);
         this.setMotif(null);
-        }
-        catch(Exception e)
-        {
-            FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Erreur pour attribution de sortie", e.getMessage());
-            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(e.getMessage()));
-            FacesContext.getCurrentInstance().addMessage(null, message);
-
-        }
     }
 
 
-    public void aModifierPrisEnChargeEntreMat(Operation op) throws Exception
+    public void aModifierPrisEnChargeEntreMat(Operation op)
     {
         //usermetierimpl.entrerMateriel(op);
 
         //((OpEntree)this.getCurentOperation()).getMat().setAModifier(true);
-        try{
-        usermetierimpl.reqMatAModifier((OpEntree)this.getCurentOperation(), this.getMotif());
+        try {
+			usermetierimpl.reqMatAModifier((OpEntree)op, this.getMotif());
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			// TODO: handle exception
+    		FacesContext context = FacesContext.getCurrentInstance();
+            
+            context.addMessage("myerror", new FacesMessage("Erreur","La prise en charge n'a pas pu être à modifier car: "+this.getMotif()+"   "+e.getMessage()) );
+            //context.addMessage(null, new FacesMessage("Second Message", "Additional Message Detail"));
+    		System.out.println("erreur à modifier prise en charge");
+    		e.printStackTrace(System.out);
+		}
 
         this.setCurentOperation(null);
         this.setMotif(null);
-        }catch(Exception e)
-        {
-            FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Erreur pour requete de modification materiel", e.getMessage());
-            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(e.getMessage()));
-            FacesContext.getCurrentInstance().addMessage(null, message);
-
-        }
     }
 
 
@@ -215,14 +241,13 @@ public class GACBean {
         //usermetierimpl.attriuberMateriel(attr);
     	try {
     		usermetierimpl.attriuberMateriel(attr);
-            
 
-    	}catch(Exception e)
-        {
-            FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Erreur pour attribution de materiel existant", e.getMessage());
-            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(e.getMessage()));
-            FacesContext.getCurrentInstance().addMessage(null, message);
-        }
+    	}catch(Exception e){
+    		FacesContext context = FacesContext.getCurrentInstance();
+            context.addMessage("myerror", new FacesMessage("Erreur",  "l'attribution n'a pas pu être validée car " + e.getMessage()) );
+            System.out.println("EEEEEEEEERRRRRRRRRRRRRRROOOOOOOOOOORRRRRRRRR *******T******:"+e.getMessage()+"*******");
+            //e.printStackTrace();
+    	}
         
         this.setCurentOperation(null);
 
@@ -300,39 +325,42 @@ public class GACBean {
 
 
 
-    public void refuseAttributionDetenteur(OpAttribution attr) throws Exception
+    public void refuseAttributionDetenteur(OpAttribution attr)
     {
         //usermetierimpl.attriuberMateriel(attr);
-        try {
-            usermetierimpl.reqAttrRefuser((OpAttribution) this.getCurentOperation(), this.getMotif());
-            this.setCurentOperation(null);
-            this.setMotif(null);
+    	try {
+    		usermetierimpl.reqAttrRefuser((OpAttribution)this.getCurentOperation(), this.getMotif());
+    	}
+        catch(Exception e){
+        	// TODO: handle exception
+    		FacesContext context = FacesContext.getCurrentInstance();
+            
+            context.addMessage(null, new FacesMessage("myerror","L'attribution n'a pas pu être refusée") );
+            //context.addMessage(null, new FacesMessage("Second Message", "Additional Message Detail"));
+    		System.out.println("erreur refuser Attribution");
+    		e.printStackTrace(System.out);
         }
-        catch(Exception e)
-        {
-            FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Erreur de requete pour refus d'attribution", e.getMessage());
-            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(e.getMessage()));
-            FacesContext.getCurrentInstance().addMessage(null, message);
-
-        }
+        this.setCurentOperation(null);
+        this.setMotif(null);
     }
 
 
-    public void aModifierAttributionDetenteur(OpAttribution attr) throws Exception
+    public void aModifierAttributionDetenteur(OpAttribution attr)
     {
         //usermetierimpl.attriuberMateriel(attr);
         try {
-            usermetierimpl.reqAttrAModifier((OpAttribution) this.getCurentOperation(), this.getMotif());
-            this.setCurentOperation(null);
-            this.setMotif(null);
-        }
-        catch(Exception e)
-        {
-            FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Erreur de modficiation d'attribution", e.getMessage());
-            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(e.getMessage()));
-            FacesContext.getCurrentInstance().addMessage(null, message);
-
-        }
+			usermetierimpl.reqAttrAModifier(attr, this.getMotif());
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			FacesContext context = FacesContext.getCurrentInstance();
+            
+            context.addMessage(null, new FacesMessage("myerror","L'attribution n'a pas pu être à modifier") );
+            //context.addMessage(null, new FacesMessage("Second Message", "Additional Message Detail"));
+    		System.out.println("erreur à modifier Attribution");
+    		e.printStackTrace(System.out);
+		}
+        this.setCurentOperation(null);
+        this.setMotif(null);
     }
 
 
@@ -341,13 +369,15 @@ public class GACBean {
     	System.out.println("VALDATION DECHARGE SORTIE");
     	try {
     		usermetierimpl.sortirMateriel(sortie);
-		} catch(Exception e)
-        {
-            FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Erreur pour operation sortie", e.getMessage());
-            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(e.getMessage()));
-            FacesContext.getCurrentInstance().addMessage(null, message);
-
-        }finally {
+		} catch (Exception e) {
+			// TODO: handle exception
+			FacesContext context = FacesContext.getCurrentInstance();
+            
+            context.addMessage(null, new FacesMessage("myerror","La Décharge n'a pas pu être validée car: "+e.getMessage()) );
+            //context.addMessage(null, new FacesMessage("Second Message", "Additional Message Detail"));
+    		System.out.println("erreur valider Decharge");
+    		e.printStackTrace(System.out);
+		}finally {
 
 	        this.setCurentOperation(null);
 		}
@@ -363,16 +393,16 @@ public class GACBean {
     }
 
 
-    public void refuseDechargeSortie(OpSortie sortie) throws Exception {
+    public void refuseDechargeSortie(OpSortie sortie) {
         //usermetierimpl.sortirMateriel(sortie);
         usermetierimpl.reqSortirRefuser((OpSortie)this.getCurentOperation(), this.getMotif());
         this.setCurentOperation(null);
         this.setMotif(null);
     }
 
-    public void aModifierDechargeSortie(OpSortie sortie) throws Exception {
+    public void aModifierDechargeSortie(OpSortie sortie) {
         //usermetierimpl.sortirMateriel(sortie);
-        usermetierimpl.reqSortirAModifier((OpSortie)this.getCurentOperation(), this.getMotif());
+        usermetierimpl.reqSortirAModifier(sortie, this.getMotif());
         this.setCurentOperation(null);
         this.setMotif(null);
     }
@@ -384,12 +414,16 @@ public class GACBean {
     	//usermetierimpl.sortirMateriel(sortie);
         try {
         	usermetierimpl.detacherMateriel((OpDettachement)this.getCurentOperation());
-		} catch(Exception e)
-        {
-            FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Erreur de detachement materiel", e.getMessage());
-            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(e.getMessage()));
-            FacesContext.getCurrentInstance().addMessage(null, message);
-        }finally {
+		} catch (Exception e) {
+			// TODO: handle exception
+			FacesContext context = FacesContext.getCurrentInstance();
+            
+            context.addMessage(null, new FacesMessage("myerror","Le Détachement n'a pas pu être validée car: "+e.getMessage()) );
+            //context.addMessage(null, new FacesMessage("Second Message", "Additional Message Detail"));
+    		System.out.println("erreur valider Détachement");
+    		e.printStackTrace(System.out);
+			System.out.println(e.getMessage());
+		}finally {
 			this.setCurentOperation(null);
 	        this.setMotif(null);
 		}
@@ -399,16 +433,17 @@ public class GACBean {
     }
 
 
-    public void refuseDetachement(OpDettachement det) throws Exception {
+    public void refuseDetachement(OpDettachement det) {
         //usermetierimpl.sortirMateriel(sortie);
-        usermetierimpl.reqDetRefuser((OpDettachement)this.getCurentOperation(), this.getMotif());
+        usermetierimpl.reqDetRefuser(det, this.getMotif());
         this.setCurentOperation(null);
         this.setMotif(null);
     }
 
-    public void aModifierDetachement(OpDettachement det) throws Exception {
+    public void aModifierDetachement(OpDettachement det){
         //usermetierimpl.sortirMateriel(sortie);
         //usermetierimpl.reqSortirAModifier((OpDettachement)this.getCurentOperation(), this.getMotif());
+        usermetierimpl.reqDetRefuser(det, this.getMotif());
         this.setCurentOperation(null);
         this.setMotif(null);
     }
@@ -604,48 +639,17 @@ public class GACBean {
         usermetierimpl.entrerArticle(o);
     }
     public void reqArtAModifier() throws Exception {
-        try {
-            usermetierimpl.reqArtAModifier(getOpEntreeArticle(), getMotif());
-        }
-        catch(Exception e)
-        {
-            FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Erreur de requete d'article à modifier", e.getMessage());
-            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(e.getMessage()));
-            FacesContext.getCurrentInstance().addMessage(null, message);
-        }
+        usermetierimpl.reqArtAModifier(getOpEntreeArticle(),getMotif());
     }
     public void reqSortirArtAModifier() throws Exception {
-        try{
         usermetierimpl.reqSortirArtAModifier(getOpSortieArticle(),getMotif());
-        }
-        catch(Exception e)
-        {
-            FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Erreur de requete de sortie d'article à modifier", e.getMessage());
-            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(e.getMessage()));
-            FacesContext.getCurrentInstance().addMessage(null, message);
-        }
     }
     public void reqArtRefuser() throws  Exception{
-        try{
         usermetierimpl.reqArtRefuser(getOpEntreeArticle(),getMotif());
-        }
-            catch(Exception e)
-            {
-                FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Erreur de requete d'article à refuser", e.getMessage());
-                FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(e.getMessage()));
-                FacesContext.getCurrentInstance().addMessage(null, message);
-            }
     }
     public void reqSortirRefuser() throws Exception
     {
-        try {
-            usermetierimpl.reqSortirRefuser(getOpSortieArticle(), getMotif());
-        }catch(Exception e)
-        {
-            FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Erreur de requete, sortie de matériel refusée", e.getMessage());
-            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(e.getMessage()));
-            FacesContext.getCurrentInstance().addMessage(null, message);
-        }
+        usermetierimpl.reqSortirRefuser(getOpSortieArticle(),getMotif());
     }
     public void entrerArticle() throws  Exception
     {
@@ -653,15 +657,7 @@ public class GACBean {
     }
     public void sortirArticle() throws  Exception
     {
-        try {
-            usermetierimpl.sortirArticle(getOpSortieArticle());
-        }
-        catch(Exception e)
-        {
-            FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Erreur de sortie d'article", e.getMessage());
-            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(e.getMessage()));
-            FacesContext.getCurrentInstance().addMessage(null, message);
-        }
+        usermetierimpl.sortirArticle(getOpSortieArticle());
     }
 
 
@@ -671,6 +667,7 @@ public class GACBean {
 
         Agent agent = (Agent)RequestFilter.getSession().getAttribute("agent");
         a.setCodeArticle(getCodeArticle());
+        a.setDirecArt(agent.getDirection());
         //a.setTypeObjet(getTypeObjet());
         usermetierimpl.reqEntrerArticle(a,agent);
     }
@@ -689,34 +686,18 @@ public class GACBean {
         this.setNomenclatureP(nomenclatureP);
     }
 
-    public void validateArticleENouv()
+    public void validateArticleENouv(OpEntreeArticle operation)
     {
-        usermetierimpl.entrerArticle((OpEntreeArticle) curentOperation);
+        usermetierimpl.entrerArticle(operation);
     }
 
-    public void validateSortieArticleNouv() throws Exception {
-        try{
-            usermetierimpl.sortirArticle((OpSortieArticle) curentOperation);
-        }
-        catch(Exception e)
-        {
-            FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Erreur de sortie d'article", e.getMessage());
-            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(e.getMessage()));
-            FacesContext.getCurrentInstance().addMessage(null, message);
-        }
+    public void validateSortieArticleNouv(OpSortieArticle operation) throws Exception {
+        usermetierimpl.sortirArticle(operation);
     }
 
 
-    public void validateSortieArticleEx() throws Exception {
-        try{
-            usermetierimpl.sortirArticle((OpSortieArticle) curentOperation);
-        }
-        catch(Exception e)
-        {
-            FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Erreur de sortie d'article", e.getMessage());
-            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(e.getMessage()));
-            FacesContext.getCurrentInstance().addMessage(null, message);
-        }
+    public void validateSortieArticleEx(OpSortieArticle operation) throws Exception {
+        usermetierimpl.sortirArticle(operation);
     }
 
 

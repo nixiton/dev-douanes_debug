@@ -28,6 +28,8 @@ import javax.faces.context.FacesContext;
 
 import java.sql.SQLException;
 
+import java.util.*;
+
 /**
  * Created by hasina on 10/25/17.
  */
@@ -442,6 +444,14 @@ public class SISEformBean {
         return SUCCESS;
     }
 
+    public String addFinancementCA()
+    {
+        financement = new Financement(getDesignation());
+        Agent agent = (Agent)RequestFilter.getSession().getAttribute("agent");
+        refmetierimpl.addRef(financement,agent);
+        return SUCCESS;
+    }
+
     public String addFournisseur()
     {
         fournisseur = new Fournisseur(getDesignation());
@@ -732,6 +742,10 @@ public class SISEformBean {
     private List<ArticleEx> listArticleEx;
     private List<ArticleNouv> listArticleNouv;
 
+    private List<Article> listArticle;
+
+    private List<ArticleNouv> listArticleNouvValide;
+
 
 
     public void setCaracteristiqueObjet()
@@ -778,12 +792,13 @@ public class SISEformBean {
         this.typeObjet = typeObjet;
     }
 
-    public void addCodeArticle()
+    public String addCodeArticle()
     {
         CodeArticle c = new CodeArticle();
         c.setDesignation(getDesignation());
         c.setTypeObjet(getTypeObjet());
         usermetierimpl.addCodeArticle(c);
+        return SUCCESS;
     }
 
 
@@ -805,6 +820,27 @@ public class SISEformBean {
     public void setListArticleNouv(List<ArticleNouv> list) {
         this.listArticleNouv = list;
     }
+
+    public List<Article> getListArticle() {
+        return usermetierimpl.getListAllArticle();
+    }
+
+    public void setListArticle(List<Article> list) {
+        this.listArticle = list;
+    }
+
+
+
+    public List<ArticleNouv> getListArticleNouvValide() {
+        Agent agent = (Agent)RequestFilter.getSession().getAttribute("agent");
+
+        return usermetierimpl.getListArtNouvByValidationByDirection(true, agent.getDirection());
+    }
+
+    public void setListArticleNouvValide(List<ArticleNouv> list) {
+        this.listArticleNouvValide = list;
+    }
+
 
 
 
@@ -882,7 +918,10 @@ public class SISEformBean {
     }
 
     public List<OpEntreeArticle> getListOpEntreeArticle() {
-        return listOpEntreeArticle;
+        Agent agent = (Agent)RequestFilter.getSession().getAttribute("agent");
+        Date sdate = new GregorianCalendar(2010, Calendar.JANUARY, 1).getTime();
+        Date edate = new GregorianCalendar(2200, Calendar.DECEMBER, 30).getTime();
+        return usermetierimpl.getListOpEntreeArtByDirection(agent.getDirection(), sdate, edate);
     }
 
     public void setListOpEntreeArticle(List<OpEntreeArticle> listOpEntreeArticle) {
@@ -891,7 +930,11 @@ public class SISEformBean {
 
 
     public List<OpSortieArticle> getListOpSortieArticle() {
-        return listOpSortieArticle;
+         Agent agent = (Agent)RequestFilter.getSession().getAttribute("agent");
+        Date sdate = new GregorianCalendar(2010, Calendar.JANUARY, 1).getTime();
+        Date edate = new GregorianCalendar(2200, Calendar.DECEMBER, 30).getTime();
+        return usermetierimpl.getListOpSortieArtByDirection(agent.getDirection(), sdate, edate);
+        
     }
 
     public void setListOpSortieArticle(List<OpSortieArticle> listOpSortieArticle) {
@@ -1060,6 +1103,24 @@ public class SISEformBean {
     public void setDirection(String direction) {
         this.direction = direction;
     }
+    
+	private List<Article> listArticleValide;
+	public List<Article> getListArticleValide() {
+		Agent agent = (Agent)RequestFilter.getSession().getAttribute("agent");
+		return usermetierimpl.getListArticleValideByDirection(agent.getDirection());
+	}
+	public void setListArticleValide(List<Article> listArticleValide) {
+		this.listArticleValide = listArticleValide;
+	}
+
+	private List<ArticleNouv> listArtNouvValide;
+	public List<ArticleNouv> getListArtNouvValide() {
+		Agent agent = (Agent)RequestFilter.getSession().getAttribute("agent");
+		return usermetierimpl.getListArtNouvValideByDirection(agent.getDirection());
+	}
+	public void setListArtNouvValide(List<ArticleNouv> listArtNouvValide) {
+		this.listArtNouvValide = listArtNouvValide;
+	}
 
 
 

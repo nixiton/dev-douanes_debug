@@ -223,12 +223,28 @@
 			<to-view-id>/pages/secure/CM/DGD/tracabilite.xhtml</to-view-id>
 			<redirect />
 		</navigation-case>
+
+		<navigation-case>
+			<from-outcome>tracabiliteCA</from-outcome>
+			<to-view-id>/pages/secure/CA/DGD/tracabilite.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
 		
 		<navigation-case>
 			<from-outcome>liste_mat</from-outcome>
 			<to-view-id>/pages/secure/CM/DGD/listeMatStatHisto.xhtml</to-view-id>
 			<redirect />
 		</navigation-case>
+
+
+		<navigation-case>
+			<from-outcome>liste_matCA</from-outcome>
+			<to-view-id>/pages/secure/CA/DGD/listeMatStatHisto.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+
+
+
 		
 		<navigation-case>
 			<from-outcome>edition_etats</from-outcome>
@@ -242,6 +258,12 @@
 		<navigation-case>
 			<from-outcome>v_prise_en_charge</from-outcome>
 			<to-view-id>/pages/secure/CM/GAC/validation/priseEnCharge.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+
+		<navigation-case>
+			<from-outcome>v_prise_en_chargeCA</from-outcome>
+			<to-view-id>/pages/secure/CA/GAC/validation/priseEnCharge.xhtml</to-view-id>
 			<redirect />
 		</navigation-case>
 
@@ -260,6 +282,13 @@
 		<navigation-case>
 			<from-outcome>v_detenteur </from-outcome>
 			<to-view-id>/pages/secure/CM/GAC/validation/attribution.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+
+
+		<navigation-case>
+			<from-outcome>v_detenteurCA</from-outcome>
+			<to-view-id>/pages/secure/CA/GAC/validation/attribution.xhtml</to-view-id>
 			<redirect />
 		</navigation-case>
 
@@ -384,6 +413,12 @@
 		<navigation-case>
 			<from-outcome>add_Financement</from-outcome>
 			<to-view-id>/pages/secure/CM/SISE/content_forms/content_forms_saisieFinancement.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+
+		<navigation-case>
+			<from-outcome>add_FinancementCA</from-outcome>
+			<to-view-id>/pages/secure/CA/SISE/content_forms/content_forms_saisieFinancement.xhtml</to-view-id>
 			<redirect />
 		</navigation-case>
 		
@@ -613,6 +648,13 @@
 			<from-action>#{siseBean.addFinancement}</from-action>
 			<from-outcome>success</from-outcome>
 			<to-view-id>/pages/secure/CM/SISE/saisieRef.xhtml#fin</to-view-id>
+			<redirect />
+		</navigation-case>
+
+		<navigation-case>
+			<from-action>#{siseBean.addFinancementCA}</from-action>
+			<from-outcome>success</from-outcome>
+			<to-view-id>/pages/secure/CA/SISE/saisieRef.xhtml#fin</to-view-id>
 			<redirect />
 		</navigation-case>
 		

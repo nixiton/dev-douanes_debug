@@ -95,7 +95,7 @@ public class RefConverter implements Converter {
                 	return (CodeArticle)ref;
                 }
             } catch(NumberFormatException e) {
-                throw new ConverterException(new FacesMessage(FacesMessage.SEVERITY_ERROR, "Conversion Error", "Not a valid theme."));
+                throw new ConverterException(new FacesMessage(FacesMessage.SEVERITY_ERROR, " Erreur Referentiel", "Referentiel non valide"));
             }
         }
 

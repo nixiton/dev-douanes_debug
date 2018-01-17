@@ -127,9 +127,9 @@
 							réglementaires <b class="caret"></b>
 					</a>
 						<ul class="dropdown-menu">
-							<li><h:link value="Fiche de stock" outcome="tracabilite" immediate="true" /></li>
+							<li><h:link value="Fiche de stock" outcome="liste_matCA" immediate="true" /></li>
 							<li><h:link
-									value="Journal" outcome="liste_mat" immediate="true"/></li>
+									value="Journal" outcome="tracabiliteCA" immediate="true"/></li>
 
 						</ul></li>
 
@@ -141,8 +141,8 @@
 						data-toggle="dropdown"> Validations <b class="caret"></b>
 					</a>
 						<ul class="dropdown-menu">
-							<li><h:link value="Entrée nouveaux articles" outcome="v_prise_en_charge" immediate="true"/></li>
-							<li><h:link value="Sortie articles" outcome="v_detenteur" immediate="true"/></li>
+							<li><h:link value="Entrée nouveaux articles" outcome="v_prise_en_chargeCA" immediate="true"/></li>
+							<li><h:link value="Sortie articles" outcome="v_detenteurCA" immediate="true"/></li>
 						</ul></li>
 
 					</c:if>
@@ -179,6 +179,14 @@
                         <td>#{depositaireBean.currentAgent.roleAgent.designation}</td>
                         <td></td>
 
+                    </tr>
+                    <tr>
+                        <td><strong>Poste</strong></td>
+                        <td>#{depositaireBean.currentAgent.posteny.designation}</td>
+                        <td></td>
+                        
+
+                        
                     </tr>
                     <tr>
                     	<td>

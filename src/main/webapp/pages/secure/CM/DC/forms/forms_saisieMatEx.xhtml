@@ -314,7 +314,7 @@
                             <p:fileUpload value="#{depositaireBean.byteDoc}"
                                           fileUploadListener="#{depositaireBean.uploadIm_Advanced}"
                                           mode="advanced" dragDropSupport="false" update="@this,imId"
-                                          allowTypes="/(\.|\/)(gif|jpe?g|png|txt)$/" required="true">
+                                          allowTypes="/(\.|\/)(gif|jpeg|txt)$/" required="true">
                                 <f:attribute name="docObj" value="#{rowIm}"></f:attribute>
                             </p:fileUpload>
                         </p:panel>
@@ -339,7 +339,7 @@
                             <p:fileUpload value="#{depositaireBean.docFacture}"
                                           fileUploadListener="#{depositaireBean.uploadFac_Advanced}"
                                           mode="advanced" dragDropSupport="false" update="@this,facId"
-                                          allowTypes="/(\.|\/)(gif|jpe?g|png|txt)$/" required="true">
+                                          allowTypes="/(\.|\/)(gif|jpeg|txt)$/" required="true">
                                 <f:attribute name="docObj" value="#{rowFac}"></f:attribute>
                             </p:fileUpload>
                         </p:panel>

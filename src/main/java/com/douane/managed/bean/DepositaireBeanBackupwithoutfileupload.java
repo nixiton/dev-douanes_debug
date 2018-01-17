@@ -11,10 +11,8 @@ import com.douane.metier.typeMateriel.ITypeMaterielMetier;
 import com.douane.metier.user.IUserMetier;
 import com.douane.requesthttp.RequestFilter;
 
-import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
-import javax.faces.context.FacesContext;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -509,13 +507,10 @@ public class DepositaireBeanBackupwithoutfileupload {
 		try {
 			//getCurrent Materiel ve?????
 			 opAt=usermetierimpl.reqAttribution(getMateriel(), agent, getDetenteur());
-		}catch(Exception e)
-        {
-            FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Erreur pour requete d'attribution", e.getMessage());
-            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(e.getMessage()));
-            FacesContext.getCurrentInstance().addMessage(null, message);
-            return null;
-        }
+		}catch (Exception e) {
+			// TODO: handle exception
+			System.out.println(e.getMessage());
+		}
 		return SUCCESS;
 	}
 	
@@ -525,14 +520,11 @@ public class DepositaireBeanBackupwithoutfileupload {
 		OpDettachement opDet = null;
 		try {
 			//getCurrent Materiel ve?????
-			opDet =usermetierimpl.reqDettachement(this.getMateriel(), agent, getDetenteur());
-		}catch(Exception e)
-        {
-            FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Erreur pour requete de detachement", e.getMessage());
-            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(e.getMessage()));
-            FacesContext.getCurrentInstance().addMessage(null, message);
-            return null;
-        }
+			//opDet =usermetierimpl.reqDettachement(this.getMateriel(), agent, getDetenteur());
+		}catch (Exception e) {
+			// TODO: handle exception
+			System.out.println(e.getMessage());
+		}
 		
 		
 		return SUCCESS;
@@ -545,13 +537,10 @@ public class DepositaireBeanBackupwithoutfileupload {
 		try {
 			opSort =usermetierimpl.reqSortirMateriel(this.getMateriel(), this.getMotifSortie(), 
 					this.getDestinationDirec(), this.getDestinationService(), this.getDestination(), agent);
-		} catch(Exception e)
-        {
-            FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Erreur requete pour operation sortie", e.getMessage());
-            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(e.getMessage()));
-            FacesContext.getCurrentInstance().addMessage(null, message);
-            return null;
-        }
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			System.out.println(e.getMessage());
+		}
 		return SUCCESS;
 	}
 	

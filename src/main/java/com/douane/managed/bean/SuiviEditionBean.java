@@ -74,6 +74,9 @@ public class SuiviEditionBean {
     private Materiel materiel;
 
 
+    private int annee;
+
+
     //----------ALL LIST BY METHOD------------------
     private List<Operation> listAllOperation;
     private List<OpEntree> listOperationEntree;
@@ -85,6 +88,9 @@ public class SuiviEditionBean {
     private List<OpEntree> listOperationEntreeByDirection;
     private List<OpSortie> listOperationSortieByDirection;
     private List<Operation> listOperationBetween;
+
+    private List<Operation> listOperationByDirectionByYearByDateAsc;
+
     private List<OpEntree> listOperationEntreeByMateriel;
     private List<OpSortie> listOperationSortieByMateriel;
     private List<OpEntree> listOperationEntreeByMaterielByDate;
@@ -98,12 +104,28 @@ public class SuiviEditionBean {
     private List<OpDettachement> listOperationDeetachementByDirection;
     private List<OpAttribution> listOperationAttributionByMateriel;
     private List<OpDettachement> listOperationDetachementByMateriel;
+    
     //----------ALL LIST BY METHOD------------------
 
 
     private List<Materiel> listMaterielByDet;
 
     private Float total;
+
+
+        public void setAnnee(int t){
+        this.annee = t;
+    }
+
+
+        public int getAnnee(){
+        return this.annee;
+    }
+
+        public String setAnnee1(int t){
+        this.annee = t;
+        return "annee";
+    }
 
 
         public void setTotal(Float t){
@@ -280,6 +302,26 @@ public class SuiviEditionBean {
     {
         this.listOperationBetween = l;
     }
+
+
+
+    public List<Operation> getListOperationByDirectionByYearByDateAsc()
+    {
+        //return getListOperationBetween(startDate, endDate);
+    	
+        Agent cur = (Agent) RequestFilter.getSession().getAttribute("agent");
+        Date sdate = new GregorianCalendar(getAnnee(), Calendar.JANUARY, 1).getTime();
+        Date edate = new GregorianCalendar(getAnnee(), Calendar.DECEMBER, 30).getTime();
+        return usermetierimpl.getListOperationByDirectionByYearByDateAsc(cur.getDirection(), sdate, edate);
+    }
+
+    public void setListOperationByDirectionByYearByDateAsc(List<Operation> l)
+    {
+        this.listOperationByDirectionByYearByDateAsc = l;
+    }
+
+
+
 
     //------------GET List of Operations By Materiel-------------------
     public Materiel getMateriel() {
@@ -499,7 +541,7 @@ public class SuiviEditionBean {
     //-----------------TO DO 30 12--------------
     private List<Operation> listOpEntreeAndSortieByDirectionByYearByDateAsc;
 
-    public List<Operation> getListOpEntreeAndSortieByDirectionByYearByDateAsc()
+    public List<Operation>getListOpEntreeAndSortieByDirectionByYearByDateAsc()
     {
         Agent cur = (Agent) RequestFilter.getSession().getAttribute("agent");
         Date sdate = new GregorianCalendar(2010, Calendar.JANUARY, 1).getTime();
@@ -523,6 +565,7 @@ public class SuiviEditionBean {
 
 
     //-------TEST FINAL-------
+
     public List<OpEntree> getListOpEntreeByDirectionByYearByDateAsc(Direction d,  Date startDate, Date endDate)
     {
         return usermetierimpl.getListOpEntreeByDirectionByYearByDateAsc(d,startDate,endDate);
@@ -531,6 +574,7 @@ public class SuiviEditionBean {
     {
         return usermetierimpl.getListOpSortieByDirectionByYearByDateAsc(d,startDate,endDate);
     }
-
+     
+    
 
 }

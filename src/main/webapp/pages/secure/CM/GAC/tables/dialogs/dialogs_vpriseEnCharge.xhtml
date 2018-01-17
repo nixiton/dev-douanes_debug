@@ -6,7 +6,9 @@
     xmlns:p="http://primefaces.org/ui"
     xmlns:c="http://java.sun.com/jsp/jstl/core"
     >
-
+<h:head></h:head> 	
+	<p:growl id="growl" for="myerror" showDetail="true" sticky="true" redisplay="false"/>
+	
     <p:dialog id="detail" widgetVar="detail" closable="false">
 
     <h:form class="form-horizontal">
@@ -20,11 +22,15 @@
     <div   class="body collapse in table-responsive">
         
 
+
+
+
+<p:tabView>
         
 
-            <c:forEach var="mat" items="#{gacBean.curentOperation.listMat}">
+<c:forEach var="mat" items="#{gacBean.curentOperation.listMat}">
             
-                
+<p:tab title="#{mat.typematerieladd.designation}">
 
 <table class="table responsive-table">
                     <tr>
@@ -101,7 +107,10 @@
                         </td>
                     </tr>
 </table>
+</p:tab>
             </c:forEach>
+
+</p:tabView>
 <table class="table responsive-table">
                     <p:panel rendered="#{gacBean.curentOperation.state eq 'WAITING' }">
 
@@ -158,24 +167,7 @@
         </div>
         
             
-    <h:form id="form">
-     <h:commandLink id="link" action="#{depositaireBean.exit}" 
-                  value="">
-                  <f:ajax execute="@form" render="@none" />
-    </h:commandLink>
-    <h:commandLink id="link1" action="#{gacBean.exit}" 
-                  value="">
-        <f:ajax execute="@form" render="@none" />
-    </h:commandLink>
-   </h:form>
 
-   <script type="text/javascript">
-       
-       $( document ).ready(function() {
-            var jsfCommandLink = document.getElementById("form:link");jsfCommandLink.click();
-            var jsfCommandLink1 = document.getElementById("form:link1");jsfCommandLink1.click();
-        });
-   </script>  
         
         
     </p:dialog>

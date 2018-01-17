@@ -13,17 +13,24 @@ import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.SequenceGenerator;
 
 @Entity
 @Inheritance(strategy=InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name="typeArt", discriminatorType=DiscriminatorType.INTEGER)
 public class Article  implements Serializable{
 
-    @Id
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
-    private Long idArticle;
+	//@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Id
+	@SequenceGenerator(allocationSize=1, initialValue=1, sequenceName="account_idart_seq", name="account_idart_seq")
+	@GeneratedValue(generator="account_idart_seq", strategy=GenerationType.SEQUENCE)
+	private Long idArticle;
 
-    @ManyToOne
+    public void setIdArticle(Long idArticle) {
+		this.idArticle = idArticle;
+	}
+
+	@ManyToOne
     @JoinColumn(name="idcode")
     private CodeArticle codeArticle;
 
@@ -119,6 +126,14 @@ public class Article  implements Serializable{
 		this.caracteristiqueArticle = caracteristiqueArticle;
 	}
 
+	@Override
+	public boolean equals(Object o) {
 
+		System.out.println("herherArticle");
+		if (this.getIdArticle().equals(((Article)o).getIdArticle()))
+			return true;
+		return false;
+
+	}
 
 }

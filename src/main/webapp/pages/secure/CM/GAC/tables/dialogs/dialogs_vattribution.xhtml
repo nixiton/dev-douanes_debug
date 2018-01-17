@@ -6,7 +6,9 @@
     xmlns:h="http://java.sun.com/jsf/html"
     xmlns:p="http://primefaces.org/ui"
     >
-
+<h:head></h:head> 	
+	<p:growl id="growl" for="myerror" showDetail="true" sticky="true" redisplay="false"/>
+	
     <p:dialog id="detail" widgetVar="detail" closable="false">
         
             <h:form class="form-horizontal">
@@ -45,7 +47,16 @@
                         <td><strong>Prénom détenteur</strong></td>
                         <td>#{gacBean.curentOperation.detenteur.prenomAgent}</td>
                         <td><strong>Détenteur effectif</strong></td>
-                        <td><p:commandButton  action="#{gacBean.setCurentOperation2(gacBean.curentOperation)}" icon="ui-icon-document"/></td>
+                        <td>
+                            <h:form>
+
+                                    <h:commandLink  action="#{gacBean.setCurentOperation2(gacBean.curentOperation)}" target="_blank">
+                                            <i class="fa fa-file-archive-o"></i>
+                                        </h:commandLink>
+                                </h:form>
+                        </td>
+
+
 
 
                     </tr>
@@ -56,7 +67,7 @@
                             <h:form class="form-horizontal">
         
                                 <h:commandButton  action="#{gacBean.validateAttributionDetenteur(gacBean.curentOperation)}" value="Valider"
-                                            class="btn btn-lg btn-primary btn-block"/>
+                                           update="growl"  class="btn btn-lg btn-primary btn-block"/>
                             </h:form>
                         </td>
                         <td>

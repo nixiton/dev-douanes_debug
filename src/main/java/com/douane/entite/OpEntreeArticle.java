@@ -38,7 +38,7 @@ public class OpEntreeArticle extends Operation{
 
     public OpEntreeArticle(Date date, Date time, String poste, Agent operateur, Article article) {
         super(date, time, poste, operateur);
-        this.article = article;
+        this.setArticle(article);
     }
 
 

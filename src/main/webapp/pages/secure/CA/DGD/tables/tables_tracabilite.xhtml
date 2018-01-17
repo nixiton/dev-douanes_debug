@@ -1,0 +1,76 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:p="http://primefaces.org/ui"
+    >
+
+<h:head></h:head>
+
+<div   class="body collapse in table-responsive">
+
+    <p:dataTable   var="t" value="#{suivieditionBean.listOperatoinByDirection}"
+                 paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}  "
+                 paginator="true" rows="10" style="margin-bottom:20px">
+        <p:column>
+            <f:facet name="header">ID</f:facet>
+            #{t.id}
+        </p:column>
+        <p:column>
+        <f:facet name="header">Date</f:facet>
+            #{t.date}
+        </p:column>
+        <p:column>
+            <f:facet name="header">Heure</f:facet>
+            #{t.time}
+        </p:column>
+        <p:column>
+            <f:facet name="header">Poste</f:facet>
+            #{t.poste}
+        </p:column>
+        <p:column>
+            <f:facet name="header">Opérateur</f:facet>
+            #{t.operateur.im}
+        </p:column>
+        <p:column>
+            <f:facet name="header">Etat</f:facet>
+            #{t.state}
+        </p:column>
+        <p:column>
+            <f:facet name="header">
+                <h:outputText value="Operation" />
+            </f:facet>
+            <p:panel rendered="#{t['class'].simpleName eq 'OpEntree' }" >
+            Saisie materiel
+        </p:panel>
+        <p:panel rendered="#{t['class'].simpleName eq 'OpEntreeArticle' }" >
+            Saisie article
+        </p:panel>
+            <p:panel rendered="#{t['class'].simpleName eq 'OpSaisie' }" >
+            Saisie réferentiel 
+            </p:panel>
+            <p:panel rendered="#{t['class'].simpleName eq 'OpAttribution' }" >
+            Attribution
+            </p:panel>
+            <p:panel rendered="#{t['class'].simpleName eq 'OpDettachement' }" >
+            Détachement
+            </p:panel>
+            <p:panel rendered="#{t['class'].simpleName eq 'OpSortie' }" >
+            Décharge
+            </p:panel>
+             <p:panel rendered="#{t['class'].simpleName eq 'OpSortieArticle' }" >
+            Décharge article
+            </p:panel>
+
+        </p:column>
+
+    </p:dataTable>
+
+
+</div>
+
+</html>

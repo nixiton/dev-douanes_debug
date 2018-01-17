@@ -2,6 +2,9 @@ package com.douane.repository;
 
 import com.douane.entite.Article;
 import com.douane.entite.ArticleNouv;
+import com.douane.entite.Direction;
+import com.douane.entite.MaterielNouv;
+
 import org.springframework.data.repository.CrudRepository;
 
 import java.util.List;
@@ -11,4 +14,6 @@ import java.util.List;
  */
 public interface ArticleNouvRepository extends CrudRepository<ArticleNouv,Long>  {
     public List<ArticleNouv> findAll();
+    public List<ArticleNouv> findByValidationAndDirecArt(boolean validation, Direction direc);
+    
 }

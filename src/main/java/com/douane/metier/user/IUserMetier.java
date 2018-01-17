@@ -28,7 +28,7 @@ public interface IUserMetier {
 
 	public OpAttribution reqAttribution(Materiel m, Agent oper, Agent detenteur) throws Exception;
 
-	public OpDettachement reqDettachement(Materiel mat1, Agent agent2, Agent agent1)throws Exception;
+	public OpDettachement reqDettachement(Materiel mat1, Agent agent2, Agent agent1,MotifSortie m)throws Exception;
 	//les validations
 
 	public Materiel entrerMateriel(OpEntree op);
@@ -116,6 +116,7 @@ public interface IUserMetier {
 	public List<OpEntree> getListOpEntreeByMatBDate(Materiel m, Date startDate, Date endDate);
 	public List<OpSortie> getListOpSortieByMatBDate(Materiel m, Date startDate, Date endDate);
 	public List<Operation> getListOpEntreeAndSortieByDirectionByYearByDateAsc(Direction d,  Date startDate, Date endDate);
+	
 	public List<OpEntree> getListOpEntreeByDirectionByYearByDateAsc(Direction d,  Date startDate, Date endDate);
 	public List<OpSortie> getListOpSortieByDirectionByYearByDateAsc(Direction d,  Date startDate, Date endDate);
 	public List<Operation> getListOperationByDirectionByYearByDateAsc(Direction d,  Date startDate, Date endDate);
@@ -164,8 +165,10 @@ public interface IUserMetier {
 	
 	
 	public List<OpEntreeArticle> getListOpEntreeArtByValideByDirection(EtatOperation etat, Direction direction, Date startDate, Date endDate);
+	public List<OpEntreeArticle> getListOpEntreeArtByDirection(Direction direction, Date startDate, Date endDate);
 	
 	public List<OpSortieArticle> getListOpSortieArtByValideByDirection(EtatOperation etat,Direction direction, Date startDate, Date endDate);
+	public List<OpSortieArticle> getListOpSortieArtByDirection(Direction direction, Date startDate, Date endDate);
 
 	
 
@@ -175,5 +178,13 @@ public interface IUserMetier {
 	
 	public OpSortie reqSortirMateriel(Materiel m, MotifSortie motif, Direction d, Agent oper)throws Exception;;
 	public OpSortie reqSortirMateriel(Materiel m, MotifSortie motif, Agent oper)throws Exception;;
+	
+	public List<ArticleNouv> getListArtNouvValideByDirection(Direction d);
+	public List<ArticleNouv> getListArtNouvByValidationByDirection(boolean val,Direction d);
+	public List<ArticleEx> getListArtExByDirction(Direction d);
+	
+	public Article getArticleById(Long id);
 
+	List<Materiel> getMatByValidationAndDetenteurAndDirection(boolean val, Agent detenteur, Direction direction);
+	
 }

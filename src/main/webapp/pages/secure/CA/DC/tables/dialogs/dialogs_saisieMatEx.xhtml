@@ -26,9 +26,14 @@
                         <td>#{depositaireBean.curentArticle.idArticle}</td>
                         <td><strong>Type des objets</strong></td>
                         <td>#{depositaireBean.curentArticle.codeArticle.typeObjet.designation}</td>
-                        <td></td>
+                         <td><strong>Validité</strong></td>
+                        <td>#{depositaireBean.curentArticle.validation}</td>
+                      </tr>
+                      <tr>
                         <td><strong>Codification</strong></td>
                         <td>#{depositaireBean.curentArticle.codeArticle.designation}</td>
+                        <td><strong>Nombre</strong></td>
+                        <td>#{depositaireBean.curentArticle.nombre}</td>
                     </tr>
                     
             </table>

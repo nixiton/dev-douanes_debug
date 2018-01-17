@@ -304,7 +304,7 @@
 
             <p:outputPanel id="testContainer">
 
-                <c:if test="#{depositaireBean.filedownload null}" >
+                <c:if test="#{depositaireBean.filedownload eq null}" >
 
                 <p:dataTable id="docId" var="row"
                              value="#{depositaireBean.documentList}" editable="true"
@@ -317,7 +317,7 @@
                             <p:fileUpload value="#{depositaireBean.document}"
                                           fileUploadListener="#{depositaireBean.uploadDoc_Advanced}"
                                           mode="advanced" dragDropSupport="false" update="@this,docId"
-                                          allowTypes="/(\.|\/)(gif|jpeg|png|txt)$/">
+                                          allowTypes="/(\.|\/)(gif|jpeg|txt)$/">
                                 <f:attribute name="docObj" value="#{row}"></f:attribute>
                             </p:fileUpload>
                         </p:panel>
@@ -344,7 +344,7 @@
                             <p:fileUpload value="#{depositaireBean.byteDoc}"
                                           fileUploadListener="#{depositaireBean.uploadIm_Advanced}"
                                           mode="advanced" dragDropSupport="false" update="@this,imId"
-                                          allowTypes="/(\.|\/)(gif|jpeg|png|txt)$/" required="true">
+                                          allowTypes="/(\.|\/)(gif|jpeg|txt)$/" required="true">
                                 <f:attribute name="docObj" value="#{rowIm}"></f:attribute>
                             </p:fileUpload>
                         </p:panel>
