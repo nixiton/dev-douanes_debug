@@ -41,6 +41,7 @@ import com.itextpdf.text.Section;
 import com.itextpdf.text.pdf.PdfPCell;
 import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
+import com.sun.faces.facelets.util.Path;
 import org.primefaces.model.DefaultStreamedContent;
 import org.primefaces.model.StreamedContent;
 
@@ -707,6 +708,7 @@ public class GACBean {
     private String fileZipPath;
 
     public StreamedContent getFiledownload() throws IOException {
+        RequestFilter.getSession().setAttribute(getFileZipPath(),"fileZipPath");
         if(RequestFilter.getSession().getAttribute("fileZipPath") == null || RequestFilter.getSession().getAttribute("fileZipPath") == "")
             return null;
         try
@@ -727,6 +729,28 @@ public class GACBean {
         }
         //RequestFilter.getSession().setAttribute("fileZipPath",null);
         return filedownload;
+    }
+
+    private static void copyFileUsingStream(File source, File dest) throws IOException {
+        InputStream is = null;
+        OutputStream os = null;
+        try {
+            is = new FileInputStream(source);
+            os = new FileOutputStream(dest);
+            byte[] buffer = new byte[1024];
+            int length;
+            while ((length = is.read(buffer)) > 0) {
+                os.write(buffer, 0, length);
+            }
+        } finally {
+            is.close();
+            os.close();
+        }
+    }
+
+    public void setFileZipPath(String filePath)
+    {
+        this.fileZipPath = filePath;
     }
 
     public String getFileZipPath() {
@@ -753,6 +777,7 @@ public class GACBean {
             zipOut = new ZipOutputStream(new BufferedOutputStream(fos));
             for (Materiel m : lstM) {
                 File input = new File(m.getDocumentPath());
+
                 fis = new FileInputStream(input);
                 ZipEntry ze = new ZipEntry(input.getName());
                 System.out.println("Zipping the file: " + input.getName());
@@ -760,11 +785,10 @@ public class GACBean {
                 byte[] tmp = new byte[4 * 1024];
                 int size = 0;
                 while ((size = fis.read(tmp)) != -1) {
-                    zipOut.write(tmp, 0, size);
+                    zipOut.write(tmp, 0,     size);
                 }
                 // zipOut.flush();
                 fis.close();
-                input.delete();
             }
             zipOut.close();
 

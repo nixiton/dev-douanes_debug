@@ -11,32 +11,32 @@ public class ArticleNouv extends Article{
     @ManyToOne
     @JoinColumn(name="idFournisseur")
     private Fournisseur fournisseur;
-    
 
-	@ManyToOne
-	@JoinColumn(name="idModAcqArt")
-	private ModeAcquisition modAcqArt;
-	@ManyToOne
-	@JoinColumn(name="idFin")
-	private Financement financementArt;
-	
+
+    @ManyToOne
+    @JoinColumn(name="idModAcqArt")
+    private ModeAcquisition modAcqArt;
+    @ManyToOne
+    @JoinColumn(name="idFin")
+    private Financement financementArt;
+
     public ModeAcquisition getModAcqArt() {
-		return modAcqArt;
-	}
+        return modAcqArt;
+    }
 
-	public void setModAcqArt(ModeAcquisition modAcqArt) {
-		this.modAcqArt = modAcqArt;
-	}
+    public void setModAcqArt(ModeAcquisition modAcqArt) {
+        this.modAcqArt = modAcqArt;
+    }
 
-	public Financement getFinancementArt() {
-		return financementArt;
-	}
+    public Financement getFinancementArt() {
+        return financementArt;
+    }
 
-	public void setFinancementArt(Financement financementArt) {
-		this.financementArt = financementArt;
-	}
+    public void setFinancementArt(Financement financementArt) {
+        this.financementArt = financementArt;
+    }
 
-	private Float prix;
+    private Float prix;
 
     public Fournisseur getFournisseur() {
         return fournisseur;

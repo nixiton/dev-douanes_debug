@@ -23,6 +23,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
 
+import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
@@ -122,7 +123,15 @@ public class DepositaireBean {
 	}
 
 
+	private int imgPosition = 0;
 
+	public int getImgPosition(){
+		return imgPosition;
+	}
+
+	public void setImgPosition(int i){
+		imgPosition =i;
+	}
 
 	/* attribute for file upload */
 	private static final long serialVersionUID = 1L;
@@ -174,14 +183,14 @@ public class DepositaireBean {
 	private Direction direction;
 
 	private List<MaterielEx> listMaterielexistant;
-	
+
 	private List<Materiel> listMaterielByDet;
-	
+
 	private List<Materiel> listAllMaterielValideSansDetenteur;
 
-	private OpEntree curentOrdreEntree; 
+	private OpEntree curentOrdreEntree;
 
-	private OpSortie curentOrdreSortie; 
+	private OpSortie curentOrdreSortie;
 
 	private Article curentArticle;
 
@@ -196,6 +205,18 @@ public class DepositaireBean {
 
 	public Article getCurentArticle(){
 		return this.curentArticle;
+	}
+
+
+	private Article article;
+
+
+	public void setArticle(Article a){
+		this.article =a;
+	}
+
+	public Article getArticle(){
+		return this.article;
 	}
 
 
@@ -214,11 +235,11 @@ public class DepositaireBean {
 	}
 
 	public String exit(){
-        //this.setCurentMateriel(null);
-        this.curentMateriel = null;
-        this.curentArticle = null;
-        return "success";
-    }
+		//this.setCurentMateriel(null);
+		this.curentMateriel = null;
+		this.curentArticle = null;
+		return "success";
+	}
 
 	public OpEntree getCurentOrdreEntree(){
 		return this.curentOrdreEntree;
@@ -281,12 +302,12 @@ public class DepositaireBean {
 
 	private ArrayList<UploadedFile> uploadedFiles = new ArrayList<UploadedFile>();
 	private UploadedFile uploadedFile;
-	
+
 	private List<Materiel> currentListMateriel;
 
 	//Service
 	private Service serviceforMat;
-	
+
 	//Current Agent
 	private Agent currentAgent;
 
@@ -814,24 +835,24 @@ public class DepositaireBean {
 		ArrayList<DocumentModel> documentlist = documentFacList;
 		String fileName;
 		try{
-		if(documentlist != null) {
-			for (DocumentModel d : documentlist)
-			{
-				InputStream is = docFacture.getInputstream();
-				fileName = FilenameUtils.getName(d.getDocumentUploadedPath());
-				File fileFac = new File(datetime +"_"+ fileName);
-				OutputStream out = new FileOutputStream(fileFac);
-				facturePath = fileFac.getAbsolutePath();
-				int read = 0;
-				byte[] bytes = new byte[1024];
+			if(documentlist != null) {
+				for (DocumentModel d : documentlist)
+				{
+					InputStream is = docFacture.getInputstream();
+					fileName = FilenameUtils.getName(d.getDocumentUploadedPath());
+					File fileFac = new File(datetime +"_"+ fileName);
+					OutputStream out = new FileOutputStream(fileFac);
+					facturePath = fileFac.getAbsolutePath();
+					int read = 0;
+					byte[] bytes = new byte[1024];
 
-				while ((read = is.read(bytes)) != -1) {
-					out.write(bytes, 0, read);
-				}
+					while ((read = is.read(bytes)) != -1) {
+						out.write(bytes, 0, read);
+					}
 
-				is.close();
-				out.flush();
-				out.close();
+					is.close();
+					out.flush();
+					out.close();
 
 
 				/*System.out.println("file name" + fileName);
@@ -839,8 +860,8 @@ public class DepositaireBean {
 				stream = new BufferedOutputStream(new FileOutputStream(new File(datetime +"_"+ fileName)));
 				//stream.write(bytes);
 				stream.close();*/
+				}
 			}
-		}
 		}catch (IOException e){
 			FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Error file not found", "Facture's file not found ");
 			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Facture's file not found "));
@@ -1130,7 +1151,7 @@ public class DepositaireBean {
 
 		//this.setNomencl(getTypemateriel().getNomenclature());
 		this.setNomencl(getTypematerielToAdd().getNomenclaureParent().getNomenclature());
-	
+
 	}
 
 	public String onDetenteurChange(){
@@ -1138,7 +1159,7 @@ public class DepositaireBean {
 		this.setPrenom(getDetenteur().getPrenomAgent());
 		return null;
 	}
-	
+
 	public void onDetenteurDetChange(){
 		this.setNom(getDetenteur().getNomAgent());
 		this.setPrenom(getDetenteur().getPrenomAgent());
@@ -1151,10 +1172,10 @@ public class DepositaireBean {
 	}
 
 	public void onMotifSortieChange(){
-		
+
 	}
 
-	
+
 
 	//list services
 	public List<Service> getListServices()
@@ -1216,7 +1237,7 @@ public class DepositaireBean {
 		m.setOrigine(getOrigine());
 
 		m.setRefFacture(getRefFacture());
-		
+
 		m.setDirec(agent.getDirection());
 
 		// m.setCaract(caract);
@@ -1241,6 +1262,9 @@ public class DepositaireBean {
 
 		// m.setDocumentPath(documentPath);
 		m.setValidation(false);
+		if(listMaterielForOpEntree == null)
+			listMaterielForOpEntree = new ArrayList<Materiel>();
+
 		listMaterielForOpEntree.add(m);
 		System.out.println("added to list");
 		clear();
@@ -1278,53 +1302,58 @@ public class DepositaireBean {
 			//saveFacFile();
 
 
-		//ArrayList<DocumentModel> imagelist = (ArrayList<DocumentModel>) RequestFilter.getSession()
-		//		.getAttribute("imageList");
-		// agent.setIp()
+			//ArrayList<DocumentModel> imagelist = (ArrayList<DocumentModel>) RequestFilter.getSession()
+			//		.getAttribute("imageList");
+			// agent.setIp()
 
-		ArrayList<DocumentModel> imagelist = imageList;
-		MaterielEx m = new MaterielEx();
-		//System.out.println("---------------SIZE IMAGE BYTE ARRAY="+imagelist.get(0).getByteArrayImage().length);
-		if(imagelist !=null)
-		{
-			m.setImage(imagelist.get(0).getByteArrayImage());
-		}
-		else
-		{
-			m.setImage(null);
-		}
-
-
-		m.setAnneeAcquisition(this.getAnneeAcquisition());	
-
-		m.setDocumentPath((String) RequestFilter.getSession().getAttribute("documentpath"));
-		RequestFilter.getSession().removeAttribute("documentpath");
-		m.setAutre(getAutre());
-		//m.setBureau(getBureau());
-		// m.setDirec(getDirection());
-		//m.setDirec(agent.getDirection());
-		m.setEtat(getEtat());
-		m.setMarque(getMarq());
-		//m.setNomenMat(getTypemateriel());
-		m.setNumSerie(getNumSerie());
-		m.setPu(getUnitPrice());
-		m.setReference(getReference());
-		m.setRenseignement(getRenseignement());
-		m.setTypematerieladd(this.getTypematerielToAdd());
-		m.setNomenMat(this.getTypematerielToAdd().getNomenclaureParent());
-		m.setEspeceUnite(getEspeceUnite());
-		m.setOrigine(getOrigine());
+			ArrayList<DocumentModel> imagelist = imageList;
+			MaterielEx m = new MaterielEx();
+			//System.out.println("---------------SIZE IMAGE BYTE ARRAY="+imagelist.get(0).getByteArrayImage().length);
+			if(imagelist !=null)
+			{
+				m.setImage(imagelist.get(0).getByteArrayImage());
+			}
+			else
+			{
+				m.setImage(null);
+			}
 
 
-		//m.setServ(getServiceforMat());
-		//m.setDirec(agent.getDirection());
+			m.setAnneeAcquisition(this.getAnneeAcquisition());
 
-		// m.setCaract(caract);
-		// m.setCategorie(categorie);
+			m.setDocumentPath((String) RequestFilter.getSession().getAttribute("documentpath"));
+            System.out.println("DOCUMENTPATH========================="+(String) RequestFilter.getSession().getAttribute("documentpath"));
+			RequestFilter.getSession().removeAttribute("documentpath");
+			m.setAutre(getAutre());
+			//m.setBureau(getBureau());
+			// m.setDirec(getDirection());
+			//m.setDirec(agent.getDirection());
+			m.setDirec(agent.getDirection());
+			m.setEtat(getEtat());
+			m.setMarque(getMarq());
+			//m.setNomenMat(getTypemateriel());
+			m.setNumSerie(getNumSerie());
+			m.setPu(getUnitPrice());
+			m.setReference(getReference());
+			m.setRenseignement(getRenseignement());
+			m.setTypematerieladd(this.getTypematerielToAdd());
+			m.setNomenMat(this.getTypematerielToAdd().getNomenclaureParent());
+			m.setEspeceUnite(getEspeceUnite());
+			m.setOrigine(getOrigine());
 
-		// m.setDocumentPath(documentPath);
-		m.setValidation(false);
-		listMaterielForOpEntree.add(m);	
+
+			//m.setServ(getServiceforMat());
+			//m.setDirec(agent.getDirection());
+
+			// m.setCaract(caract);
+			// m.setCategorie(categorie);
+
+			// m.setDocumentPath(documentPath);
+			m.setValidation(false);
+			if(listMaterielForOpEntree == null)
+				listMaterielForOpEntree = new ArrayList<Materiel>();
+
+			listMaterielForOpEntree.add(m);
 
 
 			// set Operation requete entrer materiel existant
@@ -1341,6 +1370,7 @@ public class DepositaireBean {
 					System.out.println("Begin Attribution");
 					OpAttribution oa= usermetierimpl.reqAttribution((MaterielEx) ma, agent, getDetenteurMatEx());
 					usermetierimpl.attriuberMateriel(oa);
+					System.out.println("End Attribution");
 					//m.setDetenteur(getDetenteurMatEx());
 				}
 			}
@@ -1350,24 +1380,29 @@ public class DepositaireBean {
 			RequestFilter.getSession().setAttribute("documentpath",null);
 			RequestFilter.getSession().setAttribute("documentList",null);
 			RequestFilter.getSession().setAttribute("imageList",null);
+			listMaterielForOpEntree = null;
 			return SUCCESS;
 		}
 		catch(JDBCException jdbce){
 			jdbce.getSQLException().getNextException().printStackTrace();
+			listMaterielForOpEntree = null;
 			return ERROR;
 		} catch (IOException e) {
 			FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Error file not found", "Facture's file not found ");
 			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Facture's file not found "));
+			listMaterielForOpEntree = null;
 			FacesContext.getCurrentInstance().addMessage(null, message);
 			return null;
 		}catch (NullPointerException e) {
 			FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Error validating materiel", "Error operation");
-			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Error operation "));
+			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Error operation valeur null"));
+			listMaterielForOpEntree = null;
 			FacesContext.getCurrentInstance().addMessage(null, message);
 			return null;
 		} catch (Exception e) {
 			FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Error validating materiel", "Error operation");
-			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Error operation "));
+			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Error operation exception :"+e.getMessage()));
+			listMaterielForOpEntree = null;
 			FacesContext.getCurrentInstance().addMessage(null, message);
 			return null;
 		}
@@ -1382,11 +1417,11 @@ public class DepositaireBean {
 	public String addPriseEncharge() {
 		try{
 			uploadFilesDocument();
-		Agent agent = (Agent) RequestFilter.getSession().getAttribute("agent");
-		// agent.setIp()
+			Agent agent = (Agent) RequestFilter.getSession().getAttribute("agent");
+			// agent.setIp()
 			ArrayList<DocumentModel> imagelist = this.imageList;
 
-		MaterielNouv m = new MaterielNouv();
+			MaterielNouv m = new MaterielNouv();
 
 			if(imagelist !=null)
 			{
@@ -1400,76 +1435,79 @@ public class DepositaireBean {
 			m.setDocumentPath((String) RequestFilter.getSession().getAttribute("documentpath"));
 			RequestFilter.getSession().removeAttribute("documentpath");
 
-		m.setAutre(getAutre());
+			m.setAutre(getAutre());
 
-		m.setAnneeAcquisition((String) ""+Calendar.getInstance().get(Calendar.YEAR)+"");
+			m.setAnneeAcquisition((String) ""+Calendar.getInstance().get(Calendar.YEAR)+"");
 
-		m.setBureau(getBureau());
-		// m.setDirec(getDirection());
-		m.setDirec(agent.getDirection());
+			m.setBureau(getBureau());
+			// m.setDirec(getDirection());
+			m.setDirec(agent.getDirection());
 
-		m.setEtat(getEtat());
+			m.setEtat(getEtat());
 
 
 
-		m.setMarque(getMarq());
+			m.setMarque(getMarq());
 
-		//m.setNomenMat(getTypemateriel());
-		m.setTypematerieladd(this.getTypematerielToAdd());
-		m.setNomenMat(this.getTypematerielToAdd().getNomenclaureParent());
+			//m.setNomenMat(getTypemateriel());
+			m.setTypematerieladd(this.getTypematerielToAdd());
+			m.setNomenMat(this.getTypematerielToAdd().getNomenclaureParent());
 
-		m.setEspeceUnite(getEspeceUnite());
-		m.setOrigine(getOrigine());
-		
+			m.setEspeceUnite(getEspeceUnite());
+			m.setOrigine(getOrigine());
 
-		m.setNumSerie(getNumSerie());
 
-		m.setPu(getUnitPrice());
+			m.setNumSerie(getNumSerie());
 
-		m.setReference(getReference());
+			m.setPu(getUnitPrice());
 
-		m.setRenseignement(getRenseignement());
+			m.setReference(getReference());
 
-		m.setServ(getService());
-		
-		m.setRefFacture(getRefFacture());
-		
-		m.setDirec(agent.getDirection());
+			m.setRenseignement(getRenseignement());
 
-		// m.setCaract(caract);
-		// m.setCategorie(categorie);
+			m.setServ(getService());
 
-		//m.setImage((byte[]) RequestFilter.getSession().getAttribute("imageMat"));
+			m.setRefFacture(getRefFacture());
 
-		//m.setDocumentPath((String) RequestFilter.getSession().getAttribute("documentpath"));
+			m.setDirec(agent.getDirection());
 
-		// proprietes propre aux materiels nouveaux
+			// m.setCaract(caract);
+			// m.setCategorie(categorie);
 
-		m.setFinancement(getFinancement());
+			//m.setImage((byte[]) RequestFilter.getSession().getAttribute("imageMat"));
 
-		m.setFournisseur(getFournisseur());
+			//m.setDocumentPath((String) RequestFilter.getSession().getAttribute("documentpath"));
 
-		m.setModAcq(getAcquisition());
+			// proprietes propre aux materiels nouveaux
 
-		m.setMontant_facture(getMontantFac());
+			m.setFinancement(getFinancement());
 
-        listMaterielForOpEntree.add(m);
-		// m.setRefFacture(refFacture);
+			m.setFournisseur(getFournisseur());
 
-		// set Operation requete entrer materiel nouveau
-        System.out.println("ready to send request");
-		for(Materiel a:listMaterielForOpEntree) {
-			System.out.println("materiel: "+ a.getNumSerie());
-		}
-        
-        OpEntree opEntree = usermetierimpl.reqEntrerMateriel(listMaterielForOpEntree, agent, getFacturePath(), getRefFacture());
-		
-		return SUCCESS;
+			m.setModAcq(getAcquisition());
+
+			m.setMontant_facture(getMontantFac());
+
+			listMaterielForOpEntree.add(m);
+			// m.setRefFacture(refFacture);
+
+			// set Operation requete entrer materiel nouveau
+			System.out.println("ready to send request");
+			for(Materiel a:listMaterielForOpEntree) {
+				System.out.println("materiel: "+ a.getNumSerie());
+			}
+
+			OpEntree opEntree = usermetierimpl.reqEntrerMateriel(listMaterielForOpEntree, agent, getFacturePath(), getRefFacture());
+
+			listMaterielForOpEntree = null;
+
+			return SUCCESS;
 		}
 		catch(Exception e){
 			e.printStackTrace();
 			FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Error validating materiel", e.getMessage());
 			//FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Error operation "));
+			listMaterielForOpEntree = null;
 			FacesContext.getCurrentInstance().addMessage(null, message);
 			return ERROR;
 		}
@@ -1486,20 +1524,20 @@ public class DepositaireBean {
 	public String addAttribution() {
 		System.out.println("****************************ADD ATTR**ERRORR********************************");
 		Agent agent = (Agent) RequestFilter.getSession().getAttribute("agent");
-System.out.println("****************************ADD1 ATTR**ERRORR********************************");
+		System.out.println("****************************ADD1 ATTR**ERRORR********************************");
 		// agent.setIp()
 
 		try {
 			// getCurrent Materiel ve?????
-System.out.println("****************************ADD2 ATTR**ERRORR*****NULL*************************** "+
-			getMaterielSeclected().getNomenMat().getDesignation());
+			System.out.println("****************************ADD2 ATTR**ERRORR*****NULL*************************** "+
+					getMaterielSeclected().getNomenMat().getDesignation());
 
 			OpAttribution opAt = usermetierimpl.reqAttribution(getMaterielSeclected(), agent, getDetenteur());
-System.out.println("****************************ADD3 ATTR**ERRORR********************************");
+			System.out.println("****************************ADD3 ATTR**ERRORR********************************");
 			return SUCCESS;
 		} catch (Exception e) {
 			// TODO: handle exception
-			
+
 			e.printStackTrace();
 			System.out.println(e.getMessage());
 			return ERROR;
@@ -1518,7 +1556,7 @@ System.out.println("****************************ADD3 ATTR**ERRORR***************
 		System.out.println("****************************ADD DETACHEMENT********************************");
 		try {
 			// getCurrent Materiel ve?????
-			opDet = usermetierimpl.reqDettachement(this.getMaterielSeclected(), agent, getDetenteur());
+			opDet = usermetierimpl.reqDettachement(this.getMaterielSeclected(), agent, getDetenteur(), this.getMotifSortie());
 			return SUCCESS;
 		} catch (Exception e) {
 			// TODO: handle exception
@@ -1542,9 +1580,9 @@ System.out.println("****************************ADD3 ATTR**ERRORR***************
 			}
 			else {
 				opSort = usermetierimpl.reqSortirMateriel(this.getMateriel(), this.getMotifSortie(),
-					this.getDestinationDirec(), agent);
+						this.getDestinationDirec(), agent);
 			}
-			
+
 			return SUCCESS;
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
@@ -1840,14 +1878,14 @@ System.out.println("****************************ADD3 ATTR**ERRORR***************
 		{
 			if(entry.getKey().toLowerCase().contains(input.toLowerCase()))
 				idAg = Long.parseLong(entry.getValue());
-				//System.out.println(entry.getKey() + "/" + entry.getValue());
+			//System.out.println(entry.getKey() + "/" + entry.getValue());
 		}
 
 		if(!idAg.equals(Long.valueOf(1)))
 			return (List<Materiel>)usermetierimpl.getMatByDetenteurAndValidation(usermetierimpl.findAgentByIm(idAg), true);
 		System.out.println("****************************SET LIST ******************************** " +this.getClass().getName());
 
-			return currentListMateriel;
+		return currentListMateriel;
 
 
 	}
@@ -2015,7 +2053,7 @@ System.out.println("****************************ADD3 ATTR**ERRORR***************
 		//test
 		this.codeArticle = codeArticle;
 	}
-		TypeMateriel typematerielToAdd;
+	TypeMateriel typematerielToAdd;
 
 
 	public TypeMateriel getTypematerielToAdd() {
@@ -2040,7 +2078,20 @@ System.out.println("****************************ADD3 ATTR**ERRORR***************
 		this.prix = prix;
 	}
 
-	public OpEntreeArticle addArticleEx()
+
+
+
+	Long nombre;
+
+	public Long getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(Long n) {
+		this.nombre = n;
+	}
+
+	public String addArticleEx()
 	{
 		ArticleEx a = new ArticleEx();
 
@@ -2049,20 +2100,19 @@ System.out.println("****************************ADD3 ATTR**ERRORR***************
 		a.setMarqueArticle(getMarq());
 		a.setCaracteristiqueArticle(getRenseignement());
 
-
+		a.setDirecArt(agent.getDirection());
 		a.setValidation(true);
 
+		a.setNombre(getNombre());
+
 		//a.setTypeObjet(getTypeObjet());
-		return usermetierimpl.reqEntrerArticle(a,agent);
+		OpEntreeArticle oeart=usermetierimpl.reqEntrerArticle(a,agent);
+		usermetierimpl.entrerArticle(oeart);
+		return SUCCESS;
 	}
 
-	public void validateArticleEx()
-	{
-		OpEntreeArticle o = addArticleEx();
-		usermetierimpl.entrerArticle(o);
-	}
 
-	public OpEntreeArticle addArticleNouv()
+	public String addArticleNouv()
 	{
 		ArticleNouv a = new ArticleNouv();
 
@@ -2077,7 +2127,11 @@ System.out.println("****************************ADD3 ATTR**ERRORR***************
 		a.setMarqueArticle(getMarq());
 		a.setCaracteristiqueArticle(getRenseignement());
 		//a.setModAcq(getAcquisition());
-		return usermetierimpl.reqEntrerArticle(a,agent);
+
+		a.setNombre(getNombre());
+
+		usermetierimpl.reqEntrerArticle(a,agent);
+		return SUCCESS;
 	}
 
 
@@ -2103,19 +2157,25 @@ System.out.println("****************************ADD3 ATTR**ERRORR***************
 		return articleNouv;
 	}
 
-	public OpSortieArticle addRequeteSortieNouv() throws Exception {
+	public String addRequeteSortieNouv() throws Exception {
 		//ArticleNouv a = new ArticleNouv();
 
 		Agent agent = (Agent)RequestFilter.getSession().getAttribute("agent");
 		//a.setFournisseur(getFournisseur());
 		//a.setPrix(getPrix());
-		return usermetierimpl.reqSortirArticle(getArticleNouv(),agent,getAgentDest());
+
+
+
+		usermetierimpl.reqSortirArticle(this.getArticle(),agent,getAgentDest());
+		return SUCCESS;
 	}
 
 
 
 	public List<Materiel> getListAllMaterielValideSansDetenteurByDirection() {
-		return usermetierimpl.getMatByDetenteurAndDirection(null, getDirection());
+		Agent agent = (Agent)RequestFilter.getSession().getAttribute("agent");
+		//return usermetierimpl.getMatByDetenteurAndDirection(null, agent.getDirection());
+		return usermetierimpl.getMatByValidationAndDetenteurAndDirection(true,null, agent.getDirection());
 	}
 
 	public void setListAllMaterielValideSansDetenteurByDirection(List<Materiel> listAllMaterielValideSansDetenteurByDirection) {
@@ -2130,11 +2190,16 @@ System.out.println("****************************ADD3 ATTR**ERRORR***************
 
 	private Agent detenteurMatEx;
 
-    private ArrayList<Materiel> listMaterielForOpEntree = new ArrayList<Materiel>();
+
+	private ArrayList<Materiel> listMaterielForOpEntree;
+
+	@PostConstruct
+	public void init(){
+		listMaterielForOpEntree = new ArrayList<Materiel>();
+	}
 
 
-
-    private String facturePath;
+	private String facturePath;
 
 	private UploadedFile docFacture;
 
@@ -2166,21 +2231,21 @@ System.out.println("****************************ADD3 ATTR**ERRORR***************
 	}
 
 
-    public List<Materiel> getListMaterielForOpEntree() {
-        return listMaterielForOpEntree;
-    }
+	public List<Materiel> getListMaterielForOpEntree() {
+		return listMaterielForOpEntree;
+	}
 
-    public void setListMaterielForOpEntree(ArrayList<Materiel> listMaterielForOpEntree) {
-        this.listMaterielForOpEntree = listMaterielForOpEntree;
-    }
+	public void setListMaterielForOpEntree(ArrayList<Materiel> listMaterielForOpEntree) {
+		this.listMaterielForOpEntree = listMaterielForOpEntree;
+	}
 
-    public String getFacturePath() {
-        return facturePath;
-    }
+	public String getFacturePath() {
+		return facturePath;
+	}
 
-    public void setFacturePath(String facturePath) {
-        this.facturePath = facturePath;
-    }
+	public void setFacturePath(String facturePath) {
+		this.facturePath = facturePath;
+	}
 
 	public UploadedFile getDocFacture() {
 		return docFacture;
@@ -2206,6 +2271,37 @@ System.out.println("****************************ADD3 ATTR**ERRORR***************
 
 	public void setMatForEntree(Materiel matForEntree) {
 		this.matForEntree = matForEntree;
+	}
+
+	private List<Article> listArticleValide;
+
+	private List<Article> listArticleValideByDirecNondetenu;
+
+	private List<Article> listArticleValideByDirec;
+
+	public List<Article> getListArticleValide() {
+		return usermetierimpl.getListArticleValideByDirection(getCurrentAgent().getDirection());
+	}
+
+	public void setListArticleValide(List<Article> listArticleValide) {
+		this.listArticleValide = listArticleValide;
+	}
+
+
+	public List<Article> getListArticleValideByDirecNondetenu() {
+		return usermetierimpl.getListArticleNonDetenuValideByDirection(getCurrentAgent().getDirection());
+	}
+
+	public void setListArticleValideByDirecNondetenu(List<Article> listArticleValide) {
+		this.listArticleValideByDirecNondetenu = listArticleValide;
+	}
+
+	public List<Article> getListArticleValideByDirec() {
+		return usermetierimpl.getListArticleByValidationByDirection(true, getCurrentAgent().getDirection());
+	}
+
+	public void setListArticleValideByDirec(List<Article> listArticleValideByDirec) {
+		this.listArticleValideByDirec = listArticleValideByDirec;
 	}
 
 
