@@ -319,7 +319,7 @@ public class SISEformBean {
             return SUCCESS;
         }
         catch (DataIntegrityViolationException ex) {
-            FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_FATAL, "Nomenclature should be unique ", getNomenclature()+ "already exists");
+            FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_FATAL, "Nomenclature unique ", getNomenclature()+ " existe déjà");
             FacesContext.getCurrentInstance().addMessage(null, message);
             return "";
             //throw new DataIntegrityViolationException(getNomenclature()+ "  already exists");
@@ -337,7 +337,7 @@ public class SISEformBean {
             refmetierimpl.addRef(tymat, agent);
             return SUCCESS;
         }catch (DataIntegrityViolationException ex) {
-            FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_FATAL, "Code type of materiel should be unique ", getCodeTypeMateriel()+ "already exists");
+            FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_FATAL, "Code type of materiel  unique ", getCodeTypeMateriel()+ " existe déjàs");
             FacesContext.getCurrentInstance().addMessage(null, message);
             return "";
             //throw new DataIntegrityViolationException(getCodeTypeMateriel()+ "  already exists");
@@ -401,12 +401,12 @@ public class SISEformBean {
             usermetierimpl.addUser(useri);
             usermetierimpl.addAgent(user);
 
-            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Data Saved"));
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Données Sauvegardées"));
             return SUCCESS;
         } catch (DataAccessException e) {
             e.printStackTrace();
         }
-        FacesContext.getCurrentInstance().addMessage("myForm:password1", new FacesMessage("Password Doesnt Match"));
+        FacesContext.getCurrentInstance().addMessage("myForm:password1", new FacesMessage("Mot de passe ne correspond pas"));
         return ERROR;
     }
 
@@ -651,7 +651,7 @@ public class SISEformBean {
         }
         catch (DataIntegrityViolationException ex)
         {
-            FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_FATAL, "Code direction should be unique", getCodeDirection()+ "already exists");
+            FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_FATAL, "Code direction  unique", getCodeDirection()+ " existe déjà");
             FacesContext.getCurrentInstance().addMessage(null, message);
             return "";
         }
@@ -694,7 +694,7 @@ public class SISEformBean {
             return SUCCESS;
         }
         catch (DataIntegrityViolationException ex) {
-            FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_FATAL, "Us Eer role should be un", role+ "already exists");
+            FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_FATAL, "Fonction unique", role+ " existe déjà");
             FacesContext.getCurrentInstance().addMessage(null, message);
             return "";
             //throw new DataIntegrityViolationException(role+ "   already exists");
