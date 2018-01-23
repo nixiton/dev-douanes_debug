@@ -186,18 +186,18 @@ public class UserManagedBean implements Serializable {
 			//refmetierimpl.addRef(useri,user);
 			usermetierimpl.addAgent(user);
 
-			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Data Saved"));
+			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Données sauvegardées"));
 			return SUCCESS;
 
 		}catch(DataIntegrityViolationException e)
 		{
-			FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Error creating user", "Role or User already exists");
-			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Role or User already exists"));
+			FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Error creation", "La fonction ou l'utilisateur existe déjà");
+			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("La fonction ou l'utilisateur existe déjà"));
 			FacesContext.getCurrentInstance().addMessage(null, message);
 			return null;
 		} catch (DataAccessException e) {
-			FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Error creating user", "Role or User already exists");
-			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Role or User already exists"));
+			FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Error creating user", "La fonction ou l'utilisateur existe déjà");
+			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("La fonction ou l'utilisateur existe déjà"));
 			FacesContext.getCurrentInstance().addMessage(null, message);
 			/*
 			FacesContext.getCurrentInstance().addMessage("myForm:password1", new FacesMessage("Password Doesnt Match"));
@@ -237,12 +237,12 @@ public class UserManagedBean implements Serializable {
 			//refmetierimpl.addRef(useri,user);
 			usermetierimpl.addAgent(user);
 
-			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Data Saved"));
+			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Données sauvegardées"));
 			return SUCCESS;
 		} catch (DataAccessException e) {
 			e.printStackTrace();
 		} 	
-		FacesContext.getCurrentInstance().addMessage("myForm:password1", new FacesMessage("Password Doesnt Match"));
+		FacesContext.getCurrentInstance().addMessage("myForm:password1", new FacesMessage("Erreur Mot de Passe"));
 		return ERROR;
 	}
 
@@ -273,12 +273,12 @@ public class UserManagedBean implements Serializable {
 			usermetierimpl.addUser(useri);
 			usermetierimpl.addAgent(user);
 
-			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Data Saved"));
+			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Données sauvegardées"));
 			return SUCCESS;
 		} catch (DataAccessException e) {
 			e.printStackTrace();
 		} 	
-		FacesContext.getCurrentInstance().addMessage("myForm:password1", new FacesMessage("Password Doesnt Match"));
+		FacesContext.getCurrentInstance().addMessage("myForm:password1", new FacesMessage("Erreur mot de passe"));
 		return ERROR;
 	}
 	
@@ -313,12 +313,12 @@ public class UserManagedBean implements Serializable {
 			//usermetierimpl.addUser(useri);
 			usermetierimpl.addAgent(user);
 
-			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Data Saved"));
+			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Données Sauvegardées"));
 			return SUCCESS;
 		} catch (DataAccessException e) {
 			e.printStackTrace();
 		} 	
-		FacesContext.getCurrentInstance().addMessage("myForm:password1", new FacesMessage("Password Doesnt Match"));
+		FacesContext.getCurrentInstance().addMessage("myForm:password1", new FacesMessage("Erreur Mot de Passe"));
 		return ERROR;
 	}
 	
@@ -617,14 +617,14 @@ public class UserManagedBean implements Serializable {
 
 
 
-				message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Success", "Password updated");
-				FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Password updated"));
+				message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Succes", "Mot de passe mise à jour");
+				FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Mot de passe mise à jour"));
 				FacesContext.getCurrentInstance().addMessage(null, message);
 
 			} catch (AuthenticationException e) {
 
-				message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Error wrong current password", "Invalid credentials");
-				FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Error wrong current password"));
+				message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Erreur mot de passe", "Mot de passe actuelle erronée");
+				FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Mot de passe actuelle erronée"));
 				//throw new SecurityExecption("Wrong credentials");
 
 			}

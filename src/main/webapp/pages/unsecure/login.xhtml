@@ -50,21 +50,23 @@
 		<div class="tab-content">
 			<div id="login" class="tab-pane active">
 				<h:form id="loginFormId" prependId="false" >
-					<p:messages id="messages" showDetail="true" autoUpdate="true" />
+					<p:messages Style="font:1em" id="messages"  autoUpdate="false" showSummary="true" showDetails="false" />
 
-					<h:outputLabel id="outTxtUserNameId" value="Entrer immatriculation et
-						mot de pass: " name="outTxtUserNameNm" styleClass="text-muted text-center"></h:outputLabel>
-					<p:inputText id="immatriculation" required="true" value="#{loginMgmtBean.immatriculation}" requiredMessage="Please enter immatriculation" placeholder="Immatriculation"
+					<h:outputLabel id="outTxtUserNameId" value="Immatriculation: " name="outTxtUserNameNm" styleClass="text-muted text-center"></h:outputLabel>
+					<p:inputText id="immatriculation" required="true" value="#{loginMgmtBean.immatriculation}" requiredMessage="Entrez une immatriculation" placeholder="Immatriculation"
 						styleClass="form-control top"></p:inputText>
 					<br ></br >
 					
+					<h:outputLabel id="outTxtUserPasswordId" value="Mot de passe: " name="outTxtUserNameNm" styleClass="text-muted text-center"></h:outputLabel>
 					
 					
-					<p:password id="password"  required="true" value="#{loginMgmtBean.password}" requiredMessage="Please enter password" placeholder="Mot de pass" styleClass="form-control bottom" ></p:password>
+					<p:password id="password"  required="true" value="#{loginMgmtBean.password}" requiredMessage="Erreur Mot de Passe" placeholder="Mot de pass" styleClass="form-control bottom" ></p:password>
 
 					<hr></hr>
 					
-					<p:commandButton action="#{loginMgmtBean.login}" value="Se connecter"  update="messages"/>
+					<p:commandButton action="#{loginMgmtBean.login}" value="Se connecter"  
+					update="messages"
+					styleClass="btn btn-lg  btn-block"/>
 					<br></br>
 						
 				</h:form>

@@ -53,7 +53,7 @@ public class CustomAuthenticationProvider implements AuthenticationProvider {
             user = usermetier.findAgentByIm(Long.parseLong(immatriculation));
             if (user == null) {
                 log.info("username not found " + immatriculation);
-                FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("username not found " + immatriculation));
+                FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Cette Immatriculation n'est pas encore inscrite " + immatriculation));
                 throw new SecurityExecption("user " + immatriculation + " tidak ditemukan");
             }
 
@@ -61,6 +61,7 @@ public class CustomAuthenticationProvider implements AuthenticationProvider {
         }
         else
         {
+        	FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Erreur Immatriculation:" + immatriculation));
             user = null;
         }
         //RequestFilter.getSession().setAttribute("agent",usermetier.findAgentByIm(Long.parseLong(immatriculation)));
@@ -73,7 +74,7 @@ public class CustomAuthenticationProvider implements AuthenticationProvider {
         }
 
         if (!passwordEncoder.matches(password, user.getPassword())) {
-            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("password not valid" + immatriculation));
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Mot de passe non valide" + immatriculation));
             throw new BadCredentialsException("tidak berhasil login dengan user " + immatriculation);
         }
         /*

@@ -51,11 +51,11 @@ public class AjaxUserManagedBean implements Serializable {
 			 String hashedPassword = passwordEncoder.encode(getPassword());
 			user.setPassword(hashedPassword);
 			getUserService().addUser(user);
-			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Data Saved"));
+			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Données sauvegardées"));
 			
 		} catch (DataAccessException e) {
 			e.printStackTrace();
-			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Failed"));
+			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Erreur rencontrée"));
 			
 		} 	
 			
