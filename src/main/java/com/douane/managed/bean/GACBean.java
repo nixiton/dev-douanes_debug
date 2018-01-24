@@ -776,19 +776,22 @@ public class GACBean {
             RequestFilter.getSession().setAttribute("fileZipPath",datetime + ".zip");
             zipOut = new ZipOutputStream(new BufferedOutputStream(fos));
             for (Materiel m : lstM) {
-                File input = new File(m.getDocumentPath());
+                if(m.getDocumentPath() != null)
+                {
+                    File input = new File(m.getDocumentPath());
 
-                fis = new FileInputStream(input);
-                ZipEntry ze = new ZipEntry(input.getName());
-                System.out.println("Zipping the file: " + input.getName());
-                zipOut.putNextEntry(ze);
-                byte[] tmp = new byte[4 * 1024];
-                int size = 0;
-                while ((size = fis.read(tmp)) != -1) {
-                    zipOut.write(tmp, 0,     size);
+                    fis = new FileInputStream(input);
+                    ZipEntry ze = new ZipEntry(input.getName());
+                    System.out.println("Zipping the file: " + input.getName());
+                    zipOut.putNextEntry(ze);
+                    byte[] tmp = new byte[4 * 1024];
+                    int size = 0;
+                    while ((size = fis.read(tmp)) != -1) {
+                        zipOut.write(tmp, 0, size);
+                    }
+                    // zipOut.flush();
+                    fis.close();
                 }
-                // zipOut.flush();
-                fis.close();
             }
             zipOut.close();
 
