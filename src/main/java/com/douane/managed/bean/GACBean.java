@@ -336,7 +336,7 @@ public class GACBean {
         	// TODO: handle exception
     		FacesContext context = FacesContext.getCurrentInstance();
             
-            context.addMessage(null, new FacesMessage("myerror","L'attribution n'a pas pu être refusée") );
+            context.addMessage("myerror", new FacesMessage("Error Attribution","L'attribution n'a pas pu être refusée") );
             //context.addMessage(null, new FacesMessage("Second Message", "Additional Message Detail"));
     		System.out.println("erreur refuser Attribution");
     		e.printStackTrace(System.out);
@@ -355,7 +355,7 @@ public class GACBean {
 			// TODO Auto-generated catch block
 			FacesContext context = FacesContext.getCurrentInstance();
             
-            context.addMessage(null, new FacesMessage("myerror","L'attribution n'a pas pu être à modifier") );
+            context.addMessage("myerror", new FacesMessage("Erreur Attribution","L'attribution n'a pas pu être à modifier") );
             //context.addMessage(null, new FacesMessage("Second Message", "Additional Message Detail"));
     		System.out.println("erreur à modifier Attribution");
     		e.printStackTrace(System.out);
@@ -374,7 +374,7 @@ public class GACBean {
 			// TODO: handle exception
 			FacesContext context = FacesContext.getCurrentInstance();
             
-            context.addMessage(null, new FacesMessage("myerror","La Décharge n'a pas pu être validée car: "+e.getMessage()) );
+            context.addMessage("myerror", new FacesMessage("Erreur Décharge","La Décharge n'a pas pu être validée car: "+e.getMessage()) );
             //context.addMessage(null, new FacesMessage("Second Message", "Additional Message Detail"));
     		System.out.println("erreur valider Decharge");
     		e.printStackTrace(System.out);
@@ -419,15 +419,15 @@ public class GACBean {
 			// TODO: handle exception
 			FacesContext context = FacesContext.getCurrentInstance();
             
-            context.addMessage(null, new FacesMessage("myerror","Le Détachement n'a pas pu être validée car: "+e.getMessage()) );
+            context.addMessage("myerror", new FacesMessage("Erreur detachement","Le Détachement n'a pas pu être validée car: "+e.getMessage()) );
             //context.addMessage(null, new FacesMessage("Second Message", "Additional Message Detail"));
     		System.out.println("erreur valider Détachement");
     		e.printStackTrace(System.out);
 			System.out.println(e.getMessage());
-		}finally {
+		}/*finally {
 			this.setCurentOperation(null);
 	        this.setMotif(null);
-		}
+		}*/
         
         //usermetierimpl.sortirMateriel((OpDettachement)this.getCurentOperation());
         
