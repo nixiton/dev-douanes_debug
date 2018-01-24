@@ -144,7 +144,8 @@ public class Materiel implements Serializable{
 	@JoinColumn(name="idFournisseur")
 	private Fournisseur fourni;
 	*/
-	@ManyToOne(fetch = FetchType.LAZY)
+	//@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne
 	@JoinColumn(name="imDetenteur")
 	private Agent detenteur;
 
