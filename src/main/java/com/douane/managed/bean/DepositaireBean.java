@@ -1195,7 +1195,7 @@ public class DepositaireBean {
 		System.out.println("Add it into list materiel");
 		Agent agent = (Agent) RequestFilter.getSession().getAttribute("agent");
 
-
+		uploadFilesDocument();
 		ArrayList<DocumentModel> imagelist = this.imageList;
 		// agent.setIp()
 		MaterielNouv m = new MaterielNouv();
