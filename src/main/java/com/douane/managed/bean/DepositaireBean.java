@@ -931,6 +931,7 @@ public class DepositaireBean {
 			RequestFilter.getSession().setAttribute("documentpath","");
 			filesTozip.add("");
 		}
+
 		zipFiles(filesTozip);
 		return SUCCESS;
 	}
@@ -941,41 +942,48 @@ public class DepositaireBean {
 		ZipOutputStream zipOut = null;
 		FileInputStream fis = null;
 		try {
-			Date dNow = new Date();
-			SimpleDateFormat ft = new SimpleDateFormat("yyMMddhhmmssMs");
-			String datetime = ft.format(dNow);
-
-			File file = new File(datetime);
-			String absolutePath = file.getAbsolutePath();
-
-			RequestFilter.getSession().setAttribute("documentpath",   absolutePath+".zip");
-			// eto miset an le documentpath
-			String a = (String) RequestFilter.getSession().getAttribute("documentpath");
-
-			fos = new FileOutputStream(  datetime+".zip");
-			setDocumentPath(  datetime+".zip");
-
-			zipOut = new ZipOutputStream(new BufferedOutputStream(fos));
-			for (String filePath : files) {
-				File input = new File(filePath);
-				fis = new FileInputStream(input);
-				ZipEntry ze = new ZipEntry(input.getName());
-				System.out.println("Zipping the file: " + input.getName());
-				zipOut.putNextEntry(ze);
-				byte[] tmp = new byte[4 * 1024];
-				int size = 0;
-				while ((size = fis.read(tmp)) != -1) {
-					zipOut.write(tmp, 0, size);
-				}
-				// zipOut.flush();
-				fis.close();
-				input.delete();
+			if(files.size() == 0)
+			{
+				RequestFilter.getSession().setAttribute("documentpath",   null);
 			}
-			zipOut.close();
-			System.out.println("Done... Zipped the files...");
-			RequestFilter.getSession().removeAttribute("documentList");
-			//RequestFilter.getSession().removeAttribute("documentpath");
 
+			else
+			{
+				Date dNow = new Date();
+				SimpleDateFormat ft = new SimpleDateFormat("yyMMddhhmmssMs");
+				String datetime = ft.format(dNow);
+
+				File file = new File(datetime);
+				String absolutePath = file.getAbsolutePath();
+
+				RequestFilter.getSession().setAttribute("documentpath", absolutePath + ".zip");
+				// eto miset an le documentpath
+				String a = (String) RequestFilter.getSession().getAttribute("documentpath");
+
+				fos = new FileOutputStream(datetime + ".zip");
+				setDocumentPath(datetime + ".zip");
+
+				zipOut = new ZipOutputStream(new BufferedOutputStream(fos));
+				for (String filePath : files) {
+					File input = new File(filePath);
+					fis = new FileInputStream(input);
+					ZipEntry ze = new ZipEntry(input.getName());
+					System.out.println("Zipping the file: " + input.getName());
+					zipOut.putNextEntry(ze);
+					byte[] tmp = new byte[4 * 1024];
+					int size = 0;
+					while ((size = fis.read(tmp)) != -1) {
+						zipOut.write(tmp, 0, size);
+					}
+					// zipOut.flush();
+					fis.close();
+					input.delete();
+				}
+				zipOut.close();
+				System.out.println("Done... Zipped the files...");
+				RequestFilter.getSession().removeAttribute("documentList");
+				//RequestFilter.getSession().removeAttribute("documentpath");
+			}
 			// response.setHeader("Refresh", "0; URL=http://your-current-page");
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
