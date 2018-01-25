@@ -54,7 +54,7 @@ public class AgentConverter implements Converter{
             return String.valueOf(((Agent) object).getIm());
         }
         else {
-            return null;
+            return "";
         }
     }
 

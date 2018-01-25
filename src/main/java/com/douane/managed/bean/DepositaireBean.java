@@ -1285,6 +1285,16 @@ public class DepositaireBean {
 	}
 
 	public void clear() throws IOException {
+		this.setDetenteur(null);
+		this.setMaterielSeclected(null);
+		this.setNom(null);
+		this.setReferenceAutom(null);
+		this.setNumSerie(null);
+		this.setNomenclatureAutom(null);
+		this.setFinancement(null);
+		this.setAcquisition(null);
+		this.setUnitPrice(null);
+		this.setAnneeAcquisition(null);
 		this.setTypematerielToAdd(null);
 		this.setNomencl(null);
 		this.setMarq(null);
@@ -1330,7 +1340,7 @@ public class DepositaireBean {
 			}
 
 
-			m.setAnneeAcquisition(this.getAnneeAcquisition());
+			m.setAnneeAcquisition((String) ""+Calendar.getInstance().get(Calendar.YEAR)+"");
 
 			m.setDocumentPath((String) RequestFilter.getSession().getAttribute("documentpath"));
             System.out.println("DOCUMENTPATH========================="+(String) RequestFilter.getSession().getAttribute("documentpath"));
@@ -1548,6 +1558,7 @@ public class DepositaireBean {
 
 			OpAttribution opAt = usermetierimpl.reqAttribution(getMaterielSeclected(), agent, getDetenteur());
 			System.out.println("****************************ADD3 ATTR**ERRORR********************************");
+			clear();
 			return SUCCESS;
 		} catch (Exception e) {
 			// TODO: handle exception

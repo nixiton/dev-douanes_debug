@@ -241,7 +241,7 @@
 
                         <p:selectOneMenu value="#{depositaireBean.detenteurMatEx}" converter="#{agentConverter}" panelStyle="width:180px"  style="width:160px"
                                          effect="fade" var="d" filter="true" filterMatchMode="startsWith">
-                            <f:selectItem itemValue="#{null}" itemLabel="--select--" />
+                            <f:selectItem value="#{null}" itemValue="#{null}" itemLabel="--select--" />
                             <f:selectItems value="#{depositaireBean.listDetenteurMatEx}" var="dep" itemLabel="#{dep.nomAgent}" itemValue="#{dep}" />
                             <p:column>
                                 <h:outputText value="#{d.nomAgent}" />

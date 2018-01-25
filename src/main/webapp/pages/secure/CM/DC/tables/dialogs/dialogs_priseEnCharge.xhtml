@@ -102,9 +102,13 @@
                         <td>#{depositaireBean.curentMaterielNouv.detenteur.nomAgent}</td>
                     </tr>
                     <tr>
+                        <td><strong>Origine</strong></td>
+                        <td>#{depositaireBean.curentMaterielNouv.origine}</td>
+                    </tr>
+                    <tr>
                     	<td><strong>QRCODE</strong></td>
-                        <td>           					
-            				<p:barcode value="${depositaireBean.curentMaterielNouv.direc.designation}/ 
+                        <td>
+            				<p:barcode value="${depositaireBean.curentMaterielNouv.direc.designation}/
             				${depositaireBean.curentMaterielNouv.typematerieladd.designation  } /
             				NUM1 /
             				${depositaireBean.curentMaterielNouv.anneeAcquisition}/" type="qr"/>

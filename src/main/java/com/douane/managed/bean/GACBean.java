@@ -863,5 +863,50 @@ public class GACBean {
 		}
     }
 
+
+    public OpEntree getCurrentOpEntree() {
+        return currentOpEntree;
+    }
+
+    public void setCurrentOpEntree(OpEntree currentOpEntree) {
+        this.currentOpEntree = currentOpEntree;
+    }
+
+    public OpSortie getCurrentOpSortie() {
+        return currentOpSortie;
+    }
+
+    public void setCurrentOpSortie(OpSortie currentOpSortie) {
+        this.currentOpSortie = currentOpSortie;
+    }
+
+    public OpAttribution getCurrentOpAttribution() {
+        return currentOpAttribution;
+    }
+
+    public void setCurrentOpAttribution(OpAttribution currentOpAttribution) {
+        this.currentOpAttribution = currentOpAttribution;
+    }
+
+    public OpDettachement getCurrentOpDettachement() {
+        return currentOpDettachement;
+    }
+
+    public void setCurrentOpDettachement(OpDettachement currentOpDettachement) {
+        this.currentOpDettachement = currentOpDettachement;
+    }
+
+    private OpEntree currentOpEntree;
+
+
+
+    private OpSortie currentOpSortie;
+
+    private OpAttribution currentOpAttribution;
+
+    private OpDettachement currentOpDettachement;
+
+
+
 }
 //r
