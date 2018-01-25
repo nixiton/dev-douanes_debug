@@ -648,10 +648,10 @@ public class GACBean {
     /*public void reqArtRefuser() throws  Exception{
         usermetierimpl.reqArtRefuser(getOpEntreeArticle(),getMotif());
     }*/
-    public void reqSortirRefuser() throws Exception
+    /*public void reqSortirRefuser() throws Exception
     {
         usermetierimpl.reqSortirRefuser(getOpSortieArticle(),getMotif());
-    }
+    }*/
     public void entrerArticle() throws  Exception
     {
         usermetierimpl.entrerArticle(getOpEntreeArticle());
@@ -803,7 +803,7 @@ public class GACBean {
         return datetime + ".zip";
     }
 
-    public void reqArtRefuserE(OpEntreeArticle e) {
+    public void reqArtRefuser(OpEntreeArticle e) {
     	try {
 			usermetierimpl.reqArtRefuser(e, this.getMotif());
 		} catch (Exception e1) {
@@ -816,6 +816,9 @@ public class GACBean {
     		e1.printStackTrace(System.out);
 			System.out.println(e1.getMessage());
 			e1.printStackTrace();
+		}finally {
+			this.setCurentOperation(null);
+	        this.setMotif(null);
 		}
     }
     public void validateArticleENouv(OpEntreeArticle operation)
@@ -828,14 +831,35 @@ public class GACBean {
 			usermetierimpl.sortirArticle(operation);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
-FacesContext context = FacesContext.getCurrentInstance();
+			FacesContext context = FacesContext.getCurrentInstance();
             
+			context.addMessage("myerror", new FacesMessage("Erreur valider","L'article n'a pas pu être sortie car: "+e.getMessage()) );
+            //context.addMessage(null, new FacesMessage("Second Message", "Additional Message Detail"));
+    		System.out.println("erreur valider sortie article");
+    		e.printStackTrace(System.out);
+			System.out.println(e.getMessage());
+			e.printStackTrace();
+		}finally {
+			this.setCurentOperation(null);
+	        this.setMotif(null);
+		}
+    }
+    public void reqSortirRefuser(OpSortieArticle operation)
+    {
+        try {
+			usermetierimpl.reqSortirRefuser(operation,getMotif());
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			FacesContext context = FacesContext.getCurrentInstance();
 			context.addMessage("myerror", new FacesMessage("Erreur refuser","L'article n'a pas pu être sortie car: "+e.getMessage()) );
             //context.addMessage(null, new FacesMessage("Second Message", "Additional Message Detail"));
     		System.out.println("erreur valider sortie article");
     		e.printStackTrace(System.out);
 			System.out.println(e.getMessage());
 			e.printStackTrace();
+		}finally {
+			this.setCurentOperation(null);
+	        this.setMotif(null);
 		}
     }
 
