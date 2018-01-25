@@ -1038,7 +1038,7 @@ public class UserMetier implements IUserMetier {
 
 		Agent beneficiaire = sortieart.getBeneficiaire();
 		a.setBeneficiaire(beneficiaire);
-
+		a.setValidation(false);
 		artreops.save(a);
 		sortieart.valider();
 		// oprepos.save(attr);

@@ -687,16 +687,6 @@ public class GACBean {
         this.setNomenclatureP(nomenclatureP);
     }
 
-    public void validateArticleENouv(OpEntreeArticle operation)
-    {
-        usermetierimpl.entrerArticle(operation);
-    }
-
-    public void validateSortieArticleNouv(OpSortieArticle operation) throws Exception {
-        usermetierimpl.sortirArticle(operation);
-    }
-
-
     public void validateSortieArticleEx(OpSortieArticle operation) throws Exception {
         usermetierimpl.sortirArticle(operation);
     }
@@ -822,11 +812,32 @@ public class GACBean {
             
 			context.addMessage("myerror", new FacesMessage("Erreur refuser","L'article n'a pas pu être validée car: "+e1.getMessage()) );
             //context.addMessage(null, new FacesMessage("Second Message", "Additional Message Detail"));
-    		System.out.println("erreur valider Détachement");
+    		System.out.println("erreur refuser article");
     		e1.printStackTrace(System.out);
 			System.out.println(e1.getMessage());
 			e1.printStackTrace();
 		}
     }
+    public void validateArticleENouv(OpEntreeArticle operation)
+    {
+        usermetierimpl.entrerArticle(operation);
+    }
+
+    public void validateSortieArticleNouv(OpSortieArticle operation){
+        try {
+			usermetierimpl.sortirArticle(operation);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+FacesContext context = FacesContext.getCurrentInstance();
+            
+			context.addMessage("myerror", new FacesMessage("Erreur refuser","L'article n'a pas pu être sortie car: "+e.getMessage()) );
+            //context.addMessage(null, new FacesMessage("Second Message", "Additional Message Detail"));
+    		System.out.println("erreur valider sortie article");
+    		e.printStackTrace(System.out);
+			System.out.println(e.getMessage());
+			e.printStackTrace();
+		}
+    }
+
 }
 //r
