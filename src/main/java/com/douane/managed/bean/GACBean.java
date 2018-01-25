@@ -645,9 +645,9 @@ public class GACBean {
     public void reqSortirArtAModifier() throws Exception {
         usermetierimpl.reqSortirArtAModifier(getOpSortieArticle(),getMotif());
     }
-    public void reqArtRefuser() throws  Exception{
+    /*public void reqArtRefuser() throws  Exception{
         usermetierimpl.reqArtRefuser(getOpEntreeArticle(),getMotif());
-    }
+    }*/
     public void reqSortirRefuser() throws Exception
     {
         usermetierimpl.reqSortirRefuser(getOpSortieArticle(),getMotif());
@@ -813,6 +813,20 @@ public class GACBean {
         return datetime + ".zip";
     }
 
-
+    public void reqArtRefuserE(OpEntreeArticle e) {
+    	try {
+			usermetierimpl.reqArtRefuser(e, this.getMotif());
+		} catch (Exception e1) {
+			// TODO Auto-generated catch block
+			FacesContext context = FacesContext.getCurrentInstance();
+            
+			context.addMessage("myerror", new FacesMessage("Erreur refuser","L'article n'a pas pu être validée car: "+e1.getMessage()) );
+            //context.addMessage(null, new FacesMessage("Second Message", "Additional Message Detail"));
+    		System.out.println("erreur valider Détachement");
+    		e1.printStackTrace(System.out);
+			System.out.println(e1.getMessage());
+			e1.printStackTrace();
+		}
+    }
 }
 //r
