@@ -304,7 +304,7 @@
 
             <p:outputPanel id="testContainer">
 
-                <c:if test="#{depositaireBean.filedownload eq null}" >
+                <!--c:if test="#{depositaireBean.filedownload eq null}" -->
 
                 <p:dataTable id="docId" var="row"
                              value="#{depositaireBean.documentList}" editable="true"
@@ -333,7 +333,7 @@
 
                 </p:dataTable>
 
-            </c:if>
+            <!--/c:if-->
                 <!-- **IMAGE UPLOAD** -->
                 <p:dataTable id="imId" var="rowIm"
                              value="#{depositaireBean.imageList}" editable="true"

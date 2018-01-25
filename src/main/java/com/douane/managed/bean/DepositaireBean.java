@@ -331,7 +331,7 @@ public class DepositaireBean {
 
 		if(getIdMat()!=null){
 			fileZipPath = usermetierimpl.getMatById(getIdMat()).getDocumentPath();//
-			RequestFilter.getSession().setAttribute("fileZipPath",fileZipPath);
+			//RequestFilter.getSession().setAttribute("fileZipPath",fileZipPath);
 			return usermetierimpl.getMatById(getIdMat()).getDocumentPath();
 		}
 		else{
@@ -1276,6 +1276,9 @@ public class DepositaireBean {
 		listMaterielForOpEntree.add(m);
 		System.out.println("added to list");
 		clear();
+		this.documentList = initialize();
+		this.imageList = initializeImageFile();
+		this.documentFacList = initializeFacFile();
 		return null;
 		//PrimeFaces.current().resetInputs("form:panel");
 		//listMaterielForOpEntree.add(getMatForEntree());
@@ -1389,6 +1392,9 @@ public class DepositaireBean {
 			RequestFilter.getSession().setAttribute("documentList",null);
 			RequestFilter.getSession().setAttribute("imageList",null);
 			listMaterielForOpEntree = null;
+			this.documentList = initialize();
+			this.imageList = initializeImageFile();
+			this.documentFacList = initializeFacFile();
 			return SUCCESS;
 		}
 		catch(JDBCException jdbce){
@@ -1508,7 +1514,7 @@ public class DepositaireBean {
 			OpEntree opEntree = usermetierimpl.reqEntrerMateriel(listMaterielForOpEntree, agent, getFacturePath(), getRefFacture());
 
 			listMaterielForOpEntree = null;
-
+			clear();
 			return SUCCESS;
 		}
 		catch(Exception e){
@@ -2000,17 +2006,17 @@ public class DepositaireBean {
 	}
 
 	public StreamedContent getFiledownload() throws IOException {
-		if(RequestFilter.getSession().getAttribute("fileZipPath") == null || RequestFilter.getSession().getAttribute("fileZipPath") == "")
+		if(getFileZipPath() == null || getFileZipPath() == "")
 			return null;
 		try
 		{
-			FileInputStream fstream = new FileInputStream((String) RequestFilter.getSession().getAttribute("fileZipPath"));
+			FileInputStream fstream = new FileInputStream(getFileZipPath());
 			if (fstream == null)
 				return null;
 			if (fstream.getChannel().size() == 0)
 				return null;
 
-			InputStream stream = new FileInputStream((String) RequestFilter.getSession().getAttribute("fileZipPath"));
+			InputStream stream = new FileInputStream(getFileZipPath());
 			fileZipSize = stream.available();
 			filedownload = new DefaultStreamedContent(stream,
 					"application/zip", "doc.zip");
