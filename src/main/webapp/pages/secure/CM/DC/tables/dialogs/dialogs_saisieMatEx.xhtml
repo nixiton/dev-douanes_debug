@@ -23,33 +23,33 @@
 
                     <tr>
                         <td><strong>ID</strong></td>
-                        <td>#{depositaireBean.curentMateriel.idMateriel}</td>
+                        <td>#{depositaireBean.curentMaterielEx.idMateriel}</td>
                         <td></td>
                         <td><strong>Caractéristiques</strong></td>
-                        <td>#{depositaireBean.curentMateriel.renseignement}</td>
+                        <td>#{depositaireBean.curentMaterielEx.renseignement}</td>
                     </tr>
                     <tr>
                         <td><strong>Prix Unitaire</strong></td>
-                        <td>#{depositaireBean.curentMateriel.pu}</td>
+                        <td>#{depositaireBean.curentMaterielEx.pu}</td>
                         <td></td>
                         <td><strong>Marque</strong></td>
-                        <td>#{depositaireBean.curentMateriel.marque.designation}</td>
+                        <td>#{depositaireBean.curentMaterielEx.marque.designation}</td>
 
                     </tr>
                     <tr>
                         <td><strong>Référence</strong></td>
-                        <td>#{depositaireBean.curentMateriel.reference}</td>
+                        <td>#{depositaireBean.curentMaterielEx.reference}</td>
                         <td></td>
                         <td><strong>Dépositaire</strong></td>
-                        <td>#{depositaireBean.curentMateriel.dc.im}</td>
+                        <td>#{depositaireBean.curentMaterielEx.dc.im}</td>
                     </tr>
                     <tr>
                         <td><strong>Numéro de série</strong></td>
-                        <td>#{depositaireBean.curentMateriel.numSerie}</td>
+                        <td>#{depositaireBean.curentMaterielEx.numSerie}</td>
                         <td></td>
                         <td><strong>Document</strong></td>
                         <td>
-                            <!--h:outputLink value="/pages/secure/CM/DC/#{depositaireBean.curentMateriel.documentPath}"  target="_blank">
+                            <!--h:outputLink value="/pages/secure/CM/DC/#{depositaireBean.curentMaterielEx.documentPath}"  target="_blank">
                                 <i class="fa fa-file-archive-o"></i>
                             </h:outputLink-->
 
@@ -69,46 +69,46 @@
                     </tr>
                     <tr>
                         <td><strong>Autre</strong></td>
-                        <td>#{depositaireBean.curentMateriel.autre}</td>
+                        <td>#{depositaireBean.curentMaterielEx.autre}</td>
                         <td></td>
                         <td><strong>Image</strong></td>
                         <td>
-                            <p:panel rendered="#{depositaireBean.curentMateriel.image != null}">
-                                <h:graphicImage url="data:image/jpg;base64,#{depositaireBean.curentMateriel.image}"
+                            <p:panel rendered="#{depositaireBean.curentMaterielEx.image != null}">
+                                <h:graphicImage url="data:image/jpg;base64,#{depositaireBean.curentMaterielEx.image}"
                                                 width="275px" height="75px"></h:graphicImage>
                             </p:panel>
                         </td>
                     </tr>
                     <tr>
                         <td><strong>Type de materiel - Nomenclature</strong></td>
-                        <td>#{depositaireBean.curentMateriel.typematerieladd} - #{depositaireBean.curentMateriel.nomenMat.nomenclature}</td>
+                        <td>#{depositaireBean.curentMaterielEx.typematerieladd} - #{depositaireBean.curentMaterielEx.nomenMat.nomenclature}</td>
                         <td></td>
                         <td><strong>Etat</strong></td>
-                        <td>#{depositaireBean.curentMateriel.etat.designation}</td>
+                        <td>#{depositaireBean.curentMaterielEx.etat.designation}</td>
                         
                         
                     </tr>
                     <tr>
                     	<td><strong>Année d'Acquisition</strong></td>
-                        <td>#{depositaireBean.curentMateriel.anneeAcquisition}</td>
+                        <td>#{depositaireBean.curentMaterielEx.anneeAcquisition}</td>
                         <td></td>
                         <td><strong>Detenteur</strong></td>
-                        <td>#{depositaireBean.curentMateriel.detenteur.nomAgent}</td>
+                        <td>#{depositaireBean.curentMaterielEx.detenteur.nomAgent}</td>
                         
                     </tr>
                     <tr>
                     	<td><strong>Codification</strong></td>
-                        <td>#{depositaireBean.curentMateriel.code}</td>
+                        <td>#{depositaireBean.curentMaterielEx.code}</td>
                         <td><strong>Origine</strong></td>
-                        <td>#{depositaireBean.curentMateriel.origine}</td>
+                        <td>#{depositaireBean.curentMaterielEx.origine}</td>
                     </tr>
                     <tr>
                     	<td><strong>QRCODE</strong></td>
                         <td>           					
-            				<p:barcode value="${depositaireBean.curentMateriel.direc.designation}/ 
-            				${depositaireBean.curentMateriel.typematerieladd.designation  } /
+            				<p:barcode value="${depositaireBean.curentMaterielEx.direc.designation}/ 
+            				${depositaireBean.curentMaterielEx.typematerieladd.designation  } /
             				NUM1 /
-            				${depositaireBean.curentMateriel.anneeAcquisition}/" type="qr"/>
+            				${depositaireBean.curentMaterielEx.anneeAcquisition}/" type="qr"/>
            				</td>
                     </tr>
                     <tr>

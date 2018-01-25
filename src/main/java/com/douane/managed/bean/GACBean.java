@@ -58,7 +58,7 @@ public class GACBean {
     @ManagedProperty(value="#{usermetier}")
     IUserMetier usermetierimpl;
 
-    
+
     //@ManagedProperty(value="#{suivieditionBean}")
     //private SuiviEditionBean suivibean;
     

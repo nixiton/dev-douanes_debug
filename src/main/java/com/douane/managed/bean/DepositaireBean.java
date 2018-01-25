@@ -2313,5 +2313,30 @@ public class DepositaireBean {
 	}
 
 
+	//DEBUG ERREUR CURRENT MATERIEL
+	private MaterielEx curentMaterielEx;
+	public Materiel getCurentMaterielEx()
+	{
+		return curentMaterielEx;
+	}
+
+	public void setCurentMaterielEx(MaterielEx curentMaterielEx) {
+		RequestFilter.getSession().setAttribute("fileZipPath",curentMaterielEx.getDocumentPath());
+		this.curentMaterielEx = curentMaterielEx;
+		this.setIdMat(curentMaterielEx.getIdMateriel());
+	}
+
+
+	private MaterielNouv curentMaterielNouv;
+	public Materiel getCurentMaterielNouv()
+	{
+		return curentMaterielNouv;
+	}
+
+	public void setCurentMaterielNouv(MaterielNouv curentMaterielNouv) {
+		RequestFilter.getSession().setAttribute("fileZipPath",curentMaterielNouv.getDocumentPath());
+		this.curentMaterielNouv = curentMaterielNouv;
+		this.setIdMat(curentMaterielNouv.getIdMateriel());
+	}
 
 }

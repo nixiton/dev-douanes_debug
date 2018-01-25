@@ -102,7 +102,7 @@
             <f:facet name="header">
                 <h:outputText value="Détail" />
             </f:facet>
-            <p:commandButton  action="#{depositaireBean.mySetCurentMateriel(materiel)}" 
+            <p:commandButton  action="#{depositaireBean.setCurentMaterielNouv(materiel)}"
             oncomplete="PF('detail').show()" icon="ui-icon-zoomin" update=":detail"/>
         </p:column>
     </p:dataTable>
