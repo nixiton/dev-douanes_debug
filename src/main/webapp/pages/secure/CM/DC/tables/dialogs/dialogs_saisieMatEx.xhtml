@@ -75,7 +75,8 @@
                         <td>
                             <p:panel rendered="#{depositaireBean.curentMaterielEx.image != null}">
                                 <h:graphicImage url="data:image/jpg;base64,#{depositaireBean.curentMaterielEx.image}"
-                                                width="275px" height="75px"></h:graphicImage>
+                                                width="275px" height="75px" title="#{depositaireBean.curentMaterielEx.reference}" >
+                                </h:graphicImage>
                             </p:panel>
                         </td>
                     </tr>
@@ -99,6 +100,7 @@
                     <tr>
                     	<td><strong>Codification</strong></td>
                         <td>#{depositaireBean.curentMaterielEx.code}</td>
+                        <td></td>
                         <td><strong>Origine</strong></td>
                         <td>#{depositaireBean.curentMaterielEx.origine}</td>
                     </tr>
