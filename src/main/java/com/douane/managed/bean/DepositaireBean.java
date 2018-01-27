@@ -1199,7 +1199,8 @@ public class DepositaireBean {
 		return ds;
 	}
 
-	public String addIntoListMateriel() throws IOException {
+	public String addIntoListMateriel() throws IOException
+	{
 		System.out.println("Add it into list materiel");
 		Agent agent = (Agent) RequestFilter.getSession().getAttribute("agent");
 
@@ -1275,10 +1276,9 @@ public class DepositaireBean {
 
 		listMaterielForOpEntree.add(m);
 		System.out.println("added to list");
-		clear();
+		clearPriseEnCharge();
 		this.documentList = initialize();
 		this.imageList = initializeImageFile();
-		this.documentFacList = initializeFacFile();
 		return null;
 		//PrimeFaces.current().resetInputs("form:panel");
 		//listMaterielForOpEntree.add(getMatForEntree());
@@ -1311,6 +1311,34 @@ public class DepositaireBean {
 		documentList = initialize();
 		imageList = initializeImageFile();
 		documentFacList = initializeFacFile();
+	}
+
+	public void clearPriseEnCharge() throws IOException {
+		this.setDetenteur(null);
+		this.setMaterielSeclected(null);
+		this.setNom(null);
+		this.setReferenceAutom(null);
+		this.setNumSerie(null);
+		this.setNomenclatureAutom(null);
+		this.setFinancement(null);
+		this.setAcquisition(null);
+		this.setUnitPrice(null);
+		this.setAnneeAcquisition(null);
+		this.setTypematerielToAdd(null);
+		this.setNomencl(null);
+		this.setMarq(null);
+		this.setReference(null);
+		this.setNumSerie(null);
+		this.setRenseignement(null);
+		this.setAutre(null);
+		this.setEtat(null);
+		this.setOrigine(null);
+		this.setEspeceUnite(null);
+		this.setMontantFac(null);
+		this.setRefFacture(null);
+		this.setFournisseur(null);
+		documentList = initialize();
+		imageList = initializeImageFile();
 	}
 	public String addMateriel() throws IOException
 	{

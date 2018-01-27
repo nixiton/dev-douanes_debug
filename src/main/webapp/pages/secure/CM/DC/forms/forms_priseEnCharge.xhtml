@@ -356,7 +356,37 @@
                         </p:panel>
                     </p:column>
 
+
+
+
+
                 </p:dataTable>
+
+                <!-- **FACTURE UPLOAD** -->
+
+                <p:dataTable id="facId" var="rowFac"
+                             value="#{depositaireBean.documentFacList}" editable="true"
+                             editMode="cell" widgetVar="documentTable">
+
+                    <p:column headerText="Facture upload">
+                        <p:panel rendered="#{!rowFac.uploaded}">
+                            <p:fileUpload value="#{depositaireBean.docFacture}"
+                                          fileUploadListener="#{depositaireBean.uploadFac_Advanced}"
+                                          mode="advanced" dragDropSupport="false" update="@this,facId"
+                                          allowTypes="/(\.|\/)(gif|jpeg|txt)$/" required="true">
+                                <f:attribute name="docObj" value="#{rowFac}"></f:attribute>
+                            </p:fileUpload>
+                        </p:panel>
+                        <p:panel rendered="#{rowFac.uploaded}">
+                            Doc  Uploaded       <p:commandLink
+                                title="remove" value="remove document"
+                                actionListener="#{depositaireBean.removeDocFac(rowFac)}" update="facId"
+                                ajax="true" process="@this" />
+                        </p:panel>
+                    </p:column>
+
+                </p:dataTable>
+
 
             </p:outputPanel>
             <p:commandButton value="Ajouter d\' autres documents" process="@this"
