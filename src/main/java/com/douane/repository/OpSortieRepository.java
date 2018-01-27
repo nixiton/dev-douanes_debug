@@ -12,6 +12,7 @@ public interface OpSortieRepository extends CrudRepository<OpSortie, Long>{
 	public List<OpSortie> findByDirection(Direction direction);
 	public List<OpSortie> findByMat(Materiel m);
 	public List<OpSortie> findByMatAndState(Materiel m, EtatOperation e);
+	public List<OpSortie> findByDirectionOrderByDateDesc(Direction direction);
 
 }
 

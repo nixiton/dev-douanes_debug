@@ -67,7 +67,7 @@ public class OperationBean {
         Date edate = new GregorianCalendar(year+1, Calendar.DECEMBER, 30).getTime();
         Agent agent = (Agent)RequestFilter.getSession().getAttribute("agent");
 		
-		this.setListOperations(usermetierimpl.getListOperationByDirectionByYearByDateAsc(agent.getDirection(), sdate, edate));
+		this.setListOperations(usermetierimpl.getListAllOperationByDirectionByYearByDateAsc(agent.getDirection(), sdate, edate));
 		return listOperations;
 	}
 

@@ -456,6 +456,32 @@ public class OperationDAOImpl implements IOperationDAO{
 
 		return operations;
 	}
+	@Override
+	public List<Operation> getListAllOperationByDirectionByYearByDateAsc(Direction d, Date startDate, Date endDate) {
+		// TODO Auto-generated method stub
+		System.out.println("List OpBYDBYYBDA Refused");
+		TypedQuery<Operation> query = em.createQuery("select o from Operation o "
+				+ " where o.date>=:startDate AND o.date<=:endDate"
+				+ " and o.direction =:direct"
+	       		+ " order by o.date desc "
+	       		,Operation.class);
+		query.setParameter("direct", d);
+		query.setParameter("startDate", startDate, TemporalType.DATE);
+		query.setParameter("endDate", endDate, TemporalType.DATE);
+		   
+	    List<Operation> operations = query.getResultList();
+
+
+
+	    System.out.println("******************************************************************************operations :"+operations.size());
+		
+	    for(Operation o : operations)
+			{
+					System.out.println(o.getClass());
+			}
+
+		return operations;
+	}
 
 	@Override
 	public List<OpEntreeArticle> getListOpEntreeArtByValideByDirection(EtatOperation etat, Direction direction,

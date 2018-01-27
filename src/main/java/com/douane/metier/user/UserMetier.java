@@ -687,7 +687,7 @@ public class UserMetier implements IUserMetier {
 	@Override
 	public List<Operation> getListOpByDirection(Direction direction) {
 		// TODO Auto-generated method stub
-		return oprepos.findByDirection(direction);
+		return oprepos.findByDirectionOrderByIdDesc(direction);
 	}
 
 	@Override
@@ -699,7 +699,7 @@ public class UserMetier implements IUserMetier {
 	@Override
 	public List<OpSortie> getListOpSortieByDirection(Direction direction) {
 		// TODO Auto-generated method stub
-		return opsortierepos.findByDirection(direction);
+		return opsortierepos.findByDirectionOrderByDateDesc(direction);
 	}
 
 	@Override
@@ -836,13 +836,13 @@ public class UserMetier implements IUserMetier {
 	@Override
 	public List<OpAttribution> getListOpAttrByDirection(Direction direction) {
 		// TODO Auto-generated method stub
-		return opattrrepos.findByDirection(direction);
+		return opattrrepos.findByDirectionOrderByDateDesc(direction);
 	}
 
 	@Override
 	public List<OpDettachement> getListOpDettByDirection(Direction direction) {
 		// TODO Auto-generated method stub
-		return opdettrepos.findByDirection(direction);
+		return opdettrepos.findByDirectionOrderByDateDesc(direction);
 	}
 
 	@Override
@@ -1125,6 +1125,11 @@ public class UserMetier implements IUserMetier {
 	public List<Operation> getListOperationByDirectionByYearByDateAsc(Direction d, Date startDate, Date endDate) {
 		// TODO Auto-generated method stub
 		return operationdao.getListOperationByDirectionByYearByDateAsc(d, startDate, endDate);
+	}
+	@Override
+	public List<Operation> getListAllOperationByDirectionByYearByDateAsc(Direction d, Date startDate, Date endDate) {
+		// TODO Auto-generated method stub
+		return operationdao.getListAllOperationByDirectionByYearByDateAsc(d, startDate, endDate);
 	}
 
 	@Override

@@ -19,6 +19,9 @@
             <f:facet name="header">ID</f:facet>
             #{d.id}
         </p:column>
+        <p:column headerText="Date">
+        	<h:outputText value="#{d.date} #{d.time}" />
+        </p:column>
         <p:column>
             <f:facet name="header">Détenteur</f:facet>
             #{d.detenteur.im}

@@ -35,7 +35,7 @@
                             <p:column>
                             <h:outputText value="#{t.im}" />
                         	</p:column>
-                            <p:ajax process="@this" event="change" listener="#{depositaireBean.mySetCurrentListMateriel}" update="mat,@this,nom,prenom"/>
+                            <p:ajax process="@this" event="change" listener="#{depositaireBean.mySetCurrentListMateriel}" update="mat,@this,nom"/>
                         </p:selectOneMenu>
 
                 <hr></hr>
@@ -61,7 +61,7 @@
                 
 
 
-                <label for="text1" class="control-label col-lg-4">Prénom
+                <!-- label for="text1" class="control-label col-lg-4">Prénom
                 </label>
 
                 <div class="col-lg-6">
@@ -71,7 +71,7 @@
 
                 <hr></hr>
 
-                </div>
+                </div-->
                 
                 <!-- DETENTEUR AMBINY -->
                 
@@ -104,7 +104,7 @@
                         <p:column>
                             <h:outputText value="#{t.numSerie}" />
                         </p:column>
-                        <p:ajax event="change" update="marque ref num" listener="#{depositaireBean.onChangeMateriel}"/>
+                        <p:ajax event="change" update="marque ref num codification" listener="#{depositaireBean.onChangeMateriel}"/>
                     </p:selectOneMenu>
 
                 <hr></hr>
@@ -143,6 +143,17 @@
                 <div class="col-lg-6">
 
                     <h:outputText id="ref"  value="#{depositaireBean.referenceAutom}" ></h:outputText>
+
+                    <hr></hr>
+
+                </div>
+                
+                <label for="text1" class="control-label col-lg-4">Codification
+                </label>
+
+                <div class="col-lg-6">
+
+                    <h:outputText id="codification"  value="#{depositaireBean.codificationAutom}" ></h:outputText>
 
                     <hr></hr>
 
