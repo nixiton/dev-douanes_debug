@@ -693,7 +693,7 @@ public class UserMetier implements IUserMetier {
 	@Override
 	public List<OpEntree> getListOpEntreeByDirection(Direction direction) {
 		// TODO Auto-generated method stub
-		return opentreerepos.findByDirection(direction);
+		return opentreerepos.findByDirectionOrderByDateDesc(direction);
 	}
 
 	@Override
@@ -1096,7 +1096,7 @@ public class UserMetier implements IUserMetier {
 		// TODO Auto-generated method stub
 		// return materielNouvRepository.findByValidation(true);
 		Agent agent = (Agent) RequestFilter.getSession().getAttribute("agent");
-		return materielNouvRepository.findByValidationAndDirec(true, agent.getDirection());
+		return materielNouvRepository.findByValidationAndDirecOrderByIdMaterielDesc(true, agent.getDirection());
 		// return materielNouvRepository.findByValidationAndAModifier(true, true);
 	}
 

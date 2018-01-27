@@ -284,7 +284,7 @@
 
 
 
-                    <p:column headerText="Doc upload">
+                    <p:column headerText="Enregistrement Document(s)">
                         <p:panel rendered="#{!row.uploaded}">
                             <p:fileUpload value="#{depositaireBean.document}"
                                           fileUploadListener="#{depositaireBean.uploadDoc_Advanced}"
@@ -294,7 +294,7 @@
                             </p:fileUpload>
                         </p:panel>
                         <p:panel rendered="#{row.uploaded}">
-                            Doc  Uploaded       <p:commandLink
+                            Document  Transféré      <p:commandLink
                                 title="remove" value="remove document"
                                 actionListener="#{depositaireBean.removeDoc(row)}" update="docId"
                                 ajax="true" process="@this" />
@@ -309,7 +309,7 @@
                              value="#{depositaireBean.imageList}" editable="true"
                              editMode="cell" widgetVar="documentTable">
 
-                    <p:column headerText="Image upload">
+                    <p:column headerText="Image">
                         <p:panel rendered="#{!rowIm.uploaded}">
                             <p:fileUpload value="#{depositaireBean.byteDoc}"
                                           fileUploadListener="#{depositaireBean.uploadIm_Advanced}"
@@ -319,7 +319,7 @@
                             </p:fileUpload>
                         </p:panel>
                         <p:panel rendered="#{rowIm.uploaded}">
-                            Doc  Uploaded       <p:commandLink
+                            Image transféré      <p:commandLink
                                 title="remove" value="remove document"
                                 actionListener="#{depositaireBean.removeDoc(rowIm)}" update="imId"
                                 ajax="true" process="@this" />
