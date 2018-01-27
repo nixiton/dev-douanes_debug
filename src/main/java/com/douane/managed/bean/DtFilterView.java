@@ -84,5 +84,19 @@ public class DtFilterView implements Serializable{
 	public void setEtats(List<EtatOperation> etats) {
 		this.etats = etats;
 	}
+	public String getOperationName(Class op) {
+		if(op ==OpEntree.class) {
+			return "Opération Entrée";
+		}else if(op==OpSortie.class) {
+			return "Opération Sortie";
+		}else if(op==OpSaisie.class) {
+			return "Saisie de référentiel";
+		}else if(op==OpAttribution.class) {
+			return "Opération attribution";
+		}else if(op==OpDettachement.class) {
+			return "Opération Déttachement";
+		}
+		return "";
+	}
 
 }
