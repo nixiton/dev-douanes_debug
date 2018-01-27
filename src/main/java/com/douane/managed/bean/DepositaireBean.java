@@ -1285,6 +1285,14 @@ public class DepositaireBean {
 	}
 
 	public void clear() throws IOException {
+
+		this.setAgentDest(null);
+		this.setPrix(null);
+		this.setNombre(null);
+		this.setRenseignement(null);
+		this.setCodeArticle(null);
+
+
 		this.setDetenteur(null);
 		this.setMaterielSeclected(null);
 		this.setNom(null);
@@ -2149,44 +2157,67 @@ public class DepositaireBean {
 
 	public String addArticleEx()
 	{
-		ArticleEx a = new ArticleEx();
+		try {
+			clear();
+			ArticleEx a = new ArticleEx();
 
-		Agent agent = (Agent)RequestFilter.getSession().getAttribute("agent");
-		a.setCodeArticle(getCodeArticle());
-		a.setMarqueArticle(getMarq());
-		a.setCaracteristiqueArticle(getRenseignement());
+			Agent agent = (Agent)RequestFilter.getSession().getAttribute("agent");
+			a.setCodeArticle(getCodeArticle());
+			a.setMarqueArticle(getMarq());
+			a.setCaracteristiqueArticle(getRenseignement());
 
-		a.setDirecArt(agent.getDirection());
-		a.setValidation(true);
+			a.setDirecArt(agent.getDirection());
+			a.setValidation(true);
 
-		a.setNombre(getNombre());
+			a.setNombre(getNombre());
 
-		//a.setTypeObjet(getTypeObjet());
-		OpEntreeArticle oeart=usermetierimpl.reqEntrerArticle(a,agent);
-		usermetierimpl.entrerArticle(oeart);
+			//a.setTypeObjet(getTypeObjet());
+			OpEntreeArticle oeart=usermetierimpl.reqEntrerArticle(a,agent);
+			usermetierimpl.entrerArticle(oeart);
+
+		}
+			catch (IOException e) {
+				FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Error file not found", "Facture's file not found ");
+				FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Facture's file not found "));
+				listMaterielForOpEntree = null;
+				FacesContext.getCurrentInstance().addMessage(null, message);
+				return null;
+			}
+
 		return SUCCESS;
 	}
 
 
 	public String addArticleNouv()
 	{
+		try
+		{
 		ArticleNouv a = new ArticleNouv();
 
 		Agent agent = (Agent)RequestFilter.getSession().getAttribute("agent");
-		a.setCodeArticle(getCodeArticle());
-		a.setFournisseur(getFournisseur());
-		a.setPrix(getPrix());
-		a.setFinancementArt(getFinancement());
+			a.setCodeArticle(getCodeArticle());
+			a.setFournisseur(getFournisseur());
+			a.setPrix(getPrix());
+			a.setFinancementArt(getFinancement());
 
-		a.setDirecArt(agent.getDirection());
+			a.setDirecArt(agent.getDirection());
 
-		a.setMarqueArticle(getMarq());
-		a.setCaracteristiqueArticle(getRenseignement());
-		//a.setModAcq(getAcquisition());
+			a.setMarqueArticle(getMarq());
+			a.setCaracteristiqueArticle(getRenseignement());
+			//a.setModAcq(getAcquisition());
 
-		a.setNombre(getNombre());
+			a.setNombre(getNombre());
 
-		usermetierimpl.reqEntrerArticle(a,agent);
+			usermetierimpl.reqEntrerArticle(a,agent);
+			clear();
+		}
+			catch (IOException e) {
+			FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Error file not found", "Facture's file not found ");
+			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Facture's file not found "));
+			listMaterielForOpEntree = null;
+			FacesContext.getCurrentInstance().addMessage(null, message);
+			return null;
+		}
 		return SUCCESS;
 	}
 
