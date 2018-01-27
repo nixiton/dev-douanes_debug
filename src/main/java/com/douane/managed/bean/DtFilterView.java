@@ -12,6 +12,7 @@ import javax.faces.bean.ViewScoped;
 import com.douane.entite.Agent;
 import com.douane.entite.EtatMateriel;
 import com.douane.entite.Financement;
+import com.douane.entite.Materiel;
 import com.douane.entite.OpAttribution;
 import com.douane.entite.OpDettachement;
 import com.douane.entite.OpEntree;
@@ -32,6 +33,7 @@ public class DtFilterView implements Serializable{
 	 private List<Agent> operateurs;
      
 	 private List<Operation> filteredOperations;
+	 private List<Materiel> filteredMateriels;
 	 
 	 @ManagedProperty(value="#{usermetier}")
 	IUserMetier usermetierimpl;
@@ -116,6 +118,14 @@ public class DtFilterView implements Serializable{
 
 	public void setOperateurs(List<Agent> operateurs) {
 		this.operateurs = operateurs;
+	}
+
+	public List<Materiel> getFilteredMateriels() {
+		return filteredMateriels;
+	}
+
+	public void setFilteredMateriels(List<Materiel> filteredMateriels) {
+		this.filteredMateriels = filteredMateriels;
 	}
 
 }
