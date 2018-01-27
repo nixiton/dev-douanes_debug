@@ -773,9 +773,10 @@ public class UserMetier implements IUserMetier {
 
 	@Override
 	public List<MaterielEx> getListMatEx() {
-		Agent agent = (Agent) RequestFilter.getSession().getAttribute("agent");
 		// return (List<MaterielEx>) materielExRepository.findAll();
-		return (List<MaterielEx>) materielExRepository.findByDirec(agent.getDirection());
+		Agent agent = (Agent) RequestFilter.getSession().getAttribute("agent");
+		System.out.println("gegt list materiel by direction");
+		return (List<MaterielEx>) materielExRepository.findByDirecOrderByIdMaterielDesc(agent.getDirection());
 	}
 
 	@Override

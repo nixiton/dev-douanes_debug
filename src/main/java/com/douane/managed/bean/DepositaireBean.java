@@ -1308,6 +1308,7 @@ public class DepositaireBean {
 		this.setMontantFac(null);
 		this.setRefFacture(null);
 		this.setFournisseur(null);
+		
 		documentList = initialize();
 		imageList = initializeImageFile();
 		documentFacList = initializeFacFile();

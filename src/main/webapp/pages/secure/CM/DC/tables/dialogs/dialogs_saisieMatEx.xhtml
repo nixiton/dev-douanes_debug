@@ -49,10 +49,6 @@
                         <td></td>
                         <td><strong>Document</strong></td>
                         <td>
-                            <!--h:outputLink value="/pages/secure/CM/DC/#{depositaireBean.curentMaterielEx.documentPath}"  target="_blank">
-                                <i class="fa fa-file-archive-o"></i>
-                            </h:outputLink-->
-
                             <c:if test="#{depositaireBean.filedownload ne null}" >
                                 <h:form>
                                     <p:commandButton id="downloadLink" value="Download" ajax="false" icon="ui-icon-document">

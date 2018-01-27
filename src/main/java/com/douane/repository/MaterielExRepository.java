@@ -11,4 +11,6 @@ import java.util.List;
  */
 public interface MaterielExRepository extends CrudRepository<MaterielEx, Long> {
 	public List<MaterielEx> findByDirec(Direction direc);
+	public List<MaterielEx> findByDirecOrderByIdMaterielDesc(Direction direc);
+	public List<MaterielEx> findByDirecOrderByIdMaterielAsc(Direction direc);
 }

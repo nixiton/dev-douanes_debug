@@ -15,6 +15,7 @@
                  paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}  "
                  paginator="true" rows="30" style="margin-bottom:20px"
                  emptyMessage="Aucun resultat" filteredValue="#{dtFilterView.filteredOperations}"
+                 sortBy="#{c.date}"
                  >
 		<f:facet name="header">
             <p:outputPanel>
@@ -29,13 +30,9 @@
                 <p:dataExporter type="pdf" target="tbl" fileName="mesOperations"/>
             </h:commandLink>
         </f:facet-->
-
-		<p:column>
-			<f:facet name="header">
-				<h:outputText value="Date" />
-			</f:facet>
-			<h:outputText value="#{c.date}  #{c.time}" />
-		</p:column>
+         <p:column headerText="Date">
+            <h:outputText value="#{c.date} #{c.time}" />
+        </p:column>
 
 		<p:column>
 			<f:facet name="header">
@@ -55,7 +52,7 @@
         </p:column>
 
 
-        <p:column headerText="Opérateur">
+        <p:column headerText="Opérateur" groupRow="true">
             <h:outputText value="#{c.operateur.im}" />
         </p:column>
 
