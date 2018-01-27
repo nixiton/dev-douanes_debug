@@ -118,11 +118,13 @@
 
                 <div class="col-lg-6">
 
-                    <p:inputText id="caratceristique" required="true"
+                    <!-- p:inputText id="caratceristique" required="true"
                         value="#{depositaireBean.renseignement}"
                         requiredMessage=""
-                        placeholder="Caractéristiques" styleClass="form-control top"></p:inputText>
-
+                        placeholder="Caractéristiques" styleClass="form-control top"></p:inputText-->
+					<p:inputTextarea value="#{depositaireBean.renseignement}" rows="5" cols="20" counter="display" maxlength="250" counterTemplate="{0} restants." autoResize="false" />
+    						<h:outputText id="display" />
+                        <hr></hr>
                 <hr></hr>
 
                 </div>
@@ -312,17 +314,17 @@
 
 
 
-                    <p:column headerText="Doc upload">
+                    <p:column headerText="Enregistrement Document(s)">
                         <p:panel rendered="#{!row.uploaded}">
                             <p:fileUpload value="#{depositaireBean.document}"
                                           fileUploadListener="#{depositaireBean.uploadDoc_Advanced}"
                                           mode="advanced" dragDropSupport="false" update="@this,docId"
-                                          allowTypes="/(\.|\/)(gif|jpeg|txt|png|pdf)$/">
+                                          allowTypes="/(\.|\/)(gif|jpeg|txt|png|pdf|doc|docx)$/">
                                 <f:attribute name="docObj" value="#{row}"></f:attribute>
                             </p:fileUpload>
                         </p:panel>
                         <p:panel rendered="#{row.uploaded}">
-                            Doc  Uploaded       <p:commandLink
+                            Document  Transféré       <p:commandLink
                                 title="remove" value="remove document"
                                 actionListener="#{depositaireBean.removeDoc(row)}" update="docId"
                                 ajax="true" process="@this" />
@@ -339,7 +341,7 @@
                              value="#{depositaireBean.imageList}" editable="true"
                              editMode="cell" widgetVar="documentTable">
 
-                    <p:column headerText="Image upload">
+                    <p:column headerText="Image">
                         <p:panel rendered="#{!rowIm.uploaded}">
                             <p:fileUpload value="#{depositaireBean.byteDoc}"
                                           fileUploadListener="#{depositaireBean.uploadIm_Advanced}"
@@ -349,7 +351,7 @@
                             </p:fileUpload>
                         </p:panel>
                         <p:panel rendered="#{rowIm.uploaded}">
-                            Doc  Uploaded       <p:commandLink
+                            Image transféré       <p:commandLink
                                 title="remove" value="remove document"
                                 actionListener="#{depositaireBean.removeDoc(rowIm)}" update="imId"
                                 ajax="true" process="@this" />
@@ -389,7 +391,7 @@
 
 
             </p:outputPanel>
-            <p:commandButton value="Ajouter d\' autres documents" process="@this"
+            <p:commandButton value="Ajouter d'autres documents" process="@this"
                              update="docId" actionListener="#{depositaireBean.addNewDoc}"
                              ajax="true" />
             <!-- *********************************FILE UPLOAD ****************************************************-->
@@ -400,18 +402,17 @@
                 
 
 
-                <div class="col-lg-2"></div>
+                <div class="col-lg-2">
+                <label for="text1" class="control-label col-lg-4"></label></div>
 
 
             <div class="form-group">
-                <label for="text1" class="control-label col-lg-4"></label>
-
                 <div class="col-lg-4">
                     <h:commandButton id="btnSignId" action="#{depositaireBean.addIntoListMateriel}" value="Suivant"
                         class="btn btn-lg btn-primary btn-block" update="@form"/>
                 </div>
                 <div class="col-lg-4">
-                    <h:commandButton  action="#{depositaireBean.addPriseEncharge}" value="Ajouter la liste"
+                    <h:commandButton  action="#{depositaireBean.addPriseEncharge}" value="Enregistrer"
                         class="btn btn-lg btn-primary btn-block"/>
                 </div>
 

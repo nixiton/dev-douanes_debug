@@ -11,60 +11,116 @@
 
 <h:head></h:head>
 
+
 <div   class="body collapse in table-responsive">
 
-    <p:dataTable   var="t" value="#{suivieditionBean.listOperatoinByDirection}"
+ 
+<h:form>
+    <p:dataTable var="c" value="#{suivieditionBean.listOperatoinByDirection}" 
+    			 widgetVar="operationsTable"
                  paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}  "
-                 paginator="true" rows="10" style="margin-bottom:20px">
-        <p:column>
-            <f:facet name="header">ID</f:facet>
-            #{t.id}
+                 paginator="true" rows="30" style="margin-bottom:20px"
+                 emptyMessage="Aucun resultat" filteredValue="#{dtFilterView.filteredOperations}"
+                 >
+		<f:facet name="header">
+            <p:outputPanel>
+                <h:outputText value="Rechercher:" />
+                <p:inputText id="globalFilter" onkeyup="PF('operationsTable').filter()" style="width:150px" placeholder="Rechercher"/>
+            </p:outputPanel>
+        </f:facet>
+		<!--f:facet name=" ">
+ 
+            <h:commandLink>
+                <h:outputText value="PDF" />
+                <p:dataExporter type="pdf" target="tbl" fileName="mesOperations"/>
+            </h:commandLink>
+        </f:facet-->
+         <p:column headerText="Date">
+            <h:outputText value="#{c.date} #{c.time}" />
         </p:column>
-        <p:column>
-        <f:facet name="header">Date</f:facet>
-            #{t.date}
-        </p:column>
-        <p:column>
-            <f:facet name="header">Heure</f:facet>
-            #{t.time}
-        </p:column>
-        <p:column>
-            <f:facet name="header">Poste</f:facet>
-            #{t.poste}
-        </p:column>
-        <p:column>
-            <f:facet name="header">Opérateur</f:facet>
-            #{t.operateur.im}
-        </p:column>
-        <p:column>
-            <f:facet name="header">Etat</f:facet>
-            #{t.state}
-        </p:column>
-        <p:column>
-            <f:facet name="header">
-                <h:outputText value="Operation" />
+
+		<p:column>
+			<f:facet name="header">
+				<h:outputText value="Poste" />
+			</f:facet>
+			<h:outputText value="#{c.poste}" />
+		</p:column>
+		
+		<p:column filterBy="#{c.state}" headerText="Etat"  filterMatchMode="exact">
+			<f:facet name="filter">
+                <p:selectOneMenu onchange="PF('operationsTable').filter()" >
+                    <f:selectItem itemLabel="Selectioner" itemValue="#{null}" noSelectionOption="true" />
+                    <f:selectItems value="#{dtFilterView.etats}" />
+                </p:selectOneMenu>
             </f:facet>
-            <p:panel rendered="#{t['class'].simpleName eq 'OpEntree' }" >
+            <h:outputText value="#{c.state}" />
+        </p:column>
+
+
+        <p:column filterBy="#{c.operateur}" headerText="Opérateur" groupRow="true" filterMatchMode="exact">
+            <f:facet name="filter">
+                <p:selectOneMenu onchange="PF('operationsTable').filter()" >
+                    <f:selectItem itemLabel="Selectioner" itemValue="#{null}" noSelectionOption="true" />
+                    <f:selectItems value="#{dtFilterView.operateurs}" var="agent" itemLabel="#{agent.im}" />
+                </p:selectOneMenu>
+            </f:facet>
+            <h:outputText value="#{c.operateur.im}" />
+        </p:column>
+
+	
+		<p:column filterBy="#{c['class']}" headerText="Type Operation"  filterMatchMode="exact">
+			<f:facet name="filter">
+                <p:selectOneMenu onchange="PF('operationsTable').filter()" >
+                    <f:selectItem itemLabel="Selectioner" itemValue="#{null}" noSelectionOption="true" />
+                    <f:selectItems itemLabel="#{dtFilterView.getOperationName(o)}" var="o" value="#{dtFilterView.operations}" />
+                </p:selectOneMenu>
+            </f:facet>
+            <h:outputLink id="popuit" value="#">
+			
+			<p:panel rendered="#{c['class'].simpleName eq 'OpEntree' }">
             Saisie materiel
-        </p:panel>
-            <p:panel rendered="#{t['class'].simpleName eq 'OpSaisie' }" >
+        	</p:panel>
+			<p:panel rendered="#{c['class'].simpleName eq 'OpSaisie' }">
             Saisie réferentiel 
             </p:panel>
-            <p:panel rendered="#{t['class'].simpleName eq 'OpAttribution' }" >
+			<p:panel rendered="#{c['class'].simpleName eq 'OpAttribution' }">
             Attribution
             </p:panel>
-            <p:panel rendered="#{t['class'].simpleName eq 'OpDettachement' }" >
+			<p:panel rendered="#{c['class'].simpleName eq 'OpDettachement' }">
             Détachement
             </p:panel>
-            <p:panel rendered="#{t['class'].simpleName eq 'OpSortie' }" >
+			<p:panel rendered="#{c['class'].simpleName eq 'OpSortie' }">
             Décharge
             </p:panel>
-
+            </h:outputLink>
+			<p:tooltip id="idpopup" for="popuit" value="Identifiant: #{c.id}" trackMouse="true" />
         </p:column>
 
-    </p:dataTable>
+                    
+		<!--p:column>
+            <f:facet name="header">
+                <h:outputText value="Class" />
+            </f:facet>
+            <h:outputText value="#{c['class'].simpleName}" />
+            
+            
+        </p:column-->
+
+
+	</p:dataTable>
+
+
+	<!--h3>Export Page Data Only</h3>
+ 
+    <h:commandLink>
+        <h:outputText value="PDF" />
+        <p:dataExporter type="pdf" target="tbl" fileName="cars" pageOnly="true" />
+    </h:commandLink-->
+
+</h:form>
 
 
 </div>
+
 
 </html>

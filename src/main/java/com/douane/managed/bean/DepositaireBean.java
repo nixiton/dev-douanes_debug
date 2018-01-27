@@ -1308,6 +1308,7 @@ public class DepositaireBean {
 		this.setMontantFac(null);
 		this.setRefFacture(null);
 		this.setFournisseur(null);
+		
 		documentList = initialize();
 		imageList = initializeImageFile();
 		documentFacList = initializeFacFile();
@@ -1789,6 +1790,7 @@ public class DepositaireBean {
 	private Materiel materielSeclected;
 	private Marque marqueAutom;
 	private String referenceAutom;
+	private String codificationAutom;
 	private String origine;
 	private String especeUnite;
 	private String numSerieAutom;
@@ -1802,6 +1804,7 @@ public class DepositaireBean {
 		setReferenceAutom(getMaterielSeclected().getReference());
 		setNumSerie(getMaterielSeclected().getNumSerie());
 		setNomenclatureAutom(getMaterielSeclected().getNomenMat().getDesignation());
+		setCodificationAutom(getMaterielSeclected().getCode());
 	}
 	public List<Referentiel> getListDestinaiton() {
 		this.listDestinaiton.add(new Bureau());
@@ -2382,6 +2385,14 @@ public class DepositaireBean {
 		RequestFilter.getSession().setAttribute("fileZipPath",curentMaterielNouv.getDocumentPath());
 		this.curentMaterielNouv = curentMaterielNouv;
 		this.setIdMat(curentMaterielNouv.getIdMateriel());
+	}
+
+	public String getCodificationAutom() {
+		return codificationAutom;
+	}
+
+	public void setCodificationAutom(String codificationAutom) {
+		this.codificationAutom = codificationAutom;
 	}
 
 }

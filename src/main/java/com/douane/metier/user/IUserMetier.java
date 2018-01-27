@@ -186,5 +186,7 @@ public interface IUserMetier {
 	public Article getArticleById(Long id);
 
 	List<Materiel> getMatByValidationAndDetenteurAndDirection(boolean val, Agent detenteur, Direction direction);
+
+	List<Operation> getListAllOperationByDirectionByYearByDateAsc(Direction d, Date startDate, Date endDate);
 	
 }

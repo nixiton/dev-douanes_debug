@@ -12,5 +12,7 @@ public interface OpRepository extends CrudRepository<Operation, Long>{
 	public List<Operation> findAll();
 	public List<Operation> findByOperateur(Agent operateur);
 	public List<Operation> findByDirection(Direction direction);
+	public List<Operation> findByDirectionOrderByDateDesc(Direction direction);
+	public List<Operation> findByDirectionOrderByIdDesc(Direction direction);
 
 }

@@ -65,10 +65,10 @@
 
                                 <c:if test="#{gacBean.filedownload ne null}" >
                                     <h:form>
-                                        <p:commandButton id="downloadLink" value="Download" ajax="false">
+                                        <p:commandButton id="downloadLink" value="Download" ajax="false" icon="ui-icon-document">
                                             <f:setPropertyActionListener target="#{gacBean.fileZipPath}" value="delete" />
                                             <p:fileDownload value="#{gacBean.filedownload}" />
-                                            <i class="fa fa-file-archive-o"></i>
+                                            <!-- i class="fa fa-file-archive-o"></i-->
                                         </p:commandButton>
                                     </h:form>
                                 </c:if>
@@ -91,6 +91,8 @@
                                 <td>#{mat.modAcq.designation}</td>
                                 <td><strong>Fournisseur</strong></td>
                                 <td>#{mat.fournisseur.designation}</td>
+                                <td><strong>Dépositaire</strong></td>
+                                <td>#{mat.dc.im} - #{mat.dc.nomAgent}</td>
                             </tr>
 
                         </c:if>
@@ -105,6 +107,8 @@
                                                     width="275px" height="75px"></h:graphicImage>
                                 </p:panel>
                             </td>
+                            <td><strong>Origine</strong></td>
+                        <td>#{mat.origine}</td>
                         </tr>
                     </table>
                 </p:tab>

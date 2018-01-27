@@ -121,6 +121,8 @@ public class SISEformBean {
         {
             if(d instanceof Direction) {
                 ds.add((Direction)d);
+            }else {
+            	System.out.println("NOT INSTANCE");
             }
         }
         return ds;

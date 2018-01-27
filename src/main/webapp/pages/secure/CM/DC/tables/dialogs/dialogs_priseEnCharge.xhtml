@@ -42,23 +42,21 @@
                     <tr>
                         <td><strong>Réference</strong></td>
                         <td>#{depositaireBean.curentMaterielNouv.reference}</td>
+                        <td></td>
                         <td><strong>Document</strong></td>
                         <td>
-                            <!--h:outputLink value="/pages/secure/CM/DC/#{depositaireBean.curentMaterielNouv.documentPath}"  target="_blank">
-                                <i class="fa fa-file-archive-o"></i>
-                            </h:outputLink-->
 
                             <c:if test="#{depositaireBean.filedownload ne null}" >
                                 <h:form>
-                                    <p:commandButton id="downloadLink" value="Download" ajax="false">
+                                    <p:commandButton id="downloadLink" value="Download" ajax="false" icon="ui-icon-document"> 
                                         <f:setPropertyActionListener target="#{depositaireBean.fileZipPath}" value="delete" />
                                         <p:fileDownload value="#{depositaireBean.filedownload}" />
-                                        <i class="fa fa-file-archive-o"></i>
+                                        <!-- i class="fa fa-file-archive-o"></i-->
                                     </p:commandButton>
                                 </h:form>
                             </c:if>
 
-                            </td>
+                         </td>
                     </tr>
                     <tr>
                         <td><strong>Numero de Série</strong></td>
@@ -99,11 +97,14 @@
                         <td>#{depositaireBean.curentMaterielNouv.code}</td>
                     	<td></td>
                     	<td><strong>Detenteur</strong></td>
-                        <td>#{depositaireBean.curentMaterielNouv.detenteur.nomAgent}</td>
+                        <td>#{depositaireBean.curentMaterielNouv.detenteur.im} - #{depositaireBean.curentMaterielNouv.detenteur.nomAgent}</td>
                     </tr>
                     <tr>
                         <td><strong>Origine</strong></td>
                         <td>#{depositaireBean.curentMaterielNouv.origine}</td>
+                        <td></td>
+                        <td><strong>Dépositaire</strong></td>
+                        <td>#{depositaireBean.curentMaterielNouv.dc.im} - #{depositaireBean.curentMaterielNouv.dc.nomAgent}</td>
                     </tr>
                     <tr>
                     	<td><strong>QRCODE</strong></td>
@@ -117,14 +118,6 @@
                          
             </table>
         </div>
-        <c:if test="#{depositaireBean.filedownload ne null}" >
-            <h:form>
-                <p:commandButton id="downloadLink" value="Download" ajax="false">
-                    <f:setPropertyActionListener target="#{depositaireBean.fileZipPath}" value="delete" />
-                    <p:fileDownload value="#{depositaireBean.filedownload}" />
-                </p:commandButton>
-            </h:form>
-        </c:if>
     </p:dialog>
 
 </html>
