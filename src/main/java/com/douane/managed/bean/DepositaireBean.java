@@ -238,6 +238,11 @@ public class DepositaireBean {
 		//this.setCurentMateriel(null);
 		this.curentMateriel = null;
 		this.curentArticle = null;
+		setCurentNull();
+		setAllNull();
+
+
+
 		return "success";
 	}
 
@@ -1279,10 +1284,15 @@ public class DepositaireBean {
 		clearPriseEnCharge();
 		this.documentList = initialize();
 		this.imageList = initializeImageFile();
+
+		setAllNull();
+
 		return null;
 		//PrimeFaces.current().resetInputs("form:panel");
 		//listMaterielForOpEntree.add(getMatForEntree());
 	}
+
+	
 
 	public void clear() throws IOException {
 
@@ -1442,6 +1452,9 @@ public class DepositaireBean {
 			this.documentList = initialize();
 			this.imageList = initializeImageFile();
 			this.documentFacList = initializeFacFile();
+
+			setAllNull();
+
 			return SUCCESS;
 		}
 		catch(JDBCException jdbce){
@@ -1472,6 +1485,45 @@ public class DepositaireBean {
 			e.getNextException();
 			return ERROR;
 		}*/
+	}
+
+
+
+	public void setAllNull(){
+		this.typemateriel = null;
+		this.anneeAcquisition = null;
+		this.autre = null;
+		this.bureau = null;
+		this.fournisseur =null;
+		this.etat =null;
+		this.marq =null;
+		this.numSerie = null;
+		this.unitPrice = null;
+		this.reference =null;
+		this.renseignement = null;
+		this.typematerielToAdd =null;
+		this.serviceforMat =null;
+		this.especeUnite = null;
+		this.origine = null;
+		this.refFacture =null;
+		this.direction = null;
+		this.financement = null;
+		this.acquisition = null;
+		this.montantFac  = null;
+
+		this.materielSeclected = null;
+		this.nomenclatureAutom = null;
+		this.marqueAutom = null;
+		this.referenceAutom = null;
+		this.detenteur = null;
+
+		this.nom = null;
+
+		this.codificationAutom = null;
+		this.motifSortie =null;
+
+		this.materiel = null;
+
 	}
 
 
@@ -1562,6 +1614,9 @@ public class DepositaireBean {
 
 			listMaterielForOpEntree = null;
 			clear();
+
+			setAllNull();
+
 			return SUCCESS;
 		}
 		catch(Exception e){
@@ -1596,6 +1651,7 @@ public class DepositaireBean {
 			OpAttribution opAt = usermetierimpl.reqAttribution(getMaterielSeclected(), agent, getDetenteur());
 			System.out.println("****************************ADD3 ATTR**ERRORR********************************");
 			clear();
+			setAllNull();
 			return SUCCESS;
 		} catch (Exception e) {
 			// TODO: handle exception
@@ -1619,6 +1675,7 @@ public class DepositaireBean {
 		try {
 			// getCurrent Materiel ve?????
 			opDet = usermetierimpl.reqDettachement(this.getMaterielSeclected(), agent, getDetenteur(), this.getMotifSortie());
+			setAllNull();
 			return SUCCESS;
 		} catch (Exception e) {
 			// TODO: handle exception
@@ -1626,8 +1683,6 @@ public class DepositaireBean {
 			System.out.println(e.getMessage());
 			return ERROR;
 		}
-
-
 
 	}
 
@@ -1644,6 +1699,8 @@ public class DepositaireBean {
 				opSort = usermetierimpl.reqSortirMateriel(this.getMateriel(), this.getMotifSortie(),
 						this.getDestinationDirec(), agent);
 			}
+
+			setAllNull();
 
 			return SUCCESS;
 		} catch (Exception e) {
@@ -2424,6 +2481,21 @@ public class DepositaireBean {
 
 	public void setCodificationAutom(String codificationAutom) {
 		this.codificationAutom = codificationAutom;
+	}
+
+
+	public void setCurentNull(){
+		this.curentMaterielNouv = null;
+
+		this.curentMaterielEx = null;
+
+		this.idMat = null;
+
+		
+
+
+
+
 	}
 
 }

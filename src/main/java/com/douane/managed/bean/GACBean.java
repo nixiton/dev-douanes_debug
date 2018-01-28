@@ -388,6 +388,8 @@ public class GACBean {
     public String exit(){
         System.out.println("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$   APPEL EXIT $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$");
 
+        setCurentNull();
+
         this.curentOperation = null;
         this.motif =null;
         return null;
@@ -905,6 +907,16 @@ public class GACBean {
     private OpAttribution currentOpAttribution;
 
     private OpDettachement currentOpDettachement;
+
+
+    public void setCurentNull(){
+        this.curentOperation = null;
+        this.curentOperation1 = null;
+        this.currentOpDettachement = null;
+        this.currentOpAttribution =null;
+        this.currentOpSortie = null;
+        this.currentOpEntree = null;
+    }
 
 
 
