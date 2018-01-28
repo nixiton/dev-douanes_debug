@@ -1,0 +1,120 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:p="http://primefaces.org/ui"
+    >
+<h:head></h:head> 	
+	<p:growl id="growl" for="myerror" showDetail="true" sticky="true" redisplay="false"/>
+	
+    <p:dialog id="detail1" widgetVar="detail1" closable="false">
+        
+            <h:form class="form-horizontal">
+            <h:commandButton action="#{gacBean.exit()}" value="X" style="valign:bottom;float:right;padding-right:20px">
+                        
+            </h:commandButton>
+            </h:form>
+    <div   class="body collapse in table-responsive">
+
+        <table class="table responsive-table" >
+                    <tr>
+                        <td><strong>Type de matériel</strong></td>
+                        <td>#{gacBean.curentOperation.mat.nomenMat.designation}</td>
+                        <td></td>
+                        <td><strong>Numero de série</strong></td>
+                        <td>#{gacBean.curentOperation.mat.numSerie}</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Nomenclature</strong></td>
+                        <td>#{gacBean.curentOperation.mat.nomenMat.nomenclature}</td>
+                        <td></td>
+                        <td><strong>Détenteur pour attribution</strong></td>
+                        <td>#{gacBean.curentOperation.detenteur.im} - #{gacBean.curentOperation.detenteur.nomAgent}</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Marque</strong></td>
+                        <td>#{gacBean.curentOperation.mat.marque.designation}</td>
+                        <td></td>
+                        <td><strong>Nom détenteur</strong></td>
+                        <td>#{gacBean.curentOperation.detenteur.nomAgent}</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Référence</strong></td>
+                        <td>#{gacBean.curentOperation.mat.reference}</td>
+                        <td></td>
+                        <td><strong>Dépositaire</strong></td>
+                        <td>#{gacBean.curentOperation.operateur.im} - #{gacBean.curentOperation.operateur.nomAgent}</td>
+                        <td><strong>Détenteur effectif</strong></td>
+                        <td>
+                            <h:form>
+
+                                    <h:commandLink  action="#{gacBean.setCurentOperation2(gacBean.curentOperation)}" target="_blank">
+                                            <i class="fa fa-file-archive-o"></i>
+                                        </h:commandLink>
+                                </h:form>
+                        </td>
+
+
+
+
+                    </tr>
+                    <tr>
+                        <p:panel rendered="#{gacBean.curentOperation.state eq 'WAITING' }">
+                        <td></td>
+                        <td>
+                            <h:form class="form-horizontal">
+        
+                                <h:commandButton  action="#{gacBean.validateAttributionDetenteur(gacBean.curentOperation)}" value="Valider"
+                                           update="growl"  class="btn btn-lg btn-primary btn-block"/>
+                            </h:form>
+                        </td>
+                        <td>
+
+                            <h:form>
+
+                                <label for="text1" >Motif de refus
+                                        </label>
+
+                                <h:inputText value="#{gacBean.motif}" 
+                                            styleClass="form-control top"></h:inputText>
+
+                                <h:commandButton  action="#{gacBean.refuseAttributionDetenteur(gacBean.curentOperation)}" value="Refuser"
+                                            class="btn btn-lg btn-primary btn-block">
+                                    <!--f:param name="operationValide" value="#{gacBean.curentOperation}"/-->
+                                </h:commandButton>
+
+                            
+                            </h:form>
+                        </td>
+                        <td>
+                               <h:form>
+
+
+                                <label for="text1" >Motif de demande de correction
+                                        </label>
+
+                                <h:inputText value="#{gacBean.motif}" 
+                                            styleClass="form-control top"></h:inputText>
+
+                                <h:commandButton  action="#{gacBean.aModifierAttributionDetenteur(gacBean.curentOperation)}" value="A modifier"
+                                            class="btn btn-lg btn-primary btn-block">
+                                    <!--f:param name="operationValide" value="#{gacBean.curentOperation}"/-->
+                                </h:commandButton>
+
+
+                                
+                            </h:form> 
+                        </td>
+                        </p:panel>
+                    </tr>      
+            </table>
+        </div>
+
+
+        
+        
+    </p:dialog>
+
+</html>
