@@ -396,6 +396,18 @@ public class GACBean {
     }
 
 
+    public void exity(){
+        System.out.println("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$   APPEL EXITY $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$");
+
+        setCurentNull();
+
+        this.curentOperation = null;
+        this.motif =null;
+        
+    }
+
+
+
     public void refuseDechargeSortie(OpSortie sortie) {
         //usermetierimpl.sortirMateriel(sortie);
         usermetierimpl.reqSortirRefuser((OpSortie)this.getCurentOperation(), this.getMotif());
