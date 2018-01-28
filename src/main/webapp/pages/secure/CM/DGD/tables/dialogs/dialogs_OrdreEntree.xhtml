@@ -220,10 +220,7 @@
     
 </div>
 
-<h:form id="form" style="display:none">
-     <h:commandLink id="link" action="#{gacBean.exity}" 
-                  value=""/>
-   </h:form>
+#{gacBean.exity()}
 
 </div>
       <script type="text/javascript" src="#{request.contextPath}/pages/unsecure/assets/js/jquery-1.7.1.min.js"></script>
@@ -235,15 +232,6 @@
     <script
         src="#{request.contextPath}/pages/unsecure/assets/js/basic.js"></script>
 
-
-    <script type="text/javascript" >
-
-  
-     var jsfCommandLink = document.getElementById("form:link");
-     jsfCommandLink.click();
-  
-
-</script>
 
     <script>
 
