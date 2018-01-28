@@ -246,6 +246,14 @@ public class DepositaireBean {
 		return "success";
 	}
 
+	public void exit(){
+		//this.setCurentMateriel(null);
+		this.curentMateriel = null;
+		this.curentArticle = null;
+		setCurentNull();
+		setAllNull();
+	}
+
 	public OpEntree getCurentOrdreEntree(){
 		return this.curentOrdreEntree;
 	}

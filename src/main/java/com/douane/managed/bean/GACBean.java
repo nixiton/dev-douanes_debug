@@ -403,6 +403,8 @@ public class GACBean {
 
         this.curentOperation = null;
         this.motif =null;
+
+        setAllNull();
         
     }
 
@@ -928,9 +930,14 @@ public class GACBean {
         this.currentOpAttribution =null;
         this.currentOpSortie = null;
         this.currentOpEntree = null;
+
     }
 
-
+    public void setAllNull(){
+        this.annee = null;
+        this.listOperationByDirectionByYearByDateAsc = null;
+        this.listMaterielByDet = null;
+    }
 
 }
 //r
