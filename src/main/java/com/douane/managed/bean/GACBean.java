@@ -934,7 +934,7 @@ public class GACBean {
     }
 
     public void setAllNull(){
-        this.annee = null;
+        this.annee = 0;
         this.listOperationByDirectionByYearByDateAsc = null;
         this.listMaterielByDet = null;
     }
