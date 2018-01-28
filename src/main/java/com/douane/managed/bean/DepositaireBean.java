@@ -246,7 +246,7 @@ public class DepositaireBean {
 		return "success";
 	}
 
-	public void exit(){
+	public void exity(){
 		//this.setCurentMateriel(null);
 		this.curentMateriel = null;
 		this.curentArticle = null;
