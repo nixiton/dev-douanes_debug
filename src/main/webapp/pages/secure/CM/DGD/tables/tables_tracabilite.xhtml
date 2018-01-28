@@ -135,6 +135,23 @@
         </p:column-->
 
 
+        <p:panel rendered="#{c['class'].simpleName eq 'OpEntree' }">
+               <ui:include src="/pages/secure/CM/GAC/tables/dialogs/dialogs_vpriseEnCharge1.xhtml"></ui:include>
+            </p:panel>
+            <p:panel rendered="#{c['class'].simpleName eq 'OpSaisie' }">
+                
+            </p:panel>
+            <p:panel rendered="#{c['class'].simpleName eq 'OpAttribution' }">
+                <ui:include src="/pages/secure/CM/GAC/tables/dialogs/dialogs_vattribution1.xhtml"></ui:include>
+            </p:panel>
+            <p:panel rendered="#{c['class'].simpleName eq 'OpDettachement' }">
+                <ui:include src="/pages/secure/CM/GAC/tables/dialogs/dialogs_vdetachement1.xhtml"></ui:include>
+            </p:panel>
+            <p:panel rendered="#{c['class'].simpleName eq 'OpSortie' }">
+                <ui:include src="/pages/secure/CM/GAC/tables/dialogs/dialogs_vdecharge1.xhtml"></ui:include>
+            </p:panel>
+
+
 	</p:dataTable>
 
 
@@ -151,14 +168,14 @@
 </div>
 
 
-<ui:include src="/pages/secure/CM/GAC/tables/dialogs/dialogs_vpriseEnCharge1.xhtml"></ui:include>
-
-<ui:include src="/pages/secure/CM/GAC/tables/dialogs/dialogs_vattribution1.xhtml"></ui:include>
 
 
-<ui:include src="/pages/secure/CM/GAC/tables/dialogs/dialogs_vdecharge1.xhtml"></ui:include>
 
-<ui:include src="/pages/secure/CM/GAC/tables/dialogs/dialogs_vdetachement1.xhtml"></ui:include>
+
+
+
+
+
 
 
 </html>
