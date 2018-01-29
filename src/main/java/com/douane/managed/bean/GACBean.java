@@ -135,6 +135,8 @@ public class GACBean {
     {
         //usermetierimpl.entrerMateriel(op);
         usermetierimpl.entrerMateriel((OpEntree)this.getCurentOperation());
+        setCurentNull();
+        setAllNull();
         this.setCurentOperation(null);
         
     }
@@ -197,6 +199,8 @@ public class GACBean {
     	
     	try {
     		usermetierimpl.reqMatRefuser((OpEntree)op, this.getMotif());
+            setCurentNull();
+            setAllNull();
     	}catch (Exception e) {
 			// TODO: handle exception
     		FacesContext context = FacesContext.getCurrentInstance();
@@ -220,6 +224,8 @@ public class GACBean {
         //((OpEntree)this.getCurentOperation()).getMat().setAModifier(true);
         try {
 			usermetierimpl.reqMatAModifier((OpEntree)op, this.getMotif());
+            setAllNull();
+            setCurentNull();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			// TODO: handle exception
@@ -242,6 +248,8 @@ public class GACBean {
         //usermetierimpl.attriuberMateriel(attr);
     	try {
     		usermetierimpl.attriuberMateriel(attr);
+            setAllNull();
+            setCurentNull();
 
     	}catch(Exception e){
     		FacesContext context = FacesContext.getCurrentInstance();
@@ -331,6 +339,8 @@ public class GACBean {
         //usermetierimpl.attriuberMateriel(attr);
     	try {
     		usermetierimpl.reqAttrRefuser((OpAttribution)this.getCurentOperation(), this.getMotif());
+            setAllNull();
+            setCurentNull();
     	}
         catch(Exception e){
         	// TODO: handle exception
@@ -351,6 +361,8 @@ public class GACBean {
         //usermetierimpl.attriuberMateriel(attr);
         try {
 			usermetierimpl.reqAttrAModifier(attr, this.getMotif());
+            setAllNull();
+            setCurentNull();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			FacesContext context = FacesContext.getCurrentInstance();
@@ -370,6 +382,8 @@ public class GACBean {
     	System.out.println("VALDATION DECHARGE SORTIE");
     	try {
     		usermetierimpl.sortirMateriel(sortie);
+            setAllNull();
+            setCurentNull();
 		} catch (Exception e) {
 			// TODO: handle exception
 			FacesContext context = FacesContext.getCurrentInstance();
@@ -415,6 +429,8 @@ public class GACBean {
         usermetierimpl.reqSortirRefuser((OpSortie)this.getCurentOperation(), this.getMotif());
         this.setCurentOperation(null);
         this.setMotif(null);
+        setAllNull();
+        setCurentNull();
     }
 
     public void aModifierDechargeSortie(OpSortie sortie) {
@@ -422,6 +438,8 @@ public class GACBean {
         usermetierimpl.reqSortirAModifier(sortie, this.getMotif());
         this.setCurentOperation(null);
         this.setMotif(null);
+        setAllNull();
+        setCurentNull();
     }
 
 
@@ -431,6 +449,8 @@ public class GACBean {
     	//usermetierimpl.sortirMateriel(sortie);
         try {
         	usermetierimpl.detacherMateriel((OpDettachement)this.getCurentOperation());
+            setAllNull();
+            setCurentNull();
 		} catch (Exception e) {
 			// TODO: handle exception
 			FacesContext context = FacesContext.getCurrentInstance();
@@ -455,6 +475,8 @@ public class GACBean {
         usermetierimpl.reqDetRefuser(det, this.getMotif());
         this.setCurentOperation(null);
         this.setMotif(null);
+        setCurentNull();
+        setAllNull();
     }
 
     public void aModifierDetachement(OpDettachement det){
@@ -463,6 +485,8 @@ public class GACBean {
         usermetierimpl.reqDetRefuser(det, this.getMotif());
         this.setCurentOperation(null);
         this.setMotif(null);
+        setCurentNull();
+        setAllNull();
     }
 
 
