@@ -11,6 +11,8 @@
 
 <p:dialog id="detail" widgetVar="detail" closable="false">
 
+<c:if test="#{gacBean.curentOperation['class'].simpleName eq 'OpEntree'}">
+
     <h:form class="form-horizontal">
         <h:commandButton action="#{gacBean.exit()}" value="X" style="valign:bottom;float:right;padding-right:20px">
 
@@ -171,7 +173,7 @@
     </div>
 
 
-
+</c:if>
 
 
 </p:dialog>

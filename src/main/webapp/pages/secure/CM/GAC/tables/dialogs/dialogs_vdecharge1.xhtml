@@ -11,6 +11,9 @@
 	
     <p:dialog id="detail4" widgetVar="detail4" closable="false">
 
+
+    <c:if test="#{gacBean.curentOperation['class'].simpleName eq 'OpSortie'}">
+
     <h:form class="form-horizontal">
             <h:commandButton action="#{gacBean.exit()}" value="X" style="valign:bottom;float:right;padding-right:20px">
                         
@@ -100,7 +103,7 @@
             </table>
         </div>
 
-
+    </c:if>
                 
     </p:dialog>
 
