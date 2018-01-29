@@ -2632,5 +2632,5 @@ border-collapse: collapse;
 
   .ui-inputfield{
     border: none !important;
-    border-bottom: #000 1px solid;
+    border-bottom: #000 1px solid!important;
   }
