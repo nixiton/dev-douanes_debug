@@ -62,7 +62,7 @@
                     </tr>
 
                     <tr>
-                        <p:dataTable id="listdeteff" var="c" value="#{gacBean.listMaterielByDet}" widgetVar="operationsTable"
+                        <!--p:dataTable id="listdeteff" var="c" value="#{gacBean.listMaterielByDet}" widgetVar="operationsTable"
                             >
 
                             <p:column>
@@ -99,8 +99,25 @@
                                 <h:outputText value="#{c.pu}" />
                             </p:column>
 
-                        </p:dataTable>
+                        </p:dataTable-->
 
+                        <table>
+                            
+                            <tr>
+                                <th>DESIGNATION</th>
+                                <th>ESPECE DES UNITES</th>
+                                <th>PRIX UNITAIRE</th>
+                                <th>NOMBRE</th>
+                                <th>VALEUR TOTALE</th>
+                            </tr>
+                            <tr>
+                                <td>#{gacBean.curentOperation.mat.nomenMat.designation} </td>
+                                <td>#{gacBean.curentOperation.mat.nomenMat.nomenclature}</td>
+                                <td>#{gacBean.curentOperation.mat.pu}</td>
+                                <td>1</td>
+                                <td>#{gacBean.curentOperation.mat.pu*1}</td>
+                            </tr>
+                        </table>
                     </tr>                    
                     
             </table>

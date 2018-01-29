@@ -516,6 +516,12 @@
 			<redirect />
 		</navigation-case>
 
+		<navigation-case>
+			<from-outcome>dialog6</from-outcome>
+			<to-view-id>/pages/secure/CM/tables/dialogs/dialogs_saisieMatEx1.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+
 
 
 		<navigation-case>

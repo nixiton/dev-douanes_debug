@@ -535,6 +535,14 @@ public class GACBean {
 
     }
 
+    public String setCurentOperation6(Operation operation){
+        setCurentOperation(operation);
+
+            return "dialog6";
+
+
+    }
+
     public String setCurentOperation2(Operation operation){
         setCurentOperation(operation);
 
