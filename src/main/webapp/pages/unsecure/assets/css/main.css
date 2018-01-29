@@ -2628,3 +2628,9 @@ border-collapse: collapse;
 	background-color: red;}
 .normalll   {
 	background-color: green;}
+
+
+  .ui-inputfield{
+    border: none !important;
+    border-bottom: #000 1px solid;
+  }
