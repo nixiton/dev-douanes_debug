@@ -1615,6 +1615,7 @@ public class DepositaireBean {
 			// set Operation requete entrer materiel nouveau
 			System.out.println("ready to send request");
 			for(Materiel a:listMaterielForOpEntree) {
+				a.setAnneeAcquisition((String) ""+Calendar.getInstance().get(Calendar.YEAR)+"");
 				System.out.println("materiel: "+ a.getNumSerie());
 			}
 
