@@ -610,7 +610,20 @@ public class SuiviEditionBean {
 
 	//------------EDITION
 	
-	
+	public List<Object[]> getListobjectForInvetaire() {
+		Agent cur = (Agent) RequestFilter.getSession().getAttribute("agent");
+		System.out.println("RRRRRRRRRRR Begin:");
+		List<Object[]> r = usermetierimpl.getListObjectForinvetaire(cur.getDirection());
+		System.out.println("RRRRRRRRRRR Ending:"+r);
+		
+		return r;
+	}
+
+	public void setListobjectForInvetaire(List<Object[]> listobjectForInvetaire) {
+		this.listobjectForInvetaire = listobjectForInvetaire;
+	}
+
+	private List<Object[]> listobjectForInvetaire;
     
 
 }

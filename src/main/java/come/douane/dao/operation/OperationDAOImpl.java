@@ -597,6 +597,27 @@ public class OperationDAOImpl implements IOperationDAO{
 	    List<OpSortieArticle> operations = query.getResultList();
 		return operations;
 	}
+
+	@Override
+	public List<Object[]> getListForInventaire(Direction d, Date startDate, Date endDate) {
+		// TODO Auto-generated method stub
+		
+		Query query = em.createQuery("select o,h,e,materiel from " + 
+				"(select o,h,e from " + 
+				" (select h,e from opentreemateriel h  join operationentree e on h.entreeid=e.id where e.iddirection=:idd and e.state=:etat) as tempentmat " + 
+				"full outer join " + 
+				" (select o from opsortie o where o.iddirection =:idd ) as tempsortie " + 
+				" on tempentmat.materielid = tempsortie.idmat) as tempfinal " + 
+				" join " + 
+				" materiel on materiel.idmateriel=tempfinal.materielid");
+		System.out.println("res begin");
+		query.setParameter("idd", d.getId());
+		query.setParameter("etat", EtatOperation.ACCEPTED);
+		System.out.println("res begin");
+		List<Object[]> result = (List<Object[]>) query.getResultList();
+		System.out.println("res" + result);
+		return result;
+	}
 	
 
 }
