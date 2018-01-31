@@ -340,7 +340,7 @@ public class UserMetier implements IUserMetier {
 			System.out.println("DETENU");
 			throw new Exception("Materiel deja detenu");
 		}
-		m.setDirec(sortie.getDirec()); //Must Change to not validate 
+		//m.setDirec(sortie.getDirec()); //Must Change to not validate 
 		matrepos.save(m);
 
 		sortie.valider();

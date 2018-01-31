@@ -1,6 +1,9 @@
 package com.douane.entite;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
+
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -8,6 +11,7 @@ import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
@@ -64,7 +68,16 @@ public class OpEntree extends OperationES{
 
 
 	//----CORRECTION---------
-	@OneToMany(mappedBy="myoperationEntree", cascade=CascadeType.ALL, fetch=FetchType.EAGER)	
+	 
+	//@OneToMany(mappedBy="myoperationEntree", cascade=CascadeType.ALL, fetch=FetchType.EAGER)	
+	@OneToMany(cascade=CascadeType.ALL)
+	@JoinTable
+	  (
+	      name="opentreeMateriel",
+	      joinColumns={ @JoinColumn(name="entreeid", referencedColumnName="id") },
+	      inverseJoinColumns={ @JoinColumn(name="materielid", referencedColumnName="idMateriel", unique=true) }
+	  )
+	@LazyCollection(LazyCollectionOption.FALSE)
 	private List<Materiel> listMat = new ArrayList<Materiel>();
 	//oaky
 

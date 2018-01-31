@@ -605,7 +605,11 @@ public class SuiviEditionBean {
 	public void setListOpSortieValideByDirection(List<OpSortie> listOpSortieValideByDirection) {
 		this.listOpSortieValideByDirection = listOpSortieValideByDirection;
 	}
+	
+	
 
+	//------------EDITION
+	
 	
     
 

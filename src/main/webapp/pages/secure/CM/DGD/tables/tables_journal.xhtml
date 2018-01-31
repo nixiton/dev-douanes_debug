@@ -21,9 +21,11 @@
 		<p:dataTable var="c" value="#{suivieditionBean.listOpESForJournal}"
 			paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}"
 			paginator="true" rows="10" style="margin-bottom:20px"
-			rowStyleClass="#{c['class'].simpleName ne 'OpEntree' and c['class'].simpleName ne 'OpSortie' ? 'ui-helper-hidden' : '' }">
+			rowStyleClass="#{c['class'].simpleName ne 'OpEntree' and c['class'].simpleName ne 'OpSortie' ? 'ui-helper-hidden' : '' }"
+			sortBy="#{c.id}"
+			>
 
-
+			<p:column headerText="ID"> #{c.id}</p:column>
 
 			<p:column headerText="Numéro d'ordre des pièces justificatives">
 
