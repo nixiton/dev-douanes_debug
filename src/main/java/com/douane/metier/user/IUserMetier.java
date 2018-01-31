@@ -191,4 +191,6 @@ public interface IUserMetier {
 
 	public List<OperationES> getListOpESForJournal(Direction direction, Date sdate, Date edate);
 	public List<OpSortie> getListOpSortieValideByDirection(Direction direction);
+
+	List<Object[]> getListObjectForinvetaire(Direction d);
 }

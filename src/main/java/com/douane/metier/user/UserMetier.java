@@ -340,7 +340,7 @@ public class UserMetier implements IUserMetier {
 			System.out.println("DETENU");
 			throw new Exception("Materiel deja detenu");
 		}
-		//m.setDirec(sortie.getDirec()); //Must Change to not validate 
+		m.setDirec(sortie.getDirec()); //Must Change to not validate 
 		matrepos.save(m);
 
 		sortie.valider();
@@ -1180,6 +1180,9 @@ public class UserMetier implements IUserMetier {
 		return opsortierepos.findByDirectionAndState(direction, EtatOperation.ACCEPTED);
 	}
 
-	
+	@Override
+	public List<Object[]> getListObjectForinvetaire(Direction d){
+		return operationdao.getListForInventaire(d, new Date(), new Date());
+	}
 
 }
