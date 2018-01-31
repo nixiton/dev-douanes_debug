@@ -13,34 +13,7 @@
 
 <div   class="body collapse in table-responsive">
 
-    <!--div class="col-lg-3">
-
-        <h:link value="Types de matériels" outcome="filtre_type_mat"
-            class="btn btn-default" immediate="true" />
-        <hr></hr>
-
-    </div> 
-    <div class="col-lg-3">
-
-        <h:link value="Nomenclatures" outcome="filtre_nom"
-            class="btn btn-default" immediate="true" />
-        <hr></hr>
-
-    </div>     
-    <div class="col-lg-3">
-
-        <h:link value="Porte" outcome="filtre_porte"
-            class="btn btn-default" immediate="true" />
-        <hr></hr>
-
-    </div> 
-    <div class="col-lg-3">
-
-        <h:link value="Localité" outcome="filtre_localite"
-            class="btn btn-default" immediate="true" />
-        <hr></hr>
-
-    </div-->   
+   
     <p:dataTable   var="d" value="#{gacBean.listAnnee}" 
                  paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}  "
                  paginator="true" rows="10" style="margin-bottom:20px">
@@ -57,6 +30,147 @@
             </h:form>
         </p:column>
     </p:dataTable>
+    <h:form>
+    <p:dataTable var="c" value="#{suivieditionBean.listOpESForJournal}"
+			paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}"
+			paginator="true" rows="10" style="margin-bottom:20px"
+			rowStyleClass="#{c['class'].simpleName ne 'OpEntree' and c['class'].simpleName ne 'OpSortie' ? 'ui-helper-hidden' : '' }"
+			scrollable="true" scrollWidth="80%" scrollHeight="150"
+			sortBy="#{c.id}"
+			>
+
+			<p:column headerText="N°"> #{c.id}</p:column>
+
+			<p:column headerText="Date">
+
+				<p:panel>
+            
+                #{c.date}
+            </p:panel>
+
+			</p:column>
+			<p:column headerText="Designation sommaire des opérations">
+           <p:panel rendered="#{c['class'].simpleName eq 'OpEntree'}">
+
+					<ui:repeat value="#{c.listMat}" var="mat">
+
+
+						<p:panel rendered="#{mat['class'].simpleName eq 'MaterielEx'}">
+                    
+                    O.E: #{mat.direc.designation}
+                    </p:panel>
+
+						<p:panel rendered="#{mat['class'].simpleName eq 'MaterielNouv'}">
+                    
+                    O.E: #{mat.origine}-#{mat.fournisseur.designation}
+                    </p:panel>
+					</ui:repeat>
+
+
+				</p:panel>
+				<p:panel rendered="#{c['class'].simpleName eq 'OpSortie' }">
+                O.S: #{c.motifsortie.designation}
+            </p:panel>
+
+        </p:column>
+
+			<p:column headerText="1 Operation A">
+				<p:panel rendered="#{c['class'].simpleName eq 'OpEntree'}">
+
+					<ui:repeat value="#{c.listMat}" var="mat">
+
+
+						<p:panel rendered="#{mat.typematerieladd.nomenclaureParent.nomenclature eq 1}">
+                    
+                    yes
+                    </p:panel>
+					</ui:repeat>
+
+
+				</p:panel>
+				<p:panel rendered="#{c['class'].simpleName eq 'OpSortie' }">
+                <p:panel rendered="#{c.mat.typematerieladd.nomenclaureParent.nomenclature eq 1}">
+                    
+                    yes
+                    </p:panel>
+            </p:panel>
+			</p:column>
+			<p:column headerText="2 Operation A">
+				<p:panel rendered="#{c['class'].simpleName eq 'OpEntree'}">
+
+					<ui:repeat value="#{c.listMat}" var="mat">
+
+
+						<p:panel rendered="#{mat.typematerieladd.nomenclaureParent.nomenclature eq 2}">
+                    
+                    yes
+                    </p:panel>
+					</ui:repeat>
+
+
+				</p:panel>
+				<p:panel rendered="#{c['class'].simpleName eq 'OpSortie' }">
+                <p:panel rendered="#{c.mat.typematerieladd.nomenclaureParent.nomenclature eq 2}">
+                    
+                    yes
+                    </p:panel>
+            </p:panel>
+			</p:column>
+			<p:column headerText="3 Operation A">
+				<p:panel rendered="#{c['class'].simpleName eq 'OpEntree'}">
+
+					<ui:repeat value="#{c.listMat}" var="mat">
+
+
+						<p:panel rendered="#{mat.typematerieladd.nomenclaureParent.nomenclature eq 3}">
+                    
+                    yes
+                    </p:panel>
+					</ui:repeat>
+
+
+				</p:panel>
+				<p:panel rendered="#{c['class'].simpleName eq 'OpSortie' }">
+                <p:panel rendered="#{c.mat.typematerieladd.nomenclaureParent.nomenclature eq 3}">
+                    
+                    yes
+                    </p:panel>
+            </p:panel>
+			</p:column>
+			<p:column headerText="4 Operation A">
+				xx
+			</p:column>
+			<p:column headerText="5 Operation A">
+				xx
+			</p:column>
+			<p:column headerText="6 Operation A">
+				xx
+			</p:column>
+			<p:column headerText="7 Operation A">
+				xx
+			</p:column>
+			<p:column headerText="8 Operation A">
+				xx
+			</p:column>
+			<p:column headerText="9 Operation A">
+				xx
+			</p:column>
+			<p:column headerText="10 Operation A">
+				xx
+			</p:column>
+			<p:column headerText="11 Operation A">
+				xx
+			</p:column>
+			<p:column headerText="12 Operation A">
+				xx
+			</p:column>
+
+
+		</p:dataTable>
+
+
+	</h:form>
+    
 
 
 </div>
