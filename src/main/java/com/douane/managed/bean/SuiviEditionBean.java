@@ -574,7 +574,39 @@ public class SuiviEditionBean {
     {
         return usermetierimpl.getListOpSortieByDirectionByYearByDateAsc(d,startDate,endDate);
     }
-     
+    
+   
+
+	//-----NEW FORM OF GETTER
+    private List<OperationES> listOpESForJournal;
+    
+    public List<OperationES> getListOpESForJournal() {
+    	Agent cur = (Agent) RequestFilter.getSession().getAttribute("agent");
+    	Date date = new Date();
+		Calendar calendar = new GregorianCalendar();
+		calendar.setTime(date);
+		int year = calendar.get(Calendar.YEAR);
+		Date sdate = new GregorianCalendar(year-2, Calendar.JANUARY, 1).getTime();
+        Date edate = new GregorianCalendar(year+1, Calendar.DECEMBER, 30).getTime();
+		return usermetierimpl.getListOpESForJournal(cur.getDirection(),sdate,edate);
+	}
+
+	public void setListOpESForJournal(List<OperationES> listOpESForJournal) {
+		this.listOpESForJournal = listOpESForJournal;
+	}
+	
+	private List<OpSortie> listOpSortieValideByDirection;
+	
+	public List<OpSortie> getListOpSortieValideByDirection() {
+		Agent cur = (Agent) RequestFilter.getSession().getAttribute("agent");
+		return usermetierimpl.getListOpSortieValideByDirection(cur.getDirection());
+	}
+
+	public void setListOpSortieValideByDirection(List<OpSortie> listOpSortieValideByDirection) {
+		this.listOpSortieValideByDirection = listOpSortieValideByDirection;
+	}
+
+	
     
 
 }

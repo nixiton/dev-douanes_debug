@@ -34,6 +34,17 @@ public class UserMetier implements IUserMetier {
 
 	@Autowired
 	private MaterielNouvRepository materielNouvRepository;
+	
+	@Autowired
+	private OpESRepository opesrepos;
+	
+	public OpESRepository getOpesrepos() {
+		return opesrepos;
+	}
+
+	public void setOpesrepos(OpESRepository opesrepos) {
+		this.opesrepos = opesrepos;
+	}
 
 	public OpRepository getOprepos() {
 		return oprepos;
@@ -329,20 +340,13 @@ public class UserMetier implements IUserMetier {
 			System.out.println("DETENU");
 			throw new Exception("Materiel deja detenu");
 		}
-		m.setDirec(sortie.getDirec());
+		m.setDirec(sortie.getDirec()); //Must Change to not validate 
 		matrepos.save(m);
 
 		sortie.valider();
 		sortie.generateNumSortie(operationdao.countOpSortieByYearByDirection(new Date(), sortie.getDirection()));
 		oprepos.save(sortie);
 		return m;
-		/*
-		 * } catch(Exception e) { FacesMessage message = new
-		 * FacesMessage(FacesMessage.SEVERITY_WARN, "Erreur pour operation sortie",
-		 * e.getMessage()); FacesContext.getCurrentInstance().addMessage(null, new
-		 * FacesMessage(e.getMessage()));
-		 * FacesContext.getCurrentInstance().addMessage(null, message); return null; }
-		 */
 	}
 
 	/*
@@ -356,33 +360,13 @@ public class UserMetier implements IUserMetier {
 
 	@Override
 	public Materiel attriuberMateriel(OpAttribution attr) throws Exception {
-		// try {
 		return operationdao.attribuerMat(attr);
-		// }
-		/*
-		 * catch(Exception e) { FacesMessage message = new
-		 * FacesMessage(FacesMessage.SEVERITY_WARN,
-		 * "Erreur pour attribution de materiel", e.getMessage());
-		 * FacesContext.getCurrentInstance().addMessage(null, new
-		 * FacesMessage(e.getMessage()));
-		 * FacesContext.getCurrentInstance().addMessage(null, message); return null; }
-		 */
 	}
 
 	@Override
 	public Materiel attribuerMaterielEx(MaterielEx matex, Agent detenteur) throws Exception {
 		// TODO Auto-generated method stub
-		// try {
 		return operationdao.attribuerMatEx(matex, detenteur);
-		// }
-		/*
-		 * catch(Exception e) { FacesMessage message = new
-		 * FacesMessage(FacesMessage.SEVERITY_WARN,
-		 * "Erreur pour attribution de materiel existant", e.getMessage());
-		 * FacesContext.getCurrentInstance().addMessage(null, new
-		 * FacesMessage(e.getMessage()));
-		 * FacesContext.getCurrentInstance().addMessage(null, message); return null; }
-		 */
 	}
 
 	/*
@@ -440,32 +424,17 @@ public class UserMetier implements IUserMetier {
 	@Override
 	public OpAttribution reqAttribution(Materiel m, Agent oper, Agent detenteur) throws Exception {
 		// TODO Auto-generated method stub
-		// try
-		// {
 		if (!m.isValidation()) {
 			throw new Exception("Materiel non validé");
 		}
 		OpAttribution attroper = new OpAttribution(new Date(), new Date(), oper.getIp(), oper, m, detenteur);
 		oprepos.save(attroper);
 		return attroper;
-		// }
-		/*
-		 * catch(Exception e) { FacesMessage message = new
-		 * FacesMessage(FacesMessage.SEVERITY_WARN, "Erreur pour requete d'attribution",
-		 * e.getMessage()); FacesContext.getCurrentInstance().addMessage(null, new
-		 * FacesMessage(e.getMessage()));
-		 * FacesContext.getCurrentInstance().addMessage(null, message); return null; }
-		 */
 	}
 
 	@Override
 	public OpEntree reqMatAModifier(OpEntree entree, String motif) throws Exception {
 		// TODO Auto-generated method stub
-		// try{
-		/*if (entree.getMat().isValidation()) {
-			throw new Exception("Materiel deja validé");
-		}*/
-
 		for (Materiel m : entree.getListMat()) {
 			if (m.isValidation()) {
 				throw new Exception("Materiel deja validé");
@@ -475,15 +444,6 @@ public class UserMetier implements IUserMetier {
 		entree.amodifier(motif);
 		oprepos.save(entree);
 		return entree;
-		// }
-		/*
-		 * catch(Exception e) { FacesMessage message = new
-		 * FacesMessage(FacesMessage.SEVERITY_WARN,
-		 * "Erreur pour requete de modification materiel", e.getMessage());
-		 * FacesContext.getCurrentInstance().addMessage(null, new
-		 * FacesMessage(e.getMessage()));
-		 * FacesContext.getCurrentInstance().addMessage(null, message); return null; }
-		 */
 	}
 
 	@Override
@@ -1206,5 +1166,20 @@ public class UserMetier implements IUserMetier {
 		// TODO Auto-generated method stub
 		return operationdao.getListOpSortieArtByDirection(direction, startDate, endDate);
 	}
+
+	@Override
+	public List<OperationES> getListOpESForJournal(Direction direction, Date sdate, Date edate) {
+		// TODO Auto-generated method stub
+		return opesrepos.findByDirectionAndStateAndDateBetween(direction, EtatOperation.ACCEPTED,sdate, edate);
+		//return null;
+	}
+
+	@Override
+	public List<OpSortie> getListOpSortieValideByDirection(Direction direction) {
+		// TODO Auto-generated method stub
+		return opsortierepos.findByDirectionAndState(direction, EtatOperation.ACCEPTED);
+	}
+
+	
 
 }

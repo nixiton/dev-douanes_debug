@@ -188,5 +188,7 @@ public interface IUserMetier {
 	List<Materiel> getMatByValidationAndDetenteurAndDirection(boolean val, Agent detenteur, Direction direction);
 
 	List<Operation> getListAllOperationByDirectionByYearByDateAsc(Direction d, Date startDate, Date endDate);
-	
+
+	public List<OperationES> getListOpESForJournal(Direction direction, Date sdate, Date edate);
+	public List<OpSortie> getListOpSortieValideByDirection(Direction direction);
 }

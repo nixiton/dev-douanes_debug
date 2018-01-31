@@ -13,30 +13,21 @@ import javax.persistence.OneToMany;
 
 import javax.persistence.FetchType;
 import javax.persistence.CascadeType;
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.ElementCollection;
 
 @Entity
 @Table(name="operationentree")
-public class OpEntree extends Operation{
-	private static Long numerochronoe;
+@DiscriminatorValue("13")
+public class OpEntree extends OperationES{
 	
-	@ManyToOne
-	@JoinColumn(name="idMat")
-	private Materiel mat;
-	private String numentree;
-	
-	static {
-		numerochronoe = 1L;
-	}
 	
 	public OpEntree(Date date, Date time, String poste, Agent operateur, Materiel mater) {
 		super(date, time, poste, operateur);
 		this.setMat(mater);
-		this.numentree = "";
 	}
     public OpEntree(Date date, Date time, String poste, Agent operateur) {
         super(date, time, poste, operateur);
-        this.numentree = "";
     }
 	public OpEntree() {
 		
@@ -63,17 +54,11 @@ public class OpEntree extends Operation{
 			codeDirection = this.getDirection().getCodeDirection();
 		}
 		
-		this.numentree="OE "+ currentNum+ "/"+codeDirection+ "/" +dd+ "/" +mm+ "/" +yy;
-		numerochronoe+=1;
+		this.numoperation="OE "+ currentNum+ "/"+codeDirection+ "/" +dd+ "/" +mm+ "/" +yy;
 	}
-	public Materiel getMat() {
-		return mat;
-	}
-	public void setMat(Materiel mat) {
-		this.mat = mat;
-	}
+	
 	public String getNumentree() {
-		return this.numentree;
+		return this.numoperation;
 	}
 
 
@@ -124,7 +109,7 @@ public class OpEntree extends Operation{
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((listMat == null) ? 0 : listMat.hashCode());
-		result = prime * result + ((numentree == null) ? 0 : numentree.hashCode());
+		result = prime * result + ((numoperation == null) ? 0 : numoperation.hashCode());
 		result = prime * result + ((refFact == null) ? 0 : refFact.hashCode());
 		return result;
 	}
@@ -142,10 +127,10 @@ public class OpEntree extends Operation{
 				return false;
 		} else if (!listMat.equals(other.listMat))
 			return false;
-		if (numentree == null) {
-			if (other.numentree != null)
+		if (numoperation == null) {
+			if (other.numoperation != null)
 				return false;
-		} else if (!numentree.equals(other.numentree))
+		} else if (!numoperation.equals(other.numoperation))
 			return false;
 		if (refFact == null) {
 			if (other.refFact != null)

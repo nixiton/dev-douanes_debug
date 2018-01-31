@@ -4,21 +4,16 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 @Entity
-public class OpSortie extends Operation{
-	private static Long numerochronos;
-	
-	
-	@ManyToOne
-	@JoinColumn(name="idMat")
-	private Materiel mat;
-	private String numSortie;
-	
+@DiscriminatorValue("11")
+public class OpSortie extends OperationES{
+		
 	@ManyToOne
 	@JoinColumn(name="idDirect")
 	private Direction direc;
@@ -33,19 +28,13 @@ public class OpSortie extends Operation{
 	@ManyToOne
 	@JoinColumn(name="idMotif")
 	private MotifSortie motifsortie;
-	//String motifnonaccept;
 	
 	private String pj;
-	
-	static {
-		numerochronos = 1L;
-	}
 	
 	public OpSortie(Date date, Date time, String poste, Agent operateur, 
 			Materiel mater, Direction d, Service s, Bureau b, MotifSortie mot) {
 		super(date, time, poste, operateur);
 		this.setMat(mater);
-		//this.setDirection(operateur.getDirection());
 		this.setDirec(d);
 		this.setService(s);
 		this.setBureau(b);
@@ -57,7 +46,6 @@ public class OpSortie extends Operation{
 		super(date, time, poste, operateur);
 		this.setMat(mater);
 		this.setDirec(d);
-		//this.setDirec(operateur.getDirection());
 		this.setMotifsortie(mot);
 	}
 
@@ -78,7 +66,7 @@ public class OpSortie extends Operation{
 	}
 
 	public String getNumSortie() {
-		return numSortie;
+		return numoperation;
 	}
 
 	public void generateNumSortie(Long currentNum) {
@@ -100,8 +88,7 @@ public class OpSortie extends Operation{
 		if(this.getDirection()!=null) {
 			codeDirection = this.getDirection().getCodeDirection();
 		}
-		this.numSortie="OS "+ currentNum+ "/"+codeDirection+ "/" +dd+ "/" +mm+ "/" +yy;
-		numerochronos+=1;
+		this.numoperation="OS "+ currentNum+ "/"+codeDirection+ "/" +dd+ "/" +mm+ "/" +yy;
 	}
 
 	
@@ -149,14 +136,6 @@ public class OpSortie extends Operation{
 	public void setPj(String pj) {
 		this.pj = pj;
 	}
-
-	/*public String getMotifnonaccept() {
-		return motifnonaccept;
-	}
-
-	public void setMotifnonaccept(String motifnonaccept) {
-		this.motifnonaccept = motifnonaccept;
-	}*/
 	
 	
 	
