@@ -10,6 +10,7 @@ import com.douane.entite.*;
 import com.douane.model.EtatOperation;
 import com.douane.repository.MaterielRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.w3c.dom.ls.LSInput;
 
 import com.douane.repository.MaterielRepository;
 
@@ -601,22 +602,39 @@ public class OperationDAOImpl implements IOperationDAO{
 	@Override
 	public List<Object[]> getListForInventaire(Direction d, Date startDate, Date endDate) {
 		// TODO Auto-generated method stub
+		/*String sql="select e, tempsortie, m from opentreemateriel h  join Operationentree e on h.entreeid=e.id " + 
+				"full outer join (select o from Opsortie o where o.iddirection =1 and o.state='ACCEPTED' ) as tempsortie " + 
+				"on h.materielid = tempsortie.idmat " + 
+				"join materiel m on m.idmateriel=h.materielid " + 
+				"where e.iddirection=1 and e.state='ACCEPTED'";
+		*/
+		/*String sql ="select e, tempsortie, m from opentreemateriel h  join operationentree e on h.entreeid=e.id " + 
+				"full outer join (select * from opsortie o where o.iddirection =1 and o.state='ACCEPTED' ) as tempsortie " + 
+				"on h.materielid = tempsortie.idmat " + 
+				"join materiel m on m.idmateriel=h.materielid " + 
+				"where e.iddirection=1 and e.state='ACCEPTED'";
+		*/
+		String sql = "select m.idmateriel, m.reference, m.renseignement, m.pu, m.montant_facture,   e.numoperation,ns, m.validation from opentreemateriel h  join operationentree e on h.entreeid=e.id " + 
+				"full outer join (select o.numoperation ns, idmat from opsortie o where o.iddirection =:iddirect and o.state='ACCEPTED' ) as tempsortie " + 
+				"on h.materielid = tempsortie.idmat " + 
+				"join materiel m on m.idmateriel=h.materielid " + 
+				"where e.iddirection=:iddirect and e.state='ACCEPTED'";
+		//String sql = "select o from OpSortie o where o.direction=:direction and o.state=:etat";
+		System.out.println("sql created");
+		Query q=em.createNativeQuery(sql);
+		System.out.println("let's see result");
+		q.setParameter("iddirect", d.getId());
+		//q.setParameter("etat", EtatOperation.ACCEPTED);
+		List<Object[]> listforinventaire = q.getResultList();
 		
-		Query query = em.createQuery("select o,h,e,materiel from " + 
-				"(select o,h,e from " + 
-				" (select h,e from opentreemateriel h  join operationentree e on h.entreeid=e.id where e.iddirection=:idd and e.state=:etat) as tempentmat " + 
-				"full outer join " + 
-				" (select o from opsortie o where o.iddirection =:idd ) as tempsortie " + 
-				" on tempentmat.materielid = tempsortie.idmat) as tempfinal " + 
-				" join " + 
-				" materiel on materiel.idmateriel=tempfinal.materielid");
-		System.out.println("res begin");
-		query.setParameter("idd", d.getId());
+		System.out.println("res begin "+listforinventaire.size());
+		/*query.setParameter("idd", d.getId());
 		query.setParameter("etat", EtatOperation.ACCEPTED);
 		System.out.println("res begin");
 		List<Object[]> result = (List<Object[]>) query.getResultList();
-		System.out.println("res" + result);
-		return result;
+		System.out.println("res" + result);*/
+		
+		return listforinventaire;
 	}
 	
 

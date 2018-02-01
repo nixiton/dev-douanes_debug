@@ -79,6 +79,56 @@
 
 		</p:dataTable>
 		</h:form>
+		
+		<h:form>
+    <p:dataTable var="m" value="#{suivieditionBean.listobjectForInvetaire}"
+			paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}"
+			paginator="true" rows="10" style="margin-bottom:20px"
+			sortBy="#{c.id}"
+			>
+			
+			<p:column headerText="Numero du folio"> #{m[0]}</p:column>
+			<p:column headerText="Nomencture"> #{m[1]} - #{m[2]}</p:column>	
+			<p:column headerText="Designation"> #{m[1]} - #{m[2]}</p:column>
+
+			<p:column headerText="Prix de l'unité">
+
+				<p:panel rendered="#{m[3] eq null}">
+                    
+                    #{m[4]}
+                    </p:panel>
+
+						<p:panel rendered="#{m[4] eq null}">
+                    
+                    #{m[3]}
+                    </p:panel>
+
+			</p:column>
+			<p:column headerText="Existants au 1er janvier">
+			#{m[5]}
+			</p:column>
+			<p:column headerText="Entrée pendant x">
+			#{m[5]}
+			</p:column>
+			<p:column headerText="Sortie prendant x">
+			#{m[6]}
+			</p:column>
+			<p:column headerText="Reste au 31 Dec x x">
+			xx
+			</p:column>
+			<p:column headerText="Décompte en Ariary">
+			xx
+			</p:column>
+			<p:column headerText="Observation">
+			#{m[7]}
+			</p:column>
+			
+			
+			
+			
+
+		</p:dataTable>
+		</h:form>
 
 
 

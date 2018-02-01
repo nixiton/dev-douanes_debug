@@ -614,8 +614,11 @@ public class SuiviEditionBean {
 		Agent cur = (Agent) RequestFilter.getSession().getAttribute("agent");
 		System.out.println("RRRRRRRRRRR Begin:");
 		List<Object[]> r = usermetierimpl.getListObjectForinvetaire(cur.getDirection());
-		System.out.println("RRRRRRRRRRR Ending:"+r);
-		
+		System.out.println("RRRRRRRRRRR Ending:");
+		for(Object[] o:r) {
+			System.out.println(String.valueOf(o[0]));
+			System.out.println(String.valueOf(o[1]));
+		}
 		return r;
 	}
 
