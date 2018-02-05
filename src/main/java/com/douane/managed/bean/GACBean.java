@@ -518,7 +518,8 @@ public class GACBean {
         this.suivibean = svbean;
     }
     */
-    public void setCurentOperation(Operation operation){
+    public void setCurentOperation(Operation operation)
+    {
         this.curentOperation = operation;
 
         System.out.println("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
@@ -851,6 +852,7 @@ public class GACBean {
         return datetime + ".zip";
     }
 
+
     public void reqArtRefuser(OpEntreeArticle e) {
     	try {
 			usermetierimpl.reqArtRefuser(e, this.getMotif());
@@ -970,6 +972,49 @@ public class GACBean {
         this.listOperationByDirectionByYearByDateAsc = null;
         this.listMaterielByDet = null;
     }
+
+    private String fileFacPath;
+    private StreamedContent facdownload;
+
+    public String getFileFacPath() {
+        OpEntree O = (OpEntree) this.curentOperation;
+        return (O.getPathDoc());
+    }
+
+    public void setFileFacPath(String fileFacPath) {
+        this.fileFacPath = fileFacPath;
+    }
+
+    public StreamedContent getFacdownload() throws IOException {
+        String fac = getFileFacPath();
+        if(fac == null)
+            return null;
+        try
+        {
+            FileInputStream fstream = new FileInputStream(fac);
+            if (fstream == null)
+                return null;
+            if (fstream.getChannel().size() == 0)
+                return null;
+
+            InputStream stream = new FileInputStream(fac);
+            fileZipSize = stream.available();
+            filedownload = new DefaultStreamedContent(stream,
+                    "application/zip", "doc.zip");
+        }catch (FileNotFoundException f)
+        {
+            return null;
+        }
+        //RequestFilter.getSession().setAttribute("fileZipPath",null);
+        return filedownload;
+    }
+
+    public void setFacdownload(StreamedContent s)
+    {
+        this.facdownload = s;
+    }
+
+
 
 }
 //r

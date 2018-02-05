@@ -42,6 +42,12 @@
                             <td>#{mat.marque.designation}</td>
                         </tr>
 
+
+
+
+
+
+
                         <tr>
                             <td><strong>Référence</strong></td>
                             <td>#{mat.reference}</td>
@@ -86,6 +92,31 @@
                                 <td><strong>Réference facture</strong></td>
                                 <td>#{mat.refFacture}</td>
                             </tr>
+
+                            <tr>
+                                <c:if test="#{gacBean.curentOperation['class'].simpleName eq 'OpEntree' }">
+
+                                    <tr>
+                                        <td><strong>Facture</strong></td>
+                                        <td>
+
+                                            <c:if test="#{gacBean.fileFacPath ne null}" >
+                                                <h:form>
+                                                    <p:commandButton id="downloadLink" value="Download" ajax="false" icon="ui-icon-document">
+                                                        <f:setPropertyActionListener target="#{gacBean.fileFacPath}" value="delete" />
+                                                        <p:fileDownload value="#{gacBean.facdownload}" />
+                                                        <!-- i class="fa fa-file-archive-o"></i-->
+                                                    </p:commandButton>
+                                                </h:form>
+                                            </c:if>
+
+                                        </td>
+                                    </tr>
+
+                                </c:if>
+
+                            </tr>
+
                             <tr>
                                 <td><strong>Mode d'acquisition</strong></td>
                                 <td>#{mat.modAcq.designation}</td>

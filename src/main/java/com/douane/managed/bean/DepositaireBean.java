@@ -1619,7 +1619,13 @@ public class DepositaireBean {
 				System.out.println("materiel: "+ a.getNumSerie());
 			}
 
-			OpEntree opEntree = usermetierimpl.reqEntrerMateriel(listMaterielForOpEntree, agent, getFacturePath(), getRefFacture());
+			List<String> facPathList = new ArrayList<String>();
+			facPathList.add(getFacturePath());
+			zipFiles(facPathList);
+
+			OpEntree opEntree = usermetierimpl.reqEntrerMateriel(listMaterielForOpEntree, agent, (String)RequestFilter.getSession().getAttribute("documentpath"), getRefFacture());
+
+			RequestFilter.getSession().setAttribute("documentpath",null);
 
 			listMaterielForOpEntree = null;
 			clear();
