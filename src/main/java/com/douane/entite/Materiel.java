@@ -428,6 +428,18 @@ public class Materiel implements Serializable{
 	private String especeUnite;
 	private String origine;
 	
+	@ManyToOne(fetch=FetchType.LAZY)
+	  @JoinColumn(name="desingationid")
+	Designation design;
+
+	public Designation getDesign() {
+		return design;
+	}
+
+	public void setDesign(Designation design) {
+		this.design = design;
+	}
+	
 	
 
 }

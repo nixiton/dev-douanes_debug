@@ -27,8 +27,66 @@
             </h:form>
         </p:column>
     </p:dataTable>
+    
 
 <!--ui:include src="/pages/secure/CM/tables/dialogs/dialogs_LivreAnnuel.xhtml"></ui:include-->
+<h:form>
+	<p:dataTable var="c" value="#{suivieditionBean.listOpESForJournal}"
+			paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}"
+			paginator="true" rows="10" style="margin-bottom:20px"
+			rowStyleClass="#{c['class'].simpleName ne 'OpEntree' and c['class'].simpleName ne 'OpSortie' ? 'ui-helper-hidden' : '' }"
+			sortBy="#{c.id}"
+			>
+
+			<p:column headerText="ID"> #{c.id}</p:column>
+
+			<p:column headerText="Nomenclature">
+
+				#{c.mat.typematerieladd.nomenclaureParent.nomenclature}
+			</p:column>
+			<p:column headerText="Espèces des unités">
+            
+            #{c.mat.especeUnite}
+
+        </p:column>
+
+			<p:column headerText="Désignation des objets">
+			#{c.mat.renseignement} - #{c.mat.reference}
+			</p:column>
+			<p:column headerText="Prix de l'unité">
+			#{c.mat.pu}
+			</p:column>
+			<p:column headerText="Quatité existant au 1er janv">
+			#{c.numoperation}
+			</p:column>
+			<p:column headerText="Mouvement effectués">
+			#{c.state}
+			</p:column>
+			<p:column headerText="Numéro du pj">
+			#{c.numoperation}
+			</p:column>
+			<p:column headerText="Origine des entrées et des sorties">
+			#{c.numoperation}
+			</p:column>
+			<p:column headerText="Entrées">
+			<p:panel rendered="#{c['class'].simpleName eq 'OpEntree'}">
+			#{c.mat.pu}
+			</p:panel>
+			</p:column>
+			<p:column headerText="Sorties">
+			<p:panel rendered="#{c['class'].simpleName eq 'OpSortie'}">
+			#{c.mat.pu}
+			</p:panel>
+			</p:column>
+			<p:column headerText="Reste au 31">
+			x
+			</p:column>
+
+
+		</p:dataTable>
+
+
+	</h:form>
 
 </div>
 
