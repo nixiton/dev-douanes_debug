@@ -33,6 +33,7 @@ public class Materiel implements Serializable{
 	private boolean validation;
 	//private boolean aModifier;
 	private String renseignement;
+	private int serienumero;
 	
 
 
@@ -438,6 +439,14 @@ public class Materiel implements Serializable{
 
 	public void setDesign(Designation design) {
 		this.design = design;
+	}
+
+	public int getSerienumero() {
+		return serienumero;
+	}
+
+	public void setSerienumero(int serienumero) {
+		this.serienumero = serienumero;
 	}
 	
 	

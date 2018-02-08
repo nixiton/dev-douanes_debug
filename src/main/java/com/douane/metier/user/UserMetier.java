@@ -1197,7 +1197,7 @@ public class UserMetier implements IUserMetier {
 	}
 
 	@Override
-	public Materiel entrerMaterielExistant(Designation des, List <MaterielEx> matexs, Agent dc) {
+	public void entrerMaterielExistant(Designation des, List <MaterielEx> matexs, Agent dc) {
 		// TODO Auto-generated method stub
 		Designation d =desrepos.save(des);
 		for(Materiel matex:matexs) {
@@ -1208,7 +1208,6 @@ public class UserMetier implements IUserMetier {
 			
 		}
 		
-		return null;
 	}
 	
 	@Override

@@ -7,52 +7,48 @@ import com.douane.entite.*;
 import com.douane.model.EtatOperation;
 
 public interface IUserMetier {
+	/**
+	 * Affichage
+	 */
+	public void seeMat(Materiel m);
+	public void seeAgent(Agent a);
+	
+	/*
+	 * GESTION DES UTILISATEURS
+	 * */
 	
 	public Useri addUser(Useri u);
-
 	public void remUser(Useri u);
-
 	public Agent addAgent(Agent a);
 	public Agent changeAgentPass(Agent a, String codedPassword);
 	public void remAgent (Agent a);
-
-
-
 	public Agent addAgentUser(Agent a, Useri u);
-
 	public Agent findAgentByIm (Long im_agent);
 
 	//les requetes
 	public OpEntree reqEntrerMateriel(List<Materiel> m, Agent dc, String facturePath, String refFacture);
 	public OpSortie reqSortirMateriel(Materiel m, MotifSortie motif, Direction d, Service s, Bureau b, Agent op)throws Exception;
-
 	public OpAttribution reqAttribution(Materiel m, Agent oper, Agent detenteur) throws Exception;
-
 	public OpDettachement reqDettachement(Materiel mat1, Agent agent2, Agent agent1,MotifSortie m)throws Exception;
+	
 	//les validations
-
 	public Materiel entrerMateriel(OpEntree op);
 	public Materiel sortirMateriel(OpSortie sortie) throws Exception;
-
-
+	public Agent detacherMateriel(OpDettachement det) throws Exception;
+	public Materiel attriuberMateriel(OpAttribution attr) throws Exception;
+	
 	public OpEntree reqMatAModifier(OpEntree entree, String motif)throws Exception;
 	public OpSortie reqSortirAModifier(OpSortie sort, String motif);
 	public OpEntree reqMatRefuser(OpEntree entree, String string)throws Exception;
 	public OpSortie reqSortirRefuser(OpSortie sortie, String string);
-
-	public Agent detacherMateriel(OpDettachement det) throws Exception;
 	public OpDettachement reqDetRefuser(OpDettachement det, String string);
-
-
-	//public Materiel attriuberMateriel (Long idMat, Long im);
-	//public Materiel attriuberMateriel (Materiel m, Agent d);
-	public Materiel attriuberMateriel(OpAttribution attr) throws Exception;
-	public Materiel attribuerMaterielEx (MaterielEx matex, Agent detenteur)throws Exception;
 	public OpAttribution reqAttrAModifier(OpAttribution attr, String motif)throws Exception;
 	public OpAttribution reqAttrRefuser(OpAttribution attr, String motif)throws Exception;
 
-
-	//public Materiel dettacherMateriel (Materiel m);
+	//Miasa ve ???
+	public Materiel attribuerMaterielEx (MaterielEx matex, Agent detenteur)throws Exception;
+	
+	//Gestion des materiels
 	public void delMat(Materiel m);
 
 
@@ -60,33 +56,33 @@ public interface IUserMetier {
 	 * GETTERS
 	 *
 	 */
-
-	public List<ArticleEx> getListArticleEx();
-
-
+	
+	//Get List Materiel
 	public Materiel getMatById(Long idmat);
 	public List<Materiel> getListMatByDet(Agent detenteur);
 	public List<Materiel> getListMatByNom(Nomenclature nomenclature);
 	public List<Materiel> getListMatByDirection(Direction direction);
-	public List<Materiel> getListMatByService(Service service);
-	public List<Materiel> getListMatByBureau(Bureau bureau);
-	public List<Materiel> getListMat();
-	public List<MaterielEx> getListMatEx();
-	public List<MaterielNouv> getListMatNouv();
-	public List<Materiel> getMatByValidation(boolean validation);
 	public List<Materiel> getMatByDetenteurAndValidation(Agent detenteur,boolean validation);
 	public List<Materiel> getMatByDetenteurAndDirection(Agent detenteur,Direction direction);
 	public List<MaterielNouv> getListMaterielNouvValide();
+	
 
-	public List<Operation> getListOp();
-	//public List<Operation> getListOpWithMat();
-	public List<OpEntree> getListOpEntree();
-	public List<OpSortie> getListOpSortie();
+	public List<Materiel> getListMatByService(Service service);//tokony tsy miasa
+	public List<Materiel> getListMatByBureau(Bureau bureau);//tokony tsy miasa
+	public List<Materiel> getListMat();//pour test
+	public List<MaterielEx> getListMatEx();//pour test
+	public List<MaterielNouv> getListMatNouv();//POut test seulement
+	public List<Materiel> getMatByValidation(boolean validation);//pour test
+	
+	//Listes des Operations
 
-
-	public List<OpAttribution> getListOpAttribution();
-	public List<OpDettachement> getListOpDettachement();
-
+	public List<Operation> getListOp(); //pour test
+	public List<OpEntree> getListOpEntree();//pour test 
+	public List<OpSortie> getListOpSortie();//pour test
+	public List<OpAttribution> getListOpAttribution();//pour test
+	public List<OpDettachement> getListOpDettachement();//pour test
+	public List<Operation> getListOpBetween(Date startDate, Date endDate);//pour test
+	
 	public List<Operation> getListOpByOperator(Agent operator);
 	public List<OpEntree> getListOpEntreeByOperator(Agent operator);
 	public List<OpSortie> getListOpSortieByOperator(Agent operator);
@@ -101,7 +97,7 @@ public interface IUserMetier {
 	public List<OpDettachement> getListOpDettByDirection(Direction direction);
 
 
-	public List<Operation> getListOpBetween(Date startDate, Date endDate);
+	
 	public List<OpEntree> getListOpEntreeByMat(Materiel m);
 	public List<OpSortie> getListOpSortieByMat(Materiel m);
 
@@ -129,11 +125,7 @@ public interface IUserMetier {
 	public List<Agent> listAgentByDirection(Direction direction);
 	//okay
 	public OpEntree getOperationEntreeById(Long idopentree);
-	/**
-	 * Affichage
-	 */
-	public void seeMat(Materiel m);
-	public void seeAgent(Agent a);
+	
 
 
 	//FOR CA
@@ -155,7 +147,7 @@ public interface IUserMetier {
 
 	public Article entrerArticle(OpEntreeArticle opentreeart);
 	public Article sortirArticle(OpSortieArticle sortieart) throws Exception;
-
+	public List<ArticleEx> getListArticleEx();
 	public List<ArticleNouv> getListAllArticleNouv();
 	public List<Article> getListAllArticle();
 	public List<Article> getListArticleValideByDirection(Direction d);
@@ -194,6 +186,6 @@ public interface IUserMetier {
 
 	List<Object[]> getListObjectForinvetaire(Direction d);
 	
-	public Materiel entrerMaterielExistant(Designation des, List <MaterielEx> matexs, Agent dc);
+	public void entrerMaterielExistant(Designation des, List <MaterielEx> matexs, Agent dc);
 	public OpEntree reqEntrerMaterielNouv(Designation des,List<Materiel> l, Agent dc, String facturePath, String refFacture);
 }
