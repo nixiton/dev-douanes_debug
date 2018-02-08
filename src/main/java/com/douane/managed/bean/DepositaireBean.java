@@ -2375,37 +2375,28 @@ public class DepositaireBean {
 			 * Voir: en bas addNewMateriel() et ArrayList<Materiel> materielspardesignation
 			 */
 			
-			ArrayList<Materiel> listematerielParDesign = this.getMaterielspardesignation();
-			for (Materiel m: listematerielParDesign) {
+			ArrayList<MaterielEx> listematerielParDesign = new ArrayList<MaterielEx>();
+			for (Materiel m: this.getMaterielspardesignation()) {
 				m.setValidation(true);
 				m.setEtat(getEtat());
+				listematerielParDesign.add((MaterielEx)m);
 				System.out.println("Materiel :"+m.getNumSerie());
 			}
-			/*MaterielEx m = new MaterielEx();
-			m.setDirec(agent.getDirection());
-			m.setEtat(getEtat());
-			m.setNumSerie(getNumSerie());
-			m.setReference(getReference());
-			m.setValidation(false);
-
-			if (listMaterielForOpEntree == null)
-				listMaterielForOpEntree = new ArrayList<Materiel>();
-
-			listMaterielForOpEntree.add(m);
-			
 			
 			/*
 			 *Entrer les materiels existants sans creer une operation entrée  
 			 * 
 			 */
+			usermetierimpl.entrerMaterielExistant(des, listematerielParDesign, agent);
 			
-			/*// set Operation requete entrer materiel existant
-			OpEntree opentree = usermetierimpl.reqEntrerMateriel(listMaterielForOpEntree, agent, getFacturePath(),
-					getRefFacture());
-			// set Operation valider automatique car ne necessite pas de validation GAC
-			usermetierimpl.entrerMateriel(opentree);
+			
+			/*
+			 * Attribution si detenteurMatex existe
+			 */
 
 			// miboucle list op entree
+			
+			/*
 			for (Materiel ma : listMaterielForOpEntree) {
 				if (getDetenteurMatEx() != null) {
 					// usermetierimpl.attribuerMaterielEx((MaterielEx) ma,getDetenteurMatEx());
