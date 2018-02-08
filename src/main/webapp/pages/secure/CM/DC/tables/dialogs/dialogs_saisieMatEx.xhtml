@@ -26,14 +26,14 @@
                         <td>#{depositaireBean.curentMaterielEx.idMateriel}</td>
                         <td></td>
                         <td><strong>Caractéristiques</strong></td>
-                        <td>#{depositaireBean.curentMaterielEx.renseignement}</td>
+                        <td>#{depositaireBean.curentMaterielEx.design.renseignement}</td>
                     </tr>
                     <tr>
                         <td><strong>Prix Unitaire</strong></td>
-                        <td>#{depositaireBean.curentMaterielEx.pu}</td>
+                        <td>#{depositaireBean.curentMaterielEx.design.pu}</td>
                         <td></td>
                         <td><strong>Marque</strong></td>
-                        <td>#{depositaireBean.curentMaterielEx.marque.designation}</td>
+                        <td>#{depositaireBean.curentMaterielEx.design.marque.designation}</td>
 
                     </tr>
                     <tr>
@@ -65,12 +65,12 @@
                     </tr>
                     <tr>
                         <td><strong>Autre</strong></td>
-                        <td>#{depositaireBean.curentMaterielEx.autre}</td>
+                        <td>#{depositaireBean.curentMaterielEx.design.autre}</td>
                         <td></td>
                         <td><strong>Image</strong></td>
                         <td>
-                            <p:panel rendered="#{depositaireBean.curentMaterielEx.image != null}">
-                                <h:graphicImage url="data:image/jpg;base64,#{depositaireBean.curentMaterielEx.image}"
+                            <p:panel rendered="#{depositaireBean.curentMaterielEx.design.image != null}">
+                                <h:graphicImage url="data:image/jpg;base64,#{depositaireBean.curentMaterielEx.design.image}"
                                                 width="275px" height="75px" title="#{depositaireBean.curentMaterielEx.reference}" >
                                 </h:graphicImage>
                             </p:panel>
@@ -78,7 +78,7 @@
                     </tr>
                     <tr>
                         <td><strong>Type de materiel - Nomenclature</strong></td>
-                        <td>#{depositaireBean.curentMaterielEx.typematerieladd} - #{depositaireBean.curentMaterielEx.nomenMat.nomenclature}</td>
+                        <td>#{depositaireBean.curentMaterielEx.design.typematerieladd} - #{depositaireBean.curentMaterielEx.design.nomenMat.nomenclature}</td>
                         <td></td>
                         <td><strong>Etat</strong></td>
                         <td>#{depositaireBean.curentMaterielEx.etat.designation}</td>
@@ -87,7 +87,7 @@
                     </tr>
                     <tr>
                     	<td><strong>Année d'Acquisition</strong></td>
-                        <td>#{depositaireBean.curentMaterielEx.anneeAcquisition}</td>
+                        <td>#{depositaireBean.curentMaterielEx.design.anneeAcquisition}</td>
                         <td></td>
                         <td><strong>Detenteur</strong></td>
                         <td>#{depositaireBean.curentMaterielEx.detenteur.im} - #{depositaireBean.curentMaterielEx.detenteur.nomAgent}</td>
@@ -98,15 +98,15 @@
                         <td>#{depositaireBean.curentMaterielEx.code}</td>
                         <td></td>
                         <td><strong>Origine</strong></td>
-                        <td>#{depositaireBean.curentMaterielEx.origine}</td>
+                        <td>#{depositaireBean.curentMaterielEx.design.origine}</td>
                     </tr>
                     <tr>
                     	<td><strong>QRCODE</strong></td>
                         <td>           					
             				<p:barcode value="${depositaireBean.curentMaterielEx.direc.designation}/ 
-            				${depositaireBean.curentMaterielEx.typematerieladd.designation  } /
+            				${depositaireBean.curentMaterielEx.design.typematerieladd.designation  } /
             				NUM1 /
-            				${depositaireBean.curentMaterielEx.anneeAcquisition}/" type="qr"/>
+            				${depositaireBean.curentMaterielEx.design.anneeAcquisition}/" type="qr"/>
            				</td>
                     </tr>
                     <tr>

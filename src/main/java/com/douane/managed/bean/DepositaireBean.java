@@ -1533,7 +1533,7 @@ public class DepositaireBean {
 		try {
 			// getCurrent Materiel ve?????
 			System.out.println("****************************ADD2 ATTR**ERRORR*****NULL*************************** "
-					+ getMaterielSeclected().getNomenMat().getDesignation());
+					+ getMaterielSeclected().getDesign().getNomenMat().getDesignation());
 			OpAttribution opAt = usermetierimpl.reqAttribution(getMaterielSeclected(), agent, getDetenteur());
 			System.out.println("****************************ADD3 ATTR**ERRORR********************************");
 			clear();
@@ -1736,10 +1736,10 @@ public class DepositaireBean {
 	private List<Referentiel> listDestinaiton;
 
 	public void onChangeMateriel() {
-		marqueAutom = getMaterielSeclected().getMarque();
+		marqueAutom = getMaterielSeclected().getDesign().getMarque();
 		setReferenceAutom(getMaterielSeclected().getReference());
 		setNumSerie(getMaterielSeclected().getNumSerie());
-		setNomenclatureAutom(getMaterielSeclected().getNomenMat().getDesignation());
+		setNomenclatureAutom(getMaterielSeclected().getDesign().getNomenMat().getDesignation());
 		setCodificationAutom(getMaterielSeclected().getCode());
 	}
 

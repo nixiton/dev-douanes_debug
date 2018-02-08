@@ -18,8 +18,6 @@
 
             <p:messages id="messages" />
 
-            
-
             <div class="form-group">
                 
                 <!-- DETENTEUR -->
@@ -129,7 +127,9 @@
                 <div class="col-lg-6">
 
                     <!--h:inputText id="marque" value="#{depositaireBean.marq.designation}" ></h:inputText-->
+                    <!-- h:outputText id="marque" value="#{depositaireBean.marqueAutom != null ? depositaireBean.marqueAutom.designation : ''}"/-->
                     <h:outputText id="marque" value="#{depositaireBean.marqueAutom != null ? depositaireBean.marqueAutom.designation : ''}"/>
+                    
 
                     <hr></hr>
 
