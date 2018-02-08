@@ -428,7 +428,7 @@ public class Materiel implements Serializable{
 	private String especeUnite;
 	private String origine;
 	
-	@ManyToOne(fetch=FetchType.LAZY)
+	@ManyToOne
 	  @JoinColumn(name="desingationid")
 	Designation design;
 

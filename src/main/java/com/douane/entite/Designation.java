@@ -33,9 +33,9 @@ public class Designation {
 	private String renseignement;
 	private byte[] image;
 	
-	@OneToMany(mappedBy="design")
+	/*@OneToMany(mappedBy="design")
 	  private List<Materiel> materiels;
-	
+	*/
 
 	@ManyToOne
 	@JoinColumn(name="idNom")
@@ -58,6 +58,22 @@ public class Designation {
 	
 	private String especeUnite;
 	
+	
+	@ManyToOne
+	@JoinColumn(name="idModAcq")
+	private ModeAcquisition modAcq;
+	
+	@ManyToOne
+	@JoinColumn(name="idFin")
+	private Financement financement;
+	@ManyToOne
+	@JoinColumn(name="idFourn")
+	private Fournisseur fournisseur;
+	
+	private String refFacture;
+	
+	private String documentPath;
+	private String origine;
 	public String getImage() throws IOException
 	{
 		ByteArrayInputStream bais;
@@ -161,7 +177,7 @@ public class Designation {
 	public void setEspeceUnite(String especeUnite) {
 		this.especeUnite = especeUnite;
 	}
-	public List<Materiel> getMateriels() {
+	/*public List<Materiel> getMateriels() {
 		return materiels;
 	}
 	public void setMateriels(List<Materiel> materiels) {
@@ -170,7 +186,77 @@ public class Designation {
 	public void addMateriel(Materiel m) {
 		this.materiels.add(m);
 		m.setDesign(this);
+	}*/
+	public Nomenclature getNomenMat() {
+		return nomenMat;
+	}
+	public void setNomenMat(Nomenclature nomenMat) {
+		this.nomenMat = nomenMat;
+	}
+	public CategorieMat getCategorie() {
+		return categorie;
+	}
+	public void setCategorie(CategorieMat categorie) {
+		this.categorie = categorie;
+	}
+	public TypeMateriel getCaract() {
+		return caract;
+	}
+	public void setCaract(TypeMateriel caract) {
+		this.caract = caract;
+	}
+	public Marque getMarque() {
+		return marque;
+	}
+	public void setMarque(Marque marque) {
+		this.marque = marque;
+	}
+	public TypeMateriel getTypematerieladd() {
+		return typematerieladd;
+	}
+	public void setTypematerieladd(TypeMateriel typematerieladd) {
+		this.typematerieladd = typematerieladd;
+	}
+	public ModeAcquisition getModAcq() {
+		return modAcq;
+	}
+	public void setModAcq(ModeAcquisition modAcq) {
+		this.modAcq = modAcq;
+	}
+	public Financement getFinancement() {
+		return financement;
+	}
+	public void setFinancement(Financement financement) {
+		this.financement = financement;
+	}
+	public Fournisseur getFournisseur() {
+		return fournisseur;
+	}
+	public void setFournisseur(Fournisseur fournisseur) {
+		this.fournisseur = fournisseur;
+	}
+	public String getRefFacture() {
+		return refFacture;
+	}
+	public void setRefFacture(String refFacture) {
+		this.refFacture = refFacture;
+	}
+	public Long getIdDesignation() {
+		return idDesignation;
+	}
+	public String getDocumentPath() {
+		return documentPath;
+	}
+	public void setDocumentPath(String documentPath) {
+		this.documentPath = documentPath;
+	}
+	public String getOrigine() {
+		return origine;
+	}
+	public void setOrigine(String origine) {
+		this.origine = origine;
 	}
 
+	
 
 }
