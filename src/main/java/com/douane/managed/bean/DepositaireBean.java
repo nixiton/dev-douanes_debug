@@ -2381,6 +2381,7 @@ public class DepositaireBean {
 				m.setEtat(getEtat());
 				listematerielParDesign.add((MaterielEx)m);
 				System.out.println("Materiel :"+m.getNumSerie());
+				m.setDirec(agent.getDirection());
 			}
 			
 			/*
