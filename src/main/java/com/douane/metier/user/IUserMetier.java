@@ -193,4 +193,7 @@ public interface IUserMetier {
 	public List<OpSortie> getListOpSortieValideByDirection(Direction direction);
 
 	List<Object[]> getListObjectForinvetaire(Direction d);
+	
+	public Materiel entrerMaterielExistant(Designation des, List <MaterielEx> matexs, Agent dc);
+	public OpEntree reqEntrerMaterielNouv(Designation des,List<Materiel> l, Agent dc, String facturePath, String refFacture);
 }

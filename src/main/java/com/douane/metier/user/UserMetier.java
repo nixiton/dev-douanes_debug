@@ -38,6 +38,17 @@ public class UserMetier implements IUserMetier {
 	@Autowired
 	private OpESRepository opesrepos;
 	
+	@Autowired
+	private DesignationRepository desrepos;
+	
+	public DesignationRepository getDesrepos() {
+		return desrepos;
+	}
+
+	public void setDesrepos(DesignationRepository desrepos) {
+		this.desrepos = desrepos;
+	}
+	
 	public OpESRepository getOpesrepos() {
 		return opesrepos;
 	}
@@ -1184,5 +1195,43 @@ public class UserMetier implements IUserMetier {
 	public List<Object[]> getListObjectForinvetaire(Direction d){
 		return operationdao.getListForInventaire(d, new Date(), new Date());
 	}
+
+	@Override
+	public Materiel entrerMaterielExistant(Designation des, List <MaterielEx> matexs, Agent dc) {
+		// TODO Auto-generated method stub
+		Designation d =desrepos.save(des);
+		for(Materiel matex:matexs) {
+			matex.setDesign(d);
+			matex.setDc(dc);
+			matex.setValidation(true);
+			matrepos.save(matex);
+			
+		}
+		
+		return null;
+	}
+	
+	@Override
+	public OpEntree reqEntrerMaterielNouv(Designation des,List<Materiel> l, Agent dc, String facturePath, String refFacture) {
+		// TODO Auto-generated method stub*
+		System.out.println("let entrer materiel");
+		OpEntree entree = new OpEntree(new Date(), new Date(), dc.getIp(), dc);
+		entree.setPathDoc(facturePath);
+		entree.setRefFact(refFacture);
+		// entree.setListMat(l);
+		Designation d =desrepos.save(des);
+		for (Materiel m : l) {
+			m.setDc(dc);
+			m.setDesign(d);
+			entree.addMateriel(m);
+		}
+		entree = opentreerepos.save(entree);
+		/*
+		 * MaterielEx ma= new MaterielEx(); ma = matrepos.save(ma);
+		 */
+		// m = materielExRepository.save((MaterielEx) m);
+		return entree;
+	}
+
 
 }
