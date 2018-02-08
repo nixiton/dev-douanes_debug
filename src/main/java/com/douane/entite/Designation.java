@@ -40,9 +40,6 @@ public class Designation {
 	@ManyToOne
 	@JoinColumn(name="idNom")
 	private Nomenclature nomenMat;
-	@ManyToOne
-	@JoinColumn(name="idCateg")
-	private CategorieMat categorie;
 
 
 	@ManyToOne(fetch = FetchType.LAZY)
@@ -193,12 +190,7 @@ public class Designation {
 	public void setNomenMat(Nomenclature nomenMat) {
 		this.nomenMat = nomenMat;
 	}
-	public CategorieMat getCategorie() {
-		return categorie;
-	}
-	public void setCategorie(CategorieMat categorie) {
-		this.categorie = categorie;
-	}
+	
 	public TypeMateriel getCaract() {
 		return caract;
 	}
