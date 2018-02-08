@@ -349,11 +349,11 @@ public class Materiel implements Serializable{
 		if(this.getDirec()!=null) {
 			codeDirection = this.direc.getCodeDirection();
 		}
-		if(this.getTypematerieladd()!=null) {
+		if(this.getDesign().getTypematerieladd()!=null) {
 			codeTypeMateriel = this.getTypematerieladd().getCodeTypeMate();
 			codeNomenclature = this.getTypematerieladd().getNomenclaureParent().getNomenclature();
 		}
-		if(this.getAnneeAcquisition()!=null) {
+		if(this.getDesign().getAnneeAcquisition()!=null) {
 			anneeacquisition = this.getAnneeAcquisition();
 		}
 		this.code = "COD"+
