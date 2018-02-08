@@ -332,7 +332,7 @@
 
 
 			<!-- LES REFERENTIELS -->
-			<h:form>
+		
 			<p:commandButton value="Ajouter nombre par type" process="@this,reference,numeroserie"
                              update="refid" actionListener="#{depositaireBean.addNewMateriel}"
                              ajax="true" />
@@ -366,13 +366,13 @@
                     </p:column>
 
                 </p:dataTable>
-                </h:form>
+                
             
             <div class="form-group">
                 <label for="text1" class="control-label col-lg-4"></label>
 
                 <div class="col-lg-4">
-                    <h:commandButton id="btnSignId" action="#{depositaireBean.addMateriel}" value="Créer"
+                    <h:commandButton id="btnSignId" action="#{depositaireBean.addMaterielExistant}" value="Créer"
                         class="btn btn-lg btn-primary btn-block"/>
                 </div>
 
