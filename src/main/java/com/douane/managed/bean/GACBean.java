@@ -136,7 +136,7 @@ public class GACBean {
     public void validatePrisEnChargeEntreMat(Operation op)
     {
         //usermetierimpl.entrerMateriel(op);
-        usermetierimpl.entrerMateriel((OpEntree)this.getCurentOperation());
+        usermetierimpl.entrerMateriel((OpEntree)op);
         setCurentNull();
         setAllNull();
         this.setCurentOperation(null);
@@ -796,7 +796,7 @@ public class GACBean {
 
     public String getFileZipPath() {
 
-        List <Materiel> lstM = ((OpEntree)curentOperation).getListMat();
+        List <Materiel> lstM = opEntreeToValidate.getListMat();
         FileOutputStream fos = null;
         ZipOutputStream zipOut = null;
         FileInputStream fis = null;
@@ -817,9 +817,9 @@ public class GACBean {
             RequestFilter.getSession().setAttribute("fileZipPath",datetime + ".zip");
             zipOut = new ZipOutputStream(new BufferedOutputStream(fos));
             for (Materiel m : lstM) {
-                if(m.getDocumentPath() != null)
+                if(m.getDesign().getDocumentPath() != null)
                 {
-                    File input = new File(m.getDocumentPath());
+                    File input = new File(m.getDesign().getDocumentPath());
 
                     fis = new FileInputStream(input);
                     ZipEntry ze = new ZipEntry(input.getName());
@@ -980,8 +980,7 @@ public class GACBean {
     private StreamedContent facdownload;
 
     public String getFileFacPath() {
-        OpEntree O = (OpEntree) this.curentOperation;
-        return (O.getPathDoc());
+        return opEntreeToValidate.getPathDoc();
     }
 
     public void setFileFacPath(String fileFacPath) {
@@ -1024,7 +1023,46 @@ public class GACBean {
 	public void setCurentopSortieForValidation(OpSortie curentopSortieForValidation) {
 		this.curentopSortieForValidation = curentopSortieForValidation;
 	}
+	
+	private OpEntree opEntreeToValidate;
+	private OpSortie opSortieToValidate;
+	private OpDettachement opDetToValidate;
+	private OpAttribution opAttrToValidate;
 
+
+	public OpEntree getOpEntreeToValidate() {
+		return opEntreeToValidate;
+	}
+
+	public void setOpEntreeToValidate(OpEntree opEntreeToValidate) {
+		this.opEntreeToValidate = opEntreeToValidate;
+	}
+
+	public OpSortie getOpSortieToValidate() {
+		return opSortieToValidate;
+	}
+
+	public void setOpSortieToValidate(OpSortie opSortieToValidate) {
+		this.opSortieToValidate = opSortieToValidate;
+	}
+
+	public OpDettachement getOpDetToValidate() {
+		return opDetToValidate;
+	}
+
+	public void setOpDetToValidate(OpDettachement opDetToValidate) {
+		this.opDetToValidate = opDetToValidate;
+	}
+
+	public OpAttribution getOpAttrToValidate() {
+		return opAttrToValidate;
+	}
+
+	public void setOpAttrToValidate(OpAttribution opAttrToValidate) {
+		this.opAttrToValidate = opAttrToValidate;
+	}
+	
+	
 
 
 }

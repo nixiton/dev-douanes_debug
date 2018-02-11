@@ -1,7 +1,9 @@
 package com.douane.metier.user;
 
 import java.util.Date;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedProperty;
@@ -1230,6 +1232,44 @@ public class UserMetier implements IUserMetier {
 		 */
 		// m = materielExRepository.save((MaterielEx) m);
 		return entree;
+	}
+
+	@Override
+	public OpEntree reqEntrerMaterielNouv(Map<Designation, List<MaterielNouv>> mappingdeslistmat, Agent dc,
+			String facturePath, String refFacture) {
+		// TODO Auto-generated method stub
+		
+		System.out.println("let entrer materiel and their designation");
+		OpEntree entree = new OpEntree(new Date(), new Date(), dc.getIp(), dc);
+		entree.setPathDoc(facturePath);
+		entree.setRefFact(refFacture);
+		/*
+		 * Parcourir hashmap
+		 * save desingation
+		 * set designation to materiel
+		 * save materiel (possible tsy ilaina)
+		 * set materiel to entree
+		 */
+		Iterator<Map.Entry<Designation, List<MaterielNouv>>> iterator = mappingdeslistmat.entrySet().iterator();
+        while(iterator.hasNext()){
+            Map.Entry<Designation, List<MaterielNouv>> entry = iterator.next();
+            System.out.printf("Key : %s and Value: %s %n", entry.getKey(), 
+
+                                                           entry.getValue());
+            
+            Designation d =desrepos.save(entry.getKey());
+            for(MaterielNouv m:entry.getValue()) {
+            	m.setDc(dc);
+    			m.setDesign(d);
+    			entree.addMateriel(m);
+            }
+            iterator.remove(); // right way to remove entries from Map, 
+
+                               // avoids ConcurrentModificationException
+        }
+		entree = opentreerepos.save(entree);
+		//sss
+		return null;
 	}
 
 

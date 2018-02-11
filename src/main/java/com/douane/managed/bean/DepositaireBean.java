@@ -45,8 +45,6 @@ import java.util.*;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
 
-import java.util.Calendar;
-
 /**
  * Created by hasina on 10/29/17.
  */
@@ -189,6 +187,12 @@ public class DepositaireBean {
 
 	// Methode on Change
 	public String onDetenteurChange() {
+		if(getDetenteur()==null) {
+			this.setNom(null);
+			this.setPrenom(null);
+			return null;
+		}
+			
 		this.setNom(getDetenteur().getNomAgent());
 		this.setPrenom(getDetenteur().getPrenomAgent());
 		return null;
@@ -1736,6 +1740,13 @@ public class DepositaireBean {
 	private List<Referentiel> listDestinaiton;
 
 	public void onChangeMateriel() {
+		if(getMaterielSeclected()==null) {
+			marqueAutom = null;
+			setReferenceAutom(null);
+			setNumSerie(null);
+			setNomenclatureAutom(null);
+			setCodificationAutom(null);
+		}
 		marqueAutom = getMaterielSeclected().getDesign().getMarque();
 		setReferenceAutom(getMaterielSeclected().getReference());
 		setNumSerie(getMaterielSeclected().getNumSerie());
@@ -1887,6 +1898,11 @@ public class DepositaireBean {
 
 	// ActionEvent actionEvent
 	public void mySetCurrentListMateriel() {
+		if(this.detenteur==null) {
+			this.setCurrentListMateriel(null);
+			this.setNom(null);
+			this.setPrenom(null);
+		}else {
 		this.detenteur = this.getDetenteur();
 		this.setNom(detenteur.getNomAgent());
 		this.setPrenom(detenteur.getPrenomAgent());
@@ -1896,6 +1912,7 @@ public class DepositaireBean {
 				(List<Materiel>) usermetierimpl.getMatByDetenteurAndValidation(this.getDetenteur(), true));
 		System.out.println(
 				"****************************SET LIST ******************************** " + this.getDetenteur().getIm());
+		}
 	}
 
 /*	public void setListLocalite(List<Localite> listLocalite) {
@@ -2356,7 +2373,7 @@ public class DepositaireBean {
 				des.setImage(null);
 			}
 
-			des.setAnneeAcquisition((String) "" + Calendar.getInstance().get(Calendar.YEAR) + "");
+			des.setAnneeAcquisition(getAnneeAcquisition());
 
 			des.setDocumentPath((String) RequestFilter.getSession().getAttribute("documentpath"));
 			RequestFilter.getSession().removeAttribute("documentpath");
@@ -2368,6 +2385,8 @@ public class DepositaireBean {
 			des.setNomenMat(this.getTypematerielToAdd().getNomenclaureParent());
 			des.setEspeceUnite(getEspeceUnite());
 			des.setOrigine(getOrigine());
+			des.setRefFacture(getRefFacture());
+			
 
 
 			/**
@@ -2382,6 +2401,7 @@ public class DepositaireBean {
 				listematerielParDesign.add((MaterielEx)m);
 				System.out.println("Materiel :"+m.getNumSerie());
 				m.setDirec(agent.getDirection());
+				m.setTypematerieladd(this.getTypematerielToAdd());
 			}
 			
 			/*
@@ -2456,6 +2476,8 @@ public class DepositaireBean {
 		 * }
 		 */
 	}
+	Map <Designation, List<MaterielNouv>> mappingdeslistmat= new HashMap<Designation, List<MaterielNouv>>(); 
+	
 	
 	//ADD PRISE EN CHARGE DES NOUVEAUX MATERIELS
 	public String addPriseEnchargeNouveMat() {
@@ -2463,20 +2485,67 @@ public class DepositaireBean {
 			uploadFilesDocument();
 			Agent agent = (Agent) RequestFilter.getSession().getAttribute("agent");
 			// agent.setIp()
+			ArrayList<DocumentModel> imagelist = this.imageList;
 			
-			/*
-			 * BOUCLE SUR LES DESIGNATIONS GENERER PAR LE BOUTTON NEXT
-			 * */
-				/*
-				 * BOUCLE SUR CHAQUE DESINGATION POUR CHAQUE MATERIELS GENERER PAR NOMBRE PAR TYPE
-				 */
+			//LAst Desigation
+			Designation des = new Designation();
+			
+			if (imagelist != null) {
+				des.setImage(imagelist.get(0).getByteArrayImage());
+			} else {
+				des.setImage(null);
+			}
+			
+			des.setDocumentPath((String) RequestFilter.getSession().getAttribute("documentpath"));
+			RequestFilter.getSession().removeAttribute("documentpath");
+			
+			des.setAnneeAcquisition((String) "" + Calendar.getInstance().get(Calendar.YEAR) + "");
+			des.setAutre(getAutre());
+			des.setMarque(getMarq());
+			des.setTypematerieladd(this.getTypematerielToAdd());
+			des.setNomenMat(this.getTypematerielToAdd().getNomenclaureParent());
+			des.setEspeceUnite(getEspeceUnite());
+			des.setOrigine(getOrigine());
+			des.setPu(getUnitPrice());
+			des.setRenseignement(getRenseignement());
+			des.setRefFacture(getRefFacture());
+			//propore aux materiels nouveaux
+			des.setFinancement(getFinancement());
+			des.setFournisseur(getFournisseur());
+			des.setModAcq(getAcquisition());
+			
+			//END FILL DESIGNATION
+			
+			ArrayList<MaterielNouv> listematerielParDesign = new ArrayList<MaterielNouv>();
+			for (Materiel m: this.getMaterielspardesignation()) {
+				m.setValidation(false);//need to be validate
+				m.setEtat(getEtat());
+				listematerielParDesign.add((MaterielNouv)m);
+				System.out.println("Materiel :"+m.getNumSerie());
+				m.setDirec(agent.getDirection());
+				m.setTypematerieladd(this.getTypematerielToAdd());
+			}
+			
+			//END LISTE MAT BY DESTINATION
+			
+			//CONSTRUCT AN HASMAP
+			mappingdeslistmat.put(des, listematerielParDesign);
+
+			//ADD OPERATION ENTREE BASED ON HASHMAP
+			
+			List<String> facPathList = new ArrayList<String>();
+			facPathList.add(getFacturePath());
+			zipFiles(facPathList);
+
+			OpEntree opEntree = usermetierimpl.reqEntrerMaterielNouv(mappingdeslistmat, agent,
+					(String) RequestFilter.getSession().getAttribute("documentpath"), getRefFacture());
+
+			RequestFilter.getSession().setAttribute("documentpath", null);
 			
 			
 			clear();
-			
-			
-
 			setAllNull();
+			mappingdeslistmat = new HashMap<Designation, List<MaterielNouv>>();//reset the hasmap
 
 			return SUCCESS;
 		} catch (Exception e) {
@@ -2491,8 +2560,17 @@ public class DepositaireBean {
 		}
 
 	}
+	public Map<Designation, List<MaterielNouv>> getMappingdeslistmat() {
+		return mappingdeslistmat;
+	}
+
+	public void setMappingdeslistmat(Map<Designation, List<MaterielNouv>> mappingdeslistmat) {
+		this.mappingdeslistmat = mappingdeslistmat;
+	}
+
 	private ArrayList<Materiel> materielspardesignation = new ArrayList<Materiel>();
 	private MaterielEx matextoadd = new MaterielEx();
+	private MaterielNouv matnouvtoadd = new MaterielNouv();
 	
 	public String addNewMateriel() throws IOException {
 		System.out.println("List Materiel generation ");
@@ -2510,6 +2588,34 @@ public class DepositaireBean {
 		return null;
 
 	}
+	public String addNewMaterielNouv() throws IOException {
+		System.out.println("List Materiel Nouveau generation ");
+		ArrayList<Materiel> list = getMaterielspardesignation();
+		list.add(matnouvtoadd);
+		for(Materiel m: list) {
+			System.out.println(m.getNumSerie());
+			System.out.println(m.getReference());
+		}
+		System.out.println();
+
+		setMaterielspardesignation(list);
+		matnouvtoadd = new MaterielNouv();//Reset the materiel
+
+		return null;
+
+	}
+	
+	public void deleteMateriel(int index) {
+		System.out.println("List Materiel Nouveau generation to delete ");
+		ArrayList<Materiel> list = getMaterielspardesignation();
+		list.remove(index);
+		for(Materiel m: list) {
+			System.out.println(m.getNumSerie());
+		}
+		System.out.println();
+
+		setMaterielspardesignation(list);
+	}
 
 	public ArrayList<Materiel> getMaterielspardesignation() {
 		return materielspardesignation;
@@ -2525,6 +2631,68 @@ public class DepositaireBean {
 
 	public void setMatextoadd(MaterielEx matextoadd) {
 		this.matextoadd = matextoadd;
+	}
+	
+	public String addIntoHashMapDesListMateriel() throws IOException {
+		System.out.println("Add it into hash map designation list materiel");
+		Agent agent = (Agent) RequestFilter.getSession().getAttribute("agent");
+
+		uploadFilesDocument();
+		ArrayList<DocumentModel> imagelist = this.imageList;
+		//MaterielNouv m = new MaterielNouv();
+		Designation des = new Designation();
+		if (imagelist != null) {
+			des.setImage(imagelist.get(0).getByteArrayImage());
+		} else {
+			des.setImage(null);
+		}
+		des.setDocumentPath((String) RequestFilter.getSession().getAttribute("documentpath"));
+		des.setAnneeAcquisition((String) "" + Calendar.getInstance().get(Calendar.YEAR) + "");
+		des.setAutre(getAutre());
+		des.setMarque(getMarq());
+		des.setTypematerieladd(this.getTypematerielToAdd());
+		des.setNomenMat(this.getTypematerielToAdd().getNomenclaureParent());
+		des.setEspeceUnite(getEspeceUnite());
+		des.setOrigine(getOrigine());
+		des.setPu(getUnitPrice());
+		des.setRenseignement(getRenseignement());
+		des.setRefFacture(getRefFacture());
+		//propore aux materiels nouveaux
+		des.setFinancement(getFinancement());
+		des.setFournisseur(getFournisseur());
+		des.setModAcq(getAcquisition());
+		
+		ArrayList<MaterielNouv> listematerielParDesign = new ArrayList<MaterielNouv>();
+		for (Materiel m: this.getMaterielspardesignation()) {
+			m.setValidation(false);//need to be validate
+			m.setEtat(getEtat());
+			listematerielParDesign.add((MaterielNouv)m);
+			System.out.println("Materiel :"+m.getNumSerie());
+			m.setDirec(agent.getDirection());
+			m.setTypematerieladd(this.getTypematerielToAdd());//For simple request on db
+		}
+		
+		if (mappingdeslistmat == null)
+			mappingdeslistmat = new HashMap<Designation, List<MaterielNouv>>();
+
+		mappingdeslistmat.put(des, listematerielParDesign);
+		System.out.println("added to hashmap");
+		clearPriseEnCharge();
+		des = new Designation();//reset designation
+		listematerielParDesign = new ArrayList<MaterielNouv>(); //reset 
+		materielspardesignation = new ArrayList<Materiel>();//reset
+		this.documentList = initialize();
+		this.imageList = initializeImageFile();
+		setAllNull();
+		return null;
+	}
+
+	public MaterielNouv getMatnouvtoadd() {
+		return matnouvtoadd;
+	}
+
+	public void setMatnouvtoadd(MaterielNouv matnouvtoadd) {
+		this.matnouvtoadd = matnouvtoadd;
 	}
 
 }

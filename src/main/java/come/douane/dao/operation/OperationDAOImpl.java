@@ -393,6 +393,12 @@ public class OperationDAOImpl implements IOperationDAO{
 		
 		return matrepos.countByTypematerieladdAndDirec(typemat, dir);
 	}
+	
+	public Long countMaterielByDesByDirect(Designation des, Direction dir) {
+		// TODO Auto-generated method stub
+		
+		return matrepos.countByDesignAndDirec(des, dir);
+	}
 
 	@Override
 	public List<OpEntree> getListOpEntreeByDirectionByYearByDateAsc(Direction d, Date startDate, Date endDate) {

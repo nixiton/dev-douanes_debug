@@ -20,24 +20,24 @@
         <table class="table responsive-table">
                     <tr>
                         <td><strong>Type de materiel</strong></td>
-                        <td>#{depositaireBean.curentMaterielNouv.nomenMat.designation}</td>
+                        <td>#{depositaireBean.curentMaterielNouv.design.nomenMat.designation}</td>
                         <td></td>
                         <td><strong>Financement</strong></td>
-                        <td>#{depositaireBean.curentMaterielNouv.financement.designation}</td>
+                        <td>#{depositaireBean.curentMaterielNouv.design.financement.designation}</td>
                     </tr>
                     <tr>
                         <td><strong>Type de Materiel - Nomenclature</strong></td>
-                        <td>#{depositaireBean.curentMaterielNouv.typematerieladd.designation} - #{depositaireBean.curentMaterielNouv.nomenMat.nomenclature}</td>
+                        <td>#{depositaireBean.curentMaterielNouv.design.typematerieladd.designation} - #{depositaireBean.curentMaterielNouv.design.nomenMat.nomenclature}</td>
                         <td></td>
                         <td><strong>Montant sur la facture</strong></td>
-                        <td>#{depositaireBean.curentMaterielNouv.montant_facture}</td>
+                        <td>#{depositaireBean.curentMaterielNouv.design.pu}</td>
                     </tr>
                     <tr>
                         <td><strong>Marque</strong></td>
-                        <td>#{depositaireBean.curentMaterielNouv.marque.designation}</td>
+                        <td>#{depositaireBean.curentMaterielNouv.design.marque.designation}</td>
                         <td></td>
                         <td><strong>Référence facture</strong></td>
-                        <td>#{depositaireBean.curentMaterielNouv.refFacture}</td>
+                        <td>#{depositaireBean.curentMaterielNouv.design.refFacture}</td>
                     </tr>
                     <tr>
                         <td><strong>Réference</strong></td>
@@ -63,34 +63,34 @@
                         <td>#{depositaireBean.curentMaterielNouv.numSerie}</td>
                         <td></td>
                         <td><strong>Fournisseur</strong></td>
-                        <td>#{depositaireBean.curentMaterielNouv.fournisseur.designation}</td>
+                        <td>#{depositaireBean.curentMaterielNouv.design.fournisseur.designation}</td>
                     </tr>
 
                     <tr>
                         <td><strong>Autre</strong></td>
-                        <td>#{depositaireBean.curentMaterielNouv.autre}</td>
+                        <td>#{depositaireBean.curentMaterielNouv.design.autre}</td>
                         <td></td>
                         <td><strong>Image</strong></td>
                         <td>
-                            <p:panel rendered="#{depositaireBean.curentMaterielNouv.image != null}">
-                                <h:graphicImage url="data:image/jpg;base64,#{depositaireBean.curentMaterielNouv.image}"
+                            <p:panel rendered="#{depositaireBean.curentMaterielNouv.design.image != null}">
+                                <h:graphicImage url="data:image/jpg;base64,#{depositaireBean.curentMaterielNouv.design.image}"
                                                 width="275px" height="75px"></h:graphicImage>
                             </p:panel>
                         </td>
                     </tr>
                     <tr>
                         <td><strong>Caractéristique</strong></td>
-                        <td>#{depositaireBean.curentMaterielNouv.renseignement}</td>
+                        <td>#{depositaireBean.curentMaterielNouv.design.renseignement}</td>
                         <td></td>
                         <td><strong>Etat</strong></td>
                         <td>#{depositaireBean.curentMaterielNouv.etat.designation}</td>
                     </tr>
                     <tr>
                         <td><strong>Mode d'aquisition</strong></td>
-                        <td>#{depositaireBean.curentMaterielNouv.modAcq.designation}</td>
+                        <td>#{depositaireBean.curentMaterielNouv.design.modAcq.designation}</td>
                         <td></td>
                         <td><strong>Annee d'acquisition</strong></td>
-                        <td>#{depositaireBean.curentMaterielNouv.anneeAcquisition}</td>
+                        <td>#{depositaireBean.curentMaterielNouv.design.anneeAcquisition}</td>
                     </tr>
                     <tr>
                     	<td><strong>Codification</strong></td>
@@ -101,7 +101,7 @@
                     </tr>
                     <tr>
                         <td><strong>Origine</strong></td>
-                        <td>#{depositaireBean.curentMaterielNouv.origine}</td>
+                        <td>#{depositaireBean.curentMaterielNouv.design.origine}</td>
                         <td></td>
                         <td><strong>Dépositaire</strong></td>
                         <td>#{depositaireBean.curentMaterielNouv.dc.im} - #{depositaireBean.curentMaterielNouv.dc.nomAgent}</td>

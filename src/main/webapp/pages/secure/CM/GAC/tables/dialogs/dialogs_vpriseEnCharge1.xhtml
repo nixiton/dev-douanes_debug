@@ -11,8 +11,6 @@
 
 <p:dialog id="detail" widgetVar="detail" closable="false">
 
-<c:if test="#{gacBean.curentOperation['class'].simpleName eq 'OpEntree'}">
-
     <h:form class="form-horizontal">
         <h:commandButton action="#{gacBean.exit()}" value="X" style="valign:bottom;float:right;padding-right:20px">
 
@@ -30,18 +28,18 @@
         <p:tabView>
 
 
-            <c:forEach var="mat" items="#{gacBean.curentOperation.listMat}">
+            <c:forEach var="mat" items="#{gacBean.currentOpEntree.listMat}">
 
-                <p:tab title="#{mat.typematerieladd.designation}">
+                <p:tab title="#{mat.design.typematerieladd.designation}">
 
                     <table class="table responsive-table">
                         <tr>
                             <td><strong>Type de matériel</strong></td>
-                            <td>#{mat.typematerieladd.designation}</td>
+                            <td>#{mat.design.typematerieladd.designation}</td>
                             <td><strong>Nomenclature</strong></td>
-                            <td>#{mat.nomenMat.nomenclature}</td>
+                            <td>#{mat.design.nomenMat.nomenclature}</td>
                             <td><strong>Marque</strong></td>
-                            <td>#{mat.marque.designation}</td>
+                            <td>#{mat.design.marque.designation}</td>
                         </tr>
 
                         <tr>
@@ -65,16 +63,6 @@
                                     </h:form>
                                 </c:if-->
 
-                                <c:if test="#{gacBean.filedownload ne null}" >
-                                    <h:form>
-                                        <p:commandButton id="downloadLink" value="Download" ajax="false" icon="ui-icon-document">
-                                            <f:setPropertyActionListener target="#{gacBean.fileZipPath}" value="delete" />
-                                            <p:fileDownload value="#{gacBean.filedownload}" />
-                                            <!-- i class="fa fa-file-archive-o"></i-->
-                                        </p:commandButton>
-                                    </h:form>
-                                </c:if>
-
                             </td>
                         </tr>
 
@@ -82,17 +70,17 @@
 
                             <tr>
                                 <td><strong>Montant sur fature</strong></td>
-                                <td>#{mat.montant_facture}</td>
+                                <td>#{mat.design.pu}</td>
                                 <td><strong>Financement</strong></td>
-                                <td>#{mat.financement.designation}</td>
+                                <td>#{mat.design.financement.designation}</td>
                                 <td><strong>Réference facture</strong></td>
-                                <td>#{mat.refFacture}</td>
+                                <td>#{mat.design.refFacture}</td>
                             </tr>
                             <tr>
                                 <td><strong>Mode d'acquisition</strong></td>
-                                <td>#{mat.modAcq.designation}</td>
+                                <td>#{mat.design.modAcq.designation}</td>
                                 <td><strong>Fournisseur</strong></td>
-                                <td>#{mat.fournisseur.designation}</td>
+                                <td>#{mat.design.fournisseur.designation}</td>
                                 <td><strong>Dépositaire</strong></td>
                                 <td>#{mat.dc.im} - #{mat.dc.nomAgent}</td>
                             </tr>
@@ -101,79 +89,24 @@
 
                         <tr>
                             <td><strong>Caratéristique</strong></td>
-                            <td>#{mat.renseignement}</td>
+                            <td>#{mat.design.renseignement}</td>
                             <td><strong>Image</strong></td>
                             <td>
-                                <p:panel rendered="#{mat.image != null}">
-                                    <h:graphicImage url="data:image/jpg;base64,#{mat.image}"
+                                <p:panel rendered="#{mat.design.image != null}">
+                                    <h:graphicImage url="data:image/jpg;base64,#{mat.design.image}"
                                                     width="275px" height="75px"></h:graphicImage>
                                 </p:panel>
                             </td>
                             <td><strong>Origine</strong></td>
-                        <td>#{mat.origine}</td>
+                        <td>#{mat.design.origine}</td>
                         </tr>
                     </table>
                 </p:tab>
             </c:forEach>
 
         </p:tabView>
-        <table class="table responsive-table">
-            <p:panel rendered="#{gacBean.curentOperation.state eq 'WAITING' }">
-
-                <tr>
-                    <td></td>
-                    <td>
-                        <h:form class="form-horizontal">
-
-                            <h:commandButton  action="#{gacBean.validatePrisEnChargeEntreMat(gacBean.curentOperation)}" value="Valider"
-                                              class="btn btn-lg btn-primary btn-block">
-                                <!--f:param name="operationValide" value="#{gacBean.curentOperation}"/-->
-                            </h:commandButton>
-                        </h:form>
-                    </td>
-                    <td>
-                        <h:form>
-
-                            <label for="text1" >Motif de refus
-                            </label>
-
-                            <h:inputText value="#{gacBean.motif}"
-                                         styleClass="form-control top"></h:inputText>
-
-                            <h:commandButton  action="#{gacBean.refusePrisEnChargeEntreMat(gacBean.curentOperation)}" value="Refuser"
-                                              class="btn btn-lg btn-primary btn-block">
-                                <!--f:param name="operationValide" value="#{gacBean.curentOperation}"/-->
-                            </h:commandButton>
-
-
-                        </h:form>
-                    </td>
-                    <td>
-                        <h:form>
-
-
-                            <label for="text1" >Motif de demande de correction
-                            </label>
-
-                            <h:inputText value="#{gacBean.motif}"
-                                         styleClass="form-control top"></h:inputText>
-
-                            <h:commandButton  action="#{gacBean.aModifierPrisEnChargeEntreMat(gacBean.curentOperation)}" value="A modifier"
-                                              class="btn btn-lg btn-primary btn-block">
-                                <!--f:param name="operationValide" value="#{gacBean.curentOperation}"/-->
-                            </h:commandButton>
-
-
-                        </h:form>
-                    </td>
-                </tr>
-
-            </p:panel>
-        </table>
     </div>
 
-
-</c:if>
 
 
 </p:dialog>

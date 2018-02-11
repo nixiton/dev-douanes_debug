@@ -7,8 +7,7 @@
       xmlns:p="http://primefaces.org/ui">
 <h:head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <title>JSF Primefaces Multiple File Upload with Ajax using
-        advanced mode</title>
+    <title>Saisie des matériels existants</title>
 </h:head>
 
 
@@ -354,9 +353,13 @@
             <h:form-->
             <p:dataTable id="refid" var="m"
                              value="#{depositaireBean.materielspardesignation}" editable="true"
-                             editMode="cell" widgetVar="documentTable">
+                             editMode="cell" widgetVar="documentTable"
+                             rowIndexVar="rowIndex">
 
-
+					<p:column headerText="N°">
+						#{rowIndex+1}
+					</p:column>
+					
 
                     <p:column headerText="Référence">
                         #{m.reference}
@@ -364,6 +367,9 @@
                     <p:column headerText="Numero Série">
                         #{m.numSerie}
                     </p:column>
+                    <p:column headerText="Supprimer"> <p:commandButton value="supprimer" process="@this,reference,numeroserie"
+                             update="refid" actionListener="#{depositaireBean.deleteMateriel(rowIndex)}"
+                             ajax="true" /></p:column>
 
                 </p:dataTable>
                 

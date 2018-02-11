@@ -9,37 +9,34 @@
 <h:head></h:head>
 <p:growl id="growl" for="myerror" showDetail="true" sticky="true" redisplay="false"/>
 
-<p:dialog id="detail" widgetVar="detail" closable="false">
-
+<p:dialog  header = "Validation prise en charge" id="detail" widgetVar="detail" closable="false">
     <h:form class="form-horizontal">
         <h:commandButton action="#{gacBean.exit()}" value="X" style="valign:bottom;float:right;padding-right:20px">
 
         </h:commandButton>
+        <p:hotkey bind="esc" actionListener="#{gacBean.exit()}" handler="#{gacBean.exit()}"></p:hotkey>
     </h:form>
 
 
 
     <div   class="body collapse in table-responsive">
+		
+		
+		<p:tabView>
 
 
+            <c:forEach var="mat" items="#{gacBean.opEntreeToValidate.listMat}">
 
-
-
-        <p:tabView>
-
-
-            <c:forEach var="mat" items="#{gacBean.curentOperation.listMat}">
-
-                <p:tab title="#{mat.typematerieladd.designation}">
+                <p:tab title="#{mat.reference}">
 
                     <table class="table responsive-table">
                         <tr>
                             <td><strong>Type de matériel</strong></td>
-                            <td>#{mat.typematerieladd.designation}</td>
+                            <td>#{mat.design.typematerieladd.designation}</td>
                             <td><strong>Nomenclature</strong></td>
-                            <td>#{mat.nomenMat.nomenclature}</td>
+                            <td>#{mat.design.nomenMat.nomenclature}</td>
                             <td><strong>Marque</strong></td>
-                            <td>#{mat.marque.designation}</td>
+                            <td>#{mat.design.marque.designation}</td>
                         </tr>
 
 
@@ -86,15 +83,15 @@
 
                             <tr>
                                 <td><strong>Montant sur fature</strong></td>
-                                <td>#{mat.montant_facture}</td>
+                                <td>#{mat.design.pu}</td>
                                 <td><strong>Financement</strong></td>
-                                <td>#{mat.financement.designation}</td>
+                                <td>#{mat.design.financement.designation}</td>
                                 <td><strong>Réference facture</strong></td>
-                                <td>#{mat.refFacture}</td>
+                                <td>#{mat.design.refFacture}</td>
                             </tr>
 
                             <tr>
-                                <c:if test="#{gacBean.curentOperation['class'].simpleName eq 'OpEntree' }">
+                                <c:if test="#{gacBean.opEntreeToValidate['class'].simpleName eq 'OpEntree' }">
 
                                     <tr>
                                         <td><strong>Facture</strong></td>
@@ -119,9 +116,9 @@
 
                             <tr>
                                 <td><strong>Mode d'acquisition</strong></td>
-                                <td>#{mat.modAcq.designation}</td>
+                                <td>#{mat.design.modAcq.designation}</td>
                                 <td><strong>Fournisseur</strong></td>
-                                <td>#{mat.fournisseur.designation}</td>
+                                <td>#{mat.design.fournisseur.designation}</td>
                                 <td><strong>Dépositaire</strong></td>
                                 <td>#{mat.dc.im} - #{mat.dc.nomAgent}</td>
                             </tr>
@@ -130,33 +127,34 @@
 
                         <tr>
                             <td><strong>Caratéristique</strong></td>
-                            <td>#{mat.renseignement}</td>
+                            <td>#{mat.design.renseignement}</td>
                             <td><strong>Image</strong></td>
                             <td>
-                                <p:panel rendered="#{mat.image != null}">
-                                    <h:graphicImage url="data:image/jpg;base64,#{mat.image}"
+                                <p:panel rendered="#{mat.design.image != null}">
+                                    <h:graphicImage url="data:image/jpg;base64,#{mat.design.image}"
                                                     width="275px" height="75px"></h:graphicImage>
                                 </p:panel>
                             </td>
                             <td><strong>Origine</strong></td>
-                        <td>#{mat.origine}</td>
+                        <td>#{mat.design.origine}</td>
                         </tr>
                     </table>
                 </p:tab>
             </c:forEach>
 
         </p:tabView>
-        <table class="table responsive-table">
-            <p:panel rendered="#{gacBean.curentOperation.state eq 'WAITING' }">
+    
+            <table class="table responsive-table">
+            <p:panel rendered="#{gacBean.opEntreeToValidate.state eq 'WAITING' }">
 
                 <tr>
                     <td></td>
                     <td>
                         <h:form class="form-horizontal">
 
-                            <h:commandButton  action="#{gacBean.validatePrisEnChargeEntreMat(gacBean.curentOperation)}" value="Valider"
+                            <h:commandButton  action="#{gacBean.validatePrisEnChargeEntreMat(gacBean.opEntreeToValidate)}" value="Valider"
                                               class="btn btn-lg btn-primary btn-block">
-                                <!--f:param name="operationValide" value="#{gacBean.curentOperation}"/-->
+                                <!--f:param name="operationValide" value="#{gacBean.opEntreeToValidate}"/-->
                             </h:commandButton>
                         </h:form>
                     </td>
@@ -169,9 +167,9 @@
                             <h:inputText value="#{gacBean.motif}"
                                          styleClass="form-control top"></h:inputText>
 
-                            <h:commandButton  action="#{gacBean.refusePrisEnChargeEntreMat(gacBean.curentOperation)}" value="Refuser"
+                            <h:commandButton  action="#{gacBean.refusePrisEnChargeEntreMat(gacBean.opEntreeToValidate)}" value="Refuser"
                                               class="btn btn-lg btn-primary btn-block">
-                                <!--f:param name="operationValide" value="#{gacBean.curentOperation}"/-->
+                                <!--f:param name="operationValide" value="#{gacBean.opEntreeToValidate}"/-->
                             </h:commandButton>
 
 
@@ -187,9 +185,9 @@
                             <h:inputText value="#{gacBean.motif}"
                                          styleClass="form-control top"></h:inputText>
 
-                            <h:commandButton  action="#{gacBean.aModifierPrisEnChargeEntreMat(gacBean.curentOperation)}" value="A modifier"
+                            <h:commandButton  action="#{gacBean.aModifierPrisEnChargeEntreMat(gacBean.opEntreeToValidate)}" value="A modifier"
                                               class="btn btn-lg btn-primary btn-block">
-                                <!--f:param name="operationValide" value="#{gacBean.curentOperation}"/-->
+                                <!--f:param name="operationValide" value="#{gacBean.opEntreeToValidate}"/-->
                             </h:commandButton>
 
 
@@ -199,10 +197,8 @@
 
             </p:panel>
         </table>
+
     </div>
-
-
-
 
 
 </p:dialog>

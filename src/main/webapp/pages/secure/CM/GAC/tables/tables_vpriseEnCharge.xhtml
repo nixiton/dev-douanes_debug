@@ -60,11 +60,11 @@
             <f:facet name="header">
                 <h:outputText value="Validation" />
             </f:facet>
-            <p:commandButton rendered="#{c.state eq 'WAITING' }" action="#{gacBean.setCurentOperation3(c)}" update=":detail"
+            <p:commandButton rendered="#{c.state eq 'WAITING' }" action="#{gacBean.setOpEntreeToValidate(c)}" update=":detail"
             oncomplete="PF('detail').show()" icon="ui-icon-circle-check"/>
 
-            <p:commandButton action="#{gacBean.setCurentOperation3(c)}" update=":detail"
-            oncomplete="PF('detail').show()" icon="ui-icon-zoomin"/>
+            <p:commandButton action="#{gacBean.setOpEntreeToValidate(c)}" update=":detail"
+            oncomplete="PF('detail').show(); PF('detail').content.scrollTop('0')" icon="ui-icon-zoomin"/>
         </p:column>
     
     </p:dataTable>

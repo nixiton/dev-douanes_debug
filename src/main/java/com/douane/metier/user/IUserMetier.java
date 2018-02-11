@@ -2,6 +2,7 @@ package com.douane.metier.user;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 import com.douane.entite.*;
 import com.douane.model.EtatOperation;
@@ -188,4 +189,6 @@ public interface IUserMetier {
 	
 	public void entrerMaterielExistant(Designation des, List <MaterielEx> matexs, Agent dc);
 	public OpEntree reqEntrerMaterielNouv(Designation des,List<Materiel> l, Agent dc, String facturePath, String refFacture);
+	public OpEntree reqEntrerMaterielNouv(Map<Designation, List<MaterielNouv>> mappingdeslistmat, Agent agent,
+			String attribute, String refFacture);
 }

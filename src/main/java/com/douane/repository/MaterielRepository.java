@@ -23,4 +23,5 @@ public interface MaterielRepository extends CrudRepository<Materiel, Long>{
 			+ "order by m.typematerieladd.designation asc")
 	public List<Materiel> findByDirectionAndValidationGpByNomOrdByTypemat(Direction d);*/
 	public List<Materiel> findByValidationAndDetenteurAndDirec(boolean val, Agent detenteur, Direction direction);
+	public Long countByDesignAndDirec(Designation des, Direction dir);
 }
