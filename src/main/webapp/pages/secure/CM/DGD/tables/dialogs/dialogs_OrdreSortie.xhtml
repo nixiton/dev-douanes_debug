@@ -41,13 +41,13 @@
  			<div class="col-md-3">
  				 Numéro de chapitre<br></br>
  				 Libelé de chapitre<br></br>
- 				 Service : #{gacBean.curentOperation1.direction}<br></br>
+ 				 Service :<strong> #{docbean.curentOpeationSortieToPdf.direction} </strong> <br></br>
  				 Subdivision de chapitre<br></br>
 
  			</div>
 
  			<div class="col-md-6" style="text-align: center;">
- 				BUDGET .........................
+ 				BUDGET <p:inputText style="text-align: center;width: 80%"></p:inputText>
  				
  			</div>
 
@@ -63,7 +63,7 @@
 
  			<div class="col-md-10" style="text-align: center;">
  				
- 				CHAPITRE ........................... ARTICLE ............................ <br></br><br></br>
+ 				CHAPITRE <p:inputText style="text-align: center;width: 30%"></p:inputText> ARTICLE <p:inputText style="text-align: center;width: 30%"></p:inputText> <br></br><br></br>
 
  			</div>
 
@@ -76,8 +76,13 @@
 
 
  			<div class="col-md-12">
- 				
- 				Numero d'ordre du journal :(2) <p:inputText style="text-align: center;width: 50%"></p:inputText>
+ 				<div class="col-md-3">
+ 				Numero d'ordre du journal :(2)
+ 				</div>
+ 				<div class="col-md-1">
+ 				<p:inputText style="text-align: center;width:70%;"></p:inputText>
+ 				</div>
+ 				 
 
  			</div>
 
@@ -96,9 +101,9 @@
 
                 <div class="col-md-3"></div>
  			</div>
+			
 
-
- 			<div class="col-md-12" style="text-align: center;">
+ 			<div class="col-md-12" style="text-align: center; margin-top:2em;margin-bottom:2em">
  				
  				<h:graphicImage width="30%"
                     value="/pages/unsecure/assets/images/sortie.png" /><br></br>
@@ -107,22 +112,19 @@
  			</div>
 
  			<div class="col-md-12">
-
- 			Seront portés en sortie dans les écritures du comptable ..  #{gacBean.curentOperation1.direction.designation}...................les matières et objets ci-après désignés provenant de ..#{gacBean.curentOperation1.mat.origine}.........................................................
-
+			<p>
+ 			Seront portés en sortie dans les écritures du comptable  <strong>#{docbean.curentOpeationSortieToPdf.direction.designation}</strong> les matières et objets ci-après désignés provenant de  <strong>#{docbean.curentOpeationSortieToPdf.mat.design.origine}</strong>
+			</p>
  		</div>
 
-
-        <br></br><br></br><br></br>
-
-<table>
-                <tr class="entreeo">
-                    <th colspan="2"  style="border-bottom: none;">Numéro</th>
+<table style="text-align: center">
+                <tr class="entreeo" style="text-align: center">
+                    <th colspan="2"  style="border-bottom: none;text-align: center">Numéro</th>
                     <th style="border-bottom: none;"></th>
                     <th style="border-bottom: none;"></th>
                     <th style="border-bottom: none;"></th>
                     <th style="border-bottom: none;"></th>
-                    <th colspan="3">Décompte</th>
+                    <th colspan="3" style="text-align: center">Décompte</th>
                     <th style="border-bottom: none;"></th>
 
                 </tr>
@@ -133,48 +135,48 @@
                     <th style="border-bottom: none;border-top: none"></th>
                     <th style="border-bottom: none;border-top: none"></th>
                     <th style="border-bottom: none;"></th>
-                    <th colspan="2">Valeurs</th>
+                    <th colspan="2" style="text-align: center">Valeurs</th>
                     <th style="border-bottom: none;border-top: none"></th>
                 </tr>
-                <tr class="entreeo">
-                    <th>Du folio du grand livre </th>
-                    <th> de nomenclature somaire</th>
-                    <th style="border-top: none;">Désignation des matériels et objets</th>
+                <tr class="entreeo" >
+                    <th style="text-align: center">Du folio du grand livre </th>
+                    <th style="text-align: center"> de nomenclature somaire</th>
+                    <th style="border-top: none;text-align: center">Désignation des matériels et objets</th>
 
-                    <th style="border-top: none;">Espèce des unités</th>
-                    <th style="border-top: none;">Quantité</th>
-                    <th style="border-top: none;">Prix unitaire</th>
+                    <th style="border-top: none;text-align: center">Espèce des unités</th>
+                    <th style="border-top: none;text-align: center">Quantité</th>
+                    <th style="border-top: none;text-align: center">Prix unitaire</th>
                     <th>Partielle</th>
-                    <th>Par numero de nomanclature somaire</th>
-                    <th style="border-top: none;">Numéro de la pièce justificative de sortie ou indocation de référence</th>
+                    <th style="text-align: center">Par numero de nomenclature somaire</th>
+                    <th style="border-top: none;text-align: center">Numéro de la pièce justificative de sortie ou indocation de référence</th>
                 </tr>
 
         
 
                 <tr class="entreeo">    
                     <td><p:inputText style="text-align: center;"></p:inputText>  </td>
-                    <td> #{gacBean.curentOperation1.mat.nomenMat.nomenclature}</td>
-                    <td>#{gacBean.curentOperation1.mat.nomenMat.designation}, #{gacBean.curentOperation1.mat.typematerieladd.designation} , #{gacBean.curentOperation1.mat.renseignement}</td>
-                    <td>#{gacBean.curentOperation1.mat.especeUnite}</td>
+                    <td> #{docbean.curentOpeationSortieToPdf.mat.design.nomenMat.nomenclature}</td>
+                    <td>#{docbean.curentOpeationSortieToPdf.mat.design.nomenMat.designation}, #{docbean.curentOpeationSortieToPdf.mat.design.typematerieladd.designation} , #{docbean.curentOpeationSortieToPdf.mat.design.renseignement}</td>
+                    <td>#{docbean.curentOpeationSortieToPdf.mat.design.especeUnite}</td>
                     <td>1</td>
-                    <c:if test="#{gacBean.curentOperation1.mat['class'].simpleName eq 'MaterielEx'}">
-                    <td>#{gacBean.curentOperation1.mat.pu}</td>
+                    <c:if test="#{docbean.curentOpeationSortieToPdf.mat['class'].simpleName eq 'MaterielEx'}">
+                    <td>#{docbean.curentOpeationSortieToPdf.mat.design.pu}</td>
                     </c:if>
 
-                    <c:if test="#{gacBean.curentOperation1.mat['class'].simpleName eq 'MaterielNouv'}">
-                    <td>#{gacBean.curentOperation1.mat.montant_facture}</td>
+                    <c:if test="#{docbean.curentOpeationSortieToPdf.mat['class'].simpleName eq 'MaterielNouv'}">
+                    <td>#{docbean.curentOpeationSortieToPdf.mat.design.pu}</td>
                     </c:if>
 
-                    <c:if test="#{gacBean.curentOperation1.mat['class'].simpleName eq 'MaterielEx'}">
-                    <td>#{1*gacBean.curentOperation1.mat.pu}</td>
+                    <c:if test="#{docbean.curentOpeationSortieToPdf.mat['class'].simpleName eq 'MaterielEx'}">
+                    <td>#{1*docbean.curentOpeationSortieToPdf.mat.design.pu}</td>
                     </c:if>
 
-                    <c:if test="#{gacBean.curentOperation1.mat['class'].simpleName eq 'MaterielNouv'}">
-                    <td>#{1*gacBean.curentOperation1.mat.montant_facture}</td>
+                    <c:if test="#{docbean.curentOpeationSortieToPdf.mat['class'].simpleName eq 'MaterielNouv'}">
+                    <td>#{1*docbean.curentOpeationSortieToPdf.mat.design.pu}</td>
                     </c:if>
 
-                    <td></td>
-                    <td>#{gacBean.curentOperation1.mat.reference}</td>
+                    <td>#{1*docbean.curentOpeationSortieToPdf.mat.design.pu}</td>
+                    <td>#{docbean.curentOpeationSortieToPdf.mat.reference}</td>
                 </tr>
 
         
@@ -183,18 +185,22 @@
 
  			<br></br><br></br><br></br><br></br>
 
- 			Arrêté le présent ordre de sortie à  <p:inputText style="text-align: center;"></p:inputText> article évalué à la somme de <p:inputText style="text-align: center;"></p:inputText>  <br></br><br></br><br></br>
+ 			Arrêté le présent ordre de sortie à  <p:inputText style="text-align: center;" size="16"></p:inputText> Article évalué à la somme de <p:inputText style="text-align: center;"></p:inputText>  <br></br><br></br><br></br>
 
  			<div class="col-md-6">
 
-            A<p:inputText style="text-align: center;"></p:inputText>, le ..#{gacBean.curentOperation1.date}..<br></br>
-
-            Le comptable ..#{gacBean.curentOperation1.operateur.im}  #{gacBean.curentOperation1.operateur.nomAgent}.. délivrera et portera en sortie dans ses écritures les  matières désignés et objets désignés ci-dessus.<br></br>
-
-            Le comptable ..#{gacBean.curentOperation1.operateur.im}  #{gacBean.curentOperation1.operateur.nomAgent}..  portera en sortie dans ses écritures les  matières désignés et objets désignés ci-dessus dont je certifie la conformité avec avec. <br></br>
+            A <p:inputText style="text-align: center; " size="20"></p:inputText>, le  <strong>#{docbean.curentOpeationSortieToPdf.date}</strong> <br></br>
+			<p style="margin:2em;">
+				Le Comptable (2) <p:inputText style="text-align: center; " size="20"></p:inputText>
+			</p>
+			<p>
+				(3)Le comptable <strong>#{docbean.curentOpeationSortieToPdf.operateur.im}  #{docbean.curentOpeationSortieToPdf.operateur.nomAgent} </strong> délivrera et portera en sortie dans ses écritures les  matières désignés et objets désignés ci-dessus.<br></br>
+			</p>	
+            <p>
+            	(3)Le comptable <strong> #{docbean.curentOpeationSortieToPdf.operateur.im}  #{docbean.curentOpeationSortieToPdf.operateur.nomAgent} </strong>  portera en sortie dans ses écritures les  matières désignés et objets désignés ci-dessus dont je certifie la conformité avec avec. <br></br>
              <p:inputText style="text-align: center;"></p:inputText> , le <p:inputText style="text-align: center;"></p:inputText> <br></br><br></br>
-
- 			Le ..#{gacBean.curentOperation1.date}..
+			</p>
+ 			Le (4) <p:inputText style="text-align: center;"></p:inputText> 
 
  			</div>
 
@@ -202,16 +208,21 @@
                 Les matières et objets désignés ci-dessus ont été délivrés et portés en sortie.<br></br>
                 Les matières et objets désignés ci-dessus ont été  portés en sortie dans les écriture.<br></br>
 
- 				A <p:inputText style="text-align: center;"></p:inputText>, le ..#{gacBean.curentOperation1.date}..<br></br>
- 				Le comptable ...#{gacBean.curentOperation1.operateur.nomAgent}.......................<br></br>
- 				RECEPISSE <br></br>
- 				Je soussigné ..#{gacBean.curentOperation1.operateur.nomAgent}..<br></br>
-                reconnais avoir reçu les ...#{gacBean.curentOperation1.mat.nomenMat.designation}...portés en sortie.
-
- 				A. <p:inputText style="text-align: center;"></p:inputText>, le ..#{gacBean.curentOperation1.date}..<br></br>
-
- 				Le comptable ...#{gacBean.curentOperation1.operateur.nomAgent}  <br></br><br></br><br></br><br></br><br></br>
-
+ 				A <p:inputText style="text-align: center;"></p:inputText>, le <strong>#{docbean.curentOpeationSortieToPdf.date}</strong><br></br>
+ 				<p>
+ 				Le comptable (2) <strong>#{docbean.curentOpeationSortieToPdf.operateur.nomAgent} </strong><br></br>
+ 				</p>
+ 				
+ 				<p>RECEPISSE <br></br>
+ 				Je soussigné (6) <p:inputText style="text-align: center;"></p:inputText><br></br>
+                Reconnais avoir reçu les (7) <p:inputText style="text-align: center;"></p:inputText> portés en sortie.
+				</p>
+				<p>
+ 				A <p:inputText style="text-align: center;"></p:inputText>, le <p:inputText style="text-align: center;"></p:inputText> <br></br>
+				</p>
+				<p>
+ 				Le comptable <strong>#{docbean.curentOpeationSortieToPdf.operateur.nomAgent}</strong>  <br></br><br></br><br></br><br></br><br></br>
+				</p>
  			</div>
 
  			

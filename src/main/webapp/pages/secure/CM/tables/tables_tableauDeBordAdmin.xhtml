@@ -111,7 +111,7 @@
 
             <p:panel rendered="#{c['class'].simpleName eq 'OpSortie' }">
 
-                <h:commandLink  action="#{gacBean.setCurentOperationSortie(c)}" target="_blank">
+                <h:commandLink  action="#{docbean.generateSortie(c)}" target="_blank">
                     <i class="fa fa-file-archive-o"></i>
                 </h:commandLink>
 

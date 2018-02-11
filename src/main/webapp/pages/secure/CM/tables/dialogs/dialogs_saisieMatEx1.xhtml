@@ -52,13 +52,13 @@
                         <td><strong>Nom et fonction du dépositaire : </strong></td>
     
                         <td>#{docbean.curentOperationAttrToPdf.operateur.nomAgent}</td>
-                        <td>#{docbean.curentOperationAttrToPdf.operateur.roleAgent.designation}</td>
+                        <td>#{docbean.curentOperationAttrToPdf.operateur.posteny.designation}</td>
                     </tr>
 
                     <tr>
                         <td><strong>Nom et fonction du détenteur effectif :</strong></td>
                         <td>#{docbean.curentOperationAttrToPdf.detenteur.nomAgent}</td>
-                        <td>#{docbean.curentOperationAttrToPdf.detenteur.roleAgent.designation}</td>
+                        <td>#{docbean.curentOperationAttrToPdf.detenteur.posteny.designation}</td>
                     </tr>
 
                     <tr>
@@ -73,8 +73,12 @@
                                 <th>VALEUR TOTALE</th>
                             </tr>
                             <tr>
-                                <td>#{docbean.curentOperationAttrToPdf.mat.design.nomenMat.designation} </td>
-                                <td>#{docbean.curentOperationAttrToPdf.mat.design.nomenMat.nomenclature}</td>
+                                <td>#{docbean.curentOperationAttrToPdf.mat.design.nomenMat.designation} -
+                                #{docbean.curentOperationAttrToPdf.mat.design.nomenMat.nomenclature} - 
+                                #{docbean.curentOperationAttrToPdf.mat.design.marque.designation} - 
+                                #{docbean.curentOperationAttrToPdf.mat.design.renseignement}
+                                 </td>
+                                <td>#{docbean.curentOperationAttrToPdf.mat.design.especeUnite}</td>
                                 <td>#{docbean.curentOperationAttrToPdf.mat.design.pu}</td>
                                 <td>1</td>
                                 <td>#{docbean.curentOperationAttrToPdf.mat.design.pu*1}</td>
