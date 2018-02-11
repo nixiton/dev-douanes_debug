@@ -102,22 +102,22 @@
                 <h:outputText value="Détail" />
             </f:facet>
             <p:panel rendered="#{c['class'].simpleName eq 'OpEntree' }">
-                <p:commandButton action="#{gacBean.setCurentOperation3(c)}" update=":detail"
+                <p:commandButton action="#{gacBean.setCurrentOpEntree(c)}" update=":detail"
             oncomplete="PF('detail').show()" icon="ui-icon-zoomin"/>
             </p:panel>
             <p:panel rendered="#{c['class'].simpleName eq 'OpSaisie' }">
                 
             </p:panel>
             <p:panel rendered="#{c['class'].simpleName eq 'OpAttribution' }">
-                <p:commandButton action="#{gacBean.setCurentOperation(c)}" update=":detail1"
+                <p:commandButton action="#{gacBean.setCurrentOpAttribution(c)}" update=":detail1"
             oncomplete="PF('detail1').show()" icon="ui-icon-zoomin"/>
             </p:panel>
             <p:panel rendered="#{c['class'].simpleName eq 'OpDettachement' }">
-                <p:commandButton action="#{gacBean.setCurentOperation(c)}" update=":detail2"
+                <p:commandButton action="#{gacBean.setCurrentOpDettachement(c)}" update=":detail2"
             oncomplete="PF('detail2').show()" icon="ui-icon-zoomin"/>
             </p:panel>
             <p:panel rendered="#{c['class'].simpleName eq 'OpSortie' }">
-                <p:commandButton action="#{gacBean.setCurentOperation(c)}" update=":detail4"
+                <p:commandButton action="#{gacBean.setCurrentOpSortie(c)}" update=":detail4"
             oncomplete="PF('detail4').show()" icon="ui-icon-zoomin"/>
             </p:panel>
         </p:column>

@@ -70,6 +70,8 @@ public class GACBean {
 
 
     private Operation curentOperation;
+    
+    private OpSortie curentopSortieForValidation;
 
     private Operation curentOperation1;
 
@@ -964,6 +966,7 @@ public class GACBean {
         this.currentOpAttribution =null;
         this.currentOpSortie = null;
         this.currentOpEntree = null;
+        this.curentopSortieForValidation=null;
 
     }
 
@@ -1013,6 +1016,14 @@ public class GACBean {
     {
         this.facdownload = s;
     }
+
+	public OpSortie getCurentopSortieForValidation() {
+		return curentopSortieForValidation;
+	}
+
+	public void setCurentopSortieForValidation(OpSortie curentopSortieForValidation) {
+		this.curentopSortieForValidation = curentopSortieForValidation;
+	}
 
 
 

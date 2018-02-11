@@ -31,14 +31,14 @@
             <f:facet name="header">Codification</f:facet>
             #{materiel.code}
         </p:column>
-        <p:column filterBy="#{materiel.nomenMat}" headerText="Nomenclature"  filterMatchMode="exact"> >
+        <p:column filterBy="#{materiel.design.nomenMat}" headerText="Nomenclature"  filterMatchMode="exact">
             <f:facet name="filter">
                 <p:selectOneMenu onchange="PF('MaterielTable').filter()" >
                     <f:selectItem itemLabel="Selectioner" itemValue="#{null}" noSelectionOption="true" />
                     <f:selectItems value="#{siseBean.listNomenclature}" />
                 </p:selectOneMenu>
             </f:facet>
-            <h:outputText value="#{materiel.nomenMat.designation}" />
+            <h:outputText value="#{materiel.design.nomenMat.designation}" />
         </p:column>
         <p:column>
             <f:facet name="header">
@@ -50,7 +50,7 @@
             <f:facet name="header">
                 <h:outputText value="Marque" />
             </f:facet>
-            <h:outputText value="#{materiel.marque.designation}" />
+            <h:outputText value="#{materiel.design.marque.designation}" />
         </p:column>
         <p:column>
             <f:facet name="header">
@@ -76,6 +76,16 @@
             <p:commandButton  action="#{suivieditionBean.setMateriel(materiel)}" 
             oncomplete="PF('historique').show()" icon="ui-icon-clipboard" update=":historique">
             </p:commandButton>
+        </p:column>
+        
+         <p:column filterBy="#{materiel.direc}" headerText="Direction"  filterMatchMode="exact">
+            <f:facet name="filter">
+                <p:selectOneMenu onchange="PF('MaterielTable').filter()" >
+                    <f:selectItem itemLabel="Selectioner" itemValue="#{null}" noSelectionOption="true" />
+                    <f:selectItems value="#{siseBean.listDirection}" var="dir" itemLabel="#{dir.codeDirection}" />
+                </p:selectOneMenu>
+            </f:facet>
+            <h:outputText value="#{materiel.direc.designation !=null ? materiel.direc.designation :'Non disponible'}" />
         </p:column>
     </p:dataTable>
 

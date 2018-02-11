@@ -19,11 +19,11 @@
                         <td>Détenteur</td>
                         <td>
                             <c:if test="#{suivieditionBean.materiel.detenteur ne null}">
-                                #{suivieditionBean.materiel.detenteur.im}
+                                #{suivieditionBean.materiel.detenteur.im} - #{suivieditionBean.materiel.detenteur.nomAgent}
                             </c:if>
 
                             <c:if test="#{suivieditionBean.materiel.detenteur eq null}">
-                                #{suivieditionBean.materiel.dc.im}
+                                #{suivieditionBean.materiel.dc.im} -  #{suivieditionBean.materiel.dc.nomAgent}
                             </c:if>
 
                         </td>
@@ -31,7 +31,7 @@
                     </tr>
                     <tr>
                         <td>Dépositaire comptable</td>
-                        <td>#{suivieditionBean.materiel.dc.im}</td>
+                        <td>#{suivieditionBean.materiel.dc.im} - #{suivieditionBean.materiel.dc.nomAgent}</td>
 
                     </tr>
                     <tr>
@@ -62,22 +62,22 @@
                     <tr>
                         
                         <td>Origine</td>
-                        <td>#{suivieditionBean.materiel.origine}</td>
+                        <td>#{suivieditionBean.materiel.design.origine}</td>
 
                     </tr>
                     <tr>
-                        <td>Date d’entrée</td>
-                        <td>#{suivieditionBean.listOperationEntreeByMateriel[0].date}</td>
+                        <td>Année Acquisition</td>
+                        <td>#{suivieditionBean.materiel.design.anneeAcquisition}</td>
 
                     </tr>
                     <tr>
                         <td>Mouvements effectués</td>
                         <td>
 
-                        #{suivieditionBean.materiel.dc.im} =>
+                        #{suivieditionBean.materiel.dc.im} - #{suivieditionBean.materiel.dc.nomAgent} =>
 
                         <ui:repeat value="#{suivieditionBean.listOperationAttributionByMateriel}" var="value">
-                            #{value.detenteur.im} =>
+                            #{value.detenteur.im} - #{value.detenteur.nomAgent} =>
                         </ui:repeat>
 
                         </td>
@@ -104,7 +104,7 @@
                     </tr>
                     <tr>
                         <td>Prix Unitaire</td>
-                        <td>#{suivieditionBean.materiel.pu}</td>
+                        <td>#{suivieditionBean.materiel.design.pu}</td>
                     </tr>
                     <tr>
                         <td>Référence</td>
@@ -116,11 +116,11 @@
                     </tr>
                     <tr>
                         <td>Autre</td>
-                        <td>#{suivieditionBean.materiel.autre}</td>
+                        <td>#{suivieditionBean.materiel.design.autre}</td>
                     </tr>
                     <tr>
                         <td>Nomenclature</td>
-                        <td>#{suivieditionBean.materiel.nomenMat.designation}</td>
+                        <td>#{suivieditionBean.materiel.design.nomenMat.designation}</td>
                     </tr>
                     <tr>
                         <td>Etat</td>
@@ -128,19 +128,19 @@
                     </tr>
                     <tr>
                         <td>Caractéristiques</td>
-                        <td>#{suivieditionBean.materiel.renseignement}</td>
+                        <td>#{suivieditionBean.materiel.design.renseignement}</td>
                     </tr>
                     <tr>
                         <td>Marque</td>
-                        <td>#{suivieditionBean.materiel.marque.designation}</td>
+                        <td>#{suivieditionBean.materiel.design.marque.designation}</td>
                     </tr>
                     <tr>
                         <td>Dépositaire</td>
-                        <td>#{suivieditionBean.materiel.dc.im}</td>
+                        <td>#{suivieditionBean.materiel.dc.im} - #{suivieditionBean.materiel.dc.nomAgent}</td>
                     </tr>      
                     <tr>
                         <td>Type de materiel</td>
-                        <td>#{suivieditionBean.materiel.nomenMat.designation}</td>
+                        <td>#{suivieditionBean.materiel.design.nomenMat.designation}</td>
                     </tr>
                     
 
@@ -148,23 +148,23 @@
 
                     <tr>
                         <td>Mode d'aquisition</td>
-                        <td>#{suivieditionBean.materiel.modAcq.designation}</td>
+                        <td>#{suivieditionBean.materiel.design.modAcq.designation}</td>
                     </tr>
                     <tr>
                         <td>Financement</td>
-                        <td>#{suivieditionBean.materiel.financement.designation}</td>
+                        <td>#{suivieditionBean.materiel.design.financement.designation}</td>
                     </tr>
                     <tr>
                         <td>Montant sur la facture</td>
-                        <td>#{suivieditionBean.materiel.montant_facture}</td>
+                        <td>#{suivieditionBean.materiel.design.pu}</td>
                     </tr>
                     <tr>
                         <td>Référence facture</td>
-                        <td>#{suivieditionBean.materiel.refFacture}</td>
+                        <td>#{suivieditionBean.materiel.design.refFacture}</td>
                     </tr>
                     <tr>
                         <td>Fournisseur</td>
-                        <td>#{suivieditionBean.materiel.fournisseur.designation}</td>
+                        <td>#{suivieditionBean.materiel.design.fournisseur.designation}</td>
                     </tr>   
                     </p:panel>            
             </table>

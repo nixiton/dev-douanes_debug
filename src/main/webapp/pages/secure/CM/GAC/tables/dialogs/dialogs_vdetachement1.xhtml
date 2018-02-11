@@ -12,7 +12,7 @@
 	
     <p:dialog id="detail2" widgetVar="detail2" closable="false">
 
-    <c:if test="#{gacBean.curentOperation['class'].simpleName eq 'OpDettachement'}">
+    <c:if test="#{gacBean.currentOpDettachement['class'].simpleName eq 'OpDettachement'}">
 
     <h:form class="form-horizontal">
             <h:commandButton action="#{gacBean.exit()}" value="X" style="valign:bottom;float:right;padding-right:20px">
@@ -29,85 +29,36 @@
             <table class="table responsive-table">
                     <tr>
                         <td><strong>Type de matériel</strong></td>
-                        <td>#{gacBean.curentOperation.mat.nomenMat.designation}</td>
+                        <td>#{gacBean.currentOpDettachement.mat.design.nomenMat.designation}</td>
                         <td></td>
                         <td><strong>Imatriculation détenteur</strong></td>
-                        <td>#{gacBean.curentOperation.detenteur.im}</td>
+                        <td>#{gacBean.currentOpDettachement.detenteur.im}</td>
                     </tr>
                     <tr>
                         <td><strong>Nomenclature</strong></td>
-                        <td>#{gacBean.curentOperation.mat.nomenMat.nomenclature}</td>
+                        <td>#{gacBean.currentOpDettachement.mat.design.nomenMat.nomenclature}</td>
                         <td></td>
                         <td><strong>Nom détenteru</strong></td>
-                        <td>#{gacBean.curentOperation.detenteur.nomAgent}</td>
+                        <td>#{gacBean.currentOpDettachement.detenteur.nomAgent}</td>
                     </tr>
                     <tr>
                         <td><strong>Marque</strong></td>
-                        <td>#{gacBean.curentOperation.mat.marque.designation}</td>
+                        <td>#{gacBean.currentOpDettachement.mat.design.marque.designation}</td>
                         <td></td>
-                        <td><strong>Prénom détenteur</strong></td>
-                        <td>#{gacBean.curentOperation.detenteur.prenomAgent}</td>
+                        <td><strong>Codification</strong></td>
+                        <td>#{gacBean.currentOpDettachement.mat.code}</td>
                     </tr>
                     <tr>
                         <td><strong>Référence</strong></td>
-                        <td>#{gacBean.curentOperation.mat.reference}</td>
+                        <td>#{gacBean.currentOpDettachement.mat.reference}</td>
                         <td></td>
                         <td><strong>Motif de sortie</strong></td>
-                        <td>#{gacBean.curentOperation.motifS.designation}</td>
+                        <td>#{gacBean.currentOpDettachement.motifS.designation}</td>
                     </tr>
                     <tr>
                         <td><strong>Numero de série</strong></td>
-                        <td>#{gacBean.curentOperation.mat.numSerie}</td>
-                    </tr>
-                    <tr>
-                        <p:panel rendered="#{gacBean.curentOperation.state eq 'WAITING' }">
-                        <td></td>
-                        <td>
-                                <h:form class="form-horizontal">
-                                <h:commandButton  action="#{gacBean.validateDetachement(gacBean.curentOperation)}" value="Valider"
-                                            class="btn btn-lg btn-primary btn-block"/>
-                            </h:form>
-                        </td>
-
-                        <td>
-                            <h:form>
-
-                                <label for="text1" >Motif de refus
-                                        </label>
-
-                                <h:inputText value="#{gacBean.motif}" 
-                                            styleClass="form-control top"></h:inputText>
-
-                                <h:commandButton  action="#{gacBean.refuseDetachement(gacBean.curentOperation)}" value="Refuser"
-                                            class="btn btn-lg btn-primary btn-block">
-                                    
-                                </h:commandButton>
-
-                            
-                            </h:form>
-
-                        </td>
-                        <td>
-                            <h:form>
-
-
-                                        <label for="text1" >Motif de demande de correction
-                                                </label>
-
-                                        <h:inputText value="#{gacBean.motif}" 
-                                                    styleClass="form-control top"></h:inputText>
-
-                                        <h:commandButton  action="#{gacBean.aModifierDetachement(gacBean.curentOperation)}" value="A modifier"
-                                                    class="btn btn-lg btn-primary btn-block">
-                                            <!--f:param name="operationValide" value="#{gacBean.curentOperation}"/-->
-                                        </h:commandButton>
-
-                                        
-                                    </h:form>
-
-                        </td>
-                    </p:panel>
-                    </tr>     
+                        <td>#{gacBean.currentOpDettachement.mat.numSerie}</td>
+                    </tr>    
             </table>
                         
             </table>
