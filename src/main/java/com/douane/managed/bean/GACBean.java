@@ -12,9 +12,6 @@ import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import java.text.SimpleDateFormat;
-import java.util.HashMap;
-import java.util.List;
-import java.util.ListIterator;
 import java.util.*;
 
 
@@ -22,7 +19,6 @@ import java.util.*;
 /*__________itext pdf____________*/
 
 import java.io.*;
-import java.util.Date;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
 
@@ -1063,7 +1059,10 @@ public class GACBean {
 	}
 	
 	
-
+	public List<Object[]> getDesingationByOpEntree(Operation op){
+		List<Object[]> results = usermetierimpl.listDesignationByOperationEntree((OpEntree)op);
+		return results;
+	}
 
 }
 //r

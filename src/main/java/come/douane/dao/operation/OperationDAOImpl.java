@@ -608,25 +608,13 @@ public class OperationDAOImpl implements IOperationDAO{
 	@Override
 	public List<Object[]> getListForInventaire(Direction d, Date startDate, Date endDate) {
 		// TODO Auto-generated method stub
-		/*String sql="select e, tempsortie, m from opentreemateriel h  join Operationentree e on h.entreeid=e.id " + 
-				"full outer join (select o from Opsortie o where o.iddirection =1 and o.state='ACCEPTED' ) as tempsortie " + 
-				"on h.materielid = tempsortie.idmat " + 
-				"join materiel m on m.idmateriel=h.materielid " + 
-				"where e.iddirection=1 and e.state='ACCEPTED'";
-		*/
-		/*String sql ="select e, tempsortie, m from opentreemateriel h  join operationentree e on h.entreeid=e.id " + 
-				"full outer join (select * from opsortie o where o.iddirection =1 and o.state='ACCEPTED' ) as tempsortie " + 
-				"on h.materielid = tempsortie.idmat " + 
-				"join materiel m on m.idmateriel=h.materielid " + 
-				"where e.iddirection=1 and e.state='ACCEPTED'";
-		*/
 		String sql = "select m.idmateriel, m.reference, m.renseignement, m.pu, m.montant_facture,   e.numoperation,ns, m.validation from opentreemateriel h  join operationentree e on h.entreeid=e.id " + 
 				"full outer join (select o.numoperation ns, idmat from opsortie o where o.iddirection =:iddirect and o.state='ACCEPTED' ) as tempsortie " + 
 				"on h.materielid = tempsortie.idmat " + 
 				"join materiel m on m.idmateriel=h.materielid " + 
 				"where e.iddirection=:iddirect and e.state='ACCEPTED'";
 		//String sql = "select o from OpSortie o where o.direction=:direction and o.state=:etat";
-		System.out.println("sql created");
+		//System.out.println("sql created");
 		Query q=em.createNativeQuery(sql);
 		System.out.println("let's see result");
 		q.setParameter("iddirect", d.getId());
@@ -642,6 +630,12 @@ public class OperationDAOImpl implements IOperationDAO{
 		
 		return listforinventaire;
 	}
-	
+	@Override
+	public List<Object[]> getDesingantionByOperationEntree(OpEntree oe){
+		String sql = "";
+		Query q=em.createNativeQuery(sql);	
+		;;
+		return null;
+	}
 
 }

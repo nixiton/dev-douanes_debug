@@ -1,11 +1,14 @@
 package com.douane.repository;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import com.douane.entite.*;
 
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.repository.query.Param;
 
 public interface MaterielRepository extends CrudRepository<Materiel, Long>{
 	public Materiel findByIdMateriel(Long idmat);
@@ -24,4 +27,8 @@ public interface MaterielRepository extends CrudRepository<Materiel, Long>{
 	public List<Materiel> findByDirectionAndValidationGpByNomOrdByTypemat(Direction d);*/
 	public List<Materiel> findByValidationAndDetenteurAndDirec(boolean val, Agent detenteur, Direction direction);
 	public Long countByDesignAndDirec(Designation des, Direction dir);
+	
+	@Query("select d, count(d) from Materiel m join m.design d where m.myoperationEntree=:curentop group by d")
+	List<Object[]> getDesignationByOpEntree(@Param("curentop")OpEntree open);
+	
 }

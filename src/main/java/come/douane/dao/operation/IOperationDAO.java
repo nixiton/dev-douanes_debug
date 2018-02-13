@@ -63,4 +63,5 @@ public interface IOperationDAO {
 	List<OpSortieArticle> getListOpSortieArtByDirection(Direction direction, Date startDate, Date endDate);
 	List<Operation> getListAllOperationByDirectionByYearByDateAsc(Direction d, Date startDate, Date endDate);
 	List<Object[]> getListForInventaire(Direction d, Date startDate, Date endDate);
+	List<Object[]> getDesingantionByOperationEntree(OpEntree oe);
 }

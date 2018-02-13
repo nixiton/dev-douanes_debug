@@ -1,6 +1,7 @@
 package com.douane.metier.user;
 
 import java.util.Date;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
@@ -1201,6 +1202,7 @@ public class UserMetier implements IUserMetier {
 	@Override
 	public void entrerMaterielExistant(Designation des, List <MaterielEx> matexs, Agent dc) {
 		// TODO Auto-generated method stub
+		//des.setNombreparEntree(matexs.size()); Not now
 		Designation d =desrepos.save(des);
 		for(Materiel matex:matexs) {
 			matex.setDesign(d);
@@ -1220,12 +1222,15 @@ public class UserMetier implements IUserMetier {
 		entree.setPathDoc(facturePath);
 		entree.setRefFact(refFacture);
 		// entree.setListMat(l);
+		//set nombre pendant entree
+		//des.setNombreparEntree(l.size()); Not now
 		Designation d =desrepos.save(des);
 		for (Materiel m : l) {
 			m.setDc(dc);
 			m.setDesign(d);
 			entree.addMateriel(m);
 		}
+		//
 		entree = opentreerepos.save(entree);
 		/*
 		 * MaterielEx ma= new MaterielEx(); ma = matrepos.save(ma);
@@ -1257,8 +1262,11 @@ public class UserMetier implements IUserMetier {
 
                                                            entry.getValue());
             
-            Designation d =desrepos.save(entry.getKey());
-            for(MaterielNouv m:entry.getValue()) {
+            Designation des = entry.getKey();
+            List<MaterielNouv> listmatn = entry.getValue();
+            //des.setNombreparEntree(listmatn.size()); Not now
+            Designation d =desrepos.save(des);
+            for(MaterielNouv m:listmatn) {
             	m.setDc(dc);
     			m.setDesign(d);
     			entree.addMateriel(m);
@@ -1270,6 +1278,18 @@ public class UserMetier implements IUserMetier {
 		entree = opentreerepos.save(entree);
 		//sss
 		return null;
+	}
+
+	@Override
+	public List<Object[]> listDesignationByOperationEntree(OpEntree operationentree) {
+		// TODO Auto-generated method stub
+		if(operationentree ==null) {
+			System.out.println("operation entree null");
+			return null;
+		}
+		List<Object[]> a =  matrepos.getDesignationByOpEntree(operationentree);
+		
+		return a;
 	}
 
 

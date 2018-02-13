@@ -3,7 +3,10 @@ package com.douane.repository;
 import java.util.List;
 
 import com.douane.model.EtatOperation;
+
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.repository.query.Param;
 
 import com.douane.entite.Agent;
 import com.douane.entite.Direction;
@@ -18,6 +21,6 @@ public interface OpEntreeRepository extends CrudRepository<OpEntree, Long>{
 	public List<OpEntree> findByDirectionOrderByDateDesc(Direction direction);
 	public List<OpEntree> findByMat(Materiel m);
 	public List<OpEntree> findByMatAndState(Materiel m, EtatOperation e);
-
+	
 }
 

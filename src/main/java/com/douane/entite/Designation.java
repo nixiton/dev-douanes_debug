@@ -249,6 +249,13 @@ public class Designation {
 		this.origine = origine;
 	}
 
-	
+	/*public int getNombreparEntree() {
+		return nombreparEntree;
+	}
+	public void setNombreparEntree(int nombreparEntree) {
+		this.nombreparEntree = nombreparEntree;
+	}
+
+	private int nombreparEntree;*/
 
 }
