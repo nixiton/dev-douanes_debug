@@ -356,7 +356,7 @@ public class Materiel implements Serializable{
 			codeNomenclature = this.getTypematerieladd().getNomenclaureParent().getNomenclature();
 		}
 		if(this.getDesign().getAnneeAcquisition()!=null) {
-			anneeacquisition = this.getAnneeAcquisition();
+			anneeacquisition = this.getDesign().getAnneeAcquisition();
 		}
 		this.code = "COD"+
 				"DIR"+codeDirection+

@@ -87,6 +87,26 @@
             </f:facet>
             <h:outputText value="#{materiel.direc.designation !=null ? materiel.direc.designation :'Non disponible'}" />
         </p:column>
+        <p:column filterBy="#{materiel.validation}" headerText="Status" filterMatchMode="equals">
+            <f:facet name="filter">
+                <p:selectOneButton onchange="PF('MaterielTable').filter()">
+                    <f:converter converterId="javax.faces.Boolean" />
+                    <f:selectItem itemLabel="Tout" itemValue="" />
+                    <f:selectItem itemLabel="V" itemValue="true" />
+                    <f:selectItem itemLabel="NV" itemValue="false" />
+                </p:selectOneButton>
+            </f:facet>
+            <h:outputText value="#{materiel.validation ? 'Validé': 'Non Validé'}" />
+        </p:column>
+        <p:column filterBy="#{materiel.detenteur}" headerText="Detenteur" filterMatchMode="equals">
+            <f:facet name="filter">
+                <p:selectOneButton onchange="PF('MaterielTable').filter()">
+                    <f:selectItem itemLabel="Tout" itemValue="" />
+                    <f:selectItem itemLabel="Aucun" itemValue="#{null}" />
+                </p:selectOneButton>
+            </f:facet>
+            <h:outputText value="#{materiel.detenteur.im} - #{materiel.detenteur.nomAgent}" />
+        </p:column>
     </p:dataTable>
 
 </h:form>
