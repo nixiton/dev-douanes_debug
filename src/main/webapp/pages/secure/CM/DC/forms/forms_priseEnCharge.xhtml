@@ -39,6 +39,7 @@
                             <p:fileUpload value="#{depositaireBean.document}"
                                           fileUploadListener="#{depositaireBean.uploadDoc_Advanced}"
                                           mode="advanced" dragDropSupport="false" update="@this,docId"
+                                          sizeLimit="1000000"
                                           allowTypes="/(\.|\/)(gif|jpeg|txt|png|pdf|doc|docx)$/">
                                 <f:attribute name="docObj" value="#{row}"></f:attribute>
                             </p:fileUpload>
@@ -66,6 +67,7 @@
                             <p:fileUpload value="#{depositaireBean.byteDoc}"
                                           fileUploadListener="#{depositaireBean.uploadIm_Advanced}"
                                           mode="advanced" dragDropSupport="false" update="@this,imId"
+                                          sizeLimit="1000000"
                                           allowTypes="/(\.|\/)(gif|jpeg|tx|png|pdf)$/" required="true">
                                 <f:attribute name="docObj" value="#{rowIm}"></f:attribute>
                             </p:fileUpload>
@@ -95,7 +97,8 @@
                             <p:fileUpload value="#{depositaireBean.docFacture}"
                                           fileUploadListener="#{depositaireBean.uploadFac_Advanced}"
                                           mode="advanced" dragDropSupport="false" update="@this,facId"
-                                          allowTypes="/(\.|\/)(gif|jpeg|txt)$/" required="true">
+                                          sizeLimit="1000000"
+                                          allowTypes="/(\.|\/)(gif|jpe?g|png|txt|pdf|doc|docx)$/">
                                 <f:attribute name="docObj" value="#{rowFac}"></f:attribute>
                             </p:fileUpload>
                         </p:panel>
@@ -171,46 +174,7 @@
                 <hr></hr>
 
                 </div>
-                
-                
-
-
-
-
-                 <label for="text1" class="control-label col-lg-4">Référence
-                </label>
-
-                <div class="col-lg-6">
-
-                    <p:inputText required="true"
-                        value="#{depositaireBean.reference}"
-                        requiredMessage=""
-                        placeholder="Référence" styleClass="form-control top"></p:inputText>
-
-                <hr></hr>
-
-                </div>
-                
-                
-
-                 <label for="text1" class="control-label col-lg-4">Numero de Série
-                </label>
-
-                <div class="col-lg-6">
-
-                    <p:inputText required="true"
-                        value="#{depositaireBean.numSerie}"
-                        requiredMessage=""
-                        placeholder="Numero de Série" styleClass="form-control top" ajax="false" resetValues="true"></p:inputText>
-
-                <hr></hr>
-
-                </div>
-                
-                
-
-
-
+     Z
                 <label for="text1" class="control-label col-lg-4">Caractéristiques
                 </label>
 
@@ -233,9 +197,8 @@
 
                     <div class="col-lg-6">
 
-                        <p:inputText  required="true"
+                        <p:inputText
                         value="#{depositaireBean.autre}"
-                        requiredMessage=""
                         placeholder="Autre" styleClass="form-control top"></p:inputText>
 
                     <hr></hr>
@@ -263,24 +226,6 @@
 
                 </div>
 
-                
-                
-
-                    <label for="text1" class="control-label col-lg-4">Origine
-                    </label>
-
-                    <div class="col-lg-6">
-
-                        <p:inputText  required="true"
-                        value="#{depositaireBean.origine}"
-                        requiredMessage=""
-                        placeholder="" styleClass="form-control top"></p:inputText>
-
-                    <hr></hr>
-
-                    </div>
-
-
                     <label for="text1" class="control-label col-lg-4">Espèce des unités
                     </label>
 
@@ -288,7 +233,7 @@
 
                         <p:inputText  required="true"
                         value="#{depositaireBean.especeUnite}"
-                        requiredMessage=""
+                        requiredMessage="Champ Espèce des unités obligatoire"
                         placeholder="" styleClass="form-control top"></p:inputText>
 
                     <hr></hr>                
@@ -317,6 +262,40 @@
                 <hr></hr>
 
                 </div>
+                
+                <label for="text1" class="control-label col-lg-4">Fournisseur
+                </label>
+
+                <div class="col-lg-6">
+
+                    <p:selectOneMenu value="#{depositaireBean.fournisseur}" converter="#{refConverter}" panelStyle="width:180px"  style="width:160px"
+                         effect="fade" var="t" filter="true" filterMatchMode="startsWith">
+                        <f:selectItem itemValue="#{null}" itemLabel="--select--" /> 
+                            <f:selectItems value="#{siseBean.listFournisseur}" var="theme" itemLabel="#{theme.designation}" itemValue="#{theme}" />
+                        <p:column>
+                            <h:outputText value="#{t.designation}" />
+                        </p:column>
+                    </p:selectOneMenu>
+
+
+                <hr></hr>
+
+                </div>
+                
+                
+                <label for="text1" class="control-label col-lg-4">Origine
+                    </label>
+
+                    <div class="col-lg-6">
+
+                        <p:inputText  required="true"
+                        value="#{depositaireBean.origine}"
+                        requiredMessage="Champ Origine obligatoire"
+                        placeholder="" styleClass="form-control top"></p:inputText>
+
+                    <hr></hr>
+
+                    </div>
 
 
                 <label for="text1" class="control-label col-lg-4">Financement
@@ -349,7 +328,7 @@
 
                     <p:inputText   required="true"
                         value="#{depositaireBean.unitPrice}"
-                        requiredMessage=""
+                        requiredMessage="Champ Montant PU obligatoire"
                         placeholder="Montant sur facture" styleClass="form-control top" resetValues="true"></p:inputText>
 
                 <hr></hr>
@@ -366,35 +345,13 @@
 
                     <p:inputText   required="true"
                         value="#{depositaireBean.refFacture}"
-                        requiredMessage=""
+                        requiredMessage="Champ référence facture obligatoire"
                         placeholder="Référence facture" styleClass="form-control top"></p:inputText>
 
                 <hr></hr>
 
                 </div>
                 
-                
-
-
-                <label for="text1" class="control-label col-lg-4">Fournisseur
-                </label>
-
-                <div class="col-lg-6">
-
-                    <p:selectOneMenu value="#{depositaireBean.fournisseur}" converter="#{refConverter}" panelStyle="width:180px"  style="width:160px"
-                         effect="fade" var="t" filter="true" filterMatchMode="startsWith">
-                        <f:selectItem itemValue="#{null}" itemLabel="--select--" /> 
-                            <f:selectItems value="#{siseBean.listFournisseur}" var="theme" itemLabel="#{theme.designation}" itemValue="#{theme}" />
-                        <p:column>
-                            <h:outputText value="#{t.designation}" />
-                        </p:column>
-                    </p:selectOneMenu>
-
-
-                <hr></hr>
-
-                </div>
-
 
 				<!-- LES REFERENTIELS -->
 		
@@ -404,13 +361,13 @@
              <p:panel>
                            <p:inputText required="true" id="reference"
                         value="#{depositaireBean.matnouvtoadd.reference}"
-                        requiredMessage=""
+                        requiredMessage="Champ Référence obligatoire"
                         placeholder="Référence" styleClass="form-control top"></p:inputText>
                         </p:panel>
                         <p:panel>
                             <p:inputText  required="true" id="numeroserie"
                         value="#{depositaireBean.matnouvtoadd.numSerie}"
-                        requiredMessage=""
+                        requiredMessage="Champ Numero de série obligatoire"
                         placeholder="Numero de série" styleClass="form-control top"></p:inputText>
               </p:panel>
                              
