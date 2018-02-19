@@ -390,7 +390,7 @@
                         #{m.numSerie}
                     </p:column>
                     
-                    <p:column headerText="Supprimer"> <p:commandButton value="supprimer" process="@this,reference,numeroserie"
+                    <p:column headerText="Supprimer"> <p:commandButton value="supprimer" process="@this"
                              update="refid" actionListener="#{depositaireBean.deleteMateriel(rowIndex)}"
                              ajax="true" /></p:column>
 

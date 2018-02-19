@@ -17,20 +17,29 @@
         <hr></hr>
 
     </div>    
-
+	<h:form>
 
 
     <p:dataTable   var="materiel" value="#{depositaireBean.listMaterielNouveauValide}"
+                 widgetVar="MaterielTable"
                  paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}  "
-                 paginator="true" rows="10" style="margin-bottom:20px">
+                 paginator="true" rows="10" style="margin-bottom:20px"
+                 emptyMessage="Aucun resultat" filteredValue="#{dtFilterView.filteredOperations}"
+                 >
  
-        <p:column>
+        <p:column filterBy="#{materiel.idMateriel}" filterMatchMode="contains">
             <f:facet name="header">
                 <h:outputText value="ID" />
             </f:facet>
             <h:outputText value="#{materiel.idMateriel}" />
         </p:column>
-        <p:column>
+        <p:column filterBy="#{materiel.design.nomenMat}" headerText="Nomenclature"  filterMatchMode="exact">
+            <f:facet name="filter">
+                <p:selectOneMenu onchange="PF('MaterielTable').filter()" >
+                    <f:selectItem itemLabel="Selectioner" itemValue="#{null}" noSelectionOption="true" />
+                    <f:selectItems value="#{siseBean.listNomenclature}" />
+                </p:selectOneMenu>
+            </f:facet>
             <f:facet name="header">
                 <h:outputText value="Type de materiel" />
             </f:facet>
@@ -48,13 +57,13 @@
             </f:facet>
             <h:outputText value="#{materiel.design.marque.designation}" />
         </p:column>
-        <p:column>
+        <p:column  filterBy="#{materiel.reference}" filterMatchMode="contains">
             <f:facet name="header">
                 <h:outputText value="Réference" />
             </f:facet>
            <h:outputText value=" #{materiel.reference}" />
         </p:column>
-        <p:column>
+        <p:column filterBy="#{materiel.numSerie}" filterMatchMode="contains">
             <f:facet name="header">
                 <h:outputText value="Numro de Série" />
             </f:facet>
@@ -96,7 +105,12 @@
             </f:facet>
             <h:outputText value="#{materiel.fournisseur.designation}" />
         </p:column-->
-
+		<p:column filterBy="#{materiel.code}" filterMatchMode="contains">
+            <f:facet name="header" >
+                <h:outputText value="Code" />
+            </f:facet>
+            <h:outputText value="#{materiel.code}" />
+        </p:column>
         <p:column>
 
             <f:facet name="header">
@@ -106,6 +120,8 @@
             oncomplete="PF('detail').show()" icon="ui-icon-zoomin" update=":detail"/>
         </p:column>
     </p:dataTable>
+    
+    </h:form>
 </div>
 
 <ui:include src="/pages/secure/CM/DC/tables/dialogs/dialogs_priseEnCharge.xhtml"></ui:include>
