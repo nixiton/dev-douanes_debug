@@ -19,14 +19,15 @@ public class OpDettachement extends Operation{
 	private Agent detenteur;
 	
 	@ManyToOne
-	@JoinColumn(name="idMotifS")
-	private MotifSortie motifS;
+	@JoinColumn(name="idMotifDett")
+	private MotifDecharge motifDettachement;
 	
-	public MotifSortie getMotifS() {
-		return motifS;
+	
+	public MotifDecharge getMotifDettachement() {
+		return motifDettachement;
 	}
-	public void setMotifS(MotifSortie motifS) {
-		this.motifS = motifS;
+	public void setMotifDettachement(MotifDecharge motifDettachement) {
+		this.motifDettachement = motifDettachement;
 	}
 	public OpDettachement(Date date, Date time, String poste, Agent operateur, Materiel m, Agent det) {
 		super(date, time, poste, operateur);

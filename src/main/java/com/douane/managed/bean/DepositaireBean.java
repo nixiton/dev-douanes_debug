@@ -153,6 +153,7 @@ public class DepositaireBean {
 	private List<MaterielNouv> listMaterielnouveau;// Pour affichage dans prise en charge Materiel Nouveau valide
 	private List<Materiel> listAllMateriel;// miasa ve???
 	private List<MotifSortie> listMotifSortie;// liste des motifs de sortie pour decharge
+	private List<MotifDecharge> listMotifDettachement;
 	private List<Materiel> listAllMaterilValide;// Miasa ve?
 
 	/* Current pour les objets selectionner */
@@ -172,6 +173,7 @@ public class DepositaireBean {
 	private Direction destinationDirec; // direction de sortie lors de l'affectation
 	private Service destinationService;// tokony tsy miasa
 	private MotifSortie motifSortie;
+	private MotifDecharge motifDettachement;
 	private Agent detenteur;
 	private Materiel materiel;
 
@@ -1568,7 +1570,7 @@ public class DepositaireBean {
 		try {
 			// getCurrent Materiel ve?????
 			opDet = usermetierimpl.reqDettachement(this.getMaterielSeclected(), agent, getDetenteur(),
-					this.getMotifSortie());
+					this.getMotifDettachement());
 			setAllNull();
 			return SUCCESS;
 		} catch (Exception e) {
@@ -2693,6 +2695,29 @@ public class DepositaireBean {
 
 	public void setMatnouvtoadd(MaterielNouv matnouvtoadd) {
 		this.matnouvtoadd = matnouvtoadd;
+	}
+
+	public MotifDecharge getMotifDettachement() {
+		return motifDettachement;
+	}
+
+	public void setMotifDettachement(MotifDecharge motifDettachement) {
+		this.motifDettachement = motifDettachement;
+	}
+
+	public List<MotifDecharge> getListMotifDettachement() {
+		ArrayList<Referentiel> r = (ArrayList<Referentiel>) refmetierimpl.listRef(new MotifDecharge());
+		List<MotifDecharge> ds = new ArrayList<MotifDecharge>();
+		for (Object d : r) {
+			if (d instanceof MotifDecharge) {
+				ds.add((MotifDecharge) d);
+			}
+		}
+		return ds;
+	}
+
+	public void setListMotifDettachement(List<MotifDecharge> listMotifDettachement) {
+		this.listMotifDettachement = listMotifDettachement;
 	}
 
 }

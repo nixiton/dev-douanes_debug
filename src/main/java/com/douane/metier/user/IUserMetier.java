@@ -31,7 +31,7 @@ public interface IUserMetier {
 	public OpEntree reqEntrerMateriel(List<Materiel> m, Agent dc, String facturePath, String refFacture);
 	public OpSortie reqSortirMateriel(Materiel m, MotifSortie motif, Direction d, Service s, Bureau b, Agent op)throws Exception;
 	public OpAttribution reqAttribution(Materiel m, Agent oper, Agent detenteur) throws Exception;
-	public OpDettachement reqDettachement(Materiel mat1, Agent agent2, Agent agent1,MotifSortie m)throws Exception;
+	public OpDettachement reqDettachement(Materiel mat1, Agent agent2, Agent agent1,MotifDecharge m)throws Exception;
 	
 	//les validations
 	public Materiel entrerMateriel(OpEntree op);
