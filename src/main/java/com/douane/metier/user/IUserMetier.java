@@ -194,4 +194,5 @@ public interface IUserMetier {
 			String attribute, String refFacture);
 	
 	public List<Object[]> listDesignationByOperationEntree(OpEntree operationentree);
+	public List<OpEntree> listOpentreeByStateByDirection(EtatOperation etat, Direction d);
 }

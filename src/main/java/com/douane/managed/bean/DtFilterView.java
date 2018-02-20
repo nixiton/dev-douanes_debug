@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Locale;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
@@ -126,6 +127,34 @@ public class DtFilterView implements Serializable{
 
 	public void setFilteredMateriels(List<Materiel> filteredMateriels) {
 		this.filteredMateriels = filteredMateriels;
+	}
+	
+	
+	
+	public boolean filterByDetenteur(Object value, Object filter, Locale locale) {
+        /*String filterText = (filter == null) ? null : filter.toString().trim();
+        if(filterText == null||filterText.equals("")) {
+            return true;
+        }
+         
+        if(value == null) {
+            return false;
+        }*/
+		Agent a = (Agent)value;
+		if(filter.equals("all")) {
+			return true;
+		}
+		if(filter.equals("true")&a!=null) {
+			return false;
+		}
+		if(filter.equals("false")&a==null) {
+			return false;
+		}
+		System.out.println("filter = "+filter);
+		System.out.println("value = "+value);
+         
+       // return ((Comparable) value).compareTo(Integer.valueOf(filterText)) > 0;
+		return true;
 	}
 
 }

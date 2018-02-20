@@ -26,42 +26,42 @@
             <table class="table responsive-table">
                     <tr>
                         <td><strong>Type de matériel</strong></td>
-                        <td>#{gacBean.curentOperation.mat.design.nomenMat.designation}</td>
+                        <td>#{gacBean.opDetToValidate.mat.design.nomenMat.designation}</td>
                         <td></td>
                         <td><strong>Imatriculation détenteur</strong></td>
-                        <td>#{gacBean.curentOperation.detenteur.im}</td>
+                        <td>#{gacBean.opDetToValidate.detenteur.im}</td>
                     </tr>
                     <tr>
                         <td><strong>Nomenclature</strong></td>
-                        <td>#{gacBean.curentOperation.mat.design.nomenMat.nomenclature}</td>
+                        <td>#{gacBean.opDetToValidate.mat.design.nomenMat.nomenclature}</td>
                         <td></td>
                         <td><strong>Nom détenteru</strong></td>
-                        <td>#{gacBean.curentOperation.detenteur.nomAgent}</td>
+                        <td>#{gacBean.opDetToValidate.detenteur.nomAgent}</td>
                     </tr>
                     <tr>
                         <td><strong>Marque</strong></td>
-                        <td>#{gacBean.curentOperation.mat.design.marque.designation}</td>
+                        <td>#{gacBean.opDetToValidate.mat.design.marque.designation}</td>
                         <td></td>
                         <td><strong>Codification</strong></td>
-                        <td>#{gacBean.curentOperation.mat.code}</td>
+                        <td>#{gacBean.opDetToValidate.mat.code}</td>
                     </tr>
                     <tr>
                         <td><strong>Référence</strong></td>
-                        <td>#{gacBean.curentOperation.mat.reference}</td>
+                        <td>#{gacBean.opDetToValidate.mat.reference}</td>
                         <td></td>
                         <td><strong>Motif de sortie</strong></td>
-                        <td>#{gacBean.curentOperation.motifDettachement.designation}</td>
+                        <td>#{gacBean.opDetToValidate.motifDettachement.designation}</td>
                     </tr>
                     <tr>
                         <td><strong>Numero de série</strong></td>
-                        <td>#{gacBean.curentOperation.mat.numSerie}</td>
+                        <td>#{gacBean.opDetToValidate.mat.numSerie}</td>
                     </tr>
                     <tr>
-                        <p:panel rendered="#{gacBean.curentOperation.state eq 'WAITING' }">
+                        <p:panel rendered="#{gacBean.opDetToValidate.state eq 'WAITING' }">
                         <td></td>
                         <td>
                                 <h:form class="form-horizontal">
-                                <h:commandButton  action="#{gacBean.validateDetachement(gacBean.curentOperation)}" value="Valider"
+                                <h:commandButton  action="#{gacBean.validateDetachement(gacBean.opDetToValidate)}" value="Valider"
                                             class="btn btn-lg btn-primary btn-block"/>
                             </h:form>
                         </td>
@@ -75,7 +75,7 @@
                                 <h:inputText value="#{gacBean.motif}" 
                                             styleClass="form-control top"></h:inputText>
 
-                                <h:commandButton  action="#{gacBean.refuseDetachement(gacBean.curentOperation)}" value="Refuser"
+                                <h:commandButton  action="#{gacBean.refuseDetachement(gacBean.opDetToValidate)}" value="Refuser"
                                             class="btn btn-lg btn-primary btn-block">
                                     
                                 </h:commandButton>
@@ -94,9 +94,9 @@
                                         <h:inputText value="#{gacBean.motif}" 
                                                     styleClass="form-control top"></h:inputText>
 
-                                        <h:commandButton  action="#{gacBean.aModifierDetachement(gacBean.curentOperation)}" value="A modifier"
+                                        <h:commandButton  action="#{gacBean.aModifierDetachement(gacBean.opDetToValidate)}" value="A modifier"
                                                     class="btn btn-lg btn-primary btn-block">
-                                            <!--f:param name="operationValide" value="#{gacBean.curentOperation}"/-->
+                                            <!--f:param name="operationValide" value="#{gacBean.opDetToValidate}"/-->
                                         </h:commandButton>
 
                                         

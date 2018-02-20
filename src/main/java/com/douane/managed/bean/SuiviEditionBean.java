@@ -626,7 +626,18 @@ public class SuiviEditionBean {
 		this.listobjectForInvetaire = listobjectForInvetaire;
 	}
 
+	public List<OpEntree> getListOpentreeForOrdre() {
+		Agent cur = (Agent) RequestFilter.getSession().getAttribute("agent");
+		return usermetierimpl.listOpentreeByStateByDirection(EtatOperation.ACCEPTED,cur.getDirection());
+	}
+
+	public void setListOpentreeForOrdre(List<OpEntree> listOpentreeForOrdre) {
+		this.listOpentreeForOrdre = listOpentreeForOrdre;
+	}
+
 	private List<Object[]> listobjectForInvetaire;
+	
+	private List<OpEntree> listOpentreeForOrdre;
     
 
 }

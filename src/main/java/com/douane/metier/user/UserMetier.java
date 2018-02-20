@@ -1292,5 +1292,11 @@ public class UserMetier implements IUserMetier {
 		return a;
 	}
 
+	@Override
+	public List<OpEntree> listOpentreeByStateByDirection(EtatOperation etat, Direction d) {
+		// TODO Auto-generated method stub
+		return opentreerepos.findByStateAndDirection(etat, d);
+	}
+
 
 }

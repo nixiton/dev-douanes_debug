@@ -15,11 +15,13 @@
 
 <h:form>
     <p:dataTable   var="materiel" value="#{depositaireBean.listAllMateriel}"
+    				id="historiquemateriels"
     			 widgetVar="MaterielTable" 
-                 paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}  "
+                 paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}"
                  paginator="true" rows="20" style="margin-bottom:20px"
-                 emptyMessage="Aucun resultat" filteredValue="#{dtFilterView.filteredOperations}"
-                 >
+                 emptyMessage="Aucun resultat" filteredValue="#{dtFilterView.filteredOperations}">
+        
+        
         <p:column headerText="ID" filterBy="#{materiel.idMateriel}" filterMatchMode="contains">
             #{materiel.idMateriel}
         </p:column>
@@ -98,11 +100,12 @@
             </f:facet>
             <h:outputText value="#{materiel.validation ? 'Validé': 'Non Validé'}" />
         </p:column>
-        <p:column filterBy="#{materiel.detenteur}" headerText="Detenteur" filterMatchMode="equals">
+        <p:column filterBy="#{materiel.detenteur}" headerText="Detenteur" filterFunction="#{dtFilterView.filterByDetenteur}">
             <f:facet name="filter">
                 <p:selectOneButton onchange="PF('MaterielTable').filter()">
-                    <f:selectItem itemLabel="Tout" itemValue="" />
-                    <f:selectItem itemLabel="Aucun" itemValue="#{null}" />
+                    <f:selectItem itemLabel="Tout" itemValue="all" />
+                    <f:selectItem itemLabel="Non" itemValue="true" />
+                    <f:selectItem itemLabel="Oui" itemValue="false" />
                 </p:selectOneButton>
             </f:facet>
             <h:outputText value="#{materiel.detenteur.im} - #{materiel.detenteur.nomAgent}" />

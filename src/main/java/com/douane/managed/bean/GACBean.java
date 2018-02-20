@@ -963,6 +963,10 @@ public class GACBean {
         this.currentOpSortie = null;
         this.currentOpEntree = null;
         this.curentopSortieForValidation=null;
+        this.opEntreeToValidate = null;
+        this.opSortieToValidate = null;
+    	this.opDetToValidate = null;
+    	this.opAttrToValidate = null;
 
     }
 
