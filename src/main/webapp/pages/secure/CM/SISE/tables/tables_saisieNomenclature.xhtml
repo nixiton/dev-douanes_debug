@@ -9,6 +9,9 @@
 
 <div   class="body collapse in table-responsive">
 
+	
+<h:form id="formNomenclture">
+
 	<div class="col-lg-4">
 
 		<h:link value="Ajouter" outcome="add_Nom"
@@ -16,25 +19,38 @@
 		<hr></hr>
 
 	</div>
-
+<p:growl for="myerrorReferentiel" id="msgtableNomenclature" showDetail="true" sticky="true" redisplay="false"/>
 	<p:dataTable   var="nomenclature" value="#{siseBean.listNomenclature}" 
                  paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}  "
                  paginatorPosition="bottom"
-                 paginator="true" rows="10" style="margin-bottom:20px">
+                 paginator="true" rows="10" style="margin-bottom:20px"
+                 editable="true"
+                 id="tableNomenclature"
+                 >
+        <p:ajax event="rowEdit" listener="#{siseBean.onRowEdit}" update=":formNomenclture:msgtableNomenclature" />
+       <!-- p:ajax event="rowEditCancel" listener="#{siseBean.onRowCancel}" update=":formNomenclture:msgtableNomenclature" /-->
 		<p:column>
 			<f:facet name="header">ID</f:facet>
 			#{nomenclature.id}
 		</p:column>
 		<p:column>
 			<f:facet name="header">Désignation</f:facet>
-			#{nomenclature.designation}
+			<p:cellEditor>
+               <f:facet name="output"><h:outputText value="#{nomenclature.designation}" /></f:facet>
+               <f:facet name="input"><p:inputText id="modelInput" value="#{nomenclature.designation}" style="width:100%"/></f:facet>
+           </p:cellEditor>
+			
 		</p:column>
 		<p:column>
 			<f:facet name="header">Nomenclature</f:facet>
 			#{nomenclature.nomenclature}
 		</p:column>
+		<p:column>
+           <p:rowEditor />
+       </p:column>
 	</p:dataTable>
-
+	
+</h:form>
 </div>
 
 </html>
