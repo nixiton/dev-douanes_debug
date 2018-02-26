@@ -682,50 +682,56 @@
     TARGET="rules:#pages#secure#CA#DC#content_forms#content_forms_saisieMatEx.xhtml"
     TITLE="add_Mat_ExCA" model-entity="JSFProcessItemOutput"/>
    <PROCESS-ITEM-OUTPUT
-    ID="add_PriseEnChargeCA::#pages#secure#CA#DC#content_forms#content_forms_priseEnCharge.xhtml"
+    ID="add_PriseEnCharge::#pages#secure#CM#DC#content_forms#content_forms_priseEnCharge.xhtml"
     NAME="output103"
+    PATH="/pages/secure/CM/DC/content_forms/content_forms_priseEnCharge.xhtml"
+    TARGET="rules:#pages#secure#CM#DC#content_forms#content_forms_priseEnCharge.xhtml"
+    TITLE="add_PriseEnCharge" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="add_PriseEnChargeCA::#pages#secure#CA#DC#content_forms#content_forms_priseEnCharge.xhtml"
+    NAME="output104"
     PATH="/pages/secure/CA/DC/content_forms/content_forms_priseEnCharge.xhtml"
     TARGET="rules:#pages#secure#CA#DC#content_forms#content_forms_priseEnCharge.xhtml"
     TITLE="add_PriseEnChargeCA" model-entity="JSFProcessItemOutput"/>
    <PROCESS-ITEM-OUTPUT
     ID="add_Attribution::#pages#secure#CM#content_forms#content_forms_attribution.xhtml"
-    NAME="output104"
+    NAME="output105"
     PATH="/pages/secure/CM/content_forms/content_forms_attribution.xhtml"
     TARGET="rules:#pages#secure#CM#content_forms#content_forms_attribution.xhtml"
     TITLE="add_Attribution" model-entity="JSFProcessItemOutput"/>
    <PROCESS-ITEM-OUTPUT
     ID="add_Detachement::#pages#secure#CM#content_forms#content_forms_detachement.xhtml"
-    NAME="output105"
+    NAME="output106"
     PATH="/pages/secure/CM/content_forms/content_forms_detachement.xhtml"
     TARGET="rules:#pages#secure#CM#content_forms#content_forms_detachement.xhtml"
     TITLE="add_Detachement" model-entity="JSFProcessItemOutput"/>
    <PROCESS-ITEM-OUTPUT
     ID="add_Decharge::#pages#secure#CM#content_forms#content_forms_decharge.xhtml"
-    NAME="output106"
+    NAME="output107"
     PATH="/pages/secure/CM/content_forms/content_forms_decharge.xhtml"
     TARGET="rules:#pages#secure#CM#content_forms#content_forms_decharge.xhtml"
     TITLE="add_Decharge" model-entity="JSFProcessItemOutput"/>
    <PROCESS-ITEM-OUTPUT
     ID="filtre_type_mat::#pages#secure#CM#content#content_listeMatStatHisto_type_mat.xhtml"
-    NAME="output107"
+    NAME="output108"
     PATH="/pages/secure/CM/content/content_listeMatStatHisto_type_mat.xhtml"
     TARGET="rules:#pages#secure#CM#content#content_listeMatStatHisto_type_mat.xhtml"
     TITLE="filtre_type_mat" model-entity="JSFProcessItemOutput"/>
    <PROCESS-ITEM-OUTPUT
     ID="filtre_nom::#pages#secure#CM#content#content_listeMatStatHisto_nom.xhtml"
-    NAME="output108"
+    NAME="output109"
     PATH="/pages/secure/CM/content/content_listeMatStatHisto_nom.xhtml"
     TARGET="rules:#pages#secure#CM#content#content_listeMatStatHisto_nom.xhtml"
     TITLE="filtre_nom" model-entity="JSFProcessItemOutput"/>
    <PROCESS-ITEM-OUTPUT
     ID="filtre_porte::#pages#secure#CM#content#content_listeMatStatHisto_porte.xhtml"
-    NAME="output109"
+    NAME="output110"
     PATH="/pages/secure/CM/content/content_listeMatStatHisto_porte.xhtml"
     TARGET="rules:#pages#secure#CM#content#content_listeMatStatHisto_porte.xhtml"
     TITLE="filtre_porte" model-entity="JSFProcessItemOutput"/>
    <PROCESS-ITEM-OUTPUT
     ID="filtre_localite::#pages#secure#CM#content#content_listeMatStatHisto_localite.xhtml"
-    NAME="output110"
+    NAME="output111"
     PATH="/pages/secure/CM/content/content_listeMatStatHisto_localite.xhtml"
     TARGET="rules:#pages#secure#CM#content#content_listeMatStatHisto_localite.xhtml"
     TITLE="filtre_localite" model-entity="JSFProcessItemOutput"/>
