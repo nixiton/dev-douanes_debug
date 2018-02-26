@@ -14,8 +14,8 @@
 <div   class="body collapse in table-responsive">
 
 <h:form>
-    <p:dataTable   var="materiel" value="#{depositaireBean.listMaterielByDirection}"
-    				id="historiquemateriels"
+    <p:dataTable   var="materiel" value="#{depositaireBean.listAllMateriel}"
+    				id="historiquematerielsgeneral"
     			 widgetVar="MaterielTable" 
                  paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {Exporters}"
                  paginator="true" rows="20" style="margin-bottom:20px"
@@ -24,12 +24,12 @@
         <f:facet name="{Exporters}">
             <h:commandLink>
                 excel
-                <p:dataExporter type="xls" target="historiquemateriels" fileName="historiquemateriels" />
+                <p:dataExporter type="xls" target="historiquematerielsgeneral" fileName="historiquematerielsgeneral" />
             </h:commandLink>
  
             <h:commandLink>
             pdf
-                <p:dataExporter type="pdf" target="historiquemateriels" fileName=">historiquemateriels"/>
+                <p:dataExporter type="pdf" target="historiquematerielsgeneral" fileName=">historiquematerielsgeneral"/>
             </h:commandLink>
         </f:facet>
         
@@ -94,7 +94,13 @@
             </p:commandButton>
         </p:column>
         
-         <p:column headerText="Direction">
+         <p:column filterBy="#{materiel.direc}" headerText="Direction"  filterMatchMode="exact">
+            <f:facet name="filter">
+                <p:selectOneMenu onchange="PF('MaterielTable').filter()" >
+                    <f:selectItem itemLabel="Selectioner" itemValue="#{null}" noSelectionOption="true" />
+                    <f:selectItems value="#{siseBean.listDirection}" var="dir" itemLabel="#{dir.codeDirection}" />
+                </p:selectOneMenu>
+            </f:facet>
             <h:outputText value="#{materiel.direc.designation !=null ? materiel.direc.designation :'Non disponible'}" />
         </p:column>
         <p:column filterBy="#{materiel.validation}" headerText="Status" filterMatchMode="equals">

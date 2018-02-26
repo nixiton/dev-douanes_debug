@@ -9,25 +9,28 @@
 <h:head></h:head>
 <p:growl id="growl" for="myerror" showDetail="true" sticky="true" redisplay="false"/>
 
-<p:dialog  header = "Validation prise en charge" id="detail" widgetVar="detail" closable="false">
+<p:dialog id="detail" widgetVar="detail" closable="false">
+
     <h:form class="form-horizontal">
         <h:commandButton action="#{gacBean.exit()}" value="X" style="valign:bottom;float:right;padding-right:20px">
 
         </h:commandButton>
-        <p:hotkey bind="esc" actionListener="#{gacBean.exit()}" handler="#{gacBean.exit()}"></p:hotkey>
     </h:form>
 
 
 
     <div   class="body collapse in table-responsive">
-		
-		
-		<p:tabView>
+
+
+
+
+
+        <p:tabView>
 
 
             <c:forEach var="mat" items="#{gacBean.opEntreeToValidate.listMat}">
 
-                <p:tab title="#{mat.reference}">
+                <p:tab title="#{mat.design.typematerieladd.designation}">
 
                     <table class="table responsive-table">
                         <tr>
@@ -143,8 +146,7 @@
             </c:forEach>
 
         </p:tabView>
-    
-            <table class="table responsive-table">
+        <table class="table responsive-table">
             <p:panel rendered="#{gacBean.opEntreeToValidate.state eq 'WAITING' }">
 
                 <tr>
@@ -197,8 +199,10 @@
 
             </p:panel>
         </table>
-
     </div>
+
+
+
 
 
 </p:dialog>

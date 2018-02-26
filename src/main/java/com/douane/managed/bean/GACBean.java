@@ -1034,8 +1034,9 @@ public class GACBean {
 		return opEntreeToValidate;
 	}
 
-	public void setOpEntreeToValidate(OpEntree opEntreeToValidate) {
-		this.opEntreeToValidate = opEntreeToValidate;
+	public void setOpEntreeToValidate(OpEntree opEntreeil) {
+		System.out.println("sfsd");
+		this.opEntreeToValidate = opEntreeil;
 	}
 
 	public OpSortie getOpSortieToValidate() {

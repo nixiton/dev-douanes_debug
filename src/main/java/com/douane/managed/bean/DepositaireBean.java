@@ -2719,5 +2719,16 @@ public class DepositaireBean {
 	public void setListMotifDettachement(List<MotifDecharge> listMotifDettachement) {
 		this.listMotifDettachement = listMotifDettachement;
 	}
+	
+	public List<Materiel> getListMaterielByDirection() {
+		Agent agent = (Agent) RequestFilter.getSession().getAttribute("agent");
+		return usermetierimpl.getListMatByDirection(agent.getDirection());
+	}
+
+	public void setListMaterielByDirection(List<Materiel> listMaterielByDirection) {
+		this.listMaterielByDirection = listMaterielByDirection;
+	}
+
+	private List<Materiel> listMaterielByDirection;
 
 }
