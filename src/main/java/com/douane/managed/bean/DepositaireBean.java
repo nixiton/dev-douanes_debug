@@ -254,8 +254,8 @@ public class DepositaireBean {
 		this.setRefFacture(null);
 		this.setFournisseur(null);
 
-		documentList = initialize();
-		imageList = initializeImageFile();
+		//documentList = initialize();
+		//imageList = initializeImageFile();
 		documentFacList = initializeFacFile();
 	}
 
@@ -283,8 +283,8 @@ public class DepositaireBean {
 		this.setMontantFac(null);
 		this.setRefFacture(null);
 		this.setFournisseur(null);
-		documentList = initialize();
-		imageList = initializeImageFile();
+		//documentList = initialize();
+		//imageList = initializeImageFile();
 	}
 	
 	public void setAllNull() {
@@ -886,7 +886,6 @@ public class DepositaireBean {
 	}
 
 	public String uploadFac_Advanced(FileUploadEvent e) throws IOException {
-
 		DocumentModel docObj = (DocumentModel) e.getComponent().getAttributes().get("docObj");
 
 		if (e.getFile().getContents() != null)
@@ -2439,6 +2438,7 @@ public class DepositaireBean {
 			RequestFilter.getSession().setAttribute("documentList", null);
 			RequestFilter.getSession().setAttribute("imageList", null);
 			listMaterielForOpEntree = null;
+			materielspardesignation = null;
 			this.documentList = initialize();
 			this.imageList = initializeImageFile();
 			this.documentFacList = initializeFacFile();
@@ -2546,6 +2546,9 @@ public class DepositaireBean {
 			
 			
 			clear();
+			documentList = initialize();
+			imageList = initializeImageFile();
+			materielspardesignation = null;
 			setAllNull();
 			mappingdeslistmat = new HashMap<Designation, List<MaterielNouv>>();//reset the hasmap
 
