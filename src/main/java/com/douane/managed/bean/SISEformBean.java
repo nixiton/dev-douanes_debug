@@ -3,19 +3,16 @@ package com.douane.managed.bean;
 import com.douane.entite.*;
 import com.douane.exception.GetFieldName;
 import com.douane.exception.NullPointerAttributeException;
-import com.douane.metier.bureau.IBureauMetier;
 import com.douane.metier.referentiel.IRefMetier;
 import com.douane.metier.user.IUserMetier;
 import com.douane.metier.utilisateur.IUtilisateurMetier;
 import com.douane.requesthttp.RequestFilter;
-import org.aspectj.apache.bcel.classfile.Code;
-import org.omg.PortableInterceptor.SUCCESSFUL;
+
+import org.primefaces.event.RowEditEvent;
 import org.springframework.dao.DataAccessException;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
-
-import static org.hamcrest.CoreMatchers.instanceOf;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -44,9 +41,6 @@ public class SISEformBean {
     @ManagedProperty(value="#{usermetier}")
     IUserMetier usermetierimpl;
     
-    @ManagedProperty(value="#{bureaumetier}")
-    IBureauMetier bureaumetierimpl;
-    
     @ManagedProperty(value="#{refmetier}")
     IRefMetier refmetierimpl;
     
@@ -56,7 +50,23 @@ public class SISEformBean {
     private String designation = null;
     private String nomenclature = null;
     private Nomenclature nomen;
-    private TypeMateriel tymat;
+    public Nomenclature getNomen() {
+		return nomen;
+	}
+	public void setNomen(Nomenclature nomen) {
+		this.nomen = nomen;
+	}
+	public Marque getMarque() {
+		return marque;
+	}
+	public void setMarque(Marque marque) {
+		this.marque = marque;
+	}
+
+
+
+
+	private TypeMateriel tymat;
     private EtatMateriel etmat;
     private Marque marque;
 
@@ -601,12 +611,7 @@ public class SISEformBean {
     public void setCodeBureau(String codeBureau) {
         this.codeBureau = codeBureau;
     }
-    public List<Bureau> getListBureau() {
-        return bureaumetierimpl.findAllBureaus();
-    }
-    public void setListBureau(List<Bureau> listBureau) {
-        this.listBureau = listBureau;
-    }
+    
     public List<Nomenclature> getListNomenclature() {
         ArrayList<Referentiel> r = (ArrayList<Referentiel>)refmetierimpl.listRef(new Nomenclature());
         List<Nomenclature> ds = new ArrayList<Nomenclature>();
@@ -674,12 +679,7 @@ public class SISEformBean {
     public void setCodeDirection(String codeDirection) {
         this.codeDirection = codeDirection;
     }
-    public IBureauMetier getBureaumetierimpl() {
-        return bureaumetierimpl;
-    }
-    public void setBureaumetierimpl(IBureauMetier bureaumetierimpl) {
-        this.bureaumetierimpl = bureaumetierimpl;
-    }
+    
     public IUtilisateurMetier getUtilisateurmetierimpl() {
         return utilisateurmetierimpl;
     }
@@ -1123,6 +1123,34 @@ public class SISEformBean {
 	public void setListArtNouvValide(List<ArticleNouv> listArtNouvValide) {
 		this.listArtNouvValide = listArtNouvValide;
 	}
+	
+	public String updateNomenclature() {
+		try {
+            Agent agent = (Agent)RequestFilter.getSession().getAttribute("agent");
+            //check if there is nomenclature duplicate
+            System.out.println("NOMENCLATURE UPDATE"+ nomen.getDesignation());
+            System.out.println("AGENT UPDATE"+ agent.getNomAgent());
+
+            refmetierimpl.addRef(nomen,agent);
+            return SUCCESS;
+        }
+        catch (DataIntegrityViolationException ex) {
+            FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_FATAL, "Nomenclature unique ", getNomenclature()+ " existe déjà");
+            FacesContext.getCurrentInstance().addMessage(null, message);
+            return ERROR;
+            //throw new DataIntegrityViolationException(getNomenclature()+ "  already exists");
+        }
+	}
+	
+	public void onRowEdit(RowEditEvent event) {
+        FacesMessage msg = new FacesMessage("Referentiel modifié", ((Referentiel) event.getObject()).getId().toString());
+        FacesContext.getCurrentInstance().addMessage("myerrorReferentiel", msg);
+    }
+     
+    /*public void onRowCancel(RowEditEvent event) {
+        FacesMessage msg = new FacesMessage("Edit Cancelled", ((Referentiel) event.getObject()).getId().toString());
+        FacesContext.getCurrentInstance().addMessage(null, msg);
+    }*/
 
 
 

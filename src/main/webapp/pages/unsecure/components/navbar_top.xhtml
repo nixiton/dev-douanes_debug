@@ -145,12 +145,18 @@
 							<li><h:link value="Traçabilité" outcome="tracabilite" immediate="true" /></li>
 							<li><h:link
 									value="Liste des matériels, statut et historique" outcome="liste_mat" immediate="true"/></li>
+							<c:if test="#{topMenuMB.curentAgent.roleAgent.role eq 'ROLE_ADMIN'}">
+						<li><h:link
+									value="Liste générale des matériels"
+									outcome="liste_mats" immediate="true"/></li>
+						</c:if>
 							<li><h:link
 									value="Edition des états et registres
 								réglementaires"
 									outcome="edition_etats" immediate="true"/></li>
 
 						</ul></li>
+						
 
 					</c:if>
 

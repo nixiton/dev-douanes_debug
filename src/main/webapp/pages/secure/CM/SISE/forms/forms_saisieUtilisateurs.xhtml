@@ -26,8 +26,6 @@
 
 						<!-- p:ajax event="blur" update="nameMsg" /-->
 					</p:inputText>
-					<p:message id="nameMsg" for="name" display="icon" />
-
 					<hr></hr>
 
 
@@ -73,13 +71,9 @@
 					<h:outputLabel styleClass="col-md-6" for="username"
 						value="Login : " />
 					<p:inputText id="username" styleClass="col-md-6"
-						value="#{userMB.username}" required="true">
-
-					<hr></hr>
-
-						<p:ajax event="blur" update="usernameMsg" />
+						value="#{userMB.username}">
 					</p:inputText>
-					<p:message id="usernameMsg" for="username" display="icon" />
+					<hr></hr>
 
 					<hr></hr>
 

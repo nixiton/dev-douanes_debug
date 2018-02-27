@@ -235,6 +235,12 @@
 			<to-view-id>/pages/secure/CM/DGD/listeMatStatHisto.xhtml</to-view-id>
 			<redirect />
 		</navigation-case>
+		
+		<navigation-case>
+			<from-outcome>liste_mats</from-outcome>
+			<to-view-id>/pages/secure/CM/DGD/listeMatStatGeneral.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
 
 
 		<navigation-case>
@@ -757,13 +763,15 @@
 			<from-action>#{siseBean.addRole}</from-action>
 			<from-outcome>success</from-outcome>
 			<to-view-id>/pages/secure/CM/SISE/saisieRef.xhtml#role</to-view-id>
-			<redirect />
+			
+			<!--  redirect /-->
 		</navigation-case>
 
 		<navigation-case>
 			<from-action>#{siseBean.addRoleCA}</from-action>
 			<from-outcome>success</from-outcome>
 			<to-view-id>/pages/secure/CA/SISE/saisieRef.xhtml#role</to-view-id>
+			
 			<redirect />
 		</navigation-case>
 
@@ -785,7 +793,7 @@
 
 
 		<navigation-case>
-			<from-action>#{depositaireBean.addMateriel}</from-action>
+			<from-action>#{depositaireBean.addMaterielExistant}</from-action>
 			<from-outcome>success</from-outcome>
 			<to-view-id>/pages/secure/CM/DC/saisieMatEx.xhtml</to-view-id>
 			<redirect />
@@ -814,7 +822,7 @@
 
 
 		<navigation-case>
-			<from-action>#{depositaireBean.addPriseEncharge}</from-action>
+			<from-action>#{depositaireBean.addPriseEnchargeNouveMat}</from-action>
 			<from-outcome>success</from-outcome>
 			<to-view-id>/pages/secure/CM/DC/priseEnCharge.xhtml</to-view-id>
 			<redirect />
