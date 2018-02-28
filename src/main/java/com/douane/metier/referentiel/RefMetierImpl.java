@@ -49,6 +49,15 @@ public class RefMetierImpl implements IRefMetier{
 		oprepos.save(saisiref);
 		return refx;
 	}
+	@Override
+	public Referentiel updateRef(Referentiel r, Agent oper) {
+		// TODO Auto-generated method stub
+		Referentiel refx = refrepos.save(r);
+		OpSaisie saisiref = new OpSaisie(new Date(), new Date(), oper.getIp(), oper, r.getLeref(),refx.getId());
+		saisiref.valider();
+		oprepos.save(saisiref);
+		return refx;
+	}
 	public Referentiel addRefWithoutOper(Referentiel r) {
 		// TODO Auto-generated method stub
 		Referentiel refx = refrepos.save(r);

@@ -26,9 +26,11 @@
                  paginator="true" rows="10" style="margin-bottom:20px"
                  editable="true"
                  id="tableNomenclature"
+                 widgetVar="NomTable"
                  >
-        <p:ajax event="rowEdit" listener="#{siseBean.onRowEdit}" update=":formNomenclture:msgtableNomenclature" />
+        <p:ajax event="rowEdit" listener="#{siseBean.onRowEdit}" update=":formNomenclture:msgtableNomenclature" oncomplete="PF('NomTable').filter()"/>
        <!-- p:ajax event="rowEditCancel" listener="#{siseBean.onRowCancel}" update=":formNomenclture:msgtableNomenclature" /-->
+		<!-- p:ajax event="cellEdit" listener="#{siseBean.onCellEdit}" update=":formNomenclture:msgtableNomenclature" /-->
 		<p:column>
 			<f:facet name="header">ID</f:facet>
 			#{nomenclature.id}

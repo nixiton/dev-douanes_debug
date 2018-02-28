@@ -19,4 +19,5 @@ public interface IRefMetier {
 	public List<FournisseurDetail> listFournisseur();
 	
 	public Referentiel findById(Long id);
+	Referentiel updateRef(Referentiel r, Agent oper);
 }

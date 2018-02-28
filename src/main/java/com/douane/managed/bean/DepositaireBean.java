@@ -2437,7 +2437,7 @@ public class DepositaireBean {
 			RequestFilter.getSession().setAttribute("documentList", null);
 			RequestFilter.getSession().setAttribute("imageList", null);
 			listMaterielForOpEntree = null;
-			materielspardesignation = null;
+			materielspardesignation = new ArrayList<Materiel>();
 			this.documentList = initialize();
 			this.imageList = initializeImageFile();
 			this.documentFacList = initializeFacFile();
