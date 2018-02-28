@@ -1495,8 +1495,7 @@ public class DepositaireBean {
 			}
 
 			List<String> facPathList = new ArrayList<String>();
-			facPathList.add(getFacturePath());
-			zipFiles(facPathList);
+
 
 			OpEntree opEntree = usermetierimpl.reqEntrerMateriel(listMaterielForOpEntree, agent,
 					(String) RequestFilter.getSession().getAttribute("documentpath"), getRefFacture());
@@ -2536,8 +2535,7 @@ public class DepositaireBean {
 			//ADD OPERATION ENTREE BASED ON HASHMAP
 			
 			List<String> facPathList = new ArrayList<String>();
-			facPathList.add(getFacturePath());
-			zipFiles(facPathList);
+
 
 			OpEntree opEntree = usermetierimpl.reqEntrerMaterielNouv(mappingdeslistmat, agent,
 					(String) RequestFilter.getSession().getAttribute("documentpath"), getRefFacture());
@@ -2686,8 +2684,8 @@ public class DepositaireBean {
 		des = new Designation();//reset designation
 		listematerielParDesign = new ArrayList<MaterielNouv>(); //reset 
 		materielspardesignation = new ArrayList<Materiel>();//reset
-		this.documentList = initialize();
-		this.imageList = initializeImageFile();
+		//this.documentList = initialize();
+		//this.imageList = initializeImageFile();
 		setAllNull();
 		return null;
 	}
