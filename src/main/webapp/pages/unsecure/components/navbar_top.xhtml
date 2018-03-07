@@ -40,15 +40,21 @@
 				</h:link-->
 			</div>
 			<div class="btn-group">
-
-				<h:form>
-
-					<h:commandLink action="#{loginMgmtBean.logout}"
-						data-toggle="tooltip" data-original-title="Logout"
-						data-placement="bottom" class="btn btn-metis-1 btn-sm">
-						<i class="fa fa-power-off"></i>
-					</h:commandLink>
+				
+					<h:form>
+						<span >
+						<h:commandLink action="#{loginMgmtBean.logout}"
+							data-toggle="tooltip" data-original-title="Logout"
+							data-placement="bottom" class="btn btn-metis-1">
+							<i class="fa fa-power-off"></i>
+						</h:commandLink>
+						</span>
+						<span  style="background-color:#f8f7a3">
+						<p:commandButton 
+		            		oncomplete="PF('detail3').show()" icon="ui-icon-person" style="width:38px;height:28px"/>
+		           		</span>
 				</h:form>
+				
 			</div>
 			<!--div class="btn-group">
 
@@ -59,13 +65,13 @@
 				</h:link>
 
 			</div-->
-
+			<!--  
 			<div class="btn-group" style="background-color: #f8f7a3">
 
 				<p:commandButton 
             		oncomplete="PF('detail3').show()" icon="ui-icon-person"/>
 
-			</div>
+			</div> -->
 
 		</div>
 
