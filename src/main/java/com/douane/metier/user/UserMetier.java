@@ -218,7 +218,7 @@ public class UserMetier implements IUserMetier {
 	public void remAgent(Agent a) {
 		// TODO Auto-generated method stub
 		System.out.println("remove agent " + a.getIm());
-		agentrepos.delete(a.getIm());
+		agentrepos.delete(a.getIdAgent());
 
 	}
 

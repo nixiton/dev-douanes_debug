@@ -8,7 +8,7 @@
 	>
 
 <div   class="body collapse in table-responsive">
-
+<h:form id="formFourni" onkeypress="if (event.keyCode == 13) {return false; }">
 	<div class="col-lg-4">
 
 		<h:link value="Ajouter" outcome="add_Fournisseur"
@@ -17,23 +17,43 @@
 		<hr></hr>
 
 	</div>
+<p:growl for="myerrorReferentiel" id="msgtableFourni" showDetail="true" sticky="true" redisplay="false"/>
 
 	<p:dataTable   var="f" value="#{siseBean.listFournisseur}" 
                  paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}  "
                  paginatorPosition="bottom"
-                 paginator="true" rows="10" style="margin-bottom:20px">
+                 paginator="true" rows="10" style="margin-bottom:20px"
+                 editable="true"
+                 id="tableFourniMat"
+                 widgetVar="FourniTable" 
+                 >
+                 
+        <p:ajax event="rowEdit" listener="#{siseBean.onRowEdit}" update=":formFourni:msgtableFourni" oncomplete="PF('FourniTable').filter()"/>
+		
 		<p:column>
 			<f:facet name="header">ID</f:facet>
 			#{f.id}
 		</p:column>
 		<p:column>
 			<f:facet name="header">Désignation</f:facet>
-			#{f.designation}
+			<p:cellEditor>
+               <f:facet name="output"><h:outputText value="#{f.designation}" /></f:facet>
+               <f:facet name="input"><p:inputText value="#{f.designation}"/></f:facet>
+           </p:cellEditor>
+			
 		</p:column>
+		<p:column>
+           <p:rowEditor />
+       </p:column>
+       <p:column> 
+       	<p:commandButton  action="#{siseBean.deleteRow(f)}"
+       		icon="ui-icon-close" update=":formFourni:msgtableFourni"
+       		oncomplete="PF('FourniTable').filter()"/> 
+       </p:column>
 	</p:dataTable>
 
 
-
+</h:form>
 </div>
 
 </html>

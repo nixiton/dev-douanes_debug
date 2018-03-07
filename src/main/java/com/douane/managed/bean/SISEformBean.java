@@ -115,16 +115,19 @@ public class SISEformBean {
 	private List<TypeObjet> listTypeObjet;
 
 	public List<Direction> getListDirection() {
-		ArrayList<Referentiel> r = (ArrayList<Referentiel>) refmetierimpl.listRef(new Direction());
-		List<Direction> ds = new ArrayList<Direction>();
-		for (Object d : r) {
-			if (d instanceof Direction) {
-				ds.add((Direction) d);
-			} else {
-				System.out.println("NOT INSTANCE");
+		if (listDirection == null) {
+			ArrayList<Referentiel> r = (ArrayList<Referentiel>) refmetierimpl.listRef(new Direction());
+			List<Direction> ds = new ArrayList<Direction>();
+			for (Object d : r) {
+				if (d instanceof Direction) {
+					ds.add((Direction) d);
+				} else {
+					System.out.println("NOT INSTANCE");
+				}
 			}
+			listDirection = ds;
 		}
-		return ds;
+		return listDirection;
 	}
 
 	public void setListDirection(List<Direction> listDirection) {
@@ -132,14 +135,17 @@ public class SISEformBean {
 	}
 
 	public List<EtatMateriel> getListEtatMateriel() {
-		ArrayList<Referentiel> r = (ArrayList<Referentiel>) refmetierimpl.listRef(new EtatMateriel());
-		List<EtatMateriel> ds = new ArrayList<EtatMateriel>();
-		for (Object d : r) {
-			if (d instanceof EtatMateriel) {
-				ds.add((EtatMateriel) d);
+		if (listEtatMateriel == null) {
+			ArrayList<Referentiel> r = (ArrayList<Referentiel>) refmetierimpl.listRef(new EtatMateriel());
+			List<EtatMateriel> ds = new ArrayList<EtatMateriel>();
+			for (Object d : r) {
+				if (d instanceof EtatMateriel) {
+					ds.add((EtatMateriel) d);
+				}
 			}
+			listEtatMateriel= ds;
 		}
-		return ds;
+		return listEtatMateriel;
 	}
 
 	public void setListEtatMateriel(List<EtatMateriel> listEtatMateriel) {
@@ -147,14 +153,17 @@ public class SISEformBean {
 	}
 
 	public List<Financement> getListFinancement() {
-		ArrayList<Referentiel> r = (ArrayList<Referentiel>) refmetierimpl.listRef(new Financement());
-		List<Financement> ds = new ArrayList<Financement>();
-		for (Object d : r) {
-			if (d instanceof Financement) {
-				ds.add((Financement) d);
+		if (listFinancement == null) {
+			ArrayList<Referentiel> r = (ArrayList<Referentiel>) refmetierimpl.listRef(new Financement());
+			List<Financement> ds = new ArrayList<Financement>();
+			for (Object d : r) {
+				if (d instanceof Financement) {
+					ds.add((Financement) d);
+				}
 			}
+			listFinancement = ds;
 		}
-		return ds;
+		return listFinancement;
 	}
 
 	public void setListFinancement(List<Financement> listFinancement) {
@@ -162,14 +171,17 @@ public class SISEformBean {
 	}
 
 	public List<Fournisseur> getListFournisseur() {
-		ArrayList<Referentiel> r = (ArrayList<Referentiel>) refmetierimpl.listRef(new Fournisseur());
-		List<Fournisseur> ds = new ArrayList<Fournisseur>();
-		for (Object d : r) {
-			if (d instanceof Fournisseur) {
-				ds.add((Fournisseur) d);
+		if (listFournisseur == null) {
+			ArrayList<Referentiel> r = (ArrayList<Referentiel>) refmetierimpl.listRef(new Fournisseur());
+			List<Fournisseur> ds = new ArrayList<Fournisseur>();
+			for (Object d : r) {
+				if (d instanceof Fournisseur) {
+					ds.add((Fournisseur) d);
+				}
 			}
+			listFournisseur = ds;
 		}
-		return ds;
+		return listFournisseur;
 	}
 
 	public void setListFournisseur(List<Fournisseur> listFournisseur) {
@@ -177,14 +189,17 @@ public class SISEformBean {
 	}
 
 	public List<Marque> getListMarque() {
-		ArrayList<Referentiel> r = (ArrayList<Referentiel>) refmetierimpl.listRef(new Marque());
-		List<Marque> ds = new ArrayList<Marque>();
-		for (Object d : r) {
-			if (d instanceof Marque) {
-				ds.add((Marque) d);
+		if (listMarque == null) {
+			ArrayList<Referentiel> r = (ArrayList<Referentiel>) refmetierimpl.listRef(new Marque());
+			List<Marque> ds = new ArrayList<Marque>();
+			for (Object d : r) {
+				if (d instanceof Marque) {
+					ds.add((Marque) d);
+				}
 			}
+			listMarque= ds;
 		}
-		return ds;
+		return listMarque;
 	}
 
 	public void setListMarque(List<Marque> listMarque) {
@@ -192,14 +207,17 @@ public class SISEformBean {
 	}
 
 	public List<ModeAcquisition> getListModeAcquisition() {
-		ArrayList<Referentiel> r = (ArrayList<Referentiel>) refmetierimpl.listRef(new ModeAcquisition());
-		List<ModeAcquisition> ds = new ArrayList<ModeAcquisition>();
-		for (Object d : r) {
-			if (d instanceof ModeAcquisition) {
-				ds.add((ModeAcquisition) d);
+		if (listModeAcquisition == null) {
+			ArrayList<Referentiel> r = (ArrayList<Referentiel>) refmetierimpl.listRef(new ModeAcquisition());
+			List<ModeAcquisition> ds = new ArrayList<ModeAcquisition>();
+			for (Object d : r) {
+				if (d instanceof ModeAcquisition) {
+					ds.add((ModeAcquisition) d);
+				}
 			}
+			listModeAcquisition = ds;
 		}
-		return ds;
+		return listModeAcquisition;
 	}
 
 	public void setListModeAcquisition(List<ModeAcquisition> listModeAcquisition) {
@@ -207,14 +225,17 @@ public class SISEformBean {
 	}
 
 	public List<MotifDecharge> getListMotifDecharge() {
-		ArrayList<Referentiel> r = (ArrayList<Referentiel>) refmetierimpl.listRef(new MotifDecharge());
-		List<MotifDecharge> ds = new ArrayList<MotifDecharge>();
-		for (Object d : r) {
-			if (d instanceof MotifDecharge) {
-				ds.add((MotifDecharge) d);
+		if (listMotifDecharge == null) {
+			ArrayList<Referentiel> r = (ArrayList<Referentiel>) refmetierimpl.listRef(new MotifDecharge());
+			List<MotifDecharge> ds = new ArrayList<MotifDecharge>();
+			for (Object d : r) {
+				if (d instanceof MotifDecharge) {
+					ds.add((MotifDecharge) d);
+				}
 			}
+			listMotifDecharge = ds;
 		}
-		return ds;
+		return listMotifDecharge;
 	}
 
 	public void setListMotifDecharge(List<MotifDecharge> listMotifDecharge) {
@@ -270,6 +291,7 @@ public class SISEformBean {
 	}
 
 	public List<MotifSortie> getListMotifSortie() {
+		if(listMotifSortie ==null) {
 		ArrayList<Referentiel> r = (ArrayList<Referentiel>) refmetierimpl.listRef(new MotifSortie());
 		List<MotifSortie> ds = new ArrayList<MotifSortie>();
 		for (Object d : r) {
@@ -277,7 +299,9 @@ public class SISEformBean {
 				ds.add((MotifSortie) d);
 			}
 		}
-		return ds;
+		listMotifSortie= ds;
+		}
+		return listMotifSortie;
 	}
 
 	public void setListMotifSortie(List<MotifSortie> listMotifSortie) {
@@ -285,14 +309,17 @@ public class SISEformBean {
 	}
 
 	public List<Poste> getListPoste() {
-		ArrayList<Referentiel> r = (ArrayList<Referentiel>) refmetierimpl.listRef(new Poste());
-		List<Poste> ds = new ArrayList<Poste>();
-		for (Object d : r) {
-			if (d instanceof Poste) {
-				ds.add((Poste) d);
+		if (listPoste == null) {
+			ArrayList<Referentiel> r = (ArrayList<Referentiel>) refmetierimpl.listRef(new Poste());
+			List<Poste> ds = new ArrayList<Poste>();
+			for (Object d : r) {
+				if (d instanceof Poste) {
+					ds.add((Poste) d);
+				}
 			}
+			listPoste = ds;
 		}
-		return ds;
+		return listPoste;
 	}
 
 	public void setListPoste(List<Poste> listPoste) {
@@ -1109,12 +1136,12 @@ public class SISEformBean {
 	public void onRowEdit(RowEditEvent event) {
 		Referentiel r = (Referentiel) event.getObject();
 		try {
-		Agent agent = (Agent) RequestFilter.getSession().getAttribute("agent");
-		refmetierimpl.addRef(r, agent);
-		FacesMessage msg = new FacesMessage("Referentiel modifié", ((Referentiel) event.getObject()).getId().toString()
-				+ " modifié en " + ((Referentiel) event.getObject()).getDesignation());
-		FacesContext.getCurrentInstance().addMessage("myerrorReferentiel", msg);
-		// listNomenclature=null;
+			Agent agent = (Agent) RequestFilter.getSession().getAttribute("agent");
+			refmetierimpl.addRef(r, agent);
+			FacesMessage msg = new FacesMessage("Referentiel modifié",
+					((Referentiel) event.getObject()).getId().toString() + " modifié ");
+			FacesContext.getCurrentInstance().addMessage("myerrorReferentiel", msg);
+			// listNomenclature=null;
 		} catch (Exception ex) {
 			FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_FATAL, "Referentiel non modifié ",
 					r.getDesignation() + " ne peut pas être modifié car ne respecte pas les contraintes ");
@@ -1127,7 +1154,7 @@ public class SISEformBean {
 		try {
 
 			refmetierimpl.removeRef(r);
-			FacesMessage msg = new FacesMessage("Referentiel supprimé", r.getId().toString());
+			FacesMessage msg = new FacesMessage("Referentiel supprimé ", r.getDesignation() + " supprimé");
 			FacesContext.getCurrentInstance().addMessage("myerrorReferentiel", msg);
 		} catch (Exception ex) {
 			FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_FATAL, "Referentiel non supprimé ",
@@ -1135,6 +1162,21 @@ public class SISEformBean {
 			FacesContext.getCurrentInstance().addMessage("myerrorReferentiel", message);
 		}
 
+	}
+	
+	public void deleteUser(Agent a) {
+		try {
+			usermetierimpl.remAgent(a);
+			FacesMessage msg = new FacesMessage("Agent supprimé ", a.getIm() + " supprimé");
+			FacesContext.getCurrentInstance().addMessage("myerrorReferentiel", msg);
+			
+		}catch(Exception e) {
+			FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_FATAL, "Agent non supprimé ",
+					//e.getMessage());
+					a.getIm() + " ne peut pas être supprimé car encore reférencé ");
+			FacesContext.getCurrentInstance().addMessage("myerrorReferentiel", message);
+		}
+		
 	}
 
 	/*

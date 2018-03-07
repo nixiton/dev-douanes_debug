@@ -8,7 +8,7 @@
     >
 
 <div   class="body collapse in table-responsive">
-
+<h:form id="formPoste" onkeypress="if (event.keyCode == 13) {return false; }">
     <div class="col-lg-4">
 
         <h:link value="Ajouter" outcome="add_Poste"
@@ -17,21 +17,40 @@
         <hr></hr>
 
     </div>
+<p:growl for="myerrorReferentiel" id="msgtablePoste" showDetail="true" sticky="true" redisplay="false"/>
 
     <p:dataTable   var="b" value="#{siseBean.listPoste}" 
                  paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}  "
                  paginatorPosition="bottom"
-                 paginator="true" rows="10" style="margin-bottom:20px">
+                 paginator="true" rows="10" style="margin-bottom:20px"
+                 editable="true"
+                 id="tablePosteMat"
+                 widgetVar="PosteTable"
+                 >
+        <p:ajax event="rowEdit" listener="#{siseBean.onRowEdit}" update=":formPoste:msgtablePoste" oncomplete="PF('PosteTable').filter()"/>
+		
         <p:column>
             <f:facet name="header">ID</f:facet>
             #{b.id}
         </p:column>
         <p:column>
             <f:facet name="header">Désignation</f:facet>
-            #{b.designation}
+            <p:cellEditor>
+               <f:facet name="output"><h:outputText value="#{b.designation}" /></f:facet>
+               <f:facet name="input"><p:inputText value="#{b.designation}"/></f:facet>
+           </p:cellEditor>
+            
         </p:column>
+        <p:column>
+           <p:rowEditor />
+       </p:column>
+       <p:column> 
+       	<p:commandButton  action="#{siseBean.deleteRow(b)}"
+       		icon="ui-icon-close" update=":formPoste:msgtablePoste"
+       		oncomplete="PF('PosteTable').filter()"/> 
+       </p:column>
     </p:dataTable>
-
+</h:form>
 
 
 </div>

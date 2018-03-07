@@ -8,7 +8,7 @@
 	>
 
 <div   class="body collapse in table-responsive">
-
+<h:form id="formEtat" onkeypress="if (event.keyCode == 13) {return false; }">
 	<div class="col-lg-4">
 
 		<h:link value="Ajouter" outcome="add_EtatMat"
@@ -17,21 +17,39 @@
 		<hr></hr>
 
 	</div>
+<p:growl for="myerrorReferentiel" id="msgtableEtat" showDetail="true" sticky="true" redisplay="false"/>
 
 	<p:dataTable   var="etat" value="#{siseBean.listEtatMateriel}" 
                  paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}  "
                  paginatorPosition="bottom"
-                 paginator="true" rows="10" style="margin-bottom:20px">
+                 paginator="true" rows="10" style="margin-bottom:20px"
+                 editable="true"
+                 id="tableEtatMat"
+                 widgetVar="EtatTable"
+                 >
+        <p:ajax event="rowEdit" listener="#{siseBean.onRowEdit}" update=":formEtat:msgtableEtat" oncomplete="PF('EtatTable').filter()"/>
+		
 		<p:column>
 			<f:facet name="header">ID</f:facet>
 			#{etat.id}
 		</p:column>
 		<p:column>
 			<f:facet name="header">Désignation</f:facet>
-			#{etat.designation}
+			<p:cellEditor>
+               <f:facet name="output"><h:outputText value="#{etat.designation}" /></f:facet>
+               <f:facet name="input"><p:inputText value="#{etat.designation}"/></f:facet>
+           </p:cellEditor>
 		</p:column>
-	</p:dataTable>
-
+		<p:column>
+           <p:rowEditor />
+       </p:column>
+       <p:column> 
+       	<p:commandButton  action="#{siseBean.deleteRow(etat)}"
+       		icon="ui-icon-close" update=":formEtat:msgtableEtat"
+       		oncomplete="PF('EtatTable').filter()"/> 
+       </p:column>
+   </p:dataTable>
+</h:form>
 
 
 </div>

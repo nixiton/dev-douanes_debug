@@ -7,7 +7,7 @@
 	xmlns:p="http://primefaces.org/ui"
 	>
 
-<div   class="body collapse in table-responsive">
+<div class="body collapse in table-responsive">
 
 	<div class="col-lg-4">
 
@@ -50,9 +50,18 @@
 			<f:facet name="header">Poste</f:facet>
 			#{f.posteny.designation}
 		</p:column>
+		<p:column>
+          <p:commandButton   update=":detail"
+            oncomplete="PF('detail').show()" icon="ui-icon-zoomin"/>
+       </p:column>
+       <p:column> 
+       <p:commandButton  action="#{siseBean.deleteUser(f)}"
+       icon="ui-icon-close" update=":formType:msgtableType"
+       oncomplete="PF('typeTable').filter()"/> 
+       </p:column>
 	</p:dataTable>
 
 
 </div>
-
+<ui:include src="/pages/secure/CM/SISE/tables/dialogs/dialogs_useredit.xhtml"></ui:include>
 </html>
