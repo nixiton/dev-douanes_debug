@@ -51,7 +51,7 @@
 			#{f.posteny.designation}
 		</p:column>
 		<p:column>
-          <p:commandButton   update=":detail"
+          <p:commandButton   action="#{userMB.setCurrentAgenttomodify(f)}" update=":detail"
             oncomplete="PF('detail').show()" icon="ui-icon-zoomin"/>
        </p:column>
        <p:column> 

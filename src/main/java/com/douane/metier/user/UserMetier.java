@@ -191,6 +191,7 @@ public class UserMetier implements IUserMetier {
 	@Override
 	public Agent addAgent(Agent a) {
 		// TODO Auto-generated method stub
+		System.out.println("udate2");
 		agentrepos.save(a);
 		return a;
 	}

@@ -3,6 +3,7 @@ package com.douane.managed.bean;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
@@ -96,6 +97,24 @@ public class UserManagedBean implements Serializable {
 	 * 
 	 * @return String - Response Message
 	 */
+	public void updateAgent(Agent a) {
+		if(a==null) {
+			FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Erreur agent null", "Agent null");
+			FacesContext.getCurrentInstance().addMessage("editagenterror", message);
+			
+		}
+		try {
+		usermetierimpl.addAgent(a);
+		}catch(Exception e) {
+			FacesMessage messagea = new FacesMessage(FacesMessage.SEVERITY_WARN, "Erreur Modification Agent", "Ne respecte pas les contraintes");
+			FacesContext.getCurrentInstance().addMessage("editagenterror", messagea);
+		}
+		finally {
+			Map<String,Object> sessionMapObj = FacesContext.getCurrentInstance().getExternalContext().getSessionMap();
+			sessionMapObj.remove("editAgent");
+		}
+	}
+	
 	public String addUser() throws SQLException {
 		try {
 			Agent user = new Agent();
@@ -638,4 +657,42 @@ public class UserManagedBean implements Serializable {
 	public void setAuthenticationManager(AuthenticationManager authenticationManager) {
 		this.authenticationManager = authenticationManager;
 	}
+
+	private Agent agentToModify;
+	
+	public Agent getAgentToModify() {
+		return agentToModify;
+	}
+
+	public void setAgentToModify(Agent agentToModify) {
+		if(agentToModify==null) {
+			System.out.println("Tsy misy eh");
+		}else {
+			System.out.println("misy");
+		}
+		this.agentToModify = agentToModify;
+	}
+	public void setCurrentAgenttomodify(Agent a) {
+		Map<String,Object> sessionMapObj = FacesContext.getCurrentInstance().getExternalContext().getSessionMap();
+		sessionMapObj.put("editAgent", a);
+		this.setAgentToModify(a);
+	}
+	
+	
+	
+
+	/*
+	 * 
+	private List<Agent> listagentToModify  = new ArrayList<Agent>();
+	public List<Agent> getListagentToModify() {
+		return listagentToModify;
+	}
+
+	public void setListagentToModify(List<Agent> listagentToModify) {
+		this.listagentToModify = listagentToModify;
+	}
+	public void addToListAgentModif(Agent a) {
+		this.listagentToModify.add(a);
+	}*/
+	
 }

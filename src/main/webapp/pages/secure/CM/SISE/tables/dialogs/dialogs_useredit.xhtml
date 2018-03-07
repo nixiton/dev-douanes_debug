@@ -7,112 +7,95 @@
       xmlns:p="http://primefaces.org/ui" xmlns:c="http://java.sun.com/jsp/jstl/core"
 >
 
-    <p:dialog id="detail" widgetVar="detail"  closable="false">
+    <p:dialog id="detail" widgetVar="detail">
         
-            <h:form class="form-horizontal">
-            <h:commandButton action="#{depositaireBean.exit()}" value="X" style="valign:bottom;float:right;padding-right:20px">
-                        
-            </h:commandButton>
-            </h:form>
+            <div class="box dark col-md-12">
 
-        <h:body    class="body collapse in table-responsive">
+	<div class="body">
+	<p:growl for="editagenterror" redisplay="false" id="messages" showDetail="true" autoUpdate="true" />
+		<h:form id="ad">
+		<div class="box dark col-md-6">
+					<h:outputLabel for="name" styleClass="col-md-6"
+						value="Nom et prénom : " />
+					<p:inputText id="name" styleClass="col-md-6" value="#{editAgent.nomAgent}"
+						required="true">
+
+					<hr></hr>
+
+						<!-- p:ajax event="blur" update="nameMsg" /-->
+					</p:inputText>
+					<hr></hr>
 
 
-        <table class="table responsive-table">
+					<h:outputLabel for="im" styleClass="col-md-6"
+						value="Imatriculation : " />
+					<h:outputText id="im" styleClass="col-md-6" value="#{editAgent.im}"
+						required="true">
+					</h:outputText>
 
-                    <tr>
-                        <td><strong>ID</strong></td>
-                        <td>#{depositaireBean.curentMaterielEx.idMateriel}</td>
-                        <td></td>
-                        <td><strong>Caractéristiques</strong></td>
-                        <td>#{depositaireBean.curentMaterielEx.design.renseignement}</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Prix Unitaire</strong></td>
-                        <td>#{depositaireBean.curentMaterielEx.design.pu}</td>
-                        <td></td>
-                        <td><strong>Marque</strong></td>
-                        <td>#{depositaireBean.curentMaterielEx.design.marque.designation}</td>
+					<hr></hr>			
+					<!-- User role with liste-->
+					<h:outputLabel styleClass="col-md-6" 
+						value="Fonction " />
 
-                    </tr>
-                    <tr>
-                        <td><strong>Référence</strong></td>
-                        <td>#{depositaireBean.curentMaterielEx.reference}</td>
-                        <td></td>
-                        <td><strong>Dépositaire</strong></td>
-                        <td>#{depositaireBean.curentMaterielEx.dc.im} - #{depositaireBean.curentMaterielEx.dc.nomAgent}</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Numéro de série</strong></td>
-                        <td>#{depositaireBean.curentMaterielEx.numSerie}</td>
-                        <td></td>
-                        <td><strong>Document</strong></td>
-                        <td>
-                            <c:if test="#{depositaireBean.filedownload ne null}" >
-                                <h:form>
-                                    <p:commandButton id="downloadLink" value="Download" ajax="false" icon="ui-icon-document">
-                                        <f:setPropertyActionListener target="#{depositaireBean.fileZipPath}" value="delete" />
-                                        <p:fileDownload value="#{depositaireBean.filedownload}"/>
-                                        <!--i class="fa fa-file-archive-o"></i-->
-                                    </p:commandButton>
-                                </h:form>
-                            </c:if>
+					<p:selectOneMenu value="#{editAgent.roleAgent}" converter="#{useriConverter}" panelStyle="width:180px"  style="width:160px"
+                         effect="fade" var="t" filter="true" filterMatchMode="startsWith">
+                        <f:selectItem itemValue="#{null}" itemLabel="--select--" /> 
+                            <f:selectItems value="#{siseBean.listUseri}" var="theme" itemLabel="#{theme.designation}" itemValue="#{theme}" />
+                        <p:column>
+                            <h:outputText value="#{t.designation}" />
+                        </p:column>
 
-                            </td>
+                    </p:selectOneMenu>
 
-                            
-                    </tr>
-                    <tr>
-                        <td><strong>Autre</strong></td>
-                        <td>#{depositaireBean.curentMaterielEx.design.autre}</td>
-                        <td></td>
-                        <td><strong>Image</strong></td>
-                        <td>
-                            <p:panel rendered="#{depositaireBean.curentMaterielEx.design.image != null}">
-                                <h:graphicImage url="data:image/jpg;base64,#{depositaireBean.curentMaterielEx.design.image}"
-                                                width="275px" height="75px" title="#{depositaireBean.curentMaterielEx.reference}" >
-                                </h:graphicImage>
-                            </p:panel>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><strong>Type de materiel - Nomenclature</strong></td>
-                        <td>#{depositaireBean.curentMaterielEx.design.typematerieladd} - #{depositaireBean.curentMaterielEx.design.nomenMat.nomenclature}</td>
-                        <td></td>
-                        <td><strong>Etat</strong></td>
-                        <td>#{depositaireBean.curentMaterielEx.etat.designation}</td>
-                        
-                        
-                    </tr>
-                    <tr>
-                    	<td><strong>Année d'Acquisition</strong></td>
-                        <td>#{depositaireBean.curentMaterielEx.design.anneeAcquisition}</td>
-                        <td></td>
-                        <td><strong>Detenteur</strong></td>
-                        <td>#{depositaireBean.curentMaterielEx.detenteur.im} - #{depositaireBean.curentMaterielEx.detenteur.nomAgent}</td>
-                        
-                    </tr>
-                    <tr>
-                    	<td><strong>Codification</strong></td>
-                        <td>#{depositaireBean.curentMaterielEx.code}</td>
-                        <td></td>
-                        <td><strong>Origine</strong></td>
-                        <td>#{depositaireBean.curentMaterielEx.design.origine}</td>
-                    </tr>
-                    <tr>
-                    	<td><strong>QRCODE</strong></td>
-                        <td>           					
-            				<p:barcode value="${depositaireBean.curentMaterielEx.direc.designation}/ 
-            				${depositaireBean.curentMaterielEx.design.typematerieladd.designation  } /
-            				NUM1 /
-            				${depositaireBean.curentMaterielEx.design.anneeAcquisition}/" type="qr"/>
-           				</td>
-                    </tr>
-                    <tr>
+                    <hr></hr>
 
-                    </tr>
-            </table>
-        </h:body>
+			</div>
+			<div class="box dark col-md-6">
+					<!-- DIRECTION -->
+					<h:outputLabel styleClass="col-md-6" 
+						value="Direction " />
+
+					<p:selectOneMenu value="#{editAgent.direction}" converter="#{refConverter}" panelStyle="width:180px"  style="width:160px"
+                         effect="fade" var="t" filter="true" filterMatchMode="startsWith">
+                        <f:selectItem itemValue="#{null}" itemLabel="--select--" /> 
+                            <f:selectItems value="#{siseBean.listDirection}" var="theme" itemLabel="#{theme.designation}" itemValue="#{theme}" />
+                        <p:column>
+                            <h:outputText value="#{t.designation}" />
+                        </p:column>
+
+                    </p:selectOneMenu>
+
+                    <hr></hr>
+                    <!-- POSTE -->
+					<h:outputLabel styleClass="col-md-6" 
+						value="Poste " />
+
+					<p:selectOneMenu value="#{editAgent.posteny}" converter="#{refConverter}" panelStyle="width:180px"  style="width:160px"
+                         effect="fade" var="t" filter="true" filterMatchMode="startsWith">
+                        <f:selectItem itemValue="#{null}" itemLabel="--select--" /> 
+                            <f:selectItems value="#{siseBean.listPoste}" var="theme" itemLabel="#{theme.designation}" itemValue="#{theme}" />
+                        <p:column>
+                            <h:outputText value="#{t.designation}" />
+                        </p:column>
+
+                    </p:selectOneMenu>
+
+                    <hr></hr>
+                    </div>
+                    
+                    <div class="box dark col-md-12">
+                    <div class="box dark col-md-4"></div>
+					<div class="box dark col-md-4">
+					<h:commandButton id="addUser" action="#{userMB.updateAgent(editAgent)}"
+						value="Mettre à jour" ajax="false" class="btn btn-lg btn-primary btn-block" />
+					</div>
+					</div>
+
+				</h:form>
+	</div>
+
+</div>
         
     </p:dialog>
 

@@ -6,6 +6,7 @@ import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.io.Serializable;
 import java.util.List;
 
 import javax.imageio.ImageIO;
@@ -22,7 +23,7 @@ import javax.persistence.SequenceGenerator;
 import org.jboss.resteasy.util.Base64;
 
 @Entity
-public class Designation {
+public class Designation implements Serializable{
 	@Id
 	@SequenceGenerator(allocationSize=1, initialValue=1, sequenceName="designation_id_seq", name="designation_id_seq")
 	@GeneratedValue(generator="designation_id_seq", strategy=GenerationType.SEQUENCE)

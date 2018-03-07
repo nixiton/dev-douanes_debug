@@ -31,6 +31,10 @@ public class RefConverter implements Converter {
 
     public Object getAsObject(FacesContext fc, UIComponent uic, String value) {
     	System.out.println("Vao iditra");
+    	
+    	if(value==null) {
+    		return null;
+    	}
         
         if(value != null && value.trim().length() > 0) {
             try {
