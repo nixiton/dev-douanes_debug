@@ -1,6 +1,6 @@
 
 <!-- .navbar -->
-<nav class="navbar navbar-inverse navbar-static-top"
+<nav class="navbar navbar-light navbar-static-top" style="background-color: #145C8B "
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html"
@@ -60,7 +60,7 @@
 
 			</div-->
 
-			<div class="btn-group">
+			<div class="btn-group" style="background-color: #f8f7a3">
 
 				<p:commandButton 
             		oncomplete="PF('detail3').show()" icon="ui-icon-person"/>
@@ -72,47 +72,47 @@
 
 
 
-		<div class="collapse navbar-collapse navbar-ex1-collapse">
+		<div class="collapse navbar-collapse navbar-ex1-collapse" >
 
 			<!-- .nav -->
 
 			<h:form>
 
 
-				<ul class="nav navbar-nav">
+				<ul class="nav navbar-nav" >
 
 					<c:if test="#{topMenuMB.curentAgent.roleAgent.role eq 'ROLE_ADMIN'}">
-						<li class="active"><h:commandLink
-								action="#{topMenuMB.goToDashboard}" immediate="true" >
-								Taleau de bord
+						<li class="active" ><h:commandLink
+								action="#{topMenuMB.goToDashboard}" immediate="true" style="color:#CCC">
+								Tableau de bord
 							</h:commandLink></li>
 					</c:if>
 					<c:if test="#{topMenuMB.curentAgent.roleAgent.role eq 'ROLE_GAC' or 
 					topMenuMB.curentAgent.roleAgent.role eq 'ROLE_SISE' or
 				topMenuMB.curentAgent.roleAgent.role eq 'ROLE_DC'}">
 						<li class="active"><h:commandLink
-								action="#{topMenuMB.goToDashboardCM}" immediate="true" >
-								Taleau de bord
+								action="#{topMenuMB.goToDashboardCM}" immediate="true" style="color:#CCC">
+								Tableau de bord
 							</h:commandLink></li>
 					</c:if>
 					<c:if test="#{topMenuMB.curentAgent.roleAgent.role eq 'ROLE_ADMIN' or topMenuMB.curentAgent.roleAgent.role eq 'ROLE_SISE' or topMenuMB.curentAgent.roleAgent.role eq 'ROLE_SE'}">
 
 					<li><h:link value="Saisie
 								des référentiels"
-									outcome="saisie_ref" immediate="true" /></li>
+									outcome="saisie_ref" immediate="true" style="color:#CCC"/></li>
 
 					</c:if>
 
 					<c:if test="#{topMenuMB.curentAgent.roleAgent.role eq 'ROLE_ADMIN' or topMenuMB.curentAgent.roleAgent.role eq 'ROLE_DC'}">
 
 					<li class="dropdown"><a href="#" class="dropdown-toggle"
-						data-toggle="dropdown"> Saisie des materiels <b class="caret"></b>
+						data-toggle="dropdown" style="color:#CCC"> Saisie des materiels <b class="caret"></b>
 					</a>
 						<ul class="dropdown-menu">
 							
 							<li><h:link value="Saisie
 						des matériels existants"
-									outcome="saisie_mat_ex" immediate="true"/></li>
+									outcome="saisie_mat_ex" immediate="true" /></li>
 							<li><h:link value="Prise en charge" outcome="prise_en_charge" immediate="true" /></li>
 
 						</ul></li>
@@ -123,38 +123,58 @@
 			            
 			        
 					<li class="dropdown"><a href="#" class="dropdown-toggle"
-						data-toggle="dropdown"> Détenteur <b class="caret"></b>
+						data-toggle="dropdown" style="color:#CCC"> Détenteur <b class="caret"></b>
 					</a>
 						<ul class="dropdown-menu">
-							<li><h:link value="Attribution" outcome="attribution" immediate="true"/></li>
-							<li><h:link value="Détachement" outcome="detachement" immediate="true"/></li>
+							<li><h:link value="Attribution" outcome="attribution" immediate="true" /></li>
+							<li><h:link value="Détachement" outcome="detachement" immediate="true" /></li>
 
 						</ul></li>
 
-					<li><h:link value="Décharge" outcome="decharge" immediate="true"/></li>
+					<li><h:link value="Décharge" outcome="decharge" immediate="true" style="color:#CCC"/></li>
 
 				</c:if>
 
 					<c:if test="#{topMenuMB.curentAgent.roleAgent.role eq 'ROLE_ADMIN' or topMenuMB.curentAgent.roleAgent.role eq 'ROLE_DC' or topMenuMB.curentAgent.roleAgent.role eq 'ROLE_GAC' or topMenuMB.curentAgent.roleAgent.role eq 'ROLE_SE'}">
 
 					<li class='dropdown '><a href="#" class="dropdown-toggle"
-						data-toggle="dropdown"> Suivi et édition des états
+						data-toggle="dropdown" style="color:#CCC"> Suivi et édition des états
 							réglementaires <b class="caret"></b>
 					</a>
 						<ul class="dropdown-menu">
 							<li><h:link value="Traçabilité" outcome="tracabilite" immediate="true" /></li>
 							<li><h:link
-									value="Liste des matériels, statut et historique" outcome="liste_mat" immediate="true"/></li>
+									value="Liste des matériels, statut et historique" outcome="liste_mat" immediate="true" /></li>
 							<c:if test="#{topMenuMB.curentAgent.roleAgent.role eq 'ROLE_ADMIN'}">
 						<li><h:link
 									value="Liste générale des matériels"
-									outcome="liste_mats" immediate="true"/></li>
+									outcome="liste_mats" immediate="true" /></li>
 						</c:if>
-							<li><h:link
-									value="Edition des états et registres
-								réglementaires"
-									outcome="edition_etats" immediate="true"/></li>
-
+						
+							<li class="dropdown-submenu">
+								<a tabindex="-1" href="#" >Edition des états et registres
+								réglementaire</a>
+								<ul class="dropdown-menu">
+									<li><h:link tableindex="-1" value="Ordre entrée" outcome="edition_etats" immediate="true" /></li>
+										<li><h:link
+												value="Ordre de sortie" outcome="edition_etats" immediate="true" /></li>
+										<li><h:link
+												value="Journal"
+												outcome="edition_etats" immediate="true" /></li>
+										<li><h:link
+												value="Grand livre annuel"
+												outcome="edition_etats" immediate="true" /></li>
+								</ul>
+							</li>
+							
+							<!--  <li class="dropdown"><a tableindex="-1" href="#">sous menu</a>
+                                            <ul class="dropdown-menu">
+                                                <li><a tableindex="-1" href="#">Sous-sous menu</a></li>
+                                                <li><a tableindex="-1" href="#">Sous-sous menu</a></li>
+                                                <li><a tableindex="-1" href="#">Sous-sous menu</a></li>
+                                            </ul>
+                                        </li> -->
+							
 						</ul></li>
 						
 
@@ -163,12 +183,12 @@
 					<c:if test="#{topMenuMB.curentAgent.roleAgent.role eq 'ROLE_ADMIN' or topMenuMB.curentAgent.roleAgent.role eq 'ROLE_GAC'}">
 
 					<li class='dropdown '><a href="#" class="dropdown-toggle"
-						data-toggle="dropdown"> Validations <b class="caret"></b>
+						data-toggle="dropdown" style="color:#CCC"> Validations <b class="caret"></b>
 					</a>
 						<ul class="dropdown-menu">
 							<li><h:link value="Prise en charge" outcome="v_prise_en_charge" immediate="true"/></li>
 							<li><h:link value="Attribution" outcome="v_detenteur" immediate="true"/></li>
-							<li><h:link value="Décharge" outcome="v_decharge" immediate="true"/></li>
+							<li><h:link value="Décharge" outcome="v_decharge" immediate="true" /></li>
 							<li><h:link value="Détachement" outcome="v_detachement" immediate="true"/></li>
 
 
@@ -177,7 +197,7 @@
 					</c:if>
 
 					<li>
-						<a href="/pages/secure/choice.xhtml">Comptabilité Administrative</a>
+						<a href="/pages/secure/choice.xhtml" style="color:#CCC">Comptabilité Administrative</a>
 					</li>
 
 				</ul>
@@ -192,7 +212,7 @@
 
 		<table class="table responsive-table">
 
-                    <tr>
+                    <!--  <tr>
                         <td><strong>Matricule</strong></td>
                         <td>#{depositaireBean.currentAgent.im}</td>
                         <td></td>
@@ -216,11 +236,35 @@
                         
 
                         
+                    </tr> -->
+                    <tr>
+                    	<td><strong>Matricule</strong></td>
+                    	<td></td>
+                    	<td>#{depositaireBean.currentAgent.im}</td>
                     </tr>
                     <tr>
+                    	<td><strong>Nom</strong></td>
+                    	<td></td>
+                    	 <td>#{depositaireBean.currentAgent.nomAgent}</td>
+                    </tr>
+                    <tr>
+                    	<td><strong>Direction</strong></td>
+                    	<td></td>
+                    	 <td>#{depositaireBean.currentAgent.direction.designation}</td>
+                    </tr>
+                    <tr>
+                    	<td><strong>Fonction</strong></td>
+                    	<td></td>
+                    	 <td>#{depositaireBean.currentAgent.roleAgent.designation}</td>
+                    </tr>
+                        
+                   
+                    <tr>
+                    	<td></td>
                     	<td>
-                    	<a class="btn btn-lg btn-primary btn-block" href="/pages/unsecure/update_pass.xhtml">Mettre à jour mot de pass</a>
+                    		<a class="btn btn-primary btn-block" href="/pages/unsecure/update_pass.xhtml">Mettre à jour mot de passe</a>
                     	</td>
+                    	<td></td>
                     </tr>
         </table>
 
