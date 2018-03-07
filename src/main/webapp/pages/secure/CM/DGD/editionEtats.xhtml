@@ -29,8 +29,20 @@
 
         <div id="content">
         
-            <ui:include src="/pages/secure/CM/DGD/content/content_editionEtats.xhtml"></ui:include>   
-            
+            <ui:include src="/pages/secure/CM/DGD/content/content_editionEtats.xhtml">
+            	<ui:param name="table" value="#{param['table']}" />
+            	<!-- table accepted value are 
+            		ordreEntree
+            		ordreSortie
+            		journal
+            		livreAnnuel
+            		etatAppreciatif
+            		inventaire
+            		etatDetenteurEffectif
+            		fournisseursBdd
+            		tous || empty table
+            	 -->
+            </ui:include>
           
                 
         
