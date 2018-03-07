@@ -222,14 +222,17 @@ public class SISEformBean {
 	}
 
 	public List<TypeMateriel> getListTypeMateriel() {
-		ArrayList<Referentiel> r = (ArrayList<Referentiel>) refmetierimpl.listRef(new TypeMateriel());
-		List<TypeMateriel> ds = new ArrayList<TypeMateriel>();
-		for (Object d : r) {
-			if (d instanceof TypeMateriel) {
-				ds.add((TypeMateriel) d);
+		if (listTypeMateriel == null) {
+			ArrayList<Referentiel> r = (ArrayList<Referentiel>) refmetierimpl.listRef(new TypeMateriel());
+			List<TypeMateriel> ds = new ArrayList<TypeMateriel>();
+			for (Object d : r) {
+				if (d instanceof TypeMateriel) {
+					ds.add((TypeMateriel) d);
+				}
 			}
+			listTypeMateriel = ds;
 		}
-		return ds;
+		return listTypeMateriel;
 	}
 
 	public void setListTypeMateriel(List<TypeMateriel> listTypeMateriel) {
@@ -1104,14 +1107,34 @@ public class SISEformBean {
 	}
 
 	public void onRowEdit(RowEditEvent event) {
-		Agent agent = (Agent) RequestFilter.getSession().getAttribute("agent");
 		Referentiel r = (Referentiel) event.getObject();
-		FacesMessage msg = new FacesMessage("Referentiel modifié",
-				((Referentiel) event.getObject()).getId().toString() + " modifié en "+ ((Referentiel) event.getObject()).getDesignation());
-		FacesContext.getCurrentInstance().addMessage("myerrorReferentiel", msg);
+		try {
+		Agent agent = (Agent) RequestFilter.getSession().getAttribute("agent");
 		refmetierimpl.addRef(r, agent);
-		//listNomenclature=null;
-		
+		FacesMessage msg = new FacesMessage("Referentiel modifié", ((Referentiel) event.getObject()).getId().toString()
+				+ " modifié en " + ((Referentiel) event.getObject()).getDesignation());
+		FacesContext.getCurrentInstance().addMessage("myerrorReferentiel", msg);
+		// listNomenclature=null;
+		} catch (Exception ex) {
+			FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_FATAL, "Referentiel non modifié ",
+					r.getDesignation() + " ne peut pas être modifié car ne respecte pas les contraintes ");
+			FacesContext.getCurrentInstance().addMessage("myerrorReferentiel", message);
+		}
+
+	}
+
+	public void deleteRow(Referentiel r) {
+		try {
+
+			refmetierimpl.removeRef(r);
+			FacesMessage msg = new FacesMessage("Referentiel supprimé", r.getId().toString());
+			FacesContext.getCurrentInstance().addMessage("myerrorReferentiel", msg);
+		} catch (Exception ex) {
+			FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_FATAL, "Referentiel non supprimé ",
+					r.getDesignation() + " ne peut pas être supprimé car en cours d'utilisation ");
+			FacesContext.getCurrentInstance().addMessage("myerrorReferentiel", message);
+		}
+
 	}
 
 	/*
@@ -1121,20 +1144,17 @@ public class SISEformBean {
 	 * FacesContext.getCurrentInstance().addMessage(null, msg); }
 	 */
 
-	/*public void onCellEdit(CellEditEvent event) {
-		Agent agent = (Agent) RequestFilter.getSession().getAttribute("agent");
-		Object oldValue = event.getOldValue();
-		Object newValue = event.getNewValue();
-		System.out.println("changging*********");
-		if (!oldValue.equals(newValue)) {
-			// Save to the database
-			DataTable table = (DataTable) event.getSource();
-			Referentiel ref = (Referentiel) table.getRowData();
-			refmetierimpl.addRef(ref, agent);
-
-			FacesContext.getCurrentInstance().addMessage("myerrorReferentiel", new FacesMessage(
-					FacesMessage.SEVERITY_INFO, "Modification terminée", "nouveau valeur: " + newValue));
-		}
-	}
-*/
+	/*
+	 * public void onCellEdit(CellEditEvent event) { Agent agent = (Agent)
+	 * RequestFilter.getSession().getAttribute("agent"); Object oldValue =
+	 * event.getOldValue(); Object newValue = event.getNewValue();
+	 * System.out.println("changging*********"); if (!oldValue.equals(newValue)) {
+	 * // Save to the database DataTable table = (DataTable) event.getSource();
+	 * Referentiel ref = (Referentiel) table.getRowData(); refmetierimpl.addRef(ref,
+	 * agent);
+	 * 
+	 * FacesContext.getCurrentInstance().addMessage("myerrorReferentiel", new
+	 * FacesMessage( FacesMessage.SEVERITY_INFO, "Modification terminée",
+	 * "nouveau valeur: " + newValue)); } }
+	 */
 }

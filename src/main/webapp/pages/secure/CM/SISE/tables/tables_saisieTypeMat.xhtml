@@ -8,7 +8,7 @@
 	>
 
 <div   class="body collapse in table-responsive">
-
+<h:form id="formType">
 	<div class="col-lg-4">
 
 		<h:link value="Ajouter" outcome="add_TypeMat" 
@@ -17,29 +17,58 @@
 		<hr></hr>
 
 	</div>
-
+<p:growl for="myerrorReferentiel" id="msgtableType" showDetail="true" sticky="true" redisplay="false"/>
 	<p:dataTable   var="typemateriel" value="#{siseBean.listTypeMateriel}" 
                  paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}  "
                  paginatorPosition="bottom"
-                 paginator="true" rows="10" style="margin-bottom:20px">
+                 paginator="true" rows="10" style="margin-bottom:20px"
+                 editable="true"
+                 id="tableTypeMat"
+                 widgetVar="typeTable"
+                 >
+        <p:ajax event="rowEdit" listener="#{siseBean.onRowEdit}" update=":formType:msgtableType" oncomplete="PF('typeTable').filter()"/>
+		
 		<p:column>
 			<f:facet name="header">ID</f:facet>
 			#{typemateriel.id}
 		</p:column>
 		<p:column>
 			<f:facet name="header">Désignation</f:facet>
-			#{typemateriel.designation}
+           <p:cellEditor>
+               <f:facet name="output"><h:outputText value="#{typemateriel.designation}" /></f:facet>
+               <f:facet name="input"><p:inputText value="#{typemateriel.designation}"/></f:facet>
+           </p:cellEditor>
 		</p:column>
 		<p:column>
 			<f:facet name="header">Code Type Materiel</f:facet>
-			#{typemateriel.codeTypeMate}
+			<p:cellEditor>
+               <f:facet name="output"><h:outputText value="#{typemateriel.codeTypeMate}" /></f:facet>
+               <f:facet name="input"><p:inputText value="#{typemateriel.codeTypeMate}"/></f:facet>
+           </p:cellEditor>
 		</p:column>
 		<p:column>
 			<f:facet name="header">Nomenclature</f:facet>
-			#{typemateriel.nomenclaureParent.nomenclature}
+			<p:cellEditor>
+               <f:facet name="output"><h:outputText value="#{typemateriel.nomenclaureParent.nomenclature}" /></f:facet>
+               <f:facet name="input">
+                   <p:selectOneMenu id="zone" styleClass="form-control top"
+						converter="#{refConverter}" value="#{typemateriel.nomenclaureParent}">
+						<f:selectItems value="#{siseBean.listNomenclature}" var="type"
+							itemLabel="#{type.designation}" />
+					</p:selectOneMenu>
+               </f:facet>
+           </p:cellEditor>
 		</p:column>
+		<p:column>
+           <p:rowEditor />
+       </p:column>
+       <p:column> 
+       <p:commandButton  action="#{siseBean.deleteRow(typemateriel)}"
+       icon="ui-icon-close" update=":formType:msgtableType"
+       oncomplete="PF('typeTable').filter()"/> 
+       </p:column>
 	</p:dataTable>
-
+</h:form>
 
 
 </div>

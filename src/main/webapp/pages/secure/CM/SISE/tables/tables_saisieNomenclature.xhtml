@@ -50,6 +50,11 @@
 		<p:column>
            <p:rowEditor />
        </p:column>
+       <p:column>
+       <p:commandButton  action="#{siseBean.deleteRow(nomenclature)}"
+       icon="ui-icon-close" update=":formNomenclture:msgtableNomenclature"
+       oncomplete="PF('NomTable').filter()"/> 
+       </p:column>
 	</p:dataTable>
 	
 </h:form>
