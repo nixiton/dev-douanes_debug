@@ -43,12 +43,10 @@
 			
 		</p:column>
 		<p:column>
-           <p:rowEditor />
-       </p:column>
-       <p:column> 
-       	<p:commandButton  action="#{siseBean.deleteRow(f)}"
+           <div style=" display:inline-block"><p:rowEditor /></div>
+           <div style=" display:inline-block"><p:commandButton  action="#{siseBean.deleteRow(f)}"
        		icon="ui-icon-close" update=":formFin:msgtableFin"
-       		oncomplete="PF('FinTable').filter()"/> 
+       		oncomplete="PF('FinTable').filter()"/> </div>
        </p:column>
 	</p:dataTable>
 </h:form>
