@@ -42,11 +42,14 @@
 			
 		</p:column>
 		<p:column>
-           <div style=" display:inline-block"><p:rowEditor /></div>
-           <div style=" display:inline-block"><p:commandButton  action="#{siseBean.deleteRow(m)}"
-       		icon="ui-icon-close" update=":formMD:msgtableMD"
-       		oncomplete="PF('MDTable').filter()"/> </div>
+           <p:rowEditor />
+           
        </p:column>
+      <p:column>
+      		<p:commandButton  action="#{siseBean.deleteRow(m)}"
+       		icon="ui-icon-close" update=":formMD:msgtableMD"
+       		oncomplete="PF('MDTable').filter()"/>
+      </p:column>
 	</p:dataTable>
 </h:form>
 

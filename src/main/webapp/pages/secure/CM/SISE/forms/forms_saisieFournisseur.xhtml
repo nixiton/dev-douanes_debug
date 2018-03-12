@@ -16,26 +16,27 @@
 		<h:form class="form-horizontal">
 
             <p:messages id="messages" />
-
+			<br/>
 			<div class="form-group">
-				<label for="text1" class="control-label col-lg-4">Désignation
-				</label>
-
-				<div class="col-lg-6">
+				<div class="row">
+					<div class="col-lg-4 col-lg-offset-1">	
+			
+						<label for="text1" class="control-label col-lg-4">Désignation
+						</label>
+					</div>
+					<div class="col-lg-6">
 
 					<p:inputText   required="true"
 						value="#{siseBean.designation}"
 						requiredMessage=""
 						placeholder="Désignation" styleClass="form-control top"></p:inputText>
 
+					</div>
 				</div>
 				
-				<hr></hr>
-
-				<div class="col-lg-2"></div>
-
 			</div>
-
+			<hr></hr>
+			
 			<div class="form-group">
 				<label for="text1" class="control-label col-lg-4"></label>
 
