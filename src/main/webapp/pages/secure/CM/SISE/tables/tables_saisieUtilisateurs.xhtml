@@ -57,11 +57,9 @@
 		<p:column>
           <p:commandButton   action="#{userMB.setCurrentAgenttomodify(f)}" update=":detail"
             oncomplete="PF('detail').show()" icon="ui-icon-zoomin"/>
-       </p:column>
-       <p:column> 
-       <p:commandButton  action="#{siseBean.deleteUser(f)}"
-       icon="ui-icon-close" update=":formUser:msgtableUser"
-       oncomplete="PF('UserTable').filter()"/> 
+          <div style=" display:inline-block"><p:commandButton  action="#{siseBean.deleteUser(f)}"
+       icon="ui-icon-close" update=":formType:msgtableType"
+       oncomplete="PF('typeTable').filter()"/> </div>
        </p:column>
 	</p:dataTable>
 
