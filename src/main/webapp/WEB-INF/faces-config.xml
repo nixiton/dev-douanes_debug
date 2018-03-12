@@ -223,6 +223,12 @@
 			<to-view-id>/pages/secure/CM/DGD/tracabilite.xhtml</to-view-id>
 			<redirect />
 		</navigation-case>
+		
+		<navigation-case>
+			<from-outcome>edition_etats</from-outcome>
+			<to-view-id>/pages/secure/CM/DGD/editionEtats.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
 
 		<navigation-case>
 			<from-outcome>tracabiliteCA</from-outcome>
