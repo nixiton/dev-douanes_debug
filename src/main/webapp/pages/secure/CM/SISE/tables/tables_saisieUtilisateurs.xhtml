@@ -8,7 +8,8 @@
 	>
 
 <div class="body collapse in table-responsive">
-
+<h:form id="formUser" onkeypress="if (event.keyCode == 13) {return false; }">
+<p:growl for="myerrorReferentiel" id="msgtableUser" showDetail="true" sticky="true" redisplay="false"/>
 	<div class="col-lg-4">
 
 		<h:link value="Ajouter Utilisateur" outcome="add_Utilisateur"
@@ -21,7 +22,10 @@
 	<p:dataTable   var="f" value="#{userMB.userList}" 
                  paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}  "
                  paginatorPosition="bottom"
-                 paginator="true" rows="10" style="margin-bottom:20px">
+                 paginator="true" rows="10" style="margin-bottom:20px"
+                 id="tableUserMat"
+                 widgetVar="UserTable"
+                 >
 		<p:column>
 			<f:facet name="header">Imatriculation</f:facet>
 			#{f.im}
@@ -51,15 +55,14 @@
 			#{f.posteny.designation}
 		</p:column>
 		<p:column>
-          <div style=" display:inline-block"><p:commandButton   action="#{userMB.setCurrentAgenttomodify(f)}" update=":detail"
-            oncomplete="PF('detail').show()" icon="ui-icon-zoomin"/></div>
+          <p:commandButton   action="#{userMB.setCurrentAgenttomodify(f)}" update=":detail"
+            oncomplete="PF('detail').show()" icon="ui-icon-zoomin"/>
           <div style=" display:inline-block"><p:commandButton  action="#{siseBean.deleteUser(f)}"
        icon="ui-icon-close" update=":formType:msgtableType"
        oncomplete="PF('typeTable').filter()"/> </div>
        </p:column>
 	</p:dataTable>
 
-
+</h:form>
 </div>
-<ui:include src="/pages/secure/CM/SISE/tables/dialogs/dialogs_useredit.xhtml"></ui:include>
 </html>

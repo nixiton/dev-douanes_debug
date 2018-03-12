@@ -105,6 +105,7 @@ public class UserManagedBean implements Serializable {
 		}
 		try {
 		usermetierimpl.addAgent(a);
+		
 		}catch(Exception e) {
 			FacesMessage messagea = new FacesMessage(FacesMessage.SEVERITY_WARN, "Erreur Modification Agent", "Ne respecte pas les contraintes");
 			FacesContext.getCurrentInstance().addMessage("editagenterror", messagea);
@@ -678,7 +679,14 @@ public class UserManagedBean implements Serializable {
 		this.setAgentToModify(a);
 	}
 	
-	
+	public String exit(){
+		Map<String,Object> sessionMapObj = FacesContext.getCurrentInstance().getExternalContext().getSessionMap();
+		FacesMessage messagea = new FacesMessage(FacesMessage.SEVERITY_INFO, "Modification Agent", "La modification a été annulée");
+		FacesContext.getCurrentInstance().addMessage("editagenterror", messagea);
+		sessionMapObj.remove("editAgent");
+		
+		return null;
+	}
 	
 
 	/*

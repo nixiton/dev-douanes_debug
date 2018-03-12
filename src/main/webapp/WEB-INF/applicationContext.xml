@@ -106,8 +106,9 @@
 
     <!-- Data Source Declaration -->
 
-    
- 
+    <bean class="java.net.URI" id="dbUrl">
+        <constructor-arg value="#{systemEnvironment['DATABASE_URL']}"/>
+    </bean>
 
 
     <bean id="DataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"
@@ -118,14 +119,9 @@
         <property name="password" value="" /-->
         <property name="driverClass" value="org.postgresql.Driver"/>
         <!--property name="jdbcUrl" value="jdbc:postgres://ec2-54-247-81-97.eu-west-1.compute.amazonaws.com:5432/d8jgiq3ojrd8fn"/-->
-        
-        <!--  property name="jdbcUrl" value="#{ 'jdbc:postgresql://' + @dbUrl.getHost() + ':' + @dbUrl.getPort() + @dbUrl.getPath() }"/>
+        <property name="jdbcUrl" value="#{ 'jdbc:postgresql://' + @dbUrl.getHost() + ':' + @dbUrl.getPort() + @dbUrl.getPath() }"/>
         <property name="user" value="toacryipyljhgo"/>
-        <property name="password" value="fe88a2b797e9d8ac0947b87dc060b3b2b542df2cce7f04a09c8d5a3a264140ae"/-->
-        <property name="jdbcUrl" value="jdbc:postgresql://localhost:5432/dix" />
-        <property name="user" value="postgres" />
-        <property name="password" value="123456"/>
-        
+        <property name="password" value="fe88a2b797e9d8ac0947b87dc060b3b2b542df2cce7f04a09c8d5a3a264140ae"/>
         <property name="maxPoolSize" value="10" />
         <property name="maxStatements" value="0" />
         <property name="minPoolSize" value="5" />
