@@ -158,18 +158,51 @@
 						</c:if>
 						
 							<li class="dropdown-submenu">
-								<a tabindex="-1" href="#" >Edition des états et registres
-								réglementaire</a>
+								<!-- <a tabindex="-1" href="#" >Edition des états et registres
+								réglementaire</a> -->
+								<h:link tableindex="-1" 
+											value="Edition des états et registres
+								réglementaire" outcome="edition_etats" immediate="true" ></h:link>
+									
 								<ul class="dropdown-menu">
-									<li><h:link tableindex="-1" value="Ordre entrée" outcome="edition_etats" immediate="true" /></li>
-										<li><h:link
-												value="Ordre de sortie" outcome="edition_etats" immediate="true" /></li>
-										<li><h:link
-												value="Journal"
-												outcome="edition_etats" immediate="true" /></li>
-										<li><h:link
-												value="Grand livre annuel"
-												outcome="edition_etats" immediate="true" /></li>
+									<li><h:link tableindex="-1" 
+											value="Ordre entrée" outcome="edition_etats" immediate="true" >
+												<f:param name="table" value="ordreEntree" /></h:link>
+									</li>
+									<li><h:link
+											value="Ordre de sortie" outcome="edition_etats" immediate="true" >
+												<f:param name="table" value="ordreSortie" /></h:link>
+									</li>
+									<li><h:link
+											value="Journal"
+											outcome="edition_etats" immediate="true" >
+												<f:param name="table" value="journal" /></h:link>
+									</li>
+									<li><h:link
+											value="Grand livre annuel"
+											outcome="edition_etats" immediate="true" >
+												<f:param name="table" value="livreAnnuel" /></h:link>
+									</li>
+									<li><h:link
+											value="Etat appréciatif"
+											outcome="edition_etats" immediate="true" >
+												<f:param name="table" value="etatAppreciatif" /></h:link>
+									</li>
+									<li><h:link
+											value="Inventaire"
+											outcome="edition_etats" immediate="true" >
+												<f:param name="table" value="inventaire" /></h:link>
+									</li>
+									<li><h:link
+											value="Etat détenteur effectif"
+											outcome="edition_etats" immediate="true" >
+												<f:param name="table" value="etatDetenteurEffectif" /></h:link>
+									</li>
+									<li><h:link
+											value="Fournisseur"
+											outcome="edition_etats" immediate="true" >
+												<f:param name="table" value="fournisseursBdd" /></h:link>
+									</li>
 								</ul>
 							</li>
 							
