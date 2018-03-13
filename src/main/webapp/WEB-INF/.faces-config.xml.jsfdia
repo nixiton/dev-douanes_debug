@@ -627,17 +627,17 @@
     TITLE="#{depositaireBean.addMaterielExistant}:success" model-entity="JSFProcessItemOutput"/>
    <PROCESS-ITEM-OUTPUT
     ID="success:#{depositaireBean.addArticleEx}:#pages#secure#CA#DC#saisieMatEx.xhtml"
-    NAME="output92" PATH="/pages/secure/CA/DC/saisieMatEx.xhtml"
+    NAME="output93" PATH="/pages/secure/CA/DC/saisieMatEx.xhtml"
     TARGET="rules:#pages#secure#CA#DC#saisieMatEx.xhtml"
     TITLE="#{depositaireBean.addArticleEx}:success" model-entity="JSFProcessItemOutput"/>
    <PROCESS-ITEM-OUTPUT
     ID="success:#{depositaireBean.addArticleNouv}:#pages#secure#CA#DC#priseEnCharge.xhtml"
-    NAME="output93" PATH="/pages/secure/CA/DC/priseEnCharge.xhtml"
+    NAME="output94" PATH="/pages/secure/CA/DC/priseEnCharge.xhtml"
     TARGET="rules:#pages#secure#CA#DC#priseEnCharge.xhtml"
     TITLE="#{depositaireBean.addArticleNouv}:success" model-entity="JSFProcessItemOutput"/>
    <PROCESS-ITEM-OUTPUT
     ID="success:#{depositaireBean.addPriseEnchargeNouveMat}:#pages#secure#CM#DC#priseEnCharge.xhtml"
-    NAME="output94" PATH="/pages/secure/CM/DC/priseEnCharge.xhtml"
+    NAME="output92" PATH="/pages/secure/CM/DC/priseEnCharge.xhtml"
     TARGET="rules:#pages#secure#CM#DC#priseEnCharge.xhtml"
     TITLE="#{depositaireBean.addPriseEnchargeNouveMat}:success" model-entity="JSFProcessItemOutput"/>
    <PROCESS-ITEM-OUTPUT

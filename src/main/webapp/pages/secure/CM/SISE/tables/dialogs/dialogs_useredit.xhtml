@@ -20,7 +20,7 @@
 	<p:growl for="editagenterror" redisplay="false" id="messages" showDetail="true" autoUpdate="true" />
 		<h:form id="ad">
 		<p:message for="agentdir" id="messages" showDetail="true" autoUpdate="true" />
-		<p:message for="name" id="messagename" showDetail="true" autoUpdate="true" />
+		<p:messages id="messagesmodify" showDetail="true" autoUpdate="true" />
 		<div class="box dark col-md-6">
 					<h:outputLabel for="name" styleClass="col-md-6"
 						value="Nom et prénom : " />
@@ -93,19 +93,26 @@
                     <div class="box dark col-md-12">
                     <div class="box dark col-md-4"></div>
 					<div class="box dark col-md-4">
-					<h:commandButton id="addUser"
+					<!-- h:commandButton id="addUser"
 						value="Mettre à jour" class="btn btn-lg btn-primary btn-block" 
 						actionListener = "#{userMB.updateAgent(editAgent)}"
                    		 oncomplete  = "if (!args.validationFailed) PF('detail').hide();"
                    		 process = "@([id$=ad])"  
-						/>
+						/-->
+				   <p:commandButton id="addUser" value="Mettre à jour"
+				   
+				   styleClass="btn btn-lg btn-primary btn-block"
+				   actionListener="#{userMB.updateAgent(editAgent)}"
+   					oncomplete="if (!args.validationFailed) PF('detail').hide();" 
+   					update="@([id$=ad], [id$=tableUserMat])"/>
 					</div>
 					</div>
 					<div class="box dark col-md-12">
                     <div class="box dark col-md-4"></div>
 					<div class="box dark col-md-4">
 					<h:commandButton id="cancelUser" action="#{userMB.exit()}"
-						value="Cancel" class="btn btn-lg btn-primary btn-block" 
+						value="Cancel" class="btn btn-lg btn-primary btn-block"
+						update="@([id$=ad], [id$=tableUserMat])"
 						/>
 					</div>
 					</div>
