@@ -1299,5 +1299,12 @@ public class UserMetier implements IUserMetier {
 		return opentreerepos.findByStateAndDirection(etat, d);
 	}
 
+	@Override
+	public Materiel updateMateriel(Materiel m) {
+		// TODO Auto-generated method stub
+		desrepos.save(m.getDesign());
+		return matrepos.save(m);
+	}
+
 
 }

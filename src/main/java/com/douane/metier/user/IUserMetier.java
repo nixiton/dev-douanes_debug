@@ -47,6 +47,7 @@ public interface IUserMetier {
 	public OpAttribution reqAttrAModifier(OpAttribution attr, String motif)throws Exception;
 	public OpAttribution reqAttrRefuser(OpAttribution attr, String motif)throws Exception;
 
+	public Materiel updateMateriel(Materiel m);
 	//Miasa ve ???
 	public Materiel attribuerMaterielEx (MaterielEx matex, Agent detenteur)throws Exception;
 	

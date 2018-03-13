@@ -110,10 +110,10 @@ public class UserManagedBean implements Serializable {
 			FacesMessage messagea = new FacesMessage(FacesMessage.SEVERITY_WARN, "Erreur Modification Agent", "Ne respecte pas les contraintes");
 			FacesContext.getCurrentInstance().addMessage("editagenterror", messagea);
 		}
-		/*finally {
+		finally {
 			Map<String,Object> sessionMapObj = FacesContext.getCurrentInstance().getExternalContext().getSessionMap();
 			sessionMapObj.remove("editAgent");
-		}*/
+		}
 	}
 	
 	public String addUser() throws SQLException {

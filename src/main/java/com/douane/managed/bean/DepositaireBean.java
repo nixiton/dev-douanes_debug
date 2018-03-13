@@ -2731,5 +2731,26 @@ public class DepositaireBean {
 	}
 
 	private List<Materiel> listMaterielByDirection;
+	
+	public void updateMaterielExistant(MaterielEx matex) {
+		if(matex==null) {
+			FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Erreur materiel", "Materiel null");
+			FacesContext.getCurrentInstance().addMessage("editmatexerror", message);
+			
+		}
+		try {
+		usermetierimpl.updateMateriel(matex);
+		
+		}catch(Exception e) {
+			FacesMessage messagea = new FacesMessage(FacesMessage.SEVERITY_WARN, "Erreur Modification Materiel", "Ne respecte pas les contraintes");
+			FacesContext.getCurrentInstance().addMessage("editmatexerror", messagea);
+		}
+		finally {
+			
+			this.curentMateriel = null;
+			setCurentNull();
+			setAllNull();
+		}
+	}
 
 }
