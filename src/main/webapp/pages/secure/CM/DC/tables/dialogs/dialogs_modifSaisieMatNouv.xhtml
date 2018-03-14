@@ -7,8 +7,8 @@
       xmlns:p="http://primefaces.org/ui" xmlns:c="http://java.sun.com/jsp/jstl/core"
 >
 
-    <p:dialog id="modifMatex" widgetVar="modifMatex"  closable="false"
-    		  header   = "Modification d'un materiel Existant" 
+    <p:dialog id="modifMatNouv" widgetVar="modifMatNouv"  closable="false"
+    		  header   = "Modification d'un materiel Nouveau" 
               position = "center"
               modal    = "true">
         	<p:growl for="editmatexerror" redisplay="false" id="messagesgrowlmodify" showDetail="true" autoUpdate="true" />
@@ -52,7 +52,7 @@
 
                     <div class="col-lg-6">
 
-                        <p:selectOneMenu id="zone"  styleClass="form-control top" converter="#{refConverter}" value="#{depositaireBean.curentMaterielEx.design.typematerieladd}">
+                        <p:selectOneMenu id="zone"  styleClass="form-control top" converter="#{refConverter}" value="#{depositaireBean.curentMaterielNouv.design.typematerieladd}">
                             <f:selectItem itemValue="#{null}" itemLabel="--select--" /> 
                             <f:selectItems value="#{siseBean.listTypeMateriel}" var="type" itemLabel="#{type.designation} - #{type.nomenclaureParent.designation}"/>
                          
@@ -64,12 +64,12 @@
                    
 
 
-                    <label for="text1" class="control-label col-lg-4">Marques
+                    <label for="text1" class="control-label col-lg-4">Marque
                     </label>
 
                     <div class="col-lg-6">
 
-                    <p:selectOneMenu value="#{depositaireBean.curentMaterielEx.design.marque}" converter="#{refConverter}" panelStyle="width:180px"  style="width:160px"
+                    <p:selectOneMenu value="#{depositaireBean.curentMaterielNouv.design.marque}" converter="#{refConverter}" panelStyle="width:180px"  style="width:160px"
                          effect="fade" var="t" filter="true" filterMatchMode="startsWith">
                         <f:selectItem itemValue="#{null}" itemLabel="--select--" /> 
                             <f:selectItems value="#{siseBean.listMarque}" var="theme" itemLabel="#{theme.designation}" itemValue="#{theme}" />
@@ -82,30 +82,12 @@
                     <hr></hr>
 
                     </div>
-                
                     
-
-
-
-                    <label for="text1" class="control-label col-lg-4">Prix Unitaire
-                    </label>
-
-                    <div class="col-lg-6">
-
-                        <p:inputText
-                        value="#{depositaireBean.curentMaterielEx.design.pu}"
-            
-                        placeholder="Prix unitaire" styleClass="form-control top"></p:inputText>
-
-                    <hr></hr>
-
-                    </div>
-
                     <label for="text1" class="control-label col-lg-4">Caractéristiques
                     </label>
 
                     <div class="col-lg-6">						
-						<p:inputTextarea value="#{depositaireBean.curentMaterielEx.design.renseignement}" rows="5" cols="20" counter="display" maxlength="250" counterTemplate="{0} restants." autoResize="false" />
+						<p:inputTextarea value="#{depositaireBean.curentMaterielNouv.design.renseignement}" rows="5" cols="20" counter="display" maxlength="250" counterTemplate="{0} restants." autoResize="false" />
     						<h:outputText id="display" />
                         <hr></hr>
 
@@ -121,67 +103,21 @@
                     <div class="col-lg-6">
 
                         <p:inputText
-                        value="#{depositaireBean.curentMaterielEx.design.autre}"
+                        value="#{depositaireBean.curentMaterielNouv.design.autre}"
                         placeholder="Autre" styleClass="form-control top"></p:inputText>
 
                     <hr></hr>
-
-                    </div>
-			</div>
-					<div class="col-md-4">
-
-                    <label for="text1" class="control-label col-lg-4">Année d'acquisition
-                    </label>
-
-                    <div class="col-lg-6">
-
-                        <p:inputText  required="true"
-                        value="#{depositaireBean.curentMaterielEx.design.anneeAcquisition}"
-                        requiredMessage="Champ Année d'acquisition obligatoire"
-                        placeholder="Année d'acquisition" styleClass="form-control top"></p:inputText>
-
-                    <hr></hr>
-
+                
+                    
                     </div>
 
-                    <label for="text1" class="control-label col-lg-4">Origine
-                    </label>
-
-                    <div class="col-lg-6">
-
-                        <p:inputText
-                        value="#{depositaireBean.curentMaterielEx.design.origine}"
-                        placeholder="" styleClass="form-control top"></p:inputText>
-
-                    <hr></hr>
-
-                    </div>
-
-
-                    <label for="text1" class="control-label col-lg-4">Espèce des unités
-                    </label>
-
-                    <div class="col-lg-6">
-
-                        <p:inputText  required="true"
-                        value="#{depositaireBean.curentMaterielEx.design.especeUnite}"
-                        requiredMessage="Champ Espèce des unités obligatoire"
-                        placeholder="" styleClass="form-control top"></p:inputText>
-
-                    <hr></hr>
-
-                    </div>
-
-
-
-
-                    <label for="text1" class="control-label col-lg-4">Etat
+					<label for="text1" class="control-label col-lg-4">Etat
                 </label>
 
                 <div class="col-lg-6">
 
 
-                    <p:selectOneMenu value="#{depositaireBean.curentMaterielEx.etat}" converter="#{refConverter}" panelStyle="width:180px"  style="width:160px"
+                    <p:selectOneMenu value="#{depositaireBean.curentMaterielNouv.etat}" converter="#{refConverter}" panelStyle="width:180px"  style="width:160px"
                          effect="fade" var="t" filter="true" filterMatchMode="startsWith">
                         <f:selectItem itemValue="#{null}" itemLabel="--select--" /> 
                             <f:selectItems value="#{siseBean.listEtatMateriel}" var="theme" itemLabel="#{theme.designation}" itemValue="#{theme}" />
@@ -194,11 +130,119 @@
                 <hr></hr>
                 </div>
                 
+                <label for="text1" class="control-label col-lg-4">Espèce des unités
+                    </label>
+
+                    <div class="col-lg-6">
+
+                        <p:inputText  required="true"
+                        value="#{depositaireBean.curentMaterielNouv.design.especeUnite}"
+                        requiredMessage="Champ Espèce des unités obligatoire"
+                        placeholder="" styleClass="form-control top"></p:inputText>
+
+                    <hr></hr>
+
+                    </div>
+                    
+                                        
+
+			</div>
+					<div class="col-md-4">
+
+                <label for="text1" class="control-label col-lg-4">Mode d'aquisition
+                </label>
+
+                <div class="col-lg-6">
+
+                     <p:selectOneMenu value="#{depositaireBean.curentMaterielNouv.design.modAcq}" converter="#{refConverter}" panelStyle="width:180px"  style="width:160px"
+                         effect="fade" var="t" filter="true" filterMatchMode="startsWith">
+                        <f:selectItem itemValue="#{null}" itemLabel="--select--" /> 
+                            <f:selectItems value="#{siseBean.listModeAcquisition}" var="theme" itemLabel="#{theme.designation}" itemValue="#{theme}" />
+                        <p:column>
+                            <h:outputText value="#{t.designation}" />
+                        </p:column>
+
+                    </p:selectOneMenu>
+
+
+                <hr></hr>
+
+                </div>
+                <label for="text1" class="control-label col-lg-4">Fournisseur
+                </label>
+
+                <div class="col-lg-6">
+
+                    <p:selectOneMenu value="#{depositaireBean.curentMaterielNouv.design.fournisseur}" converter="#{refConverter}" panelStyle="width:180px"  style="width:160px"
+                         effect="fade" var="t" filter="true" filterMatchMode="startsWith">
+                        <f:selectItem itemValue="#{null}" itemLabel="--select--" /> 
+                            <f:selectItems value="#{siseBean.listFournisseur}" var="theme" itemLabel="#{theme.designation}" itemValue="#{theme}" />
+                        <p:column>
+                            <h:outputText value="#{t.designation}" />
+                        </p:column>
+                    </p:selectOneMenu>
+
+
+                <hr></hr>
+
+                </div>
+                
+                <label for="text1" class="control-label col-lg-4">Origine
+                    </label>
+
+                    <div class="col-lg-6">
+
+                        <p:inputText  required="true"
+                        value="#{depositaireBean.curentMaterielNouv.design.origine}"
+                        requiredMessage="Champ Origine obligatoire"
+                        placeholder="" styleClass="form-control top"></p:inputText>
+
+                    <hr></hr>
+
+                    </div>
+
+
+                <label for="text1" class="control-label col-lg-4">Financement
+                </label>
+
+                <div class="col-lg-6">
+
+
+                    <p:selectOneMenu value="#{depositaireBean.curentMaterielNouv.design.financement}" converter="#{refConverter}" panelStyle="width:180px"  style="width:160px"
+                         effect="fade" var="t" filter="true" filterMatchMode="startsWith">
+                        <f:selectItem itemValue="#{null}" itemLabel="--select--" /> 
+                            <f:selectItems value="#{siseBean.listFinancement}" var="theme" itemLabel="#{theme.designation}" itemValue="#{theme}" />
+                        <p:column>
+                            <h:outputText value="#{t.designation}" />
+                        </p:column>
+                    </p:selectOneMenu>
+
+                <hr></hr>
+
+                </div>
+                
+                
+
+                    <label for="text1" class="control-label col-lg-4">Montant PU sur facture
+                    </label>
+
+                    <div class="col-lg-6">
+
+                        <p:inputText
+                        value="#{depositaireBean.curentMaterielNouv.design.pu}"
+            
+                        placeholder="Prix unitaire" styleClass="form-control top"></p:inputText>
+
+                    <hr></hr>
+
+                    </div>
+
+                
 			<!-- LES REFERENTIELS -->
              <p:panel>
              			<h:outputLabel for="reference" value="Référence:" />
                         <p:inputText id="reference"
-                        value="#{depositaireBean.curentMaterielEx.reference}"
+                        value="#{depositaireBean.curentMaterielNouv.reference}"
                         requiredMessage="Champ Référence obligatoire"
                         required="true"
                         placeholder="Référence" styleClass="form-control top"></p:inputText>
@@ -206,7 +250,7 @@
                         <p:panel>
                         <h:outputLabel for="numeroserie" value="Numero de série" />
                             <p:inputText  required="true" id="numeroserie"
-                        value="#{depositaireBean.curentMaterielEx.numSerie}"
+                        value="#{depositaireBean.curentMaterielNouv.numSerie}"
                         requiredMessage="Champ Numéro de série obligatoire"
                         placeholder="Numero de série" styleClass="form-control top"></p:inputText>
               </p:panel>
@@ -219,8 +263,8 @@
                     <p:commandButton id="btnSignId" value="Mettre à jour"
 				   
 				   styleClass="btn btn-lg btn-primary btn-block"
-				   actionListener="#{depositaireBean.updateMaterielExistant(depositaireBean.curentMaterielEx)}"
-   					oncomplete="if (!args.validationFailed) PF('modifMatex').hide();" 
+				   actionListener="#{depositaireBean.updateMaterielNouv(depositaireBean.curentMaterielNouv)}"
+   					oncomplete="if (!args.validationFailed) PF('modifMatNouv').hide();" 
    					update="@([id$=fileUpoadForm], [id$=MaterielTable])"/> 
    				</div>
 

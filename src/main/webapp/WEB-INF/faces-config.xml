@@ -712,7 +712,7 @@
 		</navigation-case>
 
 		<navigation-case>
-			<from-action>#{siseBean.addtypeObjet}</from-action>
+			<from-action>#{siseBean.addTypeObjet}</from-action>
 			<from-outcome>success</from-outcome>
 			<to-view-id>/pages/secure/CA/SISE/saisieRef.xhtml#type</to-view-id>
 			<redirect />

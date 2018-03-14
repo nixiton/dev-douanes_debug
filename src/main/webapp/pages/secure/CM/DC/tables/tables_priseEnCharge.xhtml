@@ -118,6 +118,8 @@
             </f:facet>
             <p:commandButton  action="#{depositaireBean.setCurentMaterielNouv(materiel)}"
             oncomplete="PF('detail').show()" icon="ui-icon-zoomin" update=":detail"/>
+             <p:commandButton  action="#{depositaireBean.setCurentMaterielNouv(materiel)}" update=":modifMatNouv"
+            oncomplete="PF('modifMatNouv').show()" icon="ui-icon-pencil"/>
         </p:column>
     </p:dataTable>
     
@@ -125,5 +127,7 @@
 </div>
 
 <ui:include src="/pages/secure/CM/DC/tables/dialogs/dialogs_priseEnCharge.xhtml"></ui:include>
+<ui:include src="/pages/secure/CM/DC/tables/dialogs/dialogs_modifSaisieMatNouv.xhtml"></ui:include>
+
 
 </html>

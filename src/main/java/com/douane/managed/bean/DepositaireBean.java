@@ -384,6 +384,8 @@ public class DepositaireBean {
 
 	public String exit() {
 		// this.setCurentMateriel(null);
+		this.curentMaterielEx = null;
+		this.curentMaterielNouv = null;
 		this.curentMateriel = null;
 		this.curentArticle = null;
 		setCurentNull();
@@ -2758,5 +2760,26 @@ public class DepositaireBean {
 			setAllNull();
 		}
 	}
+	public void updateMaterielNouv(MaterielNouv matNouv) {
+		if (matNouv == null) {
+			FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Erreur materiel", "Materiel null");
+			FacesContext.getCurrentInstance().addMessage("editmatexerror", message);
+
+		}
+		try {
+			usermetierimpl.updateMateriel(matNouv);
+
+		} catch (Exception e) {
+			FacesMessage messagea = new FacesMessage(FacesMessage.SEVERITY_WARN, "Erreur Modification Materiel",
+					"Ne respecte pas les contraintes");
+			FacesContext.getCurrentInstance().addMessage("editmatexerror", messagea);
+		} finally {
+
+			this.curentMateriel = null;
+			setCurentNull();
+			setAllNull();
+		}
+	}
+	
 
 }
