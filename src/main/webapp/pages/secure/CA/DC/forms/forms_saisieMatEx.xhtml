@@ -55,7 +55,7 @@
 
                     </h:selectOneMenu-->
 
-                        <p:selectOneMenu id="zone"  styleClass="form-control top" converter="#{refConverter}" value="#{depositaireBean.codeArticle}">
+                        <p:selectOneMenu id="zone"  styleClass="form-control top" converter="#{refConverter}" value="#{depositaireBean.articleExToAdd.codeArticle}">
                             <f:selectItem itemValue="#{null}" itemLabel="--select--" /> 
                             <f:selectItems value="#{siseBean.listCodeArticle}" var="type" itemLabel="#{type.designation}"/>
                             
@@ -75,7 +75,7 @@
 
                     <div class="col-lg-6">
 
-                    <p:selectOneMenu value="#{depositaireBean.marq}" converter="#{refConverter}" panelStyle="width:180px"  style="width:160px"
+                    <p:selectOneMenu value="#{depositaireBean.articleExToAdd.marqueArticle}" converter="#{refConverter}" panelStyle="width:180px"  style="width:160px"
                          effect="fade" var="t" filter="true" filterMatchMode="startsWith">
                         <f:selectItem itemValue="#{null}" itemLabel="select" /> 
                             <f:selectItems value="#{siseBean.listMarque}" var="theme" itemLabel="#{theme.designation}" itemValue="#{theme}" />
@@ -98,7 +98,7 @@
 
                     <div class="col-lg-6">
 						
-						<p:inputTextarea value="#{depositaireBean.renseignement}" rows="5" cols="20" counter="display" maxlength="250" counterTemplate="{0} restants." autoResize="false" />
+						<p:inputTextarea value="#{depositaireBean.articleExToAdd.caracteristiqueArticle}" rows="5" cols="20" counter="display" maxlength="250" counterTemplate="{0} restants." autoResize="false" />
     						<h:outputText id="display" />
                         <hr></hr>
 
@@ -110,7 +110,7 @@
                 <div class="col-lg-6">
 
                     <p:inputText required="true"
-                        value="#{depositaireBean.nombre}"
+                        value="#{depositaireBean.articleExToAdd.nombre}"
                         requiredMessage=""
                         placeholder="Nombre" styleClass="form-control top"></p:inputText>
 

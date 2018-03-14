@@ -566,10 +566,10 @@
     TARGET="rules:#pages#secure#CA#SISE#saisieRef.xhtml#marque"
     TITLE="#{siseBean.addMarqueCA}:success" model-entity="JSFProcessItemOutput"/>
    <PROCESS-ITEM-OUTPUT
-    ID="success:#{siseBean.addtypeObjet}:#pages#secure#CA#SISE#saisieRef.xhtml#type"
+    ID="success:#{siseBean.addTypeObjet}:#pages#secure#CA#SISE#saisieRef.xhtml#type"
     NAME="output80" PATH="/pages/secure/CA/SISE/saisieRef.xhtml#type"
     TARGET="rules:#pages#secure#CA#SISE#saisieRef.xhtml#type"
-    TITLE="#{siseBean.addtypeObjet}:success" model-entity="JSFProcessItemOutput"/>
+    TITLE="#{siseBean.addTypeObjet}:success" model-entity="JSFProcessItemOutput"/>
    <PROCESS-ITEM-OUTPUT
     ID="success:#{siseBean.addCodeArticle}:#pages#secure#CA#SISE#saisieRef.xhtml#nom"
     NAME="output81" PATH="/pages/secure/CA/SISE/saisieRef.xhtml#nom"
@@ -756,8 +756,6 @@
  <PROCESS-ITEM NAME="rules:#pages#secure#CA#DGD#listeMatStatHisto.xhtml"
   PATH="/pages/secure/CA/DGD/listeMatStatHisto.xhtml"
   SHAPE="816,5617,0,0" model-entity="JSFProcessGroup"/>
- <PROCESS-ITEM NAME="rules:#pages#secure#CA#SISE#saisieRef.xhtml#type"
-  PATH="/pages/secure/CA/SISE/saisieRef.xhtml/type" SHAPE="816,417,0,0" model-entity="JSFProcessGroup"/>
  <PROCESS-ITEM NAME="rules:#pages#secure#CA#SISE#saisieRef.xhtml#acq"
   PATH="/pages/secure/CA/SISE/saisieRef.xhtml/acq" SHAPE="816,417,0,0" model-entity="JSFProcessGroup"/>
  <PROCESS-ITEM NAME="rules:#pages#secure#CM#SISE#saisieRef.xhtml#loc"
@@ -1036,4 +1034,6 @@
   NAME="rules:#pages#secure#CM#DGD#listeMatStatGeneral.xhtml"
   PATH="/pages/secure/CM/DGD/listeMatStatGeneral.xhtml"
   SHAPE="816,4161,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#pages#secure#CA#SISE#saisieRef.xhtml#type"
+  PATH="/pages/secure/CA/SISE/saisieRef.xhtml/type" SHAPE="816,4193,0,0" model-entity="JSFProcessGroup"/>
 </PROCESS>

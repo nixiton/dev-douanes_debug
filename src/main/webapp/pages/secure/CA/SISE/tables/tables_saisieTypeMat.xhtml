@@ -9,6 +9,7 @@
 
 <div   class="body collapse in table-responsive">
 
+<h:form id="formTypArt" onkeypress="if (event.keyCode == 13) {return false; }">
 	<div class="col-lg-4">
 
 		<h:link value="Ajouter" outcome="add_TypeMatCA" 
@@ -17,27 +18,48 @@
 		<hr></hr>
 
 	</div>
-
+<p:growl for="myerrorReferentiel" id="msgtableTypeArt" showDetail="true" sticky="true" redisplay="false"/>
 	<p:dataTable   var="typemateriel" value="#{siseBean.listTypeObjet}" 
                  paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}  "
-                 paginator="true" rows="10" style="margin-bottom:20px">
+                 paginator="true" rows="10" style="margin-bottom:20px"
+                 editable="true"
+                 id="tableTypeArti"
+                 widgetVar="ArtTable"
+                 >
+        <p:ajax event="rowEdit" listener="#{siseBean.onRowEdit}" update=":formTypArt:msgtableTypeArt" oncomplete="PF('ArtTable').filter()"/>
 		<p:column>
 			<f:facet name="header">ID</f:facet>
 			#{typemateriel.id}
 		</p:column>
 		<p:column>
 			<f:facet name="header">Désignation</f:facet>
-			#{typemateriel.designation}
+			<p:cellEditor>
+               <f:facet name="output"><h:outputText value="#{typemateriel.designation}" /></f:facet>
+               <f:facet name="input"><p:inputText value="#{typemateriel.designation}" style="width:100%"/></f:facet>
+           </p:cellEditor>
+			
 		</p:column>
 		<p:column>
 			<f:facet name="header">Caracteristique</f:facet>
-			#{typemateriel.caracteristique}
+			<p:cellEditor>
+               <f:facet name="output"><h:outputText value="#{typemateriel.caracteristique}" /></f:facet>
+               <f:facet name="input"><p:inputText  value="#{typemateriel.caracteristique}" style="width:100%"/></f:facet>
+           </p:cellEditor>
+			
 		</p:column>
+		<p:column>
+           <p:rowEditor />
+       </p:column>
+       <p:column>
+       		<p:commandButton  action="#{siseBean.deleteRow(typemateriel)}"
+       icon="ui-icon-close" update=":formTypArt:msgtableTypeArt"
+       oncomplete="PF('ArtTable').filter()"/>
+       </p:column>
 		
 	</p:dataTable>
 
 
-
+</h:form>
 </div>
 
 </html>

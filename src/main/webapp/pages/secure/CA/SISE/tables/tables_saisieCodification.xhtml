@@ -9,6 +9,7 @@
 
 <div   class="body collapse in table-responsive">
 
+<h:form id="formCodi" onkeypress="if (event.keyCode == 13) {return false; }">
 	<div class="col-lg-4">
 
 		<h:link value="Ajouter" outcome="add_codif"
@@ -16,24 +17,54 @@
 		<hr></hr>
 
 	</div>
+<p:growl for="myerrorReferentiel" id="msgtableCodi" showDetail="true" sticky="true" redisplay="false"/>
 
 	<p:dataTable   var="nomenclature" value="#{siseBean.listCodeArticle}" 
                  paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}  "
-                 paginator="true" rows="10" style="margin-bottom:20px">
+                 paginator="true" rows="10" style="margin-bottom:20px"
+                 editable="true"
+                 id="tableCodi"
+                 widgetVar="codiTable"
+                 >
+        <p:ajax event="rowEdit" listener="#{siseBean.onRowEdit}" update=":formCodi:msgtableCodi" oncomplete="PF('codiTable').filter()"/>
+       
 		<p:column>
 			<f:facet name="header">ID</f:facet>
 			#{nomenclature.id}
 		</p:column>
 		<p:column>
 			<f:facet name="header">Désignation</f:facet>
-			#{nomenclature.designation}
+			<p:cellEditor>
+               <f:facet name="output"><h:outputText value="#{nomenclature.designation}" /></f:facet>
+               <f:facet name="input"><p:inputText value="#{nomenclature.designation}" style="width:100%"/></f:facet>
+           </p:cellEditor>
+			
 		</p:column>
 		<p:column>
 			<f:facet name="header">Type d'objet</f:facet>
-			#{nomenclature.typeObjet.designation}
+			<p:cellEditor>
+               <f:facet name="output"><h:outputText value="#{nomenclature.typeObjet.designation}" /></f:facet>
+               <f:facet name="input">
+                   <p:selectOneMenu id="zone" styleClass="form-control top"
+						converter="#{refConverter}" value="#{nomenclature.typeObjet}">
+						<f:selectItems value="#{siseBean.listTypeObjet}" var="type"
+							itemLabel="#{type.designation}" />
+					</p:selectOneMenu>
+               </f:facet>
+           </p:cellEditor>
+			
 		</p:column>
+		<p:column>
+           <p:rowEditor />
+             
+       </p:column>
+       <p:column>
+       		<p:commandButton  action="#{siseBean.deleteRow(nomenclature)}"
+       icon="ui-icon-close" update=":formCodi:msgtableCodi"
+       oncomplete="PF('CodiTable').filter()"/>
+       </p:column>
 	</p:dataTable>
-
+</h:form>
 </div>
 
 </html>

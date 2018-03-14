@@ -26,7 +26,7 @@
                  id="tableStateMat"
                  widgetVar="StateTable"
                  >
-        <p:ajax event="rowEdit" listener="#{siseBean.onRowEdit}" update=":formEtat:msgtableEtat" oncomplete="PF('EtatTable').filter()"/>
+        <p:ajax event="rowEdit" listener="#{siseBean.onRowEdit}" update=":formState:msgtableState" oncomplete="PF('EtatTable').filter()"/>
 		
 		<p:column>
 			<f:facet name="header">ID</f:facet>

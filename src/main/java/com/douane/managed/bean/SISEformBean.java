@@ -654,6 +654,7 @@ public class SISEformBean {
 	}
 
 	public List<TypeObjet> getListTypeObjet() {
+		if(this.listTypeObjet==null) {
 		ArrayList<Referentiel> r = (ArrayList<Referentiel>) refmetierimpl.listRef(new TypeObjet());
 		List<TypeObjet> ds = new ArrayList<TypeObjet>();
 		for (Object d : r) {
@@ -661,7 +662,9 @@ public class SISEformBean {
 				ds.add((TypeObjet) d);
 			}
 		}
-		return ds;
+		listTypeObjet= ds;
+		}
+		return this.listTypeObjet;
 	}
 
 	public void setListTypeObjet(List<TypeObjet> listTypeObjet) {
@@ -852,7 +855,10 @@ public class SISEformBean {
 	}
 
 	public List<CodeArticle> getListCodeArticle() {
-		return usermetierimpl.listCodeArticle();
+		if(this.listCodeArticle==null) {
+			this.listCodeArticle = usermetierimpl.listCodeArticle();
+		}
+		return this.listCodeArticle;
 	}
 
 	public void setListCodeArticle(List<CodeArticle> listCodeArticle) {
