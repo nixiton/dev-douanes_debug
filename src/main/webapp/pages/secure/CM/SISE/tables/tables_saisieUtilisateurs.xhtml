@@ -12,9 +12,10 @@
 <p:growl for="myerrorReferentiel" id="msgtableUser" showDetail="true" sticky="true" redisplay="false"/>
 	<div class="col-lg-4">
 
-		<h:link value="Ajouter Utilisateur" outcome="add_Utilisateur"
-			class="btn btn-primary-lg btn-primary btn-block" immediate="true" />
-			
+		<h:link value="" outcome="add_Utilisateur"
+			class="btn btn-primary btn-lg btn-block " immediate="true" >
+			<i class="fa fa-plus-circle">  </i>  Ajouter
+		</h:link>
 		<hr></hr>
 
 	</div>
@@ -27,7 +28,7 @@
                  widgetVar="UserTable"
                  >
 		<p:column>
-			<f:facet name="header">Imatriculation</f:facet>
+			<f:facet name="header">Immatriculation</f:facet>
 			#{f.im}
 		</p:column>
 		<p:column>

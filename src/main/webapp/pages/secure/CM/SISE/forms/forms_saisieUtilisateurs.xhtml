@@ -154,14 +154,18 @@
             <hr></hr>
             <div class="row">
 				<div class="col-lg-6 col-lg-offset-3"> 
-					<h:commandButton id="addUser" action="#{userMB.addAgent}"
-						value="S'enregistrer" ajax="false" class="btn btn-lg btn-primary btn-block" />
+					<h:commandLink id="addUser" action="#{userMB.addAgent}"
+						value="" ajax="false" class="btn btn-lg btn-primary btn-block" >
+						<i class="fa fa-sign-in"> </i>  S'enregistrer
+					</h:commandLink>
 				</div>
 			</div>	
 			<div class="row">
 				<div class="col-lg-6 col-lg-offset-3"> 
-					<h:commandButton id="reset" action="#{userMB.reset}"
-						value="Réinitialiser" ajax="false" class="btn btn-lg btn-primary btn-block" />
+					<h:commandLink id="reset" action="#{userMB.reset}"
+						value="" ajax="false" class="btn btn-lg btn-primary btn-block" >
+						<i class=" fa fa-refresh"> </i>  Réinitialiser
+					</h:commandLink>
 				</div>
 			</div>
 			</h:form>
