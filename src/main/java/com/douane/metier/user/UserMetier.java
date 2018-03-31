@@ -1306,5 +1306,11 @@ public class UserMetier implements IUserMetier {
 		return matrepos.save(m);
 	}
 
+	@Override
+	public void updateArticle(Article art) {
+		// TODO Auto-generated method stub
+		artreops.save(art);
+	}
+
 
 }

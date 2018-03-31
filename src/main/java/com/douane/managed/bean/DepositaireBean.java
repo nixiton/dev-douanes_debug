@@ -2854,5 +2854,47 @@ public class DepositaireBean {
 
 	private Agent detenteurDett;
 	private Materiel materielSeclectedDett;
+	
+	public void updateArticleEx(ArticleEx art) {
+		if (art == null) {
+			FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Erreur article", "Article null");
+			FacesContext.getCurrentInstance().addMessage("editartexerror", message);
+
+		}
+		try {
+			usermetierimpl.updateArticle(art);
+
+		} catch (Exception e) {
+			FacesMessage messagea = new FacesMessage(FacesMessage.SEVERITY_WARN, "Erreur Modification Article",
+					"Ne respecte pas les contraintes");
+			FacesContext.getCurrentInstance().addMessage("editartexerror", messagea);
+		} finally {
+
+			this.curentArticle = null;
+			setCurentNull();
+			setAllNull();
+		}
+		
+	}
+	public void updateArticleNouv(ArticleNouv art) {
+		if (art == null) {
+			FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Erreur article", "Article null");
+			FacesContext.getCurrentInstance().addMessage("editartnouverror", message);
+
+		}
+		try {
+			usermetierimpl.updateArticle(art);
+
+		} catch (Exception e) {
+			FacesMessage messagea = new FacesMessage(FacesMessage.SEVERITY_WARN, "Erreur Modification Article",
+					"Ne respecte pas les contraintes");
+			FacesContext.getCurrentInstance().addMessage("editartnouverror", messagea);
+		} finally {
+
+			this.curentArticle = null;
+			setCurentNull();
+			setAllNull();
+		}
+	}
 
 }

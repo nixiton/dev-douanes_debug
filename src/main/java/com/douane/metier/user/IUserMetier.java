@@ -196,4 +196,5 @@ public interface IUserMetier {
 	
 	public List<Object[]> listDesignationByOperationEntree(OpEntree operationentree);
 	public List<OpEntree> listOpentreeByStateByDirection(EtatOperation etat, Direction d);
+	public void updateArticle(Article art);
 }

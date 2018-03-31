@@ -43,11 +43,15 @@
             </f:facet>
             <p:commandButton  action="#{depositaireBean.mySetCurentArticle(a)}" update=":detail"
             oncomplete="PF('detail').show()" icon="ui-icon-zoomin"/>
+            
+            <p:commandButton  action="#{depositaireBean.mySetCurentArticle(a)}" update=":modifArt"
+            oncomplete="PF('modifArt').show()" icon="ui-icon-pencil"/>
         </p:column>
     </p:dataTable>
     </h:form>
 </div>
 
 <ui:include src="/pages/secure/CA/DC/tables/dialogs/dialogs_saisieMatEx.xhtml"></ui:include>
+<ui:include src="/pages/secure/CA/DC/tables/dialogs/dialogs_modifArt.xhtml"></ui:include>
 
 </html>

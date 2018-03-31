@@ -1,0 +1,135 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+ <p:dialog id="modifArt" widgetVar="modifArt"  closable="false"
+    		  header   = "Modification d'une article Existant" 
+              position = "center"
+              modal    = "true">
+<h:body>
+<p:growl for="editartexerror" redisplay="false" id="messagesgrowlmodify" showDetail="true" autoUpdate="true" />
+     
+<div class="col-md-4"></div>
+<div class="box dark col-md-4">
+
+    <div class="body">
+
+        <h:form id="fileUpoadForm" class="form-horizontal" prependId="false"
+                enctype="multipart/form-data">
+
+            
+            <p:messages id="messages" />
+
+            <div class="form-group">
+            		<label for="text1" class="control-label col-lg-4">Id
+                    </label>
+
+                    <div class="col-lg-6">
+                    <h:outputText value="#{depositaireBean.curentArticle.idArticle}" />
+                    <hr></hr>
+                    </div>            
+                	
+                    <label for="text1" class="control-label col-lg-4">Codification des articles
+                    </label>
+
+                    <div class="col-lg-6">
+
+                        <p:selectOneMenu id="zone"  styleClass="form-control top" converter="#{refConverter}" value="#{depositaireBean.curentArticle.codeArticle}">
+                            <f:selectItem itemValue="#{null}" itemLabel="--select--" /> 
+                            <f:selectItems value="#{siseBean.listCodeArticle}" var="type" itemLabel="#{type.designation}"/>
+                            
+                        </p:selectOneMenu>
+                    <hr></hr>
+
+                    </div>
+
+                    <label for="text1" class="control-label col-lg-4">Marque
+                    </label>
+
+                    <div class="col-lg-6">
+
+                    <p:selectOneMenu value="#{depositaireBean.curentArticle.marqueArticle}" converter="#{refConverter}" panelStyle="width:180px"  style="width:160px"
+                         effect="fade" var="t" filter="true" filterMatchMode="startsWith">
+                        <f:selectItem itemValue="#{null}" itemLabel="select" /> 
+                            <f:selectItems value="#{siseBean.listMarque}" var="theme" itemLabel="#{theme.designation}" itemValue="#{theme}" />
+                        <p:column>
+                            <h:outputText value="#{t.designation}" />
+                        </p:column>
+
+                    </p:selectOneMenu>
+
+                    <hr></hr>
+
+                    </div>
+
+                    
+
+
+
+                    <label for="text1" class="control-label col-lg-4">Caractéristiques
+                    </label>
+
+                    <div class="col-lg-6">
+						
+						<p:inputTextarea value="#{depositaireBean.curentArticle.caracteristiqueArticle}" rows="5" cols="20" counter="display" maxlength="250" counterTemplate="{0} restants." autoResize="false" />
+    						<h:outputText id="display" />
+                        <hr></hr>
+
+                    </div>
+
+                     <label for="text2" class="control-label col-lg-4">Nombre
+                </label>
+
+                <div class="col-lg-6">
+
+                    <p:inputText required="true"
+                        value="#{depositaireBean.curentArticle.nombre}"
+                        requiredMessage=""
+                        placeholder="Nombre" styleClass="form-control top"></p:inputText>
+
+                </div>
+                    
+
+
+
+                    <div class="col-lg-2"></div>
+
+            </div>
+
+
+
+            
+            
+            <div class="form-group">
+                <label for="text1" class="control-label col-lg-4"></label>
+
+                <div class="col-lg-4">
+                    <h:commandButton id="btnSignId" action="#{depositaireBean.updateArticleEx(depositaireBean.curentArticle)}" value="Mettre à jour"
+                        class="btn btn-lg btn-primary btn-block"/>
+                </div>
+                
+
+                <div class="col-lg-4">
+                <h:commandButton action="#{depositaireBean.exit()}" value="Cancel" 
+            		class="btn btn-lg btn-primary btn-block">      
+            </h:commandButton>
+                </div>
+
+            </div>
+
+            
+
+
+        </h:form>
+
+    </div>
+
+</div>
+
+<div class="col-md-4"></div>
+</h:body>
+</p:dialog>
+</html>
