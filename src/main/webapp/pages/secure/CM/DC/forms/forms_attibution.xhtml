@@ -46,7 +46,7 @@
 
                 <div class="col-lg-6">
 
-                    <h:outputText id="num" value="#{depositaireBean.nomenclatureAutom}" ></h:outputText>
+                    <h:outputText id="num" value="#{depositaireBean.materielSeclected.design.typematerieladd.nomenclaureParent.designation}" ></h:outputText>
 
                     <hr></hr>
 
@@ -59,7 +59,7 @@
                 <div class="col-lg-6">
 
                     <!--h:inputText id="marque" value="#{depositaireBean.marq.designation}" ></h:inputText-->
-                    <h:outputText id="marque" value="#{depositaireBean.marqueAutom != null ? depositaireBean.marqueAutom.designation : ''}"/>
+                    <h:outputText id="marque" value="#{depositaireBean.materielSeclected.design.marque.designation != null ? depositaireBean.materielSeclected.design.marque.designation : ''}"/>
 
                     <hr></hr>
 
@@ -72,7 +72,7 @@
 
                 <div class="col-lg-6">
 
-                    <h:outputText id="ref"  value="#{depositaireBean.referenceAutom}" ></h:outputText>
+                    <h:outputText id="ref"  value="#{depositaireBean.materielSeclected.reference}" ></h:outputText>
 
                     <hr></hr>
 
@@ -110,7 +110,7 @@
 
                 <div class="col-lg-6">
 
-                    <h:outputText id="nom" value="#{depositaireBean.nom}" 
+                    <h:outputText id="nom" value="#{depositaireBean.detenteur.nomAgent}" 
                         ></h:outputText>
 
                 <hr></hr>

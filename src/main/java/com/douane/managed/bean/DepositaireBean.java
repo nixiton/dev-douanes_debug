@@ -254,6 +254,9 @@ public class DepositaireBean {
 		this.setMontantFac(null);
 		this.setRefFacture(null);
 		this.setFournisseur(null);
+		
+		this.setDetenteurDett(null);
+		this.setMaterielSeclectedDett(null);
 
 		// documentList = initialize();
 		// imageList = initializeImageFile();
@@ -322,6 +325,11 @@ public class DepositaireBean {
 		this.motifSortie = null;
 
 		this.materiel = null;
+		
+
+		this.setDetenteurDett(null);
+		this.setMaterielSeclectedDett(null);
+
 
 	}
 
@@ -1572,7 +1580,7 @@ public class DepositaireBean {
 		System.out.println("****************************ADD DETACHEMENT********************************");
 		try {
 			// getCurrent Materiel ve?????
-			opDet = usermetierimpl.reqDettachement(this.getMaterielSeclected(), agent, getDetenteur(),
+			opDet = usermetierimpl.reqDettachement(this.getMaterielSeclectedDett(), agent, getDetenteurDett(),
 					this.getMotifDettachement());
 			setAllNull();
 			return SUCCESS;
@@ -2827,6 +2835,24 @@ public class DepositaireBean {
 
 		return SUCCESS;
 	}
+	
+	public Agent getDetenteurDett() {
+		return detenteurDett;
+	}
 
+	public void setDetenteurDett(Agent detenteurDett) {
+		this.detenteurDett = detenteurDett;
+	}
+
+	public Materiel getMaterielSeclectedDett() {
+		return materielSeclectedDett;
+	}
+
+	public void setMaterielSeclectedDett(Materiel materielSeclectedDett) {
+		this.materielSeclectedDett = materielSeclectedDett;
+	}
+
+	private Agent detenteurDett;
+	private Materiel materielSeclectedDett;
 
 }
