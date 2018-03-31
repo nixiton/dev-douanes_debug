@@ -20,8 +20,10 @@ import com.douane.entite.Materiel;
 import com.douane.entite.OpAttribution;
 import com.douane.entite.OpDettachement;
 import com.douane.entite.OpEntree;
+import com.douane.entite.OpEntreeArticle;
 import com.douane.entite.OpSaisie;
 import com.douane.entite.OpSortie;
+import com.douane.entite.OpSortieArticle;
 import com.douane.entite.Operation;
 import com.douane.entite.Referentiel;
 import com.douane.metier.referentiel.IRefMetier;
@@ -73,6 +75,8 @@ public class DtFilterView implements Serializable{
 		ops.add(OpSaisie.class);
 		ops.add(OpAttribution.class);
 		ops.add(OpDettachement.class);
+		ops.add(OpEntreeArticle.class);
+		ops.add(OpSortieArticle.class);
 		return ops;
 	}
 
@@ -99,15 +103,21 @@ public class DtFilterView implements Serializable{
 	}
 	public String getOperationName(Class op) {
 		if(op ==OpEntree.class) {
-			return "Opération Entrée";
+			return "Opération Entrée Matériel";
 		}else if(op==OpSortie.class) {
-			return "Opération Sortie";
+			return "Opération Sortie Matériel";
 		}else if(op==OpSaisie.class) {
 			return "Saisie de référentiel";
 		}else if(op==OpAttribution.class) {
 			return "Opération attribution";
 		}else if(op==OpDettachement.class) {
 			return "Opération Déttachement";
+		}
+		else if(op==OpEntreeArticle.class) {
+			return "Opération Entrée Article";
+		}
+		else if(op==OpSortieArticle.class) {
+			return "Opération Sortie Article";
 		}
 		return "";
 	}
