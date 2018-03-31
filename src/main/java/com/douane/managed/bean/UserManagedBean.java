@@ -111,8 +111,8 @@ public class UserManagedBean implements Serializable {
 			FacesContext.getCurrentInstance().addMessage("editagenterror", messagea);
 		}
 		finally {
-			Map<String,Object> sessionMapObj = FacesContext.getCurrentInstance().getExternalContext().getSessionMap();
-			sessionMapObj.remove("editAgent");
+			//Map<String,Object> sessionMapObj = FacesContext.getCurrentInstance().getExternalContext().getSessionMap();
+			//sessionMapObj.remove("editAgent");
 		}
 	}
 	
@@ -683,7 +683,7 @@ public class UserManagedBean implements Serializable {
 		Map<String,Object> sessionMapObj = FacesContext.getCurrentInstance().getExternalContext().getSessionMap();
 		FacesMessage messagea = new FacesMessage(FacesMessage.SEVERITY_INFO, "Modification Agent", "La modification a été annulée");
 		FacesContext.getCurrentInstance().addMessage("editagenterror", messagea);
-		sessionMapObj.remove("editAgent");
+		//sessionMapObj.remove("editAgent");
 		
 		return null;
 	}

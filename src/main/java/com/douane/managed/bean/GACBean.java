@@ -967,6 +967,8 @@ public class GACBean {
         this.opSortieToValidate = null;
     	this.opDetToValidate = null;
     	this.opAttrToValidate = null;
+    	opEntreeArticleToValidate = null;
+    	opSortieArticleToValidate = null;
 
     }
 
@@ -1028,6 +1030,9 @@ public class GACBean {
 	private OpSortie opSortieToValidate;
 	private OpDettachement opDetToValidate;
 	private OpAttribution opAttrToValidate;
+	
+	private Operation opEntreeArticleToValidate;
+	private Operation opSortieArticleToValidate;
 
 
 	public OpEntree getOpEntreeToValidate() {
@@ -1067,6 +1072,22 @@ public class GACBean {
 	public List<Object[]> getDesingationByOpEntree(Operation op){
 		List<Object[]> results = usermetierimpl.listDesignationByOperationEntree((OpEntree)op);
 		return results;
+	}
+
+	public Operation getOpSortieArticleToValidate() {
+		return opSortieArticleToValidate;
+	}
+
+	public void setOpSortieArticleToValidate(OpSortieArticle opSortieArticleToValidate) {
+		this.opSortieArticleToValidate = opSortieArticleToValidate;
+	}
+
+	public Operation getOpEntreeArticleToValidate() {
+		return opEntreeArticleToValidate;
+	}
+
+	public void setOpEntreeArticleToValidate(OpEntreeArticle opEntreeArticleToValidate) {
+		this.opEntreeArticleToValidate = opEntreeArticleToValidate;
 	}
 
 }

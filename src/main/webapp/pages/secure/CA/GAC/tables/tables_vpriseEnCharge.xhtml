@@ -49,10 +49,10 @@
             <f:facet name="header">
                 <h:outputText value="Détail" />
             </f:facet>
-            <p:commandButton rendered="#{a.state eq 'WAITING' }" action="#{gacBean.setCurentOperation3(a)}" update=":detail"
+            <p:commandButton rendered="#{a.state eq 'WAITING' }" action="#{gacBean.setOpEntreeArticleToValidate(a)}" update=":detail"
             oncomplete="PF('detail').show()" icon="ui-icon-circle-check"/>
 
-            <p:commandButton action="#{gacBean.setCurentOperation3(a)}" update=":detail"
+            <p:commandButton action="#{gacBean.setOpEntreeArticleToValidate(a)}" update=":detail"
             oncomplete="PF('detail').show()" icon="ui-icon-zoomin"/>
         
         </p:column>

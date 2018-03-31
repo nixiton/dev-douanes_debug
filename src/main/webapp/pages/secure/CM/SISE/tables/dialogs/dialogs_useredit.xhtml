@@ -7,7 +7,7 @@
       xmlns:p="http://primefaces.org/ui" xmlns:c="http://java.sun.com/jsp/jstl/core"
 >
 
-    <p:dialog id="detail" widgetVar="detail" closable="false"
+    <p:dialog id="detailuser" widgetVar="detailuser" closable="false"
     			header   = "Modification Agent et Utilisateur" 
               position = "center"
               modal    = "true"
@@ -103,7 +103,7 @@
 				   
 				   styleClass="btn btn-lg btn-primary btn-block"
 				   actionListener="#{userMB.updateAgent(editAgent)}"
-   					oncomplete="if (!args.validationFailed) PF('detail').hide();" 
+   					oncomplete="if (!args.validationFailed) PF('detailuser').hide();" 
    					update="@([id$=ad], [id$=tableUserMat])"/>
 					</div>
 					</div>
