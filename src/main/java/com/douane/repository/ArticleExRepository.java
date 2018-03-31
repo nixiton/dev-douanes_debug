@@ -12,6 +12,7 @@ import com.douane.entite.Direction;
 public interface ArticleExRepository extends CrudRepository<ArticleEx,Long>{
 	public List<ArticleEx> findByDirecArt(Direction direc);
 	public List<ArticleNouv> findByValidationAndDirecArt(boolean validation, Direction direc);
+	public List<ArticleEx> findByDirecArtOrderByIdArticleDesc(Direction d);
     
     
 }

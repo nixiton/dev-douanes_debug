@@ -150,7 +150,7 @@ public interface IUserMetier {
 
 	public Article entrerArticle(OpEntreeArticle opentreeart);
 	public Article sortirArticle(OpSortieArticle sortieart) throws Exception;
-	public List<ArticleEx> getListArticleEx();
+	public List<ArticleEx> getListArticleEx(Direction d);
 	public List<ArticleNouv> getListAllArticleNouv();
 	public List<Article> getListAllArticle();
 	public List<Article> getListArticleValideByDirection(Direction d);

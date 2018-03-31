@@ -83,6 +83,12 @@
 			<p:panel rendered="#{c['class'].simpleName eq 'OpSortie' }">
             Décharge
             </p:panel>
+            <p:panel rendered="#{c['class'].simpleName eq 'OpEntreeArticle' }">
+            Saisie  artcile
+            </p:panel>
+            <p:panel rendered="#{c['class'].simpleName eq 'OpSortieArticle' }">
+            Sortie article
+            </p:panel>
             </h:outputLink>
 			<p:tooltip id="idpopup" for="popuit" value="Identifiant: #{c.id}" trackMouse="true" />
         </p:column>

@@ -37,10 +37,21 @@
                             <p:column>
                             <h:outputText value="#{t.im}" />
                         </p:column>
+                        <p:ajax event="change" update="nom"/>
                         </p:selectOneMenu>
 
                 <hr></hr>
 
+
+                </div>
+                <label for="text1" class="control-label col-lg-4">Nom Beneficiaire
+                </label>
+
+                <div class="col-lg-6">
+
+                    <h:outputText id="nom" value="#{depositaireBean.agentDest != null ? depositaireBean.agentDest.nomAgent : ''}"/>
+
+                    <hr></hr>
 
                 </div>
                 
@@ -59,23 +70,23 @@
                         <p:column>
                             <h:outputText value="#{t.codeArticle.designation}" />
                         </p:column>
+                        <p:ajax event="change" update="nombre"/>
                     </p:selectOneMenu>
 
                 <hr></hr>
 
                 </div>
 
-                <!--label for="text2" class="control-label col-lg-4">Nombre
+                <label for="text1" class="control-label col-lg-4">Nombre
                 </label>
 
                 <div class="col-lg-6">
 
-                    <p:inputText required="true"
-                        value="#{depositaireBean.nombre}"
-                        requiredMessage=""
-                        placeholder="Nombre" styleClass="form-control top"></p:inputText>
+                    <h:outputText id="nombre" value="#{depositaireBean.article != null ? depositaireBean.article.nombre : ''}"/>
 
-                </div-->
+                    <hr></hr>
+
+                </div>
                 
                 
 

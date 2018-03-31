@@ -574,7 +574,7 @@ public class OperationDAOImpl implements IOperationDAO{
 				+ "where "
 				+ " oeart.date>=:startDate AND oeart.date<=:endDate"
 				+ filtreDirection
-	       		+ " order by oeart.date desc "
+	       		+ " order by oeart.id desc "
 	       		,OpEntreeArticle.class);
 		if(direction!=null) {
 			query.setParameter("direct", direction);
@@ -596,7 +596,7 @@ public class OperationDAOImpl implements IOperationDAO{
 		TypedQuery<OpSortieArticle> query = em.createQuery("select osart from OpSortieArticle osart "
 				+ "where osart.date>=:startDate AND osart.date<=:endDate"
 				+ " and osart.direction =:direct"
-	       		+ " order by osart.date desc "
+	       		+ " order by osart.id desc "
 	       		,OpSortieArticle.class);
 		query.setParameter("direct", direction);
 		query.setParameter("startDate", startDate, TemporalType.DATE);

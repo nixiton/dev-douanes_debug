@@ -20,6 +20,12 @@
             </f:facet>
             <h:outputText value="#{a.article.idArticle}" />
         </p:column>
+        <p:column>
+            <f:facet name="header">
+                <h:outputText value="Date"/>
+            </f:facet>
+            <h:outputText value="#{a.date}" />
+        </p:column>
 
         <p:column>
             <f:facet name="header">
@@ -50,10 +56,10 @@
             <f:facet name="header">
                 <h:outputText value="Détail" />
             </f:facet>
-            <p:commandButton rendered="#{a.state eq 'WAITING' }" action="#{gacBean.setCurentOperation3(a)}" update=":detail"
+            <p:commandButton rendered="#{a.state eq 'WAITING' }" action="#{gacBean.setOpSortieArticleToValidate(a)}" update=":detail"
             oncomplete="PF('detail').show()" icon="ui-icon-circle-check"/>
 
-            <p:commandButton action="#{gacBean.setCurentOperation3(a)}" update=":detail"
+            <p:commandButton action="#{gacBean.setOpSortieArticleToValidate(a)}" update=":detail"
             oncomplete="PF('detail').show()" icon="ui-icon-zoomin"/>
         
         </p:column>

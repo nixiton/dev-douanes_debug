@@ -636,15 +636,15 @@
     TARGET="rules:#pages#secure#CA#DC#priseEnCharge.xhtml"
     TITLE="#{depositaireBean.addArticleNouv}:success" model-entity="JSFProcessItemOutput"/>
    <PROCESS-ITEM-OUTPUT
-    ID="success:#{depositaireBean.addPriseEnchargeNouveMat}:#pages#secure#CM#DC#priseEnCharge.xhtml"
-    NAME="output92" PATH="/pages/secure/CM/DC/priseEnCharge.xhtml"
-    TARGET="rules:#pages#secure#CM#DC#priseEnCharge.xhtml"
-    TITLE="#{depositaireBean.addPriseEnchargeNouveMat}:success" model-entity="JSFProcessItemOutput"/>
+    ID="success:#{depositaireBean.addRequeteSortieNouv}:pages#secure#admin#adminCA.xhtml"
+    NAME="output92" PATH="pages/secure/admin/adminCA.xhtml"
+    TARGET="rules:pages#secure#admin#adminCA.xhtml"
+    TITLE="#{depositaireBean.addRequeteSortieNouv}:success" model-entity="JSFProcessItemOutput"/>
    <PROCESS-ITEM-OUTPUT
-    ID="success:#{depositaireBean.addPriseEnchargeOp}:#pages#secure#CM#DC#priseEnCharge.xhtml"
+    ID="success:#{depositaireBean.addPriseEnchargeNouveMat}:#pages#secure#CM#DC#priseEnCharge.xhtml"
     NAME="output95" PATH="/pages/secure/CM/DC/priseEnCharge.xhtml"
     TARGET="rules:#pages#secure#CM#DC#priseEnCharge.xhtml"
-    TITLE="#{depositaireBean.addPriseEnchargeOp}:success" model-entity="JSFProcessItemOutput"/>
+    TITLE="#{depositaireBean.addPriseEnchargeNouveMat}:success" model-entity="JSFProcessItemOutput"/>
    <PROCESS-ITEM-OUTPUT
     ID="success:#{depositaireBean.addDecharge}:#pages#secure#admin#adminCM.xhtml"
     NAME="output96" PATH="/pages/secure/admin/adminCM.xhtml"
@@ -1036,4 +1036,6 @@
   SHAPE="816,4161,0,0" model-entity="JSFProcessGroup"/>
  <PROCESS-ITEM NAME="rules:#pages#secure#CA#SISE#saisieRef.xhtml#type"
   PATH="/pages/secure/CA/SISE/saisieRef.xhtml/type" SHAPE="816,4193,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:pages#secure#admin#adminCA.xhtml"
+  PATH="pages/secure/admin/adminCA.xhtml" SHAPE="816,4193,0,0" model-entity="JSFProcessGroup"/>
 </PROCESS>

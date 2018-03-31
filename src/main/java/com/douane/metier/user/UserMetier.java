@@ -614,9 +614,9 @@ public class UserMetier implements IUserMetier {
 	}
 
 	@Override
-	public List<ArticleEx> getListArticleEx() {
+	public List<ArticleEx> getListArticleEx(Direction d) {
 		// TODO Auto-generated method stub
-		return (List<ArticleEx>) artexreops.findAll();
+		return (List<ArticleEx>) artexreops.findByDirecArtOrderByIdArticleDesc(d);
 		// return null;
 	}
 
@@ -979,7 +979,7 @@ public class UserMetier implements IUserMetier {
 	public OpSortieArticle reqSortirRefuser(OpSortieArticle sortArt, String motif) throws Exception {
 		// TODO Auto-generated method stub
 		// try{
-		if (sortArt.getArticle().isValidation()) {
+		if (!sortArt.getArticle().isValidation()) {
 			throw new Exception("Requete deja validée");
 		}
 		sortArt.arefuser(motif);
@@ -1155,7 +1155,7 @@ public class UserMetier implements IUserMetier {
 	@Override
 	public List<ArticleNouv> getListArtNouvByValidationByDirection(boolean val, Direction d) {
 		// TODO Auto-generated method stub
-		return artnouvreops.findByValidationAndDirecArt(val, d);
+		return artnouvreops.findByValidationAndDirecArtOrderByIdArticleDesc(val, d);
 	}
 
 	@Override

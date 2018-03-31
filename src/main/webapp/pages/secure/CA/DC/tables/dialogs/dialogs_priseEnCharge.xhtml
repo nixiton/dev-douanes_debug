@@ -31,10 +31,19 @@
                         <td></td>
                         <td><strong>Fournisseur</strong></td>
                         <td>#{depositaireBean.curentArticle.fournisseur.designation}</td>
-                        <td><strong>Prix</strong></td>
+                        <td><strong>Prix unitaire</strong></td>
                         <td>#{depositaireBean.curentArticle.prix}</td>
                         <td><strong>Nombre</strong></td>
                         <td>#{depositaireBean.curentArticle.nombre}</td>
+                    </tr>
+                    <tr>
+                    	<td></td>
+                        <td><strong>Validité</strong></td>
+                        <td>#{depositaireBean.curentArticle.validation}</td>
+                    </tr>
+                    <tr>
+                    <td><strong>Caractéristique</strong></td>
+                        <td>#{depositaireBean.curentArticle.caracteristiqueArticle}</td>
                     </tr>
 
         </table>

@@ -15,5 +15,6 @@ import java.util.List;
 public interface ArticleNouvRepository extends CrudRepository<ArticleNouv,Long>  {
     public List<ArticleNouv> findAll();
     public List<ArticleNouv> findByValidationAndDirecArt(boolean validation, Direction direc);
+	public List<ArticleNouv> findByValidationAndDirecArtOrderByIdArticleDesc(boolean val, Direction d);
     
 }
