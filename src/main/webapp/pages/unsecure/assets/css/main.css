@@ -2603,7 +2603,7 @@ table, .ui-datatable-tablewrapper {
 }
 
 #detail, #statut, #historique{
-  width: 100%!important;
+  width: 100%;
 }
 
 .ui-widget-content {

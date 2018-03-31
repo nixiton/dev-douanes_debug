@@ -20,37 +20,39 @@
                  paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {Exporters}"
                  paginator="true" rows="20" style="margin-bottom:20px"
                  emptyMessage="Aucun resultat" filteredValue="#{dtFilterView.filteredOperations}">
-        
+       
         <f:facet name="{Exporters}">
             <h:commandLink>
-                excel
+                <i class="fa fa-table">  </i> Excel
                 <p:dataExporter type="xls" target="historiquemateriels" fileName="historiquemateriels" />
             </h:commandLink>
- 
+ 			<span>   </span>
             <h:commandLink>
-            pdf
+            	<i class="fa fa-file">  </i> PDF
                 <p:dataExporter type="pdf" target="historiquemateriels" fileName=">historiquemateriels"/>
             </h:commandLink>
         </f:facet>
         
-        <p:column headerText="ID" filterBy="#{materiel.idMateriel}" filterMatchMode="contains">
+        <p:column headerText="" filterBy="#{materiel.idMateriel}" filterMatchMode="contains">
+            <f:facet name="header"><h6><b>ID</b></h6></f:facet>
             <h:outputText value="#{materiel.idMateriel}" />
             
         </p:column>
         <p:column filterBy="#{materiel.numSerie}" filterMatchMode="contains">
-            <f:facet name="header">Numero Serie</f:facet>
+            <f:facet name="header"><h6><b>Numéro Série</b></h6></f:facet>
             <h:outputText value="#{materiel.numSerie}" />
             
         </p:column>
         <p:column filterBy="#{materiel.code}" filterMatchMode="contains">
-            <f:facet name="header">Codification</f:facet>
+            <f:facet name="header"><h6><b>Codification</b></h6></f:facet>
             <h:outputText value="#{materiel.code}" />
             
         </p:column>
-        <p:column filterBy="#{materiel.design.nomenMat}" headerText="Nomenclature"  filterMatchMode="exact">
+        <p:column filterBy="#{materiel.design.nomenMat}" headerText=""  filterMatchMode="exact">
+            <f:facet name="header"><h6><b>Nomenclature</b></h6></f:facet>
             <f:facet name="filter">
                 <p:selectOneMenu onchange="PF('MaterielTable').filter()" >
-                    <f:selectItem itemLabel="Selectioner" itemValue="#{null}" noSelectionOption="true" />
+                    <f:selectItem itemLabel="Select" itemValue="#{null}" noSelectionOption="true" />
                     <f:selectItems value="#{siseBean.listNomenclature}" />
                 </p:selectOneMenu>
             </f:facet>
@@ -108,7 +110,7 @@
             </f:facet>
             <h:outputText value="#{materiel.validation ? 'Validé': 'Non Validé'}" />
         </p:column>
-        <p:column filterBy="#{materiel.detenteur}" headerText="Detenteur" filterFunction="#{dtFilterView.filterByDetenteur}">
+        <p:column filterBy="#{materiel.detenteur}" headerText="Détenteur" filterFunction="#{dtFilterView.filterByDetenteur}">
             <f:facet name="filter">
                 <p:selectOneButton onchange="PF('MaterielTable').filter()">
                     <f:selectItem itemLabel="Tout" itemValue="all" />

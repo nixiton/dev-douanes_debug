@@ -17,14 +17,16 @@
 
             <p:messages id="messages" />
 
-            
+            <br></br>
 
             <div class="form-group">
 
 				<!-- MATERIEL -->
-                <label for="text1" class="control-label col-lg-4">Matériel
-                </label>
-
+			 <div class="row">
+				<div class="col-lg-4 col-lg-offset-1"> 
+	                <label for="text1" class="control-label col-lg-4">Matériel
+	                </label>
+				</div>
                 <div class="col-lg-6">
 
                     <p:selectOneMenu value="#{depositaireBean.materielSeclected}" converter="#{materielConverter}"   panelStyle="width:180px"  style="width:160px"
@@ -36,55 +38,57 @@
                         </p:column>
                         <p:ajax event="change" update="marque ref num" listener="#{depositaireBean.onChangeMateriel}"/>
                     </p:selectOneMenu>
+				</div>
+               
 
-                <hr></hr>
-
-                </div>
+            </div>
+            <hr />
+            
+            <div class="row">
+				<div class="col-lg-4 col-lg-offset-1">     
                 
-                                <label for="text1" class="control-label col-lg-4">Nomenclature
-                </label>
-
+	                <label for="text1" class="control-label col-lg-4">Nomenclature
+									</label>
+				</div>
                 <div class="col-lg-6">
 
                     <h:outputText id="num" value="#{depositaireBean.materielSeclected.design.typematerieladd.nomenclaureParent.designation}" ></h:outputText>
 
-                    <hr></hr>
-
                 </div>
-
-
-                <label for="text1" class="control-label col-lg-4">Marque
-                </label>
-
+			</div>
+			<hr />
+			<div class="row">
+				<div class="col-lg-4 col-lg-offset-1"> 
+	                <label for="text1" class="control-label col-lg-4">Marque
+	                </label>
+				</div>
                 <div class="col-lg-6">
 
                     <!--h:inputText id="marque" value="#{depositaireBean.marq.designation}" ></h:inputText-->
                     <h:outputText id="marque" value="#{depositaireBean.materielSeclected.design.marque.designation != null ? depositaireBean.materielSeclected.design.marque.designation : ''}"/>
 
-                    <hr></hr>
-
                 </div>
-                                
-            
+            </div>                
+            <hr/>
 
-                <label for="text1" class="control-label col-lg-4">Référence
-                </label>
-
+			<div class="row">
+				<div class="col-lg-4 col-lg-offset-1"> 
+	                <label for="text1" class="control-label col-lg-4">Référence
+	                </label>
+				</div>
                 <div class="col-lg-6">
 
                     <h:outputText id="ref"  value="#{depositaireBean.materielSeclected.reference}" ></h:outputText>
-
-                    <hr></hr>
-
                 </div>
-                
-                
+            </div>
+           	<hr/>
                 <!-- END MATERIEL -->
+			<div class="row">
+				<div class="col-lg-4 col-lg-offset-1"> 
 
-
-                <label for="text1" class="control-label col-lg-4">Détenteur
-                </label>
-
+	               <label for="text1" class="control-label col-lg-4">Détenteur
+	               </label>
+				</div>
                 <div class="col-lg-6">
 
                     <p:selectOneMenu styleClass="form-control top" converter="#{agentConverter}" value="#{depositaireBean.detenteur}"
@@ -92,31 +96,31 @@
                             <f:selectItem itemValue="#{null}" itemLabel="--select--"  noSelectionOption="true"/> 
                             <f:selectItems value="#{userMB.userList}" var="type" itemLabel="#{type.im}" itemValue="#{type}"/>
                             <p:column>
-                            <h:outputText value="#{t.im}" />
-                        </p:column>
-                            <p:ajax event="change" update="nom" listener="#{depositaireBean.onDetenteurChange}"/>
-                        </p:selectOneMenu>
-
-                <hr></hr>
-
+                            	<h:outputText value="#{t.im}" />
+                        	</p:column>
+                        	<p:ajax event="change" update="nom" listener="#{depositaireBean.onDetenteurChange}"/>
+                           
+                     </p:selectOneMenu>
+					 
                 </div>
                 
-                
+            </div>
+			<hr/>
+			
+            <div class="row">
+				<div class="col-lg-4 col-lg-offset-1">     
 
-                
-
-                <label for="text1" class="control-label col-lg-4">Nom
-                </label>
-
+	                <label for="text1" class="control-label col-lg-4">Nom
+	                </label>
+				</div>
                 <div class="col-lg-6">
 
                     <h:outputText id="nom" value="#{depositaireBean.detenteur.nomAgent}" 
                         ></h:outputText>
 
-                <hr></hr>
-
                 </div>
-                
+           </div>
+             <hr/>
                 
 
 
@@ -136,7 +140,7 @@
                 
 
 
-                <div class="col-lg-2"></div>
+           		<div class="col-lg-2"></div>
 
             </div>
 
@@ -144,8 +148,10 @@
                 <label for="text1" class="control-label col-lg-4"></label>
 
                 <div class="col-lg-4">
-                    <h:commandButton id="btnSignId" action="#{depositaireBean.addAttribution}" value="Attribuer"
-                        class="btn btn-lg btn-primary btn-block"/>
+                    <h:commandLink id="btnSignId" action="#{depositaireBean.addAttribution}" value=""
+                        class="btn btn-lg btn-primary btn-block">
+                        <i class=" fa fa-forward"> </i>  Attribuer
+                    </h:commandLink>
                 </div>
 
                 <div class="col-lg-4"></div>

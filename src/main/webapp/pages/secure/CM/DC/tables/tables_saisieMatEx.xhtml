@@ -10,14 +10,15 @@
 
 <div   class="body collapse in table-responsive">
 
-    <div class="col-lg-2">
-
-        <h:link value="" outcome="add_Mat_Ex"
-            class="btn btn-lg btn-primary btn-block " immediate="true" >
-           <i class="fa fa-plus-circle">  </i>   Ajouter
-        </h:link>
+    <div class="row">
+		<div class="col-lg-2">
+	        <h:link value="" outcome="add_Mat_Ex"
+	            class="btn btn-lg btn-primary btn-block " immediate="true" >
+	           <i class="fa fa-plus-circle">  </i>   Ajouter
+	        </h:link>
+        </div>
         <hr></hr>
-
+		<br/>
     </div>    
     <h:form>
     <p:dataTable   var="materiel" value="#{depositaireBean.listMaterielexistant}"
