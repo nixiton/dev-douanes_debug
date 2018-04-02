@@ -10,14 +10,16 @@
 <div   class="body collapse in table-responsive">
 
 <h:form id="formTypArt" onkeypress="if (event.keyCode == 13) {return false; }">
-	<div class="col-lg-4">
-
-		<h:link value="Ajouter" outcome="add_TypeMatCA" 
-			class="btn btn-lg btn-primary btn-block " immediate="true" />
-			
-		<hr></hr>
-
-	</div>
+	<div class="row">
+		<div class="col-lg-4">
+			<h:link value="" outcome="add_TypeMatCA" 
+				class="btn btn-lg btn-primary btn-block " immediate="true" >
+				 <i class="fa fa-plus-circle">  </i>   Ajouter
+			 </h:link>
+			 <hr></hr>
+		</div>
+	</div>	
+	
 <p:growl for="myerrorReferentiel" id="msgtableTypeArt" showDetail="true" sticky="true" redisplay="false"/>
 	<p:dataTable   var="typemateriel" value="#{siseBean.listTypeObjet}" 
                  paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}  "

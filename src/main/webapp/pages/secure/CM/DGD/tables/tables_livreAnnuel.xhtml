@@ -40,7 +40,7 @@
 
 			<p:column headerText="ID"> #{c.id}</p:column>
 
-			<p:column headerText="Nomenclature">
+			<p:column headerText="Nomenclature" style="width: 10%; text-align: center;">
 
 				#{c.mat.typematerieladd.nomenclaureParent.nomenclature}
 			</p:column>
@@ -56,7 +56,7 @@
 			<p:column headerText="Prix de l'unité">
 			#{c.mat.pu}
 			</p:column>
-			<p:column headerText="Quatité existant au 1er janv">
+			<p:column headerText="Quantité existant au 1er janvier">
 			#{c.numoperation}
 			</p:column>
 			<p:column headerText="Mouvement effectués">

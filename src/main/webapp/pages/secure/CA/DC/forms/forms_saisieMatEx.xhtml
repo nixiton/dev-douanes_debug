@@ -21,7 +21,7 @@
 
             
             <p:messages id="messages" />
-
+			<br></br>
             <div class="form-group">
 
 
@@ -43,10 +43,11 @@
                 
                     
 
-
-                    <label for="text1" class="control-label col-lg-4">Codification des articles
-                    </label>
-
+				<div class="row">
+					<div class="col-lg-4 col-lg-offset-1">
+	                    <label for="text1" class="control-label col-lg-4">Codification des articles
+	                    </label>
+					</div>
                     <div class="col-lg-6">
 
                     <!--h:selectOneMenu  styleClass="form-control top" value="#{saisieMatExMB.nomenclature}">
@@ -60,79 +61,75 @@
                             <f:selectItems value="#{siseBean.listCodeArticle}" var="type" itemLabel="#{type.designation}"/>
                             
                         </p:selectOneMenu>
-                    <hr></hr>
 
                     </div>
 
-
-                    
+				</div>
+              	<hr></hr>      
                 
-                    
-
-
-                    <label for="text1" class="control-label col-lg-4">Marque
-                    </label>
-
+                <div class="row">
+					<div class="col-lg-4 col-lg-offset-1">   
+					    <label for="text1" class="control-label col-lg-4">Marque
+                    	</label>
+					</div>
                     <div class="col-lg-6">
 
-                    <p:selectOneMenu value="#{depositaireBean.articleExToAdd.marqueArticle}" converter="#{refConverter}" panelStyle="width:180px"  style="width:160px"
-                         effect="fade" var="t" filter="true" filterMatchMode="startsWith">
-                        <f:selectItem itemValue="#{null}" itemLabel="select" /> 
-                            <f:selectItems value="#{siseBean.listMarque}" var="theme" itemLabel="#{theme.designation}" itemValue="#{theme}" />
-                        <p:column>
-                            <h:outputText value="#{t.designation}" />
-                        </p:column>
+	                    <p:selectOneMenu value="#{depositaireBean.articleExToAdd.marqueArticle}" converter="#{refConverter}" panelStyle="width:180px"  style="width:160px"
+	                         effect="fade" var="t" filter="true" filterMatchMode="startsWith">
+	                        <f:selectItem itemValue="#{null}" itemLabel="select" /> 
+	                            <f:selectItems value="#{siseBean.listMarque}" var="theme" itemLabel="#{theme.designation}" itemValue="#{theme}" />
+	                        <p:column>
+	                            <h:outputText value="#{t.designation}" />
+	                        </p:column>
+	
+	                    </p:selectOneMenu>
 
-                    </p:selectOneMenu>
-
-                    <hr></hr>
+                  
 
                     </div>
+				</div>
+                <hr></hr>   
+				<div class="row">
+					<div class="col-lg-4 col-lg-offset-1">
 
-                    
 
-
-
-                    <label for="text1" class="control-label col-lg-4">Caractéristiques
-                    </label>
-
+	                    <label for="text1" class="control-label col-lg-4">Caractéristiques
+	                    </label>
+					</div>
                     <div class="col-lg-6">
 						
 						<p:inputTextarea value="#{depositaireBean.articleExToAdd.caracteristiqueArticle}" rows="5" cols="20" counter="display" maxlength="250" counterTemplate="{0} restants." autoResize="false" />
     						<h:outputText id="display" />
-                        <hr></hr>
 
                     </div>
-
-                     <label for="text2" class="control-label col-lg-4">Nombre
-                </label>
-
-                <div class="col-lg-6">
-
-                    <p:inputText required="true"
-                        value="#{depositaireBean.articleExToAdd.nombre}"
-                        requiredMessage=""
-                        placeholder="Nombre" styleClass="form-control top"></p:inputText>
-
-                </div>
-                    
-
-
-
-                    <div class="col-lg-2"></div>
-
+				</div>
+				<hr></hr>
+				
+				<div class="row">
+					<div class="col-lg-4 col-lg-offset-1">
+	                     <label for="text2" class="control-label col-lg-4">Nombre
+	              		  </label>
+					</div>
+	                <div class="col-lg-6">
+	
+	                    <p:inputText required="true"
+	                        value="#{depositaireBean.articleExToAdd.nombre}"
+	                        requiredMessage=""
+	                        placeholder="Nombre" styleClass="form-control top"></p:inputText>
+	
+	                </div>
+               </div>
+               <hr></hr>     
             </div>
 
-
-
-            
-            
             <div class="form-group">
                 <label for="text1" class="control-label col-lg-4"></label>
 
                 <div class="col-lg-4">
-                    <h:commandButton id="btnSignId" action="#{depositaireBean.addArticleEx}" value="Créer"
-                        class="btn btn-lg btn-primary btn-block"/>
+                    <h:commandLink id="btnSignId" action="#{depositaireBean.addArticleEx}" value=""
+                        class="btn btn-lg btn-primary btn-block">
+                    <i class="fa fa-plus"> </i>  Créer
+					</h:commandLink>
                 </div>
 
                 <div class="col-lg-4"></div>

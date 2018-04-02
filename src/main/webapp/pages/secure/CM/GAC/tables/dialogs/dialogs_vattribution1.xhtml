@@ -10,12 +10,12 @@
 <h:head></h:head> 	
 	<p:growl id="growl1" for="myerror" showDetail="true" sticky="true" redisplay="false"/>
 	
-    <p:dialog id="detail1" widgetVar="detail1" closable="false">
+    <p:dialog id="detail1" widgetVar="detail1" closable="false" header="Détails Traçabilité" showEffect="explode" hideEffect="explode">
 
     <c:if test="#{gacBean.currentOpAttribution['class'].simpleName eq 'OpAttribution'}">
         
             <h:form class="form-horizontal">
-            <h:commandButton action="#{gacBean.exit()}" value="X" style="valign:bottom;float:right;padding-right:20px">
+            <h:commandButton action="#{gacBean.exit()}" value="X" style="valign:middle;float:right;padding-right:7px;text-align:center;">
                         
             </h:commandButton>
             </h:form>
@@ -26,7 +26,7 @@
                         <td><strong>Type de matériel</strong></td>
                         <td>#{gacBean.currentOpAttribution.mat.design.nomenMat.designation}</td>
                         <td></td>
-                        <td><strong>Numero de série</strong></td>
+                        <td><strong>Numéro de série</strong></td>
                         <td>#{gacBean.currentOpAttribution.mat.numSerie}</td>
                     </tr>
                     <tr>

@@ -10,13 +10,17 @@
 <div   class="body collapse in table-responsive">
 
 <h:form id="formCodi" onkeypress="if (event.keyCode == 13) {return false; }">
-	<div class="col-lg-4">
-
-		<h:link value="Ajouter" outcome="add_codif"
-			class="btn btn-lg btn-primary btn-block " immediate="true" />
-		<hr></hr>
-
+	<div class="row">
+		<div class="col-lg-4">
+	
+			<h:link value="" outcome="add_codif"
+				class="btn btn-lg btn-primary btn-block " immediate="true" >
+			 <i class="fa fa-plus-circle">  </i>   Ajouter
+			 </h:link>
+			 <hr></hr>
+		</div>
 	</div>
+		
 <p:growl for="myerrorReferentiel" id="msgtableCodi" showDetail="true" sticky="true" redisplay="false"/>
 
 	<p:dataTable   var="nomenclature" value="#{siseBean.listCodeArticle}" 

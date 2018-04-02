@@ -8,15 +8,17 @@
 <h:head></h:head>
 
 <div   class="body collapse in table-responsive">
+	 <div class="row">
+		<div class="col-lg-2">
 
-    <div class="col-lg-4">
-
-        <h:link value="Ajouter" outcome="add_Mat_ExCA"
-            class="btn btn-lg btn-primary btn-block " immediate="true" />
-            
+	        <h:link value="" outcome="add_Mat_ExCA"
+	            class="btn btn-lg btn-primary btn-block " immediate="true" >
+            <i class="fa fa-plus-circle">  </i>   Ajouter
+	        </h:link>
+        </div>    
         <hr></hr>
-
-    </div>    
+		<br/>
+   	</div>    
     <h:form>
     <p:dataTable   var="a" value="#{siseBean.listArticleEx}"
                  paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}  "

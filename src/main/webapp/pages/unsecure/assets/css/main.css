@@ -488,11 +488,13 @@ body:not(.sidebar-left-mini) #menu .nav-header {
   border: 1px solid #efefef;
 }
 .box header {
-  background-image: linear-gradient(to bottom, #fff 0%, #f2f2f2 100%);
+  /*background-color:#00AABB !important;*/
+  background-image: linear-gradient(to bottom, #bdbec0 10%, #fff 75%);
   background-repeat: repeat-x;
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffffff', endColorstr='#fff2f2f2', GradientType=0);
-  border-bottom: 1px solid #d4d4d4;
+  border-bottom: 2px solid #d4d4d4;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.065);
+  
 }
 .box header:before,
 .box header:after {
@@ -2634,4 +2636,6 @@ border-collapse: collapse;
     border: none !important;
     border-bottom: #000 1px solid!important;
   }
-
+ .ui-row-editing{
+ 	background-color:#f8f7a3 !important;
+ }

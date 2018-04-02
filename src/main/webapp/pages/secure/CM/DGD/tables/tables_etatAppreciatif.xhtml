@@ -35,13 +35,13 @@
 			paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}"
 			paginator="true" rows="10" style="margin-bottom:20px"
 			rowStyleClass="#{c['class'].simpleName ne 'OpEntree' and c['class'].simpleName ne 'OpSortie' ? 'ui-helper-hidden' : '' }"
-			scrollable="true" scrollWidth="80%" scrollHeight="150"
+			scrollable="true" scrollWidth="100%" 
 			sortBy="#{c.id}"
 			>
 
-			<p:column headerText="N°"> #{c.id}</p:column>
+			<p:column headerText="N°" style="width: 70px; text-align: center;"> #{c.id}</p:column>
 
-			<p:column headerText="Date">
+			<p:column headerText="Date" style="width: 95px; text-align: center;">
 
 				<p:panel>
             
@@ -49,7 +49,7 @@
             </p:panel>
 
 			</p:column>
-			<p:column headerText="Designation sommaire des opérations">
+			<p:column headerText="Designation sommaire des opérations" style="width: 110px; text-align: center;">
            <p:panel rendered="#{c['class'].simpleName eq 'OpEntree'}">
 
 					<ui:repeat value="#{c.listMat}" var="mat">
@@ -134,7 +134,7 @@
                 <p:panel rendered="#{c.mat.typematerieladd.nomenclaureParent.nomenclature eq 3}">
                     
                     yes
-                    </p:panel>
+                </p:panel>
             </p:panel>
 			</p:column>
 			<p:column headerText="4 Operation A">
@@ -164,8 +164,6 @@
 			<p:column headerText="12 Operation A">
 				xx
 			</p:column>
-
-
 		</p:dataTable>
 
 

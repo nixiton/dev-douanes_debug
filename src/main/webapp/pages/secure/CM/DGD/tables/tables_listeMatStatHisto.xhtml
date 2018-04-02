@@ -33,70 +33,66 @@
             </h:commandLink>
         </f:facet>
         
-        <p:column headerText="" filterBy="#{materiel.idMateriel}" filterMatchMode="contains">
-            <f:facet name="header"><h6><b>ID</b></h6></f:facet>
-            <h:outputText value="#{materiel.idMateriel}" />
+        <p:column headerText="ID" filterBy="#{materiel.idMateriel}" filterMatchMode="contains" style="width: 9%; text-align: center;">
+           <h:outputText value="#{materiel.idMateriel}" />
             
         </p:column>
-        <p:column filterBy="#{materiel.numSerie}" filterMatchMode="contains">
-            <f:facet name="header"><h6><b>Numéro Série</b></h6></f:facet>
-            <h:outputText value="#{materiel.numSerie}" />
+        <p:column headerText="Numéro Série" filterBy="#{materiel.numSerie}" filterMatchMode="contains" style="width: 9%; text-align: center;">
+             <h:outputText value="#{materiel.numSerie}" />
             
         </p:column>
-        <p:column filterBy="#{materiel.code}" filterMatchMode="contains">
-            <f:facet name="header"><h6><b>Codification</b></h6></f:facet>
+        <p:column headerText="Codification" filterBy="#{materiel.code}" filterMatchMode="contains" style="width: 9%; text-align: center;">
             <h:outputText value="#{materiel.code}" />
             
         </p:column>
-        <p:column filterBy="#{materiel.design.nomenMat}" headerText=""  filterMatchMode="exact">
-            <f:facet name="header"><h6><b>Nomenclature</b></h6></f:facet>
-            <f:facet name="filter">
+        <p:column filterBy="#{materiel.design.nomenMat}" headerText="Nomenclature"  filterMatchMode="exact" style="width: 9%; text-align: center;">
+           <f:facet name="filter">
                 <p:selectOneMenu onchange="PF('MaterielTable').filter()" >
-                    <f:selectItem itemLabel="Select" itemValue="#{null}" noSelectionOption="true" />
+                    <f:selectItem itemLabel="Selection" itemValue="#{null}" noSelectionOption="true" />
                     <f:selectItems value="#{siseBean.listNomenclature}" />
                 </p:selectOneMenu>
             </f:facet>
             <h:outputText value="#{materiel.design.nomenMat.designation}" />
         </p:column>
-        <p:column>
+        <p:column style="width: 7%; text-align: center;">
             <f:facet name="header">
                 <h:outputText value="Etat" />
             </f:facet>
             <h:outputText value="#{materiel.etat.designation}" />
         </p:column>
-        <p:column>
+        <p:column style="width: 7%; text-align: center;">
             <f:facet name="header">
                 <h:outputText value="Marque" />
             </f:facet>
             <h:outputText value="#{materiel.design.marque.designation}" />
         </p:column>
-        <p:column>
+        <p:column style="width: 8%; text-align: center;">
             <f:facet name="header">
                 <h:outputText value="Dépositaire" />
             </f:facet>
             <h:outputText value="#{materiel.dc.nomAgent}" />
         </p:column>
-        <p:column exportable="false">
+        <p:column exportable="false" style="width: 5%; text-align: center;">
 
             <f:facet name="header">Détail</f:facet>
             <p:commandButton  action="#{suivieditionBean.setMateriel(materiel)}" update=":detail"
             oncomplete="PF('detail').show()" icon="ui-icon-zoomin"/>
         </p:column> 
-        <p:column exportable="false">
+        <p:column exportable="false" style="width: 5%; text-align: center;">
             <f:facet name="header">Statut</f:facet>
             <p:commandButton  action="#{suivieditionBean.setMateriel(materiel)}" 
             oncomplete="PF('statut').show()" icon="ui-icon-info" update=":statut">
 
             </p:commandButton>
         </p:column>
-        <p:column exportable="false">
+        <p:column exportable="false" style="width: 7%; text-align: center;">
             <f:facet name="header">Historique</f:facet>
             <p:commandButton  action="#{suivieditionBean.setMateriel(materiel)}" 
             oncomplete="PF('historique').show()" icon="ui-icon-clipboard" update=":historique">
             </p:commandButton>
         </p:column>
         
-         <p:column headerText="Direction">
+         <p:column headerText="Direction" style="width: 9%; text-align: center;">
             <h:outputText value="#{materiel.direc.designation !=null ? materiel.direc.designation :'Non disponible'}" />
         </p:column>
         <p:column filterBy="#{materiel.validation}" headerText="Status" filterMatchMode="equals">

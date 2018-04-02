@@ -43,7 +43,7 @@
 		<p:column filterBy="#{c.state}" headerText="Etat"  filterMatchMode="exact">
 			<f:facet name="filter">
                 <p:selectOneMenu onchange="PF('operationsTable').filter()" >
-                    <f:selectItem itemLabel="Selectioner" itemValue="#{null}" noSelectionOption="true" />
+                    <f:selectItem itemLabel="Selectionner" itemValue="#{null}" noSelectionOption="true" />
                     <f:selectItems value="#{dtFilterView.etats}" />
                 </p:selectOneMenu>
             </f:facet>
