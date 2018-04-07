@@ -26,6 +26,12 @@ public interface IUserMetier {
 	public void remAgent (Agent a);
 	public Agent addAgentUser(Agent a, Useri u);
 	public Agent findAgentByIm (Long im_agent);
+	
+	public List<Useri> listUser();
+	//temporary
+	public List<Agent> findAllAgents();
+	public List<Agent> findAgentByNom(String name);
+	public List<Agent> listAgentByDirection(Direction direction);
 
 	//les requetes
 	public OpEntree reqEntrerMateriel(List<Materiel> m, Agent dc, String facturePath, String refFacture);
@@ -121,11 +127,7 @@ public interface IUserMetier {
 	public List<Operation> getListOperationByDirectionByYearByDateAsc(Direction d,  Date startDate, Date endDate);
 
 
-	public List<Useri> listUser();
-	//temporary
-	public List<Agent> findAllAgents();
-	public List<Agent> findAgentByNom(String name);
-	public List<Agent> listAgentByDirection(Direction direction);
+	
 	//okay
 	public OpEntree getOperationEntreeById(Long idopentree);
 	

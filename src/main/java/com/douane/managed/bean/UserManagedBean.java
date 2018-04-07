@@ -60,6 +60,7 @@ public class UserManagedBean implements Serializable {
 
 	List<Agent> userList;
 	
+	
 	private int id;
 	private String name;
 	private String firstname;
@@ -368,6 +369,8 @@ public class UserManagedBean implements Serializable {
 		return userList;
 	}
 	
+	
+
 	/**
 	 * Get User Service
 	 * 
@@ -689,18 +692,19 @@ public class UserManagedBean implements Serializable {
 	}
 	
 
-	/*
-	 * 
-	private List<Agent> listagentToModify  = new ArrayList<Agent>();
-	public List<Agent> getListagentToModify() {
-		return listagentToModify;
+	List<Agent> userListByDirection;
+	
+	public void setUserListByDirection(List<Agent> userListByDirection) {
+		this.userListByDirection = userListByDirection;
 	}
 
-	public void setListagentToModify(List<Agent> listagentToModify) {
-		this.listagentToModify = listagentToModify;
+	public List<Agent> getUserListByDirection() {
+		Agent agent = (Agent) RequestFilter.getSession().getAttribute("agent");
+		if(agent == null) {
+			return null;
+		}
+		return getUsermetierimpl().listAgentByDirection(agent.getDirection());
 	}
-	public void addToListAgentModif(Agent a) {
-		this.listagentToModify.add(a);
-	}*/
+	
 	
 }

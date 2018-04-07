@@ -60,7 +60,7 @@
 	                        <p:column>
 	                            <h:outputText value="#{t.numSerie}" />
 	                        </p:column>
-	                        <p:ajax event="change" update="marque ref num" listener="#{depositaireBean.onMaterielChange}"/>
+	                        <p:ajax event="change" update="marque ref num"/>
 	                    </p:selectOneMenu>
 					</div>
                 </div>
@@ -74,7 +74,7 @@
 					</div>
 	                <div class="col-lg-6">
 	
-	                    <h:outputText id="marque" value="#{depositaireBean.marq != null ? depositaireBean.marq.designation : ''}"/>
+	                    <h:outputText id="marque" value="#{depositaireBean.materiel != null ? depositaireBean.materiel.design.marque.designation : ''}"/>
 	
 	                 </div>
 
@@ -88,7 +88,7 @@
 					</div>
 	                <div class="col-lg-6">
 	
-	                    <h:outputText id="ref"  value="#{depositaireBean.reference}"/>
+	                    <h:outputText id="ref"  value="#{depositaireBean.materiel.reference}"/>
 
 					</div>
                 </div>
@@ -101,7 +101,7 @@
 					</div>
 	                <div class="col-lg-6">
 	
-	                    <h:outputText id="num"  value="#{depositaireBean.numSerie}"/>
+	                    <h:outputText id="num"  value="#{depositaireBean.materiel.numSerie}"/>
 	
 	                </div>
 

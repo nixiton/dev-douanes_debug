@@ -337,9 +337,8 @@
                         placeholder="Numero de série" styleClass="form-control top"></p:inputText>
               </p:panel>
               <hr/>             
-            <!-- /h:form>
+           
             
-            <h:form-->
             <p:dataTable id="refid" var="m"
                              value="#{depositaireBean.materielspardesignation}" editable="true"
                              editMode="cell" widgetVar="documentTable"
@@ -356,11 +355,12 @@
                     <p:column headerText="Numero Série">
                         #{m.numSerie}
                     </p:column>
-                    <p:column headerText="Supprimer"> <p:commandButton value="supprimer" process="@this,reference,numeroserie"
+                    <p:column headerText="Supprimer"> <p:commandButton value="supprimer" process="@this"
                              update="refid" actionListener="#{depositaireBean.deleteMateriel(rowIndex)}"
                              ajax="true" /></p:column>
 
                 </p:dataTable>
+            
                 
             <br></br>
             <div class="form-group">
