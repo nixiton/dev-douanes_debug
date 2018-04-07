@@ -31,23 +31,23 @@
                  >
         <p:ajax event="rowEdit" listener="#{siseBean.onRowEdit}" update=":formFin:msgtableFin" oncomplete="PF('FinTable').filter()"/>
 
-		<p:column>
+		<p:column style="width: 5%; text-align: center; word-wrap: break-word;">
 			<f:facet name="header">ID</f:facet>
 			#{f.id}
 		</p:column>
-		<p:column>
+		<p:column style="width: 15%; text-align: center; word-wrap: break-word;">
 			<f:facet name="header">Désignation</f:facet>
 			<p:cellEditor>
                <f:facet name="output"><h:outputText value="#{f.designation}" /></f:facet>
-               <f:facet name="input"><p:inputText value="#{f.designation}"/></f:facet>
+               <f:facet name="input"><p:inputText value="#{f.designation}" style="width:80%"/></f:facet>
            </p:cellEditor>
 			
 		</p:column>
-		<p:column>
+		<p:column style="width: 3%; text-align: center; word-wrap: break-word;">
           <p:rowEditor />
           
        </p:column>
-       <p:column>
+       <p:column style="width: 3%; text-align: center; word-wrap: break-word;">
        		 <p:commandButton  action="#{siseBean.deleteRow(f)}"
        		icon="ui-icon-close" update=":formFin:msgtableFin"
        		oncomplete="PF('FinTable').filter()"/>

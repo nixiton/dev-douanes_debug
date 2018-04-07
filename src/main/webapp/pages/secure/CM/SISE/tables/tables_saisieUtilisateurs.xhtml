@@ -27,23 +27,23 @@
                  id="tableUserMat"
                  widgetVar="UserTable"
                  >
-		<p:column>
+		<p:column style="width: 5%; text-align: center; word-wrap: break-word;">
 			<f:facet name="header">Immatriculation</f:facet>
 			#{f.im}
 		</p:column>
-		<p:column>
+		<p:column style="width: 5%; text-align: center; word-wrap: break-word;">
 			<f:facet name="header">Nom</f:facet>
 			#{f.nomAgent} #{f.prenomAgent}
 		</p:column>
-		<p:column>
+		<p:column style="width: 5%; text-align: center; word-wrap: break-word;">
 			<f:facet name="header">Fonction</f:facet>
 			#{f.roleAgent.designation}
 		</p:column>
-		<p:column>
+		<p:column style="width: 5%; text-align: center; word-wrap: break-word;">
 			<f:facet name="header">Fonction</f:facet>
 			#{f.roleAgent.role}
 		</p:column>
-		<p:column>
+		<p:column style="width: 5%; text-align: center; word-wrap: break-word;">
 			<f:facet name="header">Direction</f:facet>
 			#{f.direction.designation}
 		</p:column>
@@ -51,11 +51,11 @@
 			<f:facet name="header">Service</f:facet>
 			#{f.service.designation}
 		</p:column-->
-		<p:column>
+		<p:column style="width: 5%; text-align: center; word-wrap: break-word;">
 			<f:facet name="header">Poste</f:facet>
 			#{f.posteny.designation}
 		</p:column>
-		<p:column>
+		<p:column style="width: 3%; text-align: center; word-wrap: break-word;">
           <p:commandButton   action="#{userMB.setCurrentAgenttomodify(f)}" update=":detailuser"
             oncomplete="PF('detailuser').show()" icon="ui-icon-zoomin"/>
           <div style=" display:inline-block">

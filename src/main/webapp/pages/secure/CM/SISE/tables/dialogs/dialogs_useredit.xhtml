@@ -8,7 +8,7 @@
 >
 
     <p:dialog id="detailuser" widgetVar="detailuser" closable="false"
-    			header   = "Modification Agent et Utilisateur" 
+    		  header   = "Modification Agent et Utilisateur" 
               position = "center"
               modal    = "true"
               
@@ -22,101 +22,131 @@
 		<p:message for="agentdir" id="messages" showDetail="true" autoUpdate="true" />
 		<p:messages id="messagesmodify" showDetail="true" autoUpdate="true" />
 		<div class="box dark col-md-6">
-					<h:outputLabel for="name" styleClass="col-md-6"
-						value="Nom et prénom : " />
-					<p:inputText id="name" 
-					styleClass="col-md-6" 
-					value="#{editAgent.nomAgent}"
-					required="true"
-				    requiredMessage = "Nom Obligatoire"
-						/>
-					<hr></hr>
-
-
-					<h:outputLabel for="im" styleClass="col-md-6"
-						value="Imatriculation : " />
-					<h:outputText id="im" styleClass="col-md-6" value="#{editAgent.im}"
-						required="true">
-					</h:outputText>
-
-					<hr></hr>			
+				<br/>
+				<div class="row">
+					<div class="col-lg-4 col-lg-offset-1">
+						<h:outputLabel for="name" 
+						value="Nom et prénom  " />	
+					</div>
+					<div class="col-lg-6">
+						<p:inputText id="name" 
+						
+						value="#{editAgent.nomAgent}"
+						required="true"
+					    requiredMessage = "Nom Obligatoire"
+							/>
+					</div>
+				</div>
+				<hr/>
+				<div class="row">
+					<div class="col-lg-4 col-lg-offset-1">
+						<h:outputLabel for="im" 
+							value="Imatriculation  " />
+					</div>
+					<div class="col-lg-6">
+						<h:outputText id="im" styleClass="col-md-6" value="#{editAgent.im}"
+							required="true">
+						</h:outputText>
+					</div>
+				</div>
+				<hr></hr>			
 					<!-- User role with liste-->
-					<h:outputLabel styleClass="col-md-6" 
-						value="Fonction " />
-
-					<p:selectOneMenu value="#{editAgent.roleAgent}" converter="#{useriConverter}" panelStyle="width:180px"  style="width:160px"
-                         effect="fade" var="t" filter="true" filterMatchMode="startsWith">
-                        <f:selectItem itemValue="#{null}" itemLabel="--select--" /> 
-                            <f:selectItems value="#{siseBean.listUseri}" var="theme" itemLabel="#{theme.designation}" itemValue="#{theme}" />
-                        <p:column>
-                            <h:outputText value="#{t.designation}" />
-                        </p:column>
-
-                    </p:selectOneMenu>
-
-                    <hr></hr>
-
+				<div class="row">
+					<div class="col-lg-4 col-lg-offset-1">
+						<h:outputLabel styleClass="col-md-6" 
+							value="Fonction " />
+					</div>
+					<div class="col-lg-6">
+						<p:selectOneMenu value="#{editAgent.roleAgent}" converter="#{useriConverter}" panelStyle="width:180px"  style="width:160px"
+	                         effect="fade" var="t" filter="true" filterMatchMode="startsWith">
+	                        <f:selectItem itemValue="#{null}" itemLabel="--select--" /> 
+	                            <f:selectItems value="#{siseBean.listUseri}" var="theme" itemLabel="#{theme.designation}" itemValue="#{theme}" />
+	                        <p:column>
+	                            <h:outputText value="#{t.designation}" />
+	                        </p:column>
+	
+	                    </p:selectOneMenu>
+					</div>
+                  </div>
+                  <br/><br/>
 			</div>
 			<div class="box dark col-md-6">
 					<!-- DIRECTION -->
-					<h:outputLabel styleClass="col-md-6" 
-						value="Direction " />
-
-					<p:selectOneMenu id="agentdir" value="#{editAgent.direction}" converter="#{refConverter}" panelStyle="width:180px"  style="width:160px"
-                         effect="fade" var="t" filter="true" filterMatchMode="startsWith">
-                        <f:selectItem itemValue="#{null}" itemLabel="--select--" /> 
-                            <f:selectItems value="#{siseBean.listDirection}" var="theme" itemLabel="#{theme.designation}" itemValue="#{theme}" />
-                        <p:column>
-                            <h:outputText value="#{t.designation}" />
-                        </p:column>
-
-                    </p:selectOneMenu>
-
-                    <hr></hr>
+				<br/><br/>
+				<div class="row">
+					<div class="col-lg-4 col-lg-offset-1">	
+						<h:outputLabel styleClass="col-md-6" 
+							value="Direction " />
+					</div>
+					<div class="col-lg-6">
+						<p:selectOneMenu id="agentdir" value="#{editAgent.direction}" converter="#{refConverter}" panelStyle="width:180px"  style="width:160px"
+	                         effect="fade" var="t" filter="true" filterMatchMode="startsWith">
+	                        <f:selectItem itemValue="#{null}" itemLabel="--select--" /> 
+	                            <f:selectItems value="#{siseBean.listDirection}" var="theme" itemLabel="#{theme.designation}" itemValue="#{theme}" />
+	                        <p:column>
+	                            <h:outputText value="#{t.designation}" />
+	                        </p:column>
+	
+	                    </p:selectOneMenu>
+					</div>
+					
+				</div>
+				<br/>
+                <hr></hr>
                     <!-- POSTE -->
-					<h:outputLabel styleClass="col-md-6" 
-						value="Poste " />
-
-					<p:selectOneMenu value="#{editAgent.posteny}" converter="#{refConverter}" panelStyle="width:180px"  style="width:160px"
-                         effect="fade" var="t" filter="true" filterMatchMode="startsWith">
-                        <f:selectItem itemValue="#{null}" itemLabel="--select--" /> 
-                            <f:selectItems value="#{siseBean.listPoste}" var="theme" itemLabel="#{theme.designation}" itemValue="#{theme}" />
-                        <p:column>
-                            <h:outputText value="#{t.designation}" />
-                        </p:column>
-
-                    </p:selectOneMenu>
-
-                    <hr></hr>
-                    </div>
+                <br/><br/>
+                <div class="row">
+					<div class="col-lg-4 col-lg-offset-1">	
+						<h:outputLabel styleClass="col-md-6" 
+							value="Poste " />
+					</div>
+					<div class="col-lg-6">
+						<p:selectOneMenu value="#{editAgent.posteny}" converter="#{refConverter}" panelStyle="width:180px"  style="width:160px"
+	                         effect="fade" var="t" filter="true" filterMatchMode="startsWith">
+	                        <f:selectItem itemValue="#{null}" itemLabel="--select--" /> 
+	                            <f:selectItems value="#{siseBean.listPoste}" var="theme" itemLabel="#{theme.designation}" itemValue="#{theme}" />
+	                        <p:column>
+	                            <h:outputText value="#{t.designation}" />
+	                        </p:column>
+	
+	                    </p:selectOneMenu>
+					</div>
+				</div>
+              	<br/><br/>
+             </div>
                     
                     <div class="box dark col-md-12">
-                    <div class="box dark col-md-4"></div>
-					<div class="box dark col-md-4">
-					<!-- h:commandButton id="addUser"
-						value="Mettre à jour" class="btn btn-lg btn-primary btn-block" 
-						actionListener = "#{userMB.updateAgent(editAgent)}"
-                   		 oncomplete  = "if (!args.validationFailed) PF('detail').hide();"
-                   		 process = "@([id$=ad])"  
-						/-->
-				   <p:commandButton id="addUser" value="Mettre à jour"
-				   
-				   styleClass="btn btn-lg btn-primary btn-block"
-				   actionListener="#{userMB.updateAgent(editAgent)}"
-   					oncomplete="if (!args.validationFailed) PF('detailuser').hide();" 
-   					update="@([id$=ad], [id$=tableUserMat])"/>
-					</div>
-					</div>
-					<div class="box dark col-md-12">
-                    <div class="box dark col-md-4"></div>
-					<div class="box dark col-md-4">
-					<h:commandButton id="cancelUser" action="#{userMB.exit()}"
-						value="Cancel" class="btn btn-lg btn-primary btn-block"
+                    <br/>
+                   		<div class="row">
+							<div class="col-lg-6 col-lg-offset-3">
+							<!-- h:commandButton id="addUser"
+								value="Mettre à jour" class="btn btn-lg btn-primary btn-block" 
+								actionListener = "#{userMB.updateAgent(editAgent)}"
+		                   		 oncomplete  = "if (!args.validationFailed) PF('detail').hide();"
+		                   		 process = "@([id$=ad])"  
+								/-->
+						   <p:commandButton id="addUser" value="Mettre à jour"
+						   
+						   styleClass="btn btn-lg btn-primary btn-block"
+						   actionListener="#{userMB.updateAgent(editAgent)}"
+		   					oncomplete="if (!args.validationFailed) PF('detailuser').hide();" 
+		   					update="@([id$=ad], [id$=tableUserMat])" />
+							</div>
+						</div>
+						<hr/>
+						<div class="row">
+							<div class="col-lg-6 col-lg-offset-3">
+								<h:commandLink id="cancelUser" action="#{userMB.exit()}"
+						value="" class="btn btn-lg btn-primary btn-block"
 						update="@([id$=ad], [id$=tableUserMat])"
-						/>
+						>  <!--   i class="fa fa-times" style="color:#fff !important;"> </i-->  <span style="color:#fff !important;">Cancel</span >
+								</h:commandLink>
+							</div>
+						</div>
+						<br/>
 					</div>
-					</div>
-
+			
+					
 				</h:form>
 	</div>
 

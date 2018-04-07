@@ -23,15 +23,15 @@
                  paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}  "
                  paginatorPosition="bottom"
                  paginator="true" rows="10" style="margin-bottom:20px">
-        <p:column>
+        <p:column style="width: 5%; text-align: center; word-wrap: break-word;"> 
             <f:facet name="header">ID</f:facet>
             #{b.idUser}
         </p:column>
-        <p:column>
+        <p:column style="width: 15%; text-align: center; word-wrap: break-word;">
             <f:facet name="header">Désignation</f:facet>
             #{b.designation}
         </p:column>
-        <p:column>
+        <p:column style="width: 15%; text-align: center; word-wrap: break-word;">
             <f:facet name="header">Fonction</f:facet>
             #{b.role}
         </p:column>

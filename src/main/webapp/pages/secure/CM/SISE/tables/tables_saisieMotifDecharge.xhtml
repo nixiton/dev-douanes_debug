@@ -30,23 +30,23 @@
                  >
         <p:ajax event="rowEdit" listener="#{siseBean.onRowEdit}" update=":formMD:msgtableMD" oncomplete="PF('MDTable').filter()"/>
 		
-		<p:column>
+		<p:column style="width: 5%; text-align: center; word-wrap: break-word;">
 			<f:facet name="header">ID</f:facet>
 			#{m.id}
 		</p:column>
-		<p:column>
+		<p:column style="width: 15%; text-align: center; word-wrap: break-word;">
 			<f:facet name="header">Désignation</f:facet>
 			<p:cellEditor>
                <f:facet name="output"><h:outputText value="#{m.designation}" /></f:facet>
-               <f:facet name="input"><p:inputText value="#{m.designation}"/></f:facet>
+               <f:facet name="input"><p:inputText value="#{m.designation}" style="width:80%"/></f:facet>
            </p:cellEditor>
 			
 		</p:column>
-		<p:column>
+		<p:column style="width: 3%; text-align: center; word-wrap: break-word;">
            <p:rowEditor />
            
        </p:column>
-      <p:column>
+      <p:column style="width: 3%; text-align: center; word-wrap: break-word;">
       		<p:commandButton  action="#{siseBean.deleteRow(m)}"
        		icon="ui-icon-close" update=":formMD:msgtableMD"
        		oncomplete="PF('MDTable').filter()"/>

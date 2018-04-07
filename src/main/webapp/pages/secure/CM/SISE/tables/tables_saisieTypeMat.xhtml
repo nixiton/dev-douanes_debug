@@ -29,29 +29,29 @@
                  >
         <p:ajax event="rowEdit" listener="#{siseBean.onRowEdit}" update=":formType:msgtableType" oncomplete="PF('typeTable').filter()"/>
 		
-		<p:column>
+		<p:column style="width: 5%; text-align: center; word-break: break-all;">
 			<f:facet name="header">ID</f:facet>
 			#{typemateriel.id}
 		</p:column>
-		<p:column>
+		<p:column style="width: 9%; text-align: center;  word-wrap: break-word;">
 			<f:facet name="header">Désignation</f:facet>
            <p:cellEditor>
                <f:facet name="output"><h:outputText value="#{typemateriel.designation}" /></f:facet>
-               <f:facet name="input"><p:inputText value="#{typemateriel.designation}"/></f:facet>
+               <f:facet name="input"><p:inputText value="#{typemateriel.designation}" style="width:80%"/></f:facet>
            </p:cellEditor>
 		</p:column>
-		<p:column>
+		<p:column style="width: 9%; text-align: center;  word-wrap: break-word;">
 			<f:facet name="header">Code Type Materiel</f:facet>
 			<p:cellEditor>
                <f:facet name="output"><h:outputText value="#{typemateriel.codeTypeMate}" /></f:facet>
-               <f:facet name="input"><p:inputText value="#{typemateriel.codeTypeMate}"/></f:facet>
+               <f:facet name="input"><p:inputText value="#{typemateriel.codeTypeMate}" style="width:80%"/></f:facet>
            </p:cellEditor>
 		</p:column>
-		<p:column>
+		<p:column style="width: 9%; text-align: center;  word-wrap: break-word;">
 			<f:facet name="header">Nomenclature</f:facet>
 			<p:cellEditor>
                <f:facet name="output"><h:outputText value="#{typemateriel.nomenclaureParent.nomenclature}" /></f:facet>
-               <f:facet name="input">
+               <f:facet name="input" >
                    <p:selectOneMenu id="zone" styleClass="form-control top"
 						converter="#{refConverter}" value="#{typemateriel.nomenclaureParent}">
 						<f:selectItems value="#{siseBean.listNomenclature}" var="type"
@@ -60,11 +60,11 @@
                </f:facet>
            </p:cellEditor>
 		</p:column>
-		<p:column>
+		<p:column style="width: 4%; text-align: center;">
            <p:rowEditor />
              
        </p:column>
-       <p:column>
+       <p:column style="width: 4%; text-align: center;">
        		<p:commandButton  action="#{siseBean.deleteRow(typemateriel)}"
        icon="ui-icon-close" update=":formType:msgtableType"
        oncomplete="PF('typeTable').filter()"/>

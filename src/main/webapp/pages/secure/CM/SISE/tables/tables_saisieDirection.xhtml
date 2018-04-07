@@ -31,30 +31,30 @@
                  >
         <p:ajax event="rowEdit" listener="#{siseBean.onRowEdit}" update=":formDirec:msgtableDirec" oncomplete="PF('DirecTable').filter()"/>
 		
-        <p:column>
+        <p:column style="width: 5%; text-align: center; word-wrap: break-word;">
             <f:facet name="header">ID</f:facet>
             #{b.id}
         </p:column>
-        <p:column>
+        <p:column style="width: 10%; text-align: center; word-wrap: break-word;">
             <f:facet name="header">Désignation</f:facet>
             <p:cellEditor>
                <f:facet name="output"><h:outputText value=" #{b.designation}" /></f:facet>
-               <f:facet name="input"><p:inputText value=" #{b.designation}"/></f:facet>
+               <f:facet name="input"><p:inputText value=" #{b.designation}" style="width:80%"/></f:facet>
            </p:cellEditor>
            
         </p:column>
-        <p:column>
+        <p:column style="width: 10%; text-align: center; word-wrap: break-word;">
             <f:facet name="header">Code</f:facet>
             <p:cellEditor>
                <f:facet name="output"><h:outputText value="#{b.codeDirection}" /></f:facet>
-               <f:facet name="input"><p:inputText value="#{b.codeDirection}"/></f:facet>
+               <f:facet name="input"><p:inputText value="#{b.codeDirection}" style="width:80%"/></f:facet>
            </p:cellEditor>
             
         </p:column>
-        <p:column>
+        <p:column style="width: 3%; text-align: center; word-wrap: break-word;">
         <p:rowEditor />
         </p:column>
-        <p:column>
+        <p:column style="width: 3%; text-align: center; word-wrap: break-word;">
            	 <div style=" display:inline-block"><p:commandButton  action="#{siseBean.deleteRow(b)}"
        		icon="ui-icon-close" update=":formDirec:msgtableDirec"
        		oncomplete="PF('DirecTable').filter()"/> </div>
