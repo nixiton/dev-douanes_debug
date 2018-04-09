@@ -222,6 +222,11 @@ public class UserMetier implements IUserMetier {
 		agentrepos.delete(a.getIdAgent());
 
 	}
+	@Override
+	public void desactiveAgent(Agent a) {
+		a.setActive(false);
+		agentrepos.save(a);
+	}
 
 	@Override
 	public List<Agent> findAgentByNom(String name) {
@@ -781,7 +786,7 @@ public class UserMetier implements IUserMetier {
 	@Override
 	public List<Agent> listAgentByDirection(Direction direction) {
 		// TODO Auto-generated method stub
-		return agentrepos.findByDirection(direction);
+		return agentrepos.findByDirectionAndActive(direction,true);
 	}
 
 	@Override

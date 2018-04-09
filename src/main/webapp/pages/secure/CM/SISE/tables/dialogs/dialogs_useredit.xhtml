@@ -49,7 +49,17 @@
 						</h:outputText>
 					</div>
 				</div>
-				<hr></hr>			
+				<div class="row">
+					<div class="col-lg-4 col-lg-offset-1">
+						<h:outputText value="I accept terms and conditions: " />
+					</div>
+					<div class="col-lg-6">
+						<p:selectBooleanButton id="active" value="#{editAgent.active}" onLabel="Oui" offLabel="Non" style="width:60px" />
+			
+					</div>
+				</div>
+				
+        				
 					<!-- User role with liste-->
 				<div class="row">
 					<div class="col-lg-4 col-lg-offset-1">

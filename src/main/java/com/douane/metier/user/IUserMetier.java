@@ -26,6 +26,7 @@ public interface IUserMetier {
 	public void remAgent (Agent a);
 	public Agent addAgentUser(Agent a, Useri u);
 	public Agent findAgentByIm (Long im_agent);
+	public void desactiveAgent(Agent a);
 	
 	public List<Useri> listUser();
 	//temporary

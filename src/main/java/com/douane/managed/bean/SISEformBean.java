@@ -8,6 +8,7 @@ import com.douane.metier.user.IUserMetier;
 import com.douane.metier.utilisateur.IUtilisateurMetier;
 import com.douane.requesthttp.RequestFilter;
 
+import org.hibernate.exception.ConstraintViolationException;
 import org.primefaces.component.datatable.DataTable;
 import org.primefaces.event.CellEditEvent;
 import org.primefaces.event.RowEditEvent;
@@ -1177,13 +1178,20 @@ public class SISEformBean {
 			FacesMessage msg = new FacesMessage("Agent supprimé ", a.getIm() + " supprimé");
 			FacesContext.getCurrentInstance().addMessage("myerrorReferentiel", msg);
 			
-		}catch(Exception e) {
-			FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_FATAL, "Agent non supprimé ",
+		}catch(ConstraintViolationException e) {
+			usermetierimpl.desactiveAgent(a);
+			FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Agent désactivé ",
 					//e.getMessage());
 					a.getIm() + " ne peut pas être supprimé car encore reférencé ");
 			FacesContext.getCurrentInstance().addMessage("myerrorReferentiel", message);
-		}
+		}		
+		catch(Exception e) {
+			FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_FATAL, "Agent non supprimé ",
+					e.getMessage());
+					//a.getIm() + " ne peut pas être supprimé car encore reférencé ");
+			FacesContext.getCurrentInstance().addMessage("myerrorReferentiel", message);
 		
+		}
 	}
 
 	/*

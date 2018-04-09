@@ -85,7 +85,10 @@ public class Agent implements Serializable {
 	
 	public Agent(){
 		this.setLeref("Agent");
+		this.setActive(true);
 	}
+
+	
 
 	public Long getIm() {
 		return im;
@@ -215,5 +218,15 @@ public class Agent implements Serializable {
 
 	public Long getIdAgent() {
 		return idAgent;
+	}
+	
+	private boolean active;
+	
+	public boolean isActive() {
+		return active;
+	}
+
+	public void setActive(boolean active) {
+		this.active = active;
 	}
 }

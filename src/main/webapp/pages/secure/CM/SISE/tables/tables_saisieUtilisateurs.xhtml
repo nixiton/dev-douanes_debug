@@ -55,6 +55,7 @@
 			<f:facet name="header">Poste</f:facet>
 			#{f.posteny.designation}
 		</p:column>
+		
 		<p:column style="width: 3%; text-align: center; word-wrap: break-word;">
           <p:commandButton   action="#{userMB.setCurrentAgenttomodify(f)}" update=":detailuser"
             oncomplete="PF('detailuser').show()" icon="ui-icon-zoomin"/>
@@ -63,7 +64,7 @@
        icon="ui-icon-close" update=":formUser:msgtableUser"
        oncomplete="PF('UserTable').filter()"
        >
-       <p:confirm header="Confirmation" message="Etes-vous sure?" icon="ui-icon-alert" />
+       <p:confirm header="Desactivation" message="Etes-vous sure?" icon="ui-icon-alert" />
        </p:commandButton>
         </div>
        </p:column>
