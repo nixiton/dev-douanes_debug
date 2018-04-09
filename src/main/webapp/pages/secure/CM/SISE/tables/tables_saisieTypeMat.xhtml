@@ -67,7 +67,9 @@
        <p:column style="width: 4%; text-align: center;">
        		<p:commandButton  action="#{siseBean.deleteRow(typemateriel)}"
        icon="ui-icon-close" update=":formType:msgtableType"
-       oncomplete="PF('typeTable').filter()"/>
+       oncomplete="PF('typeTable').filter()">
+       <p:confirm header="Confirmation" message="Etes-vous sure?" icon="ui-icon-alert" />
+       </p:commandButton>
        </p:column>
 	</p:dataTable>
 </h:form>

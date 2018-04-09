@@ -62,7 +62,10 @@
           <p:commandButton  action="#{siseBean.deleteUser(f)}"
        icon="ui-icon-close" update=":formUser:msgtableUser"
        oncomplete="PF('UserTable').filter()"
-       /> </div>
+       >
+       <p:confirm header="Confirmation" message="Etes-vous sure?" icon="ui-icon-alert" />
+       </p:commandButton>
+        </div>
        </p:column>
 	</p:dataTable>
 

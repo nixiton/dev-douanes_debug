@@ -316,14 +316,7 @@
 
 
 			<!-- LES REFERENTIELS -->
-			<div class="row">
-					<div class="col-lg-8 col-lg-offset-3">
-						<p:commandButton value="Ajouter nombre par type" process="@this,reference,numeroserie"
-			                             update="refid" actionListener="#{depositaireBean.addNewMateriel}"
-			                             ajax="true" />
-                    </div>
-             </div>
-             <hr />
+			
              <p:panel>
                            <p:inputText required="true" id="reference"
                         value="#{depositaireBean.matextoadd.reference}"
@@ -337,7 +330,15 @@
                         placeholder="Numero de série" styleClass="form-control top"></p:inputText>
               </p:panel>
               <hr/>             
-           
+           	
+           	 <div class="row">
+					<div class="col-lg-8 col-lg-offset-3">
+						<p:commandButton value="Ajouter nombre par type" process="@this,reference,numeroserie"
+			                             update="refid" actionListener="#{depositaireBean.addNewMateriel}"
+			                             ajax="true" />
+                    </div>
+             </div>
+             <hr />
             
             <p:dataTable id="refid" var="m"
                              value="#{depositaireBean.materielspardesignation}" editable="true"
@@ -360,6 +361,7 @@
                              ajax="true" /></p:column>
 
                 </p:dataTable>
+             
             
                 
             <br></br>

@@ -55,7 +55,9 @@
        <p:column style="width: 3%; text-align: center;">
        		<p:commandButton  action="#{siseBean.deleteRow(nomenclature)}"
        icon="ui-icon-close" update=":formNomenclture:msgtableNomenclature"
-       oncomplete="PF('NomTable').filter()"/>
+       oncomplete="PF('NomTable').filter()">
+       <p:confirm header="Confirmation" message="Etes-vous sure?" icon="ui-icon-alert" />
+       </p:commandButton>
        </p:column>
 	</p:dataTable>
 </h:form>

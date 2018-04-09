@@ -341,14 +341,7 @@
 			
 			
 				<!-- LES REFERENTIELS -->
-			<div class="row">
-					<div class="col-lg-8 col-lg-offset-3">
-						<p:commandButton value="Ajouter nombre par type" process="@this,reference,numeroserie"
-			                             update="refid" actionListener="#{depositaireBean.addNewMaterielNouv}"
-			                             ajax="true" />
-                     </div>
-             </div>
-             <hr />
+			
              
              <p:panel>
                            <p:inputText required="true" id="reference"
@@ -366,6 +359,14 @@
             <!-- /h:form>
             
             <h:form-->
+            <div class="row">
+					<div class="col-lg-8 col-lg-offset-3">
+						<p:commandButton value="Ajouter nombre par type" process="@this,reference,numeroserie"
+			                             update="refid" actionListener="#{depositaireBean.addNewMaterielNouv}"
+			                             ajax="true" />
+                     </div>
+             </div>
+             <hr />
             <p:dataTable id="refid" var="m"
                              value="#{depositaireBean.materielspardesignation}" editable="true"
                              editMode="cell" widgetVar="documentTable">
