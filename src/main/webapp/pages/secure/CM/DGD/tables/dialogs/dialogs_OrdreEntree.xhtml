@@ -165,16 +165,16 @@
                     </c:if>
  					
  					
- 					<td style="text-align:center">#{desu[0].nomenMat.nomenclature} </td>
- 					<td style="text-align:center">a rem</td>
- 					<td style="text-align:center">a rem</td>
- 					<td style="text-align:center">a rem</td>
-                    <td style="text-align:center">a rem</td>
+ 					<td style="text-align:center"> #{desu[0].typematerieladd.designation} - #{desu[0].marque.designation} - #{desu[0].renseignement}</td>
+ 					<td style="text-align:center">#{desu[0].especeUnite}</td>
+ 					<td style="text-align:center">#{desu[1]}</td>
+ 					<td style="text-align:center">#{desu[0].pu}</td>
+                    <td style="text-align:center">#{desu[1]*desu[0].pu}</td>
                    
                     <c:if test="${loop.index eq 0}">
                     <td rowspan= "#{des[2].size()}" style="text-align:center"> #{des[1]} </td>
- 					<td rowspan= "#{des[2].size()}" style="text-align:center"> #{des[1]} </td>
  					</c:if>
+ 					<td style="text-align:center">#{desu[0].origine}</td>
  				</tr>
  				</c:forEach>
  				

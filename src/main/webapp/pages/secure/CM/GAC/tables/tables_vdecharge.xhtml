@@ -54,6 +54,16 @@
             <p:commandButton action="#{gacBean.setCurentopSortieForValidation(d)}" update=":detail"
             oncomplete="PF('detail').show()" icon="ui-icon-zoomin"/>
         </p:column>
+        <p:column>
+        <f:facet name="header">
+                <h:outputText value="Ordre de sortie" />
+            </f:facet>
+        <h:form>
+                <h:commandLink  action="#{docbean.generateSortie(d)}" target="_blank">
+                    <i class="fa fa-file-archive-o"></i>
+                </h:commandLink>
+				</h:form>
+        </p:column>
 
     </p:dataTable>
 

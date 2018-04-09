@@ -282,7 +282,7 @@ public class GACBean {
 
 	}
 
-	public String exit() {
+	public void exit() {
 		System.out.println(
 				"$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$   APPEL EXIT $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$");
 
@@ -290,7 +290,7 @@ public class GACBean {
 
 		this.curentOperation = null;
 		this.motif = null;
-		return null;
+		//return null;
 	}
 
 	public void exity() {

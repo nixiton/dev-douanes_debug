@@ -16,7 +16,7 @@
                  paginator="true" rows="30" style="margin-bottom:20px"
                  emptyMessage="Aucun resultat" filteredValue="#{dtFilterView.filteredOperations}"
                  >
-                 <p:ajax event="filter" global="true" />
+                 
                  
 		<f:facet name="header">
             <p:outputPanel>
@@ -100,31 +100,28 @@
                 <!--h:outputLink value="#{c.detenteurEffectif}"  target="_blank">
                                 <i class="fa fa-file-archive-o"></i>
                             </h:outputLink-->
-
+				
                 <h:commandLink  action="#{docbean.generateDetenteur(c)}" target="_blank">
                     <i class="fa fa-file-archive-o"></i>
                 </h:commandLink>
-                
                 
 
  
             </p:panel>   
 
             <p:panel rendered="#{c['class'].simpleName eq 'OpEntree' }">
-
+			
                 <h:commandLink  action="#{gacBean.setCurentOperationOrdre(c)}" target="_blank">
                     <i class="fa fa-file-archive-o"></i>
                 </h:commandLink>
-
  
             </p:panel> 
 
             <p:panel rendered="#{c['class'].simpleName eq 'OpSortie' }">
-
+		
                 <h:commandLink  action="#{docbean.generateSortie(c)}" target="_blank">
                     <i class="fa fa-file-archive-o"></i>
                 </h:commandLink>
-
  
             </p:panel>   
 

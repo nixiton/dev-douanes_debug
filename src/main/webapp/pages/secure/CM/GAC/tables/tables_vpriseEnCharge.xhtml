@@ -66,6 +66,17 @@
             <p:commandButton action="#{gacBean.setOpEntreeToValidate(c)}" update=":detail"
             oncomplete="PF('detail').show(); PF('detail').content.scrollTop('0')" icon="ui-icon-zoomin"/>
         </p:column>
+        <p:column>
+        <f:facet name="header">
+                <h:outputText value="Ordre d'entrée" />
+            </f:facet>
+        <h:form>
+            <h:commandLink  action="#{gacBean.setCurentOperationOrdre(c)}" target="_blank">
+                    <i class="fa fa-file-archive-o"></i>
+                </h:commandLink>
+         
+        </h:form>
+        </p:column>
     
     </p:dataTable>
 

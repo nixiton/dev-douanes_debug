@@ -56,6 +56,16 @@
             <p:commandButton action="#{gacBean.setOpAttrToValidate(a)}" update=":detail"
             oncomplete="PF('detail').show()" icon="ui-icon-zoomin"/>
         </p:column>
+        <p:column>
+        	<f:facet name="header">
+                <h:outputText value="Etat détenteur éffectif" />
+            </f:facet>
+            <h:form>
+                <h:commandLink  action="#{docbean.generateDetenteur(a)}" target="_blank">
+                    <i class="fa fa-file-archive-o"></i>
+                </h:commandLink>
+                </h:form>
+        </p:column>
 
     </p:dataTable>
 
