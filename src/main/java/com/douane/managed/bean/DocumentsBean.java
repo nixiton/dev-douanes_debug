@@ -16,6 +16,7 @@ public class DocumentsBean {
 	private OpSortie curentOpeationSortieToPdf;
 	
 	public String generateDetenteur(Operation operation){
+		System.out.println("docbean.generateDetenteur");
 		setCurentOperationAttrToPdf((OpAttribution)operation);
             return "dialog6";
     }

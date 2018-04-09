@@ -92,6 +92,12 @@
 			<p:panel rendered="#{c['class'].simpleName eq 'OpSortie' }">
             Décharge
             </p:panel>
+            <p:panel rendered="#{c['class'].simpleName eq 'OpEntreeArticle' }">
+            Saisie  artcile
+            </p:panel>
+            <p:panel rendered="#{c['class'].simpleName eq 'OpSortieArticle' }">
+            Sortie article
+            </p:panel>
             </h:outputLink>
 			<p:tooltip id="idpopup" for="popuit" value="Identifiant: #{c.id}" trackMouse="true" />
         </p:column>
@@ -138,6 +144,13 @@
 	</p:dataTable>
 
 
+    <p:ajaxStatus onstart="PF('statusDialog').show()" onsuccess="PF('statusDialog').hide()" />
+
+	<p:dialog widgetVar="statusDialog" modal="true" draggable="false" closable="false" resizable="false" header="Attendez s'il vous plaît  ...">
+		<div align="center">
+		<p:graphicImage value="/pages/unsecure/assets/images/45.gif" /> 
+				</div>
+	</p:dialog>
 	<!--h3>Export Page Data Only</h3>
  
     <h:commandLink>

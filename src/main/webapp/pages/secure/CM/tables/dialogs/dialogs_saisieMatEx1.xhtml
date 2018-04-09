@@ -17,9 +17,6 @@
     <div   class="body collapse in table-responsive">
 
 
-        
-
-
         <div class="col-md-1"></div>
 
 
@@ -35,7 +32,7 @@
             ----------------------<br></br>
             DIRECTION GENERALE DES DOUANES
             -----------------------<br></br>
-            #{gacBean.curentOperation.detenteur.direction}<br></br>
+            #{docbean.curentOperationAttrToPdf.detenteur.direction}<br></br>
             ------------------
 
         </div>
@@ -119,87 +116,8 @@
             <br></br><br></br>
             <br></br><br></br>
 
-
+		<h:form>
+			<p:commandButton value="generatePDF" ajax="false" action="#{JasperTableExampleBean.saisieMatexReport(docbean.curentOperationAttrToPdf)}"> </p:commandButton>
+		</h:form>
         </div>
-    <!--/p:dialog-->
-
-    
-    #{gacBean.exity()}
-
-    <script
-        src="#{request.contextPath}/pages/unsecure/assets/lib/jquery/jquery.js"></script>
-
-    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
-    <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-
-    <script
-        src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment.min.js"></script>
-    <script
-        src="//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
-    <script
-        src="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.2.5/fullcalendar.min.js"></script>
-    <script
-        src="//cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.18.4/js/jquery.tablesorter.min.js"></script>
-    <script
-        src="//cdnjs.cloudflare.com/ajax/libs/jquery-sparklines/2.1.2/jquery.sparkline.min.js"></script>
-    <!--script src="//cdnjs.cloudflare.com/ajax/libs/flot/0.8.3/jquery.flot.min.js"></script>
-                    <script src="//cdnjs.cloudflare.com/ajax/libs/flot/0.8.3/jquery.flot.selection.min.js"></script>
-                    <script src="//cdnjs.cloudflare.com/ajax/libs/flot/0.8.3/jquery.flot.resize.min.js"></script-->
-
-    <!--Bootstrap -->
-    <script
-        src="#{request.contextPath}/pages/unsecure/assets/lib/bootstrap/js/bootstrap.js"></script>
-    <!-- MetisMenu -->
-    <script
-        src="#{request.contextPath}/pages/unsecure/assets/lib/metismenu/metisMenu.js"></script>
-    <!-- onoffcanvas -->
-    <script
-        src="#{request.contextPath}/pages/unsecure/assets/lib/onoffcanvas/onoffcanvas.js"></script>
-    <!-- Screenfull -->
-    <script
-        src="#{request.contextPath}/pages/unsecure/assets/lib/screenfull/screenfull.js"></script>
-
-    <script
-        src="#{request.contextPath}/pages/unsecure/assets/lib/jquery_ui/js/jquery-ui.js"></script>
-
-
-    <!-- Metis core scripts -->
-    <script src="#{request.contextPath}/pages/unsecure/assets/js/core.js"></script>
-    <!-- Metis demo scripts -->
-    <!--script src="assets/js/app.js"></script>
-
-                <script>
-                    $(function() {
-                      Metis.dashboard();
-                    });
-                </script-->
-
-    <!-- script src="#{request.contextPath}/pages/unsecure/assets/js/style-switcher.js"></script-->
-
-
-    <script type="text/javascript">
-
-                var nix = 0;
-
-            
-                (function($) {
-                    $(document).ready(function() {
-                        $('.list-inline li > a').click(function() {
-                            var activeForm = $(this).attr('href') + ' > form';
-                            //console.log(activeForm);
-                            $(activeForm).addClass('animated fadeIn');
-                            //set timer to 1 seconds, after that, unload the animate animation
-                            setTimeout(function() {
-                                $(activeForm).removeClass('animated fadeIn');
-                            }, 1000);
-                        });
-                    });
-
-                })(jQuery);                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
-
-                
-
-            </script>
-    <!--script-->
-
 </html>

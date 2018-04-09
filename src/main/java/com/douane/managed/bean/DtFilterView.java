@@ -30,10 +30,6 @@ import com.douane.metier.referentiel.IRefMetier;
 import com.douane.metier.user.IUserMetier;
 import com.douane.model.EtatOperation;
 import com.douane.requesthttp.RequestFilter;
-import com.itextpdf.text.BadElementException;
-import com.itextpdf.text.Document;
-import com.itextpdf.text.DocumentException;
-import com.itextpdf.text.PageSize;
 
 @ManagedBean(name="dtFilterView")
 @ViewScoped
@@ -177,18 +173,5 @@ public class DtFilterView implements Serializable{
 		return true;
 	}
 	
-	public void preProcessPDF(Object document) throws IOException, BadElementException, DocumentException {
-        try {
-        	Document pdf = (Document) document;
-            pdf.open();
-            pdf.setPageSize(PageSize.A4);
-            ExternalContext externalContext = FacesContext.getCurrentInstance().getExternalContext();
-     
-        }catch (Exception e) {
-			// TODO: handle exception
-        	e.printStackTrace(System.out);
-		}
-		       
-    }
 
 }

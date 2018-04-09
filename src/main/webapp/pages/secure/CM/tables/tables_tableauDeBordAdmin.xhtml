@@ -16,6 +16,8 @@
                  paginator="true" rows="30" style="margin-bottom:20px"
                  emptyMessage="Aucun resultat" filteredValue="#{dtFilterView.filteredOperations}"
                  >
+                 <p:ajax event="filter" global="true" />
+                 
 		<f:facet name="header">
             <p:outputPanel>
                 <h:outputText value="Rechercher:" />
@@ -102,6 +104,8 @@
                 <h:commandLink  action="#{docbean.generateDetenteur(c)}" target="_blank">
                     <i class="fa fa-file-archive-o"></i>
                 </h:commandLink>
+                
+                
 
  
             </p:panel>   
@@ -123,11 +127,6 @@
 
  
             </p:panel>   
-
-
-            <h:form>
-            
-        </h:form>
 
             </p:column>
 
@@ -190,16 +189,25 @@
 
 
 	</p:dataTable>
-
-
 	<!--h3>Export Page Data Only</h3>
  
     <h:commandLink>
         <h:outputText value="PDF" />
         <p:dataExporter type="pdf" target="tbl" fileName="cars" pageOnly="true" />
     </h:commandLink-->
+    
+
+    <p:ajaxStatus onstart="PF('statusDialog').show()" onsuccess="PF('statusDialog').hide()" />
+
+	<p:dialog widgetVar="statusDialog" modal="true" draggable="false" closable="false" resizable="false" header="Attendez s'il vous plaît  ...">
+		<div align="center">
+		<p:graphicImage value="/pages/unsecure/assets/images/45.gif" /> 
+				</div>
+	</p:dialog>
+    
 
 </h:form>
+
 
 <ui:include src="/pages/secure/CM/tables/dialogs/dialogs_vattribution.xhtml"></ui:include>
 

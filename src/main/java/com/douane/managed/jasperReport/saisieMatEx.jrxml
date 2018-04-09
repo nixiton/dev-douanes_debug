@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.5.1.final using JasperReports Library version 6.5.1  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report1" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="9136f014-cc7c-4ef4-ac78-1c1b36f3f58e">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="198"/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<parameter name="nomDepositaire" class="java.lang.String"/>
+	<parameter name="fonctionDepositaire" class="java.lang.String"/>
+	<parameter name="nomDetenteur" class="java.lang.String"/>
+	<parameter name="param" class="java.lang.String">
+		<defaultValueExpression><![CDATA["momo"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="fonctionDetenteur" class="java.lang.String"/>
+	<parameter name="designationMat" class="java.lang.String"/>
+	<parameter name="especeunite" class="java.lang.String"/>
+	<parameter name="pu" class="java.lang.Float"/>
+	<parameter name="nbr" class="java.lang.Integer"/>
+	<parameter name="valeurtotal" class="java.lang.Float"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="210" splitType="Stretch">
+			<staticText>
+				<reportElement x="180" y="94" width="219" height="91" uuid="63e84b14-e4b9-4d99-aa78-23d075a89760"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[MINISTERE DES FINANCES ET DU BUDGET
+----------------------
+SECRETARIAT GENERAL
+----------------------
+DIRECTION GENERALE DES DOUANES -----------------------]]></text>
+			</staticText>
+			<image>
+				<reportElement x="120" y="30" width="340" height="50" uuid="c99b773a-8957-409b-b0ba-82b58bceb459"/>
+				<imageExpression><![CDATA["/home/misa/git/dev-douanes_debug/src/main/webapp/pages/unsecure/assets/images/top.png"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="83" splitType="Stretch">
+			<textField>
+				<reportElement x="264" y="43" width="164" height="24" uuid="27c74a29-4dbd-48d7-a35f-058ec4062ea7"/>
+				<textFieldExpression><![CDATA[$P{nomDetenteur}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="25" width="169" height="18" uuid="2c57c754-6bda-494b-a4ac-6c88ac8fc386"/>
+				<text><![CDATA[Nom et fonction du dépositaire :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="43" width="169" height="24" uuid="9b5f1c3f-2030-467b-a96b-f7244de6342f"/>
+				<text><![CDATA[Nom et fonction du détenteur effectif :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="264" y="25" width="164" height="18" uuid="0819df75-31b7-470e-8024-468c93a3afc3"/>
+				<textFieldExpression><![CDATA[$P{nomDepositaire}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="428" y="23" width="125" height="20" uuid="f1536dbb-a29a-4647-80f2-030e98268d60"/>
+				<textFieldExpression><![CDATA[$P{fonctionDepositaire}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="210" y="0" width="164" height="25" uuid="0c716668-4384-416b-b871-2c1491845fe3"/>
+				<text><![CDATA[ETAT DE DETENTEUR EFFECTIF]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="428" y="43" width="125" height="17" uuid="3e4ec87a-c573-4dd5-bcc4-289cef56e79c"/>
+				<textFieldExpression><![CDATA[$P{fonctionDetenteur}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="20" splitType="Stretch">
+			<staticText>
+				<reportElement x="399" y="0" width="64" height="20" uuid="0be061cd-671c-48e3-b2ee-f2893c3de46e"/>
+				<text><![CDATA[NOMBRE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="0" width="198" height="20" uuid="864fb95c-f133-48bc-99d0-d80ed6e3a520"/>
+				<text><![CDATA[DESIGNATION]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="463" y="0" width="92" height="20" uuid="cba01440-8e88-400c-aef7-d1a99b7ac36e"/>
+				<text><![CDATA[VALEUR TOTALE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="313" y="0" width="86" height="20" uuid="869a40e3-de93-4a2a-a912-3de2bf04a15e"/>
+				<text><![CDATA[PRIX UNITAIRE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="198" y="0" width="115" height="20" uuid="2a2f3d12-bcf8-4302-a146-715c6e1ff0b8"/>
+				<text><![CDATA[ESPECE DES UNITES]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="180" height="40" uuid="305a5d3d-a670-49c9-bcc9-6902d24e0dfe"/>
+				<textFieldExpression><![CDATA[$P{designationMat}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="198" y="0" width="100" height="20" uuid="9c248523-661d-44f8-adaa-254a697e044a"/>
+				<textFieldExpression><![CDATA[$P{especeunite}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="310" y="0" width="70" height="30" uuid="1a2c567b-2c39-4824-8eb9-2afc8180ea2b"/>
+				<textFieldExpression><![CDATA[$P{pu}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="400" y="0" width="50" height="30" uuid="e56e894b-d03c-414f-aac2-c74b22eb4646"/>
+				<textFieldExpression><![CDATA[$P{nbr}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="460" y="0" width="85" height="30" uuid="834a1387-6971-42f7-9f27-dd4f1e240646"/>
+				<textFieldExpression><![CDATA[$P{valeurtotal}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="124" splitType="Stretch">
+			<staticText>
+				<reportElement x="10" y="10" width="303" height="20" uuid="e0cc84a1-044c-42fa-ba4e-2611e7ebd168"/>
+				<text><![CDATA[Arrêté le présent état de détenteur effectif au nombre de]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="341" y="70" width="100" height="20" uuid="2f845eaa-e4dd-499b-bf1a-ab4990769866"/>
+				<text><![CDATA[Antananarivo, le]]></text>
+			</staticText>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="441" y="70" width="100" height="20" uuid="f25b0e6e-057b-4666-8f80-b919bd4f23ed"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="210" y="30" width="100" height="20" uuid="dac58ef0-2d62-4a91-addb-0c960b7fa83a"/>
+				<text><![CDATA[Ariary.]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="340" y="90" width="164" height="18" uuid="e542a587-7674-4ba0-8661-5ea43a8c5607"/>
+				<textFieldExpression><![CDATA[$P{nomDepositaire}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="350" y="10" width="140" height="16" uuid="a1a613b4-e5da-4d6e-a613-b8ec2474e841"/>
+				<text><![CDATA[Articles à une valeur de]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="70" width="100" height="20" uuid="be96e1a5-2917-449a-b18f-bb3fdcc685f5"/>
+				<text><![CDATA[Reconnu exact]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="10" y="84" width="164" height="24" uuid="9bcf14fe-b20c-40ce-9aef-2b9c780bf7a8"/>
+				<textFieldExpression><![CDATA[$P{nomDetenteur}]]></textFieldExpression>
+			</textField>
+		</band>
+	</summary>
+</jasperReport>
