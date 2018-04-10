@@ -56,6 +56,10 @@ public class CustomAuthenticationProvider implements AuthenticationProvider {
                 FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Cette Immatriculation n'est pas encore inscrite " + immatriculation));
                 throw new SecurityExecption("user " + immatriculation + " tidak ditemukan");
             }
+            if(!user.isActive()) {
+            	FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Cette Immatriculation a été désactivée " + immatriculation));
+                throw new SecurityExecption("user " + immatriculation + " is desactivate");
+            }
 
             user.setIp("IP default");
         }

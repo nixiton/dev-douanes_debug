@@ -287,6 +287,7 @@ public class Materiel implements Serializable{
 	}
 	public Materiel() {
 		super();
+		this.numeroType = 0L;
 		// TODO Auto-generated constructor stub
 	}
 	@Transient
@@ -452,5 +453,14 @@ public class Materiel implements Serializable{
 	}
 	
 	
+	private Long numeroType;
+	public Long getNumeroType() {
+		return numeroType;
+	}
+
+	public void setNumeroType(Long numeroType) {
+		this.numeroType = numeroType;
+	}
+
 
 }

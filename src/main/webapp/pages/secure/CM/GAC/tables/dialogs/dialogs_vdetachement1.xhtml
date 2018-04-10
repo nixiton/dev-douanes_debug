@@ -15,9 +15,11 @@
     <c:if test="#{gacBean.currentOpDettachement['class'].simpleName eq 'OpDettachement'}">
 
     <h:form class="form-horizontal">
-            <h:commandButton action="#{gacBean.exit()}" value="X" style="valign:middle;float:right;padding-right:7px;text-align:center;">
+            <h:form class="form-horizontal">
+            <p:commandButton actionListner="#{gacBean.exit()}" icon="ui-icon-delete"
+            style="valign:bottom;float:right;padding-right:20px" ajax="false"/>
                         
-            </h:commandButton>
+            </h:form>
             </h:form>
         
         

@@ -12,10 +12,10 @@
 <p:dialog id="detail" widgetVar="detail" closable="false" header="Détails validation pise en charge" showEffect="explode" hideEffect="explode" width="1250" height="450">
 
     <h:form class="form-horizontal">
-        <h:commandButton action="#{gacBean.exit()}" value="X" style="valign:middle;float:right;padding-right:7px;text-align:center;">
-
-        </h:commandButton>
-    </h:form>
+            <p:commandButton actionListner="#{gacBean.exit()}" icon="ui-icon-delete"
+            style="valign:bottom;float:right;padding-right:20px" ajax="false"/>
+                        
+            </h:form>
 
 
 

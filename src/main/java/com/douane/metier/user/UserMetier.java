@@ -333,6 +333,9 @@ public class UserMetier implements IUserMetier {
 		 * FacesContext.getCurrentInstance().addMessage(null, message); return null; }
 		 */
 	}
+	public Long countMaterielByTypeValide(TypeMateriel typemat, Direction dir) {
+		return matrepos.countByTypematerieladdAndDirecAndValidation(typemat, dir,true);
+	}
 
 	public Materiel entrerMateriel(OpEntree op) {
 		if (op == null) {
@@ -341,7 +344,7 @@ public class UserMetier implements IUserMetier {
 		List<Materiel> mat = op.getListMat();
 		for (Materiel m : mat) {
 			m.setValidation(true);
-
+			m.setNumeroType(countMaterielByTypeValide(m.getTypematerieladd(), op.getDirection()));
 			System.out.println("materiel m" + m.getDc());
 			matrepos.save(m);
 		}
@@ -816,7 +819,7 @@ public class UserMetier implements IUserMetier {
 	@Override
 	public List<OpAttribution> getListOpAttrByDirection(Direction direction) {
 		// TODO Auto-generated method stub
-		return opattrrepos.findByDirectionOrderByDateDesc(direction);
+		return opattrrepos.findByDirectionOrderByIdDesc(direction);
 	}
 
 	@Override
@@ -1214,6 +1217,7 @@ public class UserMetier implements IUserMetier {
 			matex.setDesign(d);
 			matex.setDc(dc);
 			matex.setValidation(true);
+			matex.setNumeroType(countMaterielByTypeValide(matex.getTypematerieladd(), matex.getDirec()));
 			matrepos.save(matex);
 			
 		}

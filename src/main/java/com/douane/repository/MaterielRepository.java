@@ -30,5 +30,6 @@ public interface MaterielRepository extends CrudRepository<Materiel, Long>{
 	
 	@Query("select d, count(d) from Materiel m join m.design d where m.myoperationEntree=:curentop group by d")
 	List<Object[]> getDesignationByOpEntree(@Param("curentop")OpEntree open);
+	public Long countByTypematerieladdAndDirecAndValidation(TypeMateriel typemat, Direction dir, boolean validation);
 	
 }

@@ -13,5 +13,6 @@ public interface OpAttrRepository extends CrudRepository<OpAttribution, Long>{
     public List<OpAttribution> findByMat(Materiel m);
     public List<OpAttribution> findByMatAndState(Materiel m, EtatOperation e);
 	public List<OpAttribution> findByDirectionOrderByDateDesc(Direction direction);
+	public List<OpAttribution> findByDirectionOrderByIdDesc(Direction direction);
 
 }

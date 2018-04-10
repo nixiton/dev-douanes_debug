@@ -162,6 +162,13 @@
 
 
 </div>
+<p:ajaxStatus onstart="PF('statusDialog').show()" onsuccess="PF('statusDialog').hide()" />
+
+	<p:dialog widgetVar="statusDialog" modal="true" draggable="false" closable="false" resizable="false" header="Attendez s'il vous plaît  ...">
+		<div align="center">
+		<p:graphicImage value="/pages/unsecure/assets/images/45.gif" /> 
+				</div>
+	</p:dialog>
 
 <ui:include src="/pages/secure/CM/GAC/tables/dialogs/dialogs_vpriseEnCharge1.xhtml"></ui:include>
 
