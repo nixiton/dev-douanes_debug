@@ -135,5 +135,15 @@ public class Article  implements Serializable{
 		return false;
 
 	}
+	
+	 public Float getPrix() {
+	        return prix;
+	    }
+
+	    public void setPrix(Float prix) {
+	        this.prix = prix;
+	    }
+
+	 protected Float prix;
 
 }

@@ -36,7 +36,7 @@ public class ArticleNouv extends Article{
         this.financementArt = financementArt;
     }
 
-    private Float prix;
+   
 
     public Fournisseur getFournisseur() {
         return fournisseur;
@@ -46,13 +46,7 @@ public class ArticleNouv extends Article{
         this.fournisseur = fournisseur;
     }
 
-    public Float getPrix() {
-        return prix;
-    }
-
-    public void setPrix(Float prix) {
-        this.prix = prix;
-    }
+   
 
     public ArticleNouv(Fournisseur fournisseur, Float prix) {
         super();

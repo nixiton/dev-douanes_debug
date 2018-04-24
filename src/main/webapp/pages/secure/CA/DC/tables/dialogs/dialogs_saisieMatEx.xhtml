@@ -26,8 +26,12 @@
                         <td>#{depositaireBean.curentArticle.idArticle}</td>
                         <td><strong>Type des objets</strong></td>
                         <td>#{depositaireBean.curentArticle.codeArticle.typeObjet.designation}</td>
-                         <td><strong>Validité</strong></td>
+                      </tr>
+                      <tr>
+                      	<td><strong>Validité</strong></td>
                         <td>#{depositaireBean.curentArticle.validation}</td>
+                        <td><strong>Prix</strong></td>
+                        <td>#{depositaireBean.curentArticle.prix}</td>
                       </tr>
                       <tr>
                         <td><strong>Codification</strong></td>
@@ -36,10 +40,12 @@
                         <td>#{depositaireBean.curentArticle.nombre}</td>
                     </tr>
                     <tr>
-                    <td><strong>Caractéristique</strong></td>
+                    	<td><strong>Caractéristique</strong></td>
                         <td>#{depositaireBean.curentArticle.caracteristiqueArticle}</td>
                         <td><strong>Marque</strong></td>
                         <td>#{depositaireBean.curentArticle.marqueArticle}</td>
+                        <td><strong>Nombre restants</strong></td>
+                        <td>#{depositaireBean.calculNombreRestant(depositaireBean.curentArticle)}</td>
                     </tr>
                     
             </table>

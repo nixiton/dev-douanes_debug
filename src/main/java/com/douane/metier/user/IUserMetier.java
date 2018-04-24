@@ -141,7 +141,7 @@ public interface IUserMetier {
 	public List<CodeArticle> listCodeArticleByTypeObj(TypeObjet typeObj);
 
 	public OpEntreeArticle reqEntrerArticle(Article article, Agent dc);
-	public OpSortieArticle reqSortirArticle(Article article, Agent op, Agent destinataire)throws Exception;
+	public OpSortieArticle reqSortirArticle(Article article, Agent op, Agent destinataire, Long nbr)throws Exception;
 
 
 	public OpEntreeArticle reqArtAModifier(OpEntreeArticle entreeArt, String motif)throws Exception;
@@ -200,4 +200,5 @@ public interface IUserMetier {
 	public List<Object[]> listDesignationByOperationEntree(OpEntree operationentree);
 	public List<OpEntree> listOpentreeByStateByDirection(EtatOperation etat, Direction d);
 	public void updateArticle(Article art);
+	public Long calculArticleRestant(Article article);
 }
