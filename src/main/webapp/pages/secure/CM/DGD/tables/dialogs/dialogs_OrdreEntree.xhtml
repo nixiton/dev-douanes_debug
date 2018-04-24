@@ -206,7 +206,9 @@
 
  			</div>
 
- 			
+ 			<h:form>
+				<p:commandButton value="generatePDF" ajax="false" action="#{JasperTableExampleBean.ordreEntreeReport(gacBean.curentOperation1)}"> </p:commandButton>
+			</h:form>
 
 
  	</div>
@@ -217,7 +219,6 @@
     
 </div>
 
-#{gacBean.exity()}
 
 </div>
       <script type="text/javascript" src="#{request.contextPath}/pages/unsecure/assets/js/jquery-1.7.1.min.js"></script>

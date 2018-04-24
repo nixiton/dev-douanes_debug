@@ -19,11 +19,24 @@
 
 
 		<p:dataTable var="c" value="#{suivieditionBean.listOpESForJournal}"
-			paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}"
+			paginatorTemplate="{CurrentPageReport}  {PreviousPageLink} {PageLinks} {NextPageLink} {Exporters}"
 			paginator="true" rows="10" style="margin-bottom:20px"
 			rowStyleClass="#{c['class'].simpleName ne 'OpEntree' and c['class'].simpleName ne 'OpSortie' ? 'ui-helper-hidden' : '' }"
 			sortBy="#{c.id}"
+			widgetVar="JournalTable"
+			id="journaltable"
 			>
+			<f:facet name="{Exporters}">
+            <h:commandLink>
+                <i class="fa fa-table">  </i> Excel
+                <p:dataExporter type="xls" target="journaltable" fileName="journaloperation" />
+            </h:commandLink>
+ 			<span>   </span>
+            <h:commandLink>
+            	<i class="fa fa-file">  </i> PDF
+                <p:dataExporter type="pdf" target="journaltable" fileName="journaloperation"/>
+            </h:commandLink>
+        </f:facet>
 			<p:columnGroup type="header">
 			<p:row>
 				<p:column colspan="7" headerText="Renseignement" />
@@ -45,50 +58,34 @@
 			</p:row>
 				
 			</p:columnGroup>
-			<p:column headerText="ID"> #{c.id}</p:column>
+			<p:column headerText="ID"> 
+			<h:outputText value="#{c.id}" />
+			
+			
+			</p:column>
 
 			<p:column headerText="Numéro d'ordre des pièces justificatives">
 
 				<p:panel>
-            
-                #{c.numoperation}
+            	<h:outputText value="#{c.numoperation}" />
             </p:panel>
 
 			</p:column>
 			<p:column headerText="Date des entrées et des sorties">
+            <h:outputText value="#{c.date}" />
             
-            #{c.date}
 
         </p:column>
 
 			<p:column headerText="Origine des entrées et désignation des sorties">
-
-
-				<p:panel rendered="#{c['class'].simpleName eq 'OpEntree'}">
-					
-					<p:panelGrid>
-            			<p:row>
-               			 <p:column><h:outputText value="xxx" /></p:column>
-                		<p:column><h:outputText value="xxx" /></p:column>
-            			</p:row>
-            			<p:row>
-                			<p:column colspan="2"><h:outputText value="#{xxx}" /></p:column>
-           				 </p:row>
-        			</p:panelGrid>
-					
-					
-					<ui:repeat value="#{c.listMat}" var="mat">
-					<p:row>
-						#{mat.design.origine}
-					</p:row>
-         
-					</ui:repeat>
-
-
-				</p:panel>
-				<p:panel rendered="#{c['class'].simpleName eq 'OpSortie' }">
-                #{c.motifsortie.designation}
-            </p:panel>
+			<c:if test="${c.getClass().getSimpleName() eq  OpEntree}">					
+					entree ${c.getClass().name}
+				</c:if>
+				<c:if test="${c.getClass().getSimpleName() eq  OpSortie}">
+				
+				sortie  ${c.getClass().name}
+            	</c:if>
+				
 
 
 
@@ -102,16 +99,18 @@
 
 
 					<ui:repeat value="#{c.listMat}" var="mat">
-                #{mat.typematerieladd.designation} - #{mat.design.marque.designation} - #{mat.design.renseignement}<br></br>
-
+					<h:outputText value=" #{mat.typematerieladd.designation} - 
+					#{mat.design.marque.designation} - #{mat.design.renseignement}"/>
+               
 					</ui:repeat>
 
 				</p:panel>
 
 				<p:panel rendered="#{c['class'].simpleName eq 'OpSortie'}">
 					<ui:repeat value="#{c.mat}" var="mat">
-                #{mat.typematerieladd.designation} - #{mat.design.marque.designation} - #{mat.design.renseignement}<br></br>
-
+					<h:outputText value="#{mat.typematerieladd.designation} 
+					- #{mat.design.marque.designation} - #{mat.design.renseignement}" />
+                
 					</ui:repeat>
 				</p:panel>
 
@@ -121,12 +120,14 @@
 			<p:column headerText="Espèce des unités">
 				<p:panel rendered="#{c['class'].simpleName eq 'OpEntree'}">
 					<ui:repeat value="#{c.listMat}" var="mat">
-                #{mat.design.especeUnite}<br></br>
+					<h:outputText value="#{mat.design.especeUnite}" />
+                <br></br>
 
 					</ui:repeat>
 				</p:panel>
 				<p:panel rendered="#{c['class'].simpleName eq 'OpSortie'}">
-                #{c.mat.design.especeUnite}<br></br>
+				<h:outputText value="#{c.mat.design.especeUnite}" />
+                <br></br>
 				</p:panel>
 
 
@@ -141,13 +142,13 @@
 					<ui:repeat value="#{c.listMat}" var="mat">
 
 						<p:panel rendered="#{mat['class'].simpleName eq 'MaterielEx'}">
+                    <h:outputText value="#{mat.design.pu}" />
                     
-                    #{mat.design.pu}
                     </p:panel>
 
 						<p:panel rendered="#{mat['class'].simpleName eq 'MaterielNouv'}">
+                    <h:outputText value="#{mat.design.pu}" />
                     
-                    #{mat.design.pu}
                     </p:panel>
 
 					</ui:repeat>
@@ -156,11 +157,13 @@
 				</p:panel>
 				<p:panel rendered="#{c['class'].simpleName eq 'OpSortie'}">
         			<p:panel rendered="#{c.mat['class'].simpleName eq 'MaterielEx'}">
-                    #{c.mat.design.pu}
+        			<h:outputText value="#{c.mat.design.pu}" />
+                    
                     </p:panel>
 
 						<p:panel rendered="#{c.mat['class'].simpleName eq 'MaterielNouv'}">
-                    #{c.mat.design.pu}
+						<h:outputText value="#{c.mat.design.pu}" />
+                    
                     </p:panel>
         		</p:panel>
 
@@ -184,11 +187,13 @@
 				<p:panel rendered="#{c['class'].simpleName eq 'OpEntree'}">
 					<ui:repeat value="#{c.listMat}" var="mat">
 						<p:panel rendered="#{mat['class'].simpleName eq 'MaterielEx'}">
-                    #{1*mat.design.pu}
+						<h:outputText value="#{1*mat.design.pu}" />
+                    
                     </p:panel>
 
 						<p:panel rendered="#{mat['class'].simpleName eq 'MaterielNouv'}">
-                    #{1*mat.design.pu}
+						<h:outputText value="#{1*mat.design.pu}" />
+                    
                     </p:panel>
 
 
@@ -197,7 +202,7 @@
 			</p:column>
 			<p:column headerText="Quanitité">
 				<p:panel rendered="#{c['class'].simpleName eq 'OpSortie'}">
-        			1
+        			<h:outputText value="1" />
         		</p:panel>
 
 			</p:column>
@@ -206,11 +211,13 @@
 				
 				<p:panel rendered="#{c['class'].simpleName eq 'OpSortie'}">
         			<p:panel rendered="#{c.mat['class'].simpleName eq 'MaterielEx'}">
-                    #{1*c.mat.design.pu}
+        			<h:outputText value="#{1*c.mat.design.pu}" />
+                    
                     </p:panel>
 
 						<p:panel rendered="#{c.mat['class'].simpleName eq 'MaterielNouv'}">
-                    #{1*c.mat.design.pu}
+						<h:outputText value="#{1*c.mat.design.pu}" />
+                    
                     </p:panel>
         		</p:panel>
 

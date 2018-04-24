@@ -1,5 +1,6 @@
 package com.douane.managed.bean;
 
+import java.io.File;
 import java.io.IOException;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -30,6 +31,14 @@ import com.douane.metier.referentiel.IRefMetier;
 import com.douane.metier.user.IUserMetier;
 import com.douane.model.EtatOperation;
 import com.douane.requesthttp.RequestFilter;
+import com.lowagie.text.BadElementException;
+import com.lowagie.text.Document;
+import com.lowagie.text.DocumentException;
+import com.lowagie.text.Element;
+import com.lowagie.text.Image;
+import com.lowagie.text.PageSize;
+import com.lowagie.text.Paragraph;
+import com.lowagie.text.pdf.PdfPCell;
 
 @ManagedBean(name="dtFilterView")
 @ViewScoped
@@ -172,6 +181,19 @@ public class DtFilterView implements Serializable{
        // return ((Comparable) value).compareTo(Integer.valueOf(filterText)) > 0;
 		return true;
 	}
-	
+	public void preProcessPDF(Object document) throws IOException, BadElementException, DocumentException {
+        Document pdf = (Document) document;
+        pdf.open();
+        pdf.setPageSize(PageSize.A4);
+        
+        ExternalContext externalContext = FacesContext.getCurrentInstance().getExternalContext();
+        String logo = externalContext.getRealPath("") + File.separator + "pages" + File.separator + "unsecure"+ File.separator + "assets" + File.separator + "images" + File.separator + "logo.jpeg";
+        Image imageCenter = Image.getInstance(logo);
+        imageCenter.setAlignment(Image.MIDDLE);
+        imageCenter.scalePercent(50);
+        //cell.addElement(Image.getInstance(logo));
+        //pdf.add(cell);
+        pdf.add(imageCenter);
+    }
 
 }

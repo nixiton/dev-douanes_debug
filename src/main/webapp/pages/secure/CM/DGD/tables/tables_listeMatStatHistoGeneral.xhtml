@@ -7,6 +7,7 @@
     xmlns:f="http://java.sun.com/jsf/core"
     xmlns:h="http://java.sun.com/jsf/html"
     xmlns:p="http://primefaces.org/ui"
+    xmlns:pe="http://primefaces.org/ui/extensions"
     >
 
 <h:head></h:head>
@@ -29,7 +30,11 @@
  			<span>   </span>
             <h:commandLink>
             	<i class="fa fa-file">  </i> PDF
-                <p:dataExporter type="pdf" target="historiquematerielsgeneral" fileName=">historiquematerielsgeneral"/>
+                <p:dataExporter encoding="ISO-8859-1" 
+                type="pdf" target="historiquematerielsgeneral" 
+                fileName=">historiquematerielsgeneral"
+                preProcessor="#{dtFilterView.preProcessPDF}"
+                datasetPadding="4"/>
             </h:commandLink>
         </f:facet>
         

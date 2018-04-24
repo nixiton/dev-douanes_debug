@@ -493,6 +493,7 @@ public class OperationDAOImpl implements IOperationDAO{
 	@Override
 	public List<OpEntreeArticle> getListOpEntreeArtByValideByDirection(EtatOperation etat, Direction direction,
 			Date startDate, Date endDate) {
+		System.out.println("LISTE DES ARTICLES**");
 		// TODO Auto-generated method stub
 		TypedQuery<OpEntreeArticle> query = em.createQuery("select oeart from OpEntreeArticle oeart "
 				+ " where oeart.date>=:startDate AND oeart.date<=:endDate"
@@ -505,6 +506,7 @@ public class OperationDAOImpl implements IOperationDAO{
 		query.setParameter("endDate", endDate, TemporalType.DATE);
 		query.setParameter("etat", etat);   
 	    List<OpEntreeArticle> operations = query.getResultList();
+	    System.out.println("LISTE DES ARTICLES**");
 		return operations;
 	}
 

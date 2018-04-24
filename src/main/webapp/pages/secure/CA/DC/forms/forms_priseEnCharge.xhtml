@@ -81,7 +81,7 @@
                         <f:selectItem itemValue="#{null}" itemLabel="Selectionner" /> 
                             <f:selectItems value="#{siseBean.listMarque}" var="theme" itemLabel="#{theme.designation}" itemValue="#{theme}" />
                         <p:column>
-                            <h:outputText value="#{t.designation}" />
+                            <h:outputText value="#{t != null ? t.designation : 'Select'}" />
                         </p:column>
 
                     </p:selectOneMenu>
@@ -117,7 +117,7 @@
 	                        <f:selectItem itemValue="#{null}" itemLabel="Selectionner" /> 
 	                            <f:selectItems value="#{siseBean.listModeAcquisition}" var="theme" itemLabel="#{theme.designation}" itemValue="#{theme}" />
 	                        <p:column>
-	                            <h:outputText value="#{t.designation}" />
+	                            <h:outputText value="#{t != null ? t.designation : 'Select'}" />
 	                        </p:column>
 	
 	                    </p:selectOneMenu>
@@ -138,7 +138,7 @@
 	                        <f:selectItem itemValue="#{null}" itemLabel="Selectionner" /> 
 	                            <f:selectItems value="#{siseBean.listFinancement}" var="theme" itemLabel="#{theme.designation}" itemValue="#{theme}" />
 	                        <p:column>
-	                            <h:outputText value="#{t.designation}" />
+	                            <h:outputText value="#{t != null ? t.designation : 'Select'}" />
 	                        </p:column>
 	                    </p:selectOneMenu>
 	                </div>
@@ -157,7 +157,7 @@
 	                        <f:selectItem itemValue="#{null}" itemLabel="Selectionner" /> 
 	                            <f:selectItems value="#{siseBean.listFournisseur}" var="theme" itemLabel="#{theme.designation}" itemValue="#{theme}" />
 	                        <p:column>
-	                            <h:outputText value="#{t.designation}" />
+	                            <h:outputText value="#{t != null ? t.designation : 'Select'}" />
 	                        </p:column>
 	                    </p:selectOneMenu>
 	                </div>

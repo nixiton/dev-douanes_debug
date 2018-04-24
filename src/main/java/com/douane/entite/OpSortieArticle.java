@@ -46,6 +46,14 @@ public class OpSortieArticle  extends Operation{
     public OpSortieArticle() {
 
     }
+    public Long getNombreToS() {
+		return nombreToS;
+	}
+
+	public void setNombreToS(Long nombreToS) {
+		this.nombreToS = nombreToS;
+	}
+	private Long nombreToS;
 
 
 }

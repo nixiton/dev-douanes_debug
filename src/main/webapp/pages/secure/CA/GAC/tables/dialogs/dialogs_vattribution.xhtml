@@ -32,17 +32,25 @@
                         <td></td>
                         <td><strong>Fournisseur</strong></td>
                         <td>#{gacBean.opSortieArticleToValidate.article.fournisseur.designation}</td>
-                        <td><strong>Prix unitaire</strong></td>
-                        <td>#{gacBean.opSortieArticleToValidate.article.prix}</td>
                     </tr>
 					</c:if>
 					<tr>
 						<td></td>
-						<td><strong>Nombre</strong></td>
+						<td><strong>Nombre Disponible</strong></td>
                         <td>#{gacBean.opSortieArticleToValidate.article.nombre}</td>
                         
                         <td><strong>Bénéficiaire</strong></td>
                         <td>#{gacBean.opSortieArticleToValidate.beneficiaire.im}</td>
+                        
+					</tr>
+					<tr>
+						<td></td>
+						<td><strong>Nombre à attribuer</strong></td>
+                        <td>#{gacBean.opSortieArticleToValidate.nombreToS}</td>
+                        <td><strong>Prix unitaire</strong></td>
+                        <td>#{gacBean.opSortieArticleToValidate.article.prix}</td>
+                        <td><strong>Nombre restants en ce moment</strong></td>
+                        <td>#{depositaireBean.calculNombreRestant(gacBean.opSortieArticleToValidate.article)}</td>
                         
 					</tr>
 

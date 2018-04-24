@@ -34,7 +34,7 @@
 	                            <f:selectItem itemValue="#{null}" itemLabel="--select--" /> 
 	                            <f:selectItems value="#{userMB.userListByDirection}" var="type" itemLabel="#{type.im}" itemValue="#{type}"/>
 	                            <p:column>
-	                            <h:outputText value="#{t.im}" />
+	                            <h:outputText value="#{t != null ? t.im : 'Select'}" />
 	                        </p:column>
 	                        <p:ajax event="change" update="nom"/>
 	                        </p:selectOneMenu>
@@ -66,11 +66,11 @@
 	                    <p:selectOneMenu value="#{depositaireBean.article}" converter="#{articleConverter}"   panelStyle="width:180px"  style="width:160px"
 	                         effect="fade" var="t" filter="true" filterMatchMode="startsWith">
 	                        <f:selectItem itemValue="#{null}" itemLabel="--select--" /> 
-	                            <f:selectItems value="#{depositaireBean.listArticleValideByDirec}" var="theme" itemLabel="#{theme.codeArticle.designation}" itemValue="#{theme}" />
+	                            <f:selectItems value="#{depositaireBean.listArticleValideByDirec}" var="theme" itemLabel="#{theme.codeArticle.typeObjet.designation}  ( #{theme.codeArticle.designation} )" itemValue="#{theme}" />
 	                        <p:column>
-	                            <h:outputText value="#{t.codeArticle.designation}" />
+	                            <h:outputText value="#{t != null ? t.codeArticle.typeObjet.designation : 'select'}   #{t.codeArticle.designation} #{t.idArticle}" />
 	                        </p:column>
-	                        <p:ajax event="change" update="nombre"/>
+	                        <p:ajax event="change" update="nombre,prix,nombrerest"/>
 	                    </p:selectOneMenu>
 	                </div>
 				</div>
@@ -78,7 +78,7 @@
 				
 				<div class="row">
 					<div class="col-lg-4 col-lg-offset-1"> 
-		                <label for="text1" class="control-label col-lg-4">Nombre
+		                <label for="text1" class="control-label col-lg-4">Nombre Total
 		                </label>
 					</div>
 	                <div class="col-lg-6">
@@ -87,7 +87,54 @@
 	
 	                </div>
                </div>
+               <hr></hr>
+               <div class="row">
+					<div class="col-lg-4 col-lg-offset-1"> 
+		                <label for="text1" class="control-label col-lg-4">Nombre Restant
+		                </label>
+					</div>
+	                <div class="col-lg-6">
+	
+	                    <h:outputText id="nombrerest" value="#{depositaireBean.article != null ? depositaireBean.calculNombreRestant(depositaireBean.article): 0}"/>
+	
+	                </div>
+               </div>
                <hr></hr> 
+               <div class="row">
+					<div class="col-lg-4 col-lg-offset-1"> 
+		                <label for="text1" class="control-label col-lg-4">Prix Unitaire
+		                </label>
+					</div>
+	                <div class="col-lg-6">
+	
+	                    <h:outputText id="prix" value="#{depositaireBean.article != null ? depositaireBean.article.prix : ''}"/>
+	
+	                </div>
+               </div>
+               <hr></hr>
+              
+               <div class="row">
+					<div class="col-lg-4 col-lg-offset-1"> 
+		                <label for="text1" class="control-label col-lg-4">Nombre à attribuer
+		                </label>
+					</div>
+	                <div class="col-lg-6">
+	
+	                   <p:inputText required="true"
+	                        value="#{depositaireBean.nombreArticleToDep }"
+	                        requiredMessage="Nombre obligatoire"
+	                        placeholder="Nombre à attribuer" styleClass="form-control top"
+	                        id="nombretodep"
+	                        validatorMessage="Ce nombre n'est pas valide ou dépasse le nombre d'articles restants">
+	                        <f:validateDoubleRange minimum="0" maximum="#{depositaireBean.article != null ? depositaireBean.calculNombreRestant(depositaireBean.article): 0}" />
+	                        
+	                        </p:inputText>
+	                        <p:message for="nombretodep" />
+	
+	                </div>
+               </div>
+               <hr></hr>
+         
             </div>
 
             <div class="form-group">

@@ -2189,7 +2189,7 @@ public class DepositaireBean {
 		return articleNouv;
 	}
 
-	public String addRequeteSortieNouv() throws Exception {
+	/*public String addRequeteSortieNouv() throws Exception {
 		// ArticleNouv a = new ArticleNouv();
 
 		Agent agent = (Agent) RequestFilter.getSession().getAttribute("agent");
@@ -2198,7 +2198,7 @@ public class DepositaireBean {
 
 		usermetierimpl.reqSortirArticle(this.getArticle(), agent, getAgentDest());
 		return SUCCESS;
-	}
+	}*/
 
 	public List<Materiel> getListAllMaterielValideSansDetenteurByDirection() {
 		Agent agent = (Agent) RequestFilter.getSession().getAttribute("agent");
@@ -2895,6 +2895,40 @@ public class DepositaireBean {
 			setCurentNull();
 			setAllNull();
 		}
+	}
+	public Long getNombreArticleToDep() {
+		return nombreArticleToDep;
+	}
+
+	public void setNombreArticleToDep(Long nombreArticleToDep) {
+		this.nombreArticleToDep = nombreArticleToDep;
+	}
+
+	private Long nombreArticleToDep;
+	
+	public String addRequeteSortieNouv() {
+		// ArticleNouv a = new ArticleNouv();
+
+		Agent agent = (Agent) RequestFilter.getSession().getAttribute("agent");
+		// a.setFournisseur(getFournisseur());
+		// a.setPrix(getPrix());
+		try {
+		usermetierimpl.reqSortirArticle(this.getArticle(), agent, getAgentDest(), getNombreArticleToDep());
+		return SUCCESS;
+		}catch(Exception e) {
+		FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Erreur pour sortie de l'article",
+				"La requête contient des erreurs");
+		
+		FacesContext.getCurrentInstance().addMessage(null, message);
+		return null;
+		}
+	}
+	
+	public Long calculNombreRestant(Article article) {
+		if(article == null) {
+			return 0L;
+		}
+		return article.getNombre() - usermetierimpl.calculArticleRestant(article);
 	}
 
 }
