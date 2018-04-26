@@ -1325,6 +1325,9 @@ public class UserMetier implements IUserMetier {
 	@Override
 	public Long calculArticleRestant(Article article) {
 		// TODO Auto-generated method stub
+		if(article == null) {
+			return 0L;
+		}
 		Long nombreSortie = (Long)opsortieartrepos.getNumberOfSortieByArticle(article
 				, EtatOperation.ACCEPTED
 				);
@@ -1332,7 +1335,7 @@ public class UserMetier implements IUserMetier {
 		if(nombreSortie == null) {
 			nombreSortie = 0L;
 		}
-		return nombreSortie;
+		return article.getNombre() -nombreSortie;
 	}
 
 

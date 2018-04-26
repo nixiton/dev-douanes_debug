@@ -2925,10 +2925,8 @@ public class DepositaireBean {
 	}
 	
 	public Long calculNombreRestant(Article article) {
-		if(article == null) {
-			return 0L;
-		}
-		return article.getNombre() - usermetierimpl.calculArticleRestant(article);
+		
+		return usermetierimpl.calculArticleRestant(article);
 	}
 
 }
