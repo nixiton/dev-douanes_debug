@@ -594,9 +594,9 @@
     TARGET="rules:#pages#secure#CM#SISE#saisieRef.xhtml#dec"
     TITLE="#{siseBean.addModeDecharge}:success" model-entity="JSFProcessItemOutput"/>
    <PROCESS-ITEM-OUTPUT
-    ID="success:#{siseBean.addMotifSortie}:#pages#secure#CM#SISE#saisieRef.xhtml#sotrie"
-    NAME="output86" PATH="/pages/secure/CM/SISE/saisieRef.xhtml#sotrie"
-    TARGET="rules:#pages#secure#CM#SISE#saisieRef.xhtml#sotrie"
+    ID="success:#{siseBean.addMotifSortie}:#pages#secure#CM#SISE#saisieRef.xhtml#sortie"
+    NAME="output86" PATH="/pages/secure/CM/SISE/saisieRef.xhtml#sortie"
+    TARGET="rules:#pages#secure#CM#SISE#saisieRef.xhtml#sortie"
     TITLE="#{siseBean.addMotifSortie}:success" model-entity="JSFProcessItemOutput"/>
    <PROCESS-ITEM-OUTPUT
     ID="success:#{siseBean.addPoste}:#pages#secure#CM#SISE#saisieRef.xhtml#poste"
@@ -605,135 +605,141 @@
     TITLE="#{siseBean.addPoste}:success" model-entity="JSFProcessItemOutput"/>
    <PROCESS-ITEM-OUTPUT
     ID="success:#{siseBean.addRole}:#pages#secure#CM#SISE#saisieRef.xhtml#role"
-    NAME="output88" PATH="/pages/secure/CM/SISE/saisieRef.xhtml#role"
+    NAME="output89" PATH="/pages/secure/CM/SISE/saisieRef.xhtml#role"
     TARGET="rules:#pages#secure#CM#SISE#saisieRef.xhtml#role"
     TITLE="#{siseBean.addRole}:success" model-entity="JSFProcessItemOutput"/>
    <PROCESS-ITEM-OUTPUT
     ID="success:#{siseBean.addRoleCA}:#pages#secure#CA#SISE#saisieRef.xhtml#role"
-    NAME="output89" PATH="/pages/secure/CA/SISE/saisieRef.xhtml#role"
+    NAME="output90" PATH="/pages/secure/CA/SISE/saisieRef.xhtml#role"
     TARGET="rules:#pages#secure#CA#SISE#saisieRef.xhtml#role"
     TITLE="#{siseBean.addRoleCA}:success" model-entity="JSFProcessItemOutput"/>
    <PROCESS-ITEM-OUTPUT
     ID="success:#{siseBean.addService}:#pages#secure#CM#SISE#saisieRef.xhtml#serv"
-    NAME="output90" PATH="/pages/secure/CM/SISE/saisieRef.xhtml#serv"
+    NAME="output91" PATH="/pages/secure/CM/SISE/saisieRef.xhtml#serv"
     TARGET="rules:#pages#secure#CM#SISE#saisieRef.xhtml#serv"
     TITLE="#{siseBean.addService}:success" model-entity="JSFProcessItemOutput"/>
    <PROCESS-ITEM-OUTPUT
     ID="success:#{siseBean.addTypeMateriel}:#pages#secure#CM#SISE#saisieRef.xhtml#type"
-    NAME="output91" PATH="/pages/secure/CM/SISE/saisieRef.xhtml#type"
+    NAME="output92" PATH="/pages/secure/CM/SISE/saisieRef.xhtml#type"
     TARGET="rules:#pages#secure#CM#SISE#saisieRef.xhtml#type"
     TITLE="#{siseBean.addTypeMateriel}:success" model-entity="JSFProcessItemOutput"/>
    <PROCESS-ITEM-OUTPUT
     ID="success:#{depositaireBean.addMaterielExistant}:#pages#secure#CM#DC#saisieMatEx.xhtml"
-    NAME="output92" PATH="/pages/secure/CM/DC/saisieMatEx.xhtml"
+    NAME="output93" PATH="/pages/secure/CM/DC/saisieMatEx.xhtml"
     TARGET="rules:#pages#secure#CM#DC#saisieMatEx.xhtml"
     TITLE="#{depositaireBean.addMaterielExistant}:success" model-entity="JSFProcessItemOutput"/>
    <PROCESS-ITEM-OUTPUT
     ID="success:#{depositaireBean.addArticleEx}:#pages#secure#CA#DC#saisieMatEx.xhtml"
-    NAME="output93" PATH="/pages/secure/CA/DC/saisieMatEx.xhtml"
+    NAME="output94" PATH="/pages/secure/CA/DC/saisieMatEx.xhtml"
     TARGET="rules:#pages#secure#CA#DC#saisieMatEx.xhtml"
     TITLE="#{depositaireBean.addArticleEx}:success" model-entity="JSFProcessItemOutput"/>
    <PROCESS-ITEM-OUTPUT
     ID="success:#{depositaireBean.addArticleNouv}:#pages#secure#CA#DC#priseEnCharge.xhtml"
-    NAME="output94" PATH="/pages/secure/CA/DC/priseEnCharge.xhtml"
+    NAME="output95" PATH="/pages/secure/CA/DC/priseEnCharge.xhtml"
     TARGET="rules:#pages#secure#CA#DC#priseEnCharge.xhtml"
     TITLE="#{depositaireBean.addArticleNouv}:success" model-entity="JSFProcessItemOutput"/>
    <PROCESS-ITEM-OUTPUT
     ID="success:#{depositaireBean.addRequeteSortieNouv}:pages#secure#admin#adminCA.xhtml"
-    NAME="output95" PATH="pages/secure/admin/adminCA.xhtml"
+    NAME="output96" PATH="pages/secure/admin/adminCA.xhtml"
     TARGET="rules:pages#secure#admin#adminCA.xhtml"
     TITLE="#{depositaireBean.addRequeteSortieNouv}:success" model-entity="JSFProcessItemOutput"/>
    <PROCESS-ITEM-OUTPUT
     ID="success:#{depositaireBean.addPriseEnchargeNouveMat}:#pages#secure#CM#DC#priseEnCharge.xhtml"
-    NAME="output96" PATH="/pages/secure/CM/DC/priseEnCharge.xhtml"
+    NAME="output97" PATH="/pages/secure/CM/DC/priseEnCharge.xhtml"
     TARGET="rules:#pages#secure#CM#DC#priseEnCharge.xhtml"
     TITLE="#{depositaireBean.addPriseEnchargeNouveMat}:success" model-entity="JSFProcessItemOutput"/>
    <PROCESS-ITEM-OUTPUT
     ID="success:#{depositaireBean.addPriseEnchargeOp}:#pages#secure#CM#DC#priseEnCharge.xhtml"
-    NAME="output97" PATH="/pages/secure/CM/DC/priseEnCharge.xhtml"
+    NAME="output98" PATH="/pages/secure/CM/DC/priseEnCharge.xhtml"
     TARGET="rules:#pages#secure#CM#DC#priseEnCharge.xhtml"
     TITLE="#{depositaireBean.addPriseEnchargeOp}:success" model-entity="JSFProcessItemOutput"/>
    <PROCESS-ITEM-OUTPUT
     ID="success:#{depositaireBean.addDecharge}:#pages#secure#admin#adminCM.xhtml"
-    NAME="output98" PATH="/pages/secure/admin/adminCM.xhtml"
+    NAME="output99" PATH="/pages/secure/admin/adminCM.xhtml"
     TARGET="rules:#pages#secure#admin#adminCM.xhtml"
     TITLE="#{depositaireBean.addDecharge}:success" model-entity="JSFProcessItemOutput"/>
    <PROCESS-ITEM-OUTPUT
     ID="success:#{depositaireBean.addAttribution}:#pages#secure#admin#adminCM.xhtml"
-    NAME="output99" PATH="/pages/secure/admin/adminCM.xhtml"
+    NAME="output100" PATH="/pages/secure/admin/adminCM.xhtml"
     TARGET="rules:#pages#secure#admin#adminCM.xhtml"
     TITLE="#{depositaireBean.addAttribution}:success" model-entity="JSFProcessItemOutput"/>
    <PROCESS-ITEM-OUTPUT
     ID="success:#{depositaireBean.addDetachement}:#pages#secure#admin#adminCM.xhtml"
-    NAME="output100" PATH="/pages/secure/admin/adminCM.xhtml"
+    NAME="output101" PATH="/pages/secure/admin/adminCM.xhtml"
     TARGET="rules:#pages#secure#admin#adminCM.xhtml"
     TITLE="#{depositaireBean.addDetachement}:success" model-entity="JSFProcessItemOutput"/>
    <PROCESS-ITEM-OUTPUT
     ID="success:#{gacBean.exit}:#pages#secure#CM#GAC#validation#attribution.xhtml"
-    NAME="output101"
+    NAME="output102"
     PATH="/pages/secure/CM/GAC/validation/attribution.xhtml"
     TARGET="rules:#pages#secure#CM#GAC#validation#attribution.xhtml"
     TITLE="#{gacBean.exit}:success" model-entity="JSFProcessItemOutput"/>
    <PROCESS-ITEM-OUTPUT ID="choice_logged::#pages#secure#choice.xhtml"
-    NAME="output102" PATH="/pages/secure/choice.xhtml"
+    NAME="output103" PATH="/pages/secure/choice.xhtml"
     TARGET="rules:#pages#secure#choice.xhtml" TITLE="choice_logged" model-entity="JSFProcessItemOutput"/>
    <PROCESS-ITEM-OUTPUT
     ID="add_Mat_Ex::#pages#secure#CM#DC#content_forms#content_forms_saisieMatEx.xhtml"
-    NAME="output103"
+    NAME="output104"
     PATH="/pages/secure/CM/DC/content_forms/content_forms_saisieMatEx.xhtml"
     TARGET="rules:#pages#secure#CM#DC#content_forms#content_forms_saisieMatEx.xhtml"
     TITLE="add_Mat_Ex" model-entity="JSFProcessItemOutput"/>
    <PROCESS-ITEM-OUTPUT
     ID="add_Mat_ExCA::#pages#secure#CA#DC#content_forms#content_forms_saisieMatEx.xhtml"
-    NAME="output104"
+    NAME="output105"
     PATH="/pages/secure/CA/DC/content_forms/content_forms_saisieMatEx.xhtml"
     TARGET="rules:#pages#secure#CA#DC#content_forms#content_forms_saisieMatEx.xhtml"
     TITLE="add_Mat_ExCA" model-entity="JSFProcessItemOutput"/>
    <PROCESS-ITEM-OUTPUT
     ID="add_PriseEnCharge::#pages#secure#CM#DC#content_forms#content_forms_priseEnCharge.xhtml"
-    NAME="output105"
+    NAME="output106"
     PATH="/pages/secure/CM/DC/content_forms/content_forms_priseEnCharge.xhtml"
     TARGET="rules:#pages#secure#CM#DC#content_forms#content_forms_priseEnCharge.xhtml"
     TITLE="add_PriseEnCharge" model-entity="JSFProcessItemOutput"/>
    <PROCESS-ITEM-OUTPUT
     ID="add_PriseEnChargeCA::#pages#secure#CA#DC#content_forms#content_forms_priseEnCharge.xhtml"
-    NAME="output106"
+    NAME="output107"
     PATH="/pages/secure/CA/DC/content_forms/content_forms_priseEnCharge.xhtml"
     TARGET="rules:#pages#secure#CA#DC#content_forms#content_forms_priseEnCharge.xhtml"
     TITLE="add_PriseEnChargeCA" model-entity="JSFProcessItemOutput"/>
    <PROCESS-ITEM-OUTPUT
     ID="add_Attribution::#pages#secure#CM#content_forms#content_forms_attribution.xhtml"
-    NAME="output107"
+    NAME="output108"
     PATH="/pages/secure/CM/content_forms/content_forms_attribution.xhtml"
     TARGET="rules:#pages#secure#CM#content_forms#content_forms_attribution.xhtml"
     TITLE="add_Attribution" model-entity="JSFProcessItemOutput"/>
    <PROCESS-ITEM-OUTPUT
+    ID="add_Detachement::#pages#secure#CM#content_forms#content_forms_detachement.xhtml"
+    NAME="output109"
+    PATH="/pages/secure/CM/content_forms/content_forms_detachement.xhtml"
+    TARGET="rules:#pages#secure#CM#content_forms#content_forms_detachement.xhtml"
+    TITLE="add_Detachement" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
     ID="add_Decharge::#pages#secure#CM#content_forms#content_forms_decharge.xhtml"
-    NAME="output108"
+    NAME="output110"
     PATH="/pages/secure/CM/content_forms/content_forms_decharge.xhtml"
     TARGET="rules:#pages#secure#CM#content_forms#content_forms_decharge.xhtml"
     TITLE="add_Decharge" model-entity="JSFProcessItemOutput"/>
    <PROCESS-ITEM-OUTPUT
     ID="filtre_type_mat::#pages#secure#CM#content#content_listeMatStatHisto_type_mat.xhtml"
-    NAME="output109"
+    NAME="output111"
     PATH="/pages/secure/CM/content/content_listeMatStatHisto_type_mat.xhtml"
     TARGET="rules:#pages#secure#CM#content#content_listeMatStatHisto_type_mat.xhtml"
     TITLE="filtre_type_mat" model-entity="JSFProcessItemOutput"/>
    <PROCESS-ITEM-OUTPUT
     ID="filtre_nom::#pages#secure#CM#content#content_listeMatStatHisto_nom.xhtml"
-    NAME="output110"
+    NAME="output112"
     PATH="/pages/secure/CM/content/content_listeMatStatHisto_nom.xhtml"
     TARGET="rules:#pages#secure#CM#content#content_listeMatStatHisto_nom.xhtml"
     TITLE="filtre_nom" model-entity="JSFProcessItemOutput"/>
    <PROCESS-ITEM-OUTPUT
     ID="filtre_porte::#pages#secure#CM#content#content_listeMatStatHisto_porte.xhtml"
-    NAME="output111"
+    NAME="output113"
     PATH="/pages/secure/CM/content/content_listeMatStatHisto_porte.xhtml"
     TARGET="rules:#pages#secure#CM#content#content_listeMatStatHisto_porte.xhtml"
     TITLE="filtre_porte" model-entity="JSFProcessItemOutput"/>
    <PROCESS-ITEM-OUTPUT
     ID="filtre_localite::#pages#secure#CM#content#content_listeMatStatHisto_localite.xhtml"
-    NAME="output112"
+    NAME="output114"
     PATH="/pages/secure/CM/content/content_listeMatStatHisto_localite.xhtml"
     TARGET="rules:#pages#secure#CM#content#content_listeMatStatHisto_localite.xhtml"
     TITLE="filtre_localite" model-entity="JSFProcessItemOutput"/>
@@ -821,8 +827,6 @@
   NAME="rules:#pages#secure#CA#GAC#validation#attribution.xhtml"
   PATH="/pages/secure/CA/GAC/validation/attribution.xhtml"
   SHAPE="816,417,0,0" model-entity="JSFProcessGroup"/>
- <PROCESS-ITEM NAME="rules:#pages#secure#CM#SISE#saisieRef.xhtml#poste"
-  PATH="/pages/secure/CM/SISE/saisieRef.xhtml/poste" SHAPE="816,417,0,0" model-entity="JSFProcessGroup"/>
  <PROCESS-ITEM
   NAME="rules:#pages#secure#CA#SISE#content_forms#content_forms_saisieMotifAquisition.xhtml"
   PATH="/pages/secure/CA/SISE/content_forms/content_forms_saisieMotifAquisition.xhtml"
@@ -1029,9 +1033,6 @@
   PATH="/pages/secure/CM/SISE/saisieRef.xhtml/type" SHAPE="816,417,0,0" model-entity="JSFProcessGroup"/>
  <PROCESS-ITEM NAME="rules:#pages#secure#CM#DGD#editionEtats.xhtml"
   PATH="/pages/secure/CM/DGD/editionEtats.xhtml" SHAPE="816,5729,0,0" model-entity="JSFProcessGroup"/>
- <PROCESS-ITEM NAME="rules:#pages#secure#CM#SISE#saisieRef.xhtml#sotrie"
-  PATH="/pages/secure/CM/SISE/saisieRef.xhtml/sotrie"
-  SHAPE="816,417,0,0" model-entity="JSFProcessGroup"/>
  <PROCESS-ITEM
   NAME="rules:#pages#secure#CM#DGD#listeMatStatGeneral.xhtml"
   PATH="/pages/secure/CM/DGD/listeMatStatGeneral.xhtml"
@@ -1040,4 +1041,10 @@
   PATH="/pages/secure/CA/SISE/saisieRef.xhtml/type" SHAPE="816,4193,0,0" model-entity="JSFProcessGroup"/>
  <PROCESS-ITEM NAME="rules:pages#secure#admin#adminCA.xhtml"
   PATH="pages/secure/admin/adminCA.xhtml" SHAPE="816,4193,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#pages#secure#CM#SISE#saisieRef.xhtml#sortie"
+  PATH="/pages/secure/CM/SISE/saisieRef.xhtml/sortie"
+  SHAPE="816,4225,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#pages#secure#CM#SISE#saisieRef.xhtml#poste"
+  PATH="/pages/secure/CM/SISE/saisieRef.xhtml/poste"
+  SHAPE="816,4257,0,0" model-entity="JSFProcessGroup"/>
 </PROCESS>

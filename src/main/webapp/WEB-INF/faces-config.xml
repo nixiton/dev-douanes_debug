@@ -577,18 +577,6 @@
 			<redirect />
 		</navigation-case>
 
-
-
-		
-
-
-
-
-
-
-
-
-
 		<navigation-case>
 			<from-action>#{userMB.addUserRef}</from-action>
 			<from-outcome>success</from-outcome>
@@ -734,9 +722,6 @@
 		</navigation-case>
 
 		
-		
-
-		
 		<navigation-case>
 			<from-action>#{siseBean.addModeAcquisition}</from-action>
 			<from-outcome>success</from-outcome>
@@ -761,7 +746,7 @@
 		<navigation-case>
 			<from-action>#{siseBean.addMotifSortie}</from-action>
 			<from-outcome>success</from-outcome>
-			<to-view-id>/pages/secure/CM/SISE/saisieRef.xhtml#sotrie</to-view-id>
+			<to-view-id>/pages/secure/CM/SISE/saisieRef.xhtml#sortie</to-view-id>
 			<redirect />
 		</navigation-case>
 
