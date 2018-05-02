@@ -8,7 +8,6 @@ import javax.persistence.ManyToOne;
 
 @Entity
 public class OpSortieArticle  extends Operation{
-    private static Long numerochronosa;
 
     @ManyToOne
     @JoinColumn(name="idArt")
@@ -17,10 +16,6 @@ public class OpSortieArticle  extends Operation{
     @ManyToOne
     @JoinColumn(name="idBenefi")
     private Agent beneficiaire;
-
-    static {
-        numerochronosa = 1L;
-    }
 
     public Article getArticle() {
         return article;

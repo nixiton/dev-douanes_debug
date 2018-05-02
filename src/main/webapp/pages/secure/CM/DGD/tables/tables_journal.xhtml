@@ -230,6 +230,106 @@
 
 	</h:form>
 
+<h:form>
+		<!--p:dataTable   var="c" value="#{suivieditionBean.listOperationByDirectionByYearByDateAsc}"
+                 paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}"
+                 paginator="true" rows="10" style="margin-bottom:20px"  
+                 rowStyleClass="#{c['class'].simpleName ne 'OpEntree' and c['class'].simpleName ne 'OpSortie' ? 'ui-helper-hidden' : '' }"-->
+
+
+		<p:dataTable var="c" value="#{suivieditionBean.listESForJournal}"
+			paginatorTemplate="{CurrentPageReport}  {PreviousPageLink} {PageLinks} {NextPageLink} {Exporters}"
+			paginator="true"  style="margin-bottom:20px"
+			sortBy="#{c[0]}"
+			widgetVar="JournalTable1"
+			id="journaltable1"
+			>
+			<f:facet name="header">
+       			 JOURNAL DES MOUVEMENTS D’ENTREE ET DE SORTIE ANNEE XXXX
+    		</f:facet>
+			
+			<f:facet name="{Exporters}">
+            <h:commandLink>
+                <i class="fa fa-table">  </i> Excel
+                <p:dataExporter type="xls" target="journaltable1" fileName="journaloperation" />
+            </h:commandLink>
+ 			<span>   </span>
+            <h:commandLink>
+            	<i class="fa fa-file">  </i> PDF
+                <p:dataExporter type="pdf" target="journaltable1" fileName="journaloperation"/>
+            </h:commandLink>
+        </f:facet>
+			<p:columnGroup type="header">
+			<p:row>
+				<p:column colspan="8" headerText="Renseignement" />
+                <p:column colspan="2" headerText="Entrée" />
+                <p:column colspan="2" headerText="Sortie"></p:column>
+			</p:row>
+			<p:row>
+				<p:column headerText="Id" sortBy="#{c[0]}"/>
+				<p:column headerText="Numéro d'ordre des pièces justificatives"/>
+				<p:column headerText="Date des entrées et des sorties"/>
+				<p:column headerText="Origine des entrées et désignation des sorties"/>
+				<p:column headerText="Numéro d’ordre de la nomenclature sommaire"/>
+				<p:column headerText="Désignation des matières et objets"/>
+				<p:column headerText="Espèce des unités"/>
+				<p:column headerText="Prix de l'unité"/>
+				<p:column headerText="Quanitité"/>
+				<p:column headerText="Valeur"/>
+				<p:column headerText="Quanitité"/>
+				<p:column headerText="Valeur"/>
+			</p:row>
+				
+			</p:columnGroup>
+			<p:column headerText="ID" sortBy="#{c[0]}"> 
+			<h:outputText value="#{c[0]}" />			
+			</p:column>
+			<p:column headerText="Numéro d'ordre des pièces justificatives">
+            	<h:outputText value="#{c[1]}" />
+			</p:column>
+			<p:column headerText="Date des entrées et des sorties">
+            	<h:outputText value="#{c[2]}" />
+        	</p:column>
+
+			<p:column headerText="Origine des entrées et désignation des sorties">		
+				<h:outputText value="#{c[3]}" />
+			</p:column>
+			<p:column headerText="Numéro d’ordre de la nomenclature sommaire">		
+				<h:outputText value="#{c[11].nomenMat.nomenclature}" />
+			</p:column>
+
+			<p:column headerText="Désignation des matières et objets">
+				<h:outputText value="#{c[4]}" />
+			</p:column>
+
+			<p:column headerText="Espèce des unités">
+				<h:outputText value="#{c[5]}" />
+			</p:column>
+
+			<p:column headerText="Prix de l'unité">
+				<h:outputText value="#{c[6]}" />
+			</p:column>
+
+			<p:column headerText="Quanitité">
+				<h:outputText value="#{c[7]}" />
+			</p:column>
+			<p:column headerText="Valeur">
+				<h:outputText value="#{c[8]}" />
+			</p:column>
+			<p:column headerText="Quanitité">
+				<h:outputText value="#{c[9]}" />
+			</p:column>
+				
+			<p:column headerText="Valeur">
+				<h:outputText value="#{c[10]}" />
+			</p:column>
+			
+
+
+		</p:dataTable>
+
+
+	</h:form>
 
 
 

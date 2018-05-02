@@ -41,6 +41,78 @@
             oncomplete="PF('historique').show()" icon="ui-icon-zoomin" update=":historique"/>
             </p:column>
     </p:dataTable>
+    
+    
+    <p:dataTable   var="op" value="#{suivieditionBean.listOpESArtByDirection}" 
+                 paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}  "
+                 paginator="true" rows="100" style="margin-bottom:20px">
+         <f:facet name="header">
+        	Liste des entrée et sortie par type
+    	</f:facet>
+         <p:columnGroup type="header">
+            <p:row>
+                <p:column rowspan="2" headerText="Date des entrées et des sorties" sortBy="#{op.date}"/>
+                <p:column colspan="3" headerText="ENTREE" />
+                <p:column colspan="3" headerText="SORTIE" />
+                <p:column rowspan="2" headerText="Quantité" />
+            </p:row>
+            <p:row>
+                <p:column  headerText="Référence" />
+                <p:column  headerText="Quantité" />
+                <p:column  headerText="Cumulé" />
+                <p:column  headerText="Référence" />
+                <p:column  headerText="Quantité" />
+                <p:column  headerText="Signature" />
+            </p:row>
+            <p:row>
+                <p:column  />
+                <p:column  />
+                <p:column  headerText="Report"/>
+                <p:column  headerText="#{1+1}"/>
+                <p:column  />
+                <p:column  />
+                <p:column  />
+                <p:column  headerText="#{1+1}"/>
+            </p:row>
+        </p:columnGroup>
+        <p:column>
+        	<h:outputText value="#{op.date}" />
+        </p:column>
+        <p:column>
+        <p:panel rendered="#{op['class'].simpleName eq 'OpEntreeArticle'}">
+					<h:outputText value="#{op.id}" />
+		</p:panel>
+        	
+        </p:column>
+        <p:column>
+        <p:panel rendered="#{op['class'].simpleName eq 'OpEntreeArticle'}">
+					<h:outputText value="#{op.article.nombre}" />
+		</p:panel>
+        	
+        </p:column>
+        <p:column>
+        	<p:panel rendered="#{op['class'].simpleName eq 'OpEntreeArticle'}">
+					<h:outputText value="#{'cumulation par entree'}" />
+		</p:panel>
+        </p:column>
+        <p:column>
+        <p:panel rendered="#{op['class'].simpleName eq 'OpSortieArticle'}">
+					<h:outputText value="#{op.id}" />
+		</p:panel>
+        </p:column>
+        <p:column>
+        <p:panel rendered="#{op['class'].simpleName eq 'OpSortieArticle'}">
+					<h:outputText value="#{op.nombreToS}" />
+		</p:panel>
+        </p:column>
+        
+        <p:column>
+					<h:outputText value="#{'signature'}" />
+        </p:column>
+        <p:column>
+        	<h:outputText value="#{'quantite moins'}" />
+        </p:column>
+    </p:dataTable>
 
 
 

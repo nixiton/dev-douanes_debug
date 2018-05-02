@@ -201,4 +201,7 @@ public interface IUserMetier {
 	public List<OpEntree> listOpentreeByStateByDirection(EtatOperation etat, Direction d);
 	public void updateArticle(Article art);
 	public Long calculArticleRestant(Article article);
+	
+	
+	public List<Operation> getListOpESArtValideByDirection(Direction direction, Date startDate,	Date endDate);
 }

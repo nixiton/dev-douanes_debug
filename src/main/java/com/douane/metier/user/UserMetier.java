@@ -1338,5 +1338,12 @@ public class UserMetier implements IUserMetier {
 		return article.getNombre() -nombreSortie;
 	}
 
+	@Override
+	public List<Operation> getListOpESArtValideByDirection(Direction direction, Date startDate,
+			Date endDate) {
+		// TODO Auto-generated method stub
+		return operationdao.getListOpESArtByValideByDirection(EtatOperation.ACCEPTED, direction, startDate, endDate);
+	}
+
 
 }

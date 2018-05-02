@@ -79,56 +79,89 @@
 
 		</p:dataTable>
 		</h:form>
-		
-		<h:form>
-    <p:dataTable var="m" value="#{suivieditionBean.listobjectForInvetaire}"
-			paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}"
-			paginator="true" rows="10" style="margin-bottom:20px"
-			sortBy="#{c.id}"
+<h:form>
+		<!--p:dataTable   var="c" value="#{suivieditionBean.listOperationByDirectionByYearByDateAsc}"
+                 paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}"
+                 paginator="true" rows="10" style="margin-bottom:20px"  
+                 rowStyleClass="#{c['class'].simpleName ne 'OpEntree' and c['class'].simpleName ne 'OpSortie' ? 'ui-helper-hidden' : '' }"-->
+
+
+		<p:dataTable var="c" value="#{suivieditionBean.listESForGrandLivre}"
+			paginatorTemplate="{CurrentPageReport}  {PreviousPageLink} {PageLinks} {NextPageLink} {Exporters}"
+			paginator="true"  style="margin-bottom:20px"
+			widgetVar="InventaireTable"
+			id="inventaireTable"
 			>
-			
-			<p:column headerText="Numero du folio"> #{m[0]}</p:column>
-			<p:column headerText="Nomencture"> #{m[1]} - #{m[2]}</p:column>	
-			<p:column headerText="Designation"> #{m[1]} - #{m[2]}</p:column>
+			<f:facet name="header">
+       			 INVENTAIRE du mobilier et des objets d’ameublement existant au 31 décembre ....
 
-			<p:column headerText="Prix de l'unité">
-
-				<p:panel rendered="#{m[3] eq null}">
-                    
-                    #{m[4]}
-                    </p:panel>
-
-						<p:panel rendered="#{m[4] eq null}">
-                    
-                    #{m[3]}
-                    </p:panel>
-
-			</p:column>
-			<p:column headerText="Existants au 1er janvier">
-			#{m[5]}
-			</p:column>
-			<p:column headerText="Entrée pendant x">
-			#{m[5]}
-			</p:column>
-			<p:column headerText="Sortie prendant x">
-			#{m[6]}
-			</p:column>
-			<p:column headerText="Reste au 31 Dec x x">
-			xx
-			</p:column>
-			<p:column headerText="Décompte en Ariary">
-			xx
-			</p:column>
-			<p:column headerText="Observation">
-			#{m[7]}
-			</p:column>
+    		</f:facet>
 			
-			
-			
-			
-
+			<f:facet name="{Exporters}">
+            <h:commandLink>
+                <i class="fa fa-table">  </i> Excel
+                <p:dataExporter type="xls" target="inventaireTable" fileName="inventaire" />
+            </h:commandLink>
+ 			<span>   </span>
+            <h:commandLink>
+            	<i class="fa fa-file">  </i> PDF
+                <p:dataExporter type="pdf" target="inventaireTable" fileName="inventaire"/>
+            </h:commandLink>
+        </f:facet>
+			<p:columnGroup type="header">
+			<p:row>
+				<p:column rowspan="2" headerText="Numéros du folio du  grand  livre" />
+                <p:column rowspan="2" headerText="Désignation du matériel" />
+                <p:column rowspan="2" headerText="Espèce des unités"></p:column>
+                <p:column rowspan="2" headerText="Prix de l’unité"></p:column>
+                <p:column colspan="4" headerText="Quantités"></p:column>	
+			</p:row>
+			<p:row>
+				<p:column headerText="Existantes au 1er Janvier X"/>
+				<p:column headerText="Entrées pendant l’année X "/>
+				<p:column headerText="Sortie pendant l’année X"/>
+				<p:column headerText="Reste au 31 déc. X "/>
+				<p:column headerText="Décompte"/>
+				<p:column headerText="Observation"/>
+			</p:row>
+				
+			</p:columnGroup>
+			<p:column headerText="Numéros du folio du  grand  livre">
+				<h:outputText value="#{c[0].idDesignation}" />
+			</p:column>
+			<p:column headerText="Désignation du matériel">
+				<h:outputText value="#{c[0].typematerieladd.designation} 
+				- #{c[0].marque.designation} - #{c[0].renseignement}"  />
+			</p:column>
+			<p:column headerText="Espèce des unités">
+				<h:outputText value="#{c[0].especeUnite}" />
+			</p:column>
+			<p:column headerText="Prix de l’unité">
+				<h:outputText value="#{c[0].pu}" />
+			</p:column>
+			<p:column headerText="Existantes au 1er Janvier X">
+				<h:outputText value="#{c[7]}" />
+			</p:column>
+			<p:column headerText="Entrées pendant l’année X ">
+				<h:outputText value="#{c[3]}" />
+			</p:column>
+			<p:column headerText="Sortie pendant l’année X ">
+				<h:outputText value="#{c[5]}" />
+			</p:column>
+			<p:column headerText="Reste au 31 déc. X ">
+				<h:outputText value="#{c[9]}" />
+			</p:column>
+			<p:column headerText="Décompte">
+				<h:outputText value="#{c[10]}" />
+			</p:column>
+			<p:column headerText="Observatione">
+				<h:outputText value="à remplir by user" />
+			</p:column>
 		</p:dataTable>
-		</h:form>
+
+
+	</h:form>
+
 
 
 

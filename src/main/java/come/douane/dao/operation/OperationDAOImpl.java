@@ -1,5 +1,6 @@
 package come.douane.dao.operation;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
@@ -638,6 +639,47 @@ public class OperationDAOImpl implements IOperationDAO{
 		Query q=em.createNativeQuery(sql);	
 		;;
 		return null;
+	}
+
+	@Override
+	public List<Operation> getListOpESArtByValideByDirection(EtatOperation etat, Direction direction, Date startDate,
+			Date endDate) {
+		// TODO Auto-generated method stub
+		TypedQuery<OpEntreeArticle> query1 = em.createQuery("select oeart from OpEntreeArticle oeart "
+				+ " where oeart.date>=:startDate AND oeart.date<=:endDate"
+				+ " and oeart.direction =:direct"
+				+ " and oeart.state=:etat"
+	       		+ " order by oeart.date desc "
+	       		,OpEntreeArticle.class);
+		TypedQuery<OpSortieArticle> query2 = em.createQuery("select osart from OpSortieArticle osart "
+				+ " where osart.date>=:startDate AND osart.date<=:endDate"
+				+ " and osart.direction =:direct"
+				+ " and osart.state=:etat"
+	       		+ " order by osart.date desc "
+	       		,OpSortieArticle.class);
+		
+		query1.setParameter("direct", direction);
+		query1.setParameter("startDate", startDate, TemporalType.DATE);
+		query1.setParameter("endDate", endDate, TemporalType.DATE);
+		query1.setParameter("etat", etat);
+		
+		query2.setParameter("direct", direction);
+		query2.setParameter("startDate", startDate, TemporalType.DATE);
+		query2.setParameter("endDate", endDate, TemporalType.DATE);
+		query2.setParameter("etat", etat);
+		
+		
+	    List<OpEntreeArticle> operationsE = query1.getResultList();
+	    List<OpSortieArticle> operationsS = query2.getResultList();
+	    
+	    List<Operation> operations = new ArrayList<Operation>();
+	    operations.addAll(operationsE);
+	    operations.addAll(operationsS);
+	    
+	    
+	    System.out.println("LISTE DES ARTICLES**"+operations.size());
+		return operations;
+		//return null;
 	}
 
 }

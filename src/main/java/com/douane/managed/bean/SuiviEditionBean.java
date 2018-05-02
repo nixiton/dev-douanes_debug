@@ -4,6 +4,8 @@ import com.douane.entite.*;
 import com.douane.metier.user.IUserMetier;
 import com.douane.model.EtatOperation;
 import come.douane.dao.operation.IOperationDAO;
+
+import org.hamcrest.core.IsInstanceOf;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.faces.bean.ManagedBean;
@@ -635,9 +637,322 @@ public class SuiviEditionBean {
 		this.listOpentreeForOrdre = listOpentreeForOrdre;
 	}
 
+	
+
 	private List<Object[]> listobjectForInvetaire;
 	
 	private List<OpEntree> listOpentreeForOrdre;
     
+	/*
+	 * LISTE OF METHODS FOR CA EDITIONS
+	 * 
+	 */
+	
+	private List<Operation> listOpESArtByDirection; 
+	public List<Operation> getListOpESArtByDirection() {
+		Agent cur = (Agent) RequestFilter.getSession().getAttribute("agent");
+		Date date = new Date();
+		Calendar calendar = new GregorianCalendar();
+		calendar.setTime(date);
+		int year = calendar.get(Calendar.YEAR);
+		Date sdate = new GregorianCalendar(year-2, Calendar.JANUARY, 1).getTime();
+        Date edate = new GregorianCalendar(year+1, Calendar.DECEMBER, 30).getTime();
+		return usermetierimpl.getListOpESArtValideByDirection(cur.getDirection(),sdate,edate);
+	}
+
+	public void setListOpESArtByDirection(List<Operation> listOpESArtByDirection) {
+		this.listOpESArtByDirection = listOpESArtByDirection;
+	}
+	
+	private List<Object[]> listESForJournal;
+
+	public List<Object[]> getListESForJournal() {
+		if(listESForJournal ==null) {
+		Agent cur = (Agent) RequestFilter.getSession().getAttribute("agent");
+    	Date date = new Date();
+		Calendar calendar = new GregorianCalendar();
+		calendar.setTime(date);
+		int year = calendar.get(Calendar.YEAR);
+		Date sdate = new GregorianCalendar(year-2, Calendar.JANUARY, 1).getTime();
+        Date edate = new GregorianCalendar(year+1, Calendar.DECEMBER, 30).getTime();
+		List<OperationES> listop = usermetierimpl.getListOpESForJournal(cur.getDirection(),sdate,edate);
+		List<Object[]>listobjectForJournal = new ArrayList<Object[]>();
+		for(OperationES op:listop) {
+			Object[] row = new Object[12];
+			if(op instanceof OpEntree) {
+				List <Object[]> bydesignation1 = (this.getDesingationByOpEntree(op));
+				
+				for(Object[] nom: bydesignation1) {
+					List <Object[]> liste = (List <Object[]>)nom[2];
+					for(Object[] des: liste) {
+					Designation d = (Designation)des[0];
+					//id
+					row[0] = op.getId();
+					//numero d'ordre
+					row[1] = op.getNumoperation();
+					//date
+					row[2] = op.getDate();
+					//origine
+					row[3] = d.getOrigine();
+					// designation
+					row[4] = d.getTypematerieladd().getDesignation() + " - "  + 
+							 d.getMarque() + " - "  +
+							 d.getRenseignement()	+ " - "  
+							//mat.getNumSerie();
+							 ;
+					//espece unite
+					row[5] = d.getEspeceUnite();
+					//pu
+					row[6] = d.getPu();
+					//nombre par desingation entree
+					row[7] = des[1];
+					//total entree
+					row[8] = d.getPu()*(Long)row[7];
+					//nombre par desingation sortie
+					row[9] = 0;
+					//total sortie
+					row[10] = 0;
+					row[11] = d;
+					listobjectForJournal.add(row);
+					row = new Object[12];
+					}
+				}/*
+				for(Materiel mat :((OpEntree) op).getListMat()) {
+					//id
+					row[0] = op.getId();
+					//numero d'ordre
+					row[1] = op.getNumoperation();
+					//date
+					row[2] = op.getDate();
+					//origine
+					row[3] = mat.getDesign().getOrigine();
+					// designation
+					row[4] = mat.getDesign().getTypematerieladd().getDesignation() + " - "  + 
+							 mat.getDesign().getMarque() + " - "  +
+							 mat.getDesign().getRenseignement()	+ " - "  +
+							mat.getNumSerie();
+					//espece unite
+					row[5] = mat.getDesign().getEspeceUnite();
+					//pu
+					row[6] = mat.getDesign().getPu();
+					//nombre par desingation entree
+					row[7] = 1;
+					//total entree
+					row[8] = mat.getDesign().getPu()*(Integer)row[7];
+					//nombre par desingation sortie
+					row[9] = 0;
+					//total sortie
+					row[10] = 0;
+					row[11] = mat;
+					listobjectForJournal.add(row);
+					row = new Object[12];
+				}*/
+				
+			}
+			else if(op instanceof OpSortie) {
+				//id
+				row[0] = op.getId();
+				//numero d'ordre
+				row[1] = op.getNumoperation();
+				//date
+				row[2] = op.getDate();
+				//origine
+				row[3] = ((OpSortie) op).getMotifsortie().getDesignation();
+				// designation
+				Materiel mat = op.getMat();
+				row[4] = mat.getDesign().getTypematerieladd().getDesignation() + " - "  + 
+						 mat.getDesign().getMarque() + " - "  +
+						 mat.getDesign().getRenseignement() + " - "  +
+						 mat.getNumSerie();
+				//espece unite
+				row[5] = mat.getDesign().getEspeceUnite();
+				//pu
+				row[6] = mat.getDesign().getPu();
+				//nombre par desingation entree
+				row[7] = 0;
+				//total entree
+				row[8] = 0;
+				//nombre par desingation sortie
+				row[9] = 1L;
+				//total sortie
+				row[10] = mat.getDesign().getPu()*(Long)row[9];
+				row[11] = mat.getDesign();
+				listobjectForJournal.add(row);
+				row = new Object[12];
+			}
+			}
+		
+		listESForJournal = listobjectForJournal;
+			
+		}
+		
+		return listESForJournal;
+	}
+
+	public void setListESForJournal(List<Object[]> listESForJournal) {
+		this.listESForJournal = listESForJournal;
+	}
+	
+	
+
+	private List<Object[]> listESForGrandLivre;
+	public List<Object[]> getListESForGrandLivre() {
+		if(listESForGrandLivre ==null) {
+			
+			Agent cur = (Agent) RequestFilter.getSession().getAttribute("agent");
+	    	Date date = new Date();
+			Calendar calendar = new GregorianCalendar();
+			calendar.setTime(date);
+			int year = calendar.get(Calendar.YEAR);
+			Date sdate = new GregorianCalendar(year-2, Calendar.JANUARY, 1).getTime();
+	        Date edate = new GregorianCalendar(year+1, Calendar.DECEMBER, 30).getTime();
+			List<OperationES> listop = usermetierimpl.getListOpESForJournal(cur.getDirection(),sdate,edate);
+			List<Object[]>listobjectForLivre= new ArrayList<Object[]>();
+			for(OperationES op:listop) {
+				Object[] row = new Object[11];
+				if(op instanceof OpEntree) {
+					List <Object[]> bydesignation1 = (this.getDesingationByOpEntree(op));
+					
+					for(Object[] nom: bydesignation1) {
+						List <Object[]> liste = (List <Object[]>)nom[2];
+						for(Object[] des: liste) {
+						Designation d = (Designation)des[0];
+						//id
+						row[0] = d;
+						//numero d'ordre
+						row[1] = op;
+						//origine
+						row[2] = d.getOrigine();
+						//nombre par desingation entree
+						row[3] = des[1];
+						//total entree
+						row[4] = d.getPu()*(Long)row[3];
+						//nombre par desingation sortie
+						row[5] = 0;
+						//total sortie
+						row[6] = 0;
+						
+						//existant X-1
+						row[7] = 0L;
+						//valeur X-1
+						row[8] = (Long)row[7] * d.getPu();
+						
+						//restant X
+						row[9] = (Long)row[3] + (Long)row[7];
+						//valeur restant X-X
+						row[10] = (Float)row[8] + d.getPu()*(Long)row[9];
+						
+						listobjectForLivre.add(row);
+						row = new Object[11];
+						}
+					}
+					/*for(Materiel mat :((OpEntree) op).getListMat()) {
+						row[0] = mat;
+						row[1] = op;
+						
+						//origine
+						row[2] = mat.getDesign().getOrigine();
+						//nombre par desingation entree
+						row[3] = 1;
+						//total entree
+						row[4] = mat.getDesign().getPu()*(Integer)row[3];
+						//nombre par desingation sortie
+						row[5] = 0;
+						//total sortie
+						row[6] = 0;
+						
+						//existant X-1
+						row[7] = 0;
+						//valeur X-1
+						row[8] = 0;
+						
+						//restant X
+						row[9] = 1;
+						//valeur restant X-X
+						row[10] = mat.getDesign().getPu();
+						
+						listobjectForLivre.add(row);
+						row = new Object[11];
+					}*/
+					
+				}
+				else if(op instanceof OpSortie) {
+					Materiel mat = op.getMat();
+					row[0] = mat.getDesign();
+					row[1] = op;
+					
+					//origine
+					row[2] = ((OpSortie) op).getMotifsortie().getDesignation();
+					//nombre par desingation entree
+					row[3] = 0;
+					//total entree
+					row[4] = 0;
+					//nombre par desingation sortie
+					row[5] = 1L;
+					//total sortie	
+					row[6] = mat.getDesign().getPu()*(Long)row[5];
+					
+					//existant X-1
+					row[7] = 1L;
+					//valeur X-1
+					row[8] = mat.getDesign().getPu() * (Long) row[7];
+					
+					//restant X
+					row[9] = (Long)row[7] - (Long)row[5];
+					//valeur restant X-X
+					row[10] = (Long) row[9] * mat.getDesign().getPu();
+					
+					
+					listobjectForLivre.add(row);
+					row = new Object[11];
+				}
+				}
+			
+			listESForGrandLivre = listobjectForLivre;
+				
+			}
+		return listESForGrandLivre;
+	}
+
+	public void setListESForGrandLivre(List<Object[]> listESForGrandLivre) {
+		this.listESForGrandLivre = listESForGrandLivre;
+	}
+	
+	public List<Object[]> getDesingationByOpEntree(Operation op) {
+		List<Object[]> results = usermetierimpl.listDesignationByOperationEntree((OpEntree) op);
+		HashMap<Nomenclature, Float> bynom = new HashMap<Nomenclature, Float>();
+		for (Object[] o : results) {
+			Designation a = (Designation) (o[0]);
+			Long nbr = (Long) (o[1]);
+			if (bynom.isEmpty()) {
+				bynom.put(a.getNomenMat(), nbr * a.getPu());
+			} else {
+				for (Map.Entry<Nomenclature, Float> entry : bynom.entrySet()) {
+
+					if (entry.getKey() == a.getNomenMat()) {
+						entry.setValue(entry.getValue() + (nbr * a.getPu()));
+					} else {
+						bynom.put(a.getNomenMat(), nbr * a.getPu());
+					}
+				}
+			}
+		}
+		List<Object[]>resultatfinal = new ArrayList<Object[]>();
+		for (Map.Entry<Nomenclature, Float> entry : bynom.entrySet()) {
+			Object[] item = new Object[3];
+			item[0] = entry.getKey();
+			item[1] = entry.getValue();
+			List<Object[]> ourlist = new ArrayList<Object[]>();
+			for(Object[]o:results) {
+				Designation a = (Designation) o[0];
+				if(a.getNomenMat() == entry.getKey()) {
+					ourlist.add(o);
+				}
+			}
+			item[2] = ourlist;
+			resultatfinal.add(item);
+		}
+		return resultatfinal;
+	}
 
 }
