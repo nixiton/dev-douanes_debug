@@ -221,7 +221,9 @@
  				Le comptable <strong>#{docbean.curentOpeationSortieToPdf.operateur.nomAgent}</strong>  <br></br><br></br><br></br><br></br><br></br>
 				</p>
  			</div>
- 			
+ 			<h:form>
+				<p:commandButton value="generatePDF" ajax="false" action="#{JasperTableExampleBean.ordreSortieReport(docbean.curentOpeationSortieToPdf)}"> </p:commandButton>
+			</h:form>
 
 
  	</div>

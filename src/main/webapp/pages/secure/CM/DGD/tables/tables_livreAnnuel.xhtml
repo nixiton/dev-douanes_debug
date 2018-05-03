@@ -87,6 +87,125 @@
 
 
 	</h:form>
+	
+	
+<h:form>
+		<!--p:dataTable   var="c" value="#{suivieditionBean.listOperationByDirectionByYearByDateAsc}"
+                 paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}"
+                 paginator="true" rows="10" style="margin-bottom:20px"  
+                 rowStyleClass="#{c['class'].simpleName ne 'OpEntree' and c['class'].simpleName ne 'OpSortie' ? 'ui-helper-hidden' : '' }"-->
+
+
+		<p:dataTable var="c" value="#{suivieditionBean.listESForGrandLivre}"
+			paginatorTemplate="{CurrentPageReport}  {PreviousPageLink} {PageLinks} {NextPageLink} {Exporters}"
+			paginator="true" style="margin-bottom:20px"
+			sortBy="#{c[0].nomenMat.nomenclature}"
+			widgetVar="LivreAnnuel"
+			id="livreannuel"
+			>
+			<f:facet name="header">
+       			 GRAND LIVRE DES MOUVEMENTS D’ENTREE ET DE SORTIE ANNEE XXXX
+    		</f:facet>
+			<f:facet name="{Exporters}">
+            <h:commandLink>
+                <i class="fa fa-table">  </i> Excel
+                <p:dataExporter type="xls" target="livreannuel" fileName="grandlivreannuel" />
+            </h:commandLink>
+ 			<span>   </span>
+            <h:commandLink>
+            	<i class="fa fa-file">  </i> PDF
+                <p:dataExporter type="pdf" target="livreannuel" fileName="grandlivreannuel"/>
+            </h:commandLink>
+        </f:facet>
+			<p:columnGroup type="header">
+			<p:row>
+				<p:column rowspan="3" headerText="Numéro d’ordre de la nomenclature" sortBy="#{c[0].design.nomenMat.nomenclature}"/>
+                <p:column rowspan="3" headerText="Espèces des unités" />
+                <p:column rowspan="3" headerText="Désignation des objets (1)" sortBy="#{c[0].design.typematerieladd.designation}"></p:column>
+                <p:column rowspan="3" headerText="Prix de l’unité"></p:column>
+                <p:column colspan="2" headerText="Existant au 1er janvier X"></p:column>
+                <p:column rowspan="3" headerText="Mouvements  effectués (2)"></p:column>
+                <p:column colspan="9" headerText="ANNEE X"></p:column>
+                
+			</p:row>
+			<p:row>
+				<p:column rowspan="2" headerText="Quanitité"/>
+				<p:column rowspan="2" headerText="Valeur"/>
+				<p:column rowspan="2" headerText="Numéros des pièces justificatives" sortBy="#{c[1].id}"/>
+				<p:column rowspan="2" headerText="Dates des entrées et des sorties"/>
+				<p:column rowspan="2" headerText="Origine des entrées et désignation des sorties"/>
+				<p:column colspan="2" headerText="Entrées"/>
+				<p:column colspan="2" headerText="Sorties"/>
+				<p:column colspan="2" headerText="Reste au 31 décembre X "/>
+			</p:row>
+			<p:row>
+				<p:column headerText="Quanitité"/>
+				<p:column headerText="Valeur"/>
+				<p:column headerText="Quanitité"/>
+				<p:column headerText="Valeur"/>
+				<p:column headerText="Quanitité"/>
+				<p:column headerText="Valeur"/>
+			</p:row>
+				
+			</p:columnGroup>
+			<p:column headerText="Numéro d’ordre de la nomenclature"> 
+				<h:outputText value="#{c[0].nomenMat.nomenclature}" />			
+			</p:column>
+			<p:column headerText="Espèces des unités"> 
+				<h:outputText value="#{c[0].especeUnite}" />			
+			</p:column>
+			<p:column headerText="Désignation des objets (1)"> 
+				<h:outputText value="#{c[0].typematerieladd.designation} - #{c[0].marque.designation} - #{c[0].renseignement}" />			
+			</p:column>
+			<p:column headerText="Prix de l’unité" > 
+				<h:outputText value="#{c[0].pu}" />			
+			</p:column>
+			<p:column headerText="Quanitité"> 
+				<h:outputText value="#{c[7]}" />			
+			</p:column>
+			<p:column headerText="Valeur" > 
+				<h:outputText value="#{c[8]}" />			
+			</p:column>
+			<p:column headerText="Mouvements  effectués"> 
+				<h:outputText value="Aucune idée" />			
+			</p:column>
+			<p:column headerText="Numéros des pièces justificatives"> 
+				<h:outputText value="#{c[1].numoperation}" />			
+			</p:column>
+			<p:column headerText="Dates des entrées et des sorties" > 
+				<h:outputText value="#{c[1].date}" />			
+			</p:column>
+			<p:column headerText="Origine des entrées et désignation des sorties"> 
+				<h:outputText value="#{c[2]}" />			
+			</p:column>
+			<p:column headerText="Quanitité" > 
+				<h:outputText value="#{c[3]}" />			
+			</p:column>
+			<p:column headerText="Valeur" > 
+				<h:outputText value="#{c[4]}" />			
+			</p:column>
+			<p:column headerText="Quantité" > 
+				<h:outputText value="#{c[5]}" />			
+			</p:column>
+			<p:column headerText="Valeur" > 
+				<h:outputText value="#{c[6]}" />			
+			</p:column>
+			<p:column headerText="Quanitité"> 
+				<h:outputText value="#{c[9]}" />			
+			</p:column>
+			<p:column headerText="Valeur"> 
+				<h:outputText value="#{c[10]}" />			
+			</p:column>
+			
+			
+
+
+		</p:dataTable>
+
+
+	</h:form>
+
+
 
 </div>
 

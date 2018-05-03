@@ -79,7 +79,7 @@
 	                        <f:selectItem itemValue="#{null}" itemLabel="select" /> 
 	                            <f:selectItems value="#{siseBean.listMarque}" var="theme" itemLabel="#{theme.designation}" itemValue="#{theme}" />
 	                        <p:column>
-	                            <h:outputText value="#{t.designation}" />
+	                            <h:outputText value="#{t != null ? t.designation : 'Select'}" />
 	                        </p:column>
 	
 	                    </p:selectOneMenu>
@@ -114,6 +114,21 @@
 	
 	                    <p:inputText required="true"
 	                        value="#{depositaireBean.articleExToAdd.nombre}"
+	                        requiredMessage=""
+	                        placeholder="Nombre" styleClass="form-control top"></p:inputText>
+	
+	                </div>
+               </div>
+               <hr></hr>  
+               <div class="row">
+					<div class="col-lg-4 col-lg-offset-1">
+	                     <label for="text2" class="control-label col-lg-4">Prix unitaire
+	              		  </label>
+					</div>
+	                <div class="col-lg-6">
+	
+	                    <p:inputText required="true"
+	                        value="#{depositaireBean.articleExToAdd.prix}"
 	                        requiredMessage=""
 	                        placeholder="Nombre" styleClass="form-control top"></p:inputText>
 	

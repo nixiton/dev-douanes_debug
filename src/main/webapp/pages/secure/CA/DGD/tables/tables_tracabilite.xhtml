@@ -13,60 +13,67 @@
 
 <div   class="body collapse in table-responsive">
 
-    <p:dataTable   var="t" value="#{suivieditionBean.listOperatoinByDirection}"
+    <p:dataTable   var="op" value="#{suivieditionBean.listOpESArtByDirection}"
                  paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}  "
-                 paginator="true" rows="10" style="margin-bottom:20px">
+                 paginator="true" rows="100" style="margin-bottom:20px">
+        <f:facet name="header">
+        	JOURNAL DE LA COMPTABILITE ADMINISTRATIVE
+    	</f:facet>
         <p:column>
-            <f:facet name="header">ID</f:facet>
-            #{t.id}
+        <f:facet name="header">N° Ordre</f:facet>
+        <h:outputText value="#{op.id}" />
+            
         </p:column>
         <p:column>
-        <f:facet name="header">Date</f:facet>
-            #{t.date}
+        <f:facet name="header">Référence facture/décision</f:facet>
+            <h:outputText value="#{'à ajouter'}" />
         </p:column>
         <p:column>
-            <f:facet name="header">Heure</f:facet>
-            #{t.time}
+          	<f:facet name="header">Origine/destinataire</f:facet>
+            <p:panel rendered="#{op['class'].simpleName eq 'OpEntreeArticle'}">
+					<h:outputText value="#{'fournisseur ou à ajouter'}" />
+		</p:panel>
+		<p:panel rendered="#{op['class'].simpleName eq 'OpSortieArticle'}">
+					<h:outputText value="#{op.beneficiaire.nomAgent}" />
+		</p:panel>
         </p:column>
         <p:column>
-            <f:facet name="header">Poste</f:facet>
-            #{t.poste}
+            <f:facet name="header">Désignation des articles</f:facet>
+            <p:panel rendered="#{op['class'].simpleName eq 'OpEntreeArticle'}">
+					<h:outputText value="#{op.article.codeArticle.typeObjet.designation} ( #{op.article.codeArticle.designation})" />
+			</p:panel>
+			<p:panel rendered="#{op['class'].simpleName eq 'OpSortieArticle'}">
+					<h:outputText value="#{op.article.codeArticle.typeObjet.designation} ( #{op.article.codeArticle.designation})" />
+			</p:panel>
         </p:column>
         <p:column>
-            <f:facet name="header">Opérateur</f:facet>
-            #{t.operateur.im}
+            <f:facet name="header">quantité</f:facet>
+            <p:panel rendered="#{op['class'].simpleName eq 'OpSortieArticle'}">
+					<h:outputText value="#{op.nombreToS}" />
+		</p:panel>
+		<p:panel rendered="#{op['class'].simpleName eq 'OpEntreeArticle'}">
+					<h:outputText value="#{op.article.nombre}" />
+		</p:panel>
         </p:column>
         <p:column>
-            <f:facet name="header">Etat</f:facet>
-            #{t.state}
+            <f:facet name="header">Prix unitaire</f:facet>
+            <p:panel rendered="#{op['class'].simpleName eq 'OpEntreeArticle'}">
+				<h:outputText value="#{op.article.prix}" />
+		</p:panel>
+		<p:panel rendered="#{op['class'].simpleName eq 'OpSortieArticle'}">
+				<h:outputText value="#{op.article.prix}" />
+		</p:panel>
         </p:column>
         <p:column>
-            <f:facet name="header">
-                <h:outputText value="Operation" />
-            </f:facet>
-            <p:panel rendered="#{t['class'].simpleName eq 'OpEntree' }" >
-            Saisie materiel
-        </p:panel>
-        <p:panel rendered="#{t['class'].simpleName eq 'OpEntreeArticle' }" >
-            Saisie article
-        </p:panel>
-            <p:panel rendered="#{t['class'].simpleName eq 'OpSaisie' }" >
-            Saisie réferentiel 
-            </p:panel>
-            <p:panel rendered="#{t['class'].simpleName eq 'OpAttribution' }" >
-            Attribution
-            </p:panel>
-            <p:panel rendered="#{t['class'].simpleName eq 'OpDettachement' }" >
-            Détachement
-            </p:panel>
-            <p:panel rendered="#{t['class'].simpleName eq 'OpSortie' }" >
-            Décharge
-            </p:panel>
-             <p:panel rendered="#{t['class'].simpleName eq 'OpSortieArticle' }" >
-            Décharge article
-            </p:panel>
-
+            <f:facet name="header">Montant</f:facet>
+            <p:panel rendered="#{op['class'].simpleName eq 'OpEntreeArticle'}">
+				<h:outputText value="#{op.article.prix*op.article.nombre}" />
+		</p:panel>
+		<p:panel rendered="#{op['class'].simpleName eq 'OpSortieArticle'}">
+				<h:outputText value="#{op.article.prix*op.nombreToS}" />
+		</p:panel>
         </p:column>
+        
 
     </p:dataTable>
 

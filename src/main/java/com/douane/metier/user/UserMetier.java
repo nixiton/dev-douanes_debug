@@ -900,7 +900,7 @@ public class UserMetier implements IUserMetier {
 	}
 
 	@Override
-	public OpSortieArticle reqSortirArticle(Article article, Agent op, Agent destinataire) throws Exception {
+	public OpSortieArticle reqSortirArticle(Article article, Agent op, Agent destinataire, Long nbr) throws Exception {
 		// TODO Auto-generated method stub
 		// TODO Auto-generated method stub
 		// try {
@@ -909,6 +909,7 @@ public class UserMetier implements IUserMetier {
 		}
 		OpSortieArticle opsortieart = new OpSortieArticle(new Date(), new Date(), op.getIp(), op, article,
 				destinataire);
+		opsortieart.setNombreToS(nbr);
 		opsortieartrepos.save(opsortieart);
 		return opsortieart;
 		/*
@@ -1022,7 +1023,7 @@ public class UserMetier implements IUserMetier {
 
 		Agent beneficiaire = sortieart.getBeneficiaire();
 		a.setBeneficiaire(beneficiaire);
-		a.setValidation(false);
+		a.setValidation(true);// For test
 		artreops.save(a);
 		sortieart.valider();
 		// oprepos.save(attr);
@@ -1319,6 +1320,29 @@ public class UserMetier implements IUserMetier {
 	public void updateArticle(Article art) {
 		// TODO Auto-generated method stub
 		artreops.save(art);
+	}
+
+	@Override
+	public Long calculArticleRestant(Article article) {
+		// TODO Auto-generated method stub
+		if(article == null) {
+			return 0L;
+		}
+		Long nombreSortie = (Long)opsortieartrepos.getNumberOfSortieByArticle(article
+				, EtatOperation.ACCEPTED
+				);
+		System.out.println("Nombre :"+nombreSortie);
+		if(nombreSortie == null) {
+			nombreSortie = 0L;
+		}
+		return article.getNombre() -nombreSortie;
+	}
+
+	@Override
+	public List<Operation> getListOpESArtValideByDirection(Direction direction, Date startDate,
+			Date endDate) {
+		// TODO Auto-generated method stub
+		return operationdao.getListOpESArtByValideByDirection(EtatOperation.ACCEPTED, direction, startDate, endDate);
 	}
 
 

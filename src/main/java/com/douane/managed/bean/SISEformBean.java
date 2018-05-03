@@ -6,6 +6,7 @@ import com.douane.exception.NullPointerAttributeException;
 import com.douane.metier.referentiel.IRefMetier;
 import com.douane.metier.user.IUserMetier;
 import com.douane.metier.utilisateur.IUtilisateurMetier;
+import com.douane.model.EtatOperation;
 import com.douane.requesthttp.RequestFilter;
 
 import org.hibernate.exception.ConstraintViolationException;
@@ -908,7 +909,7 @@ public class SISEformBean {
 	}
 
 	// -----------FIN SISE------------------
-	public OpSortieArticle addRequeteSortie() throws Exception {
+	/*public OpSortieArticle addRequeteSortie() throws Exception {
 		try {
 			ArticleNouv a = new ArticleNouv();
 			Agent agent = (Agent) RequestFilter.getSession().getAttribute("agent");
@@ -923,7 +924,7 @@ public class SISEformBean {
 			FacesContext.getCurrentInstance().addMessage(null, message);
 			return null;
 		}
-	}
+	}*/
 
 	public List<OpEntreeArticle> getListOpEntreeArticle() {
 		Agent agent = (Agent) RequestFilter.getSession().getAttribute("agent");
@@ -1214,4 +1215,19 @@ public class SISEformBean {
 	 * FacesMessage( FacesMessage.SEVERITY_INFO, "Modification terminée",
 	 * "nouveau valeur: " + newValue)); } }
 	 */
+	
+	/*public List<OpEntreeArticle> getListOpEntreeArticleValidateByDirection() {
+		Agent agent = (Agent) RequestFilter.getSession().getAttribute("agent");
+		Date sdate = new GregorianCalendar(2010, Calendar.JANUARY, 1).getTime();
+		Date edate = new GregorianCalendar(2200, Calendar.DECEMBER, 30).getTime();
+		System.out.println("LISTE DES ARTICLES**");
+		return usermetierimpl.getListOpEntreeArtByValideByDirection(EtatOperation.ACCEPTED, agent.getDirection(), sdate, edate);
+	}
+
+	public void setListOpEntreeArticleValidateByDirection(List<OpEntreeArticle> listOpEntreeArticleValidate) {
+		this.listOpEntreeArticleValidateByDirection = listOpEntreeArticleValidate;
+	}
+
+	private List<OpEntreeArticle> listOpEntreeArticleValidateByDirection;*/
+	
 }

@@ -16,6 +16,7 @@
 			
 			<redirect />
 		</navigation-case>
+		
 		<navigation-case>
 			<from-action>#{loginMgmtBean.login}</from-action>
 			<from-outcome>incorrect</from-outcome>
@@ -117,6 +118,13 @@
 	<navigation-rule>
 		<from-view-id>/pages/secure/*</from-view-id>
 		<!-- navigation-case for method login() navigation case for method logout() -->
+		
+		<navigation-case>
+			<from-outcome>change_compta</from-outcome>
+			<to-view-id>/pages/secure/choice.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		
 		<navigation-case>
 			<from-action>#{topMenuMB.goToDashboard}</from-action>
 			<from-outcome>dashboard</from-outcome>
@@ -573,18 +581,6 @@
 			<redirect />
 		</navigation-case>
 
-
-
-		
-
-
-
-
-
-
-
-
-
 		<navigation-case>
 			<from-action>#{userMB.addUserRef}</from-action>
 			<from-outcome>success</from-outcome>
@@ -730,9 +726,6 @@
 		</navigation-case>
 
 		
-		
-
-		
 		<navigation-case>
 			<from-action>#{siseBean.addModeAcquisition}</from-action>
 			<from-outcome>success</from-outcome>
@@ -757,7 +750,7 @@
 		<navigation-case>
 			<from-action>#{siseBean.addMotifSortie}</from-action>
 			<from-outcome>success</from-outcome>
-			<to-view-id>/pages/secure/CM/SISE/saisieRef.xhtml#sotrie</to-view-id>
+			<to-view-id>/pages/secure/CM/SISE/saisieRef.xhtml#sortie</to-view-id>
 			<redirect />
 		</navigation-case>
 

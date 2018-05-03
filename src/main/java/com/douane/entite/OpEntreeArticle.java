@@ -8,15 +8,12 @@ import javax.persistence.ManyToOne;
 
 @Entity
 public class OpEntreeArticle extends Operation{
-    private static Long numerochronoea;
 
     @ManyToOne
     @JoinColumn(name="idArt")
     private Article article;
 
-    static {
-        numerochronoea = 1L;
-    }
+    
 
     public Article getArticle() {
         return article;

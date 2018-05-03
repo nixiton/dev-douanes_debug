@@ -168,6 +168,97 @@
 
 
 	</h:form>
+ <h:form>
+    <p:dataTable var="c" value="#{suivieditionBean.listESForGrandLivre}"
+			paginatorTemplate="{CurrentPageReport}  {PreviousPageLink} {PageLinks} {NextPageLink} {Exporters}"
+			paginator="true" style="margin-bottom:20px"
+			widgetVar="EtatAppreciatif"
+			id="etatAppreciatif"
+			>
+			<f:facet name="header">
+       			 ETAT APPRECIATIF ANNEE XXXX
+    		</f:facet>
+			<f:facet name="{Exporters}">
+            <h:commandLink>
+                <i class="fa fa-table">  </i> Excel
+                <p:dataExporter type="xls" target="etatAppreciatif" fileName="etatappreciatif" />
+            </h:commandLink>
+ 			<span>   </span>
+            <h:commandLink>
+            	<i class="fa fa-file">  </i> PDF
+                <p:dataExporter type="pdf" target="etatAppreciatif" fileName="etatappreciatif"/>
+            </h:commandLink>
+        </f:facet>
+			
+			<p:columnGroup type="header">
+			<p:row>
+				<p:column colspan="2" headerText="Justificatives"/>
+				<p:column rowspan="2" headerText="Désignation sommaire des opérations"/>
+				<p:column colspan="2" headerText="Nomenclature 3 Opération à"/>
+				<p:column colspan="2" headerText="Nomenclature 5 Opération à"/>
+				<p:column colspan="2" headerText="Nomenclature 10 Opération à"/>
+				<p:column colspan="2" headerText="Nomenclature sommaire Opération à"/>
+				<p:column colspan="2" headerText="Nomenclature sommaire Opération à"/>
+			</p:row>
+			<p:row>
+				<p:column  headerText="N°"/>
+				<p:column  headerText="Date"/>
+				<p:column  headerText="Charge"/>
+				<p:column  headerText="Décharge"/>
+				<p:column  headerText="Charge"/>
+				<p:column  headerText="Décharge"/>
+				<p:column  headerText="Charge"/>
+				<p:column  headerText="Décharge"/>
+				<p:column  headerText="Charge"/>
+				<p:column  headerText="Décharge"/>
+				<p:column  headerText="Charge"/>
+				<p:column  headerText="Décharge"/>
+			</p:row>				
+			</p:columnGroup>
+
+			<p:column headerText="N°"> 
+				<h:outputText value="#{c[1].numoperation}" />			
+			</p:column>
+			<p:column headerText="Date"> 
+				<h:outputText value="#{c[1].date}" />			
+			</p:column>
+			<p:column headerText="Désignation sommaire des opérations"> 
+				<h:outputText value="#{c[2]}" />			
+			</p:column>
+			<p:column headerText="Charge"> 
+				<h:outputText value="#{c[4]}" />			
+			</p:column>
+			<p:column headerText="Décharge"> 
+				<h:outputText value="#{c[8]}" />			
+			</p:column>
+			<p:column headerText="Charge"> 
+				<h:outputText value="#{c[4]}" />			
+			</p:column>
+			<p:column headerText="Décharge"> 
+				<h:outputText value="#{c[8]}" />			
+			</p:column>
+			<p:column headerText="Charge"> 
+				<h:outputText value="#{c[4]}" />			
+			</p:column>
+			<p:column headerText="Décharge"> 
+				<h:outputText value="#{c[8]}" />			
+			</p:column>
+			<p:column headerText="Charge"> 
+				<h:outputText value="#{c[4]}" />			
+			</p:column>
+			<p:column headerText="Décharge"> 
+				<h:outputText value="#{c[8]}" />			
+			</p:column>
+			<p:column headerText="Charge"> 
+				<h:outputText value="#{c[4]}" />			
+			</p:column>
+			<p:column headerText="Décharge"> 
+				<h:outputText value="#{c[8]}" />			
+			</p:column>
+		</p:dataTable>
+
+
+	</h:form>
     
 
 

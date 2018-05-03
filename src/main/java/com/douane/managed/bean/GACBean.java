@@ -569,12 +569,17 @@ public class GACBean {
 	 * public void reqSortirRefuser() throws Exception {
 	 * usermetierimpl.reqSortirRefuser(getOpSortieArticle(),getMotif()); }
 	 */
-	public void entrerArticle() throws Exception {
+	public void entrerArticle()  {
 		usermetierimpl.entrerArticle(getOpEntreeArticle());
 	}
 
-	public void sortirArticle() throws Exception {
-		usermetierimpl.sortirArticle(getOpSortieArticle());
+	public void sortirArticle()  {
+		try {
+			usermetierimpl.sortirArticle(getOpSortieArticle());
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	public void addArticleEx() {
@@ -739,6 +744,17 @@ public class GACBean {
 
 	public void validateSortieArticleNouv(OpSortieArticle operation) {
 		try {
+			if(usermetierimpl.calculArticleRestant(operation.getArticle()) - operation.getNombreToS() <0) {
+				FacesContext context = FacesContext.getCurrentInstance();
+
+				context.addMessage("myerror",
+						new FacesMessage("Erreur validation sortie", 
+								"L'article n'a pas pu être sortie car il ne reste plus assez d'articles dans le stock " ));
+				// context.addMessage(null, new FacesMessage("Second Message", "Additional
+				// Message Detail"));
+				System.out.println("erreur valider sortie article");
+				return;
+			}
 			usermetierimpl.sortirArticle(operation);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
