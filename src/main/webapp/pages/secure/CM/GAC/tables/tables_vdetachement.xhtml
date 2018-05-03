@@ -15,28 +15,28 @@
     <p:dataTable   var="d" value="#{suivieditionBean.listOperationDeetachementByDirection}" 
                  paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}  "
                  paginator="true" rows="10" style="margin-bottom:20px">
-        <p:column>
+        <p:column style="text-align: center; word-wrap: break-word;">
             <f:facet name="header">ID</f:facet>
             #{d.id}
         </p:column>
-        <p:column headerText="Date">
+        <p:column headerText="Date" style="text-align: center; word-wrap: break-word;">
         	<h:outputText value="#{d.date} #{d.time}" />
         </p:column>
-        <p:column>
+        <p:column style="text-align: center; word-wrap: break-word;">
             <f:facet name="header">Détenteur</f:facet>
             #{d.detenteur.im}
         </p:column>
-         <p:column>
+         <p:column style="text-align: center; word-wrap: break-word;">
             <f:facet name="header">Materiel</f:facet>
             #{d.mat.numSerie}
         </p:column>
-        <p:column >
+        <p:column style="text-align: center; word-wrap: break-word;">
             <f:facet name="header" >
                 <h:outputText value="Etat" />
             </f:facet>
             <h:outputText value="#{d.state}" />
         </p:column>
-        <p:column >
+        <p:column style="text-align: center; word-wrap: break-word;">
             
             <f:facet name="header">
                 <h:outputText value="Validation" />
