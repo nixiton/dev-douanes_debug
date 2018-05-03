@@ -55,7 +55,7 @@
 
             <f:facet name="header">
                 <h:outputText value="Détail" />
-            </f:facet>
+            </f:facet> 
             <p:commandButton rendered="#{a.state eq 'WAITING' }" action="#{gacBean.setOpSortieArticleToValidate(a)}" update=":detail"
             oncomplete="PF('detail').show()" icon="ui-icon-circle-check"/>
 
