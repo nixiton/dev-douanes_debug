@@ -15,36 +15,36 @@
     <p:dataTable   var="d" value="#{suivieditionBean.listOperationSortieByDirection}" 
                  paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}  "
                  paginator="true" rows="10" style="margin-bottom:20px">
-        <p:column>
+        <p:column style="text-align: center; word-wrap: break-word;">
             <f:facet name="header">ID</f:facet>
             #{d.id}
         </p:column>
-        <p:column headerText="Date">
+        <p:column headerText="Date" style="text-align: center; word-wrap: break-word;">
         	<h:outputText value="#{d.date} #{d.time}" />
         </p:column>
-        <p:column>
+        <p:column style="text-align: center; word-wrap: break-word;">
             <f:facet name="header">Motif de sortie</f:facet>
             #{d.motifsortie.designation}
         </p:column>
-         <p:column>
+         <p:column style="text-align: center; word-wrap: break-word;">
             <f:facet name="header">ID Materiel</f:facet>
             #{d.mat.idMateriel}
         </p:column>
-        <p:column>
+        <p:column style="text-align: center; word-wrap: break-word;">
             <f:facet name="header">N° Serie Materiel</f:facet>
             #{d.mat.numSerie}
         </p:column>
-         <p:column>
+         <p:column style="text-align: center; word-wrap: break-word;">
             <f:facet name="header">Code Direction Destination</f:facet>
             #{d.direc.codeDirection}
         </p:column>
-        <p:column >
+        <p:column style="text-align: center; word-wrap: break-word;">
             <f:facet name="header" >
                 <h:outputText value="Etat" />
             </f:facet>
             <h:outputText value="#{d.state}" />
         </p:column>
-        <p:column >
+        <p:column style="text-align: center; word-wrap: break-word;">
             
             <f:facet name="header">
                 <h:outputText value="Validation" />
@@ -54,7 +54,7 @@
             <p:commandButton action="#{gacBean.setCurentopSortieForValidation(d)}" update=":detail"
             oncomplete="PF('detail').show()" icon="ui-icon-zoomin"/>
         </p:column>
-        <p:column>
+        <p:column style="text-align: center; word-wrap: break-word;">
         <f:facet name="header">
                 <h:outputText value="Ordre de sortie" />
             </f:facet>

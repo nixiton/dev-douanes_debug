@@ -17,14 +17,14 @@
                  paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}  "
                  paginator="true" rows="10" style="margin-bottom:20px" filteredValue="#{depositaireBean.listAllMateriel}">
          
-         <p:column>
+         <p:column style="width:20%; text-align: center; word-wrap: break-word;">
             <f:facet name="header">
                 <h:outputText value="ID"/>
             </f:facet>
             <h:outputText value="#{a.idArticle}" />
         </p:column>
 
-        <p:column>
+        <p:column style=" text-align: center; word-wrap: break-word;">
             <f:facet name="header">
                 <h:outputText value="Codification" />
             </f:facet>
@@ -32,7 +32,7 @@
         </p:column>
         
 
-        <p:column>
+        <p:column style=" text-align: center; word-wrap: break-word;">
 
             <f:facet name="header">
                 <h:outputText value="Détail" />
@@ -75,41 +75,41 @@
                 <p:column  headerText="#{1+1}"/>
             </p:row>
         </p:columnGroup>
-        <p:column>
+        <p:column style=" text-align: center; word-wrap: break-word;">
         	<h:outputText value="#{op.date}" />
         </p:column>
-        <p:column>
+        <p:column style=" text-align: center; word-wrap: break-word;">
         <p:panel rendered="#{op['class'].simpleName eq 'OpEntreeArticle'}">
 					<h:outputText value="#{op.id}" />
 		</p:panel>
         	
         </p:column>
-        <p:column>
+        <p:column style=" text-align: center; word-wrap: break-word;">
         <p:panel rendered="#{op['class'].simpleName eq 'OpEntreeArticle'}">
 					<h:outputText value="#{op.article.nombre}" />
 		</p:panel>
         	
         </p:column>
-        <p:column>
+        <p:column style=" text-align: center; word-wrap: break-word;">
         	<p:panel rendered="#{op['class'].simpleName eq 'OpEntreeArticle'}">
 					<h:outputText value="#{'cumulation par entree'}" />
 		</p:panel>
         </p:column>
-        <p:column>
+        <p:column style=" text-align: center; word-wrap: break-word;">
         <p:panel rendered="#{op['class'].simpleName eq 'OpSortieArticle'}">
 					<h:outputText value="#{op.id}" />
 		</p:panel>
         </p:column>
-        <p:column>
+        <p:column style=" text-align: center; word-wrap: break-word;">
         <p:panel rendered="#{op['class'].simpleName eq 'OpSortieArticle'}">
 					<h:outputText value="#{op.nombreToS}" />
 		</p:panel>
         </p:column>
         
-        <p:column>
+        <p:column style=" text-align: center; word-wrap: break-word;">
 					<h:outputText value="#{'signature'}" />
         </p:column>
-        <p:column>
+        <p:column style=" text-align: center; word-wrap: break-word;">
         	<h:outputText value="#{'quantite moins'}" />
         </p:column>
     </p:dataTable>
