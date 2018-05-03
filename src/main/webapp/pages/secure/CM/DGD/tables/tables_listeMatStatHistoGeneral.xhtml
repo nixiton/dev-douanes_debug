@@ -38,12 +38,16 @@
             </h:commandLink>
         </f:facet>
         
-        <p:column headerText="ID" filterBy="#{materiel.idMateriel}" filterMatchMode="contains" style="width: 9%; text-align: center;">
+        <p:column headerText="ID">
             <h:outputText value="#{materiel.idMateriel}" />
             
         </p:column>
         <p:column headerText="Numéro Série" filterBy="#{materiel.numSerie}" filterMatchMode="contains" style="width: 9%; text-align: center;">
             <h:outputText value="#{materiel.numSerie}" />
+            
+        </p:column>
+        <p:column headerText="Type de Matériel" filterBy="#{materiel.design.typematerieladd.designation}" filterMatchMode="contains" style="width: 9%; text-align: center;">
+             <h:outputText value="#{materiel.design.typematerieladd.designation}" />
             
         </p:column>
         <p:column headerText="Codification" filterBy="#{materiel.code}" filterMatchMode="contains" style="width: 9%; text-align: center;">

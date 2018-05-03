@@ -682,4 +682,50 @@ public class OperationDAOImpl implements IOperationDAO{
 		//return null;
 	}
 
+	@Override
+	public List<Object[]> getListForInventaireWithMatex(Direction d, Date startDate, Date endDate) {
+		// TODO Auto-generated method stub
+		Query query1 = em.createQuery("select  opso, m from OpSortie opso , Materiel m    "
+				+ "where opso.mat = m "
+				+ "and opso.direction =:direct "
+					+ "and opso.date>=:date "
+	       		);
+		Query query2 = em.createQuery("select m from Materiel m    "
+				+ "where m.validation =:val "
+				+ "and m.direc =:direct"
+	       		);
+		query1.setParameter("direct", d);
+		query1.setParameter("date", startDate);
+		
+		query2.setParameter("direct", d);
+		query2.setParameter("val", true);
+		
+		List<Object[]> results =query1.getResultList();
+		List<Materiel> results2 = query2.getResultList();
+		
+		List<Object[]> iventories = new ArrayList<Object[]>();
+		Object[] couple = new Object[2];
+		for(Object[] o : results) {
+			
+			//opsortie
+			couple[0] = o[0];
+			//materiel
+			couple[1] = o[1];
+			iventories.add(couple);
+			couple = new Object[2];
+			
+		}
+		for(Materiel o : results2) {
+			//opsortie
+			couple[0] = null;
+			//materiel
+			couple[1] = o;
+			iventories.add(couple);
+			couple = new Object[2];
+		}
+		
+		System.out.println("Inventaire With Matex :" +d.getDesignation() +" "+results2.size());
+		return iventories;
+	}
+
 }

@@ -612,17 +612,7 @@ public class SuiviEditionBean {
 
 	//------------EDITION
 	
-	public List<Object[]> getListobjectForInvetaire() {
-		Agent cur = (Agent) RequestFilter.getSession().getAttribute("agent");
-		System.out.println("RRRRRRRRRRR Begin:");
-		List<Object[]> r = usermetierimpl.getListObjectForinvetaire(cur.getDirection());
-		System.out.println("RRRRRRRRRRR Ending:");
-		for(Object[] o:r) {
-			System.out.println(String.valueOf(o[0]));
-			System.out.println(String.valueOf(o[1]));
-		}
-		return r;
-	}
+	
 
 	public void setListobjectForInvetaire(List<Object[]> listobjectForInvetaire) {
 		this.listobjectForInvetaire = listobjectForInvetaire;
@@ -953,6 +943,27 @@ public class SuiviEditionBean {
 			resultatfinal.add(item);
 		}
 		return resultatfinal;
+	}
+	
+	public List<Object[]> getListobjectForInvetaire() {
+		if(listobjectForInvetaire==null) {
+		Agent cur = (Agent) RequestFilter.getSession().getAttribute("agent");
+		Date date = new Date();
+		Calendar calendar = new GregorianCalendar();
+		calendar.setTime(date);
+		int year = calendar.get(Calendar.YEAR);
+		Date sdate = new GregorianCalendar(year, Calendar.APRIL, 30).getTime();
+        Date edate = new GregorianCalendar(year, Calendar.DECEMBER, 31).getTime();
+		System.out.println("RRRRRRRRRRR Begin:");
+		List<Object[]> r = usermetierimpl.getListObjectForinvetaire(cur.getDirection(),sdate,edate);
+		System.out.println("RRRRRRRRRRR Ending:");
+		/*for(Object[] o:r) {
+			System.out.println(String.valueOf(o[0]));
+			System.out.println(String.valueOf(o[1]));
+		}*/
+		listobjectForInvetaire= r;
+		}
+		return listobjectForInvetaire;	
 	}
 
 }

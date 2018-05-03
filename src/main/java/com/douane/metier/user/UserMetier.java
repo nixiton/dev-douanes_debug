@@ -1205,8 +1205,9 @@ public class UserMetier implements IUserMetier {
 	}
 
 	@Override
-	public List<Object[]> getListObjectForinvetaire(Direction d){
-		return operationdao.getListForInventaire(d, new Date(), new Date());
+	public List<Object[]> getListObjectForinvetaire(Direction d, Date startDate, Date endDate){
+		//return operationdao.getListForInventaire(d, new Date(), new Date());
+		return operationdao.getListForInventaireWithMatex(d, startDate, endDate);
 	}
 
 	@Override
