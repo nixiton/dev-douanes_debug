@@ -38,23 +38,23 @@
             </h:commandLink>
         </f:facet>
         
-        <p:column headerText="ID">
+        <p:column headerText="ID" style=" text-align: center; word-wrap: break-word;">
            <h:outputText value="#{materiel.idMateriel}" />
             
         </p:column>
-        <p:column headerText="Numéro Série" filterBy="#{materiel.numSerie}" filterMatchMode="contains" style="width: 9%; text-align: center;">
+        <p:column headerText="Numéro Série" filterBy="#{materiel.numSerie}" filterMatchMode="contains" style="width: 9%; text-align: center; word-wrap: break-word;">
              <h:outputText value="#{materiel.numSerie}" />
             
         </p:column>
-        <p:column headerText="Type de Matériel" filterBy="#{materiel.design.typematerieladd.designation}" filterMatchMode="contains" style="width: 9%; text-align: center;">
+        <p:column headerText="Type de Matériel" filterBy="#{materiel.design.typematerieladd.designation}" filterMatchMode="contains" style="width: 9%; text-align: center; word-wrap: break-word;">
              <h:outputText value="#{materiel.design.typematerieladd.designation}" />
             
         </p:column>
-        <p:column headerText="Codification" filterBy="#{materiel.code}" filterMatchMode="contains" style="width: 9%; text-align: center;">
+        <p:column headerText="Codification" filterBy="#{materiel.code}" filterMatchMode="contains" style="width: 9%; text-align: center; word-wrap: break-word;">
             <h:outputText value="#{materiel.code}" />
             
         </p:column>
-        <p:column filterBy="#{materiel.design.nomenMat}" headerText="Nomenclature"  filterMatchMode="exact" style="width: 9%; text-align: center;">
+        <p:column filterBy="#{materiel.design.nomenMat}" headerText="Nomenclature"  filterMatchMode="exact" style="width: 9%; text-align: center; word-wrap: break-word;">
            <f:facet name="filter">
                 <p:selectOneMenu onchange="PF('MaterielTable').filter()" >
                     <f:selectItem itemLabel="Selection" itemValue="#{null}" noSelectionOption="true" />
@@ -63,48 +63,48 @@
             </f:facet>
             <h:outputText value="#{materiel.design.nomenMat.designation}" />
         </p:column>
-        <p:column style="width: 7%; text-align: center;">
+        <p:column style="width: 7%; text-align: center; word-wrap: break-word;">
             <f:facet name="header">
                 <h:outputText value="Etat" />
             </f:facet>
             <h:outputText value="#{materiel.etat.designation}" />
         </p:column>
-        <p:column style="width: 7%; text-align: center;">
+        <p:column style="width: 7%; text-align: center; word-wrap: break-word;">
             <f:facet name="header">
                 <h:outputText value="Marque" />
             </f:facet>
             <h:outputText value="#{materiel.design.marque.designation}" />
         </p:column>
-        <p:column style="width: 8%; text-align: center;">
+        <p:column style="width: 8%; text-align: center; word-wrap: break-word;">
             <f:facet name="header">
                 <h:outputText value="Dépositaire" />
             </f:facet>
             <h:outputText value="#{materiel.dc.nomAgent}" />
         </p:column>
-        <p:column exportable="false" style="width: 5%; text-align: center;">
+        <p:column exportable="false" style="width: 5%; text-align: center; word-wrap: break-word;">
 
             <f:facet name="header">Détail</f:facet>
             <p:commandButton  action="#{suivieditionBean.setMateriel(materiel)}" update=":detail"
             oncomplete="PF('detail').show()" icon="ui-icon-zoomin"/>
         </p:column> 
-        <p:column exportable="false" style="width: 5%; text-align: center;">
+        <p:column exportable="false" style="width: 5%; text-align: center; word-wrap: break-word;">
             <f:facet name="header">Statut</f:facet>
             <p:commandButton  action="#{suivieditionBean.setMateriel(materiel)}" 
             oncomplete="PF('statut').show()" icon="ui-icon-info" update=":statut">
 
             </p:commandButton>
         </p:column>
-        <p:column exportable="false" style="width: 7%; text-align: center;">
+        <p:column exportable="false" style="width: 8%; text-align: center; word-wrap: break-word;">
             <f:facet name="header">Historique</f:facet>
             <p:commandButton  action="#{suivieditionBean.setMateriel(materiel)}" 
             oncomplete="PF('historique').show()" icon="ui-icon-clipboard" update=":historique">
             </p:commandButton>
         </p:column>
         
-         <p:column headerText="Direction" style="width: 9%; text-align: center;">
+         <p:column headerText="Direction" style="width: 8%; text-align: center; word-wrap: break-word;">
             <h:outputText value="#{materiel.direc.designation !=null ? materiel.direc.designation :'Non disponible'}" />
         </p:column>
-        <p:column filterBy="#{materiel.validation}" headerText="Status" filterMatchMode="equals">
+        <p:column filterBy="#{materiel.validation}" headerText="Status" filterMatchMode="equals" style="text-align: center; word-wrap: break-word;">
             <f:facet name="filter">
                 <p:selectOneButton onchange="PF('MaterielTable').filter()">
                     <f:converter converterId="javax.faces.Boolean" />
@@ -115,7 +115,7 @@
             </f:facet>
             <h:outputText value="#{materiel.validation ? 'Validé': 'Non Validé'}" />
         </p:column>
-        <p:column filterBy="#{materiel.detenteur}" headerText="Détenteur" filterFunction="#{dtFilterView.filterByDetenteur}">
+        <p:column filterBy="#{materiel.detenteur}" headerText="Détenteur" filterFunction="#{dtFilterView.filterByDetenteur}" style="text-align: center; word-wrap: break-word;">
             <f:facet name="filter">
                 <p:selectOneButton onchange="PF('MaterielTable').filter()">
                     <f:selectItem itemLabel="Tout" itemValue="all" />
