@@ -517,7 +517,11 @@
 			<redirect />
 		</navigation-case>
 
-
+		<navigation-case>
+			<from-outcome>dialogJournal</from-outcome>
+			<to-view-id>/pages/secure/CM/DGD/tables/dialogs/dialogs_Journal.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
 
 
 

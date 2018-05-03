@@ -414,7 +414,7 @@ public class GACBean {
 	public String setCurentOperation6(Operation operation) {
 		setCurentOperation(operation);
 
-		return "dialog6";
+		return "dialog";
 
 	}
 
