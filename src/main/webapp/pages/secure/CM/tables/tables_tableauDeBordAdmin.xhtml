@@ -31,18 +31,18 @@
                 <p:dataExporter type="pdf" target="tbl" fileName="mesOperations"/>
             </h:commandLink>
         </f:facet-->
-         <p:column headerText="Date">
+         <p:column headerText="Date" style="text-align: center; word-wrap: break-word;">
             <h:outputText value="#{c.date} #{c.time}" />
         </p:column>
 
-		<p:column>
+		<p:column style="text-align: center; word-wrap: break-word;">
 			<f:facet name="header">
 				<h:outputText value="Poste" />
 			</f:facet>
 			<h:outputText value="#{c.poste}" />
 		</p:column>
 		
-		<p:column filterBy="#{c.state}" headerText="Etat"  filterMatchMode="exact">
+		<p:column filterBy="#{c.state}" headerText="Etat"  filterMatchMode="exact" style="text-align: center; word-wrap: break-word;">
 			<f:facet name="filter">
                 <p:selectOneMenu onchange="PF('operationsTable').filter()" >
                     <f:selectItem itemLabel="Selectionner" itemValue="#{null}" noSelectionOption="true" />
@@ -53,12 +53,12 @@
         </p:column>
 
 
-        <p:column headerText="Opérateur" groupRow="true" filterBy="#{c.operateur.im}" ilterMatchMode="contains">
+        <p:column headerText="Opérateur" groupRow="true" filterBy="#{c.operateur.im}" ilterMatchMode="contains" style="text-align: center; word-wrap: break-word;">
             <h:outputText value="#{c.operateur.im}" />
         </p:column>
 
 	
-		<p:column filterBy="#{c['class']}" headerText="Type Operation"  filterMatchMode="exact">
+		<p:column filterBy="#{c['class']}" headerText="Type Operation"  filterMatchMode="exact" style="text-align: center; word-wrap: break-word;">
 			<f:facet name="filter">
                 <p:selectOneMenu onchange="PF('operationsTable').filter()" >
                     <f:selectItem itemLabel="Selectioner" itemValue="#{null}" noSelectionOption="true" />
@@ -92,7 +92,7 @@
 			<p:tooltip id="idpopup" for="popuit" value="Identifiant: #{c.id}" trackMouse="true" />
         </p:column>
 
-            <p:column>
+            <p:column style="text-align: center; word-wrap: break-word;">
                 <f:facet name="header">
                     <h:outputText value="Pièces justificatives" />
                 </f:facet>  
@@ -132,7 +132,7 @@
 
         <c:if test="#{topMenuMB.curentAgent.roleAgent.role eq 'ROLE_ADMIN'}">
 
-        <p:column>
+        <p:column style="text-align: center; word-wrap: break-word;">
 
             <f:facet name="header">
                 <h:outputText value="A modifier" />

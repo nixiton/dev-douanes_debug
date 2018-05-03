@@ -32,19 +32,19 @@
                  >
         <p:ajax event="rowEdit" listener="#{siseBean.onRowEdit}" update=":formCodi:msgtableCodi" oncomplete="PF('codiTable').filter()"/>
        
-		<p:column>
+		<p:column style=" width:4%; text-align: center; word-wrap: break-word;">
 			<f:facet name="header">ID</f:facet>
 			#{nomenclature.id}
 		</p:column>
-		<p:column>
+		<p:column style="width:6%; text-align: center; word-wrap: break-word;">
 			<f:facet name="header">Désignation</f:facet>
 			<p:cellEditor>
                <f:facet name="output"><h:outputText value="#{nomenclature.designation}" /></f:facet>
-               <f:facet name="input"><p:inputText value="#{nomenclature.designation}" style="width:100%"/></f:facet>
+               <f:facet name="input"><p:inputText value="#{nomenclature.designation}" style="width:80%"/></f:facet>
            </p:cellEditor>
 			
 		</p:column>
-		<p:column>
+		<p:column style=" width:6%; text-align: center; word-wrap: break-word;">
 			<f:facet name="header">Type d'objet</f:facet>
 			<p:cellEditor>
                <f:facet name="output"><h:outputText value="#{nomenclature.typeObjet.designation}" /></f:facet>
@@ -57,12 +57,12 @@
                </f:facet>
            </p:cellEditor>
 			
-		</p:column>
-		<p:column>
+		</p:column >
+		<p:column style="width:2%; text-align: center; word-wrap: break-word;">
            <p:rowEditor />
              
        </p:column>
-       <p:column>
+       <p:column style="width:2%; text-align: center; word-wrap: break-word;">
        		<p:commandButton  action="#{siseBean.deleteRow(nomenclature)}"
        icon="ui-icon-close" update=":formCodi:msgtableCodi"
        oncomplete="PF('CodiTable').filter()"/>

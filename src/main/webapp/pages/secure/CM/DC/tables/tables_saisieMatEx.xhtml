@@ -29,7 +29,7 @@
                  emptyMessage="Aucun resultat" filteredValue="#{dtFilterView.filteredOperations}"
                  >
  
-        <p:column filterBy="#{materiel.idMateriel}" filterMatchMode="contains">
+        <p:column filterBy="#{materiel.idMateriel}" filterMatchMode="contains" style="text-align: center; word-wrap: break-word;">
             <f:facet name="header">
                 <h:outputText value="ID" />
             </f:facet>
@@ -41,13 +41,13 @@
             </f:facet>
             <h:outputText value="#{materiel.pu}" />
         </p:column-->
-        <p:column filterBy="#{materiel.reference}" filterMatchMode="contains">
+        <p:column filterBy="#{materiel.reference}" filterMatchMode="contains" style="text-align: center; word-wrap: break-word;">
             <f:facet name="header" >
                 <h:outputText value="Référence" />
             </f:facet>
             <h:outputText value="#{materiel.reference}" />
         </p:column>
-        <p:column filterBy="#{materiel.numSerie}" filterMatchMode="contains">
+        <p:column filterBy="#{materiel.numSerie}" filterMatchMode="contains" style="text-align: center; word-wrap: break-word;">
             <f:facet name="header" >
                 <h:outputText value="Numéro de série" />
             </f:facet>
@@ -59,7 +59,7 @@
             </f:facet>
            <h:outputText value=" #{materiel.autre}" />
         </p:column-->
-        <p:column filterBy="#{materiel.design.nomenMat}" headerText="Nomenclature"  filterMatchMode="exact">
+        <p:column filterBy="#{materiel.design.nomenMat}" headerText="Nomenclature"  filterMatchMode="exact" style="text-align: center; word-wrap: break-word;">
             <f:facet name="filter">
                 <p:selectOneMenu onchange="PF('MaterielTable').filter()" >
                     <f:selectItem itemLabel="Selectioner" itemValue="#{null}" noSelectionOption="true" />
@@ -71,7 +71,7 @@
             </f:facet>
             <h:outputText value="#{materiel.design.nomenMat.designation}" />
         </p:column>
-        <p:column>
+        <p:column style="text-align: center; word-wrap: break-word;">
             <f:facet name="header">
                 <h:outputText value="Etat" />
             </f:facet>
@@ -83,19 +83,19 @@
             </f:facet>
             <h:outputText value="#{materiel.caract}" />
         </p:column-->
-        <p:column>
+        <p:column style="text-align: center; word-wrap: break-word;">
             <f:facet name="header">
                 <h:outputText value="Marque" />
             </f:facet>
             <h:outputText value="#{materiel.design.marque.designation}" />
         </p:column>
-        <p:column>
+        <p:column style="text-align: center; word-wrap: break-word;">
             <f:facet name="header">
                 <h:outputText value="Dépositaire" />
             </f:facet>
             <h:outputText value="#{materiel.dc.nomAgent}" />
         </p:column>
-        <p:column filterBy="#{materiel.code}" filterMatchMode="contains">
+        <p:column filterBy="#{materiel.code}" filterMatchMode="contains" style="text-align: center; word-wrap: break-word;">
             <f:facet name="header" >
                 <h:outputText value="Code" />
             </f:facet>
@@ -115,7 +115,7 @@
             </f:facet>
             <h:graphicImage value="#{materiel.photo}" />
         </p:column-->
-        <p:column>
+        <p:column style="text-align: center; word-wrap: break-word;">
 
             <f:facet name="header">
                 <h:outputText value="Détail" />

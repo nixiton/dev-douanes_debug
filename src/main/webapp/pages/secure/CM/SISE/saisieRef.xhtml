@@ -38,5 +38,56 @@
     </div>
 
     <ui:include src="/pages/unsecure/components/footer.xhtml"></ui:include>
+    
+    <script>
+
+	$(document).ready(function(){
+		
+		var query = window.location.search.substring(1);
+	    var vars2 = query.split("=");
+	    console.log(query);
+	    console.log(vars2);
+	    
+		if(query != null){
+			console.log("tafa");
+			function scrollToId(id){
+				var e=document.querySelector("#"+id);console.log(e,id);
+				var crn=cronf(function(o){
+					if((e.getBoundingClientRect().top &lt; -11 || e.getBoundingClientRect().top &gt; 11)
+						&amp;&amp; document.querySelector("html").scrollHeight-document.querySelector("html").clientHeight-11 >=document.querySelector("html").scrollTop
+							){
+						console.log(e.getBoundingClientRect().top);
+						if(e.getBoundingClientRect().top &lt; 0){
+							document.querySelector("html").scrollTop=0;
+						}
+						else{
+							document.querySelector("html").scrollTop+=e.getBoundingClientRect().top;
+						}
+					}
+					else{
+						o.stop=true;
+					}
+					console.log(o)
+				});
+			}
+			function cronf(f,dt,o){
+				if(!dt){ dt=100;}
+				if(!o){ o={};}
+				if(o.stop){return false;}
+				f(o);
+				setTimeout(function(){
+					cronf(f,dt,o)
+				},dt)
+				return o;
+			}
+			setTimeout(function(){
+				scrollToId(vars2[1]);
+			},500)
+		}
+			
+	});
+
+</script> 
 </h:body>
+
 </html>

@@ -29,30 +29,30 @@
                  widgetVar="ArtTable"
                  >
         <p:ajax event="rowEdit" listener="#{siseBean.onRowEdit}" update=":formTypArt:msgtableTypeArt" oncomplete="PF('ArtTable').filter()"/>
-		<p:column>
+		<p:column style=" width:4%; text-align: center; word-wrap: break-word;">
 			<f:facet name="header">ID</f:facet>
 			#{typemateriel.id}
 		</p:column>
-		<p:column>
+		<p:column style=" width:6%; text-align: center; word-wrap: break-word;">
 			<f:facet name="header">Désignation</f:facet>
 			<p:cellEditor>
                <f:facet name="output"><h:outputText value="#{typemateriel.designation}" /></f:facet>
-               <f:facet name="input"><p:inputText value="#{typemateriel.designation}" style="width:100%"/></f:facet>
+               <f:facet name="input"><p:inputText value="#{typemateriel.designation}" style="width:80%"/></f:facet>
            </p:cellEditor>
 			
 		</p:column>
-		<p:column>
+		<p:column style=" width:6%; text-align: center; word-wrap: break-word;">
 			<f:facet name="header">Caracteristique</f:facet>
 			<p:cellEditor>
                <f:facet name="output"><h:outputText value="#{typemateriel.caracteristique}" /></f:facet>
-               <f:facet name="input"><p:inputText  value="#{typemateriel.caracteristique}" style="width:100%"/></f:facet>
+               <f:facet name="input"><p:inputText  value="#{typemateriel.caracteristique}" style="width:80%"/></f:facet>
            </p:cellEditor>
 			
 		</p:column>
-		<p:column>
+		<p:column style=" width:2%; text-align: center; word-wrap: break-word;">
            <p:rowEditor />
        </p:column>
-       <p:column>
+       <p:column style=" width:2%; text-align: center; word-wrap: break-word;">
        		<p:commandButton  action="#{siseBean.deleteRow(typemateriel)}"
        icon="ui-icon-close" update=":formTypArt:msgtableTypeArt"
        oncomplete="PF('ArtTable').filter()"/>
