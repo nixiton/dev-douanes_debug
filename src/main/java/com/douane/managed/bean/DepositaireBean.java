@@ -2701,7 +2701,8 @@ public class DepositaireBean {
 		listematerielParDesign = new ArrayList<MaterielNouv>(); // reset
 		materielspardesignation = new ArrayList<Materiel>();// reset
 		// this.documentList = initialize();
-		// this.imageList = initializeImageFile();
+		this.imageList = initializeImageFile();
+
 		setAllNull();
 		return null;
 	}

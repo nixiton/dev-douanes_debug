@@ -572,9 +572,9 @@ public class UserManagedBean implements Serializable {
 
 	public boolean getHaveRole(String role)
 	{
-		if(this.getUserList().get(0) != null)
-			return this.getUserList().get(0).getRoleAgent().getRole().equals(role);
-		return false;
+
+		return ((Agent) RequestFilter.getSession().getAttribute("agent")).getRoleAgent().getRole().equals(role);
+
 	}
 
 	public String getRole() {
