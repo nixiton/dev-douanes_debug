@@ -81,6 +81,7 @@ public class UserManagedBean implements Serializable {
 	private String role;
 	
 	private Useri roleuser;
+	private boolean haveRole;
 	private Poste poste;
 	
 	
@@ -562,6 +563,18 @@ public class UserManagedBean implements Serializable {
 
 	public void setRoleuser(Useri roleuser) {
 		this.roleuser = roleuser;
+	}
+
+	public void setHaveRole(boolean b)
+	{
+		this.haveRole = b;
+	}
+
+	public boolean getHaveRole(String role)
+	{
+		if(this.getUserList().get(0) != null)
+			return this.getUserList().get(0).getRoleAgent().getRole().equals(role);
+		return false;
 	}
 
 	public String getRole() {
