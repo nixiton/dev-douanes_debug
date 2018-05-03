@@ -18,9 +18,11 @@ import java.util.*;
 
 import java.io.*;
 import java.util.zip.ZipEntry;
+import java.util.zip.ZipException;
 import java.util.zip.ZipOutputStream;
 
 import com.sun.faces.facelets.util.Path;
+import org.apache.commons.io.FileUtils;
 import org.primefaces.model.DefaultStreamedContent;
 import org.primefaces.model.StreamedContent;
 
@@ -681,21 +683,52 @@ public class GACBean {
 			fos = new FileOutputStream(datetime + ".zip");
 			RequestFilter.getSession().setAttribute("fileZipPath", datetime + ".zip");
 			zipOut = new ZipOutputStream(new BufferedOutputStream(fos));
+			int counter_file_name = 0;
 			for (Materiel m : lstM) {
-				if (m.getDesign().getDocumentPath() != null) {
+				if (m.getDesign().getDocumentPath() != null)
+				{
 					File input = new File(m.getDesign().getDocumentPath());
+					try {
 
-					fis = new FileInputStream(input);
-					ZipEntry ze = new ZipEntry(input.getName());
-					System.out.println("Zipping the file: " + input.getName());
-					zipOut.putNextEntry(ze);
-					byte[] tmp = new byte[4 * 1024];
-					int size = 0;
-					while ((size = fis.read(tmp)) != -1) {
-						zipOut.write(tmp, 0, size);
+
+						fis = new FileInputStream(input);
+						ZipEntry ze = new ZipEntry(input.getName());
+						System.out.println("Zipping the file: " + input.getName());
+						zipOut.putNextEntry(ze);
+						byte[] tmp = new byte[4 * 1024];
+						int size = 0;
+						while ((size = fis.read(tmp)) != -1) {
+							zipOut.write(tmp, 0, size);
+						}
+						// zipOut.flush();
+						counter_file_name++;
+					}catch(ZipException e)
+					{
+						String input_file_name = m.getDesign().getDocumentPath();
+						input_file_name = input_file_name.replace(".zip","");
+						File input_new = new File(input_file_name+"_"+counter_file_name+".zip");
+						FileUtils.copyFile(input,input_new);
+						fis = new FileInputStream(input_new);
+						ZipEntry ze = new ZipEntry(input_new.getName());
+						System.out.println("Zipping the file: " + input_new.getName());
+						zipOut.putNextEntry(ze);
+						byte[] tmp = new byte[4 * 1024];
+						int size = 0;
+						while ((size = fis.read(tmp)) != -1) {
+							zipOut.write(tmp, 0, size);
+						}
+						// zipOut.flush();
+
+						counter_file_name++;
+					}finally {
+						try {
+							if (fis != null)
+								fis.close();
+						} catch (Exception ex) {
+
+						}
 					}
-					// zipOut.flush();
-					fis.close();
+
 				}
 			}
 			zipOut.close();
@@ -716,6 +749,9 @@ public class GACBean {
 		}
 		return datetime + ".zip";
 	}
+
+
+
 
 	public void reqArtRefuser(OpEntreeArticle e) {
 		try {
