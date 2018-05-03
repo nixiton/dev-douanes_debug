@@ -747,9 +747,8 @@ public class GACBean {
 
 			}
 		}
-		return datetime + ".zip";
+		return datetime+ ".zip";
 	}
-
 
 
 
