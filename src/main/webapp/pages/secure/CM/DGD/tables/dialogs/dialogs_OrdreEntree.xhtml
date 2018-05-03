@@ -14,7 +14,7 @@
 </ui:include>
 
 <div class="to_pdf">
-
+<h:form>
 <div id="cont">
 
  	<div class="col-md-1"></div>
@@ -26,8 +26,8 @@
  		<br></br><br></br><br></br><br></br><br></br>
  			
  			<div class="col-md-3">
- 				(3)<p:inputText style="text-align: center;width: 80%"></p:inputText><br></br>
- 				(4)<p:inputText style="text-align: center;width: 80%"></p:inputText><br></br>
+ 				(3)<p:inputText  value="#{JasperTableExampleBean.ordreEB.num3}" style="text-align: center;width: 80%"></p:inputText><br></br>
+ 				(4)<p:inputText value="#{JasperTableExampleBean.ordreEB.num4}" style="text-align: center;width: 80%"></p:inputText><br></br>
 
  			</div>
 
@@ -39,19 +39,19 @@
 
  			<div class="col-md-3">
  				Modèle n°7
-                <button id="cmd">generate PDF</button>
+                <!--   <button id="cmd">generate PDF</button>-->
  			</div>
  		<div class="col-md-12">
  			<div class="col-md-3">
- 				 Numéro de chapitre<br></br>
- 				 Libelé de chapitre<br></br>
- 				 Service : <strong>#{gacBean.curentOperation1.direction}</strong><br></br>
- 				 Subdivision de chapitre<br></br>
+ 				 1 Numéro de chapitre<br></br>
+ 				 2 Libelé de chapitre<br></br>
+ 				 3 Service : <strong>#{gacBean.curentOperation1.direction}</strong><br></br>
+ 				 4 Subdivision de chapitre<br></br>
 
  			</div>
 
  			<div class="col-md-6" style="text-align: center;">
- 				BUDGET .........................
+ 				BUDGET <p:inputText value="#{JasperTableExampleBean.ordreEB.budget}" style="text-align: center;width: 50%"></p:inputText>
  				
  			</div>
 
@@ -67,8 +67,9 @@
 
  			<div class="col-md-10" style="text-align: center;">
  				
- 				CHAPITRE ........................... ARTICLE ............................ <br></br><br></br>
-
+ 				CHAPITRE <p:inputText value="#{JasperTableExampleBean.ordreEB.chap}" style="text-align: center;width: 50%"></p:inputText> 
+ 				<br/>ARTICLE <p:inputText value="#{JasperTableExampleBean.ordreEB.article}" style="text-align: center;width: 50%"></p:inputText> <br></br>
+ 				PARAGRAPHE <p:inputText value="#{JasperTableExampleBean.ordreEB.paragraphe}" style="text-align: center;width: 50%"></p:inputText><br></br>
  			</div>
 
 
@@ -81,7 +82,7 @@
 
  			<div class="col-md-12">
  				
- 				Numero d'ordre du journal : (2)  <p:inputText style="text-align: center;width: 50%"></p:inputText>
+ 				Numero d'ordre du journal : (2)  <p:inputText value="#{JasperTableExampleBean.ordreEB.noumJour}" style="text-align: center;width: 50%"></p:inputText>
 
  			</div>
 
@@ -90,12 +91,17 @@
  				
  				<div class="col-md-3"></div>
 
-                <div class="col-md-6" style="text-align: center;">
+                <div class="col-md-6"  style="text-align: center;">
                     
-                    <select style="text-align: center;">
+                    <!--   <select  style="text-align: center;">
                         <option style="text-align: center;">MATERIEL EN APPROVISIONNEMENT</option>
                         <option style="text-align: center;">MATERIEL EN SERVICE</option>
-                    </select>
+                    </select>-->
+			      <h:selectOneMenu value="#{JasperTableExampleBean.ordreEB.approOuService}">
+			          <f:selectItem itemLabel="MATERIEL EN APPROVISIONNEMENT" itemValue="MATERIEL EN APPROVISIONNEMENT" />
+			          <f:selectItem itemLabel="MATERIEL EN SERVICE" itemValue="MATERIEL EN SERVICE" />
+			      </h:selectOneMenu> 
+ 
                 </div>
 
                 <div class="col-md-3"></div>
@@ -111,9 +117,13 @@
  			</div>
 
  			<div class="col-md-12">
-
+			
  			Seront portés en entrée dans les écritures du comptable <strong>#{gacBean.curentOperation1.direction.designation}</strong> les matières et objets ci-après désignés provenant de ..#{gacBean.curentOperation1.mat.origine}.........................................................
-
+			<!--  <p:inputText id="comptable1" value="#{JasperTableExampleBean.ordreEB.comptable}"  />
+			<p:watermark for="comptable1" value="#{gacBean.curentOperation1.direction.designation}" />
+			<p:inputText id="matiere" value="#{JasperTableExampleBean.ordreEB.matieres}"  /> 
+			<p:watermark for="matiere" value="#{gacBean.curentOperation1.mat.origine}" />  -->
+			#{gacBean.curentOperation1.mat.origine} 
  		</div>
 
 
@@ -185,22 +195,23 @@
 
  			<br></br><br></br><br></br><br></br>
 
- 			Arrêté le présent ordre d'entrée à  <p:inputText style="text-align: center;"></p:inputText> article évalué à la somme de .
-         <p:inputText style="text-align: center;"></p:inputText><br></br><br></br><br></br>
+ 			Arrêté le présent ordre d'entrée à  <p:inputText value="#{JasperTableExampleBean.ordreEB.ordre}" style="text-align: center;"></p:inputText> article évalué à la somme de .
+         <p:inputText value="#{JasperTableExampleBean.ordreEB.somme}" style="text-align: center;"></p:inputText><br></br><br></br><br></br>
 
- 			<div class="col-md-6">Le comptable ..<strong>#{gacBean.curentOperation1.operateur.nomAgent}</strong>.. présent en charge des matières désignés et objets désignés ci-dessus dont j'ai vérifié la concordance avec le <p:inputText style="text-align: center;width: 30%;"></p:inputText>, le<p:inputText style="text-align: center;width: 30%;"></p:inputText><br></br><br></br>
-
+ 			<div class="col-md-6">Le comptable ..<strong>#{gacBean.curentOperation1.operateur.nomAgent}</strong>.. présent en charge des matières désignés et objets désignés ci-dessus dont j'ai vérifié la concordance avec le <p:inputText value="#{JasperTableExampleBean.ordreEB.concordance}" style="text-align: center;width: 30%;"></p:inputText>, le<p:inputText value="#{JasperTableExampleBean.ordreEB.date2}" style="text-align: center;width: 30%;"></p:inputText><br></br><br></br>
+			<!-- <p:inputText id="comptable" value="#{JasperTableExampleBean.ordreEB.comptable1}"  />
+			<p:watermark for="comptable" value="#{gacBean.curentOperation1.operateur.nomAgent}" />   -->
  			Le ..<strong>#{gacBean.curentOperation1.date}</strong>..
 
  			</div>
 
  			<div class="col-md-6">
- 				A <p:inputText style="text-align: center;"></p:inputText>, le ..<strong>#{gacBean.curentOperation1.date}</strong>..<br></br>
+ 				A <p:inputText value="#{JasperTableExampleBean.ordreEB.lieu}" style="text-align: center;"></p:inputText>, le ..<strong>#{gacBean.curentOperation1.date}</strong>..<br></br>
  				Le comptable ... <strong> #{gacBean.curentOperation1.operateur.nomAgent}</strong>.............<br></br>
  				Déclaration de prise en charge <br></br>
  				le comptable déclare avoir reçu et pris en charge les matières et objets mentionnés dans le tableau ci-dessus.<br></br>
 
- 				A<p:inputText style="text-align: center;"></p:inputText>, le ..<strong>#{gacBean.curentOperation1.date}</strong>..<br></br>
+ 				A<p:inputText value="#{JasperTableExampleBean.ordreEB.date1}" style="text-align: center;"></p:inputText>, le ..<strong>#{gacBean.curentOperation1.date}</strong>..<br></br>
 
  				Le comptable ...<strong>#{gacBean.curentOperation1.operateur.nomAgent}</strong>  <br></br><br></br><br></br><br></br><br></br>
 
@@ -216,9 +227,9 @@
  	<div class="col-md-1"></div>
     
 </div>
-
-#{gacBean.exity()}
-
+	<p:commandButton type="submit" value="generatePDF" ajax="false" action="#{JasperTableExampleBean.ordreEntreeReport(gacBean.curentOperation1)}">
+	 </p:commandButton>
+</h:form>
 </div>
       <script type="text/javascript" src="#{request.contextPath}/pages/unsecure/assets/js/jquery-1.7.1.min.js"></script>
     <script type="text/javascript" src="#{request.contextPath}/pages/unsecure/assets/js/jquery-ui-1.8.17.custom.min.js"></script>

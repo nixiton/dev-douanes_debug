@@ -17,14 +17,14 @@
  	<div class="col-md-1"></div>
 
 
-
+	<h:form>
  	<div class="col-md-10" style="font-size: 18px!important;color: #5f5f5f;">
 
  		<br></br><br></br><br></br><br></br><br></br>
  			
  			<div class="col-md-3">
- 				(5)<p:inputText style="text-align: center;width: 80%"></p:inputText><br></br>
- 				(6)<p:inputText style="text-align: center;width: 80%"></p:inputText><br></br>
+ 				(5)<p:inputText value="#{JasperTableExampleBean.ordreS.num5}" style="text-align: center;width: 80%"></p:inputText><br></br>
+ 				(6)<p:inputText value="#{JasperTableExampleBean.ordreS.num6}" style="text-align: center;width: 80%"></p:inputText><br></br>
 
  			</div>
 
@@ -47,7 +47,7 @@
  			</div>
 
  			<div class="col-md-6" style="text-align: center;">
- 				BUDGET <p:inputText style="text-align: center;width: 80%"></p:inputText>
+ 				BUDGET <p:inputText value="#{JasperTableExampleBean.ordreS.budget}" style="text-align: center;width: 80%"></p:inputText>
  				
  			</div>
 
@@ -63,7 +63,8 @@
 
  			<div class="col-md-10" style="text-align: center;">
  				
- 				CHAPITRE <p:inputText style="text-align: center;width: 30%"></p:inputText> ARTICLE <p:inputText style="text-align: center;width: 30%"></p:inputText> <br></br><br></br>
+ 				CHAPITRE <p:inputText value="#{JasperTableExampleBean.ordreS.chapitre}" style="text-align: center;width: 30%"></p:inputText> ARTICLE <p:inputText value="#{JasperTableExampleBean.ordreS.article}" style="text-align: center;width: 30%"></p:inputText> <br></br>
+ 				PARAGRAPHE <p:inputText value="#{JasperTableExampleBean.ordreS.paragraphe}" style="text-align: center;width: 30%"></p:inputText><br></br>
 
  			</div>
 
@@ -80,7 +81,7 @@
  				Numero d'ordre du journal :(2)
  				</div>
  				<div class="col-md-1">
- 				<p:inputText style="text-align: center;width:70%;"></p:inputText>
+ 				<p:inputText value="#{JasperTableExampleBean.ordreS.num2}" style="text-align: center;width:70%;"></p:inputText>
  				</div>
  				 
 
@@ -93,10 +94,10 @@
 
                 <div class="col-md-6" style="text-align: center;">
                     
-                    <select style="text-align: center;">
-                        <option style="text-align: center;">MATERIEL EN APPROVISIONNEMENT</option>
-                        <option style="text-align: center;">MATERIEL EN SERVICE</option>
-                    </select>
+                    <h:selectOneMenu value="#{JasperTableExampleBean.ordreS.approOuService}" style="text-align: center;">
+			          <f:selectItem itemLabel="MATERIEL EN APPROVISIONNEMENT" itemValue="MATERIEL EN APPROVISIONNEMENT" />
+			          <f:selectItem itemLabel="MATERIEL EN SERVICE" itemValue="MATERIEL EN SERVICE" />
+			      </h:selectOneMenu> 
                 </div>
 
                 <div class="col-md-3"></div>
@@ -185,40 +186,36 @@
 
  			<br></br><br></br><br></br><br></br>
 
- 			Arrêté le présent ordre de sortie à  <p:inputText style="text-align: center;" size="16"></p:inputText> Article évalué à la somme de <p:inputText style="text-align: center;"></p:inputText>  <br></br><br></br><br></br>
+ 			Arrêté le présent ordre de sortie à  <p:inputText value="#{JasperTableExampleBean.ordreS.ordre}" style="text-align: center;" size="16"></p:inputText> Article évalué à la somme de <p:inputText value="#{JasperTableExampleBean.ordreS.somme}" style="text-align: center;"></p:inputText>  <br></br><br></br><br></br>
 
  			<div class="col-md-6">
 
-            A <p:inputText style="text-align: center; " size="20"></p:inputText>, le  <strong>#{docbean.curentOpeationSortieToPdf.date}</strong> <br></br>
+            A <p:inputText value="#{JasperTableExampleBean.ordreS.lieu}" style="text-align:center; " size="20"></p:inputText>, le  <strong>#{docbean.curentOpeationSortieToPdf.date}</strong> <br></br>
 			<p style="margin:2em;">
-				Le Comptable (2) <p:inputText style="text-align: center; " size="20"></p:inputText>
+				Le Comptable (2) <p:inputText value="#{JasperTableExampleBean.ordreS.comptable}" style="text-align: center; " size="20"></p:inputText>
 			</p>
 			<p>
 				(3)Le comptable <strong>#{docbean.curentOpeationSortieToPdf.operateur.im}  #{docbean.curentOpeationSortieToPdf.operateur.nomAgent} </strong> délivrera et portera en sortie dans ses écritures les  matières désignés et objets désignés ci-dessus.<br></br>
 			</p>	
             <p>
-            	(3)Le comptable <strong> #{docbean.curentOpeationSortieToPdf.operateur.im}  #{docbean.curentOpeationSortieToPdf.operateur.nomAgent} </strong>  portera en sortie dans ses écritures les  matières désignés et objets désignés ci-dessus dont je certifie la conformité avec avec. <br></br>
-             <p:inputText style="text-align: center;"></p:inputText> , le <p:inputText style="text-align: center;"></p:inputText> <br></br><br></br>
+            	(3)Le comptable <strong> #{docbean.curentOpeationSortieToPdf.operateur.im}  #{docbean.curentOpeationSortieToPdf.operateur.nomAgent} </strong>  portera en sortie dans ses écritures les  matières désignés et objets désignés ci-dessus dont je certifie la conformité avec. <br></br>
+             <p:inputText value="#{JasperTableExampleBean.ordreS.conformite}" style="text-align: center;"></p:inputText> , le <p:inputText value="#{JasperTableExampleBean.ordreS.dateConformite}" style="text-align: center;"></p:inputText> <br></br><br></br>
 			</p>
- 			Le (4) <p:inputText style="text-align: center;"></p:inputText> 
+ 			Le (4) <p:inputText value="#{JasperTableExampleBean.ordreS.num4}" style="text-align: center;"></p:inputText> 
 
  			</div>
 
  			<div class="col-md-6">
-                Les matières et objets désignés ci-dessus ont été délivrés et portés en sortie.<br></br>
-                Les matières et objets désignés ci-dessus ont été  portés en sortie dans les écriture.<br></br>
-
- 				A <p:inputText style="text-align: center;"></p:inputText>, le <strong>#{docbean.curentOpeationSortieToPdf.date}</strong><br></br>
+                <!--   Les matières et objets désignés ci-dessus ont été délivrés et portés en sortie.<br></br>
+                Les matières et objets désignés ci-dessus ont été  portés en sortie dans les écriture.<br></br> -->
+ 				A <p:inputText  value="#{JasperTableExampleBean.ordreS.lieu2}" style="text-align: center;"></p:inputText>, le <strong>#{docbean.curentOpeationSortieToPdf.date}</strong><br></br>
  				<p>
  				Le comptable (2) <strong>#{docbean.curentOpeationSortieToPdf.operateur.nomAgent} </strong><br></br>
  				</p>
  				
- 				<p>RECEPISSE <br></br>
- 				Je soussigné (6) <p:inputText style="text-align: center;"></p:inputText><br></br>
-                Reconnais avoir reçu les (7) <p:inputText style="text-align: center;"></p:inputText> portés en sortie.
-				</p>
+ 				<p>Le comptable déclare avoir reçu et pris en charge les matières et objets mentionnés dans le tableau ci-dessus</p>
 				<p>
- 				A <p:inputText style="text-align: center;"></p:inputText>, le <p:inputText style="text-align: center;"></p:inputText> <br></br>
+ 				A <p:inputText value="#{JasperTableExampleBean.ordreS.lieu2}" style="text-align: center;"></p:inputText>, le <p:inputText value="#{JasperTableExampleBean.ordreS.date2}" style="text-align: center;"></p:inputText> <br></br>
 				</p>
 				<p>
  				Le comptable <strong>#{docbean.curentOpeationSortieToPdf.operateur.nomAgent}</strong>  <br></br><br></br><br></br><br></br><br></br>
@@ -228,9 +225,10 @@
 
 
  	</div>
-
-    #{gacBean.exity()}
-
+	<p:commandButton type="submit" value="generatePDF" ajax="false" action="#{JasperTableExampleBean.ordreSortieReport(docbean.curentOpeationSortieToPdf)}">
+	 </p:commandButton>
+</h:form>
+#{gacBean.exity()}
 
  	<div class="col-md-1"></div>
     

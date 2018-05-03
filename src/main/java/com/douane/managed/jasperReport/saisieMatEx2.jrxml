@@ -29,7 +29,7 @@
 ----------------------
 SECRETARIAT GENERAL
 ----------------------
-DIRECTION GENERALE DES DOUANES ----------------------]]></text>
+DIRECTION GENERALE DES DOUANES -----------------------]]></text>
 			</staticText>
 		</band>
 	</title>
@@ -56,10 +56,7 @@ DIRECTION GENERALE DES DOUANES ----------------------]]></text>
 				<textFieldExpression><![CDATA[$P{fonctionDepositaire}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="210" y="0" width="164" height="25" isPrintInFirstWholeBand="true" uuid="0c716668-4384-416b-b871-2c1491845fe3"/>
-				<textElement>
-					<font isBold="true"/>
-				</textElement>
+				<reportElement x="210" y="0" width="164" height="25" uuid="0c716668-4384-416b-b871-2c1491845fe3"/>
 				<text><![CDATA[ETAT DE DETENTEUR EFFECTIF]]></text>
 			</staticText>
 			<textField>

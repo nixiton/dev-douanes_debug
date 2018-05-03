@@ -1,0 +1,71 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:p="http://primefaces.org/ui"
+    >
+	<ui:include src="/pages/unsecure/components/header.xhtml"></ui:include>
+	<div class="col-md-1"></div>
+	<h:form><div class="col-md-10" style="font-size: 18px!important;color: #5f5f5f;">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+			<div class="col-md-12"><h:graphicImage width="100%"
+                  value="/pages/unsecure/assets/images/mada.png" />
+             </div>
+             <div class="col-md-12" style="text-align: center;">
+ 				BUDGET <br/><p:inputText value ="#{JasperTableExampleBean.journal.budget}" style="text-align: center;width:100%"></p:inputText> <br/>
+ 				CHAPITRE(1) <p:inputText value ="#{JasperTableExampleBean.journal.chapitre}" style="text-align: center;width: 25%"></p:inputText>
+ 				ARTICLE <p:inputText value ="#{JasperTableExampleBean.journal.article}" style="text-align: center;width: 25%"></p:inputText> <br></br>
+ 				(2) <p:inputText value ="#{JasperTableExampleBean.journal.num2}"  style="text-align: center;width: 70%"></p:inputText><br></br>
+ 				(3) <p:inputText value ="#{JasperTableExampleBean.journal.num3}" style="text-align: center;width: 70%"></p:inputText><br></br>
+ 				(4) <p:inputText  value ="#{JasperTableExampleBean.journal.num4}" style="text-align: center;width: 70%"></p:inputText><br></br>
+ 				(5) <p:inputText  value ="#{JasperTableExampleBean.journal.num5}" style="text-align: center;width: 70%"></p:inputText><br></br>
+ 			</div>
+ 		</div>
+ 		<div class="col-md-1"></div>
+ 		<div class="col-md-2" style="background-color: #efefef;">
+ 			<div class="col-md-12" style="text-align: center;font-size: 11px;">
+ 				Modèle n°02<br/>
+				Article 33 de<br/>
+				L’Instruction Générale<br/>du<br/>22 juillet 1955<br/>	
+ 			</div>
+ 			<div class="col-md-12" style="font-size: 11px;">
+ 				(1)Numéro de chapitre<br/>
+				(2) libellé de chapitre<br/>
+				(3) subdivision du service<br/>
+				(4) magasin ou matériel en service selon qu’il s’agit d’un matériel en approvisionnement ou matériel en service.<br/>
+				(5)indication du magasin ou de la catégorie du matériel en service auquel se rapporte le journal<br/>
+				(6)signature du chef du service ou de son délégué<br/>
+ 			</div>
+ 		</div>
+         <div class="col-md-12" style="text-align: center;">
+            <h3>JOURNAL</h3>
+            <h5>EN QUANTITES ET EN VALEUR DES ENTREES ET DES SORTIES</h5>
+     	</div>
+     	<div class="col-md-12">
+ 			Nombre de feuillets  :  <p:inputText  value ="#{JasperTableExampleBean.journal.nbFeuillets}" style="text-align: center;width: 70%"></p:inputText>
+ 		</div>
+		<div class="col-md-12">
+	 		<div class="col-md-12" style="padding-left: 33%;">
+	 			A <p:inputText value ="#{JasperTableExampleBean.journal.lieu}" style="text-align: center;"></p:inputText>, le <p:inputText value ="#{JasperTableExampleBean.journal.date}" style="text-align: center;"></p:inputText><br></br>
+	 		</div><br/>
+	 		<div class="col-md-12" style="padding-left: 33%;">
+	 			(6) <p:inputText value ="#{JasperTableExampleBean.journal.num6}" style="text-align: center;width: 50%"></p:inputText><br></br>
+        			 Commencé le : <h:outputText value="#{JournalBean.dateD}"/> Terminé le : <h:outputText value="#{JournalBean.dateF}"/>
+        				<!--<p:calendar value ="#{JasperTableExampleBean.journal.debutDate}" id="date1" locale="fr" navigator="true" pattern="yyyy-MMM-dd" /><br/>
+		 			   
+	        			<p:calendar value ="#{JasperTableExampleBean.journal.finDate}" id="date2" locale="fr" navigator="true" pattern="dd-MMM-yyyy" /><br/>
+        			 -->
+        			
+ 					
+	 		</div>
+ 		</div>
+ 		<div class="col-md-3">
+ 			<br/><p:commandButton action="#{JasperTableExampleBean.journalReport(JournalBean.dateD, JournalBean.dateF)}" type="submit" value="generatePDF" ajax="false" ></p:commandButton>
+ 		</div>
+</div>
+<div class="col-mid-1"></div>
+
+</h:form>
+</html>
