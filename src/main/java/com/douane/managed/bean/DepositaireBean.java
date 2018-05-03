@@ -2610,6 +2610,8 @@ public class DepositaireBean {
 	public String addNewMaterielNouv() throws IOException {
 		System.out.println("List Materiel Nouveau generation ");
 		ArrayList<Materiel> list = getMaterielspardesignation();
+		if(list == null)
+			list = new ArrayList<Materiel>();
 		list.add(matnouvtoadd);
 		for (Materiel m : list) {
 			System.out.println(m.getNumSerie());
