@@ -34,7 +34,7 @@
                 <h:outputText value="ID" />
             </f:facet>
             <h:outputText value="#{materiel.idMateriel}" />
-        </p:column>
+        </p:column> 
         <p:column filterBy="#{materiel.design.nomenMat}" headerText="Nomenclature"  filterMatchMode="exact" style="text-align: center; word-wrap: break-word;">
             <f:facet name="filter">
                 <p:selectOneMenu onchange="PF('MaterielTable').filter()" >

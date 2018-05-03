@@ -21,7 +21,7 @@
 		<h:form id="ad">
 		<p:message for="agentdir" id="messages" showDetail="true" autoUpdate="true" />
 		<p:messages id="messagesmodify" showDetail="true" autoUpdate="true" />
-		<div class="box dark col-md-6">
+		<div class="box dark col-md-7">
 				<br/>
 				<div class="row">
 					<div class="col-lg-4 col-lg-offset-1">
@@ -49,6 +49,7 @@
 						</h:outputText>
 					</div>
 				</div>
+				<hr/>
 				<div class="row">
 					<div class="col-lg-4 col-lg-offset-1">
 						<h:outputLabel value="Activer: " />
@@ -58,31 +59,11 @@
 			
 					</div>
 				</div>
-				
-        				
-					<!-- User role with liste-->
-				<div class="row">
-					<div class="col-lg-4 col-lg-offset-1">
-						<h:outputLabel styleClass="col-md-6" 
-							value="Fonction " />
-					</div>
-					<div class="col-lg-6">
-						<p:selectOneMenu value="#{editAgent.roleAgent}" converter="#{useriConverter}" panelStyle="width:180px"  style="width:160px"
-	                         effect="fade" var="t" filter="true" filterMatchMode="startsWith">
-	                        <f:selectItem itemValue="#{null}" itemLabel="--select--" /> 
-	                            <f:selectItems value="#{siseBean.listUseri}" var="theme" itemLabel="#{theme.designation}" itemValue="#{theme}" />
-	                        <p:column>
-	                            <h:outputText value="#{t.designation}" />
-	                        </p:column>
-	
-	                    </p:selectOneMenu>
-					</div>
-                  </div>
-                  <br/><br/>
+        		<br/><br/>		
 			</div>
-			<div class="box dark col-md-6">
+			<div class="box dark col-md-5">
 					<!-- DIRECTION -->
-				<br/><br/>
+				<br/>
 				<div class="row">
 					<div class="col-lg-4 col-lg-offset-1">	
 						<h:outputLabel styleClass="col-md-6" 
@@ -101,10 +82,8 @@
 					</div>
 					
 				</div>
-				<br/>
                 <hr></hr>
                     <!-- POSTE -->
-                <br/><br/>
                 <div class="row">
 					<div class="col-lg-4 col-lg-offset-1">	
 						<h:outputLabel styleClass="col-md-6" 
@@ -122,6 +101,25 @@
 	                    </p:selectOneMenu>
 					</div>
 				</div>
+				<hr></hr>
+				<!-- User role with liste-->
+				<div class="row">
+					<div class="col-lg-4 col-lg-offset-1">
+						<h:outputLabel styleClass="col-md-6" 
+							value="Fonction " />
+					</div>
+					<div class="col-lg-6">
+						<p:selectOneMenu value="#{editAgent.roleAgent}" converter="#{useriConverter}" panelStyle="width:180px"  style="width:160px"
+	                         effect="fade" var="t" filter="true" filterMatchMode="startsWith">
+	                        <f:selectItem itemValue="#{null}" itemLabel="--select--" /> 
+	                            <f:selectItems value="#{siseBean.listUseri}" var="theme" itemLabel="#{theme.designation}" itemValue="#{theme}" />
+	                        <p:column>
+	                            <h:outputText value="#{t.designation}" />
+	                        </p:column>
+	
+	                    </p:selectOneMenu>
+					</div>
+                  </div>
               	<br/><br/>
              </div>
                     
@@ -130,7 +128,7 @@
                    		<div class="row">
 							<div class="col-lg-6 col-lg-offset-3">
 							<!-- h:commandButton id="addUser"
-								value="Mettre à jour" class="btn btn-lg btn-primary btn-block" 
+								value="Mettre Ã  jour" class="btn btn-lg btn-primary btn-block" 
 								actionListener = "#{userMB.updateAgent(editAgent)}"
 		                   		 oncomplete  = "if (!args.validationFailed) PF('detail').hide();"
 		                   		 process = "@([id$=ad])"  
