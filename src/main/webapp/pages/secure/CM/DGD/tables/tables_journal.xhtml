@@ -39,45 +39,45 @@
         </f:facet>
 			<p:columnGroup type="header">
 			<p:row>
-				<p:column colspan="7" headerText="Renseignement" />
-                <p:column colspan="2" headerText="Entrée" />
-                <p:column colspan="2" headerText="Sortie"></p:column>
+				<p:column colspan="7" headerText="Renseignement" style=" text-align: center; word-wrap: break-word;"/>
+                <p:column colspan="2" headerText="Entrée" style=" text-align: center; word-wrap: break-word;"/>
+                <p:column colspan="2" headerText="Sortie" style=" text-align: center; word-wrap: break-word;"></p:column>
 			</p:row>
 			<p:row>
-				<p:column headerText="ID"/>
-				<p:column headerText="Numéro d'ordre des pièces justificatives"/>
-				<p:column headerText="Date des entrées et des sorties"/>
-				<p:column headerText="Origine des entrées et désignation des sorties"/>
-				<p:column headerText="Désignation des matières et objets"/>
-				<p:column headerText="Espèce des unités"/>
-				<p:column headerText="Prix de l'unité"/>
-				<p:column headerText="Quanitité"/>
-				<p:column headerText="Valeur"/>
-				<p:column headerText="Quanitité"/>
-				<p:column headerText="Valeur"/>
+				<p:column headerText="ID" style=" text-align: center; word-wrap: break-word;"/>
+				<p:column headerText="Numéro d'ordre des pièces justificatives" style=" text-align: center; word-wrap: break-word;"/>
+				<p:column headerText="Date des entrées et des sorties" style=" text-align: center; word-wrap: break-word;"/>
+				<p:column headerText="Origine des entrées et désignation des sorties" style=" text-align: center; word-wrap: break-word;"/>
+				<p:column headerText="Désignation des matières et objets" style=" text-align: center; word-wrap: break-word;"/>
+				<p:column headerText="Espèce des unités" style=" text-align: center; word-wrap: break-word;"/>
+				<p:column headerText="Prix de l'unité" style=" text-align: center; word-wrap: break-word;"/>
+				<p:column headerText="Quantité" style=" text-align: center; word-wrap: break-word;"/>
+				<p:column headerText="Valeur" style=" text-align: center; word-wrap: break-word;"/>
+				<p:column headerText="Quantité" style=" text-align: center; word-wrap: break-word;"/>
+				<p:column headerText="Valeur" style=" text-align: center; word-wrap: break-word;"/>
 			</p:row>
 				
 			</p:columnGroup>
-			<p:column headerText="ID"> 
+			<p:column headerText="ID" style=" text-align: center; word-wrap: break-word;"> 
 			<h:outputText value="#{c.id}" />
 			
 			
 			</p:column>
 
-			<p:column headerText="Numéro d'ordre des pièces justificatives">
+			<p:column headerText="Numéro d'ordre des pièces justificatives" style=" text-align: center; word-wrap: break-word;">
 
 				<p:panel>
             	<h:outputText value="#{c.numoperation}" />
             </p:panel>
 
 			</p:column>
-			<p:column headerText="Date des entrées et des sorties">
+			<p:column headerText="Date des entrées et des sorties" style=" text-align: center; word-wrap: break-word;">
             <h:outputText value="#{c.date}" />
             
 
         </p:column>
 
-			<p:column headerText="Origine des entrées et désignation des sorties">
+			<p:column headerText="Origine des entrées et désignation des sorties" style=" text-align: center; word-wrap: break-word;">
 			<c:if test="${c.getClass().getSimpleName() eq  OpEntree}">					
 					entree ${c.getClass().name}
 				</c:if>
@@ -93,7 +93,7 @@
 
 			</p:column>
 
-			<p:column headerText="Désignation des matières et objets">
+			<p:column headerText="Désignation des matières et objets" style=" text-align: center; word-wrap: break-word;">
 
 				<p:panel rendered="#{c['class'].simpleName eq 'OpEntree'}">
 
@@ -117,7 +117,7 @@
 
 			</p:column>
 
-			<p:column headerText="Espèce des unités">
+			<p:column headerText="Espèce des unités" style=" text-align: center; word-wrap: break-word;">
 				<p:panel rendered="#{c['class'].simpleName eq 'OpEntree'}">
 					<ui:repeat value="#{c.listMat}" var="mat">
 					<h:outputText value="#{mat.design.especeUnite}" />
@@ -135,7 +135,7 @@
 
 			</p:column>
 
-			<p:column headerText="Prix de l'unité">
+			<p:column headerText="Prix de l'unité" style=" text-align: center; word-wrap: break-word;">
 
 				<p:panel rendered="#{c['class'].simpleName eq 'OpEntree'}">
 
@@ -174,7 +174,7 @@
 
 			</p:column>
 
-			<p:column headerText="Quanitité">
+			<p:column headerText="Quantité" style=" text-align: center; word-wrap: break-word;">
 				<p:panel rendered="#{c['class'].simpleName eq 'OpEntree'}">
 					<ui:repeat value="#{c.listMat}" var="mat">
                 1<br></br>
@@ -183,7 +183,7 @@
 				</p:panel>
 			</p:column>
 
-			<p:column headerText="Valeur">
+			<p:column headerText="Valeur" style=" text-align: center; word-wrap: break-word;">
 				<p:panel rendered="#{c['class'].simpleName eq 'OpEntree'}">
 					<ui:repeat value="#{c.listMat}" var="mat">
 						<p:panel rendered="#{mat['class'].simpleName eq 'MaterielEx'}">
@@ -200,14 +200,14 @@
 					</ui:repeat>
 				</p:panel>
 			</p:column>
-			<p:column headerText="Quanitité">
+			<p:column headerText="Quantité" style=" text-align: center; word-wrap: break-word;">
 				<p:panel rendered="#{c['class'].simpleName eq 'OpSortie'}">
         			<h:outputText value="1" />
         		</p:panel>
 
 			</p:column>
 
-			<p:column headerText="Valeur">
+			<p:column headerText="Valeur" style=" text-align: center; word-wrap: break-word;">
 				
 				<p:panel rendered="#{c['class'].simpleName eq 'OpSortie'}">
         			<p:panel rendered="#{c.mat['class'].simpleName eq 'MaterielEx'}">
@@ -261,70 +261,68 @@
         </f:facet>
 			<p:columnGroup type="header">
 			<p:row>
-				<p:column colspan="8" headerText="Renseignement" />
-                <p:column colspan="2" headerText="Entrée" />
-                <p:column colspan="2" headerText="Sortie"></p:column>
+				<p:column colspan="8" headerText="Renseignement" style=" text-align: center; word-wrap: break-word;"/>
+                <p:column colspan="2" headerText="Entrée" style=" text-align: center; word-wrap: break-word;"/>
+                <p:column colspan="2" headerText="Sortie" style=" text-align: center; word-wrap: break-word;"></p:column>
 			</p:row>
 			<p:row>
-				<p:column headerText="Id" sortBy="#{c[0]}"/>
-				<p:column headerText="Numéro d'ordre des pièces justificatives"/>
-				<p:column headerText="Date des entrées et des sorties"/>
-				<p:column headerText="Origine des entrées et désignation des sorties"/>
-				<p:column headerText="Numéro d’ordre de la nomenclature sommaire"/>
-				<p:column headerText="Désignation des matières et objets"/>
-				<p:column headerText="Espèce des unités"/>
-				<p:column headerText="Prix de l'unité"/>
-				<p:column headerText="Quanitité"/>
-				<p:column headerText="Valeur"/>
-				<p:column headerText="Quanitité"/>
-				<p:column headerText="Valeur"/>
+				<p:column headerText="ID" sortBy="#{c[0]}" style=" text-align: center; word-wrap: break-word;"/>
+				<p:column headerText="Numéro d'ordre des pièces justificatives" style=" text-align: center; word-wrap: break-word;"/>
+				<p:column headerText="Date des entrées et des sorties" style=" text-align: center; word-wrap: break-word;"/>
+				<p:column headerText="Origine des entrées et désignation des sorties" style=" text-align: center; word-wrap: break-word;"/>
+				<p:column headerText="Numéro d’ordre de la nomenclature sommaire" style=" text-align: center; word-wrap: break-word;"/>
+				<p:column headerText="Désignation des matières et objets" style=" text-align: center; word-wrap: break-word;"/>
+				<p:column headerText="Espèce des unités" style=" text-align: center; word-wrap: break-word;"/>
+				<p:column headerText="Prix de l'unité" style=" text-align: center; word-wrap: break-word;"/>
+				<p:column headerText="Quantité" style=" text-align: center; word-wrap: break-word;"/>
+				<p:column headerText="Valeur" style=" text-align: center; word-wrap: break-word;"/>
+				<p:column headerText="Quantité" style=" text-align: center; word-wrap: break-word;"/>
+				<p:column headerText="Valeur" style=" text-align: center; word-wrap: break-word;"/>
 			</p:row>
 				
 			</p:columnGroup>
-			<p:column headerText="ID" sortBy="#{c[0]}"> 
+			<p:column headerText="ID" sortBy="#{c[0]}" style=" text-align: center; word-wrap: break-word;"> 
 			<h:outputText value="#{c[0]}" />			
 			</p:column>
-			<p:column headerText="Numéro d'ordre des pièces justificatives">
+			<p:column headerText="Numéro d'ordre des pièces justificatives" style=" text-align: center; word-wrap: break-word;">
             	<h:outputText value="#{c[1]}" />
 			</p:column>
-			<p:column headerText="Date des entrées et des sorties">
+			<p:column headerText="Date des entrées et des sorties" style=" text-align: center; word-wrap: break-word;">
             	<h:outputText value="#{c[2]}" />
         	</p:column>
 
-			<p:column headerText="Origine des entrées et désignation des sorties">		
+			<p:column headerText="Origine des entrées et désignation des sorties" style=" text-align: center; word-wrap: break-word;">		
 				<h:outputText value="#{c[3]}" />
 			</p:column>
-			<p:column headerText="Numéro d’ordre de la nomenclature sommaire">		
+			<p:column headerText="Numéro d’ordre de la nomenclature sommaire" style=" text-align: center; word-wrap: break-word;">		
 				<h:outputText value="#{c[11].nomenMat.nomenclature}" />
 			</p:column>
 
-			<p:column headerText="Désignation des matières et objets">
+			<p:column headerText="Désignation des matières et objets" style=" text-align: center; word-wrap: break-word;">
 				<h:outputText value="#{c[4]}" />
 			</p:column>
 
-			<p:column headerText="Espèce des unités">
+			<p:column headerText="Espèce des unités" style=" text-align: center; word-wrap: break-word;">
 				<h:outputText value="#{c[5]}" />
 			</p:column>
 
-			<p:column headerText="Prix de l'unité">
+			<p:column headerText="Prix de l'unité" style=" text-align: center; word-wrap: break-word;">
 				<h:outputText value="#{c[6]}" />
 			</p:column>
 
-			<p:column headerText="Quanitité">
+			<p:column headerText="Quantité" style=" text-align: center; word-wrap: break-word;">
 				<h:outputText value="#{c[7]}" />
 			</p:column>
-			<p:column headerText="Valeur">
+			<p:column headerText="Valeur" style=" text-align: center; word-wrap: break-word;">
 				<h:outputText value="#{c[8]}" />
 			</p:column>
-			<p:column headerText="Quanitité">
+			<p:column headerText="Quantité" style=" text-align: center; word-wrap: break-word;">
 				<h:outputText value="#{c[9]}" />
 			</p:column>
 				
-			<p:column headerText="Valeur">
+			<p:column headerText="Valeur" style=" text-align: center; word-wrap: break-word;">
 				<h:outputText value="#{c[10]}" />
 			</p:column>
-			
-
 
 		</p:dataTable>
 

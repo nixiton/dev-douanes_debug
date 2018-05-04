@@ -14,7 +14,7 @@
     <p:dataTable   var="d" value="#{suivieditionBean.listOpSortieValideByDirection}" 
                  paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}  "
                  paginator="true" rows="10" style="margin-bottom:20px">
-         <p:column>
+         <p:column style=" text-align: center; word-wrap: break-word;">
             <f:facet name="header">Dépositaire</f:facet>
             #{d.operateur.im}
         </p:column>
@@ -22,13 +22,13 @@
             <f:facet name="header">Date</f:facet>
             #{d.date}
         </p:column-->
-        <p:column>
+        <p:column style=" text-align: center; word-wrap: break-word;">
             <f:facet name="header">Numéro de sortie</f:facet>
             #{d.numSortie}
         </p:column>
 
 
-        <p:column>
+        <p:column style=" text-align: center; word-wrap: break-word;">
             <f:facet name="header">Pièce justificative</f:facet>
             <!--h:outputLink value="#{d.mat.documentPath}" target="_blank"> 
                                 <i class="fa fa-file-archive-o"></i> 

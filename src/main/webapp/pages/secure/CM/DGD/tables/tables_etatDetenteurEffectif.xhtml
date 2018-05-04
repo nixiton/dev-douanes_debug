@@ -13,21 +13,21 @@
                  paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}  "
                  paginator="true" rows="10" style="margin-bottom:20px">
 
-        <p:column >
+        <p:column  style=" text-align: center; word-wrap: break-word;">
             <f:facet name="header">
                 <h:outputText value="ID" />
             </f:facet>
             <h:outputText value="#{o.id}" />
         </p:column>
 
-        <p:column >
+        <p:column  style=" text-align: center; word-wrap: break-word;">
             <f:facet name="header">
                 <h:outputText value="Détenteur" />
             </f:facet>
             <h:outputText value="#{o.detenteur.im}" />
         </p:column>
 
-        <p:column >
+        <p:column  style=" text-align: center; word-wrap: break-word;">
             <f:facet name="header">
                 <h:outputText value="Détenteur effectif" />
             </f:facet>

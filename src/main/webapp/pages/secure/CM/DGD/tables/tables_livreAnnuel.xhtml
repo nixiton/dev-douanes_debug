@@ -14,11 +14,11 @@
     <p:dataTable   var="d" value="#{gacBean.listAnnee}" 
                  paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}  "
                  paginator="true" rows="10" style="margin-bottom:20px">
-        <p:column>
+        <p:column style=" text-align: center; word-wrap: break-word;">
             <f:facet name="header">Annee</f:facet>
             #{d}
         </p:column>
-         <p:column>
+         <p:column style=" text-align: center; word-wrap: break-word;">
             <f:facet name="header">Détail</f:facet>
              <h:form>
                 <h:commandLink  action="#{gacBean.setAnnee1(d)}" target="_blank">
@@ -38,47 +38,47 @@
 			sortBy="#{c.id}"
 			>
 
-			<p:column headerText="ID"> #{c.id}</p:column>
+			<p:column headerText="ID" style=" text-align: center; word-wrap: break-word;"> #{c.id}</p:column>
 
-			<p:column headerText="Nomenclature" style="width: 10%; text-align: center;">
+			<p:column headerText="Nomenclature" style="width: 10%; text-align: center; word-wrap: break-word;">
 
 				#{c.mat.typematerieladd.nomenclaureParent.nomenclature}
 			</p:column>
-			<p:column headerText="Espèces des unités">
+			<p:column headerText="Espèces des unités" style=" text-align: center; word-wrap: break-word;">
             
             #{c.mat.especeUnite}
 
         </p:column>
 
-			<p:column headerText="Désignation des objets">
+			<p:column headerText="Désignation des objets" style=" text-align: center; word-wrap: break-word;">
 			#{c.mat.renseignement} - #{c.mat.reference}
 			</p:column>
-			<p:column headerText="Prix de l'unité">
+			<p:column headerText="Prix de l'unité" style=" text-align: center; word-wrap: break-word;">
 			#{c.mat.pu}
 			</p:column>
-			<p:column headerText="Quantité existant au 1er janvier">
+			<p:column headerText="Quantité existant au 1er janvier" style=" text-align: center; word-wrap: break-word;">
 			#{c.numoperation}
 			</p:column>
-			<p:column headerText="Mouvement effectués">
+			<p:column headerText="Mouvement effectués" style=" text-align: center; word-wrap: break-word;">
 			#{c.state}
 			</p:column>
-			<p:column headerText="Numéro du pj">
+			<p:column headerText="Numéro du pj" style=" text-align: center; word-wrap: break-word;">
 			#{c.numoperation}
 			</p:column>
-			<p:column headerText="Origine des entrées et des sorties">
+			<p:column headerText="Origine des entrées et des sorties" style=" text-align: center; word-wrap: break-word;">
 			#{c.numoperation}
 			</p:column>
-			<p:column headerText="Entrées">
+			<p:column headerText="Entrées" style=" text-align: center; word-wrap: break-word;">
 			<p:panel rendered="#{c['class'].simpleName eq 'OpEntree'}">
 			#{c.mat.pu}
 			</p:panel>
 			</p:column>
-			<p:column headerText="Sorties">
+			<p:column headerText="Sorties" style=" text-align: center; word-wrap: break-word;">
 			<p:panel rendered="#{c['class'].simpleName eq 'OpSortie'}">
 			#{c.mat.pu}
 			</p:panel>
 			</p:column>
-			<p:column headerText="Reste au 31">
+			<p:column headerText="Reste au 31 Décembre " style=" text-align: center; word-wrap: break-word;">
 			x
 			</p:column>
 
@@ -119,81 +119,81 @@
         </f:facet>
 			<p:columnGroup type="header">
 			<p:row>
-				<p:column rowspan="3" headerText="Numéro d’ordre de la nomenclature" sortBy="#{c[0].design.nomenMat.nomenclature}"/>
-                <p:column rowspan="3" headerText="Espèces des unités" />
-                <p:column rowspan="3" headerText="Désignation des objets (1)" sortBy="#{c[0].design.typematerieladd.designation}"></p:column>
-                <p:column rowspan="3" headerText="Prix de l’unité"></p:column>
-                <p:column colspan="2" headerText="Existant au 1er janvier X"></p:column>
-                <p:column rowspan="3" headerText="Mouvements  effectués (2)"></p:column>
-                <p:column colspan="9" headerText="ANNEE X"></p:column>
+				<p:column rowspan="3" headerText="Numéro d’ordre de la nomenclature" sortBy="#{c[0].design.nomenMat.nomenclature}" style=" text-align: center; word-wrap: break-word;"/>
+                <p:column rowspan="3" headerText="Espèces des unités" style=" text-align: center; word-wrap: break-word;"/>
+                <p:column rowspan="3" headerText="Désignation des objets (1)" sortBy="#{c[0].design.typematerieladd.designation}" style=" text-align: center; word-wrap: break-word;"></p:column>
+                <p:column rowspan="3" headerText="Prix de l’unité" style=" text-align: center; word-wrap: break-word;"></p:column>
+                <p:column colspan="2" headerText="Existant au 1er janvier X" style=" text-align: center; word-wrap: break-word;"></p:column>
+                <p:column rowspan="3" headerText="Mouvements  effectués (2)" style=" text-align: center; word-wrap: break-word;"></p:column>
+                <p:column colspan="9" headerText="ANNEE X" style=" text-align: center; word-wrap: break-word;"></p:column>
                 
 			</p:row>
 			<p:row>
-				<p:column rowspan="2" headerText="Quanitité"/>
-				<p:column rowspan="2" headerText="Valeur"/>
-				<p:column rowspan="2" headerText="Numéros des pièces justificatives" sortBy="#{c[1].id}"/>
-				<p:column rowspan="2" headerText="Dates des entrées et des sorties"/>
-				<p:column rowspan="2" headerText="Origine des entrées et désignation des sorties"/>
-				<p:column colspan="2" headerText="Entrées"/>
-				<p:column colspan="2" headerText="Sorties"/>
-				<p:column colspan="2" headerText="Reste au 31 décembre X "/>
+				<p:column rowspan="2" headerText="Quantité" style=" text-align: center; word-wrap: break-word;"/>
+				<p:column rowspan="2" headerText="Valeur" style=" text-align: center; word-wrap: break-word;"/>
+				<p:column rowspan="2" headerText="Numéros des pièces justificatives" sortBy="#{c[1].id}" style=" text-align: center; word-wrap: break-word;"/>
+				<p:column rowspan="2" headerText="Dates des entrées et des sorties" style=" text-align: center; word-wrap: break-word;"/>
+				<p:column rowspan="2" headerText="Origine des entrées et désignation des sorties" style=" text-align: center; word-wrap: break-word;"/>
+				<p:column colspan="2" headerText="Entrées" style=" text-align: center; word-wrap: break-word;"/>
+				<p:column colspan="2" headerText="Sorties" style=" text-align: center; word-wrap: break-word;"/>
+				<p:column colspan="2" headerText="Reste au 31 décembre X " style=" text-align: center; word-wrap: break-word;"/>
 			</p:row>
 			<p:row>
-				<p:column headerText="Quanitité"/>
-				<p:column headerText="Valeur"/>
-				<p:column headerText="Quanitité"/>
-				<p:column headerText="Valeur"/>
-				<p:column headerText="Quanitité"/>
-				<p:column headerText="Valeur"/>
+				<p:column headerText="Quantité" style=" text-align: center; word-wrap: break-word;"/>
+				<p:column headerText="Valeur" style=" text-align: center; word-wrap: break-word;"/>
+				<p:column headerText="Quantité" style=" text-align: center; word-wrap: break-word;"/>
+				<p:column headerText="Valeur" style=" text-align: center; word-wrap: break-word;"/>
+				<p:column headerText="Quantité" style=" text-align: center; word-wrap: break-word;"/>
+				<p:column headerText="Valeur" style=" text-align: center; word-wrap: break-word;"/>
 			</p:row>
 				
 			</p:columnGroup>
-			<p:column headerText="Numéro d’ordre de la nomenclature"> 
+			<p:column headerText="Numéro d’ordre de la nomenclature" style=" text-align: center; word-wrap: break-word;"> 
 				<h:outputText value="#{c[0].nomenMat.nomenclature}" />			
 			</p:column>
-			<p:column headerText="Espèces des unités"> 
+			<p:column headerText="Espèces des unités" style=" text-align: center; word-wrap: break-word;"> 
 				<h:outputText value="#{c[0].especeUnite}" />			
 			</p:column>
-			<p:column headerText="Désignation des objets (1)"> 
+			<p:column headerText="Désignation des objets (1)" style=" text-align: center; word-wrap: break-word;"> 
 				<h:outputText value="#{c[0].typematerieladd.designation} - #{c[0].marque.designation} - #{c[0].renseignement}" />			
 			</p:column>
-			<p:column headerText="Prix de l’unité" > 
+			<p:column headerText="Prix de l’unité" style=" text-align: center; word-wrap: break-word;" > 
 				<h:outputText value="#{c[0].pu}" />			
 			</p:column>
-			<p:column headerText="Quanitité"> 
+			<p:column headerText="Quantité" style=" text-align: center; word-wrap: break-word;"> 
 				<h:outputText value="#{c[7]}" />			
 			</p:column>
-			<p:column headerText="Valeur" > 
+			<p:column headerText="Valeur" style=" text-align: center; word-wrap: break-word;"> 
 				<h:outputText value="#{c[8]}" />			
 			</p:column>
-			<p:column headerText="Mouvements  effectués"> 
+			<p:column headerText="Mouvements  effectués" style=" text-align: center; word-wrap: break-word;"> 
 				<h:outputText value="Aucune idée" />			
 			</p:column>
-			<p:column headerText="Numéros des pièces justificatives"> 
+			<p:column headerText="Numéros des pièces justificatives" style=" text-align: center; word-wrap: break-word;"> 
 				<h:outputText value="#{c[1].numoperation}" />			
 			</p:column>
-			<p:column headerText="Dates des entrées et des sorties" > 
+			<p:column headerText="Dates des entrées et des sorties" style=" text-align: center; word-wrap: break-word;" > 
 				<h:outputText value="#{c[1].date}" />			
 			</p:column>
-			<p:column headerText="Origine des entrées et désignation des sorties"> 
+			<p:column headerText="Origine des entrées et désignation des sorties" style=" text-align: center; word-wrap: break-word;"> 
 				<h:outputText value="#{c[2]}" />			
 			</p:column>
-			<p:column headerText="Quanitité" > 
+			<p:column headerText="Quantité" style=" text-align: center; word-wrap: break-word;"> 
 				<h:outputText value="#{c[3]}" />			
 			</p:column>
-			<p:column headerText="Valeur" > 
+			<p:column headerText="Valeur" style=" text-align: center; word-wrap: break-word;"> 
 				<h:outputText value="#{c[4]}" />			
 			</p:column>
-			<p:column headerText="Quantité" > 
+			<p:column headerText="Quantité" style=" text-align: center; word-wrap: break-word;"> 
 				<h:outputText value="#{c[5]}" />			
 			</p:column>
-			<p:column headerText="Valeur" > 
+			<p:column headerText="Valeur" style=" text-align: center; word-wrap: break-word;"> 
 				<h:outputText value="#{c[6]}" />			
 			</p:column>
-			<p:column headerText="Quanitité"> 
+			<p:column headerText="Quantité" style=" text-align: center; word-wrap: break-word;"> 
 				<h:outputText value="#{c[9]}" />			
 			</p:column>
-			<p:column headerText="Valeur"> 
+			<p:column headerText="Valeur" style=" text-align: center; word-wrap: break-word;"> 
 				<h:outputText value="#{c[10]}" />			
 			</p:column>
 			

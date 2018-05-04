@@ -17,11 +17,11 @@
     <p:dataTable   var="d" value="#{gacBean.listAnnee}" 
                  paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}  "
                  paginator="true" rows="10" style="margin-bottom:20px">
-        <p:column>
+        <p:column style=" text-align: center; word-wrap: break-word;">
             <f:facet name="header">Annee</f:facet>
             #{d}
         </p:column>
-         <p:column>
+         <p:column style=" text-align: center; word-wrap: break-word;">
             <f:facet name="header">Détail</f:facet>
              <h:form>
                 <h:commandLink  action="#{gacBean.setAnneeEtatAp(d)}" target="_blank">
@@ -39,9 +39,9 @@
 			sortBy="#{c.id}"
 			>
 
-			<p:column headerText="N°" style="width: 70px; text-align: center;"> #{c.id}</p:column>
+			<p:column headerText="N°" style="width: 4%;  text-align: center; word-wrap: break-word;"> #{c.id}</p:column>
 
-			<p:column headerText="Date" style="width: 95px; text-align: center;">
+			<p:column headerText="Date" style="width: 6%; text-align: center; word-wrap: break-word;">
 
 				<p:panel>
             
@@ -49,7 +49,7 @@
             </p:panel>
 
 			</p:column>
-			<p:column headerText="Designation sommaire des opérations" style="width: 110px; text-align: center;">
+			<p:column headerText="Designation sommaire des opérations" style="width:10%; text-align: center; word-wrap: break-word;">
            <p:panel rendered="#{c['class'].simpleName eq 'OpEntree'}">
 
 					<ui:repeat value="#{c.listMat}" var="mat">
@@ -74,7 +74,7 @@
 
         </p:column>
 
-			<p:column headerText="1 Operation A">
+			<p:column headerText="1 Operation A" style=" text-align: center; word-wrap: break-word;">
 				<p:panel rendered="#{c['class'].simpleName eq 'OpEntree'}">
 
 					<ui:repeat value="#{c.listMat}" var="mat">
@@ -95,7 +95,7 @@
                     </p:panel>
             </p:panel>
 			</p:column>
-			<p:column headerText="2 Operation A">
+			<p:column headerText="2 Operation A" style=" text-align: center; word-wrap: break-word;">
 				<p:panel rendered="#{c['class'].simpleName eq 'OpEntree'}">
 
 					<ui:repeat value="#{c.listMat}" var="mat">
@@ -116,7 +116,7 @@
                     </p:panel>
             </p:panel>
 			</p:column>
-			<p:column headerText="3 Operation A">
+			<p:column headerText="3 Operation A" style=" text-align: center; word-wrap: break-word;">
 				<p:panel rendered="#{c['class'].simpleName eq 'OpEntree'}">
 
 					<ui:repeat value="#{c.listMat}" var="mat">
@@ -137,31 +137,31 @@
                 </p:panel>
             </p:panel>
 			</p:column>
-			<p:column headerText="4 Operation A">
+			<p:column headerText="4 Operation A" style=" text-align: center; word-wrap: break-word;">
 				xx
 			</p:column>
-			<p:column headerText="5 Operation A">
+			<p:column headerText="5 Operation A" style=" text-align: center; word-wrap: break-word;">
 				xx
 			</p:column>
-			<p:column headerText="6 Operation A">
+			<p:column headerText="6 Operation A" style=" text-align: center; word-wrap: break-word;">
 				xx
 			</p:column>
-			<p:column headerText="7 Operation A">
+			<p:column headerText="7 Operation A" style=" text-align: center; word-wrap: break-word;">
 				xx
 			</p:column>
-			<p:column headerText="8 Operation A">
+			<p:column headerText="8 Operation A" style=" text-align: center; word-wrap: break-word;">
 				xx
 			</p:column>
-			<p:column headerText="9 Operation A">
+			<p:column headerText="9 Operation A" style=" text-align: center; word-wrap: break-word;">
 				xx
 			</p:column>
-			<p:column headerText="10 Operation A">
+			<p:column headerText="10 Operation A" style=" text-align: center; word-wrap: break-word;">
 				xx
 			</p:column>
-			<p:column headerText="11 Operation A">
+			<p:column headerText="11 Operation A" style=" text-align: center; word-wrap: break-word;">
 				xx
 			</p:column>
-			<p:column headerText="12 Operation A">
+			<p:column headerText="12 Operation A" style=" text-align: center; word-wrap: break-word;">
 				xx
 			</p:column>
 		</p:dataTable>
@@ -190,69 +190,69 @@
             </h:commandLink>
         </f:facet>
 			
-			<p:columnGroup type="header">
+			<p:columnGroup type="header" >
 			<p:row>
-				<p:column colspan="2" headerText="Justificatives"/>
-				<p:column rowspan="2" headerText="Désignation sommaire des opérations"/>
-				<p:column colspan="2" headerText="Nomenclature 3 Opération à"/>
-				<p:column colspan="2" headerText="Nomenclature 5 Opération à"/>
-				<p:column colspan="2" headerText="Nomenclature 10 Opération à"/>
-				<p:column colspan="2" headerText="Nomenclature sommaire Opération à"/>
-				<p:column colspan="2" headerText="Nomenclature sommaire Opération à"/>
+				<p:column colspan="2" headerText="Justificatives" style=" text-align: center; word-wrap: break-word;"/>
+				<p:column rowspan="2" headerText="Désignation sommaire des opérations" style="width:10%; text-align: center; word-wrap: break-word;"/>
+				<p:column colspan="2" headerText="Nomenclature 3 Opération à" style=" text-align: center; word-wrap: break-word;"/>
+				<p:column colspan="2" headerText="Nomenclature 5 Opération à" style=" text-align: center; word-wrap: break-word;"/>
+				<p:column colspan="2" headerText="Nomenclature 10 Opération à" style=" text-align: center; word-wrap: break-word;"/>
+				<p:column colspan="2" headerText="Nomenclature sommaire Opération à" style=" text-align: center; word-wrap: break-word;"/>
+				<p:column colspan="2" headerText="Nomenclature sommaire Opération à" style=" text-align: center; word-wrap: break-word;"/>
 			</p:row>
 			<p:row>
-				<p:column  headerText="N°"/>
-				<p:column  headerText="Date"/>
-				<p:column  headerText="Charge"/>
-				<p:column  headerText="Décharge"/>
-				<p:column  headerText="Charge"/>
-				<p:column  headerText="Décharge"/>
-				<p:column  headerText="Charge"/>
-				<p:column  headerText="Décharge"/>
-				<p:column  headerText="Charge"/>
-				<p:column  headerText="Décharge"/>
-				<p:column  headerText="Charge"/>
-				<p:column  headerText="Décharge"/>
+				<p:column  headerText="N°" style=" text-align: center; word-wrap: break-word;"/>
+				<p:column  headerText="Date" style=" text-align: center; word-wrap: break-word;"/>
+				<p:column  headerText="Charge" style=" text-align: center; word-wrap: break-word;"/>
+				<p:column  headerText="Décharge" style=" text-align: center; word-wrap: break-word;"/>
+				<p:column  headerText="Charge" style=" text-align: center; word-wrap: break-word;"/>
+				<p:column  headerText="Décharge" style=" text-align: center; word-wrap: break-word;"/>
+				<p:column  headerText="Charge" style=" text-align: center; word-wrap: break-word;"/>
+				<p:column  headerText="Décharge" style=" text-align: center; word-wrap: break-word;"/>
+				<p:column  headerText="Charge" style=" text-align: center; word-wrap: break-word;"/>
+				<p:column  headerText="Décharge" style=" text-align: center; word-wrap: break-word;"/>
+				<p:column  headerText="Charge" style=" text-align: center; word-wrap: break-word;"/>
+				<p:column  headerText="Décharge" style=" text-align: center; word-wrap: break-word;"/>
 			</p:row>				
 			</p:columnGroup>
 
-			<p:column headerText="N°"> 
+			<p:column headerText="N°" style=" text-align: center; word-wrap: break-word;"> 
 				<h:outputText value="#{c[1].numoperation}" />			
 			</p:column>
-			<p:column headerText="Date"> 
+			<p:column headerText="Date" style=" text-align: center; word-wrap: break-word;"> 
 				<h:outputText value="#{c[1].date}" />			
 			</p:column>
-			<p:column headerText="Désignation sommaire des opérations"> 
+			<p:column headerText="Désignation sommaire des opérations" style=" text-align: center; word-wrap: break-word;"> 
 				<h:outputText value="#{c[2]}" />			
 			</p:column>
-			<p:column headerText="Charge"> 
+			<p:column headerText="Charge" style=" text-align: center; word-wrap: break-word;"> 
 				<h:outputText value="#{c[4]}" />			
 			</p:column>
-			<p:column headerText="Décharge"> 
+			<p:column headerText="Décharge" style=" text-align: center; word-wrap: break-word;"> 
 				<h:outputText value="#{c[8]}" />			
 			</p:column>
-			<p:column headerText="Charge"> 
+			<p:column headerText="Charge" style=" text-align: center; word-wrap: break-word;"> 
 				<h:outputText value="#{c[4]}" />			
 			</p:column>
-			<p:column headerText="Décharge"> 
+			<p:column headerText="Décharge" style=" text-align: center; word-wrap: break-word;"> 
 				<h:outputText value="#{c[8]}" />			
 			</p:column>
-			<p:column headerText="Charge"> 
+			<p:column headerText="Charge" style=" text-align: center; word-wrap: break-word;"> 
 				<h:outputText value="#{c[4]}" />			
 			</p:column>
-			<p:column headerText="Décharge"> 
+			<p:column headerText="Décharge" style=" text-align: center; word-wrap: break-word;"> 
 				<h:outputText value="#{c[8]}" />			
 			</p:column>
-			<p:column headerText="Charge"> 
+			<p:column headerText="Charge" style=" text-align: center; word-wrap: break-word;"> 
 				<h:outputText value="#{c[4]}" />			
 			</p:column>
-			<p:column headerText="Décharge"> 
+			<p:column headerText="Décharge" style=" text-align: center; word-wrap: break-word;"> 
 				<h:outputText value="#{c[8]}" />			
 			</p:column>
-			<p:column headerText="Charge"> 
+			<p:column headerText="Charge" style=" text-align: center; word-wrap: break-word;"> 
 				<h:outputText value="#{c[4]}" />			
 			</p:column>
-			<p:column headerText="Décharge"> 
+			<p:column headerText="Décharge" style=" text-align: center; word-wrap: break-word;"> 
 				<h:outputText value="#{c[8]}" />			
 			</p:column>
 		</p:dataTable>
