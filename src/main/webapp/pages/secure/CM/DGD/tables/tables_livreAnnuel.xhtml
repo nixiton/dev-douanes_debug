@@ -104,7 +104,23 @@
 			id="livreannuel"
 			>
 			<f:facet name="header">
-       			 GRAND LIVRE DES MOUVEMENTS D’ENTREE ET DE SORTIE ANNEE XXXX
+       			 <span>GRAND LIVRE DES MOUVEMENTS D’ENTREE ET DE SORTIE ANNEE</span> 
+       			 <span>
+       			 		<h:form >
+       			 			<p:outputLabel for="annee_livre_annuel" value="" />
+        					<p:calendar id="annee_livre_annuel" value="#{calendarView.date5}" locale="de" navigator="true" pattern="yyyy-MMM-dd" />
+     			 			<p:dialog modal="true" resizable="false" header="Values" widgetVar="dlg" showEffect="fold">
+        						<p:panelGrid id="display_livre_annuel" columns="3" columnClasses="label,value">
+      			 					 <h:outputText value="" />
+						            <h:outputText value="#{calendarView.date5}">
+						                <f:convertDateTime pattern="yyyy-MMM-dd" />
+				                  	</h:outputText>
+				                  	
+						           
+       			 				</p:panelGrid>
+    						</p:dialog>
+       			 		</h:form>
+       			 </span>
     		</f:facet>
 			<f:facet name="{Exporters}">
             <h:commandLink>

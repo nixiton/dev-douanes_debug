@@ -86,11 +86,12 @@
 	                                    <i class="fa fa-times"></i>
 	                                </a--> 
 	            </nav>
-	            <h:form >
+	            <h:form>
+	            
 		            <p:outputLabel for="debutD" value="imprimer de " /><p:inputText id="debutD" style="width: 20%;" required="true" value="#{JournalBean.dateD}"/>
 		            <p:outputLabel for="finD" value=" a " /><p:inputText style="width:20%;" id="finD" required="true" value="#{JournalBean.dateF}"/>
-		            	<!--h:button outcome="dialogJournal" value="Suivant" / -->
-		            	<h:commandButton value="Next" action="#{JournalBean.execute()}"/>
+		            	<!-- >h:button outcome="dialogJournal" value="Suivant" /--> 
+	            	<h:commandButton value="Next" action="#{JournalBean.execute()}"/>
 		        </h:form>
 	        </div>
 	        <!-- /.toolbar --> </header>
