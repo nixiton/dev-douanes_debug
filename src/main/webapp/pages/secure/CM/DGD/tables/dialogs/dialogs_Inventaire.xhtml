@@ -7,7 +7,7 @@
     xmlns:p="http://primefaces.org/ui"
     xmlns:c="http://java.sun.com/jsp/jstl/core"
     >
-
+<head><title>Inventaire</title></head>
 
 <ui:include src="/pages/unsecure/components/header.xhtml">
 </ui:include>
@@ -19,7 +19,7 @@
 
 
  	<div class="col-md-10" style="font-size: 18px!important;color: #5f5f5f;">
-
+	<h:form>
  		<br></br><br></br><br></br><br></br><br></br>
 
  		<div class="col-md-12">
@@ -34,14 +34,15 @@
                 <br></br><br></br>
             
                 
-                BUDGET ............................................................
+                BUDGET <p:inputText value="#{JasperTableExampleBean.pdfForm.budget}" style="text-align: center;width:70%"/>
+ 				
             
 
 
             <br></br><br></br><br></br>
 
 
-                EXERCICE ..................................
+                EXERCICE <p:inputText value="#{JasperTableExampleBean.pdfForm.num9}" style="text-align: center;width:70%"/>
             
 
             <br></br><br></br>
@@ -63,20 +64,23 @@
 
 
         <div class="col-md-12">
-            CHAPITRE(2) .............................. ARTICLE...............................PARAGRAPHE.................
+            CHAPITRE(2) <p:inputText value="#{JasperTableExampleBean.pdfForm.chapitre}" style="text-align: center;width:20%"/> 
+            ARTICLE <p:inputText value="#{JasperTableExampleBean.pdfForm.article}" style="text-align: center;width:20%"/>
+            PARAGRAPHE <p:inputText value="#{JasperTableExampleBean.pdfForm.paragraphe}" style="text-align: center;width:20%"/>
             <br></br><br></br>
         </div>
 
         <br></br><br></br>
         <div class="col-md-12">
 
-            Service d (1).........................................................................................................<br></br>
+            Service d (1) <p:inputText value="#{JasperTableExampleBean.pdfForm.num1}" style="text-align: center;width:80%"/> <br></br>
             <br></br><br></br>
         </div>
         <br></br><br></br>
         <div class="col-md-12">
 
-            Hôtel du (2).........................................................................................................<br></br><br></br>
+            Hôtel du (2) <p:inputText value="#{JasperTableExampleBean.pdfForm.num2}" style="text-align: center;width:80%"/>
+			<br></br><br></br>
             <br></br><br></br>
 
         </div>
@@ -248,8 +252,9 @@
 
     <div class="col-md-12">
         
-        Arrêté le présent inventaire ..................................................................................articles et à la somme de .........................................................................<br></br><br></br><br></br>
-        Fait en double à ................................................le trente et un Décembre #{gacBean.annee}<br></br>
+        Arrêté le présent inventaire <p:inputText value="#{JasperTableExampleBean.pdfForm.somme}"  style="text-align: center;width:60%"/> articles<br/>
+        Et à la somme de <p:inputText value="#{JasperTableExampleBean.pdfForm.somme1}" style="text-align: center;width:70%"/> <br></br><br></br><br></br>
+        Fait en double à <p:inputText value="#{JasperTableExampleBean.pdfForm.somme2}" style="text-align: center;width:30%"/> le trente et un Décembre #{gacBean.annee}<br></br>
 
 
     </div>
@@ -265,8 +270,9 @@
         
         Vu et reconnu exacte  <br></br>
 
-        A..................................................................le...................................<br></br>
-        Le (1)..........................................................................détenteur effectif
+        A<p:inputText value="#{JasperTableExampleBean.pdfForm.lieu}"  style="text-align: center;width:10%"/> le <p:inputText  style="text-align: center;width:10%"/> <br></br>
+        Le (1)<p:inputText value="#{JasperTableExampleBean.pdfForm.date}" style="text-align: center;width:20%"/> <br/>
+        <p:inputText value="#{JasperTableExampleBean.pdfForm.num3}" style="text-align: center;width:20%"/> détenteur effectif,
         
     </div>
 
@@ -275,26 +281,12 @@
         <div class="col-md-9"></div>
         <div class="col-md-3">
             Vu<br></br>
-            le (2)................................    <br></br><br></br><br></br>
+            le (2)<p:inputText value="#{JasperTableExampleBean.pdfForm.num4}" style="text-align: center;width:50%"/>    <br></br><br></br><br></br>
         </div>
     </div>
-
-
-
-
-
-
-
+	<p:commandButton action="#{JasperTableExampleBean.inventaireReport()}" type="submit" value="generatePDF" ajax="false" ></p:commandButton>
+    </h:form>
     #{depositaireBean.exity()}
-
-
-
-
-
-
-
-
-
 
  	</div>
 

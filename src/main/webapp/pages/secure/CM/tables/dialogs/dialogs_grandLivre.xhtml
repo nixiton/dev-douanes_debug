@@ -1,0 +1,128 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<style>
+	    .verticalText {
+		  writing-mode: vertical-lr;
+		  -webkit-writing-mode: vertical-lr;
+		  -ms-writing-mode: vertical-lr;
+		}   
+    </style>
+</h:head>
+<ui:include src="/pages/unsecure/components/header.xhtml"></ui:include>
+<h:body>
+	<div class="col-md-1"></div>
+	<h:form><div class="col-md-10" style="font-size: 18px!important;color: #5f5f5f; border:1px solid #bfbfbf; padding-bottom:70px">
+		<div class="col-md-3"></div>
+        <div class="col-md-6">
+			<h:graphicImage width="100%" value="/pages/unsecure/assets/images/mada.png" />
+			<div class="col-md-12" style="text-align: center;">
+ 				BUDGET <br/><p:inputText value ="#{JasperTableExampleBean.livre.budget}" style="text-align: center;width:100%"></p:inputText> <br/>
+ 				CHAPITRE(1) <p:inputText value ="#{JasperTableExampleBean.livre.chap}" style="text-align: center;width: 25%"></p:inputText>
+ 				ARTICLE <p:inputText value ="#{JasperTableExampleBean.livre.article}" style="text-align: center;width: 25%"></p:inputText> <br></br>
+ 				(2) <p:inputText value ="#{JasperTableExampleBean.livre.libelle}"  style="text-align: center;width: 70%"></p:inputText><br></br>
+ 				(3) <p:inputText value ="#{JasperTableExampleBean.livre.subd}" style="text-align: center;width: 70%"></p:inputText><br></br>
+ 				(4) <p:inputText  value ="#{JasperTableExampleBean.livre.materiel}" style="text-align: center;width: 70%"></p:inputText><br></br>
+ 				(5) <p:inputText  value ="#{JasperTableExampleBean.livre.indication}" style="text-align: center;width: 70%"></p:inputText><br></br>
+ 			</div>
+        </div>
+ 		<div class="col-md-1"></div>
+ 		<div class="col-md-2" style="background-color: #efefef;">
+ 			<div class="col-md-12" style="text-align: center;font-size: 11px;">
+ 				Modèle n°02<br/>
+				Article 33 de<br/>
+				L’Instruction Générale<br/>du<br/>22 juillet 1955<br/>	
+ 			</div>
+ 			<div class="col-md-12" style="font-size: 11px;">
+ 				(1)Numéro de chapitre<br/>
+				(2) libellé de chapitre<br/>
+				(3) subdivision du service<br/>
+				(4) magasin ou matériel en service selon qu’il s’agit d’un matériel en approvisionnement ou matériel en service.<br/>
+				(5)indication du magasin ou de la catégorie du matériel en service auquel se rapporte le journal<br/>
+				(6)signature du chef du service ou de son délégué<br/>
+ 			</div>
+ 		</div>
+ 		<div class="col-md-12" style="text-align: center;">
+ 			<h4>MATERIEL EN SERVICE</h4>
+ 			<h1>GRAND LIVRE ANNUEL</h1>
+ 			<h3>DES MOUVEMENTS D’ENTREE ET DE SORTIE</h3>
+ 			<p>Nombre de feuillets  : <p:inputText value ="#{JasperTableExampleBean.livre.nbFeuillets}" style="text-align: center;"></p:inputText>
+ 			. A <p:inputText value ="#{JasperTableExampleBean.livre.lieu}" style="text-align: center;"></p:inputText> le <p:inputText value ="#{JasperTableExampleBean.livre.date}" style="text-align: center;"></p:inputText>.</p>
+ 		</div>
+ 		<p:dataTable style="font-size: 11px;" emptyMessage="">
+	           
+		    <p:column headerText="Date de recensement">
+		        
+		    </p:column>
+		 
+		    <p:column headerText="Numéros recensés">
+		        
+		    </p:column>
+		 
+		    <p:column headerText="Signature du Fonctionnaire recenseur">
+		        
+		    </p:column>
+		</p:dataTable>
+		<br/><br/>
+		<p:dataTable style="font-size: 11px;" emptyMessage="">
+		    <f:facet name="header">
+	            GRAND LIVRE DES MOUVEMENTS D’ENTREE ET DE SORTIE ANNEE XXXX
+	        </f:facet>
+	        <p:columnGroup type="header">
+	            <p:row>
+	                <p:column rowspan="3" headerText="Numéro d’ordre de la nomenclature" styleClass="verticalText"/>
+	                <p:column rowspan="3" headerText="Espèces des unités" styleClass="verticalText"/>
+	                <p:column rowspan="3" headerText="Désignation des objets (1)" />
+	                <p:column rowspan="3" headerText="Prix de l’unité" />
+	                <p:column colspan="2" headerText="Existant au….. janvier"/>
+	                <p:column rowspan="3" headerText="Mouvements effectués (2)" />
+	                <p:column colspan="9" headerText="ANNEE ……" />
+	            </p:row>
+	            <p:row>
+	                <p:column rowspan="2" headerText="Quantité" />
+	                <p:column rowspan="2" headerText="Valeur" />
+	                <p:column rowspan="2" headerText="Numéros des pièces justificatives" />
+	                <p:column rowspan="2" headerText="Dates des entrées et des sorties" />
+	                <p:column rowspan="2" headerText="Origine des entrées et désignation des sorties" />
+	                <p:column colspan="2" headerText="Entrées" />
+	                <p:column colspan="2" headerText="Sorties" />
+	                <p:column colspan="2" headerText="Reste au 31 décembre…" />
+	            </p:row>
+	            <p:row>
+	            	<p:column headerText="Quantité" />
+	                <p:column headerText="Valeur" />
+	                <p:column headerText="Quantité" />
+	                <p:column headerText="Valeur" />
+	                <p:column headerText="Quantité" />
+	                <p:column headerText="Valeur" />
+	            </p:row>
+	        </p:columnGroup>
+	        <p:subTable>
+	            <p:column></p:column>
+	            <p:column></p:column>
+	            <p:column></p:column>
+	            <p:column></p:column>
+	            <p:column></p:column>
+	            <p:column></p:column>
+	            <p:column></p:column>
+	            <p:column></p:column>
+	            <p:column></p:column>
+	            <p:column></p:column>
+	            <p:column></p:column>
+	            <p:column></p:column>
+	            <p:column></p:column>
+	            <p:column></p:column>
+	            <p:column></p:column>
+	            <p:column></p:column>
+	        </p:subTable>
+		</p:dataTable>
+	</div>
+	<p:commandButton action="#{JasperTableExampleBean.grandLivreReport()}" type="submit" value="generatePDF" ajax="false" ></p:commandButton>
+	</h:form>
+</h:body>
+	
+</html>

@@ -32,6 +32,8 @@ import org.springframework.transaction.annotation.Transactional;
 import com.douane.entite.OpAttribution;
 import com.douane.entite.OpEntree;
 import com.douane.entite.OpSortie;
+import com.douane.managed.bean.form.GrandLivreBean;
+import com.douane.managed.bean.form.PdfFormBean;
 import com.douane.managed.bean.saisieRef.JournalFormBean;
 import com.douane.managed.bean.saisieRef.OrdreSortieFormBean;
 
@@ -63,6 +65,22 @@ public class JasperTableExampleBean implements Serializable{
 		this.ordreEB = new ordreEntreeBean();
 		this.ordreS = new OrdreSortieFormBean();
 		this.journal = new JournalFormBean();
+		this.livre = new GrandLivreBean();
+		this.pdfForm = new PdfFormBean();
+	}
+	private PdfFormBean pdfForm;
+	public PdfFormBean getPdfForm() {
+		return pdfForm;
+	}
+	public void setPdfForm(PdfFormBean pdfForm) {
+		this.pdfForm = pdfForm;
+	}
+	private GrandLivreBean livre;
+	public GrandLivreBean getLivre() {
+		return livre;
+	}
+	public void setLivre(GrandLivreBean livre) {
+		this.livre = livre;
 	}
 	private JournalFormBean journal;
 	public JournalFormBean getJournal() {
@@ -145,8 +163,8 @@ public class JasperTableExampleBean implements Serializable{
            // OutputStream outputStream = new FileOutputStream(new File(outputFile));
             /* Write content to PDF file */
             JasperExportManager.exportReportToPdfStream(jasperPrint, response.getOutputStream());
-
-            System.out.println("File Generated");
+            response.getOutputStream().close();
+            //System.out.println("File Generated");
         }
          catch (JRException ex) {
             ex.printStackTrace();
@@ -293,5 +311,108 @@ public class JasperTableExampleBean implements Serializable{
             ex.printStackTrace();
         }
 		//return ("#");
+	}
+	public void grandLivreReport() throws IOException {
+		FacesContext facescontext = FacesContext.getCurrentInstance();
+		ExternalContext external = facescontext.getExternalContext();
+		HttpSession session = (HttpSession) external.getSession(true);
+		HttpServletResponse response = (HttpServletResponse) external.getResponse();
+		ServletOutputStream tmp = response.getOutputStream();
+		URL url =  this.getClass().getResource("../jasperReport/GrandLivre.jasper");
+		try {
+            /* Map to hold Jasper report Parameters */
+            Map<String, Object> parameters = new HashMap<String, Object>();
+            parameters.put("budget", this.livre.getBudget());
+            parameters.put("chap", this.livre.getChap());
+            parameters.put("article", this.livre.getArticle());
+            parameters.put("libelle", this.livre.getLibelle());
+            parameters.put("subd", this.livre.getSubd());
+            parameters.put("materiel", this.livre.getMateriel());
+            parameters.put("indication", this.livre.getIndication());
+            parameters.put("nbFeuillets", this.livre.getNbFeuillets());
+            parameters.put("lieu", this.livre.getLieu());
+            parameters.put("date", this.livre.getDate());
+            parameters.put("ans", this.livre.getAns());
+            
+            JasperPrint jasperPrint = JasperFillManager.fillReport(url.getPath(), parameters, new JREmptyDataSource());
+            JasperExportManager.exportReportToPdfStream(jasperPrint, tmp);
+		}
+         catch (JRException ex) {
+            ex.printStackTrace();
+        }
+	}
+	public void etatAppreciatifReport() throws IOException {
+		//System.out.println(this.pdfForm.toString());
+		FacesContext facescontext = FacesContext.getCurrentInstance();
+		ExternalContext external = facescontext.getExternalContext();
+		HttpSession session = (HttpSession) external.getSession(true);
+		HttpServletResponse response = (HttpServletResponse) external.getResponse();
+		ServletOutputStream tmp = response.getOutputStream();
+		URL url =  this.getClass().getResource("../jasperReport/EtatAppreciatif.jasper");
+		try {
+            /* Map to hold Jasper report Parameters */
+            Map<String, Object> parameters = new HashMap<String, Object>();
+            parameters.put("materiel", this.pdfForm.getNum1());
+            parameters.put("budget", this.pdfForm.getBudget());
+            parameters.put("chp", this.pdfForm.getChapitre());
+            parameters.put("article", this.pdfForm.getArticle());
+            parameters.put("paragraphe", this.pdfForm.getParagraphe());
+            parameters.put("num3", this.pdfForm.getNum3());
+            parameters.put("num4", this.pdfForm.getNum4());
+            parameters.put("num5", this.pdfForm.getNum5());
+            parameters.put("num6", this.pdfForm.getNum6());
+            parameters.put("num7", this.pdfForm.getNum7());
+            parameters.put("num8", this.pdfForm.getNum8());
+            parameters.put("num07", this.pdfForm.getNum7());
+            parameters.put("num08", this.pdfForm.getNum9());
+            parameters.put("somme", this.pdfForm.getSomme());
+            parameters.put("somme1", this.pdfForm.getSomme1());
+            parameters.put("somme2", this.pdfForm.getSomme2());
+            parameters.put("date1", this.pdfForm.getDate());
+            
+            
+            JasperPrint jasperPrint = JasperFillManager.fillReport(url.getPath(), parameters, new JREmptyDataSource());
+            JasperExportManager.exportReportToPdfStream(jasperPrint, tmp);
+            //tmp.close();
+		}
+         catch (JRException ex) {
+            ex.printStackTrace();
+        }
+	}
+	public void inventaireReport() throws IOException {
+		//System.out.println(this.pdfForm.toString());
+		FacesContext facescontext = FacesContext.getCurrentInstance();
+		ExternalContext external = facescontext.getExternalContext();
+		HttpSession session = (HttpSession) external.getSession(true);
+		HttpServletResponse response = (HttpServletResponse) external.getResponse();
+		ServletOutputStream tmp = response.getOutputStream();
+		URL url =  this.getClass().getResource("../jasperReport/Inventaire.jasper");
+		try {
+            /* Map to hold Jasper report Parameters */
+            Map<String, Object> parameters = new HashMap<String, Object>();;
+            parameters.put("budget", this.pdfForm.getBudget());
+            parameters.put("exo", this.pdfForm.getNum9());
+            parameters.put("chap", this.pdfForm.getChapitre());
+            parameters.put("article", this.pdfForm.getArticle());
+            parameters.put("paragraphe", this.pdfForm.getParagraphe());
+            parameters.put("service", this.pdfForm.getNum1());
+            parameters.put("hotel", this.pdfForm.getNum2());
+            parameters.put("date", "");
+            parameters.put("arret", this.pdfForm.getSomme());
+            parameters.put("somme", this.pdfForm.getSomme1());
+            parameters.put("lieu", this.pdfForm.getSomme2());
+            parameters.put("ans", "0");
+            parameters.put("lieu1", this.pdfForm.getLieu());
+            parameters.put("date1", this.pdfForm.getDate());
+            parameters.put("an1", this.pdfForm.getNum3());
+            parameters.put("date3", this.pdfForm.getNum4());
+            parameters.put("vu2", "");
+            JasperPrint jasperPrint = JasperFillManager.fillReport(url.getPath(), parameters, new JREmptyDataSource());
+            JasperExportManager.exportReportToPdfStream(jasperPrint, tmp);
+            //tmp.close();
+		}
+         catch (JRException ex) {
+            ex.printStackTrace();
+        }
 	}
 }

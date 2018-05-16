@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Inventaire" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="35466d3f-a3dc-4dfe-a6e7-236e3e1ab789">
+<!-- Created with Jaspersoft Studio version 6.5.1.final using JasperReports Library version 6.5.1  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Inventaire" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="35466d3f-a3dc-4dfe-a6e7-236e3e1ab789">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="206"/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
 	<style name="table">
 		<box>
 			<pen lineWidth="1.0" lineColor="#000000"/>
@@ -31,7 +33,7 @@
 	<parameter name="article" class="java.lang.String"/>
 	<parameter name="paragraphe" class="java.lang.String"/>
 	<parameter name="hotel" class="java.lang.String"/>
-	<parameter name="date" class="java.util.Date"/>
+	<parameter name="date" class="java.lang.String"/>
 	<parameter name="arret" class="java.lang.String"/>
 	<parameter name="somme" class="java.lang.String"/>
 	<parameter name="lieu" class="java.lang.String"/>
@@ -46,13 +48,6 @@
 	</background>
 	<title>
 		<band height="126" splitType="Stretch">
-			<staticText>
-				<reportElement x="355" y="11" width="189" height="18" uuid="e8bb125b-2d84-443f-920e-538715dcc22e"/>
-				<textElement>
-					<font size="12"/>
-				</textElement>
-				<text><![CDATA[]]></text>
-			</staticText>
 			<staticText>
 				<reportElement x="229" y="11" width="126" height="18" uuid="e96d1bdf-98e0-487c-bed0-8785d1c51981"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
@@ -118,25 +113,11 @@
 				<text><![CDATA[EXERCICE]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="329" y="29" width="215" height="20" uuid="fa0ba493-1a38-4ab1-99a4-26edbfa56585"/>
-				<textElement>
-					<font size="12"/>
-				</textElement>
-				<text><![CDATA[]]></text>
-			</staticText>
-			<staticText>
 				<reportElement x="177" y="81" width="100" height="20" uuid="22229cad-a096-47f6-b83f-2a646308b40b"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="12"/>
 				</textElement>
 				<text><![CDATA[Service d(1)]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="277" y="81" width="285" height="20" uuid="4580c4bc-6040-4ad7-a1b1-58838caf70c6"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="12"/>
-				</textElement>
-				<text><![CDATA[]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="177" y="101" width="100" height="20" uuid="7bb334a3-8cee-46a0-a490-72d232a293fa"/>
@@ -145,15 +126,8 @@
 				</textElement>
 				<text><![CDATA[Hôtel du(2)]]></text>
 			</staticText>
-			<staticText>
-				<reportElement x="277" y="101" width="285" height="20" uuid="db37abe7-f16b-4b64-8221-c189c7097ace"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="12"/>
-				</textElement>
-				<text><![CDATA[]]></text>
-			</staticText>
 			<textField>
-				<reportElement x="377" y="9" width="100" height="20" uuid="1331e938-ee1a-4495-9fdf-1103bd7ef596"/>
+				<reportElement x="355" y="9" width="189" height="20" uuid="1331e938-ee1a-4495-9fdf-1103bd7ef596"/>
 				<textElement>
 					<font size="12"/>
 				</textElement>
@@ -167,14 +141,14 @@
 				<textFieldExpression><![CDATA[$P{chap}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="362" y="29" width="100" height="20" uuid="103b2710-593b-450a-9956-7d8e8c1cc979"/>
+				<reportElement x="329" y="29" width="215" height="20" uuid="103b2710-593b-450a-9956-7d8e8c1cc979"/>
 				<textElement textAlignment="Center">
 					<font size="12"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{exo}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="339" y="81" width="100" height="20" uuid="2b556aee-6560-49f7-b9f9-05e926b93128"/>
+				<reportElement x="277" y="81" width="285" height="20" uuid="2b556aee-6560-49f7-b9f9-05e926b93128"/>
 				<textElement textAlignment="Center">
 					<font size="12"/>
 				</textElement>
@@ -195,7 +169,7 @@
 				<textFieldExpression><![CDATA[$P{paragraphe}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="339" y="101" width="100" height="20" uuid="1f551865-9018-499c-a7b3-d2ac3e1df084"/>
+				<reportElement x="277" y="101" width="283" height="20" uuid="1f551865-9018-499c-a7b3-d2ac3e1df084"/>
 				<textElement>
 					<font size="12"/>
 				</textElement>
@@ -231,15 +205,8 @@
 				</textElement>
 				<text><![CDATA[du mobilier et des objets d'ameublement existant au decembre]]></text>
 			</staticText>
-			<staticText>
-				<reportElement x="377" y="0" width="170" height="20" uuid="162bafb5-7b61-4f68-97f3-b0e931b42ce8"/>
-				<textElement>
-					<font size="12"/>
-				</textElement>
-				<text><![CDATA[]]></text>
-			</staticText>
 			<textField>
-				<reportElement x="420" y="0" width="100" height="20" uuid="8ee6c4f5-3e87-47a6-8528-332fd414a47e"/>
+				<reportElement x="377" y="0" width="183" height="20" uuid="8ee6c4f5-3e87-47a6-8528-332fd414a47e"/>
 				<textElement textAlignment="Center">
 					<font size="12"/>
 				</textElement>
@@ -386,7 +353,7 @@
 		<band height="72"/>
 	</detail>
 	<summary>
-		<band height="177">
+		<band height="248">
 			<staticText>
 				<reportElement x="0" y="0" width="144" height="20" uuid="5eef5a21-c7a3-47be-b3f8-2036f9fc089c"/>
 				<textElement>
@@ -416,32 +383,18 @@
 				<text><![CDATA[]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="100" y="29" width="163" height="20" uuid="33d336ce-d416-4d0b-98c2-ca3d973ebbf2"/>
-				<textElement>
-					<font size="12"/>
-				</textElement>
-				<text><![CDATA[]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="263" y="29" width="125" height="20" uuid="5e51cf26-4222-4d15-ac6b-f9b2056e44a8"/>
+				<reportElement x="263" y="29" width="137" height="20" uuid="5e51cf26-4222-4d15-ac6b-f9b2056e44a8"/>
 				<textElement>
 					<font size="12"/>
 				</textElement>
 				<text><![CDATA[le trente et un décembre]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="0" y="29" width="100" height="20" uuid="c63e0029-a946-42eb-8853-4306957c22c8"/>
+				<reportElement x="0" y="29" width="90" height="20" uuid="c63e0029-a946-42eb-8853-4306957c22c8"/>
 				<textElement>
 					<font size="12"/>
 				</textElement>
 				<text><![CDATA[Fait en double à ]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="388" y="29" width="100" height="20" uuid="05bfc49a-a4ba-4361-9687-177623251a1a"/>
-				<textElement>
-					<font size="12"/>
-				</textElement>
-				<text><![CDATA[]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="90" y="49" width="316" height="20" uuid="d1f86471-ce9c-4dfe-8ae3-6dfa73af2bc8"/>
@@ -459,11 +412,11 @@
 				<textFieldExpression><![CDATA[$P{somme}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="115" y="29" width="100" height="20" uuid="19d4e27f-a1ce-4a9f-aec3-a225b5ba5f00"/>
+				<reportElement x="90" y="29" width="163" height="20" uuid="19d4e27f-a1ce-4a9f-aec3-a225b5ba5f00"/>
 				<textFieldExpression><![CDATA[$P{lieu}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="388" y="29" width="85" height="20" uuid="06a28c74-9fee-49ef-918d-9a31ff782c41"/>
+				<reportElement x="398" y="29" width="85" height="20" uuid="06a28c74-9fee-49ef-918d-9a31ff782c41"/>
 				<textFieldExpression><![CDATA[$P{ans}]]></textFieldExpression>
 			</textField>
 			<staticText>
@@ -557,15 +510,8 @@
 				</textElement>
 				<text><![CDATA[Vu, le (2)]]></text>
 			</staticText>
-			<staticText>
-				<reportElement x="425" y="117" width="100" height="25" uuid="c839f51e-45e0-4d63-9342-a41f1f4c9e56"/>
-				<textElement>
-					<font size="12"/>
-				</textElement>
-				<text><![CDATA[]]></text>
-			</staticText>
 			<textField>
-				<reportElement x="433" y="117" width="50" height="25" uuid="ad69a577-508e-47ea-9962-03467b98cf1f"/>
+				<reportElement x="433" y="117" width="97" height="25" uuid="ad69a577-508e-47ea-9962-03467b98cf1f"/>
 				<textElement>
 					<font size="12"/>
 				</textElement>

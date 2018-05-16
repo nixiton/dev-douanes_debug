@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="EtatAppreciatif" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="004a50a4-968e-45dd-9c6d-04487dd3ae86">
+<!-- Created with Jaspersoft Studio version 6.5.1.final using JasperReports Library version 6.5.1  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="EtatAppreciatif" pageWidth="595" pageHeight="842" whenNoDataType="NoPages" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="004a50a4-968e-45dd-9c6d-04487dd3ae86">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="593"/>
@@ -92,10 +93,10 @@
 	<parameter name="numO8" class="java.lang.String"/>
 	<parameter name="num07" class="java.lang.String"/>
 	<parameter name="numJust" class="java.lang.String"/>
-	<parameter name="somme" class="java.lang.Float"/>
-	<parameter name="somme1" class="java.lang.Float"/>
-	<parameter name="somme2" class="java.lang.Float"/>
-	<parameter name="date1" class="java.lang.Float"/>
+	<parameter name="somme" class="java.lang.String"/>
+	<parameter name="somme1" class="java.lang.String"/>
+	<parameter name="somme2" class="java.lang.String"/>
+	<parameter name="date1" class="java.lang.String"/>
 	<parameter name="numo8" class="java.lang.String"/>
 	<parameter name="numo" class="net.sf.jasperreports.engine.JREmptyDataSource"/>
 	<parameter name="parameter1" class="net.sf.jasperreports.engine.data.JRBeanCollectionDataSource"/>
@@ -107,16 +108,16 @@
 	<title>
 		<band height="244" splitType="Stretch">
 			<staticText>
-				<reportElement x="0" y="0" width="217" height="37" uuid="260cd361-2e0d-4ef8-94b5-750af12361b8"/>
+				<reportElement x="193" y="0" width="217" height="33" uuid="260cd361-2e0d-4ef8-94b5-750af12361b8"/>
 				<textElement textAlignment="Center">
 					<font size="12"/>
 				</textElement>
-				<text><![CDATA[REPOBLIKAN’I MADAGASIKARA
+				<text><![CDATA[REPOBLIKAN I MADAGASIKARA
 Fitiavana-Tanindrazana- Fandrosoana
 ]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="138" y="57" width="143" height="20" uuid="a7353e78-cd00-4561-8802-3342101cd779"/>
+				<reportElement x="167" y="57" width="143" height="20" uuid="a7353e78-cd00-4561-8802-3342101cd779"/>
 				<textElement textAlignment="Center">
 					<font size="12"/>
 				</textElement>
@@ -134,109 +135,95 @@ Fitiavana-Tanindrazana- Fandrosoana
 				<text><![CDATA[]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="298" y="57" width="100" height="20" uuid="5d5358f5-a0b5-4875-a723-aac2c6847114"/>
+				<reportElement x="313" y="57" width="100" height="20" uuid="5d5358f5-a0b5-4875-a723-aac2c6847114"/>
 				<textElement>
 					<font size="12"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{budget}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="3" y="77" width="76" height="20" uuid="a9c319f0-74f6-4d3c-a55d-1fd75c47cfb3"/>
+				<reportElement x="157" y="80" width="76" height="20" uuid="a9c319f0-74f6-4d3c-a55d-1fd75c47cfb3"/>
 				<textElement>
 					<font size="12"/>
 				</textElement>
 				<text><![CDATA[CHAPITRE(1)]]></text>
 			</staticText>
-			<staticText>
-				<reportElement x="183" y="57" width="100" height="20" uuid="d459bd66-179f-4e16-bc94-5c8d50d806eb"/>
-				<textElement>
-					<font size="12"/>
-				</textElement>
-				<text><![CDATA[]]></text>
-			</staticText>
 			<textField>
-				<reportElement x="79" y="77" width="100" height="20" uuid="3eb5ddfe-c754-43b1-8a49-4974501c0ae7"/>
+				<reportElement x="236" y="77" width="78" height="20" uuid="3eb5ddfe-c754-43b1-8a49-4974501c0ae7"/>
 				<textElement textAlignment="Center">
 					<font size="12"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{chp}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="180" y="77" width="53" height="20" uuid="3ac37643-20a9-403a-8a8e-aad2f2e38803"/>
+				<reportElement x="316" y="77" width="53" height="20" uuid="3ac37643-20a9-403a-8a8e-aad2f2e38803"/>
 				<textElement>
 					<font size="12"/>
 				</textElement>
 				<text><![CDATA[ARTICLE]]></text>
 			</staticText>
-			<staticText>
-				<reportElement x="281" y="57" width="86" height="20" uuid="d1e3d829-a9b5-4d66-90c6-b03a0ecaa2ce"/>
-				<textElement>
-					<font size="12"/>
-				</textElement>
-				<text><![CDATA[]]></text>
-			</staticText>
 			<textField>
-				<reportElement x="233" y="77" width="86" height="20" uuid="17110ee0-2384-4308-af7d-90b5345a3381"/>
+				<reportElement x="366" y="77" width="86" height="20" uuid="17110ee0-2384-4308-af7d-90b5345a3381"/>
 				<textElement textAlignment="Center">
 					<font size="12"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{article}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="319" y="77" width="85" height="20" uuid="ffbaf4dd-166d-4b3e-81a9-479c3ea0fadf"/>
+				<reportElement x="209" y="97" width="85" height="20" uuid="ffbaf4dd-166d-4b3e-81a9-479c3ea0fadf"/>
 				<textElement>
 					<font size="12"/>
 				</textElement>
 				<text><![CDATA[PARAGRAPHE]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="0" y="97" width="107" height="20" uuid="1d493539-9f58-499b-b31b-5a4e0aa37d46"/>
+				<reportElement x="0" y="33" width="138" height="20" uuid="1d493539-9f58-499b-b31b-5a4e0aa37d46"/>
 				<textElement>
 					<font size="10"/>
 				</textElement>
-				<text><![CDATA[(2)Numéro de chapitre]]></text>
+				<text><![CDATA[(2)Num�ro de chapitre]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="405" y="77" width="100" height="20" uuid="49aaed48-308d-4a6f-938d-61e648082fdb"/>
+				<reportElement x="297" y="97" width="100" height="20" uuid="49aaed48-308d-4a6f-938d-61e648082fdb"/>
 				<textElement textAlignment="Center">
 					<font size="12"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{paragraphe}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="183" y="117" width="371" height="20" uuid="00c7b438-8d99-4714-b3da-9e3f67abbd31"/>
+				<reportElement x="183" y="117" width="22" height="20" uuid="00c7b438-8d99-4714-b3da-9e3f67abbd31"/>
 				<textElement>
 					<font size="12"/>
 				</textElement>
 				<text><![CDATA[(3):]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="183" y="137" width="372" height="20" uuid="5eba1963-db90-4c3a-bc40-37e9d762fcc9"/>
+				<reportElement x="183" y="137" width="22" height="20" uuid="5eba1963-db90-4c3a-bc40-37e9d762fcc9"/>
 				<text><![CDATA[(4):]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="183" y="157" width="371" height="20" uuid="59694e90-2ae4-40e6-97ba-a9e87a47cf50"/>
+				<reportElement x="183" y="157" width="22" height="20" uuid="59694e90-2ae4-40e6-97ba-a9e87a47cf50"/>
 				<textElement>
 					<font size="12"/>
 				</textElement>
 				<text><![CDATA[(5):]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="226" y="117" width="292" height="20" uuid="a3ae1778-0305-48d0-9cdb-56420e6813b4"/>
+				<reportElement x="205" y="117" width="227" height="20" uuid="a3ae1778-0305-48d0-9cdb-56420e6813b4"/>
 				<textElement textAlignment="Center">
 					<font size="12"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{num3}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="205" y="137" width="336" height="20" uuid="0901da98-6b5c-4fdc-bc2b-284dec3e66b9"/>
+				<reportElement x="205" y="137" width="227" height="20" uuid="0901da98-6b5c-4fdc-bc2b-284dec3e66b9"/>
 				<textElement textAlignment="Center">
 					<font size="12"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{num4}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="205" y="157" width="336" height="20" uuid="292c4361-45e2-47cf-9583-91cda6b36b5e"/>
+				<reportElement x="205" y="157" width="227" height="20" uuid="292c4361-45e2-47cf-9583-91cda6b36b5e"/>
 				<textElement textAlignment="Center">
 					<font size="12"/>
 				</textElement>
@@ -247,56 +234,56 @@ Fitiavana-Tanindrazana- Fandrosoana
 				<textElement>
 					<font size="12"/>
 				</textElement>
-				<text><![CDATA[Modèle n°9]]></text>
+				<text><![CDATA[Modele no 9]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="454" y="20" width="100" height="47" uuid="e8ce49cf-0080-45b3-b650-76042aa4dfc1"/>
 				<textElement>
 					<font size="12"/>
 				</textElement>
-				<text><![CDATA[Instruction Générale du 22 juiller 1955]]></text>
+				<text><![CDATA[Instruction Generale du 22 juiller 1955]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="190" y="37" width="237" height="20" uuid="19702852-7978-4f3e-97b7-464f0fd5b082"/>
+				<reportElement x="213" y="33" width="20" height="20" uuid="19702852-7978-4f3e-97b7-464f0fd5b082"/>
 				<textElement>
 					<font size="12"/>
 				</textElement>
 				<text><![CDATA[(1)]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="205" y="37" width="193" height="20" uuid="51f17c7d-6493-4077-afd2-d5afdda29a22"/>
+				<reportElement x="233" y="33" width="177" height="20" uuid="51f17c7d-6493-4077-afd2-d5afdda29a22"/>
 				<textElement textAlignment="Center">
 					<font size="12"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{materiel}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="0" y="37" width="138" height="40" uuid="75ed25d1-4232-4401-8cba-b2a184efa1b4"/>
-				<text><![CDATA[(1)Matériel en approvisionnement ou service]]></text>
+				<reportElement x="0" y="0" width="138" height="30" uuid="75ed25d1-4232-4401-8cba-b2a184efa1b4"/>
+				<text><![CDATA[(1)Mat�riel en approvisionnement ou service]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="0" y="117" width="107" height="20" uuid="3cc96e5b-d3d3-43f1-bcab-ca1b734683d0"/>
-				<text><![CDATA[(3)Libellé de chapitre]]></text>
+				<reportElement x="0" y="53" width="138" height="20" uuid="3cc96e5b-d3d3-43f1-bcab-ca1b734683d0"/>
+				<text><![CDATA[(3)Libell� de chapitre]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="107" y="117" width="74" height="20" uuid="69cc856e-7808-4f6b-a537-998dde66e424"/>
+				<reportElement x="0" y="73" width="138" height="18" uuid="69cc856e-7808-4f6b-a537-998dde66e424"/>
 				<text><![CDATA[(4)Service]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="0" y="137" width="181" height="33" uuid="a5400af5-1cb4-4b4e-b8b6-6586e38118eb"/>
-				<text><![CDATA[(5)Subdivision du magasin ou de la catégorie du matériel de service]]></text>
+				<reportElement x="0" y="91" width="138" height="39" uuid="a5400af5-1cb4-4b4e-b8b6-6586e38118eb"/>
+				<text><![CDATA[(5)Subdivision du magasin ou de la cat�gorie du mat�riel de service]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="0" y="170" width="181" height="20" uuid="49b332e9-ad06-41c3-95d0-0a50209b504e"/>
+				<reportElement x="0" y="130" width="138" height="20" uuid="49b332e9-ad06-41c3-95d0-0a50209b504e"/>
 				<text><![CDATA[(6)Nombre en toute lettre]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="0" y="190" width="298" height="20" uuid="52499a45-abee-4658-a643-f942585376da"/>
-				<text><![CDATA[(7)Nom et qualité du comptable(gestionnaire ou dépositaire)]]></text>
+				<reportElement x="-1" y="150" width="140" height="27" uuid="52499a45-abee-4658-a643-f942585376da"/>
+				<text><![CDATA[(7)Nom et qualit� du comptable(gestionnaire ou d�positaire)]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="0" y="210" width="298" height="34" uuid="269ea225-43e8-476b-a345-7064268ec605"/>
-				<text><![CDATA[(8) Premier ou deuxième jour du trimestre ou, d'il y a lieu date de la prise de la remise du service]]></text>
+				<reportElement x="0" y="180" width="138" height="50" uuid="269ea225-43e8-476b-a345-7064268ec605"/>
+				<text><![CDATA[(8) Premier ou deuxi�me jour du trimestre ou, d'il y a lieu date de la prise de la remise du service]]></text>
 			</staticText>
 		</band>
 	</title>
@@ -314,7 +301,7 @@ Fitiavana-Tanindrazana- Fandrosoana
 				<textElement>
 					<font size="14"/>
 				</textElement>
-				<text><![CDATA[présentant  les mouvements des entrées et des sorties effectuées pendant l'année......]]></text>
+				<text><![CDATA[pr�sentant  les mouvements des entr�es et des sorties effectu�es pendant l'ann�e......]]></text>
 			</staticText>
 		</band>
 	</pageHeader>
@@ -367,7 +354,7 @@ Fitiavana-Tanindrazana- Fandrosoana
 				<textElement>
 					<font size="12"/>
 				</textElement>
-				<text><![CDATA[pièces justificatives.]]></text>
+				<text><![CDATA[pi�ces justificatives.]]></text>
 			</staticText>
 			<textField>
 				<reportElement x="63" y="0" width="154" height="20" uuid="ccb8d8fb-b300-4894-84d3-0f262441cc02"/>
@@ -445,22 +432,23 @@ Fitiavana-Tanindrazana- Fandrosoana
 		<band height="157" splitType="Stretch">
 			<componentElement>
 				<reportElement key="table 1" style="table 1" x="15" y="8" width="524" height="140" uuid="55477075-d55c-45de-9799-2da7bf43eebc"/>
-				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" whenNoDataType="Blank">
 					<datasetRun subDataset="Table Dataset 2" uuid="25737c0c-f56b-4307-89cf-71ec40e0949d">
 						<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.JREmptyDataSource(1)]]></dataSourceExpression>
 					</datasetRun>
 					<jr:column width="102" uuid="842ccf88-39c7-406a-9b61-1dcd711120f2">
 						<jr:tableHeader style="table 1_TH" height="89" rowSpan="1">
+							<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.FreeLayout"/>
 							<staticText>
-								<reportElement x="0" y="0" width="102" height="29" uuid="250a5e35-5873-43fc-a22f-11910bdbf315"/>
-								<text><![CDATA[Pièces justificatives]]></text>
+								<reportElement x="0" y="0" width="102" height="31" uuid="250a5e35-5873-43fc-a22f-11910bdbf315"/>
+								<text><![CDATA[Pieces justificatives]]></text>
 							</staticText>
 							<staticText>
-								<reportElement x="0" y="29" width="40" height="58" uuid="c8ac40a1-1d86-41f1-8315-163ec6b6a355"/>
-								<text><![CDATA[N°]]></text>
+								<reportElement x="0" y="31" width="50" height="56" uuid="c8ac40a1-1d86-41f1-8315-163ec6b6a355"/>
+								<text><![CDATA[No]]></text>
 							</staticText>
 							<staticText>
-								<reportElement x="40" y="29" width="62" height="58" uuid="f960a9f7-abfe-4cd2-8e38-f1fffcd168d4"/>
+								<reportElement x="50" y="30" width="52" height="57" uuid="f960a9f7-abfe-4cd2-8e38-f1fffcd168d4"/>
 								<text><![CDATA[Date]]></text>
 							</staticText>
 						</jr:tableHeader>
@@ -482,7 +470,7 @@ Fitiavana-Tanindrazana- Fandrosoana
 								<textElement>
 									<font size="12"/>
 								</textElement>
-								<text><![CDATA[Désignation sommaire des opérations]]></text>
+								<text><![CDATA[Designation sommaire des operations]]></text>
 							</staticText>
 						</jr:tableHeader>
 						<jr:detailCell style="table 1_TD" height="90" rowSpan="1">
@@ -510,11 +498,11 @@ Fitiavana-Tanindrazana- Fandrosoana
 							</staticText>
 							<staticText>
 								<reportElement x="0" y="0" width="90" height="29" uuid="0c285152-d620-4549-ab8f-2afc11cdd1cf"/>
-								<text><![CDATA[1 Opération A]]></text>
+								<text><![CDATA[1 Operation A]]></text>
 							</staticText>
 							<staticText>
 								<reportElement x="35" y="29" width="55" height="58" uuid="2ee14729-d791-4474-9638-4ef939e7d2d6"/>
-								<text><![CDATA[Décharge]]></text>
+								<text><![CDATA[Decharge]]></text>
 							</staticText>
 						</jr:tableHeader>
 						<jr:detailCell style="table 1_TD" height="90" rowSpan="1">
@@ -541,7 +529,7 @@ Fitiavana-Tanindrazana- Fandrosoana
 								<textElement>
 									<font size="12"/>
 								</textElement>
-								<text><![CDATA[2 Opération A]]></text>
+								<text><![CDATA[2 Operation A]]></text>
 							</staticText>
 							<staticText>
 								<reportElement x="0" y="29" width="38" height="58" uuid="d0c61309-633b-400e-96ed-132782cd411f"/>
@@ -555,7 +543,7 @@ Fitiavana-Tanindrazana- Fandrosoana
 								<textElement>
 									<font size="10"/>
 								</textElement>
-								<text><![CDATA[Décharge]]></text>
+								<text><![CDATA[Decharge]]></text>
 							</staticText>
 						</jr:tableHeader>
 						<jr:detailCell style="table 1_TD" height="90" rowSpan="1">
@@ -582,7 +570,7 @@ Fitiavana-Tanindrazana- Fandrosoana
 								<textElement>
 									<font size="12"/>
 								</textElement>
-								<text><![CDATA[3 Opération A]]></text>
+								<text><![CDATA[3 Operation A]]></text>
 							</staticText>
 							<staticText>
 								<reportElement x="0" y="29" width="42" height="58" uuid="c3d4a777-1834-4644-824a-e5f8ba23473f"/>
@@ -596,7 +584,7 @@ Fitiavana-Tanindrazana- Fandrosoana
 								<textElement>
 									<font size="10"/>
 								</textElement>
-								<text><![CDATA[Décharge]]></text>
+								<text><![CDATA[Decharge]]></text>
 							</staticText>
 						</jr:tableHeader>
 						<jr:detailCell style="table 1_TD" height="90" rowSpan="1">
@@ -623,7 +611,7 @@ Fitiavana-Tanindrazana- Fandrosoana
 								<textElement>
 									<font size="12"/>
 								</textElement>
-								<text><![CDATA[4 Opération A]]></text>
+								<text><![CDATA[4 Operation A]]></text>
 							</staticText>
 							<staticText>
 								<reportElement x="0" y="29" width="41" height="58" uuid="10b8a048-3736-4c34-82ce-9a0e5616ebd9"/>
@@ -637,7 +625,7 @@ Fitiavana-Tanindrazana- Fandrosoana
 								<textElement>
 									<font size="10"/>
 								</textElement>
-								<text><![CDATA[Décharge]]></text>
+								<text><![CDATA[Decharge]]></text>
 							</staticText>
 						</jr:tableHeader>
 						<jr:detailCell style="table 1_TD" height="90" rowSpan="1">
@@ -663,7 +651,7 @@ Fitiavana-Tanindrazana- Fandrosoana
 		<band height="200">
 			<componentElement>
 				<reportElement key="table 2" style="table 2" x="15" y="43" width="524" height="143" uuid="707a3eb4-0bf5-480b-aece-f3c9f697923e"/>
-				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" whenNoDataType="Blank">
 					<datasetRun subDataset="Table Dataset 3" uuid="839d67fe-e151-4fca-b00b-3b979726a58d">
 						<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.JREmptyDataSource(1)]]></dataSourceExpression>
 					</datasetRun>
@@ -674,7 +662,7 @@ Fitiavana-Tanindrazana- Fandrosoana
 								<textElement>
 									<font size="12"/>
 								</textElement>
-								<text><![CDATA[N° DE LA NOMENCLATURE]]></text>
+								<text><![CDATA[No DE LA NOMENCLATURE]]></text>
 							</staticText>
 						</jr:columnHeader>
 						<jr:columnFooter style="table 2_CH" height="30" rowSpan="1"/>
@@ -757,7 +745,7 @@ Fitiavana-Tanindrazana- Fandrosoana
 		</band>
 	</detail>
 	<summary>
-		<band height="153" splitType="Stretch">
+		<band height="202" splitType="Stretch">
 			<staticText>
 				<reportElement x="0" y="29" width="73" height="25" uuid="cc274c5e-e476-41ef-bfb0-6ffd2c2aea86"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
@@ -770,14 +758,14 @@ Fitiavana-Tanindrazana- Fandrosoana
 				<textElement verticalAlignment="Middle">
 					<font size="12"/>
 				</textElement>
-				<text><![CDATA[Arrêté à la somme de]]></text>
+				<text><![CDATA[Arrete a la somme de]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="0" y="54" width="107" height="20" uuid="5371fc8f-0e9b-4e70-87b4-34ff519789f5"/>
 				<textElement>
 					<font size="12"/>
 				</textElement>
-				<text><![CDATA[Et à la somme de]]></text>
+				<text><![CDATA[Et a la somme de]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="303" y="74" width="27" height="20" uuid="149d3017-3459-4c06-9e44-e6504fefe140"/>
@@ -798,7 +786,7 @@ Fitiavana-Tanindrazana- Fandrosoana
 				<textElement verticalAlignment="Middle">
 					<font size="12"/>
 				</textElement>
-				<text><![CDATA[en ce qui concerne les Entrées]]></text>
+				<text><![CDATA[en ce qui concerne les Entrees]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="73" y="29" width="100" height="25" uuid="a8508054-3026-42be-b315-3d0cc013f3a2"/>
@@ -826,7 +814,7 @@ Fitiavana-Tanindrazana- Fandrosoana
 				<textElement>
 					<font size="12"/>
 				</textElement>
-				<text><![CDATA[Valeur restant au dernier jour de l'année]]></text>
+				<text><![CDATA[Valeur restant au dernier jour de l'annee]]></text>
 			</staticText>
 			<textField>
 				<reportElement x="130" y="0" width="100" height="29" uuid="53d8cd51-b28b-4492-92e0-c39883ba0855"/>
@@ -849,10 +837,6 @@ Fitiavana-Tanindrazana- Fandrosoana
 				</textElement>
 				<textFieldExpression><![CDATA[$P{somme2}]]></textFieldExpression>
 			</textField>
-			<textField>
-				<reportElement x="330" y="74" width="160" height="20" uuid="09d713c1-1071-42b7-89d4-4259fc9f0599"/>
-				<textFieldExpression><![CDATA[$P{date1}]]></textFieldExpression>
-			</textField>
 			<staticText>
 				<reportElement x="183" y="76" width="7" height="20" uuid="bbdf0be3-21a3-4591-83fe-896ce9275d79"/>
 				<textElement>
@@ -868,26 +852,26 @@ Fitiavana-Tanindrazana- Fandrosoana
 				<text><![CDATA[]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="330" y="76" width="160" height="20" uuid="dc6df17f-b77d-49da-bf4c-ff26e059182e"/>
-				<textElement>
-					<font size="12"/>
-				</textElement>
-				<text><![CDATA[]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="31" y="110" width="98" height="20" uuid="1ddb464e-8d7f-4301-bfc0-3942d6be57a1"/>
+				<reportElement x="70" y="110" width="59" height="20" uuid="1ddb464e-8d7f-4301-bfc0-3942d6be57a1"/>
 				<textElement>
 					<font size="12"/>
 				</textElement>
 				<text><![CDATA[LE GAC]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="226" y="110" width="288" height="20" uuid="680a36a1-7093-43cb-8640-dd0e314e8121"/>
+				<reportElement x="330" y="110" width="171" height="20" uuid="680a36a1-7093-43cb-8640-dd0e314e8121"/>
 				<textElement>
 					<font size="12"/>
 				</textElement>
 				<text><![CDATA[LE DEPOSITAIRE COMTABLE]]></text>
 			</staticText>
+			<textField pattern="dd MMM yyyy">
+				<reportElement x="330" y="71" width="100" height="23" uuid="3544ae94-6116-4e13-99c3-9ff2de18cd36"/>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
 		</band>
 	</summary>
 </jasperReport>

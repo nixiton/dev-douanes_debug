@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="GrandLivre" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="7ca0b6f0-1870-49e5-aee0-021b5df8efea">
+<!-- Created with Jaspersoft Studio version 6.5.1.final using JasperReports Library version 6.5.1  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="GrandLivre" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="7ca0b6f0-1870-49e5-aee0-021b5df8efea">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="502"/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
 	<style name="table">
 		<box>
 			<pen lineWidth="1.0" lineColor="#000000"/>
@@ -82,9 +84,9 @@
 	<parameter name="subd" class="java.lang.String"/>
 	<parameter name="indic" class="java.lang.String"/>
 	<parameter name="indication" class="java.lang.String"/>
-	<parameter name="nbFeuillets" class="java.lang.Float"/>
+	<parameter name="nbFeuillets" class="java.lang.String"/>
 	<parameter name="lieu" class="java.lang.String"/>
-	<parameter name="date" class="java.util.Date"/>
+	<parameter name="date" class="java.util.String"/>
 	<parameter name="ans" class="java.lang.String"/>
 	<parameter name="materiel" class="java.lang.String"/>
 	<background>
@@ -118,7 +120,7 @@ Fitiavana-Tanindrazana- Fandrosoana
                                   -----------------------------]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="365" y="0" width="190" height="272" uuid="ff32e046-ead7-456c-8b02-744c149d444d"/>
+				<reportElement x="365" y="0" width="190" height="272" backcolor="#FFFFFF" uuid="ff32e046-ead7-456c-8b02-744c149d444d"/>
 				<textElement textAlignment="Justified">
 					<font size="12"/>
 				</textElement>
@@ -264,7 +266,7 @@ DES MOUVEMENTS D’ENTREE ET DE SORTIE
 		</band>
 	</pageHeader>
 	<columnHeader>
-		<band height="27" splitType="Stretch">
+		<band height="41" splitType="Stretch">
 			<staticText>
 				<reportElement x="10" y="0" width="122" height="27" uuid="e5b73cdf-d7c5-4cc0-809b-3f57a383e224"/>
 				<textElement>
@@ -314,19 +316,12 @@ DES MOUVEMENTS D’ENTREE ET DE SORTIE
 				</textElement>
 				<text><![CDATA[le]]></text>
 			</staticText>
-			<staticText>
-				<reportElement x="389" y="2" width="153" height="25" uuid="855363cf-53f4-4122-870d-97bfe371f756"/>
+			<textField pattern="dd MMMM yyyy">
+				<reportElement x="400" y="2" width="131" height="30" uuid="f0b909cc-a939-4139-aeda-2d064049219d"/>
 				<textElement>
 					<font size="12"/>
 				</textElement>
-				<text><![CDATA[]]></text>
-			</staticText>
-			<textField>
-				<reportElement x="389" y="2" width="134" height="25" uuid="67f7e5fb-130e-460f-b50d-152f285b464b"/>
-				<textElement textAlignment="Center">
-					<font size="12"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$P{date}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
 			</textField>
 		</band>
 	</columnHeader>
