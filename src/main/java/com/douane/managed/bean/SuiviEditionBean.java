@@ -813,9 +813,9 @@ public class SuiviEditionBean {
 						row[1] = op;
 						//origine
 						row[2] = d.getOrigine();
-						//nombre par desingation entree
+						//nombre par desingation entree annee X
 						row[3] = des[1];
-						//total entree
+						//total entree annee X
 						row[4] = d.getPu()*(Long)row[3];
 						//nombre par desingation sortie
 						row[5] = 0;
@@ -829,8 +829,9 @@ public class SuiviEditionBean {
 						
 						//restant X
 						row[9] = (Long)row[3] + (Long)row[7];
-						//valeur restant X-X
-						row[10] = (Float)row[8] + d.getPu()*(Long)row[9];
+						//valeur restant X
+						//row[10] = (Float)row[8] + d.getPu()*(Long)row[9];
+						row[10] = d.getPu()*(Long)row[9];
 						
 						listobjectForLivre.add(row);
 						row = new Object[11];
@@ -961,8 +962,76 @@ public class SuiviEditionBean {
 			System.out.println(String.valueOf(o[0]));
 			System.out.println(String.valueOf(o[1]));
 		}*/
-		listobjectForInvetaire= r;
+		List<Object[]> resultstable = new ArrayList<Object[]>();
+		
+			for(Object[] m: r) { 
+				Object[] row = new Object[12];
+				Materiel mat = (Materiel) m[1];
+				OpSortie o = (OpSortie) m[0];
+				//Nomenclature
+				row[0] = mat.getDesign().getNomenMat().getNomenclature();
+				//Numéros du folio du  grand  livre
+				row[1] = mat.getIdMateriel();
+				//Désignation du matériel
+				row[2] = mat.getDesign().getTypematerieladd().getDesignation() + " - "
+						+ mat.getDesign().getRenseignement() + " - "
+						+ mat.getDesign().getMarque().getDesignation() + " - "
+						+ mat.getNumSerie()	
+						;
+				//Espèce des unités
+				row[3] = mat.getDesign().getEspeceUnite();
+				//Prix de l’unité
+				row[4] = mat.getDesign().getPu();
+				//Existantes au 1er Janvier X
+				row[5] = 0;
+				//Entrées pendant l’année X
+				if(mat.getMyoperationEntree() == null || mat.getMyoperationEntree().getDate().compareTo(sdate) <0 ) {
+					row[6] = "Materiel Existant";
+					row[5] =1;
+				}
+				else {
+					row[6] = mat.getMyoperationEntree().getNumoperation();
+				}
+				
+				//Sortie pendant l’année X
+				if(o ==null) {
+					row[7] = "Aucune sortie";
+				}
+				else {
+					row[7] = o.getNumoperation();
+				}
+				//Reste au 31 déc. X
+				row[8] = "reste";
+				//Décompte
+				row[9] = "decompte";
+				row[10] = mat.getDesign().getTypematerieladd();
+				row[11] = mat.getDesign();
+				resultstable.add(row);
+			}
+			//group by designation
+			Map<Designation, List<Object[]>> map = new HashMap<Designation, List<Object[]>>();
+
+            for (Object[] o : resultstable) {
+            	Designation key  = (Designation)o[11];
+                if(map.containsKey(key)){
+                    List<Object[]> list = map.get(key);
+                    list.add(o);
+
+                }else{
+                    List<Object[]> list = new ArrayList<Object[]>();
+                    list.add(o);
+                    map.put(key, list);
+                }
+
+            }
+            for (Map.Entry<Designation, List<Object[]>> entry : map.entrySet()) {
+                System.out.println(entry.getKey().getIdDesignation() + ":" + entry.getValue().size());
+            }
+			
+			
+			listobjectForInvetaire= resultstable;
 		}
+		
 		return listobjectForInvetaire;	
 	}
 

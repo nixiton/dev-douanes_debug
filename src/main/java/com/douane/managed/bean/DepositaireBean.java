@@ -1760,11 +1760,11 @@ public class DepositaireBean {
 			setNomenclatureAutom(null);
 			setCodificationAutom(null);
 		}
-		marqueAutom = getMaterielSeclected().getDesign().getMarque();
-		setReferenceAutom(getMaterielSeclected().getReference());
-		setNumSerie(getMaterielSeclected().getNumSerie());
-		setNomenclatureAutom(getMaterielSeclected().getDesign().getNomenMat().getDesignation());
-		setCodificationAutom(getMaterielSeclected().getCode());
+		//marqueAutom = getMaterielSeclected().getDesign().getMarque();
+		//setReferenceAutom(getMaterielSeclected().getReference());
+		//setNumSerie(getMaterielSeclected().getNumSerie());
+		//setNomenclatureAutom(getMaterielSeclected().getDesign().getNomenMat().getDesignation());
+		//setCodificationAutom(getMaterielSeclected().getCode());
 	}
 
 	public List<Referentiel> getListDestinaiton() {

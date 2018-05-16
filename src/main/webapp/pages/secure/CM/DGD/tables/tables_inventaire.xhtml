@@ -36,7 +36,7 @@
 			paginator="true" style="margin-bottom:20px"
 			widgetVar="InventaireTable11"
 			id="inventaireTable11"
-			sortBy="#{m[1].design.nomenMat.nomenclature}"
+			sortBy="#{m[0]}"
 			>
 			
 			<f:facet name="header">
@@ -58,8 +58,8 @@
 			<p:columnGroup type="header">
 			<p:row>
 				<p:column rowspan="2" headerText="Nomenclature" sortBy="#{m[1].design.nomenMat.nomenclature}" style=" text-align: center; word-wrap: break-word;"/>
-				<p:column rowspan="2" headerText="Numéros du folio du  grand  livre" style=" text-align: center; word-wrap: break-word;"/>
-                <p:column rowspan="2" headerText="Désignation du matériel" style=" text-align: center; word-wrap: break-word;"/>
+				<p:column rowspan="2" headerText="Numéros du folio du  grand  livre"  style=" text-align: center; word-wrap: break-word;"/>
+                <p:column rowspan="2" headerText="Désignation du matériel" sortBy="#{m[10]}" style=" text-align: center; word-wrap: break-word;"/>
                 <p:column rowspan="2" headerText="Espèce des unités" style=" text-align: center; word-wrap: break-word;"></p:column>
                 <p:column rowspan="2" headerText="Prix de l’unité" style=" text-align: center; word-wrap: break-word;"></p:column>
                 <p:column colspan="4" headerText="Quantités" style=" text-align: center; word-wrap: break-word;"></p:column>	
@@ -74,36 +74,35 @@
 			</p:row>
 				
 			</p:columnGroup>
-			<p:column headerText="Nomenclature" sortBy="#{m[1].design.nomenMat.nomenclature}" style=" text-align: center; word-wrap: break-word;">
-				<h:outputText value="#{m[1].design.nomenMat.nomenclature}" />
+			<p:column headerText="Nomenclature" sortBy="#{m[0]}" style=" text-align: center; word-wrap: break-word;">
+				<h:outputText value="#{m[0]}" />
 			</p:column>
 			<p:column headerText="Numéros du folio du  grand  livre" style=" text-align: center; word-wrap: break-word;">
-				<h:outputText value="#{m[1].idMateriel}" />
+				<h:outputText value="#{m[1]}" />
 			</p:column>
-			<p:column headerText="Désignation du matériel" style=" text-align: center; word-wrap: break-word;">
-				<h:outputText value="#{m[1].design.typematerieladd.designation} 
-				- #{m[1].design.marque.designation} - #{m[1].design.renseignement} - #{m[1].numSerie}"  />
+			<p:column headerText="Désignation du matériel" sortBy="#{m[10]}" style=" text-align: center; word-wrap: break-word;">
+				<h:outputText value="#{m[2]}"  />
 			</p:column>
 			<p:column headerText="Espèce des unités" style=" text-align: center; word-wrap: break-word;">
-				<h:outputText value="#{m[1].design.especeUnite}" />
+				<h:outputText value="#{m[3]}" />
 			</p:column>
 			<p:column headerText="Prix de l’unité" style=" text-align: center; word-wrap: break-word;">
-				<h:outputText value="#{m[1].design.pu}" />
+				<h:outputText value="#{m[4]}" />
 			</p:column>
 			<p:column headerText="Existantes au 1er Janvier X" style=" text-align: center; word-wrap: break-word;">
-				<h:outputText value="1" />
+				<h:outputText value="#{m[5]}" />
 			</p:column>
 			<p:column headerText="Entrées pendant l’année X " style=" text-align: center; word-wrap: break-word;">
-				<h:outputText value="#{m[1].myoperationEntree.numoperation}" />
+				<h:outputText value="#{m[6]}" />
 			</p:column>
 			<p:column headerText="Sortie pendant l’année X " style=" text-align: center; word-wrap: break-word;">
-				<h:outputText value="#{m[0].numoperation}" />
+				<h:outputText value="#{m[7]}" />
 			</p:column>
 			<p:column headerText="Reste au 31 déc. X " style=" text-align: center; word-wrap: break-word;">
-				<h:outputText value="reste" />
+				<h:outputText value="#{m[8]}" />
 			</p:column>
 			<p:column headerText="Décompte" style=" text-align: center; word-wrap: break-word;">
-				<h:outputText value="decompte" />
+				<h:outputText value="#{m[9]}" />
 			</p:column>
 			<p:column headerText="Observation" style=" text-align: center; word-wrap: break-word;">
 				<h:outputText value="à remplir by user" />
