@@ -183,6 +183,7 @@ public class JasperTableExampleBean implements Serializable{
 		ServletOutputStream tmp = response.getOutputStream();
 		URL url =  this.getClass().getResource("../jasperReport/OrdreEntre.jasper");
 		//System.out.println("designation  = "+op.getMat().getOrigine());
+		System.out.println("url antsiika :" + url.getPath());
         try {
             
             /* Map to hold Jasper report Parameters */
