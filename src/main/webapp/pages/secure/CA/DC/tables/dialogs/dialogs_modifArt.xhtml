@@ -8,12 +8,12 @@
  <p:dialog id="modifArt" widgetVar="modifArt"  closable="false"
     		  header   = "Modification d'une article Existant" 
               position = "center"
-              modal    = "true">
+              modal    = "true"  showEffect="explode" hideEffect="explode">
 <h:body>
 <p:growl for="editartexerror" redisplay="false" id="messagesgrowlmodify" showDetail="true" autoUpdate="true" />
      
 <div class="col-md-4"></div>
-<div class="box dark col-md-4">
+<div class="box dark col-md-12">
 
     <div class="body">
 
@@ -24,17 +24,23 @@
             <p:messages id="messages" />
 
             <div class="form-group">
-            		<label for="text1" class="control-label col-lg-4">Id
-                    </label>
-
-                    <div class="col-lg-6">
-                    <h:outputText value="#{depositaireBean.curentArticle.idArticle}" />
-                    <hr></hr>
-                    </div>            
-                	
-                    <label for="text1" class="control-label col-lg-4">Codification des articles
-                    </label>
-
+           		<div class="row">
+            		<div class="col-lg-5">
+            			<label for="text1" class="control-label">Id
+                    	</label>
+            			
+            		</div>
+           		 	<div class="col-lg-6">
+                    	<h:outputText value="#{depositaireBean.curentArticle.idArticle}" />
+                   		 
+                    </div> 
+            	</div>
+            	<hr></hr>           
+                <div class="row">
+            		<div class="col-lg-5">
+                 		<label for="text1" class="control-label">Codification des articles
+                		 </label>
+					</div>
                     <div class="col-lg-6">
 
                         <p:selectOneMenu id="zone"  styleClass="form-control top" converter="#{refConverter}" value="#{depositaireBean.curentArticle.codeArticle}">
@@ -42,13 +48,17 @@
                             <f:selectItems value="#{siseBean.listCodeArticle}" var="type" itemLabel="#{type.designation}"/>
                             
                         </p:selectOneMenu>
-                    <hr></hr>
+                   		
 
                     </div>
-
-                    <label for="text1" class="control-label col-lg-4">Marque
-                    </label>
-
+                 </div>
+				 <hr></hr>
+				 <div class="row">
+            		<div class="col-lg-5">
+				 
+	                    <label for="text1" class="control-label ">Marque
+	                    </label>
+					</div>
                     <div class="col-lg-6">
 
                     <p:selectOneMenu value="#{depositaireBean.curentArticle.marqueArticle}" converter="#{refConverter}" panelStyle="width:180px"  style="width:160px"
@@ -61,73 +71,71 @@
 
                     </p:selectOneMenu>
 
-                    <hr></hr>
 
                     </div>
+				</div>
+                 <hr></hr>   
+				 <div class="row">
+            		<div class="col-lg-5">
 
-                    
-
-
-
-                    <label for="text1" class="control-label col-lg-4">Caractéristiques
-                    </label>
-
+						<label for="text1" class="control-label ">Caractéristiques
+                    	</label>
+					</div>
                     <div class="col-lg-6">
 						
-						<p:inputTextarea value="#{depositaireBean.curentArticle.caracteristiqueArticle}" rows="5" cols="20" counter="display" maxlength="250" counterTemplate="{0} restants." autoResize="false" />
+						<p:inputTextarea value="#{depositaireBean.curentArticle.caracteristiqueArticle}" rows="5" cols="30" counter="display" maxlength="250" counterTemplate="{0} restants" autoResize="false" />
     						<h:outputText id="display" />
-                        <hr></hr>
-
+                       
                     </div>
-
-                     <label for="text2" class="control-label col-lg-4">Nombre
-                </label>
-
-                <div class="col-lg-6">
-
-                    <p:inputText required="true"
-                        value="#{depositaireBean.curentArticle.nombre}"
-                        requiredMessage=""
-                        placeholder="Nombre" styleClass="form-control top"></p:inputText>
-
+				</div>
+				<hr />
+			 	<div class="row">
+            		<div class="col-lg-5">
+	                     <label for="text2" class="control-label ">Nombre
+	                	</label>
+					</div>
+	                <div class="col-lg-6">
+	
+	                    <p:inputText required="true"
+	                        value="#{depositaireBean.curentArticle.nombre}"
+	                        requiredMessage=""
+	                        placeholder="Nombre" styleClass="form-control top"></p:inputText>
+	
+	                </div>
                 </div>
-                
-                <label for="text2" class="control-label col-lg-4">Prix Unitaire
-                </label>
-
-                <div class="col-lg-6">
-
-                    <p:inputText required="true"
-                        value="#{depositaireBean.curentArticle.prix}"
-                        requiredMessage=""
-                        placeholder="Prix Unitaire" styleClass="form-control top"></p:inputText>
-
+                <hr/>
+                <div class="row">
+            		<div class="col-lg-5">
+		                <label for="text2" class="control-label ">Prix Unitaire
+		                </label>
+					</div>
+	                <div class="col-lg-6">
+	
+	                    <p:inputText required="true"
+	                        value="#{depositaireBean.curentArticle.prix}"
+	                        requiredMessage=""
+	                        placeholder="Prix Unitaire" styleClass="form-control top"></p:inputText>
+	
+	                </div>
                 </div>
+				<hr></hr>
                     
-
-
-
-                    <div class="col-lg-2"></div>
+				<div class="col-lg-2"></div>
 
             </div>
+			<div class="form-group">
+                <label for="text1" class="control-label col-lg-0"></label>
 
-
-
-            
-            
-            <div class="form-group">
-                <label for="text1" class="control-label col-lg-4"></label>
-
-                <div class="col-lg-4">
+                <div class="col-lg-6">
                     <h:commandButton id="btnSignId" action="#{depositaireBean.updateArticleEx(depositaireBean.curentArticle)}" value="Mettre à jour"
                         class="btn btn-lg btn-primary btn-block"/>
                 </div>
                 
 
-                <div class="col-lg-4">
-                <h:commandButton action="#{depositaireBean.exit()}" value="Cancel" 
-            		class="btn btn-lg btn-primary btn-block">      
-            </h:commandButton>
+                <div class="col-lg-6">
+	                <h:commandButton action="#{depositaireBean.exit()}" value="Cancel" 
+	            		class="btn btn-lg btn-primary btn-block">      
+	            	</h:commandButton>
                 </div>
 
             </div>
