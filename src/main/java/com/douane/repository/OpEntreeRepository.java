@@ -22,6 +22,7 @@ public interface OpEntreeRepository extends CrudRepository<OpEntree, Long>{
 	public List<OpEntree> findByMat(Materiel m);
 	public List<OpEntree> findByMatAndState(Materiel m, EtatOperation e);
 	public List<OpEntree> findByStateAndDirection(EtatOperation  e, Direction d);
+	public List<OpEntree> findByDirectionOrderByIdDesc(Direction direction);
 	
 }
 

@@ -363,6 +363,10 @@ public class UserMetier implements IUserMetier {
 			System.out.println("DETENU");
 			throw new Exception("Materiel deja detenu");
 		}
+		if(m.getDirec()==null) {
+			System.out.println("NON VALIDE");
+			throw new Exception("Materiel n'est plus valide");
+		}
 		m.setDirec(null); //Change: all materiel with no direction are sortie
 		matrepos.save(m);
 
@@ -676,13 +680,13 @@ public class UserMetier implements IUserMetier {
 	@Override
 	public List<OpEntree> getListOpEntreeByDirection(Direction direction) {
 		// TODO Auto-generated method stub
-		return opentreerepos.findByDirectionOrderByDateDesc(direction);
+		return opentreerepos.findByDirectionOrderByIdDesc(direction);
 	}
 
 	@Override
 	public List<OpSortie> getListOpSortieByDirection(Direction direction) {
 		// TODO Auto-generated method stub
-		return opsortierepos.findByDirectionOrderByDateDesc(direction);
+		return opsortierepos.findByDirectionOrderByIdDesc(direction);
 	}
 
 	@Override

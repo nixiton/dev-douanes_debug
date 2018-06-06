@@ -109,10 +109,10 @@
                     <tr>
                     	<td><strong>QRCODE</strong></td>
                         <td>
-            				<p:barcode value="${depositaireBean.curentMaterielNouv.direc.designation}/
-            				${depositaireBean.curentMaterielNouv.typematerieladd.designation  } /
-            				NUM1 /
-            				${depositaireBean.curentMaterielNouv.anneeAcquisition}/" type="qr"/>
+            				<p:barcode value="${depositaireBean.curentMaterielNouv.direc.designation}-
+            				${depositaireBean.curentMaterielNouv.design.typematerieladd.designation  } -
+            				${depositaireBean.curentMaterielNouv.numSerie  } -
+            				${depositaireBean.curentMaterielNouv.design.anneeAcquisition}" type="qr"/>
            				</td>
                     </tr>
                          
