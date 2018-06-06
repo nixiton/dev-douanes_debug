@@ -8,62 +8,77 @@
     <ui:param name="title" value="Error page" />
 </ui:include>
 
+
 <h:body>
 
-    <div id="top">
+<nav class="navbar navbar-light navbar-static-top" style="background-color: #145C8B; "
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:c="http://java.sun.com/jsp/jstl/core">
+    <div class="container-fluid">
 
-          <header class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse"
-        data-target=".navbar-ex1-collapse">
-        <span class="sr-only">Toggle navigation</span> <span
-          class="icon-bar"></span> <span class="icon-bar"></span> <span
-          class="icon-bar"></span>
-      </button>
+	   
+		<div style=" display:inline-block !important; ">
+			<h:link>
+		
+		        	<h:graphicImage height="50px"
+		          value="/pages/unsecure/assets/images/logo.jpeg" />
+		
+	      	</h:link>
+		</div>
+	    <div class="topnav" style=" margin-left:85% !important; display:inline-block !important;">
+	
+				<div class="btn-group" style=" margin-top:7% !important; ">
+						<h:form>
+							<div>
+							<h:commandLink action="#{loginMgmtBean.logout}"
+								data-toggle="tooltip" data-original-title="Logout"
+								data-placement="bottom" >
+								<span class="btn btn-metis-1" style="color:white; font-size-adjust:0.6"><i class="fa fa-power-off"></i> Sortir </span>
+							</h:commandLink>
+							</div>
+			           		
+						</h:form>
+						
+					
+				</div>
+				
+		      
+	
+		</div>
+	
+	  		
+		    <!--  button type="button" class="navbar-toggle" data-toggle="collapse"
+				data-target=".navbar-ex1-collapse" >
+				<span class="sr-only">Toggle navigation</span> <span
+					class="icon-bar" style="background-color:#f8f7a3"></span> <span class="icon-bar" style="background-color:#f8f7a3"></span> <span
+					class="icon-bar" style="background-color:#f8f7a3"></span>
+			</button> -->
+			
+	
 
-      <h:link>
-
-        <h:graphicImage height="50px"
-          value="/pages/unsecure/assets/images/logo.jpeg" />
-
-      </h:link>
-
-    </header>
-
-    <div class="topnav">
-
-      <div class="btn-group">
-
-        <!-- h:link data-toggle="modal" data-original-title="Help"
-          data-placement="bottom" class="btn btn-default btn-sm"
-          outcome="#helpModal">
-          <i class="fa fa-question"></i>
-        </h:link-->
-      </div>
-
-    </div>
-
-    <div class="collapse navbar-collapse navbar-ex1-collapse">
+    <!-->div class="collapse navbar-collapse navbar-ex1-collapse">
 
       <ul class="nav navbar-nav">
         <li>
             <a href="/pages/secure/choice.xhtml">Réessayer</a>
         </li>
       </ul>
-    </div>
-
-
-    <ui:include src="/pages/unsecure/components/top.xhtml">
-                <ui:param name="title" value="ERROR PAGE" />
-            </ui:include>
+    </div -->
             
 
-        </div>
-
+    </div>
+	<ui:include src="/pages/unsecure/components/top_error.xhtml">
+    	<ui:param name="title" value="ERROR PAGE" />
+	</ui:include>
+</nav>
 
 
     <h4>Error message</h4>
     #{requestScope['error-message']}
-
+	
     <h4>Stack trace</h4>
     <ul>
         <ui:repeat value="#{requestScope['error-stack']}" var="stack">

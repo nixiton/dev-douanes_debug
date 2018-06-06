@@ -997,4 +997,23 @@
   NAME="rules:#pages#secure#CM#DGD#tables#dialogs#dialogs_Journal.xhtml"
   PATH="/pages/secure/CM/DGD/tables/dialogs/dialogs_Journal.xhtml"
   SHAPE="816,4289,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:error.xhtml" PATH="error.xhtml"
+  SHAPE="304,209,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:error.xhtml:0" NAME="item" PATH="error.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="loggedout:#{loginMgmtBean.logout}:#pages#unsecure#login.xhtml"
+    NAME="output" PATH="/pages/unsecure/login.xhtml"
+    TARGET="rules:#pages#unsecure#login.xhtml"
+    TITLE="#{loginMgmtBean.logout}:loggedout" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:*" PATH="*" SHAPE="32,401,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:*:0" NAME="item" PATH="*" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="loggedout:#{loginMgmtBean.logout}:#pages#unsecure#login.xhtml"
+    NAME="output" PATH="/pages/unsecure/login.xhtml"
+    TARGET="rules:#pages#unsecure#login.xhtml"
+    TITLE="#{loginMgmtBean.logout}:loggedout" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
 </PROCESS>

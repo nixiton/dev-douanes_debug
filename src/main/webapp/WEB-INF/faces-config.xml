@@ -1136,8 +1136,30 @@
 
 	</navigation-rule>
 
-
+	<!--  ++++++++++++++++++++++++++++ From error page ++++++++++++++++++++++++++++++++++++  -->
+	<navigation-rule>
+		<from-view-id>error.xhtml</from-view-id>
+		<!-- navigation-case for method login() -->
+		<navigation-case>
+			<from-action>#{loginMgmtBean.logout}</from-action>
+			<from-outcome>loggedout</from-outcome>
+			<to-view-id>/pages/unsecure/login.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
 		
+	</navigation-rule>
+		
+	<navigation-rule>
+		<from-view-id>*</from-view-id>
+		<!-- navigation-case for method login() -->
+		<navigation-case>
+			<from-action>#{loginMgmtBean.logout}</from-action>
+			<from-outcome>loggedout</from-outcome>
+			<to-view-id>/pages/unsecure/login.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		
+	</navigation-rule>	
 	
 	<!-- JSF and Spring are integrated -->
 	<application>
