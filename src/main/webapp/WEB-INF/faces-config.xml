@@ -931,8 +931,6 @@
 		</navigation-case>
 
 
-
-
 		<navigation-case>
 			<from-action>#{depositaireBean.addMaterielExistant}</from-action>
 			<from-outcome>success</from-outcome>
