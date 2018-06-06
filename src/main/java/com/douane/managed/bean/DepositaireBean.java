@@ -2916,8 +2916,11 @@ public class DepositaireBean {
 		// a.setFournisseur(getFournisseur());
 		// a.setPrix(getPrix());
 		try {
-		usermetierimpl.reqSortirArticle(this.getArticle(), agent, getAgentDest(), getNombreArticleToDep());
-		return SUCCESS;
+			setAgentDest(null);
+			setArticle(null);
+			setNombreArticleToDep((long) 0);
+			usermetierimpl.reqSortirArticle(this.getArticle(), agent, getAgentDest(), getNombreArticleToDep());
+			return SUCCESS;
 		}catch(Exception e) {
 		FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Erreur pour sortie de l'article",
 				"La requête contient des erreurs");
