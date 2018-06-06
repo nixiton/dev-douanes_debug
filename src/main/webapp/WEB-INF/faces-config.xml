@@ -597,199 +597,337 @@
 		
 		
 		<!-- ++++++++++++++++++++++++++++++Success creation saisie ref++++++++++++++++++++++++++++++++++++++ -->		
+		<!-- ++++++++++++++++++++++++++++++Success creation saisie ref++++++++++++++++++++++++++++++++++++++ -->		
 		<navigation-case>
 			<from-action>#{siseBean.addNomenclature}</from-action>
 			<from-outcome>success</from-outcome>
-			<to-view-id>/pages/secure/CM/SISE/saisieRef.xhtml#nom</to-view-id>
-			<redirect />
+			<to-view-id>/pages/secure/CM/SISE/saisieRef.xhtml</to-view-id>
+			<redirect>
+				<view-param>
+                    <name>view</name>
+                    <value>nom</value>
+                </view-param>
+			</redirect>
 		</navigation-case>	
 		
 		<navigation-case>
 			<from-action>#{siseBean.addBureau}</from-action>
 			<from-outcome>success</from-outcome>
-			<to-view-id>/pages/secure/CM/SISE/saisieRef.xhtml#bureau</to-view-id>
-			<redirect />
+			<to-view-id>/pages/secure/CM/SISE/saisieRef.xhtml</to-view-id>
+			<redirect>
+				<view-param>
+                    <name>view</name>
+                    <value>bureau</value>
+                </view-param>
+			</redirect>
 		</navigation-case>
 
 		<navigation-case>
 			<from-action>#{siseBean.addBureauCA}</from-action>
 			<from-outcome>success</from-outcome>
-			<to-view-id>/pages/secure/CA/SISE/saisieRef.xhtml#bureau</to-view-id>
-			<redirect />
+			<to-view-id>/pages/secure/CA/SISE/saisieRef.xhtml</to-view-id>
+			<redirect>
+				<view-param>
+                    <name>view</name>
+                    <value>bureau</value>
+                </view-param>
+			</redirect>
 		</navigation-case>
 		
 		<navigation-case>
 			<from-action>#{siseBean.addAdresse}</from-action>
 			<from-outcome>success</from-outcome>
-			<to-view-id>/pages/secure/CM/SISE/saisieRef.xhtml#adr</to-view-id>
-			<redirect />
+			<to-view-id>/pages/secure/CM/SISE/saisieRef.xhtml</to-view-id>
+			<redirect>
+				<view-param>
+                    <name>view</name>
+                    <value>adr</value>
+                </view-param>
+			</redirect>
 		</navigation-case>
 
 		<navigation-case>
 			<from-action>#{siseBean.addAdresseCA}</from-action>
 			<from-outcome>success</from-outcome>
-			<to-view-id>/pages/secure/CA/SISE/saisieRef.xhtml#adr</to-view-id>
-			<redirect />
+			<to-view-id>/pages/secure/CA/SISE/saisieRef.xhtml</to-view-id>
+			<redirect>
+				<view-param>
+                    <name>view</name>
+                    <value>adr</value>
+                </view-param>
+			</redirect>
 		</navigation-case>
 
 
 		<navigation-case>
 			<from-action>#{userMB.addAgent}</from-action>
 			<from-outcome>success</from-outcome>
-			<to-view-id>/pages/secure/CM/SISE/saisieRef.xhtml#user</to-view-id>
-			<redirect />
+			<to-view-id>/pages/secure/CM/SISE/saisieRef.xhtml</to-view-id>
+			<redirect>
+				<view-param>
+                    <name>view</name>
+                    <value>user</value>
+                </view-param>
+			</redirect>
 		</navigation-case>
 
 		<navigation-case>
 			<from-action>#{userMB.addAgentCA}</from-action>
 			<from-outcome>success</from-outcome>
-			<to-view-id>/pages/secure/CA/SISE/saisieRef.xhtml#user</to-view-id>
-			<redirect />
+			<to-view-id>/pages/secure/CA/SISE/saisieRef.xhtml</to-view-id>
+			<redirect>
+				<view-param>
+                    <name>view</name>
+                    <value>user</value>
+                </view-param>
+			</redirect>
 		</navigation-case>
 		
 		
 		<navigation-case>
 			<from-action>#{siseBean.addDirection}</from-action>
 			<from-outcome>success</from-outcome>
-			<to-view-id>/pages/secure/CM/SISE/saisieRef.xhtml#dir</to-view-id>
-			<redirect />
+			<to-view-id>/pages/secure/CM/SISE/saisieRef.xhtml</to-view-id>
+			<redirect>
+				<view-param>
+                    <name>view</name>
+                    <value>dir</value>
+                </view-param>
+			</redirect>
 		</navigation-case>
 		
 		<navigation-case>
 			<from-action>#{siseBean.addEtatMateriel}</from-action>
 			<from-outcome>success</from-outcome>
-			<to-view-id>/pages/secure/CM/SISE/saisieRef.xhtml#etat</to-view-id>
-			<redirect />
+			<to-view-id>/pages/secure/CM/SISE/saisieRef.xhtml</to-view-id>
+			<redirect>
+				<view-param>
+                    <name>view</name>
+                    <value>etat</value>
+                </view-param>
+			</redirect>
 		</navigation-case>
 		
 		<navigation-case>
 			<from-action>#{siseBean.addFinancement}</from-action>
 			<from-outcome>success</from-outcome>
-			<to-view-id>/pages/secure/CM/SISE/saisieRef.xhtml#fin</to-view-id>
-			<redirect />
+			<to-view-id>/pages/secure/CM/SISE/saisieRef.xhtml</to-view-id>
+			<redirect>
+				<view-param>
+                    <name>view</name>
+                    <value>fin</value>
+                </view-param>
+			</redirect>
 		</navigation-case>
 
 		<navigation-case>
 			<from-action>#{siseBean.addFinancementCA}</from-action>
 			<from-outcome>success</from-outcome>
-			<to-view-id>/pages/secure/CA/SISE/saisieRef.xhtml#fin</to-view-id>
-			<redirect />
+			<to-view-id>/pages/secure/CA/SISE/saisieRef.xhtml</to-view-id>
+			<redirect>
+				<view-param>
+                    <name>view</name>
+                    <value>fin</value>
+                </view-param>
+			</redirect>
 		</navigation-case>
 		
 		<navigation-case>
 			<from-action>#{siseBean.addFournisseur}</from-action>
 			<from-outcome>success</from-outcome>
-			<to-view-id>/pages/secure/CM/SISE/saisieRef.xhtml#fou</to-view-id>
-			<redirect />
+			<to-view-id>/pages/secure/CM/SISE/saisieRef.xhtml</to-view-id>
+			<redirect>
+				<view-param>
+                    <name>view</name>
+                    <value>fou</value>
+                </view-param>
+			</redirect>
 		</navigation-case>
 
 		<navigation-case>
 			<from-action>#{siseBean.addFournisseurCA}</from-action>
 			<from-outcome>success</from-outcome>
-			<to-view-id>/pages/secure/CA/SISE/saisieRef.xhtml#fou</to-view-id>
-			<redirect />
+			<to-view-id>/pages/secure/CA/SISE/saisieRef.xhtml</to-view-id>
+			<redirect>
+				<view-param>
+                    <name>view</name>
+                    <value>fou</value>
+                </view-param>
+			</redirect>
 		</navigation-case>
 		
 		<navigation-case>
 			<from-action>#{siseBean.addLocalite}</from-action>
 			<from-outcome>success</from-outcome>
-			<to-view-id>/pages/secure/CM/SISE/saisieRef.xhtml#loc</to-view-id>
-			<redirect />
+			<to-view-id>/pages/secure/CM/SISE/saisieRef.xhtml</to-view-id>
+			<redirect>
+				<view-param>
+                    <name>view</name>
+                    <value>loc</value>
+                </view-param>
+			</redirect>
 		</navigation-case>
 		
 		<navigation-case>
 			<from-action>#{siseBean.addMarque}</from-action>
 			<from-outcome>success</from-outcome>
-			<to-view-id>/pages/secure/CM/SISE/saisieRef.xhtml#marque</to-view-id>
-			<redirect />
+			<to-view-id>/pages/secure/CM/SISE/saisieRef.xhtml</to-view-id>
+			<redirect>
+				<view-param>
+                    <name>view</name>
+                    <value>marque</value>
+                </view-param>
+			</redirect>
 		</navigation-case>
 
 		<navigation-case>
 			<from-action>#{siseBean.addMarqueCA}</from-action>
 			<from-outcome>success</from-outcome>
-			<to-view-id>/pages/secure/CA/SISE/saisieRef.xhtml#marque</to-view-id>
-			<redirect />
+			<to-view-id>/pages/secure/CA/SISE/saisieRef.xhtml</to-view-id>
+			<redirect>
+				<view-param>
+                    <name>view</name>
+                    <value>marque</value>
+                </view-param>
+			</redirect>
 		</navigation-case>
 
 		<navigation-case>
 			<from-action>#{siseBean.addTypeObjet}</from-action>
 			<from-outcome>success</from-outcome>
-			<to-view-id>/pages/secure/CA/SISE/saisieRef.xhtml#type</to-view-id>
-			<redirect />
+			<to-view-id>/pages/secure/CA/SISE/saisieRef.xhtml</to-view-id>
+			<redirect>
+				<view-param>
+                    <name>view</name>
+                    <value>type</value>
+                </view-param>
+			</redirect>
 		</navigation-case>
 
 		<navigation-case>
 			<from-action>#{siseBean.addCodeArticle}</from-action>
 			<from-outcome>success</from-outcome>
-			<to-view-id>/pages/secure/CA/SISE/saisieRef.xhtml#nom</to-view-id>
-			<redirect />
+			<to-view-id>/pages/secure/CA/SISE/saisieRef.xhtml</to-view-id>
+			<redirect>
+				<view-param>
+                    <name>view</name>
+                    <value>nom</value>
+                </view-param>
+			</redirect>
 		</navigation-case>
 
 		
 		<navigation-case>
 			<from-action>#{siseBean.addModeAcquisition}</from-action>
 			<from-outcome>success</from-outcome>
-			<to-view-id>/pages/secure/CM/SISE/saisieRef.xhtml#acq</to-view-id>
-			<redirect />
+			<to-view-id>/pages/secure/CM/SISE/saisieRef.xhtml</to-view-id>
+			<redirect>
+				<view-param>
+                    <name>view</name>
+                    <value>acq</value>
+                </view-param>
+			</redirect>
 		</navigation-case>
 
 		<navigation-case>
 			<from-action>#{siseBean.addModeAcquisitionCA}</from-action>
 			<from-outcome>success</from-outcome>
-			<to-view-id>/pages/secure/CA/SISE/saisieRef.xhtml#acq</to-view-id>
-			<redirect />
+			<to-view-id>/pages/secure/CA/SISE/saisieRef.xhtml</to-view-id>
+			<redirect>
+				<view-param>
+                    <name>view</name>
+                    <value>acq</value>
+                </view-param>
+			</redirect>
 		</navigation-case>
 		
 		<navigation-case>
 			<from-action>#{siseBean.addModeDecharge}</from-action>
 			<from-outcome>success</from-outcome>
-			<to-view-id>/pages/secure/CM/SISE/saisieRef.xhtml#dec</to-view-id>
-			<redirect />
+			<to-view-id>/pages/secure/CM/SISE/saisieRef.xhtml</to-view-id>
+			<redirect>
+				<view-param>
+                    <name>view</name>
+                    <value>dec</value>
+                </view-param>
+			</redirect>
 		</navigation-case>
 
 		<navigation-case>
 			<from-action>#{siseBean.addMotifSortie}</from-action>
 			<from-outcome>success</from-outcome>
-			<to-view-id>/pages/secure/CM/SISE/saisieRef.xhtml#sortie</to-view-id>
-			<redirect />
+			<to-view-id>/pages/secure/CM/SISE/saisieRef.xhtml</to-view-id>
+			<redirect>
+				<view-param>
+                    <name>view</name>
+                    <value>sortie</value>
+                </view-param>
+			</redirect>
 		</navigation-case>
 
 		<navigation-case>
 			<from-action>#{siseBean.addPoste}</from-action>
 			<from-outcome>success</from-outcome>
-			<to-view-id>/pages/secure/CM/SISE/saisieRef.xhtml#poste</to-view-id>
-			<redirect />
+			<!-- >to-view-id>/pages/secure/CM/SISE/saisieRef.xhtml#poste</to-view-id-->
+			<to-view-id>/pages/secure/CM/SISE/saisieRef.xhtml</to-view-id>
+					
+			<redirect>
+				<view-param>
+                    <name>view</name>
+                    <value>poste</value>
+                </view-param>
+			</redirect>
 		</navigation-case>
 
 
 		<navigation-case>
 			<from-action>#{siseBean.addRole}</from-action>
 			<from-outcome>success</from-outcome>
-			<to-view-id>/pages/secure/CM/SISE/saisieRef.xhtml#role</to-view-id>
+			<to-view-id>/pages/secure/CM/SISE/saisieRef.xhtml</to-view-id>
 			
-			<!--  redirect /-->
+			<redirect>
+				<view-param>
+                    <name>view</name>
+                    <value>role</value>
+                </view-param>
+			</redirect>
 		</navigation-case>
 
 		<navigation-case>
 			<from-action>#{siseBean.addRoleCA}</from-action>
 			<from-outcome>success</from-outcome>
-			<to-view-id>/pages/secure/CA/SISE/saisieRef.xhtml#role</to-view-id>
+			<to-view-id>/pages/secure/CA/SISE/saisieRef.xhtml</to-view-id>
 			
-			<redirect />
+			<redirect>
+				<view-param>
+                    <name>view</name>
+                    <value>role</value>
+                </view-param>
+			</redirect>
 		</navigation-case>
 
 		<navigation-case>
 			<from-action>#{siseBean.addService}</from-action>
 			<from-outcome>success</from-outcome>
-			<to-view-id>/pages/secure/CM/SISE/saisieRef.xhtml#serv</to-view-id>
-			<redirect />
+			<to-view-id>/pages/secure/CM/SISE/saisieRef.xhtml</to-view-id>
+			<redirect>
+				<view-param>
+                    <name>view</name>
+                    <value>serv</value>
+                </view-param>
+			</redirect>
 		</navigation-case>
 
 		<navigation-case>
 			<from-action>#{siseBean.addTypeMateriel}</from-action>
 			<from-outcome>success</from-outcome>
-			<to-view-id>/pages/secure/CM/SISE/saisieRef.xhtml#type</to-view-id>
-			<redirect />
+			<to-view-id>/pages/secure/CM/SISE/saisieRef.xhtml</to-view-id>
+			<redirect>
+				<view-param>
+                    <name>view</name>
+                    <value>type</value>
+                </view-param>
+			</redirect>
 		</navigation-case>
 
 
