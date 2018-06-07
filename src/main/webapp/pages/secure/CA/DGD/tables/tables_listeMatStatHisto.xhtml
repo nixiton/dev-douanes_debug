@@ -43,11 +43,49 @@
     </p:dataTable>
     
     
-    <p:dataTable   var="op" value="#{suivieditionBean.listOpESArtByDirection}" 
+    <p:dataTable   var="row" value="#{suivieditionBean.getListForJournalStock()}" 
+                 paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}  "
+                 paginator="true" rows="100" style="margin-bottom:20px"
+                 sortBy="#{row[1]}"
+                 >
+         <f:facet name="header">
+        	JOURNAL DE LA COMPTABILITE ADMINISTRATIVE
+    	</f:facet>
+        
+        <p:column headerText="N° d’ordre" style=" text-align: center; word-wrap: break-word;">
+        	<h:outputText value="#{row[0]}" />
+        </p:column>
+        <p:column headerText="Date des opérations" style=" text-align: center; word-wrap: break-word;">
+        	<h:outputText value="#{row[1]}" />
+        </p:column>
+        <p:column headerText="Référence facture/décision" style=" text-align: center; word-wrap: break-word;">
+        	<h:outputText value="#{row[2]}" />
+        </p:column>
+        <p:column headerText="Origine/destinataire" style=" text-align: center; word-wrap: break-word;">
+        	<h:outputText value="#{row[3]}" />
+        </p:column>
+        <p:column headerText="Désignation des articles" style=" text-align: center; word-wrap: break-word;">
+        	<h:outputText value="#{row[4]}" />
+        </p:column>
+        <p:column headerText="Quantité" style=" text-align: center; word-wrap: break-word;">
+        	<h:outputText value="#{row[5]}" />
+        </p:column>
+        <p:column headerText="Prix unitaire" style=" text-align: center; word-wrap: break-word;">
+        	<h:outputText value="#{row[6]}" />
+        </p:column>
+        <p:column headerText="Montant total" style=" text-align: center; word-wrap: break-word;">
+        	<h:outputText value="#{row[7]}" />
+        </p:column>
+       
+    </p:dataTable>
+
+<h:form>
+
+<p:dataTable   var="row" value="#{suivieditionBean.getListForFicheStock()}" 
                  paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}  "
                  paginator="true" rows="100" style="margin-bottom:20px">
          <f:facet name="header">
-        	Liste des entrée et sortie par type
+        	JOURNAL DES STOCKS
     	</f:facet>
          <p:columnGroup type="header">
             <p:row>
@@ -76,45 +114,33 @@
             </p:row>
         </p:columnGroup>
         <p:column style=" text-align: center; word-wrap: break-word;">
-        	<h:outputText value="#{op.date}" />
+        	<h:outputText value="#{row[0]}" />
         </p:column>
         <p:column style=" text-align: center; word-wrap: break-word;">
-        <p:panel rendered="#{op['class'].simpleName eq 'OpEntreeArticle'}">
-					<h:outputText value="#{op.id}" />
-		</p:panel>
-        	
+			<h:outputText value="#{row[1]}" />
         </p:column>
         <p:column style=" text-align: center; word-wrap: break-word;">
-        <p:panel rendered="#{op['class'].simpleName eq 'OpEntreeArticle'}">
-					<h:outputText value="#{op.article.nombre}" />
-		</p:panel>
-        	
+			<h:outputText value="#{row[2]}" />
         </p:column>
         <p:column style=" text-align: center; word-wrap: break-word;">
-        	<p:panel rendered="#{op['class'].simpleName eq 'OpEntreeArticle'}">
-					<h:outputText value="#{'cumulation par entree'}" />
-		</p:panel>
+			<h:outputText value="#{row[3]}" />
         </p:column>
         <p:column style=" text-align: center; word-wrap: break-word;">
-        <p:panel rendered="#{op['class'].simpleName eq 'OpSortieArticle'}">
-					<h:outputText value="#{op.id}" />
-		</p:panel>
+			<h:outputText value="#{row[4]}" />
         </p:column>
         <p:column style=" text-align: center; word-wrap: break-word;">
-        <p:panel rendered="#{op['class'].simpleName eq 'OpSortieArticle'}">
-					<h:outputText value="#{op.nombreToS}" />
-		</p:panel>
+			<h:outputText value="#{row[5]}" />
         </p:column>
         
         <p:column style=" text-align: center; word-wrap: break-word;">
 					<h:outputText value="#{'signature'}" />
         </p:column>
         <p:column style=" text-align: center; word-wrap: break-word;">
-        	<h:outputText value="#{'quantite moins'}" />
+        	<h:outputText value="#{row[3]-row[5]}" />
         </p:column>
     </p:dataTable>
 
-
+</h:form>
 
 
 <ui:include src="/pages/secure/CA/DGD/tables/dialogs/dialogs_listeMatStatHisto.xhtml"></ui:include>

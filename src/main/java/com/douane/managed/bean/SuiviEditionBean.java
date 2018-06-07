@@ -649,6 +649,8 @@ public class SuiviEditionBean {
         Date edate = new GregorianCalendar(year+1, Calendar.DECEMBER, 30).getTime();
 		return usermetierimpl.getListOpESArtValideByDirection(cur.getDirection(),sdate,edate);
 	}
+	
+	
 
 	public void setListOpESArtByDirection(List<Operation> listOpESArtByDirection) {
 		this.listOpESArtByDirection = listOpESArtByDirection;
@@ -1464,5 +1466,116 @@ public class SuiviEditionBean {
 		
 		return listobjectForInvetaire;	
 	}
+	
+	// List object format for fiche de stock
+		public List<Object[]> getListForFicheStock(){
+			List <Operation> lesoperations = getListOpESArtByDirection();
+			//structure de données
+			List <Object[]> resulttable = new ArrayList<Object[]>();
+			Object[] row = new Object[8];
+			for(Operation o: lesoperations) {
+			//Date operation
+			row[0] = null;
+			//reference entrée
+			row[1] = "";
+			//quantite entrée
+			row[2]=0;
+			//quantite entrée cumulée
+			row[3]=0;
+			//reference sortie
+			row[4] = "";
+			//quantite sortie
+			row[5]=0;
+			//quantite finale
+			row[6] = new Long(0);
+			
+			//Remplissage à partir du liste des operations
+			
+				//initiale
+				row[0] = o.getDate();
+				
+				//entree
+				if(o instanceof OpEntreeArticle) {
+					row[1] = o.getId(); // need to add this attribut for operation reference
+					row[2] = (Long)(((OpEntreeArticle) o).getArticle().getNombre());
+					row[3] = (Long)row[2] + 0; //need to set previous nombre
+				}
+				//sortie
+				else if(o instanceof OpSortieArticle) {
+					row[4] = o.getId();
+					row[5] = (Long)(((OpSortieArticle) o).getNombreToS());
+					
+				}
+				//finale quantity
+				//row[6] = (Long)row[3] - (Long)row[5];
+			resulttable.add(row);
+			row = new Object[8];
+			}
+			
+			 Collections.sort(resulttable, new Comparator<Object[]>() {
+    			public int compare(Object[] s1, Object[] s2) {
+    				Date d1 = (Date) s1[0];
+    				Date d2 = (Date) s2[0];
+    				System.out.println("date :"+ d1);
+        			return d1.compareTo(d2);
+    			}
+				});
+			 
+			return resulttable;
+		}
+		
+		//list objet format pour journal
+		public List<Object[]> getListForJournalStock(){
+			List <Operation> lesoperations = getListOpESArtByDirection();
+			//structure de données
+			List <Object[]> resulttable = new ArrayList<Object[]>();
+			Object[] row = new Object[8];
+			for(Operation o: lesoperations) {
+				//numero d'ordre
+				row[0] = ""+o.getId().toString();
+				//date operation
+				row[1] = o.getDate();
+				//reference
+				row[2] = " a ajouter "+o.getId();
+				//origine
+				row[3] ="";
+				//designation des articles
+				row[4] = "";
+				//quantite
+				row[5] = 0;
+				//prix unitaire
+				row[6] = 0;
+				//Montant total
+				row[7] = 0;
+				 
+				//processing
+				if(o instanceof OpEntreeArticle) {
+					row[0] = row[0]+"/E";
+					row[3] = "a ajouter origine";
+					Article a = ((OpEntreeArticle) o).getArticle();
+					row[4] = a.getCodeArticle().getTypeObjet().getDesignation()+
+					" ("+ a.getCodeArticle().getDesignation()+" ) "+ a.getMarqueArticle();
+					row[5]= a.getNombre();
+					row[6] = a.getPrix();
+					row[7] = (Long)row[5]*(Float)row[6];
+					
+				}
+				else if(o instanceof OpSortieArticle) {
+					row[0] = row[0]+"/S";
+					row[3] = (((OpSortieArticle) o).getBeneficiaire()).getNomAgent();
+					Article a = ((OpSortieArticle) o).getArticle();
+					row[4] = a.getCodeArticle().getTypeObjet().getDesignation()+
+					" ("+ a.getCodeArticle().getDesignation()+" ) "+ a.getMarqueArticle();
+					row[5]= a.getNombre();
+					row[6] = a.getPrix();
+					row[7] = (Long)row[5]*(Float)row[6];
+					
+				}
+				
+				resulttable.add(row);
+				row = new Object[8];
+			}
+		return resulttable;
+		}
 
 }
