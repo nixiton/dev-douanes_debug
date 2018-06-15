@@ -388,7 +388,7 @@ public class JasperTableExampleBean implements Serializable{
 		HttpServletResponse response = (HttpServletResponse) external.getResponse();
 		ServletOutputStream tmp = response.getOutputStream();
 		URL url =  this.getClass().getResource("../jasperReport/Inventaire.jasper");
-		try {
+		try { 
             /* Map to hold Jasper report Parameters */
             Map<String, Object> parameters = new HashMap<String, Object>();;
             parameters.put("budget", this.pdfForm.getBudget());
