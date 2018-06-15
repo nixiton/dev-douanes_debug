@@ -1350,5 +1350,22 @@ public class UserMetier implements IUserMetier {
 		return operationdao.getListOpESArtByValideByDirection(EtatOperation.ACCEPTED, direction, startDate, endDate);
 	}
 
+	@Override
+	public List<Operation> getListOpESArtValideByDirectionByCod(CodeArticle codeart, Direction direction,
+			Date startDate, Date endDate) {
+		// TODO Auto-generated method stub
+		return operationdao.getListOpESArtByValideByDirectionByCod(EtatOperation.ACCEPTED, 
+				direction, startDate, endDate,codeart);
+		
+	}
+
+	@Override
+	public Long getAreporter(CodeArticle code, Direction direction, Date stopdat) {
+		// TODO Auto-generated method stub
+		
+		return operationdao.areporter(code,direction,stopdat);
+	}
+	
+
 
 }

@@ -2934,5 +2934,17 @@ public class DepositaireBean {
 		
 		return usermetierimpl.calculArticleRestant(article);
 	}
+	
+	
+	private CodeArticle articleToFiche;
+	
+	public CodeArticle getArticleToFiche() {
+		return articleToFiche;
+	}
+
+	public void setArticleToFiche(CodeArticle articleToFiche) {
+		this.articleToFiche = articleToFiche;
+	}
+
 
 }

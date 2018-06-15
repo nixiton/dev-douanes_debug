@@ -204,4 +204,9 @@ public interface IUserMetier {
 	
 	
 	public List<Operation> getListOpESArtValideByDirection(Direction direction, Date startDate,	Date endDate);
+	
+	public List<Operation> getListOpESArtValideByDirectionByCod(CodeArticle codeart, Direction direction, Date startDate,	Date endDate);
+	public Long getAreporter(CodeArticle code, Direction direction, Date stopdate);
+	
+
 }

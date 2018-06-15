@@ -10,6 +10,8 @@ import javax.persistence.*;
 import com.douane.entite.*;
 import com.douane.model.EtatOperation;
 import com.douane.repository.MaterielRepository;
+
+import org.apache.poi.util.SystemOutLogger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.w3c.dom.ls.LSInput;
 
@@ -471,7 +473,7 @@ public class OperationDAOImpl implements IOperationDAO{
 		TypedQuery<Operation> query = em.createQuery("select o from Operation o "
 				+ " where o.date>=:startDate AND o.date<=:endDate"
 				+ " and o.direction =:direct"
-	       		+ " order by o.date desc "
+	       		+ " order by o.id desc "
 	       		,Operation.class);
 		query.setParameter("direct", d);
 		query.setParameter("startDate", startDate, TemporalType.DATE);
@@ -681,6 +683,51 @@ public class OperationDAOImpl implements IOperationDAO{
 		return operations;
 		//return null;
 	}
+	
+	@Override
+	public List<Operation> getListOpESArtByValideByDirectionByCod(EtatOperation etat, Direction direction,
+			Date startDate, Date endDate, CodeArticle codeart) {
+		// TODO Auto-generated method stub
+		TypedQuery<OpEntreeArticle> query1 = em.createQuery("select oeart from OpEntreeArticle oeart "
+				+ " where oeart.date>=:startDate AND oeart.date<=:endDate"
+				+ " and oeart.direction =:direct"
+				+ " and oeart.state=:etat"
+				+ " and oeart.article.codeArticle =:code"
+	       		+ " order by oeart.date desc "
+	       		,OpEntreeArticle.class);
+		TypedQuery<OpSortieArticle> query2 = em.createQuery("select osart from OpSortieArticle osart "
+				+ " where osart.date>=:startDate AND osart.date<=:endDate"
+				+ " and osart.direction =:direct"
+				+ " and osart.state=:etat"
+				+ " and osart.article.codeArticle =:code"
+	       		+ " order by osart.date desc "
+	       		,OpSortieArticle.class);
+		
+		query1.setParameter("direct", direction);
+		query1.setParameter("startDate", startDate, TemporalType.DATE);
+		query1.setParameter("endDate", endDate, TemporalType.DATE);
+		query1.setParameter("etat", etat);
+		query1.setParameter("code", codeart);
+		
+		query2.setParameter("direct", direction);
+		query2.setParameter("startDate", startDate, TemporalType.DATE);
+		query2.setParameter("endDate", endDate, TemporalType.DATE);
+		query2.setParameter("etat", etat);
+		query2.setParameter("code", codeart);
+		
+		
+	    List<OpEntreeArticle> operationsE = query1.getResultList();
+	    List<OpSortieArticle> operationsS = query2.getResultList();
+	    
+	    List<Operation> operations = new ArrayList<Operation>();
+	    operations.addAll(operationsE);
+	    operations.addAll(operationsS);
+	    
+	    
+	    System.out.println("LISTE DES ARTICLES**"+operations.size());
+		return operations;
+	}
+
 
 	@Override
 	public List<Object[]> getListForInventaireWithMatex(Direction d, Date startDate, Date endDate) {
@@ -730,4 +777,53 @@ public class OperationDAOImpl implements IOperationDAO{
 		return iventories;
 	}
 
+	@Override
+	public Long areporter(CodeArticle code, Direction direction, Date stopdat) {
+		// TODO Auto-generated method stub
+		TypedQuery<OpEntreeArticle> query1 = em.createQuery("select oeart from OpEntreeArticle oeart "
+				+ " where  oeart.date<=:stopdate"
+				+ " and oeart.direction =:direct"
+				+ " and oeart.state=:etat"
+				+ " and oeart.article.codeArticle =:code"
+	       		+ " order by oeart.date desc "
+	       		,OpEntreeArticle.class);
+		TypedQuery<OpSortieArticle> query2 = em.createQuery("select osart from OpSortieArticle osart "
+				+ " where  osart.date<=:stopdate"
+				+ " and osart.direction =:direct"
+				+ " and osart.state=:etat"
+				+ " and osart.article.codeArticle =:code"
+	       		+ " order by osart.date desc "
+	       		,OpSortieArticle.class);
+		
+		query1.setParameter("direct", direction);
+		query1.setParameter("stopdate", stopdat, TemporalType.DATE);
+		query1.setParameter("etat", EtatOperation.ACCEPTED);
+		query1.setParameter("code", code);
+		
+		query2.setParameter("direct", direction);
+		query2.setParameter("stopdate", stopdat, TemporalType.DATE);
+		query2.setParameter("etat", EtatOperation.ACCEPTED);
+		query2.setParameter("code", code);
+		
+		
+	    List<OpEntreeArticle> operationsE = query1.getResultList();
+	    List<OpSortieArticle> operationsS = query2.getResultList();
+	    
+	    Long entree =0L;
+	    Long sortie = 0L;
+	    for(OpEntreeArticle oe:operationsE) {
+	    	System.out.println("entree +=" + oe.getArticle().getNombre());
+	    	entree = entree + oe.getArticle().getNombre();
+	    }
+	    for(OpSortieArticle os:operationsS) {
+	    	if(os!=null) {
+	    		System.out.println("sortie +=" + os.getNombreToS());
+	    		sortie = sortie + os.getNombreToS();
+	    	}
+	    }
+	    System.out.println("a reporter : "+entree +" - "+sortie);
+		return entree-sortie;
+	}
+
+	
 }

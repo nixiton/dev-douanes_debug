@@ -4,6 +4,7 @@ import java.util.Date;
 import java.util.List;
 
 import com.douane.entite.Agent;
+import com.douane.entite.CodeArticle;
 import com.douane.entite.Direction;
 import com.douane.entite.Materiel;
 import com.douane.entite.MaterielEx;
@@ -67,4 +68,7 @@ public interface IOperationDAO {
 	
 	List<Object[]> getListForInventaire(Direction d, Date startDate, Date endDate);
 	List<Object[]> getListForInventaireWithMatex(Direction d, Date startDate, Date endDate);
+	public List<Operation> getListOpESArtByValideByDirectionByCod(EtatOperation accepted, Direction direction,
+			Date startDate, Date endDate, CodeArticle codeart);
+	public Long areporter(CodeArticle code, Direction direction, Date stopdat);
 }
