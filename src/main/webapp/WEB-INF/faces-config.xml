@@ -1161,6 +1161,19 @@
 		
 	</navigation-rule>	
 	
+	<navigation-rule>
+		<from-view-id>/pages/unsecure/error_403.xhtml</from-view-id>
+		
+		<navigation-case>
+			<from-outcome>return_choice</from-outcome>
+			<to-view-id>/pages/secure/choice.xhtml</to-view-id>
+			<redirect />
+		
+		</navigation-case>
+	</navigation-rule>
+	
+	<!--  ++++++++++++++++++++++++++++ From error page end ++++++++++++++++++++++++++++++++++++  -->
+	
 	<!-- JSF and Spring are integrated -->
 	<application>
 		<el-resolver>org.springframework.web.jsf.el.SpringBeanFacesELResolver</el-resolver>

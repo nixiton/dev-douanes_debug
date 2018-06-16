@@ -1016,4 +1016,13 @@
     TITLE="#{loginMgmtBean.logout}:loggedout" model-entity="JSFProcessItemOutput"/>
   </PROCESS-ITEM>
  </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#pages#unsecure#error_403.xhtml"
+  PATH="/pages/unsecure/error_403.xhtml" SHAPE="304,417,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#pages#unsecure#error_403.xhtml:0" NAME="item"
+   PATH="/pages/unsecure/error_403.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="return_choice::#pages#secure#choice.xhtml"
+    NAME="output" PATH="/pages/secure/choice.xhtml"
+    TARGET="rules:#pages#secure#choice.xhtml" TITLE="return_choice" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
 </PROCESS>
