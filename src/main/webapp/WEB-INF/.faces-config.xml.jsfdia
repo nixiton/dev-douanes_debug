@@ -127,77 +127,82 @@
     NAME="output" PATH="/pages/secure/choice.xhtml"
     TARGET="rules:#pages#secure#choice.xhtml" TITLE="change_compta" model-entity="JSFProcessItemOutput"/>
    <PROCESS-ITEM-OUTPUT
+    ID="update_password::#pages#unsecure#update_pass.xhtml"
+    NAME="output1" PATH="/pages/unsecure/update_pass.xhtml"
+    TARGET="rules:#pages#unsecure#update_pass.xhtml"
+    TITLE="update_password" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
     ID="dashboard:#{topMenuMB.goToDashboard}:#pages#secure#admin#adminCM.xhtml"
-    NAME="output1" PATH="/pages/secure/admin/adminCM.xhtml"
+    NAME="output2" PATH="/pages/secure/admin/adminCM.xhtml"
     TARGET="rules:#pages#secure#admin#adminCM.xhtml"
     TITLE="#{topMenuMB.goToDashboard}:dashboard" model-entity="JSFProcessItemOutput"/>
    <PROCESS-ITEM-OUTPUT
     ID="dashboardCA:#{topMenuMB.goToDashboardadmin}:#pages#secure#admin#adminCA.xhtml"
-    NAME="output2" PATH="/pages/secure/admin/adminCA.xhtml"
+    NAME="output3" PATH="/pages/secure/admin/adminCA.xhtml"
     TARGET="rules:#pages#secure#admin#adminCA.xhtml"
     TITLE="#{topMenuMB.goToDashboardadmin}:dashboardCA" model-entity="JSFProcessItemOutput"/>
    <PROCESS-ITEM-OUTPUT
     ID="cm:#{topMenuMB.goToDashboard}:#pages#secure#CM#ComptaMatiere.xhtml"
-    NAME="output3" PATH="/pages/secure/CM/ComptaMatiere.xhtml"
+    NAME="output4" PATH="/pages/secure/CM/ComptaMatiere.xhtml"
     TARGET="rules:#pages#secure#CM#ComptaMatiere.xhtml"
     TITLE="#{topMenuMB.goToDashboard}:cm" model-entity="JSFProcessItemOutput"/>
    <PROCESS-ITEM-OUTPUT
     ID="ca:#{topMenuMB.goToDashboard}:#pages#secure#CA#ComptaAdmin.xhtml"
-    NAME="output4" PATH="/pages/secure/CA/ComptaAdmin.xhtml"
+    NAME="output5" PATH="/pages/secure/CA/ComptaAdmin.xhtml"
     TARGET="rules:#pages#secure#CA#ComptaAdmin.xhtml"
     TITLE="#{topMenuMB.goToDashboard}:ca" model-entity="JSFProcessItemOutput"/>
    <PROCESS-ITEM-OUTPUT
     ID="saisie_ref::#pages#secure#CM#SISE#saisieRef.xhtml"
-    NAME="output5" PATH="/pages/secure/CM/SISE/saisieRef.xhtml"
+    NAME="output6" PATH="/pages/secure/CM/SISE/saisieRef.xhtml"
     TARGET="rules:#pages#secure#CM#SISE#saisieRef.xhtml"
     TITLE="saisie_ref" model-entity="JSFProcessItemOutput"/>
    <PROCESS-ITEM-OUTPUT
     ID="saisie_refCA::#pages#secure#CA#SISE#saisieRef.xhtml"
-    NAME="output6" PATH="/pages/secure/CA/SISE/saisieRef.xhtml"
+    NAME="output7" PATH="/pages/secure/CA/SISE/saisieRef.xhtml"
     TARGET="rules:#pages#secure#CA#SISE#saisieRef.xhtml"
     TITLE="saisie_refCA" model-entity="JSFProcessItemOutput"/>
    <PROCESS-ITEM-OUTPUT
     ID="saisie_mat_ex::#pages#secure#CM#DC#saisieMatEx.xhtml"
-    NAME="output7" PATH="/pages/secure/CM/DC/saisieMatEx.xhtml"
+    NAME="output8" PATH="/pages/secure/CM/DC/saisieMatEx.xhtml"
     TARGET="rules:#pages#secure#CM#DC#saisieMatEx.xhtml"
     TITLE="saisie_mat_ex" model-entity="JSFProcessItemOutput"/>
    <PROCESS-ITEM-OUTPUT
     ID="saisie_article::#pages#secure#CA#DC#saisieMatEx.xhtml"
-    NAME="output8" PATH="/pages/secure/CA/DC/saisieMatEx.xhtml"
+    NAME="output9" PATH="/pages/secure/CA/DC/saisieMatEx.xhtml"
     TARGET="rules:#pages#secure#CA#DC#saisieMatEx.xhtml"
     TITLE="saisie_article" model-entity="JSFProcessItemOutput"/>
    <PROCESS-ITEM-OUTPUT
     ID="prise_en_charge::#pages#secure#CM#DC#priseEnCharge.xhtml"
-    NAME="output9" PATH="/pages/secure/CM/DC/priseEnCharge.xhtml"
+    NAME="output10" PATH="/pages/secure/CM/DC/priseEnCharge.xhtml"
     TARGET="rules:#pages#secure#CM#DC#priseEnCharge.xhtml"
     TITLE="prise_en_charge" model-entity="JSFProcessItemOutput"/>
    <PROCESS-ITEM-OUTPUT
     ID="articles_priseEnCharge::#pages#secure#CA#DC#priseEnCharge.xhtml"
-    NAME="output10" PATH="/pages/secure/CA/DC/priseEnCharge.xhtml"
+    NAME="output11" PATH="/pages/secure/CA/DC/priseEnCharge.xhtml"
     TARGET="rules:#pages#secure#CA#DC#priseEnCharge.xhtml"
     TITLE="articles_priseEnCharge" model-entity="JSFProcessItemOutput"/>
    <PROCESS-ITEM-OUTPUT
     ID="sortie_article::#pages#secure#CA#DC#decharge.xhtml"
-    NAME="output11" PATH="/pages/secure/CA/DC/decharge.xhtml"
+    NAME="output12" PATH="/pages/secure/CA/DC/decharge.xhtml"
     TARGET="rules:#pages#secure#CA#DC#decharge.xhtml"
     TITLE="sortie_article" model-entity="JSFProcessItemOutput"/>
    <PROCESS-ITEM-OUTPUT
     ID="attribution::#pages#secure#CM#DC#attribution.xhtml"
-    NAME="output12" PATH="/pages/secure/CM/DC/attribution.xhtml"
+    NAME="output13" PATH="/pages/secure/CM/DC/attribution.xhtml"
     TARGET="rules:#pages#secure#CM#DC#attribution.xhtml"
     TITLE="attribution" model-entity="JSFProcessItemOutput"/>
    <PROCESS-ITEM-OUTPUT
     ID="detachement::#pages#secure#CM#DC#detachement.xhtml"
-    NAME="output13" PATH="/pages/secure/CM/DC/detachement.xhtml"
+    NAME="output14" PATH="/pages/secure/CM/DC/detachement.xhtml"
     TARGET="rules:#pages#secure#CM#DC#detachement.xhtml"
     TITLE="detachement" model-entity="JSFProcessItemOutput"/>
    <PROCESS-ITEM-OUTPUT
-    ID="decharge::#pages#secure#CM#DC#decharge.xhtml" NAME="output14"
+    ID="decharge::#pages#secure#CM#DC#decharge.xhtml" NAME="output15"
     PATH="/pages/secure/CM/DC/decharge.xhtml"
     TARGET="rules:#pages#secure#CM#DC#decharge.xhtml" TITLE="decharge" model-entity="JSFProcessItemOutput"/>
    <PROCESS-ITEM-OUTPUT
     ID="tracabilite::#pages#secure#CM#DGD#tracabilite.xhtml"
-    NAME="output15" PATH="/pages/secure/CM/DGD/tracabilite.xhtml"
+    NAME="output16" PATH="/pages/secure/CM/DGD/tracabilite.xhtml"
     TARGET="rules:#pages#secure#CM#DGD#tracabilite.xhtml"
     TITLE="tracabilite" model-entity="JSFProcessItemOutput"/>
    <PROCESS-ITEM-OUTPUT
@@ -207,25 +212,20 @@
     TITLE="edition_etats" model-entity="JSFProcessItemOutput"/>
    <PROCESS-ITEM-OUTPUT
     ID="tracabiliteCA::#pages#secure#CA#DGD#tracabilite.xhtml"
-    NAME="output16" PATH="/pages/secure/CA/DGD/tracabilite.xhtml"
+    NAME="output17" PATH="/pages/secure/CA/DGD/tracabilite.xhtml"
     TARGET="rules:#pages#secure#CA#DGD#tracabilite.xhtml"
     TITLE="tracabiliteCA" model-entity="JSFProcessItemOutput"/>
    <PROCESS-ITEM-OUTPUT
     ID="liste_mat::#pages#secure#CM#DGD#listeMatStatHisto.xhtml"
-    NAME="output17" PATH="/pages/secure/CM/DGD/listeMatStatHisto.xhtml"
+    NAME="output18" PATH="/pages/secure/CM/DGD/listeMatStatHisto.xhtml"
     TARGET="rules:#pages#secure#CM#DGD#listeMatStatHisto.xhtml"
     TITLE="liste_mat" model-entity="JSFProcessItemOutput"/>
    <PROCESS-ITEM-OUTPUT
     ID="liste_mats::#pages#secure#CM#DGD#listeMatStatGeneral.xhtml"
-    NAME="output18"
+    NAME="output19"
     PATH="/pages/secure/CM/DGD/listeMatStatGeneral.xhtml"
     TARGET="rules:#pages#secure#CM#DGD#listeMatStatGeneral.xhtml"
     TITLE="liste_mats" model-entity="JSFProcessItemOutput"/>
-   <PROCESS-ITEM-OUTPUT
-    ID="liste_matCA::#pages#secure#CA#DGD#listeMatStatHisto.xhtml"
-    NAME="output19" PATH="/pages/secure/CA/DGD/listeMatStatHisto.xhtml"
-    TARGET="rules:#pages#secure#CA#DGD#listeMatStatHisto.xhtml"
-    TITLE="liste_matCA" model-entity="JSFProcessItemOutput"/>
    <PROCESS-ITEM-OUTPUT
     ID="v_prise_en_charge::#pages#secure#CM#GAC#validation#priseEnCharge.xhtml"
     NAME="output21"
@@ -1023,6 +1023,17 @@
    <PROCESS-ITEM-OUTPUT ID="return_choice::#pages#secure#choice.xhtml"
     NAME="output" PATH="/pages/secure/choice.xhtml"
     TARGET="rules:#pages#secure#choice.xhtml" TITLE="return_choice" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#pages#unsecure#update_pass.xhtml"
+  PATH="/pages/unsecure/update_pass.xhtml" SHAPE="832,4289,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#pages#unsecure#update_pass.xhtml:0"
+   NAME="item" PATH="/pages/unsecure/update_pass.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="retour_choix_compta::#pages#secure#choice.xhtml" NAME="output"
+    PATH="/pages/secure/choice.xhtml"
+    TARGET="rules:#pages#secure#choice.xhtml"
+    TITLE="retour_choix_compta" model-entity="JSFProcessItemOutput"/>
   </PROCESS-ITEM>
  </PROCESS-ITEM>
 </PROCESS>

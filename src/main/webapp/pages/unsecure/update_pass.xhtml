@@ -9,17 +9,17 @@
 
 
 <ui:include src="/pages/unsecure/components/header.xhtml">
-    <ui:param name="title" value="Mot de pass" />
+    <ui:param name="title" value="Mot de passe" />
 </ui:include>
 
 <h:head></h:head>
 
-<h:body class="  ">
+<h:body class=" ">
     <div class="bg-dark dk" id="wrap">
         <div id="top">
 
             
-    <nav>
+    <nav style="background-color: #145C8B ">
 
 
         <!-- Brand and toggle get grouped for better mobile display -->
@@ -66,8 +66,7 @@
 
             <div class="btn-group">
 
-                <p:commandButton 
-                    oncomplete="PF('detail3').show()" icon="ui-icon-person"/>
+                <!-- p:commandButton oncomplete="PF('detail3').show()" icon="ui-icon-person" /-->
 
             </div>
 
@@ -91,7 +90,10 @@
                     
 
                     <li>
-                        <a href="/pages/secure/choice.xhtml">Retour</a>
+                        <!--  a href="/pages/secure/choice.xhtml" style="color:#CCC">Retour</a> -->
+                        <h:link value="" outcome="retour_choix_compta" immediate="true" style="color:#CCC"> 
+	   					 	Retour 
+	   					</h:link>
                     </li>
 
                 </ul>
@@ -105,8 +107,8 @@
 
 
 
-            <ui:include src="/pages/unsecure/components/top.xhtml">
-                <ui:param name="title" value="Mot de pass" />
+            <ui:include src="/pages/unsecure/components/top_update_mdp.xhtml">
+                <ui:param name="title" value="Mot de passe" />
             </ui:include>
 
         </div>
@@ -125,7 +127,7 @@
                     <div class="icons">
                         <i class="fa fa-edit"></i>
                     </div>
-                    <h5>Mot de pass</h5>
+                    <h5>Mise à jour </h5>
                     <!-- .toolbar -->
                     <div class="toolbar">
                         <nav style="padding: 8px;"> <a href="javascript:;"
@@ -153,27 +155,51 @@
                     <p:messages id="messages" showDetail="true" autoUpdate="true" />
 
                     <hr></hr>
-                    <h:outputLabel for="password1" styleClass="col-md-6"
+                    <div class="row">
+	                    <div class="col-md-6">
+	                    	<h:outputLabel for="password1" 
                                    value="Mot de passe courant: " />
-                    <p:password id="passwordcur" styleClass="col-md-6"
-                                value="#{userMB.pass}"  required="true">
-                    </p:password>
-
-                    <h:outputLabel for="password1" styleClass="col-md-6"
+	                    </div>
+	                    <div class="col-md-6">
+	                    	<p:password id="passwordcur" 
+	                                value="#{userMB.pass}"  required="true">
+	                    </p:password>
+	                    </div>
+                    	
+	                    
+                    </div>
+              		 <hr></hr>
+                    
+					<div class="row">
+	                    <div class="col-md-6">
+	                    	 <h:outputLabel for="password1" 
                                    value="Nouveau mot de passe : " />
-                    <p:password id="password1" styleClass="col-md-6"
+	                    </div>
+	                    <div class="col-md-6">
+	                    	<p:password id="password1" 
                                 value="#{userMB.newPass}" match="password2" required="true">
-                    </p:password>
+                    		</p:password>
+	                    </div>
+                       
+                    </div>
 
                     <hr></hr>
 
-                    <h:outputLabel styleClass="col-md-6" for="password2"
+					 <div class="row">
+	                    <div class="col-md-6">
+	                    	 <h:outputLabel  for="password2"
                                    value="Retaper nouveau mot de passe : " />
-                    <p:password id="password2" styleClass="col-md-6"
+	                    </div>
+	                    <div class="col-md-6">
+	                    	<p:password id="password2" 
                                 value="#{userMB.newPass}" required="true">
-                    </p:password>
+                    		</p:password>
+	                    </div>
+                    	
+	                    
+                    </div>
+              		 <hr></hr>
 
-                    <hr></hr>
 
                     <h:commandButton id="addUser" action="#{userMB.changePass}"
                                      value="Enregistrer" ajax="false" class="btn btn-lg btn-primary btn-block" />
