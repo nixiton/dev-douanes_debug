@@ -2915,14 +2915,16 @@ public class DepositaireBean {
 		Agent agent = (Agent) RequestFilter.getSession().getAttribute("agent");
 		// a.setFournisseur(getFournisseur());
 		// a.setPrix(getPrix());
+		System.out.println("request sortie article");
 		try {
-			setAgentDest(null);
-			setArticle(null);
-			setNombreArticleToDep((long) 0);
+			//setAgentDest(null);
+			//setArticle(null);
+			//setNombreArticleToDep((long) 0);
 			usermetierimpl.reqSortirArticle(this.getArticle(), agent, getAgentDest(), getNombreArticleToDep());
 			return SUCCESS;
 		}catch(Exception e) {
-		FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Erreur pour sortie de l'article",
+		System.out.println("error sortie article "+ e.getMessage());
+			FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Erreur pour sortie de l'article",
 				"La requête contient des erreurs");
 		
 		FacesContext.getCurrentInstance().addMessage(null, message);
