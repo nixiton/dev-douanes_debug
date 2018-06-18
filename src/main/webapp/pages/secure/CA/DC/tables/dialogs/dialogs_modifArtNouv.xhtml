@@ -17,11 +17,11 @@
 
     <div class="body">
 
-        <h:form id="fileUpoadForm" class="form-horizontal" prependId="false"
+        <h:form id="fileUpoadFormNouv" class="form-horizontal" prependId="false"
                 enctype="multipart/form-data">
 
             
-            <p:messages id="messages" />
+            <p:messages id="messages" showDetail="true" autoUpdate="true" />
 
             <div class="form-group">
             	<div class="row">
@@ -30,7 +30,7 @@
 	                    </label>
 					</div>
                     <div class="col-lg-6">
-	                    <h:outputText value="#{depositaireBean.curentArticle.idArticle}" />
+	                    <h:outputText value="#{depositaireBean.articleToModifyNouv.idArticle}" />
 	                   
                     </div>            
                	</div>
@@ -42,11 +42,7 @@
 					</div>
                     <div class="col-lg-6">
 
-                        <p:selectOneMenu id="zone"  styleClass="form-control top" converter="#{refConverter}" value="#{depositaireBean.curentArticle.codeArticle}">
-                            <f:selectItem itemValue="#{null}" itemLabel="--select--" /> 
-                            <f:selectItems value="#{siseBean.listCodeArticle}" var="type" itemLabel="#{type.designation}"/>
-                            
-                        </p:selectOneMenu>
+                        <h:outputText value="#{depositaireBean.articleToModifyNouv.codeArticle.designation}" />
                     </div>
                 </div>
                 <hr></hr>
@@ -57,7 +53,7 @@
 					</div>
                     <div class="col-lg-6">
 
-                    <p:selectOneMenu value="#{depositaireBean.curentArticle.marqueArticle}" converter="#{refConverter}" panelStyle="width:180px"  style="width:160px"
+                    <p:selectOneMenu value="#{depositaireBean.articleToModifyNouv.marqueArticle}" converter="#{refConverter}" panelStyle="width:180px"  style="width:160px"
                          effect="fade" var="t" filter="true" filterMatchMode="startsWith">
                         <f:selectItem itemValue="#{null}" itemLabel="select" /> 
                             <f:selectItems value="#{siseBean.listMarque}" var="theme" itemLabel="#{theme.designation}" itemValue="#{theme}" />
@@ -79,13 +75,64 @@
 					</div>
                     <div class="col-lg-6">
 						
-						<p:inputTextarea value="#{depositaireBean.curentArticle.caracteristiqueArticle}" rows="5" cols="20" counter="display" maxlength="250" counterTemplate="{0} restants." autoResize="false" />
+						<p:inputTextarea value="#{depositaireBean.articleToModifyNouv.caracteristiqueArticle}" rows="5" cols="20" counter="display" maxlength="250" counterTemplate="{0} restants." autoResize="false" />
     						<h:outputText id="display" />
                         
 
                     </div>
                 </div>
                 <hr></hr>
+                
+                			
+				<div class="row">
+					<div class="col-lg-4 col-lg-offset-1">
+	                     <label for="text2" class="control-label col-lg-4">Origine
+	              		  </label>
+					</div>
+	                <div class="col-lg-6">
+	
+	                    <p:inputText required="true"
+	                        value="#{depositaireBean.articleToModifyNouv.origine}"
+	                        requiredMessage="Origine obligatoire"
+	                        placeholder="Nombre" styleClass="form-control top"></p:inputText>
+	
+	                </div>
+               </div>
+               <hr></hr>
+               
+               <div class="row">
+					<div class="col-lg-4 col-lg-offset-1">
+	                     <label for="text2" class="control-label col-lg-4">Référence
+	              		  </label>
+					</div>
+	                <div class="col-lg-6">
+	
+	                    <p:inputText required="true"
+	                        value="#{depositaireBean.articleToModifyNouv.reference}"
+	                        requiredMessage="Référence obligatoire"
+	                        placeholder="Nombre" styleClass="form-control top"></p:inputText>
+	
+	                </div>
+               </div>
+               <hr></hr>
+               
+               <div class="row">
+					<div class="col-lg-4 col-lg-offset-1">
+	                     <label for="text2" class="control-label col-lg-4">Espece des unités
+	              		  </label>
+					</div>
+	                <div class="col-lg-6">
+	
+	                    <p:inputText required="true"
+	                        value="#{depositaireBean.articleToModifyNouv.especeunit}"
+	                        requiredMessage="Espece unité obligatoire"
+	                        placeholder="Nombre" styleClass="form-control top"></p:inputText>
+	
+	                </div>
+               </div>
+               <hr></hr>
+                
+                
                 <div class="row">
             		<div class="col-lg-5">
 	                    <label for="text1" class="control-label col-lg-4">Mode d'aquisition
@@ -93,7 +140,7 @@
 					</div>
 	                <div class="col-lg-6">
 	
-	                     <p:selectOneMenu value="#{depositaireBean.curentArticle.modAcqArt}" converter="#{refConverter}" panelStyle="width:180px"  style="width:160px"
+	                     <p:selectOneMenu value="#{depositaireBean.articleToModifyNouv.modAcqArt}" converter="#{refConverter}" panelStyle="width:180px"  style="width:160px"
 	                         effect="fade" var="t" filter="true" filterMatchMode="startsWith">
 	                        <f:selectItem itemValue="#{null}" itemLabel="select" /> 
 	                            <f:selectItems value="#{siseBean.listModeAcquisition}" var="theme" itemLabel="#{theme.designation}" itemValue="#{theme}" />
@@ -114,7 +161,7 @@
 	                <div class="col-lg-6">
 	
 	
-	                    <p:selectOneMenu value="#{depositaireBean.curentArticle.financementArt}" converter="#{refConverter}" panelStyle="width:180px"  style="width:160px"
+	                    <p:selectOneMenu value="#{depositaireBean.articleToModifyNouv.financementArt}" converter="#{refConverter}" panelStyle="width:180px"  style="width:160px"
 	                         effect="fade" var="t" filter="true" filterMatchMode="startsWith">
 	                        <f:selectItem itemValue="#{null}" itemLabel="select" /> 
 	                            <f:selectItems value="#{siseBean.listFinancement}" var="theme" itemLabel="#{theme.designation}" itemValue="#{theme}" />
@@ -135,7 +182,7 @@
 					</div>
 	                <div class="col-lg-6">
 	
-	                    <p:selectOneMenu value="#{depositaireBean.curentArticle.fournisseur}" converter="#{refConverter}" panelStyle="width:180px"  style="width:160px"
+	                    <p:selectOneMenu value="#{depositaireBean.articleToModifyNouv.fournisseur}" converter="#{refConverter}" panelStyle="width:180px"  style="width:160px"
 	                         effect="fade" var="t" filter="true" filterMatchMode="startsWith">
 	                        <f:selectItem itemValue="#{null}" itemLabel="--select--" /> 
 	                            <f:selectItems value="#{siseBean.listFournisseur}" var="theme" itemLabel="#{theme.designation}" itemValue="#{theme}" />
@@ -155,8 +202,8 @@
 	                <div class="col-lg-6">
 	
 	                    <p:inputText id="nomenclature" required="true"
-	                        value="#{depositaireBean.curentArticle.prix}"
-	                        requiredMessage=""
+	                        value="#{depositaireBean.articleToModifyNouv.prix}"
+	                        requiredMessage="Prix Unitaire Obligatoire"
 	                        placeholder="Prix" styleClass="form-control top"></p:inputText>
 	
 	                </div>
@@ -171,8 +218,8 @@
 	                <div class="col-lg-6">
 	
 	                    <p:inputText required="true"
-	                        value="#{depositaireBean.curentArticle.nombre}"
-	                        requiredMessage=""
+	                        value="#{depositaireBean.articleToModifyNouv.nombre}"
+	                        requiredMessage="Nombre obligatoire"
 	                        placeholder="Nombre" styleClass="form-control top"></p:inputText>
 	
                 	</div>
@@ -186,8 +233,14 @@
                 <label for="text1" class="control-label col-lg-0"></label>
 
                 <div class="col-lg-6">
-                    <h:commandButton id="btnSignId" action="#{depositaireBean.updateArticleNouv(depositaireBean.curentArticle)}" value="Mettre à jour"
-                        class="btn btn-lg btn-primary btn-block"/>
+                	<div class="col-lg-12 col-lg-offset-0">
+	                				 <p:commandButton id="miseajourartnouv" value="Mettre à jour" 						   
+									   styleClass="btn btn-lg btn-primary btn-block"
+									   actionListener="#{depositaireBean.updateArticleNouv(depositaireBean.articleToModifyNouv)}"
+					   					oncomplete="if (!args.validationFailed) PF('modifArtNouv').hide();" 
+					   					update="@([id$=fileUpoadFormNouv], [id$=ArtNvTable])" icon="ui-icon-refresh"/>
+	                </div>
+                   
                 </div>
                 
 

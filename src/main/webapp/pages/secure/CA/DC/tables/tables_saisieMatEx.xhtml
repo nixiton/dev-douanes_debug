@@ -22,7 +22,10 @@
     <h:form>
     <p:dataTable   var="a" value="#{siseBean.listArticleEx}"
                  paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}  "
-                 paginator="true" rows="10" style="margin-bottom:20px">
+                 paginator="true" rows="10" style="margin-bottom:20px"
+                 widgetVar="ArtTable"
+                 id="ArtTable"
+                 >
  
         <p:column style="width:20%; text-align: center; word-wrap: break-word;">
             <f:facet name="header">
@@ -46,7 +49,7 @@
             <p:commandButton  action="#{depositaireBean.mySetCurentArticle(a)}" update=":detail"
             oncomplete="PF('detail').show()" icon="ui-icon-zoomin"/>
             
-            <p:commandButton  action="#{depositaireBean.mySetCurentArticle(a)}" update=":modifArt"
+            <p:commandButton  action="#{depositaireBean.setArticleTomodify(a)}" update=":modifArt"
             oncomplete="PF('modifArt').show()" icon="ui-icon-pencil"/>
         </p:column>
     </p:dataTable>

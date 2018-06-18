@@ -145,5 +145,35 @@ public class Article  implements Serializable{
 	    }
 
 	 protected Float prix;
+	 
+	 protected String origine;
+	 protected String reference;
+	 protected String especeunit;
+
+	public String getOrigine() {
+		return origine;
+	}
+
+	public void setOrigine(String origine) {
+		this.origine = origine;
+	}
+
+	public String getReference() {
+		return reference;
+	}
+
+	public void setReference(String reference) {
+		this.reference = reference;
+	}
+
+	public String getEspeceunit() {
+		return especeunit;
+	}
+
+	public void setEspeceunit(String especeunit) {
+		this.especeunit = especeunit;
+	}
+	 
+	 
 
 }

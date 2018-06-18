@@ -25,7 +25,10 @@
 
     <p:dataTable   var="a" value="#{siseBean.listArticleNouvValide}"
                  paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}  "
-                 paginator="true" rows="10" style="margin-bottom:20px">
+                 paginator="true" rows="10" style="margin-bottom:20px"
+                 widgetVar="ArtNvTable"
+                 id="ArtNvTable"
+                 >
  
         <p:column style="width:20%; text-align: center; word-wrap: break-word;">
             <f:facet name="header">
@@ -49,7 +52,7 @@
             <p:commandButton action="#{depositaireBean.mySetCurentArticle(a)}"
             oncomplete="PF('detail').show()" icon="ui-icon-zoomin" update=":detail"/>
             
-            <p:commandButton  action="#{depositaireBean.mySetCurentArticle(a)}" update=":modifArtNouv"
+            <p:commandButton  action="#{depositaireBean.setArticleToModifyNouv(a)}" update=":modifArtNouv"
             oncomplete="PF('modifArtNouv').show()" icon="ui-icon-pencil"/>
         </p:column>
     </p:dataTable>

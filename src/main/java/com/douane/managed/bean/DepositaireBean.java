@@ -396,6 +396,7 @@ public class DepositaireBean {
 		this.curentMaterielNouv = null;
 		this.curentMateriel = null;
 		this.curentArticle = null;
+		this.articleTomodify = null;
 		setCurentNull();
 		setAllNull();
 		return "success";
@@ -2151,9 +2152,16 @@ public class DepositaireBean {
 
 			a.setMarqueArticle(getMarq());
 			a.setCaracteristiqueArticle(getRenseignement());
+			
+			a.setOrigine(this.getMyorigine());
+			a.setReference(this.getMyref());
+			a.setEspeceunit(this.getMyesp());
 			// a.setModAcq(getAcquisition());
 
 			a.setNombre(getNombre());
+			
+			
+			
 
 			usermetierimpl.reqEntrerArticle(a, agent);
 			clear();
@@ -2860,6 +2868,7 @@ public class DepositaireBean {
 	
 	public void updateArticleEx(ArticleEx art) {
 		if (art == null) {
+			System.out.println("art null");
 			FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Erreur article", "Article null");
 			FacesContext.getCurrentInstance().addMessage("editartexerror", message);
 
@@ -2947,6 +2956,59 @@ public class DepositaireBean {
 	public void setArticleToFiche(CodeArticle articleToFiche) {
 		this.articleToFiche = articleToFiche;
 	}
+	
+	
+
+	private ArticleEx articleTomodify;
+	
+	public ArticleEx getArticleTomodify() {
+		return articleTomodify;
+	}
+
+	public void setArticleTomodify(ArticleEx articleTomodify) {
+		this.articleTomodify = articleTomodify;
+	}
+	
+	
+
+	private ArticleNouv articleToModifyNouv;
+	
+	public ArticleNouv getArticleToModifyNouv() {
+		return articleToModifyNouv;
+	}
+
+	public void setArticleToModifyNouv(ArticleNouv articleToModifyNouv) {
+		this.articleToModifyNouv = articleToModifyNouv;
+	}
+	
+	private String myorigine;
+	private String myref;
+	private String myesp;
+
+	public String getMyorigine() {
+		return myorigine;
+	}
+
+	public void setMyorigine(String myorigine) {
+		this.myorigine = myorigine;
+	}
+
+	public String getMyref() {
+		return myref;
+	}
+
+	public void setMyref(String myref) {
+		this.myref = myref;
+	}
+
+	public String getMyesp() {
+		return myesp;
+	}
+
+	public void setMyesp(String myesp) {
+		this.myesp = myesp;
+	}
+	
 
 
 }

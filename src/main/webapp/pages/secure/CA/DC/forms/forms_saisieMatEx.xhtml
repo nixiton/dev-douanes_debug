@@ -107,6 +107,54 @@
 				
 				<div class="row">
 					<div class="col-lg-4 col-lg-offset-1">
+	                     <label for="text2" class="control-label col-lg-4">Origine
+	              		  </label>
+					</div>
+	                <div class="col-lg-6">
+	
+	                    <p:inputText required="true"
+	                        value="#{depositaireBean.articleExToAdd.origine}"
+	                        requiredMessage="Origine obligatoire"
+	                        placeholder="Origine" styleClass="form-control top"></p:inputText>
+	
+	                </div>
+               </div>
+               <hr></hr>
+               
+               <div class="row">
+					<div class="col-lg-4 col-lg-offset-1">
+	                     <label for="text2" class="control-label col-lg-4">Référence
+	              		  </label>
+					</div>
+	                <div class="col-lg-6">
+	
+	                    <p:inputText required="true"
+	                        value="#{depositaireBean.articleExToAdd.reference}"
+	                        requiredMessage="Référence obligatoire"
+	                        placeholder="Référence" styleClass="form-control top"></p:inputText>
+	
+	                </div>
+               </div>
+               <hr></hr>
+               
+               <div class="row">
+					<div class="col-lg-4 col-lg-offset-1">
+	                     <label for="text2" class="control-label col-lg-4">Espece des unités
+	              		  </label>
+					</div>
+	                <div class="col-lg-6">
+	
+	                    <p:inputText required="true"
+	                        value="#{depositaireBean.articleExToAdd.especeunit}"
+	                        requiredMessage="Espece unité obligatoire"
+	                        placeholder="Espece unité" styleClass="form-control top"></p:inputText>
+	
+	                </div>
+               </div>
+               <hr></hr>
+				
+				<div class="row">
+					<div class="col-lg-4 col-lg-offset-1">
 	                     <label for="text2" class="control-label col-lg-4">Nombre
 	              		  </label>
 					</div>
@@ -114,7 +162,7 @@
 	
 	                    <p:inputText required="true"
 	                        value="#{depositaireBean.articleExToAdd.nombre}"
-	                        requiredMessage=""
+	                        requiredMessage="Nombre obligatoire"
 	                        placeholder="Nombre" styleClass="form-control top"></p:inputText>
 	
 	                </div>
@@ -129,7 +177,7 @@
 	
 	                    <p:inputText required="true"
 	                        value="#{depositaireBean.articleExToAdd.prix}"
-	                        requiredMessage=""
+	                        requiredMessage="Prix unitaire obligatoire"
 	                        placeholder="Nombre" styleClass="form-control top"></p:inputText>
 	
 	                </div>
