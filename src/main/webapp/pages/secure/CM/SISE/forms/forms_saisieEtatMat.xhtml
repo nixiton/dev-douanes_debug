@@ -15,7 +15,7 @@
 
 		<h:form class="form-horizontal">
 
-            <p:messages id="messages" />
+            <p:messages id="messages" showDetail="false" showSummary="true" autoUpdate="true"/>
 			<br/>
 			<div class="form-group">
 				<div class="row">
@@ -27,7 +27,7 @@
 	
 						<p:inputText   required="true"
 							value="#{siseBean.designation}"
-							requiredMessage=""
+							requiredMessage="Désignation obligatoire"
 							placeholder="Désignation" styleClass="form-control top"></p:inputText>
 	
 					</div>

@@ -206,8 +206,12 @@ public class GACBean {
 
 		} catch (Exception e) {
 			FacesContext context = FacesContext.getCurrentInstance();
+			String mess= "";
+			if(attr ==null) {
+				mess = "attribution null";
+			}
 			context.addMessage("myerror",
-					new FacesMessage("Erreur", "l'attribution n'a pas pu être validée car " + e.getMessage()));
+					new FacesMessage("Erreur", "l'attribution n'a pas pu être validée car "+mess + e.getMessage()));
 			System.out.println(
 					"EEEEEEEEERRRRRRRRRRRRRRROOOOOOOOOOORRRRRRRRR *******T******:" + e.getMessage() + "*******");
 			// e.printStackTrace();
@@ -310,7 +314,7 @@ public class GACBean {
 
 	public void refuseDechargeSortie(OpSortie sortie) {
 		// usermetierimpl.sortirMateriel(sortie);
-		usermetierimpl.reqSortirRefuser((OpSortie) this.getCurentOperation(), this.getMotif());
+		usermetierimpl.reqSortirRefuser(sortie, this.getMotif());
 		this.setCurentOperation(null);
 		this.setMotif(null);
 		setAllNull();
@@ -330,7 +334,7 @@ public class GACBean {
 		System.out.println("VALIDATION DETACHEMENT");
 		// usermetierimpl.sortirMateriel(sortie);
 		try {
-			usermetierimpl.detacherMateriel((OpDettachement) this.getCurentOperation());
+			usermetierimpl.detacherMateriel(det);
 			setAllNull();
 			setCurentNull();
 		} catch (Exception e) {

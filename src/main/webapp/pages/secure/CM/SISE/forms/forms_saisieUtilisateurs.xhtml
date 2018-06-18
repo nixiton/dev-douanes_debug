@@ -23,7 +23,9 @@
 				</div>
 				<div class="col-lg-6">
 					<p:inputText id="name"  value="#{userMB.name}"
-						required="true"></p:inputText>
+						required="true"
+						requiredMessage="Nom et prénom obligatoire"
+						></p:inputText>
 				</div>
 			</div>
 			<hr></hr>
@@ -35,7 +37,9 @@
 				</div>
 				<div class="col-lg-6">
 					<p:inputText id="im"  value="#{userMB.im}"
-						required="true">
+						required="true"
+						requiredMessage="Immatricule obligatoire"
+						>
 					</p:inputText>
 				</div>
 			</div>
@@ -81,7 +85,9 @@
 				</div>
 				<div class="col-lg-6 ">
 					<p:password id="password1" 
-						value="#{userMB.password}" match="password2" required="true">
+						value="#{userMB.password}" match="password2" required="true"
+						validatorMessage="mot de passe non-confirmé"
+						requiredMessage="Mot de passe obligatoire">
 					</p:password>
 				</div>
 			</div>
@@ -94,7 +100,10 @@
 				</div>
 				<div class="col-lg-6">
 					<p:password id="password2" 
-						value="#{userMB.password}" required="true">
+						value="#{userMB.password}" required="true"
+						requiredMessage="Confirmation Mot de passe obligatoire"
+						validatorMessage="mot de passe non-confirmé"
+						>
 					</p:password>
 				</div>
 			</div>

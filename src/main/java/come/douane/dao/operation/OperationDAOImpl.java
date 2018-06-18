@@ -66,7 +66,7 @@ public class OperationDAOImpl implements IOperationDAO{
 		}
 		System.out.println("*************************************AFAKA***************1");
 		if(m.getDetenteur()!=null) {
-			throw new Exception("Efa attribuer olona io fa mila detachena aloha");
+			throw new Exception("Materiel encore détenu par "+m.getDetenteur().getIm());
 		}
 		//m.setCodification("codified"+new Date());
 		m.generateCode(m.getNumeroType());

@@ -33,7 +33,7 @@
 						
 						value="#{editAgent.nomAgent}"
 						required="true"
-					    requiredMessage = "Nom Obligatoire"
+					    requiredMessage = "Nom et prénom Obligatoire"
 							/>
 					</div>
 				</div>
@@ -45,7 +45,9 @@
 					</div>
 					<div class="col-lg-6">
 						<h:outputText id="im" styleClass="col-md-6" value="#{editAgent.im}"
-							required="true">
+							required="true"
+							requiredMessage = "Immatriculation Obligatoire"
+							>
 						</h:outputText>
 					</div>
 				</div>

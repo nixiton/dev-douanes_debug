@@ -68,7 +68,9 @@
                                           fileUploadListener="#{depositaireBean.uploadIm_Advanced}"
                                           mode="advanced" dragDropSupport="false" update="@this,imId"
                                           sizeLimit="1000000"
-                                          allowTypes="/(\.|\/)(gif|jpeg|tx|png|pdf)$/" required="true">
+                                          allowTypes="/(\.|\/)(gif|jpeg|tx|png|pdf)$/"
+                                          
+                                          >
                                 <f:attribute name="docObj" value="#{rowIm}"></f:attribute>
                             </p:fileUpload>
                         </p:panel>

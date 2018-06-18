@@ -14,7 +14,7 @@
 
 		<h:form class="form-horizontal">
 
-			<p:messages id="messages" />
+			<p:messages id="messages" showDetail="false" showSummary="true" autoUpdate="true" />
 			<br/>
 			<div class="form-group " >
 				<div class="row">
@@ -26,7 +26,7 @@
 	
 	
 						<p:inputText required="true" value="#{siseBean.designation}"
-							requiredMessage="" placeholder="Désignation"
+							requiredMessage="Désignation obligatoire" placeholder="Désignation"
 							styleClass="form-control top"></p:inputText>
 					</div>
 				</div>
@@ -39,7 +39,7 @@
 					<div class="col-lg-6">
 					
 						<p:inputText required="true" value="#{siseBean.codeTypeMateriel}"
-							requiredMessage="" placeholder="Code"
+							requiredMessage="Code Type Materiel obligatoire" placeholder="Code"
 							styleClass="form-control top"></p:inputText>
 					</div>
 				</div>

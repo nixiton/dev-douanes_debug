@@ -68,7 +68,9 @@
                                           fileUploadListener="#{depositaireBean.uploadIm_Advanced}"
                                           mode="advanced" dragDropSupport="false" update="@this,imId"
                                           sizeLimit="1000000"
-                                          allowTypes="/(\.|\/)(gif|jpeg|png)$/" required="true">
+                                          allowTypes="/(\.|\/)(gif|jpeg|png)$/" required="true"
+                                          requiredMessage="Image obligatoire"
+                                          >
                                 <f:attribute name="docObj" value="#{rowIm}"></f:attribute>
                             </p:fileUpload>
                         </p:panel>
@@ -164,7 +166,8 @@
 
                         <p:inputText
                         value="#{depositaireBean.unitPrice}"
-            
+            			required="true"
+                        requiredMessage="Prix Unitaire obligatoire"
                         placeholder="Prix unitaire" styleClass="form-control top"></p:inputText>
                     </div>
                   </div>
@@ -231,7 +234,10 @@
 
                         <p:inputText
                         value="#{depositaireBean.origine}"
-                        placeholder="" styleClass="form-control top"></p:inputText>
+                        placeholder="" styleClass="form-control top"
+                        required="true"
+                        requiredMessage="Origine obligatoire"
+                        ></p:inputText>
                     </div>
 				</div>
 				<hr/>

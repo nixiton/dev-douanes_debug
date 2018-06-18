@@ -29,7 +29,10 @@
                 	<div class="col-lg-6">
 
 	                    <p:selectOneMenu styleClass="form-control top" converter="#{agentConverter}" value="#{depositaireBean.detenteurDett}"
-	                    effect="fade" id="det" var="t" filter="true" filterMatchMode="startsWith">
+	                    effect="fade" id="det" var="t" filter="true" filterMatchMode="startsWith"
+	                    required="true"
+	                    requiredMessage="Détenteur obligatoire"
+	                    	                    >
 	                            <f:selectItem itemValue="#{null}" itemLabel="select" /> 
 	                            <f:selectItems value="#{userMB.userListByDirection}" var="type" itemLabel="#{type.im}" itemValue="#{type}"/>
 	                            <p:column>
@@ -98,7 +101,9 @@
 	                <div class="col-lg-6">
 	
 	                    <p:selectOneMenu id="mat" styleClass="form-control top" value="#{depositaireBean.materielSeclectedDett}" converter="#{materielConverter}"   panelStyle="width:180px"  style="width:160px"
-	                         effect="fade" var="t" filter="true" filterMatchMode="startsWith">
+	                         effect="fade" var="t" filter="true" filterMatchMode="startsWith"
+	                         required="true"
+	                    requiredMessage="Matériel obligatoire">
 	                        <f:selectItem itemValue="#{null}" itemLabel="--select--" /> 
 	                            <f:selectItems value="#{depositaireBean.currentListMateriel}" var="theme" itemLabel="#{theme.numSerie}" itemValue="#{theme}" />
 	                        <p:column>
@@ -174,7 +179,9 @@
 	                <div class="col-lg-6">
 	
 	                    <p:selectOneMenu value="#{depositaireBean.motifDettachement}" converter="#{refConverter}" panelStyle="width:180px"  style="width:160px"
-	                         effect="fade" var="t" filter="true" filterMatchMode="startsWith">
+	                         effect="fade" var="t" filter="true" filterMatchMode="startsWith"
+	                         required="true"
+	                    requiredMessage="Motif obligatoire">
 	                        <f:selectItem itemValue="#{null}" itemLabel="--select--" /> 
 	                            <f:selectItems value="#{depositaireBean.listMotifDettachement}" var="theme" itemLabel="#{theme.designation}" itemValue="#{theme}" />
 	                        <p:column>

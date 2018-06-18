@@ -38,7 +38,7 @@ public class UseriConverter implements Converter {
             	System.out.println("Useri ; "+role.getDesignation());
                 return role;
             } catch(NumberFormatException e) {
-                throw new ConverterException(new FacesMessage(FacesMessage.SEVERITY_ERROR, "Conversion Error", "Not a valid theme."));
+                throw new ConverterException(new FacesMessage(FacesMessage.SEVERITY_ERROR, "Erreur Fonction", "Fonction non valide."));
             }
         }
         return null;

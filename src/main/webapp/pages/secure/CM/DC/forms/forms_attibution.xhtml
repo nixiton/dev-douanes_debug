@@ -92,7 +92,9 @@
                 <div class="col-lg-6">
 
                     <p:selectOneMenu styleClass="form-control top" converter="#{agentConverter}" value="#{depositaireBean.detenteur}"
-                    effect="fade" var="t" filter="true" filterMatchMode="startsWith">
+                    effect="fade" var="t" filter="true" filterMatchMode="startsWith"
+                    required="true" requiredMessage="Détenteur obligatoire"
+                    >
                             <f:selectItem itemValue="#{null}" itemLabel="--select--"  noSelectionOption="true"/> 
                             <f:selectItems value="#{userMB.userListByDirection}" var="type" itemLabel="#{type.im}" itemValue="#{type}"/>
                             <p:column>

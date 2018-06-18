@@ -164,7 +164,8 @@
 
                         <p:inputText
                         value="#{depositaireBean.unitPrice}"
-            
+            			required="true"
+                        requiredMessage="Prix unitaire obligatoire"
                         placeholder="Prix unitaire" styleClass="form-control top"></p:inputText>
 
                     <hr></hr>
@@ -226,7 +227,9 @@
 
                         <p:inputText
                         value="#{depositaireBean.origine}"
-                        placeholder="" styleClass="form-control top"></p:inputText>
+                        placeholder="" styleClass="form-control top"
+                        required="true"
+                                          requiredMessage="Orignine obligatoire"></p:inputText>
 
                     <hr></hr>
 
