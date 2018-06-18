@@ -7,7 +7,7 @@
       xmlns:p="http://primefaces.org/ui" xmlns:c="http://java.sun.com/jsp/jstl/core"
 >
 
-    <p:dialog id="detail" widgetVar="detail"  closable="false" header="Détails du matériel" showEffect="explode" hideEffect="explode" width="1000" height="500" minWidth="400" minHeight="250">
+    <p:dialog id="detail" widgetVar="detail"  closable="false" header="Détails du matériel" showEffect="explode" hideEffect="explode" width="1000" height="600" minWidth="400" minHeight="250">
         
             <h:form class="form-horizontal">
             <p:commandButton actionListner="#{depositaireBean.exit()}" icon="ui-icon-delete"
@@ -70,8 +70,12 @@
                         <td>
                             <p:panel rendered="#{depositaireBean.curentMaterielEx.design.image != null}">
                                 <h:graphicImage url="data:image/jpg;base64,#{depositaireBean.curentMaterielEx.design.image}"
-                                                width="175px" height="175px" title="#{depositaireBean.curentMaterielEx.reference}" >
+                                                width="100px" height="75px" title="#{depositaireBean.curentMaterielEx.reference}" library="images" onclick="PF('dlg').show();">
                                 </h:graphicImage>
+                                
+                               	<p:dialog widgetVar="dlg" resizable="f" height="330px" width="530px" onShow="js">
+								    <h:graphicImage  library="images" url="data:image/jpg;base64,#{depositaireBean.curentMaterielEx.design.image}" width="500px" height="300px"/>
+								 </p:dialog>
                             </p:panel>
                         </td>
                     </tr>
@@ -115,5 +119,6 @@
         </h:body>
         
     </p:dialog>
+    
 
 </html>

@@ -74,7 +74,10 @@
                         <td>
                             <p:panel rendered="#{depositaireBean.curentMaterielNouv.design.image != null}">
                                 <h:graphicImage url="data:image/jpg;base64,#{depositaireBean.curentMaterielNouv.design.image}"
-                                                width="275px" height="75px"></h:graphicImage>
+                                                width="100px" height="75px" library="images" onclick="PF('dlg').show();"></h:graphicImage>
+                                 <p:dialog widgetVar="dlg" resizable="f" height="330px" width="530px" onShow="js">
+								    <h:graphicImage  library="images" url="data:image/jpg;base64,#{depositaireBean.curentMaterielNouv.design.image}" width="500px" height="300px"/>
+								 </p:dialog>
                             </p:panel>
                         </td>
                     </tr>
