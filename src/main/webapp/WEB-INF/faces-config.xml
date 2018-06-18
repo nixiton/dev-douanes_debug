@@ -137,6 +137,17 @@
 	</navigation-rule>
 	
 	<navigation-rule>
+		<from-view-id>/pages/*</from-view-id>
+		
+		<navigation-case>
+			<from-outcome>choix_compta</from-outcome>
+			<to-view-id>/pages/secure/choice.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		
+	</navigation-rule>
+	
+	<navigation-rule>
 		<from-view-id>/pages/secure/*</from-view-id>
 		<!-- navigation-case for method login() navigation case for method logout() -->
 		
@@ -151,6 +162,7 @@
 			<to-view-id>/pages/unsecure/update_pass.xhtml</to-view-id>
 			<redirect />
 		</navigation-case>
+		
 		
 		<navigation-case>
 			<from-action>#{topMenuMB.goToDashboard}</from-action>
