@@ -1,5 +1,7 @@
 package com.douane.security;
 
+import java.net.InetAddress;
+import java.net.UnknownHostException;
 import java.util.*;
 
 import javax.faces.application.FacesMessage;
@@ -60,8 +62,18 @@ public class CustomAuthenticationProvider implements AuthenticationProvider {
             	FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Cette Immatriculation a été désactivée " + immatriculation));
                 throw new SecurityExecption("user " + immatriculation + " is desactivate");
             }
+            InetAddress ip;
+            try {
 
-            user.setIp("IP default");
+                ip = InetAddress.getLocalHost();
+                System.out.println("Current IP address : " + ip.getHostAddress());
+                user.setIp(ip.getHostAddress());
+            } catch (UnknownHostException e) {
+                user.setIp("IP default");
+                e.printStackTrace();
+
+            }
+
         }
         else
         {
