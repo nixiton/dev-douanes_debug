@@ -33,6 +33,7 @@ import com.douane.entite.OpAttribution;
 import com.douane.entite.OpEntree;
 import com.douane.entite.OpSortie;
 import com.douane.entite.Operation;
+import com.douane.managed.bean.JasperData.JournalMatiereData;
 import com.douane.managed.bean.JasperData.OrdreEntreeData;
 import com.douane.managed.bean.form.GrandLivreBean;
 import com.douane.managed.bean.form.PdfFormBean;
@@ -294,6 +295,46 @@ public class JasperTableExampleBean implements Serializable{
             /* Map to hold Jasper report Parameters */
             Map<String, Object> parameters = new HashMap<String, Object>();
             parameters.put("budget", this.journal.getBudget());
+            parameters.put("chapitre", this.journal.getChapitre());
+            parameters.put("article", this.journal.getArticle());
+            parameters.put("num2", this.journal.getNum2());
+            parameters.put("num3", this.journal.getNum3());
+            parameters.put("num4", this.journal.getNum4());
+            parameters.put("num5", this.journal.getNum5());
+            parameters.put("nbFeuillets", this.journal.getNbFeuillets());
+            parameters.put("lieu", this.journal.getLieu());
+            parameters.put("date", this.journal.getDate());
+            parameters.put("ans", "");
+            parameters.put("debutDate", this.journal.getDebutDate());
+            parameters.put("date1", "");
+            parameters.put("FinDate", this.journal.getFinDate());
+            parameters.put("date2", ""); 
+            parameters.put("arrete", "");
+            parameters.put("lieu2", this.journal.getLieu());
+            
+            JasperPrint jasperPrint = JasperFillManager.fillReport(url.getPath(), parameters, new JREmptyDataSource());
+            JasperExportManager.exportReportToPdfStream(jasperPrint, tmp);
+		}
+         catch (JRException ex) {
+            ex.printStackTrace();
+        }
+		//return ("#");
+	}
+	public void journalMatiereReport(String debut,String fin, List<Object[]> l) throws IOException {	
+		this.journal.setDebutDate(debut);
+		this.journal.setFinDate(fin);
+		FacesContext facescontext = FacesContext.getCurrentInstance();
+		ExternalContext external = facescontext.getExternalContext();
+		HttpSession session = (HttpSession) external.getSession(true);
+		HttpServletResponse response = (HttpServletResponse) external.getResponse();
+		ServletOutputStream tmp = response.getOutputStream();
+		URL url =  this.getClass().getResource("../jasperReport/JournalMatiere.jasper");
+		JournalMatiereData data = new JournalMatiereData(l);
+		try {
+            /* Map to hold Jasper report Parameters */
+            Map<String, Object> parameters = new HashMap<String, Object>();
+            parameters.put("budget", this.journal.getBudget());
+            parameters.put("dataSource", data.getDataSource());
             parameters.put("chapitre", this.journal.getChapitre());
             parameters.put("article", this.journal.getArticle());
             parameters.put("num2", this.journal.getNum2());

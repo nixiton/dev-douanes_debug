@@ -30,10 +30,10 @@ public class JournalMatiereData {
 		private Date date;
 		private String origine;
 		private String nomenclature;
+		private String nbrDes;
 		private String designations;
 		private String especeU;
 		private Float pu;
-		private String nbrDes;
 		private Long e_qt;
 		private Float e_v;
 		private Long s_qt;
@@ -71,7 +71,7 @@ public class JournalMatiereData {
 		public void setDate(Date date) {
 			this.date = date;
 		}
-		public String getName() {
+		public String getNomenclature() {
 			return nomenclature;
 		}
 		public void setNomenclature(String nom) {
