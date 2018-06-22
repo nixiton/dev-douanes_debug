@@ -34,6 +34,8 @@ import com.douane.entite.OpEntree;
 import com.douane.entite.OpSortie;
 import com.douane.entite.Operation;
 import com.douane.managed.bean.JasperData.JournalMatiereData;
+import com.douane.managed.bean.JasperData.LivreAnnuelData;
+import com.douane.managed.bean.JasperData.LivreAnnuelData.LivreAnnuel;
 import com.douane.managed.bean.JasperData.OrdreEntreeData;
 import com.douane.managed.bean.form.GrandLivreBean;
 import com.douane.managed.bean.form.PdfFormBean;
@@ -45,6 +47,7 @@ import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JasperExportManager;
 import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
 /*
 import net.sf.jasperreports.engine.JREmptyDataSource;
 import net.sf.jasperreports.engine.JRException;
@@ -360,16 +363,18 @@ public class JasperTableExampleBean implements Serializable{
         }
 		//return ("#");
 	}
-	public void grandLivreReport() throws IOException {
+	public void grandLivreReport(List <Object[]> liste) throws IOException {
 		FacesContext facescontext = FacesContext.getCurrentInstance();
 		ExternalContext external = facescontext.getExternalContext();
 		HttpSession session = (HttpSession) external.getSession(true);
 		HttpServletResponse response = (HttpServletResponse) external.getResponse();
 		ServletOutputStream tmp = response.getOutputStream();
 		URL url =  this.getClass().getResource("../jasperReport/GrandLivre.jasper");
+		LivreAnnuelData laData = new LivreAnnuelData(liste);
 		try {
             /* Map to hold Jasper report Parameters */
             Map<String, Object> parameters = new HashMap<String, Object>();
+            parameters.put("dataSource",laData.getDataSource());
             parameters.put("budget", this.livre.getBudget());
             parameters.put("chap", this.livre.getChap());
             parameters.put("article", this.livre.getArticle());
