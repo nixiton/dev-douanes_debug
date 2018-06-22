@@ -1376,6 +1376,11 @@ public class SuiviEditionBean {
 				row[5] = a.getNombre();
 				row[6] = a.getPrix();
 				row[7] = (Long) row[5] * (Float) row[6];
+				//set reference entree
+				if(a.getReference()!=null) {
+					row[2] = a.getReference();
+				}
+				
 
 			} else if (o instanceof OpSortieArticle) {
 				row[0] = row[0] + "/S";

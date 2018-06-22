@@ -30,7 +30,9 @@
 	                <div class="col-lg-6">
 	
 	                    <p:selectOneMenu styleClass="form-control top" converter="#{agentConverter}" value="#{depositaireBean.agentDest}"
-	                    effect="fade" var="t" filter="true" filterMatchMode="startsWith">
+	                    effect="fade" var="t" filter="true" filterMatchMode="startsWith"
+	                    required="true" requiredMessage="Bénéficiaire obligatoire"
+	                    >
 	                            <f:selectItem itemValue="#{null}" itemLabel="--select--" /> 
 	                            <f:selectItems value="#{userMB.userListByDirection}" var="type" itemLabel="#{type.im}" itemValue="#{type}"/>
 	                            <p:column>
@@ -64,7 +66,9 @@
 	                <div class="col-lg-6">
 	
 	                    <p:selectOneMenu value="#{depositaireBean.article}" converter="#{articleConverter}"   panelStyle="width:180px"  style="width:160px"
-	                         effect="fade" var="t" filter="true" filterMatchMode="startsWith">
+	                         effect="fade" var="t" filter="true" filterMatchMode="startsWith"
+	                         required="true" requiredMessage="Code article obligatoire"
+	                         >
 	                        <f:selectItem itemValue="#{null}" itemLabel="--select--" /> 
 	                            <f:selectItems value="#{depositaireBean.listArticleValideByDirec}" var="theme" itemLabel="#{theme.codeArticle.typeObjet.designation}  ( #{theme.codeArticle.designation} )" itemValue="#{theme}" />
 	                        <p:column>
@@ -130,6 +134,24 @@
 	                        
 	                        </p:inputText>
 	                        <p:message for="nombretodep" />
+	
+	                </div>
+               </div>
+               <hr></hr>
+               
+               <div class="row">
+					<div class="col-lg-4 col-lg-offset-1"> 
+		                <label for="text1" class="control-label col-lg-4">Décision
+		                </label>
+					</div>
+	                <div class="col-lg-6">
+	
+	                   <p:inputText required="true"
+	                        value="#{depositaireBean.decision }"
+	                        requiredMessage="Décision obligatoire"
+	                        placeholder="Décision" styleClass="form-control top"
+	                      >
+	                        </p:inputText>
 	
 	                </div>
                </div>

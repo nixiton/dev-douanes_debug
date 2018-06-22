@@ -2929,7 +2929,7 @@ public class DepositaireBean {
 			//setAgentDest(null);
 			//setArticle(null);
 			//setNombreArticleToDep((long) 0);
-			usermetierimpl.reqSortirArticle(this.getArticle(), agent, getAgentDest(), getNombreArticleToDep());
+			usermetierimpl.reqSortirArticle(this.getArticle(), agent, getAgentDest(), getNombreArticleToDep(), this.getDecision());
 			return SUCCESS;
 		}catch(Exception e) {
 		System.out.println("error sortie article "+ e.getMessage());
@@ -3009,6 +3009,14 @@ public class DepositaireBean {
 		this.myesp = myesp;
 	}
 	
+	public String getDecision() {
+		return decision;
+	}
 
+	public void setDecision(String decision) {
+		this.decision = decision;
+	}
+
+	private String decision;
 
 }

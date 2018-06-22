@@ -48,7 +48,18 @@ public class OpSortieArticle  extends Operation{
 	public void setNombreToS(Long nombreToS) {
 		this.nombreToS = nombreToS;
 	}
+	
 	private Long nombreToS;
+	
+	private String decision;
+	
+	public String getDecision() {
+		return decision;
+	}
+
+	public void setDecision(String decision) {
+		this.decision = decision;
+	}
 
 
 }

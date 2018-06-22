@@ -182,7 +182,7 @@
                
                <div class="row">
 					<div class="col-lg-4 col-lg-offset-1">
-	                     <label for="text2" class="control-label col-lg-4">Référence
+	                     <label for="text2" class="control-label col-lg-4">Référence facture
 	              		  </label>
 					</div>
 	                <div class="col-lg-6">
@@ -190,8 +190,8 @@
 	                    <p:inputText required="true"
 	                        value="#{depositaireBean.myref}"
 	                        requiredMessage="Référence obligatoire"
-	                        placeholder="Référence" styleClass="form-control top"></p:inputText>
-	
+	                        placeholder="Référence facture" styleClass="form-control top"></p:inputText>
+
 	                </div>
                </div>
                <hr></hr>
@@ -220,10 +220,15 @@
 					</div>
 	                <div class="col-lg-6">
 	
-	                    <p:inputText id="nomenclature" required="true"
+	                    <p:inputText  required="true"
 	                        value="#{depositaireBean.prix}"
-	                        requiredMessage=""
-	                        placeholder="Prix" styleClass="form-control top"></p:inputText>
+	                        requiredMessage="Prix unitaire obligatoire"
+	                        placeholder="Prix" styleClass="form-control top"
+	                        id="prixtoadd"
+	                        validatorMessage="Ce nombre n'est pas valide"
+	                        >
+	                        <f:validateDoubleRange minimum="0"/></p:inputText>
+	                        <p:message for="prixtoadd" />
 	
 	                </div>
                 </div>
@@ -238,8 +243,14 @@
 	
 	                    <p:inputText required="true"
 	                        value="#{depositaireBean.nombre}"
-	                        requiredMessage=""
-	                        placeholder="Nombre" styleClass="form-control top"></p:inputText>
+	                        requiredMessage="Nombre obligatoire"
+	                        placeholder="Nombre" styleClass="form-control top"
+	                        id="nombretoadd"
+	                        validatorMessage="Ce nombre n'est pas valide">
+	                        <f:validateDoubleRange minimum="0"/>
+	                        
+	                        ></p:inputText>
+	                        <p:message for="nombretoadd" />
 	
 	                </div>
               </div>

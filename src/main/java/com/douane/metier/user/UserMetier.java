@@ -904,7 +904,7 @@ public class UserMetier implements IUserMetier {
 	}
 
 	@Override
-	public OpSortieArticle reqSortirArticle(Article article, Agent op, Agent destinataire, Long nbr) throws Exception {
+	public OpSortieArticle reqSortirArticle(Article article, Agent op, Agent destinataire, Long nbr, String decision) throws Exception {
 		// TODO Auto-generated method stub
 		// TODO Auto-generated method stub
 		// try {
@@ -914,6 +914,7 @@ public class UserMetier implements IUserMetier {
 		OpSortieArticle opsortieart = new OpSortieArticle(new Date(), new Date(), op.getIp(), op, article,
 				destinataire);
 		opsortieart.setNombreToS(nbr);
+		opsortieart.setDecision(decision);
 		opsortieartrepos.save(opsortieart);
 		return opsortieart;
 		/*

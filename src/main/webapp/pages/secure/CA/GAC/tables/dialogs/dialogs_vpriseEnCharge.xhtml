@@ -27,6 +27,33 @@
 						<td>#{gacBean.opEntreeArticleToValidate.article.codeArticle.designation}</td>
                     </tr>
                     
+                    <tr>
+                        <td><strong>Prix unitaire</strong></td>
+                        <td>#{gacBean.opEntreeArticleToValidate.article.prix}</td>
+                        <td><strong>Nombre</strong></td>
+                        <td>#{gacBean.opEntreeArticleToValidate.article.nombre}</td>
+                    </tr>
+                    
+                    <tr>
+                    	<td><strong>Caractéristique</strong></td>
+                        <td>#{gacBean.opEntreeArticleToValidate.article.caracteristiqueArticle}</td>
+                        <td><strong>Marque</strong></td>
+                        <td>#{gacBean.opEntreeArticleToValidate.article.marqueArticle}</td>
+                       
+                    </tr>
+                    
+                    <tr>
+                    	<td><strong>Origine</strong></td>
+                        <td>#{gacBean.opEntreeArticleToValidate.article.origine}</td>
+                        <td><strong>Référence</strong></td>
+                        <td>#{gacBean.opEntreeArticleToValidate.article.reference}</td>
+                    </tr>
+                    <tr>
+                    	<td><strong>Espece des unités</strong></td>
+                        <td>#{gacBean.opEntreeArticleToValidate.article.especeunit}</td>
+                       
+                    </tr>
+                    
                     <c:if test="#{gacBean.opEntreeArticleToValidate.article['class'].simpleName eq 'ArticleNouv'}">
                     <tr>
                         <td><strong>Fournisseur</strong></td>
