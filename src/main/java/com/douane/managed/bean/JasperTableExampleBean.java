@@ -32,6 +32,8 @@ import org.springframework.transaction.annotation.Transactional;
 import com.douane.entite.OpAttribution;
 import com.douane.entite.OpEntree;
 import com.douane.entite.OpSortie;
+import com.douane.entite.Operation;
+import com.douane.managed.bean.JasperData.OrdreEntreeData;
 import com.douane.managed.bean.form.GrandLivreBean;
 import com.douane.managed.bean.form.PdfFormBean;
 import com.douane.managed.bean.saisieRef.JournalFormBean;
@@ -175,7 +177,10 @@ public class JasperTableExampleBean implements Serializable{
 			e.printStackTrace();
 		}
     }
-	public void ordreEntreeReport(OpEntree op ) throws IOException {
+	public void ordreEntreeReport(GACBean gacBean) throws IOException {
+		Operation op = gacBean.getCurentOperation1();
+		List<Object[]> l = gacBean.getDesingationByOpEntree(op);
+		OrdreEntreeData datalist = new OrdreEntreeData(l);
 		FacesContext facescontext = FacesContext.getCurrentInstance();
 		ExternalContext external = facescontext.getExternalContext();
 		HttpSession session = (HttpSession) external.getSession(true);
@@ -188,7 +193,7 @@ public class JasperTableExampleBean implements Serializable{
             
             /* Map to hold Jasper report Parameters */
             Map<String, Object> parameters = new HashMap<String, Object>();
-            
+            parameters.put ("dataSource" , datalist.getDataAsDataSource());
             parameters.put("num3", this.ordreEB.getNum3());
             parameters.put("num4", this.ordreEB.getNum4());
             //parameters.put("chap", this.ordreEB.get());
@@ -237,7 +242,7 @@ public class JasperTableExampleBean implements Serializable{
             
             /* Map to hold Jasper report Parameters */
             Map<String, Object> parameters = new HashMap<String, Object>();
-            
+            parameters.put("materiel", op.getMat());
             parameters.put("num5", this.ordreS.getNum5());
             parameters.put("num6", this.ordreS.getNum6());
             parameters.put("budget", this.ordreS.getBudget());
@@ -246,7 +251,8 @@ public class JasperTableExampleBean implements Serializable{
             parameters.put("paragraphe", this.ordreS.getParagraphe());
             parameters.put("num2", this.ordreS.getNum2());
             parameters.put("approOuService", this.ordreS.getApproOuService());
-            parameters.put("comptable", op.getDirection().getDesignation());
+            if(op.getDirection().getDesignation() != null)
+            	parameters.put("comptable", op.getDirection().getDesignation());
             parameters.put("Comptable", op.getOperateur().getNomAgent());
             parameters.put("matiere",  op.getMat().getDesign().getOrigine());
             //mila alamina ny jsxml sy ny entree

@@ -632,9 +632,9 @@ public class SuiviEditionBean {
 							// total entree
 							row[8] = d.getPu() * (Long) row[7];
 							// nombre par desingation sortie
-							row[9] = 0;
+							row[9] = new Long(0);
 							// total sortie
-							row[10] = 0;
+							row[10] = new Float(0);
 							row[11] = d;
 							listobjectForJournal.add(row);
 							row = new Object[12];
@@ -671,9 +671,9 @@ public class SuiviEditionBean {
 					// pu
 					row[6] = mat.getDesign().getPu();
 					// nombre par desingation entree
-					row[7] = 0;
+					row[7] = new Long(0);
 					// total entree
-					row[8] = 0;
+					row[8] = new Float(0);
 					// nombre par desingation sortie
 					row[9] = 1L;
 					// total sortie
