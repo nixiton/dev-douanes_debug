@@ -726,16 +726,16 @@ public class SuiviEditionBean {
 					row[2] = "";
 
 					// par nomenclature
-					row[4] = 0;
-					row[6] = 0;
-					row[7] = 0;
-					row[8] = 0;
-					row[9] = 0;
-					row[10] = 0;
-					row[11] = 0;
-					row[12] = 0;
-					row[13] = 0;
-					row[14] = 0;
+					row[4] = new Float(0);
+					row[6] = new Float(0);
+					row[7] = new Float(0);
+					row[8] = new Float(0);
+					row[9] = new Float(0);
+					row[10] = new Float(0);
+					row[11] = new Float(0);
+					row[12] = new Float(0);
+					row[13] = new Float(0);
+					row[14] = new Float(0);
 
 					for (Object[] nom : bydesignation1) {
 						List<Object[]> liste = (List<Object[]>) nom[2];
@@ -802,16 +802,16 @@ public class SuiviEditionBean {
 					row[2] = ((OpSortie) op).getMotifsortie().getDesignation();
 
 					// par nomenclature
-					row[4] = 0;
-					row[6] = 0;
-					row[7] = 0;
-					row[8] = 0;
-					row[9] = 0;
-					row[10] = 0;
-					row[11] = 0;
-					row[12] = 0;
-					row[13] = 0;
-					row[14] = 0;
+					row[4] = new Float(0);
+					row[6] = new Float(0);
+					row[7] = new Float(0);
+					row[8] = new Float(0);
+					row[9] = new Float(0);
+					row[10] = new Float(0);
+					row[11] = new Float(0);
+					row[12] = new Float(0);
+					row[13] = new Float(0);
+					row[14] = new Float(0);
 
 					// total sortie
 					Nomenclature nomenclcurrent = mat.getDesign().getNomenMat();

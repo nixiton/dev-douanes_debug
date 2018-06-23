@@ -33,6 +33,8 @@ import com.douane.entite.OpAttribution;
 import com.douane.entite.OpEntree;
 import com.douane.entite.OpSortie;
 import com.douane.entite.Operation;
+import com.douane.managed.bean.JasperData.EtatAppreciatifData.EtatAppreciatif;
+import com.douane.managed.bean.JasperData.EtatAppreciatifData;
 import com.douane.managed.bean.JasperData.JournalMatiereData;
 import com.douane.managed.bean.JasperData.LivreAnnuelData;
 import com.douane.managed.bean.JasperData.LivreAnnuelData.LivreAnnuel;
@@ -394,7 +396,8 @@ public class JasperTableExampleBean implements Serializable{
             ex.printStackTrace();
         }
 	}
-	public void etatAppreciatifReport() throws IOException {
+	public void etatAppreciatifReport(List <Object[]> liste) throws IOException {
+		EtatAppreciatifData data = new EtatAppreciatifData(liste);
 		//System.out.println(this.pdfForm.toString());
 		FacesContext facescontext = FacesContext.getCurrentInstance();
 		ExternalContext external = facescontext.getExternalContext();
@@ -405,6 +408,7 @@ public class JasperTableExampleBean implements Serializable{
 		try {
             /* Map to hold Jasper report Parameters */
             Map<String, Object> parameters = new HashMap<String, Object>();
+            parameters.put("dataSource", data.getDataSource());
             parameters.put("materiel", this.pdfForm.getNum1());
             parameters.put("budget", this.pdfForm.getBudget());
             parameters.put("chp", this.pdfForm.getChapitre());
@@ -431,6 +435,7 @@ public class JasperTableExampleBean implements Serializable{
          catch (JRException ex) {
             ex.printStackTrace();
         }
+		facescontext.getExternalContext().getSessionMap().put("EtatAppreciatifBean", null);
 	}
 	public void inventaireReport() throws IOException {
 		//System.out.println(this.pdfForm.toString());

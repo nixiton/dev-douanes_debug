@@ -577,6 +577,12 @@
 		</navigation-case>
 		
 		<navigation-case>
+			<from-outcome>dialogEtatAppreciatif</from-outcome>
+			<to-view-id>/pages/secure/CM/DGD/tables/dialogs/dialogs_EtatAppreciatif.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		
+		<navigation-case>
 			<from-outcome>dialog</from-outcome>
 			<to-view-id>/pages/secure/CM/tables/dialogs/dialogs_saisieMatEx.xhtml</to-view-id>
 			<redirect />

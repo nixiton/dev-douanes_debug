@@ -181,17 +181,17 @@
        			 <span>
        			 		<h:form >
        			 			<p:outputLabel for="annee_etat_appreciatif" value="" />
-        					<p:calendar id="annee_etat_appreciatif" value="#{calendarView.date5}" locale="de" navigator="true" pattern="yyyy-MMM-dd" />
+        					<p:calendar id="annee_etat_appreciatif" value="#{EtatAppreciatifBean.date}" locale="de" navigator="true" pattern="yyyy-MMM-dd" required="true"/>
      			 			<p:dialog modal="true" resizable="false" header="Values" widgetVar="dlg" showEffect="fold">
         						<p:panelGrid id="display_journal" columns="2" columnClasses="label,value">
       			 					 <h:outputText value="" />
-						            <h:outputText value="#{calendarView.date5}">
+						            <h:outputText value="#{EtatAppreciatifBean.date}">
 						                <f:convertDateTime pattern="yyyy-MMM-dd" />
 				                  	</h:outputText>
-				                  	
-						           
        			 				</p:panelGrid>
     						</p:dialog>
+    						#{EtatAppreciatifBean.setListe(suivieditionBean.listESForGrandLivreOld)}
+    						<h:commandButton value="Next" action="#{EtatAppreciatifBean.execute(suivieditionBean.listESForGrandLivreOld)}"/>
        			 		</h:form>
        			 </span>
     		</f:facet>
