@@ -52,7 +52,7 @@
 	 		</div><br/>
 	 		<div class="col-md-12" style="padding-left: 33%;">
 	 			(6) <p:inputText value ="#{JasperTableExampleBean.journal.num6}" style="text-align: center;width: 50%"></p:inputText><br></br>
-        			 Commencé le : <h:outputText value="#{JournalBean.dateD}"/> Terminé le : <h:outputText value="#{JournalBean.dateF}"/>
+        			 Commencé le : <h:outputText value="#{JournalABean.dateD}"/> Terminé le : <h:outputText value="#{JournalABean.dateF}"/>
         				<!--<p:calendar value ="#{JasperTableExampleBean.journal.debutDate}" id="date1" locale="fr" navigator="true" pattern="yyyy-MMM-dd" /><br/>
 		 			   
 	        			<p:calendar value ="#{JasperTableExampleBean.journal.finDate}" id="date2" locale="fr" navigator="true" pattern="dd-MMM-yyyy" /><br/>
@@ -62,7 +62,7 @@
 	 		</div>
  		</div>
  		<div class="col-md-3">
- 			<br/><p:commandButton action="#{JasperTableExampleBean.journalReport(JournalBean.dateD, JournalBean.dateF)}" type="submit" value="generatePDF" ajax="false" ></p:commandButton>
+ 			<br/><p:commandButton action="#{JasperTableExampleBean.journalReport(JournalABean.dateD, JournalABean.dateF, JournalABean.liste)}" type="submit" value="generatePDF" ajax="false" ></p:commandButton>
  		</div>
 </div>
 <div class="col-mid-1"></div>

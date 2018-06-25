@@ -1360,11 +1360,11 @@ public class SuiviEditionBean {
 			// designation des articles
 			row[4] = "";
 			// quantite
-			row[5] = 0;
+			row[5] = new Long (0);
 			// prix unitaire
-			row[6] = 0;
+			row[6] = new Float(0);
 			// Montant total
-			row[7] = 0;
+			row[7] = new Float(0);
 
 			// processing
 			if (o instanceof OpEntreeArticle) {
@@ -1421,15 +1421,15 @@ public class SuiviEditionBean {
 			// Date operation
 			row[0] = null;
 			// reference entrée
-			row[1] = "";
+			row[1] = new Long(0);//"";
 			// quantite entrée
-			row[2] = 0;
+			row[2] = new Long(0);
 			// quantite entrée cumulée
-			row[3] = 0;
+			row[3] = new Long(0);
 			// reference sortie
-			row[4] = "";
+			row[4] = new Long(0);//"";
 			// quantite sortie
-			row[5] = 0;
+			row[5] = new Long(0);
 			// quantite de depart à reporter
 			row[6] = new Long(0);
 

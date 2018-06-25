@@ -284,7 +284,7 @@
             le (2)<p:inputText value="#{JasperTableExampleBean.pdfForm.num4}" style="text-align: center;width:50%"/>    <br></br><br></br><br></br>
         </div>
     </div>
-	<p:commandButton action="#{JasperTableExampleBean.inventaireReport()}" type="submit" value="generatePDF" ajax="false" ></p:commandButton>
+	<p:commandButton action="#{JasperTableExampleBean.inventaireReport(gacBean.listeInventaire)}" type="submit" value="generatePDF" ajax="false" ></p:commandButton>
     </h:form>
     #{depositaireBean.exity()}
 

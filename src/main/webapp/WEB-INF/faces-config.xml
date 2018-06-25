@@ -583,6 +583,18 @@
 		</navigation-case>
 		
 		<navigation-case>
+			<from-outcome>dialogFicheStock</from-outcome>
+			<to-view-id>/pages/secure/CA/DGD/form/form_ficheDeStock.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		
+		<navigation-case>
+			<from-outcome>dialogJournalAdmin</from-outcome>
+			<to-view-id>/pages/secure/CA/DGD/tables/dialogs/dialogs_Journal.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		
+		<navigation-case>
 			<from-outcome>dialog</from-outcome>
 			<to-view-id>/pages/secure/CM/tables/dialogs/dialogs_saisieMatEx.xhtml</to-view-id>
 			<redirect />

@@ -18,7 +18,19 @@
                  paginator="true" rows="100" style="margin-bottom:20px">
          <f:facet name="header">
         	FICHE DE STOCK de #{depositaireBean.articleToFiche.typeObjet.designation} (#{depositaireBean.articleToFiche.designation})
-            
+            <h:form >
+		 			<p:outputLabel for="annee_livre_annuel" value=""/>
+					<p:calendar id="annee_livre_annuel" value="#{FicheStockBean.date}" locale="de" navigator="true" pattern="yyyy-MMM-dd" required="true"/>
+				<p:dialog modal="true" resizable="false" header="Values" widgetVar="dlg" showEffect="fold">
+					<p:panelGrid id="display_livre_annuel" columns="3" columnClasses="label,value">
+						<h:outputText value="" />
+				        <h:outputText value="#{FicheStockBean.date}">
+			            <f:convertDateTime pattern="yyyy-MMM-dd" />
+	            	</h:outputText>
+	 				</p:panelGrid>
+				</p:dialog>
+			<h:commandButton value="Next" action="#{FicheStockBean.execute(suivieditionBean.getListForJournalStockByCod(depositaireBean.articleToFiche))}"/>
+	 		</h:form>
     	</f:facet>
          <p:columnGroup type="header">
             <p:row>

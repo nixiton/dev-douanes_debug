@@ -20,9 +20,9 @@
 	         <div class="col-md-3"></div>
 	        <div class="col-md-12" style="text-align: center;">
 	         <p>Désignation de l’article :<p:inputText value ="#{JasperTableExampleBean.pdfForm.num2}" style="text-align: center;width: 25%"/>Espèce d’unité : <p:inputText value ="#{JasperTableExampleBean.pdfForm.num3}" style="text-align: center;width: 25%"/></p> 
-			 <br/><ui:include src="/pages/secure/CA/DGD/tables/tables_listeMatStatHisto.xhtml"></ui:include>
+			 <br/>
 			</div>
-			<br/><p:commandButton action="#{JasperTableExampleBean.ficheStockReport()}" type="submit" value="generatePDF" ajax="false" ></p:commandButton>
+			<br/><p:commandButton action="#{JasperTableExampleBean.ficheStockReport(FicheStockBean.liste)}" type="submit" value="generatePDF" ajax="false" ></p:commandButton>
 		</div></h:form>
 	</h:body>
 </html>

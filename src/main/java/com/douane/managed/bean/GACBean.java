@@ -66,6 +66,8 @@ public class GACBean {
 
 	private List<Operation> listOperationByDirectionByYearByDateAsc;
 
+	private List<Object[]> listeInventaire;
+
 	public List<Operation> getListOperationByDirectionByYearByDateAsc() {
 		// return getListOperationBetween(startDate, endDate);
 
@@ -124,8 +126,9 @@ public class GACBean {
 		return "anneeEtatAp";
 	}
 
-	public String setAnneeInv(int t) {
+	public String setAnneeInv(int t, List <Object[]> li) {
 		this.annee = t;
+		this.setListeInventaire(li);
 		return "anneeInv";
 	}
 
@@ -1032,6 +1035,14 @@ public class GACBean {
 
 	public void setOpEntreeArticleToValidate(OpEntreeArticle opEntreeArticleToValidate) {
 		this.opEntreeArticleToValidate = opEntreeArticleToValidate;
+	}
+
+	public List<Object[]> getListeInventaire() {
+		return listeInventaire;
+	}
+
+	public void setListeInventaire(List<Object[]> listeInventaire) {
+		this.listeInventaire = listeInventaire;
 	}
 
 }

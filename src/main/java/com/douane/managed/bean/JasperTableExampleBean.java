@@ -8,6 +8,7 @@ import java.io.OutputStream;
 import java.io.Serializable;
 import java.net.URL;
 import java.nio.file.Paths;
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -34,13 +35,17 @@ import com.douane.entite.OpEntree;
 import com.douane.entite.OpSortie;
 import com.douane.entite.Operation;
 import com.douane.managed.bean.JasperData.EtatAppreciatifData.EtatAppreciatif;
+import com.douane.managed.bean.JasperData.FicheStockData;
 import com.douane.managed.bean.JasperData.EtatAppreciatifData;
+import com.douane.managed.bean.JasperData.InventaireData;
+import com.douane.managed.bean.JasperData.JournalAdminData;
 import com.douane.managed.bean.JasperData.JournalMatiereData;
 import com.douane.managed.bean.JasperData.LivreAnnuelData;
 import com.douane.managed.bean.JasperData.LivreAnnuelData.LivreAnnuel;
 import com.douane.managed.bean.JasperData.OrdreEntreeData;
 import com.douane.managed.bean.form.GrandLivreBean;
 import com.douane.managed.bean.form.PdfFormBean;
+import com.douane.managed.bean.form.mockData;
 import com.douane.managed.bean.saisieRef.JournalFormBean;
 import com.douane.managed.bean.saisieRef.OrdreSortieFormBean;
 
@@ -286,7 +291,7 @@ public class JasperTableExampleBean implements Serializable{
         }
 	}
 	
-	public void journalReport(String debut,String fin) throws IOException {	
+	public void journalReport(String debut,String fin, List<Object[]> li) throws IOException {	
 		this.journal.setDebutDate(debut);
 		this.journal.setFinDate(fin);
 		FacesContext facescontext = FacesContext.getCurrentInstance();
@@ -295,10 +300,11 @@ public class JasperTableExampleBean implements Serializable{
 		HttpServletResponse response = (HttpServletResponse) external.getResponse();
 		ServletOutputStream tmp = response.getOutputStream();
 		URL url =  this.getClass().getResource("../jasperReport/Journal.jasper");
-		
+		JournalAdminData data = new JournalAdminData(li);
 		try {
             /* Map to hold Jasper report Parameters */
             Map<String, Object> parameters = new HashMap<String, Object>();
+            parameters.put("dataSource", data.getDataSource());
             parameters.put("budget", this.journal.getBudget());
             parameters.put("chapitre", this.journal.getChapitre());
             parameters.put("article", this.journal.getArticle());
@@ -437,8 +443,12 @@ public class JasperTableExampleBean implements Serializable{
         }
 		facescontext.getExternalContext().getSessionMap().put("EtatAppreciatifBean", null);
 	}
-	public void inventaireReport() throws IOException {
+	public void inventaireReport(List <Object[]> li) throws IOException {
 		//System.out.println(this.pdfForm.toString());
+		if(li == null) {
+			System.out.println("null ilay liste inventaire voaray");
+		}
+		InventaireData idata = new InventaireData(li);
 		FacesContext facescontext = FacesContext.getCurrentInstance();
 		ExternalContext external = facescontext.getExternalContext();
 		HttpSession session = (HttpSession) external.getSession(true);
@@ -447,7 +457,8 @@ public class JasperTableExampleBean implements Serializable{
 		URL url =  this.getClass().getResource("../jasperReport/Inventaire.jasper");
 		try { 
             /* Map to hold Jasper report Parameters */
-            Map<String, Object> parameters = new HashMap<String, Object>();;
+            Map<String, Object> parameters = new HashMap<String, Object>();
+            parameters.put("dataSource", idata.getDataSource());
             parameters.put("budget", this.pdfForm.getBudget());
             parameters.put("exo", this.pdfForm.getNum9());
             parameters.put("chap", this.pdfForm.getChapitre());
@@ -468,6 +479,29 @@ public class JasperTableExampleBean implements Serializable{
             JasperPrint jasperPrint = JasperFillManager.fillReport(url.getPath(), parameters, new JREmptyDataSource());
             JasperExportManager.exportReportToPdfStream(jasperPrint, tmp);
             //tmp.close();
+		}
+         catch (JRException ex) {
+            ex.printStackTrace();
+        }
+	}
+	public void ficheStockReport(List <Object[]> liste) throws IOException, ParseException {
+		FacesContext facescontext = FacesContext.getCurrentInstance();
+		ExternalContext external = facescontext.getExternalContext();
+		HttpSession session = (HttpSession) external.getSession(true);
+		HttpServletResponse response = (HttpServletResponse) external.getResponse();
+		ServletOutputStream tmp = response.getOutputStream();
+		URL url =  this.getClass().getResource("../jasperReport/FichDeStock.jasper");
+		FicheStockData m = new FicheStockData(liste);
+		try {
+            /* Map to hold Jasper report Parameters */
+            Map<String, Object> parameters = new HashMap<String, Object>();;
+            parameters.put("dataSource", m.getDataSource());
+            parameters.put("report", new Long(0));
+            parameters.put("numfolio", this.pdfForm.getNum1());
+            parameters.put("designation", this.pdfForm.getNum2());
+            parameters.put("espace", this.pdfForm.getNum3());
+            JasperPrint jasperPrint = JasperFillManager.fillReport(url.getPath(), parameters, new JREmptyDataSource());
+            JasperExportManager.exportReportToPdfStream(jasperPrint, tmp);
 		}
          catch (JRException ex) {
             ex.printStackTrace();
