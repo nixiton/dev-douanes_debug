@@ -90,69 +90,6 @@
        
     </p:dataTable>
 
-<h:form>
-
-<p:dataTable   var="row" value="#{suivieditionBean.getListForFicheStock()}" 
-                 paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}  "
-                 paginator="true" rows="100" style="margin-bottom:20px">
-         <f:facet name="header">
-        	FICHE DE STOCK
-    	</f:facet>
-         <p:columnGroup type="header">
-            <p:row>
-                <p:column rowspan="2" headerText="Date des entrées et des sorties" style=" text-align: center; word-wrap: break-word;"/>
-                <p:column colspan="3" headerText="ENTREE" style=" text-align: center; word-wrap: break-word;"/>
-                <p:column colspan="3" headerText="SORTIE" style=" text-align: center; word-wrap: break-word;"/>
-                <p:column rowspan="2" headerText="Quantité" style=" text-align: center; word-wrap: break-word;"/>
-            </p:row>
-            <p:row>
-                <p:column  headerText="Référence" style=" text-align: center; word-wrap: break-word;"/>
-                <p:column  headerText="Quantité" style=" text-align: center; word-wrap: break-word;"/>
-                <p:column  headerText="Cumulé" style=" text-align: center; word-wrap: break-word;"/>
-                <p:column  headerText="Référence" style=" text-align: center; word-wrap: break-word;"/>
-                <p:column  headerText="Quantité" style=" text-align: center; word-wrap: break-word;"/>
-                <p:column  headerText="Signature" style=" text-align: center; word-wrap: break-word;"/>
-            </p:row>
-            <p:row>
-                <p:column  />
-                <p:column  />
-                <p:column  headerText="Report"/>
-                <p:column  headerText="#{1+1}"/>
-                <p:column  />
-                <p:column  />
-                <p:column  />
-                <p:column  headerText="#{1+1}"/>
-            </p:row>
-        </p:columnGroup>
-        <p:column style=" text-align: center; word-wrap: break-word;">
-        	<h:outputText value="#{row[0]}" />
-        </p:column>
-        <p:column style=" text-align: center; word-wrap: break-word;">
-			<h:outputText value="#{row[1]}" />
-        </p:column>
-        <p:column style=" text-align: center; word-wrap: break-word;">
-			<h:outputText value="#{row[2]}" />
-        </p:column>
-        <p:column style=" text-align: center; word-wrap: break-word;">
-			<h:outputText value="#{row[3]}" />
-        </p:column>
-        <p:column style=" text-align: center; word-wrap: break-word;">
-			<h:outputText value="#{row[4]}" />
-        </p:column>
-        <p:column style=" text-align: center; word-wrap: break-word;">
-			<h:outputText value="#{row[5]}" />
-        </p:column>
-        
-        <p:column style=" text-align: center; word-wrap: break-word;">
-					<h:outputText value="#{'signature'}" />
-        </p:column>
-        <p:column style=" text-align: center; word-wrap: break-word;">
-        	<h:outputText value="#{row[3]-row[5]}" />
-        </p:column>
-    </p:dataTable>
-
-</h:form>
-
 
 <ui:include src="/pages/secure/CA/DGD/tables/dialogs/dialogs_listeMatStatHisto.xhtml"></ui:include>
 

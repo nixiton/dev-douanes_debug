@@ -1380,6 +1380,9 @@ public class SuiviEditionBean {
 				if(a.getReference()!=null) {
 					row[2] = a.getReference();
 				}
+				if(a.getOrigine()!=null) {
+					row[3] = a.getOrigine();
+				}
 				
 
 			} else if (o instanceof OpSortieArticle) {
@@ -1391,6 +1394,9 @@ public class SuiviEditionBean {
 				row[5] = a.getNombre();
 				row[6] = a.getPrix();
 				row[7] = (Long) row[5] * (Float) row[6];
+				if(((OpSortieArticle) o).getDecision()!=null) {
+					row[2]=((OpSortieArticle) o).getDecision();
+				}
 
 			}
 

@@ -29,65 +29,6 @@
     </p:dataTable>
     
 
-<!--ui:include src="/pages/secure/CM/tables/dialogs/dialogs_LivreAnnuel.xhtml"></ui:include-->
-<h:form>
-	<p:dataTable var="c" value="#{suivieditionBean.listOpESForJournal}"
-			paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}"
-			paginator="true" rows="10" style="margin-bottom:20px"
-			rowStyleClass="#{c['class'].simpleName ne 'OpEntree' and c['class'].simpleName ne 'OpSortie' ? 'ui-helper-hidden' : '' }"
-			sortBy="#{c.id}"
-			>
-
-			<p:column headerText="ID" style=" text-align: center; word-wrap: break-word;"> #{c.id}</p:column>
-
-			<p:column headerText="Nomenclature" style="width: 10%; text-align: center; word-wrap: break-word;">
-
-				#{c.mat.typematerieladd.nomenclaureParent.nomenclature}
-			</p:column>
-			<p:column headerText="Espèces des unités" style=" text-align: center; word-wrap: break-word;">
-            
-            #{c.mat.especeUnite}
-
-        </p:column>
-
-			<p:column headerText="Désignation des objets" style=" text-align: center; word-wrap: break-word;">
-			#{c.mat.renseignement} - #{c.mat.reference}
-			</p:column>
-			<p:column headerText="Prix de l'unité" style=" text-align: center; word-wrap: break-word;">
-			#{c.mat.pu}
-			</p:column>
-			<p:column headerText="Quantité existant au 1er janvier" style=" text-align: center; word-wrap: break-word;">
-			#{c.numoperation}
-			</p:column>
-			<p:column headerText="Mouvement effectués" style=" text-align: center; word-wrap: break-word;">
-			#{c.state}
-			</p:column>
-			<p:column headerText="Numéro du pj" style=" text-align: center; word-wrap: break-word;">
-			#{c.numoperation}
-			</p:column>
-			<p:column headerText="Origine des entrées et des sorties" style=" text-align: center; word-wrap: break-word;">
-			#{c.numoperation}
-			</p:column>
-			<p:column headerText="Entrées" style=" text-align: center; word-wrap: break-word;">
-			<p:panel rendered="#{c['class'].simpleName eq 'OpEntree'}">
-			#{c.mat.pu}
-			</p:panel>
-			</p:column>
-			<p:column headerText="Sorties" style=" text-align: center; word-wrap: break-word;">
-			<p:panel rendered="#{c['class'].simpleName eq 'OpSortie'}">
-			#{c.mat.pu}
-			</p:panel>
-			</p:column>
-			<p:column headerText="Reste au 31 Décembre " style=" text-align: center; word-wrap: break-word;">
-			x
-			</p:column>
-
-
-		</p:dataTable>
-
-
-	</h:form>
-	
 	
 <h:form>
 		<!--p:dataTable   var="c" value="#{suivieditionBean.listOperationByDirectionByYearByDateAsc}"
