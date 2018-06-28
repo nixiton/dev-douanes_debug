@@ -17,6 +17,7 @@
     
  <h:form>
     <p:dataTable var="c" value="#{suivieditionBean.listESForGrandLivreOld}"
+    		currentPageReportTemplate="({currentPage} sur {totalPages})"
 			paginatorTemplate="{CurrentPageReport}  {PreviousPageLink} {PageLinks} {NextPageLink} {Exporters}"
 			paginator="true" style="margin-bottom:20px"
 			widgetVar="EtatAppreciatif"

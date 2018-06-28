@@ -33,7 +33,7 @@
 	                    required="true"
 	                    requiredMessage="Détenteur obligatoire"
 	                    	                    >
-	                            <f:selectItem itemValue="#{null}" itemLabel="select" /> 
+	                            <f:selectItem itemValue="#{null}" itemLabel="Selectionner" /> 
 	                            <f:selectItems value="#{userMB.userListByDirection}" var="type" itemLabel="#{type.im}" itemValue="#{type}"/>
 	                            <p:column>
 	                            <h:outputText value="#{t.im}" />
@@ -104,7 +104,7 @@
 	                         effect="fade" var="t" filter="true" filterMatchMode="startsWith"
 	                         required="true"
 	                    requiredMessage="Matériel obligatoire">
-	                        <f:selectItem itemValue="#{null}" itemLabel="--select--" /> 
+	                        <f:selectItem itemValue="#{null}" itemLabel="Selectionner" /> 
 	                            <f:selectItems value="#{depositaireBean.currentListMateriel}" var="theme" itemLabel="#{theme.numSerie}" itemValue="#{theme}" />
 	                        <p:column>
 	                            <h:outputText value="#{t.numSerie}" />
@@ -182,7 +182,7 @@
 	                         effect="fade" var="t" filter="true" filterMatchMode="startsWith"
 	                         required="true"
 	                    requiredMessage="Motif obligatoire">
-	                        <f:selectItem itemValue="#{null}" itemLabel="--select--" /> 
+	                        <f:selectItem itemValue="#{null}" itemLabel="Selectionner" /> 
 	                            <f:selectItems value="#{depositaireBean.listMotifDettachement}" var="theme" itemLabel="#{theme.designation}" itemValue="#{theme}" />
 	                        <p:column>
 	                            <h:outputText value="#{t.designation}" />
