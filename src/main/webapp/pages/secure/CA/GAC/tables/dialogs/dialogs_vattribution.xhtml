@@ -23,7 +23,7 @@
                         <td>#{gacBean.opSortieArticleToValidate.article.idArticle}</td>
                         <td><strong>Type des objets</strong></td>
                         <td>#{gacBean.opSortieArticleToValidate.article.codeArticle.typeObjet.designation}</td>
-                        <td><strong>Codification</strong></td>
+                        <td><strong>Article</strong></td>
 						<td>#{gacBean.opSortieArticleToValidate.article.codeArticle.designation}</td>
                     </tr>
                     <tr>
@@ -39,14 +39,15 @@
                         <td>#{gacBean.opSortieArticleToValidate.article.prix}</td>
                         <td><strong>Nombre restants en ce moment</strong></td>
                         <td>#{depositaireBean.calculNombreRestant(gacBean.opSortieArticleToValidate.article)}</td>
-                        <td></td>
-                        <td></td>
+                        <td><strong>Décision</strong></td>
+                        <td>#{gacBean.opSortieArticleToValidate.decision}</td>
 					</tr>
-					<tr>
+					<!-- <tr>
 						<td><strong>Décision</strong></td>
                         <td>#{gacBean.opSortieArticleToValidate.decision}</td>
                         
-					</tr>
+					</tr> -->
+					
                     <c:if test="#{gacBean.opSortieArticleToValidate.article['class'].simpleName eq 'ArticleNouv'}">
                     <tr>
                         <td><strong>Fournisseur</strong></td>

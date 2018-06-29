@@ -29,18 +29,18 @@
                         <td><strong>Type de Materiel - Nomenclature</strong></td>
                         <td>#{depositaireBean.curentMaterielNouv.design.typematerieladd.designation} - #{depositaireBean.curentMaterielNouv.design.nomenMat.nomenclature}</td>
                         <td></td>
-                        <td><strong>Montant sur la facture</strong></td>
+                        <td><strong>Montant</strong></td>
                         <td>#{depositaireBean.curentMaterielNouv.design.pu}</td>
                     </tr>
                     <tr>
                         <td><strong>Marque</strong></td>
                         <td>#{depositaireBean.curentMaterielNouv.design.marque.designation}</td>
                         <td></td>
-                        <td><strong>Référence facture</strong></td>
+                        <td><strong>Référence pj</strong></td>
                         <td>#{depositaireBean.curentMaterielNouv.design.refFacture}</td>
                     </tr>
                     <tr>
-                        <td><strong>Réference</strong></td>
+                        <td><strong>Référence</strong></td>
                         <td>#{depositaireBean.curentMaterielNouv.reference}</td>
                         <td></td>
                         <td><strong>Document</strong></td>
@@ -58,14 +58,15 @@
 
                          </td>
                     </tr>
+                    <!--
                     <tr>
-                        <td><strong>Numero de Série</strong></td>
+                        <td><strong>Numéro de Série</strong></td>
                         <td>#{depositaireBean.curentMaterielNouv.numSerie}</td>
                         <td></td>
                         <td><strong>Fournisseur</strong></td>
                         <td>#{depositaireBean.curentMaterielNouv.design.fournisseur.designation}</td>
                     </tr>
-
+					-->
                     <tr>
                         <td><strong>Autre</strong></td>
                         <td>#{depositaireBean.curentMaterielNouv.design.autre}</td>
@@ -99,7 +100,7 @@
                     	<td><strong>Codification</strong></td>
                         <td>#{depositaireBean.curentMaterielNouv.code}</td>
                     	<td></td>
-                    	<td><strong>Detenteur</strong></td>
+                    	<td><strong>Détenteur</strong></td>
                         <td>#{depositaireBean.curentMaterielNouv.detenteur.im} - #{depositaireBean.curentMaterielNouv.detenteur.nomAgent}</td>
                     </tr>
                     <tr>
@@ -117,6 +118,9 @@
             				${depositaireBean.curentMaterielNouv.numSerie  } -
             				${depositaireBean.curentMaterielNouv.design.anneeAcquisition}" type="qr"/>
            				</td>
+           				<td></td>
+           				<td><strong>Numéro de Série</strong></td>
+                        <td>#{depositaireBean.curentMaterielNouv.numSerie}</td>           
                     </tr>
                          
             </table>

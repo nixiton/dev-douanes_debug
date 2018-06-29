@@ -184,7 +184,7 @@
 	                </div>
                 </div>
                 <hr></hr>
-                
+                <!-- 
                 <div class = "row">
 					<div class="col-lg-4">
                 
@@ -195,7 +195,7 @@
 	
 	                    <p:selectOneMenu value="#{depositaireBean.curentMaterielNouv.design.fournisseur}" converter="#{refConverter}" panelStyle="width:180px"  style="width:160px"
 	                         effect="fade" var="t" filter="true" filterMatchMode="startsWith">
-	                        <f:selectItem itemValue="#{null}" itemLabel="--select--" /> 
+	                        <f:selectItem itemValue="#{null}" itemLabel="Selectionner" /> 
 	                            <f:selectItems value="#{siseBean.listFournisseur}" var="theme" itemLabel="#{theme.designation}" itemValue="#{theme}" />
 	                        <p:column>
 	                            <h:outputText value="#{t.designation}" />
@@ -204,7 +204,7 @@
 	                </div>
                 </div>
                 <hr></hr>
-                
+                -->
                 <div class = "row">
 					<div class="col-lg-4">
 		                <label for="text1" class="control-label col-lg-4">Origine
@@ -245,7 +245,7 @@
                 <div class = "row">
 					<div class="col-lg-4">
 	
-	                    <label for="text1" class="control-label ">Montant PU sur facture
+	                    <label for="text1" class="control-label ">Montant
 	                    </label>
 					</div>
                     <div class="col-lg-6">
@@ -276,7 +276,7 @@
 	                            <p:inputText  required="true" id="numeroserie"
 	                        value="#{depositaireBean.curentMaterielNouv.numSerie}"
 	                        requiredMessage="Champ Numéro de série obligatoire"
-	                        placeholder="Numero de série" styleClass="form-control top"></p:inputText>
+	                        placeholder="Numéro de série" styleClass="form-control top"></p:inputText>
 	                        <hr></hr>
 	              </p:panel>
              </div>

@@ -253,6 +253,7 @@
                 </div>
            	</div>
            	<hr/>
+           	<!--  
            	<div class="row">
 				<div class="col-lg-4 col-lg-offset-1">  
 	                <label for="text1" class="control-label col-lg-4">Fournisseur
@@ -270,7 +271,7 @@
                     </p:selectOneMenu>
                 </div>
             </div>
-            <hr />
+            <hr /> -->
             <div class="row">
 				<div class="col-lg-4 col-lg-offset-1">    
 	                <label for="text1" class="control-label col-lg-4">Origine
@@ -309,15 +310,15 @@
         	 <div class="row">
 				<div class="col-lg-4 col-lg-offset-1"> 
 
-	                <label for="text1" class="control-label col-lg-4">Montant PU sur facture
+	                <label for="text1" class="control-label col-lg-4">Montant 
 	                </label>
 				</div>
                 <div class="col-lg-6">
 
                     <p:inputText   required="true"
                         value="#{depositaireBean.unitPrice}"
-                        requiredMessage="Champ Montant PU obligatoire"
-                        placeholder="Montant sur facture" styleClass="form-control top" resetValues="true"></p:inputText>
+                        requiredMessage="Champ Montant obligatoire"
+                        placeholder="Montant" styleClass="form-control top" resetValues="true"></p:inputText>
 
                
                 </div>
@@ -327,15 +328,15 @@
 			 <div class="row">
 				<div class="col-lg-4 col-lg-offset-1"> 
 
-	                <label for="text1" class="control-label col-lg-4">Référence facture
+	                <label for="text1" class="control-label col-lg-4">Référence pj
 	                </label>
 				</div>
                 <div class="col-lg-6">
 
                     <p:inputText   required="true"
                         value="#{depositaireBean.refFacture}"
-                        requiredMessage="Champ référence facture obligatoire"
-                        placeholder="Référence facture" styleClass="form-control top"></p:inputText>
+                        requiredMessage="Champ référence pj obligatoire"
+                        placeholder="Référence pj" styleClass="form-control top"></p:inputText>
 
                 </div>
             </div>
