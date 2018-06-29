@@ -18,6 +18,7 @@
 <h:form>
     <p:dataTable var="c" value="#{suivieditionBean.listOperatoinByDirection}" 
     			 widgetVar="operationsTable"
+    			 currentPageReportTemplate="({currentPage} sur {totalPages})"
                  paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}  "
                  paginator="true" rows="30" style="margin-bottom:20px"
                  emptyMessage="Aucun resultat" filteredValue="#{dtFilterView.filteredOperations}"

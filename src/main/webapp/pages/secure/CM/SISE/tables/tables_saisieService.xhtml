@@ -19,7 +19,8 @@
 
     </div>
 
-    <p:dataTable   var="b" value="#{siseBean.listService}" 
+    <p:dataTable   var="b" value="#{siseBean.listService}"
+    			currentPageReportTemplate="({currentPage} sur {totalPages})" 
                  paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}  "
                  paginatorPosition="bottom"
                  paginator="true" rows="10" style="margin-bottom:20px">

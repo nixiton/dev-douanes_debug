@@ -12,6 +12,7 @@
 
 
     <p:dataTable   var="d" value="#{gacBean.listAnnee}" 
+    			currentPageReportTemplate="({currentPage} sur {totalPages})"
                  paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}  "
                  paginator="true" rows="10" style="margin-bottom:20px">
         <p:column style=" text-align: center; word-wrap: break-word;">
@@ -38,6 +39,7 @@
 
 
 		<p:dataTable var="c" value="#{suivieditionBean.listESForGrandLivre}"
+			currentPageReportTemplate="({currentPage} sur {totalPages})"
 			paginatorTemplate="{CurrentPageReport}  {PreviousPageLink} {PageLinks} {NextPageLink} {Exporters}"
 			paginator="true" style="margin-bottom:20px"
 			sortBy="#{c[0]}"

@@ -22,6 +22,7 @@
 <p:growl for="myerrorReferentiel" id="msgtableDirec" showDetail="true" sticky="true" redisplay="false"/>
 
     <p:dataTable   var="b" value="#{siseBean.listDirection}" 
+    			currentPageReportTemplate="({currentPage} sur {totalPages})"
                  paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}  "
                  paginatorPosition="bottom"
                  paginator="true" rows="10" style="margin-bottom:20px"

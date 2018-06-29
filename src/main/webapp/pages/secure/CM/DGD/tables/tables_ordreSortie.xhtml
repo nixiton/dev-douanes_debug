@@ -11,7 +11,8 @@
 
 <div   class="body collapse in table-responsive">
 
-    <p:dataTable   var="d" value="#{suivieditionBean.listOpSortieValideByDirection}" 
+    <p:dataTable   var="d" value="#{suivieditionBean.listOpSortieValideByDirection}"
+    			currentPageReportTemplate="({currentPage} sur {totalPages})" 
                  paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}  "
                  paginator="true" rows="10" style="margin-bottom:20px">
          <p:column style=" text-align: center; word-wrap: break-word;">

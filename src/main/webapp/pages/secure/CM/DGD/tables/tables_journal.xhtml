@@ -20,6 +20,7 @@
 
 
 		<p:dataTable var="c" value="#{suivieditionBean.listESForJournal}"
+			currentPageReportTemplate="({currentPage} sur {totalPages})"
 			paginatorTemplate="{CurrentPageReport}  {PreviousPageLink} {PageLinks} {NextPageLink} {Exporters}"
 			paginator="true"  style="margin-bottom:20px"
 			sortBy="#{c[0]}"
