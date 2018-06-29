@@ -31,12 +31,12 @@
        			 <span>
        			 		<h:form >
        			 			<p:outputLabel for="annee_journal" value="" />
-        					<p:calendar id="annee_journal" value="#{JournalBean.dat}" locale="de" navigator="true" pattern="yyyy-MMM-dd" required="true"/>
+        					<p:calendar id="annee_journal" value="#{JournalBean.dat}" navigator="true" pattern="dd MMMM yyyy" required="true" locale="fr"/>
      			 			<p:dialog modal="true" resizable="false" header="Values" widgetVar="dlg" showEffect="fold">
         						<p:panelGrid id="display_journal" columns="2" columnClasses="label,value">
       			 					 <h:outputText value="" />
 						            <h:outputText value="#{JournalBean.dat}">
-						                <f:convertDateTime pattern="dd MMM yyyy" />
+						                <f:convertDateTime pattern="dd MMMM yyyy" locale="Locale.FRANCE"/>
 				                  	</h:outputText>
 				                  	
 						           
@@ -134,5 +134,8 @@
 
 
 </div>
-
+<script type="text/javascript">
+PrimeFaces.locales ['fr'] = { closeText: 'Fermer', prevText: 'Précédent', nextText: 'Suivant', monthNames: ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre' ], monthNamesShort: ['Jan', 'Fév', 'Mar', 'Avr', 'Mai', 'Jun', 'Jul', 'Aoû', 'Sep', 'Oct', 'Nov', 'Déc' ], dayNames: ['Dimanche', 'Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi'], dayNamesShort: ['Dim', 'Lun', 'Mar', 'Mer', 'Jeu', 'Ven', 'Sam'], dayNamesMin: ['D', 'L', 'M', 'M', 'J', 'V', 'S'], weekHeader: 'Semaine', firstDay: 1, isRTL: false, showMonthAfterYear: false, yearSuffix:'', timeOnlyTitle: 'Choisir l\'heure', timeText: 'Heure', hourText: 'Heures', minuteText: 'Minutes', secondText: 'Secondes', currentText: 'Maintenant', ampm: false, month: 'Mois', week: 'Semaine', day: 'Jour', allDayText: 'Toute la journée' };
+</script>
 </html>
+
