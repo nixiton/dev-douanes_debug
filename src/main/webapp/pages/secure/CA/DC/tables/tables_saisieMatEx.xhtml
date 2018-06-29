@@ -21,6 +21,7 @@
    	</div>    
     <h:form>
     <p:dataTable   var="a" value="#{siseBean.listArticleEx}"
+    			currentPageReportTemplate="({currentPage} sur {totalPages})" emptyMessage="Aucun resultat"
                  paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}  "
                  paginator="true" rows="10" style="margin-bottom:20px"
                  widgetVar="ArtTable"

@@ -33,10 +33,10 @@
 	                    effect="fade" var="t" filter="true" filterMatchMode="startsWith"
 	                    required="true" requiredMessage="Bénéficiaire obligatoire"
 	                    >
-	                            <f:selectItem itemValue="#{null}" itemLabel="--select--" /> 
+	                            <f:selectItem itemValue="#{null}" itemLabel="Selectionner" /> 
 	                            <f:selectItems value="#{userMB.userListByDirection}" var="type" itemLabel="#{type.im}" itemValue="#{type}"/>
 	                            <p:column>
-	                            <h:outputText value="#{t != null ? t.im : 'Select'}" />
+	                            <h:outputText value="#{t != null ? t.im : 'Selectionner'}" />
 	                        </p:column>
 	                        <p:ajax event="change" update="nom"/>
 	                        </p:selectOneMenu>
@@ -69,10 +69,10 @@
 	                         effect="fade" var="t" filter="true" filterMatchMode="startsWith"
 	                         required="true" requiredMessage="Code article obligatoire"
 	                         >
-	                        <f:selectItem itemValue="#{null}" itemLabel="--select--" /> 
+	                        <f:selectItem itemValue="#{null}" itemLabel="Selectionner" /> 
 	                            <f:selectItems value="#{depositaireBean.listArticleValideByDirec}" var="theme" itemLabel="#{theme.codeArticle.typeObjet.designation}  ( #{theme.codeArticle.designation} )" itemValue="#{theme}" />
 	                        <p:column>
-	                            <h:outputText value="#{t != null ? t.codeArticle.typeObjet.designation : 'select'}   #{t.codeArticle.designation} #{t.idArticle}" />
+	                            <h:outputText value="#{t != null ? t.codeArticle.typeObjet.designation : 'Selectionner'}   #{t.codeArticle.designation} #{t.idArticle}" />
 	                        </p:column>
 	                        <p:ajax event="change" update="nombre,prix,nombrerest"/>
 	                    </p:selectOneMenu>

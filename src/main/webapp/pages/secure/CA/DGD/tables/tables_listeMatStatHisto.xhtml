@@ -13,7 +13,8 @@
 
 <div   class="body collapse in table-responsive">
  
-    <p:dataTable   var="ax" value="#{siseBean.listCodeArticle}" 
+    <p:dataTable   var="ax" value="#{siseBean.listCodeArticle}"
+    			currentPageReportTemplate="({currentPage} sur {totalPages})" emptyMessage="Aucun resultat" 
                  paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}  "
                  paginator="true" rows="10" style="margin-bottom:20px">
          
@@ -41,8 +42,8 @@
     </p:dataTable>
     
     
-    <p:dataTable   var="row" value="#{suivieditionBean.getListForJournalStock()}" 
-    			currentPageReportTemplate="({currentPage} sur {totalPages})"
+    <p:dataTable   var="row" value="#{suivieditionBean.getListForJournalStock()}"
+    			currentPageReportTemplate="({currentPage} sur {totalPages})" emptyMessage="Aucun resultat" 
                  paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}  "
                  paginator="true" rows="100" style="margin-bottom:20px"
                  sortBy="#{row[1]}"
@@ -60,7 +61,7 @@
 	            	</h:outputText>
 	 				</p:panelGrid>
 				</p:dialog>
-			<h:commandButton value="Next" action="#{JournalABean.execute(suivieditionBean.getListForJournalStock())}"/>
+			<h:commandButton value="Exporter" action="#{JournalABean.execute(suivieditionBean.getListForJournalStock())}"/>
 	 		</h:form>
     	</f:facet>
         
