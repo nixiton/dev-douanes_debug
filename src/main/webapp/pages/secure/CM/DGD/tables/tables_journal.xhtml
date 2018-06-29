@@ -25,7 +25,7 @@
 			paginatorTemplate="{CurrentPageReport}  {PreviousPageLink} {PageLinks} {NextPageLink} {Exporters}"
 			paginator="true"  style="margin-bottom:20px"
 			sortBy="#{c[0]}"
-			widgetVar="JournalTable1"
+			widgetVar="JournalTable1" emptyMessage="Aucun résultat"
 			id="journaltable1"
 			>
 			<f:facet name="header">
@@ -44,7 +44,7 @@
 						           
        			 				</p:panelGrid>
     						</p:dialog>
-    						<h:commandButton value="Next" action="#{JournalBean.execute(suivieditionBean.listESForJournal)}"/>
+    						<h:commandButton value="Exporter" action="#{JournalBean.execute(suivieditionBean.listESForJournal)}"/>
        			 		</h:form>
        			 </span>
     		</f:facet>

@@ -34,7 +34,7 @@
 
 
 
-                    <p:column headerText="Enregistrement Document(s)">
+                    <p:column headerText="Enregistrement de Document(s)">
                         <p:panel rendered="#{!row.uploaded}">
                             <p:fileUpload value="#{depositaireBean.document}"
                                           fileUploadListener="#{depositaireBean.uploadDoc_Advanced}"
@@ -46,7 +46,7 @@
                         </p:panel>
                         <p:panel rendered="#{row.uploaded}">
                             Document  Transféré       <p:commandLink
-                                title="remove" value="remove document"
+                                title="remove" value=" - document enlevé"
                                 actionListener="#{depositaireBean.removeDoc(row)}" update="docId"
                                 ajax="true" process="@this" />
                         </p:panel>
@@ -76,7 +76,7 @@
                         </p:panel>
                         <p:panel rendered="#{rowIm.uploaded}">
                             Image transféré       <p:commandLink
-                                title="remove" value="remove document"
+                                title="remove" value=" - document enlevé"
                                 actionListener="#{depositaireBean.removeDoc(rowIm)}" update="imId"
                                 ajax="true" process="@this" />
                         </p:panel>
@@ -114,7 +114,7 @@
                 <div class="col-lg-6">
 
                     <p:selectOneMenu id="zone"  styleClass="form-control top" converter="#{refConverter}" value="#{depositaireBean.typematerielToAdd}" ajax="false">
-                        <f:selectItem itemValue="#{null}" itemLabel="--select--" /> 
+                        <f:selectItem itemValue="#{null}" itemLabel="Selectionner" /> 
                         <f:selectItems value="#{siseBean.listTypeMateriel}" var="type" itemLabel="#{type.designation}" />
                         <p:ajax event="change" update="data" listener="#{depositaireBean.onTypeMaterielChange}" />
                     </p:selectOneMenu>
@@ -151,7 +151,7 @@
 
                      <p:selectOneMenu value="#{depositaireBean.marq}" converter="#{refConverter}" panelStyle="width:180px"  style="width:160px"
                          effect="fade" var="t" filter="true" filterMatchMode="startsWith">
-                        <f:selectItem itemValue="#{null}" itemLabel="--select--" /> 
+                        <f:selectItem itemValue="#{null}" itemLabel="Selectionner" /> 
                             <f:selectItems value="#{siseBean.listMarque}" var="theme" itemLabel="#{theme.designation}" itemValue="#{theme}" />
                         <p:column>
                             <h:outputText value="#{t.designation}" />
@@ -206,7 +206,7 @@
 
                     <p:selectOneMenu value="#{depositaireBean.etat}" converter="#{refConverter}" panelStyle="width:180px"  style="width:160px"
                          effect="fade" var="t" filter="true" filterMatchMode="startsWith">
-                        <f:selectItem itemValue="#{null}" itemLabel="--select--" /> 
+                        <f:selectItem itemValue="#{null}" itemLabel="Selectionner" /> 
                             <f:selectItems value="#{siseBean.listEtatMateriel}" var="theme" itemLabel="#{theme.designation}" itemValue="#{theme}" />
                         <p:column>
                             <h:outputText value="#{t.designation}" />
@@ -242,7 +242,7 @@
 
                      <p:selectOneMenu value="#{depositaireBean.acquisition}" converter="#{refConverter}" panelStyle="width:180px"  style="width:160px"
                          effect="fade" var="t" filter="true" filterMatchMode="startsWith">
-                        <f:selectItem itemValue="#{null}" itemLabel="--select--" /> 
+                        <f:selectItem itemValue="#{null}" itemLabel="Selectionner" /> 
                             <f:selectItems value="#{siseBean.listModeAcquisition}" var="theme" itemLabel="#{theme.designation}" itemValue="#{theme}" />
                         <p:column>
                             <h:outputText value="#{t.designation}" />
@@ -262,7 +262,7 @@
 
                     <p:selectOneMenu value="#{depositaireBean.fournisseur}" converter="#{refConverter}" panelStyle="width:180px"  style="width:160px"
                          effect="fade" var="t" filter="true" filterMatchMode="startsWith">
-                        <f:selectItem itemValue="#{null}" itemLabel="--select--" /> 
+                        <f:selectItem itemValue="#{null}" itemLabel="Selectionner" /> 
                             <f:selectItems value="#{siseBean.listFournisseur}" var="theme" itemLabel="#{theme.designation}" itemValue="#{theme}" />
                         <p:column>
                             <h:outputText value="#{t.designation}" />
@@ -296,7 +296,7 @@
 
                     <p:selectOneMenu value="#{depositaireBean.financement}" converter="#{refConverter}" panelStyle="width:180px"  style="width:160px"
                          effect="fade" var="t" filter="true" filterMatchMode="startsWith">
-                        <f:selectItem itemValue="#{null}" itemLabel="--select--" /> 
+                        <f:selectItem itemValue="#{null}" itemLabel="Selectionner" /> 
                             <f:selectItems value="#{siseBean.listFinancement}" var="theme" itemLabel="#{theme.designation}" itemValue="#{theme}" />
                         <p:column>
                             <h:outputText value="#{t.designation}" />
@@ -371,7 +371,7 @@
              <hr />
             <p:dataTable id="refid" var="m"
                              value="#{depositaireBean.materielspardesignation}" editable="true"
-                             editMode="cell" widgetVar="documentTable">
+                             editMode="cell" widgetVar="documentTable" emptyMessage="Aucun enregistrement">
                              
                     
                     <p:column headerText="N°">

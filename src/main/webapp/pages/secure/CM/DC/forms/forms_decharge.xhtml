@@ -33,7 +33,7 @@
 	
 	                    <p:selectOneMenu value="#{depositaireBean.motifSortie}" converter="#{refConverter}" panelStyle="width:180px"  style="width:160px"
 	                         effect="fade" var="t" filter="true" filterMatchMode="startsWith">
-	                        <f:selectItem itemValue="#{null}" itemLabel="--select--" /> 
+	                        <f:selectItem itemValue="#{null}" itemLabel="Selectionner" /> 
 	                            <f:selectItems value="#{siseBean.listMotifSortie}" var="theme" itemLabel="#{theme.designation}" itemValue="#{theme}" />
 	                        <p:column>
 	                            <h:outputText value="#{t.designation}" />
@@ -55,7 +55,7 @@
 	
 	                    <p:selectOneMenu value="#{depositaireBean.materiel}" converter="#{materielConverter}"   panelStyle="width:180px"  style="width:160px"
 	                         effect="fade" var="t" filter="true" filterMatchMode="startsWith">
-	                        <f:selectItem itemValue="#{null}" itemLabel="--select--" /> 
+	                        <f:selectItem itemValue="#{null}" itemLabel="Selectionner" /> 
 	                            <f:selectItems value="#{depositaireBean.listAllMaterielValideSansDetenteurByDirection}" var="theme" itemLabel="#{theme.numSerie}" itemValue="#{theme}" />
 	                        <p:column>
 	                            <h:outputText value="#{t.numSerie}" />
@@ -96,7 +96,7 @@
                 
 				<div class="row">
 					<div class="col-lg-4 col-lg-offset-1">
-		                <label for="text1" class="control-label col-lg-4">Numero de série
+		                <label for="text1" class="control-label col-lg-4">Numéro de série
 		                </label>
 					</div>
 	                <div class="col-lg-6">

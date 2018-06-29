@@ -53,7 +53,7 @@
 					<div class="col-lg-6">		
 						<p:selectOneMenu id="zone" styleClass="form-control top"
 							converter="#{refConverter}" value="#{siseBean.nomenclatureP}">
-							<f:selectItem itemValue="#{null}" itemLabel="--select--" />
+							<f:selectItem itemValue="#{null}" itemLabel="Selectionner" />
 							<f:selectItems value="#{siseBean.listNomenclature}" var="type"
 								itemLabel="#{type.designation}" />
 							<p:ajax event="change" update="data"

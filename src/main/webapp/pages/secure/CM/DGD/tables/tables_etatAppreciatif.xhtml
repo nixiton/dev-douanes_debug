@@ -21,7 +21,7 @@
 			paginator="true" style="margin-bottom:20px"
 			widgetVar="EtatAppreciatif"
 			id="etatAppreciatif"
-			sortBy="#{c[15]}"
+			sortBy="#{c[15]}" emptyMessage="Aucun résultat"
 			>
 			<f:facet name="header">
        			 <span>ETAT APPRECIATIF ANNEE </span>
@@ -38,7 +38,7 @@
        			 				</p:panelGrid>
     						</p:dialog>
     						#{EtatAppreciatifBean.setListe(suivieditionBean.listESForGrandLivreOld)}
-    						<h:commandButton value="Next" action="#{EtatAppreciatifBean.execute(suivieditionBean.listESForGrandLivreOld)}"/>
+    						<h:commandButton value="Exporter" action="#{EtatAppreciatifBean.execute(suivieditionBean.listESForGrandLivreOld)}"/>
        			 		</h:form>
        			 </span>
     		</f:facet>
