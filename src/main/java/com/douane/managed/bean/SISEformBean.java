@@ -11,6 +11,7 @@ import com.douane.requesthttp.RequestFilter;
 
 import org.hibernate.exception.ConstraintViolationException;
 import org.primefaces.component.datatable.DataTable;
+import org.primefaces.context.RequestContext;
 import org.primefaces.event.CellEditEvent;
 import org.primefaces.event.RowEditEvent;
 import org.springframework.dao.DataAccessException;
@@ -25,7 +26,9 @@ import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.RequestScoped;
+import javax.faces.component.UIInput;
 import javax.faces.context.FacesContext;
+import javax.faces.event.AjaxBehaviorEvent;
 
 import java.sql.SQLException;
 
@@ -52,6 +55,7 @@ public class SISEformBean {
 	private String designation = null;
 	private String nomenclature = null;
 	private Nomenclature nomen;
+	
 
 	public Nomenclature getNomen() {
 		return nomen;
@@ -1194,6 +1198,34 @@ public class SISEformBean {
 		
 		}
 	}
+	private Marque nouvmark = new Marque();
+	public Marque getNouvmark() {
+		return nouvmark;
+	}
+
+	public void setNouvmark(Marque nouvmark) {
+		this.nouvmark = nouvmark;
+	}
+	
+	public void addNewMarque(AjaxBehaviorEvent event) {
+		System.out.println("ajouter new marque");
+		if (nouvmark.equals(((UIInput) event.getComponent()).getValue())) {
+            RequestContext ajax = RequestContext.getCurrentInstance();
+            ajax.update("addNewMarkDialog");
+            ajax.execute("PF('widget_addNewJMarkDialog').show()");
+        }
+		
+		
+	}
+	public void saveNewMark() {
+		Agent agent = (Agent) RequestFilter.getSession().getAttribute("agent");
+		refmetierimpl.addRef(nouvmark, agent);
+		nouvmark = new Marque();
+
+        RequestContext ajax = RequestContext.getCurrentInstance();
+        ajax.update("fileUpoadForm");
+        ajax.execute("PF('widget_addNewJMarkDialog').hide()");
+    }
 
 	/*
 	 * public void onRowCancel(RowEditEvent event) { FacesMessage msg = new

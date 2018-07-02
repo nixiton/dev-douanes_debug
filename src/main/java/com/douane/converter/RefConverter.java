@@ -39,7 +39,10 @@ public class RefConverter implements Converter {
         if(value != null && value.trim().length() > 0) {
             try {
                 //refmetierimpl
-            	System.out.println("Tafiditra");
+            	System.out.println("Tafiditra "+value);
+            	if(value.equals("null")) {
+            		return new Marque();
+            	}
                 
 
                 Referentiel ref = refmetierimpl.findById(Long.parseLong(value));

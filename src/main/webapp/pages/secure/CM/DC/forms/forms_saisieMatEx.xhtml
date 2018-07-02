@@ -147,11 +147,15 @@
 
 	                    <p:selectOneMenu value="#{depositaireBean.marq}" converter="#{refConverter}" panelStyle="width:180px"  style="width:160px"
 	                         effect="fade" var="t" filter="true" filterMatchMode="startsWith">
-	                        <f:selectItem itemValue="#{null}" itemLabel="Selectionner" /> 
-	                            <f:selectItems value="#{siseBean.listMarque}" var="theme" itemLabel="#{theme.designation}" itemValue="#{theme}" />
+	                        <f:selectItem itemValue="#{null}"  itemLabel="Selectionner" noSelectionOption="true"/> 
+	                 
+	                        <f:selectItems value="#{siseBean.listMarque}" var="theme" itemLabel="#{theme.designation}" itemValue="#{theme}" />
 	                        <p:column>
 	                            <h:outputText value="#{t.designation}" />
 	                        </p:column>
+	                        <f:selectItem itemValue="#{siseBean.nouvmark}" itemLabel="ajouter" />
+                			<p:ajax listener="#{siseBean.addNewMarque}" />
+	                        
 	
 	                    </p:selectOneMenu>
                     </div>
@@ -280,45 +284,9 @@
                 </div>
                 <hr />
                 
-                <div class="row">
-					<div class="col-lg-4 col-lg-offset-1">
-	                    <label for="text1" class="control-label col-lg-4">Detenteur
-	                    </label>
-					</div>
-                    <div class="col-lg-6">
+            
 
-
-                        <p:selectOneMenu value="#{depositaireBean.detenteurMatEx}" converter="#{agentConverter}" panelStyle="width:180px"  style="width:160px"
-                                         effect="fade" var="d" filter="true" filterMatchMode="startsWith">
-                            <f:selectItem value="#{null}" itemValue="#{null}" itemLabel="Selectionner" />
-                            <f:selectItems value="#{depositaireBean.listDetenteurMatEx}" var="dep" itemLabel="#{dep.nomAgent}" itemValue="#{dep}" />
-                            <p:column>
-                                <h:outputText value="#{d.nomAgent}" />
-                            </p:column>
-
-                        </p:selectOneMenu>
-					</div>
-                </div>
-				<hr></hr>
-
-                <!--label for="text1" class="control-label col-lg-4">Liste Services
-                    </label>
-
-                    <div class="col-lg-6">
-
-                    <p:selectOneMenu value="#{depositaireBean.serviceforMat}" converter="#{refConverter}" panelStyle="width:180px"  style="width:160px"
-                         effect="fade" var="t" filter="true" filterMatchMode="startsWith">
-                        <f:selectItem itemValue="#{null}" itemLabel="" /> 
-                            <f:selectItems value="#{depositaireBean.listServices}" var="theme" itemLabel="#{theme.designation}" itemValue="#{theme}" />
-                        <p:column>
-                            <h:outputText value="#{t.designation}" />
-                        </p:column>
-
-                    </p:selectOneMenu>
-
-                    <hr></hr>
-
-                    </div-->
+             
 
 
 			<!-- LES REFERENTIELS -->
@@ -389,6 +357,14 @@
 
 
         </h:form>
+        <p:dialog id="addNewMarkDialog" widgetVar="widget_addNewJMarkDialog" header="ajouter marque">
+        
+    		<h:form>
+        		<p:inputText value="#{siseBean.nouvmark.designation}" required="true" />
+        		<p:commandButton value="Ajouter" action="#{siseBean.saveNewMark}" update="@form" />
+        		<p:messages />
+    		</h:form>
+		</p:dialog>
 
     </div>
 
