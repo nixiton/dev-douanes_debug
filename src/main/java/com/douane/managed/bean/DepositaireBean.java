@@ -3018,5 +3018,21 @@ public class DepositaireBean {
 	}
 
 	private String decision;
+	
+	private List<Materiel> listHistoriqueMatDirection;
+	
+	
+
+	public List<Materiel> getListHistoriqueMatDirection() {
+		if(listHistoriqueMatDirection == null) {
+			Agent agent = (Agent) RequestFilter.getSession().getAttribute("agent");
+			listHistoriqueMatDirection= usermetierimpl.getListMatByDirection(agent.getDirection());
+		}
+		return listHistoriqueMatDirection;
+	}
+
+	public void setListHistoriqueMatDirection(List<Materiel> listHistoriqueMatDirection) {
+		this.listHistoriqueMatDirection = listHistoriqueMatDirection;
+	}
 
 }

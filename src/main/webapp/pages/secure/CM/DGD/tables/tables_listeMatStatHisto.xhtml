@@ -13,12 +13,15 @@
 <div   class="body collapse in table-responsive">
 
 <h:form>
-    <p:dataTable   var="materiel" value="#{depositaireBean.listMaterielByDirection}"
+    <p:dataTable   var="materiel" value="#{depositaireBean.listHistoriqueMatDirection}"
     				id="historiquemateriels"
     			 widgetVar="MaterielTable" 
                  paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {Exporters}"
                  paginator="true" rows="20" style="margin-bottom:20px"
-                 emptyMessage="Aucun resultat" filteredValue="#{dtFilterView.filteredOperations}">
+                 emptyMessage="Aucun resultat" filteredValue="#{dtFilterView.filteredOperations}"
+                 rowKey="#{materiel.idMateriel}"
+                 
+                 >
        
         <f:facet name="{Exporters}">
             <h:commandLink>
@@ -63,9 +66,12 @@
             </f:facet>
             <h:outputText value="#{materiel.design.nomenMat.designation}" />
         </p:column>
-        <p:column style="width: 7%; text-align: center; word-wrap: break-word;">
-            <f:facet name="header">
-                <h:outputText value="Etat" />
+        <p:column filterBy="#{materiel.etat}" headerText="Etat"  filterMatchMode="exact" style="width: 9%; text-align: center; word-wrap: break-word;">
+           <f:facet name="filter">
+                <p:selectOneMenu onchange="PF('MaterielTable').filter()" >
+                    <f:selectItem itemLabel="Selection" itemValue="#{null}" noSelectionOption="true" />
+                    <f:selectItems value="#{siseBean.listEtatMateriel}" />
+                </p:selectOneMenu>
             </f:facet>
             <h:outputText value="#{materiel.etat.designation}" />
         </p:column>
