@@ -13,13 +13,13 @@
 <div   class="body collapse in table-responsive">
 
 <h:form>
-    <p:dataTable   var="materiel" value="#{depositaireBean.listHistoriqueMatDirection}"
+    <p:dataTable   var="materiel" value="#{suivieditionBean.listHistoriqueMatDirection}"
     				id="historiquemateriels"
     			 widgetVar="MaterielTable" 
     			 currentPageReportTemplate="({currentPage} sur {totalPages})"
                  paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {Exporters}"
                  paginator="true" rows="20" style="margin-bottom:20px"
-                 emptyMessage="Aucun resultat" filteredValue="#{dtFilterView.filteredOperations}"
+                 emptyMessage="Aucun resultat" filteredValue="#{depositaireBean.listHistoriqueMatDirection}"
                  rowKey="#{materiel.idMateriel}"
                  
                  >
@@ -91,19 +91,19 @@
         <p:column exportable="false" style="width: 5%; text-align: center; word-wrap: break-word;">
             <f:facet name="header"><h:outputText value="Détail" /></f:facet>
             
-            	<p:commandButton  action="#{suivieditionBean.setMateriel(materiel)}" update=":detail"
+            	<p:commandButton  action="#{suivieditionBean.setMateriel(materiel.idMateriel)}" update=":detail"
             oncomplete="PF('detail').show()" icon="ui-icon-zoomin"/>
         </p:column> 
         <p:column exportable="false" style="width: 5%; text-align: center; word-wrap: break-word;">
             <f:facet name="header">Statut</f:facet>
-            <p:commandButton  action="#{suivieditionBean.setMateriel(materiel)}" 
+            <p:commandButton  action="#{suivieditionBean.setMateriel(materiel.idMateriel)}" 
             oncomplete="PF('statut').show()" icon="ui-icon-info" update=":statut">
 
             </p:commandButton>
         </p:column>
         <p:column exportable="false" style="width: 8%; text-align: center; word-wrap: break-word;">
             <f:facet name="header">Historique</f:facet>
-            <p:commandButton  action="#{suivieditionBean.setMateriel(materiel)}" 
+            <p:commandButton  action="#{suivieditionBean.setMateriel(materiel.idMateriel)}" 
             oncomplete="PF('historique').show()" icon="ui-icon-clipboard" update=":historique">
             </p:commandButton>
         </p:column>

@@ -1,6 +1,7 @@
 package com.douane.managed.bean;
 
 import com.douane.entite.*;
+import com.douane.metier.referentiel.IRefMetier;
 import com.douane.metier.user.IUserMetier;
 import com.douane.model.EtatOperation;
 import come.douane.dao.operation.IOperationDAO;
@@ -288,12 +289,12 @@ public class SuiviEditionBean {
 		return materiel;
 	}
 
-	public void setMateriel(Materiel materiel) {
-
+	public void setMateriel(Long materielid) {
+		Materiel a = usermetierimpl.getMatById(materielid);
 		System.out.print(
-				"======================================SET MAT=================================================================");
+				"======================================SET MAT================================================================="+materielid);
 
-		this.materiel = materiel;
+		this.materiel = a;
 	}
 
 	public List<OpEntree> getListOperationEntreeByMateriel() {
@@ -1486,5 +1487,22 @@ public class SuiviEditionBean {
 		Long nombreareporter = usermetierimpl.getAreporter(code,cur.getDirection(),stopdate);
 		return nombreareporter;
 	}
+	
+private List<Materiel> listHistoriqueMatDirection;
+	
+	
+
+	public List<Materiel> getListHistoriqueMatDirection() {
+		if(listHistoriqueMatDirection == null) {
+			Agent agent = (Agent) RequestFilter.getSession().getAttribute("agent");
+			listHistoriqueMatDirection= usermetierimpl.getListMatByDirection(agent.getDirection());
+		}
+		return listHistoriqueMatDirection;
+	}
+
+	public void setListHistoriqueMatDirection(List<Materiel> listHistoriqueMatDirection) {
+		this.listHistoriqueMatDirection = listHistoriqueMatDirection;
+	}
+	
 
 }
