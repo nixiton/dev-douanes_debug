@@ -137,6 +137,17 @@
 	</navigation-rule>
 	
 	<navigation-rule>
+		<from-view-id>/*</from-view-id>
+		
+		<navigation-case>
+			<from-outcome>choix_compta</from-outcome>
+			<to-view-id>/pages/secure/choice.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		
+	</navigation-rule>
+	
+	<navigation-rule>
 		<from-view-id>/pages/*</from-view-id>
 		
 		<navigation-case>
