@@ -149,7 +149,7 @@
                     <th style="border-top: none;text-align: center">Prix unitaire</th>
                     <th>Partielle</th>
                     <th style="text-align: center">Par numero de nomenclature somaire</th>
-                    <th style="border-top: none;text-align: center">Numéro de la pièce justificative de sortie ou indocation de référence</th>
+                    <th style="border-top: none;text-align: center">Numéro de la pièce justificative de sortie ou indication de référence</th>
                 </tr>
 
         
@@ -195,13 +195,22 @@
 				Le Comptable (2) <p:inputText value="#{JasperTableExampleBean.ordreS.comptable}" style="text-align: center; " size="20"></p:inputText>
 			</p>
 			<p>
-				(3)Le comptable <strong>#{docbean.curentOpeationSortieToPdf.operateur.im}  #{docbean.curentOpeationSortieToPdf.operateur.nomAgent} </strong> délivrera et portera en sortie dans ses écritures les  matières désignés et objets désignés ci-dessus.<br></br>
+				(3)Le comptable <strong>#{docbean.curentOpeationSortieToPdf.operateur.im}  #{docbean.curentOpeationSortieToPdf.operateur.nomAgent} </strong> délivrera et portera en sortie dans ses écritures les matières désignées et objets désignés ci-dessus.<br></br>
 			</p>	
             <p>
-            	(3)Le comptable <strong> #{docbean.curentOpeationSortieToPdf.operateur.im}  #{docbean.curentOpeationSortieToPdf.operateur.nomAgent} </strong>  portera en sortie dans ses écritures les  matières désignés et objets désignés ci-dessus dont je certifie la conformité avec. <br></br>
+            	(3)Le comptable <strong> #{docbean.curentOpeationSortieToPdf.operateur.im}  #{docbean.curentOpeationSortieToPdf.operateur.nomAgent} </strong>  portera en sortie dans ses écritures les matières désignées  et objets désignés ci-dessus dont je certifie la conformité avec. <br></br>
              <p:inputText value="#{JasperTableExampleBean.ordreS.conformite}" style="text-align: center;"></p:inputText> , le <p:inputText value="#{JasperTableExampleBean.ordreS.dateConformite}" style="text-align: center;"></p:inputText> <br></br><br></br>
 			</p>
  			Le (4) <p:inputText value="#{JasperTableExampleBean.ordreS.num4}" style="text-align: center;"></p:inputText> 
+ 			<br/><br/><br/>
+ 			<p style="background-color:#F2F2F2;font-size: 11px!important;">
+				(1)En toutes lettres.<br/>
+				(2)Gestionnaire ou dépositaire.<br/>
+				(3)Procès-verbal de recette, de recensement etc, ou tel
+				registre ou carnet, ou la pièce de sortie correspondante.<br/>
+				(4)Chef de service ou son délégué.<br/>
+				(5)La date de la déclaration de prise en charge doit  concorder avec la date de l'ordre donné par le chef de service ou son délégué.
+			</p> 
 
  			</div>
 
@@ -212,7 +221,8 @@
  				<p>
  				Le comptable (2) <strong>#{docbean.curentOpeationSortieToPdf.operateur.nomAgent} </strong><br></br>
  				</p>
- 				
+ 				<br/><br/>
+ 				<p align="center">Déclaration de prise en charge</p>
  				<p>Le comptable déclare avoir reçu et pris en charge les matières et objets mentionnés dans le tableau ci-dessus</p>
 				<p>
  				A <p:inputText value="#{JasperTableExampleBean.ordreS.lieu2}" style="text-align: center;"></p:inputText>, le <p:inputText value="#{JasperTableExampleBean.ordreS.date2}" style="text-align: center;"></p:inputText> <br></br>

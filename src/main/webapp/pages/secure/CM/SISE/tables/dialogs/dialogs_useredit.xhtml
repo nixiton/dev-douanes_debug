@@ -74,7 +74,7 @@
 					<div class="col-lg-6">
 						<p:selectOneMenu id="agentdir" value="#{editAgent.direction}" converter="#{refConverter}" panelStyle="width:180px"  style="width:160px"
 	                         effect="fade" var="t" filter="true" filterMatchMode="startsWith">
-	                        <f:selectItem itemValue="#{null}" itemLabel="--select--" /> 
+	                        <f:selectItem itemValue="#{null}" itemLabel="Selectionner" /> 
 	                            <f:selectItems value="#{siseBean.listDirection}" var="theme" itemLabel="#{theme.designation}" itemValue="#{theme}" />
 	                        <p:column>
 	                            <h:outputText value="#{t.designation}" />
@@ -94,7 +94,7 @@
 					<div class="col-lg-6">
 						<p:selectOneMenu value="#{editAgent.posteny}" converter="#{refConverter}" panelStyle="width:180px"  style="width:160px"
 	                         effect="fade" var="t" filter="true" filterMatchMode="startsWith">
-	                        <f:selectItem itemValue="#{null}" itemLabel="--select--" /> 
+	                        <f:selectItem itemValue="#{null}" itemLabel="Selectionner" /> 
 	                            <f:selectItems value="#{siseBean.listPoste}" var="theme" itemLabel="#{theme.designation}" itemValue="#{theme}" />
 	                        <p:column>
 	                            <h:outputText value="#{t.designation}" />
@@ -113,7 +113,7 @@
 					<div class="col-lg-6">
 						<p:selectOneMenu value="#{editAgent.roleAgent}" converter="#{useriConverter}" panelStyle="width:180px"  style="width:160px"
 	                         effect="fade" var="t" filter="true" filterMatchMode="startsWith">
-	                        <f:selectItem itemValue="#{null}" itemLabel="--select--" /> 
+	                        <f:selectItem itemValue="#{null}" itemLabel="Selectionner" /> 
 	                            <f:selectItems value="#{siseBean.listUseri}" var="theme" itemLabel="#{theme.designation}" itemValue="#{theme}" />
 	                        <p:column>
 	                            <h:outputText value="#{t.designation}" />

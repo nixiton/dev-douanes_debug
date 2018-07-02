@@ -19,7 +19,8 @@
 
 	</div>
 <p:growl for="myerrorReferentiel" id="msgtableState" showDetail="true" sticky="true" redisplay="false"/>
-	<p:dataTable   var="m" value="#{siseBean.listMarque}" 
+	<p:dataTable   var="m" value="#{siseBean.listMarque}"
+				currentPageReportTemplate="({currentPage} sur {totalPages})" 
                  paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}  "
                  paginatorPosition="bottom"
                  paginator="true" rows="10" style="margin-bottom:20px"

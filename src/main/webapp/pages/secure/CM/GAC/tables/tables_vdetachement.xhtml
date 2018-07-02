@@ -13,6 +13,7 @@
 
 
     <p:dataTable   var="d" value="#{suivieditionBean.listOperationDeetachementByDirection}" 
+    			currentPageReportTemplate="({currentPage} sur {totalPages})"
                  paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}  "
                  paginator="true" rows="10" style="margin-bottom:20px">
         <p:column style="text-align: center; word-wrap: break-word;">
@@ -27,7 +28,7 @@
             #{d.detenteur.im}
         </p:column>
          <p:column style="text-align: center; word-wrap: break-word;">
-            <f:facet name="header">Materiel</f:facet>
+            <f:facet name="header">Matériel</f:facet>
             #{d.mat.numSerie}
         </p:column>
         <p:column style="text-align: center; word-wrap: break-word;">

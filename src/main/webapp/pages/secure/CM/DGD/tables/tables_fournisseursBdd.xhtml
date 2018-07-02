@@ -11,9 +11,10 @@
 <div   class="body collapse in table-responsive">
 
 
-    <p:dataTable   var="d" value="#{siseBean.listFournisseur}" 
+    <p:dataTable   var="d" value="#{siseBean.listFournisseur}"
+    			currentPageReportTemplate="({currentPage} sur {totalPages})" 
                  paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}  "
-                 paginator="true" rows="10" style="margin-bottom:20px">
+                 paginator="true" rows="10" style="margin-bottom:20px" emptyMessage="Aucun résultat">
         <p:column  style="width:10%; text-align: center; word-wrap: break-word;">
             <f:facet name="header">ID</f:facet>
             #{d.id}

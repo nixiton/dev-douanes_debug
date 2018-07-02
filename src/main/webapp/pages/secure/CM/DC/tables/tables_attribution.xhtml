@@ -20,6 +20,7 @@
     </div>
 
     <p:dataTable   var="a" value="#{depositaireBean.listAttribution}" 
+    			currentPageReportTemplate="({currentPage} sur {totalPages})"
                  paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}  "
                  paginator="true" rows="10" style="margin-bottom:20px">
         <p:column>

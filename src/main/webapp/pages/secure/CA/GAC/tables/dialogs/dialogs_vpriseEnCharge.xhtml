@@ -21,14 +21,13 @@
                     <tr>
                         <td><strong>ID</strong></td>
                         <td>#{gacBean.opEntreeArticleToValidate.article.idArticle}</td>
-                        <td><strong>Type des objets</strong></td>
-                        <td>#{gacBean.opEntreeArticleToValidate.article.codeArticle.typeObjet.designation}</td>
-                        <td><strong>Codification</strong></td>
+                       
+                        <td><strong>Article</strong></td>
 						<td>#{gacBean.opEntreeArticleToValidate.article.codeArticle.designation}</td>
                     </tr>
                     
                     <tr>
-                        <td><strong>Prix unitaire</strong></td>
+                        <td><strong>Montant</strong></td>
                         <td>#{gacBean.opEntreeArticleToValidate.article.prix}</td>
                         <td><strong>Nombre</strong></td>
                         <td>#{gacBean.opEntreeArticleToValidate.article.nombre}</td>
@@ -49,16 +48,18 @@
                         <td>#{gacBean.opEntreeArticleToValidate.article.reference}</td>
                     </tr>
                     <tr>
-                    	<td><strong>Espece des unités</strong></td>
+                    	<td><strong>Espèce des unités</strong></td>
                         <td>#{gacBean.opEntreeArticleToValidate.article.especeunit}</td>
-                       
+                       	<td><strong>Type des Objets</strong></td>
+                        <td>#{gacBean.opEntreeArticleToValidate.article.codeArticle.typeObjet.designation}</td>
                     </tr>
                     
                     <c:if test="#{gacBean.opEntreeArticleToValidate.article['class'].simpleName eq 'ArticleNouv'}">
                     <tr>
-                        <td><strong>Fournisseur</strong></td>
-                        <td>#{gacBean.opEntreeArticleToValidate.article.fournisseur.designation}</td>
-                        <td><strong>Prix unitaire</strong></td>
+                    	<!-- <td><strong>Fournisseur</strong></td>
+                        <td>#{gacBean.opEntreeArticleToValidate.article.fournisseur.designation}</td> -->
+                        
+                        <td><strong>Montant</strong></td>
                         <td>#{gacBean.opEntreeArticleToValidate.article.prix}</td>
                         <td><strong>Nombre</strong></td>
                         <td>#{gacBean.opEntreeArticleToValidate.article.nombre}</td>
@@ -101,6 +102,7 @@
                                 </h:form>
                         </td>
                         <td>
+                        	<!--  
                             <h:form>
 
 
@@ -116,7 +118,7 @@
                                 </h:commandButton>
 
                                 
-                            </h:form>
+                            </h:form> -->
                         </td>
                     </tr>
 

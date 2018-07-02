@@ -67,7 +67,7 @@
 
  			<div class="col-md-10" style="text-align: center;">
  				
- 				CHAPITRE <p:inputText value="#{JasperTableExampleBean.ordreEB.chap}" style="text-align: center;width: 50%"></p:inputText> 
+ 				CHAPITRE(1) <p:inputText value="#{JasperTableExampleBean.ordreEB.chap}" style="text-align: center;width: 50%"></p:inputText> 
  				<br/>ARTICLE <p:inputText value="#{JasperTableExampleBean.ordreEB.article}" style="text-align: center;width: 50%"></p:inputText> <br></br>
  				PARAGRAPHE <p:inputText value="#{JasperTableExampleBean.ordreEB.paragraphe}" style="text-align: center;width: 50%"></p:inputText><br></br>
  			</div>
@@ -161,7 +161,7 @@
                     <th style="border-top: none;text-align:center">Prix unitaire</th>
                     <th>Partielle</th>
                     <th>Par numero de nomanclature somaire</th>
-                    <th style="border-top: none;text-align:center">Numéro de la pièce justificative de sortie ou indocation de référence</th>
+                    <th style="border-top: none;text-align:center">Numéro de la pièce justificative de sortie ou indication de référence</th>
                 </tr>
 
         <!-- c:forEach var="mat" items="#{gacBean.curentOperation1.listMat}"-->
@@ -195,25 +195,33 @@
 
  			<br></br><br></br><br></br><br></br>
 
- 			Arrêté le présent ordre d'entrée à  <p:inputText value="#{JasperTableExampleBean.ordreEB.ordre}" style="text-align: center;"></p:inputText> article évalué à la somme de .
+ 			Arrêté le présent ordre d'entrée à (1) <p:inputText value="#{JasperTableExampleBean.ordreEB.ordre}" style="text-align: center;"></p:inputText> article(s) évalué(s) à la somme de (1)
          <p:inputText value="#{JasperTableExampleBean.ordreEB.somme}" style="text-align: center;"></p:inputText><br></br><br></br><br></br>
 
- 			<div class="col-md-6">Le comptable ..<strong>#{gacBean.curentOperation1.operateur.nomAgent}</strong>.. présent en charge des matières désignés et objets désignés ci-dessus dont j'ai vérifié la concordance avec le <p:inputText value="#{JasperTableExampleBean.ordreEB.concordance}" style="text-align: center;width: 30%;"></p:inputText>, le<p:inputText value="#{JasperTableExampleBean.ordreEB.date2}" style="text-align: center;width: 30%;"></p:inputText><br></br><br></br>
+ 			<div class="col-md-6">Le comptable ..<strong>#{gacBean.curentOperation1.operateur.nomAgent}</strong>.. présent en charge des matières désignées et objets désignés ci-dessus dont j'ai vérifié la concordance avec le (3) <p:inputText value="#{JasperTableExampleBean.ordreEB.concordance}" style="text-align: center;width: 30%;"></p:inputText>, le<p:inputText value="#{JasperTableExampleBean.ordreEB.date2}" style="text-align: center;width: 30%;"></p:inputText><br></br><br></br>
 			<!-- <p:inputText id="comptable" value="#{JasperTableExampleBean.ordreEB.comptable1}"  />
 			<p:watermark for="comptable" value="#{gacBean.curentOperation1.operateur.nomAgent}" />   -->
- 			Le ..<strong>#{gacBean.curentOperation1.date}</strong>..
-
+ 			Le (4) <strong>#{gacBean.curentOperation1.date}</strong>..
+			<br/><br/><br/><br/><br/>
+			<p style="background-color:#F2F2F2;font-size: 11px!important;">
+				(1)En toutes lettres.<br/>
+				(2)Gestionnaire ou dépositaire.<br/>
+				(3)Procès-verbal de recette, de recensement etc., ou tel
+				registre ou carnet, ou la pièce de sortie correspondante.<br/>
+				(4)Chef de service ou son délégué.<br/>
+				(5)La date de la déclaration de prise en charge doit  concorder avec la date de l'ordre donné par le chef de service ou son délégué.
+			</p> 
  			</div>
 
  			<div class="col-md-6">
  				A <p:inputText value="#{JasperTableExampleBean.ordreEB.lieu}" style="text-align: center;"></p:inputText>, le ..<strong>#{gacBean.curentOperation1.date}</strong>..<br></br>
- 				Le comptable ... <strong> #{gacBean.curentOperation1.operateur.nomAgent}</strong>.............<br></br>
- 				Déclaration de prise en charge <br></br>
- 				le comptable déclare avoir reçu et pris en charge les matières et objets mentionnés dans le tableau ci-dessus.<br></br>
+ 				Le comptable (2) <strong> #{gacBean.curentOperation1.operateur.nomAgent}</strong>.<br/><br/><br/>
+ 				<p align="center">Déclaration de prise en charge</p>
+ 				Le comptable déclare avoir reçu et pris en charge les matières et objets mentionnés dans le tableau ci-dessus.<br></br>
 
- 				A<p:inputText value="#{JasperTableExampleBean.ordreEB.date1}" style="text-align: center;"></p:inputText>, le ..<strong>#{gacBean.curentOperation1.date}</strong>..<br></br>
+ 				A<p:inputText value="#{JasperTableExampleBean.ordreEB.date1}" style="text-align: center;"></p:inputText>, le (5) <strong>#{gacBean.curentOperation1.date}</strong>..<br></br>
 
- 				Le comptable ...<strong>#{gacBean.curentOperation1.operateur.nomAgent}</strong>  <br></br><br></br><br></br><br></br><br></br>
+ 				Le comptable (2) <strong>#{gacBean.curentOperation1.operateur.nomAgent}</strong>  <br></br><br></br><br></br><br></br><br></br>
 
  			</div>
 

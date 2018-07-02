@@ -32,7 +32,7 @@
                     <div class="col-lg-6">
 
                         <p:selectOneMenu     styleClass="form-control top" converter="#{refConverter}" value="#{depositaireBean.typeObjet}">
-                            <f:selectItem itemValue="#{null}" itemLabel="select" /> 
+                            <f:selectItem itemValue="#{null}" itemLabel="Selectionner" /> 
                             <f:selectItems value="#{siseBean.listTypeObjet}" var="type" itemLabel="#{type.designation}"/>
                             
                         </p:selectOneMenu>
@@ -44,14 +44,15 @@
                     
 				<div class="row">
 					<div class="col-lg-4 col-lg-offset-1">  
-
-	                    <label for="text1" class="control-label col-lg-4">Codification des articles
+						<!-- <label for="text1" class="control-label col-lg-4">Codification des articles
+	                    </label> -->
+	                    <label for="text1" class="control-label col-lg-4">Article
 	                    </label>
 					</div>
                     <div class="col-lg-6">
 
                     <!--h:selectOneMenu  styleClass="form-control top" value="#{saisieMatExMB.nomenclature}">
-                        <f:selectItem itemValue="#{null}" itemLabel="select" />
+                        <f:selectItem itemValue="#{null}" itemLabel="Selectionner" />
                             <f:selectItems value="#{saisieNomMB.nomlenclatureList}" var="nomenclature" itemLabel="#{nomenclature.nomenclature}"/>                                                                       
 
                     </h:selectOneMenu-->
@@ -81,7 +82,7 @@
                         <f:selectItem itemValue="#{null}" itemLabel="Selectionner" /> 
                             <f:selectItems value="#{siseBean.listMarque}" var="theme" itemLabel="#{theme.designation}" itemValue="#{theme}" />
                         <p:column>
-                            <h:outputText value="#{t != null ? t.designation : 'Select'}" />
+                            <h:outputText value="#{t != null ? t.designation : 'Selectionner'}" />
                         </p:column>
 
                     </p:selectOneMenu>
@@ -117,7 +118,7 @@
 	                        <f:selectItem itemValue="#{null}" itemLabel="Selectionner" /> 
 	                            <f:selectItems value="#{siseBean.listModeAcquisition}" var="theme" itemLabel="#{theme.designation}" itemValue="#{theme}" />
 	                        <p:column>
-	                            <h:outputText value="#{t != null ? t.designation : 'Select'}" />
+	                            <h:outputText value="#{t != null ? t.designation : 'Selectionner'}" />
 	                        </p:column>
 	
 	                    </p:selectOneMenu>
@@ -138,13 +139,13 @@
 	                        <f:selectItem itemValue="#{null}" itemLabel="Selectionner" /> 
 	                            <f:selectItems value="#{siseBean.listFinancement}" var="theme" itemLabel="#{theme.designation}" itemValue="#{theme}" />
 	                        <p:column>
-	                            <h:outputText value="#{t != null ? t.designation : 'Select'}" />
+	                            <h:outputText value="#{t != null ? t.designation : 'Selectionner'}" />
 	                        </p:column>
 	                    </p:selectOneMenu>
 	                </div>
              	</div>
                <hr></hr>
-               
+               <!--  
                <div class="row">
 					<div class="col-lg-4 col-lg-offset-1">  
 		                <label for="text1" class="control-label col-lg-4">Fournisseur
@@ -157,13 +158,13 @@
 	                        <f:selectItem itemValue="#{null}" itemLabel="Selectionner" /> 
 	                            <f:selectItems value="#{siseBean.listFournisseur}" var="theme" itemLabel="#{theme.designation}" itemValue="#{theme}" />
 	                        <p:column>
-	                            <h:outputText value="#{t != null ? t.designation : 'Select'}" />
+	                            <h:outputText value="#{t != null ? t.designation : 'Selectionner'}" />
 	                        </p:column>
 	                    </p:selectOneMenu>
 	                </div>
 				</div>
 				<hr></hr>
-				
+				-->
 				<div class="row">
 					<div class="col-lg-4 col-lg-offset-1">
 	                     <label for="text2" class="control-label col-lg-4">Origine
@@ -182,7 +183,7 @@
                
                <div class="row">
 					<div class="col-lg-4 col-lg-offset-1">
-	                     <label for="text2" class="control-label col-lg-4">Référence facture
+	                     <label for="text2" class="control-label col-lg-4">Référence pj
 	              		  </label>
 					</div>
 	                <div class="col-lg-6">
@@ -198,7 +199,7 @@
                
                <div class="row">
 					<div class="col-lg-4 col-lg-offset-1">
-	                     <label for="text2" class="control-label col-lg-4">Espece des unités
+	                     <label for="text2" class="control-label col-lg-4">Espèce des unités
 	              		  </label>
 					</div>
 	                <div class="col-lg-6">
@@ -211,28 +212,6 @@
 	                </div>
                </div>
                <hr></hr>
-	
-				
-				<div class="row">
-					<div class="col-lg-4 col-lg-offset-1">  	
-		                <label for="text2" class="control-label col-lg-4">Prix Unitaire
-		                </label>
-					</div>
-	                <div class="col-lg-6">
-	
-	                    <p:inputText  required="true"
-	                        value="#{depositaireBean.prix}"
-	                        requiredMessage="Prix unitaire obligatoire"
-	                        placeholder="Prix" styleClass="form-control top"
-	                        id="prixtoadd"
-	                        validatorMessage="Ce nombre n'est pas valide"
-	                        >
-	                        <f:validateDoubleRange minimum="0"/></p:inputText>
-	                        <p:message for="prixtoadd" />
-	
-	                </div>
-                </div>
-                <hr></hr>
 				
 				<div class="row">
 					<div class="col-lg-4 col-lg-offset-1">  
@@ -253,8 +232,32 @@
 	                        <p:message for="nombretoadd" />
 	
 	                </div>
-              </div>
-              <hr></hr>    
+				</div>
+              	<hr></hr> 				
+				
+				<div class="row">
+					<div class="col-lg-4 col-lg-offset-1">  	
+		                <label for="text2" class="control-label col-lg-4">Montant
+		                </label>
+					</div>
+	                <div class="col-lg-6">
+	
+	                    <p:inputText  required="true"
+	                        value="#{depositaireBean.prix}"
+	                        requiredMessage="Prix unitaire obligatoire"
+	                        placeholder="Montant" styleClass="form-control top"
+	                        id="prixtoadd"
+	                        validatorMessage="Ce nombre n'est pas valide"
+	                        >
+	                        <f:validateDoubleRange minimum="0"/></p:inputText>
+	                        <p:message for="prixtoadd" />
+	
+	                </div>
+                </div>
+                <hr></hr>
+				
+				
+                 
 
             </div> 
             

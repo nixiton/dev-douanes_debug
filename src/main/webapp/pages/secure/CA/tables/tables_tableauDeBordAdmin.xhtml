@@ -12,9 +12,10 @@
 <h:form>
     <p:dataTable var="c" value="#{operationBean.listOperations}" 
     			 widgetVar="operationsTable"
+    			 currentPageReportTemplate="({currentPage} sur {totalPages})" emptyMessage="Aucun resultat"
                  paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}  "
                  paginator="true" rows="30" style="margin-bottom:20px"
-                 emptyMessage="Aucun resultat" filteredValue="#{dtFilterView.filteredOperations}"
+                 filteredValue="#{dtFilterView.filteredOperations}"
                  >
                  
                  
@@ -58,10 +59,10 @@
         </p:column>
 
 	
-		<p:column filterBy="#{c['class']}" headerText="Type Operation"  filterMatchMode="exact" style="text-align: center; word-wrap: break-word;">
+		<p:column filterBy="#{c['class']}" headerText="Type d'Opération"  filterMatchMode="exact" style="text-align: center; word-wrap: break-word;">
 			<f:facet name="filter">
                 <p:selectOneMenu onchange="PF('operationsTable').filter()" >
-                    <f:selectItem itemLabel="Selectioner" itemValue="#{null}" noSelectionOption="true" />
+                    <f:selectItem itemLabel="Selectionner" itemValue="#{null}" noSelectionOption="true" />
                     <f:selectItems itemLabel="#{dtFilterView.getOperationName(o)}" var="o" value="#{dtFilterView.operations}" />
                 </p:selectOneMenu>
             </f:facet>

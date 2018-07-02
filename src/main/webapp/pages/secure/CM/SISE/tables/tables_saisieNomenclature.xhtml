@@ -22,7 +22,8 @@
 
 	</div>
 <p:growl for="myerrorReferentiel" id="msgtableNomenclature" showDetail="true" sticky="true" redisplay="false"/>
-	<p:dataTable   var="nomenclature" value="#{siseBean.listNomenclature}" 
+	<p:dataTable   var="nomenclature" value="#{siseBean.listNomenclature}"
+				currentPageReportTemplate="({currentPage} sur {totalPages})" 
                  paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}  "
                  paginatorPosition="bottom"
                  paginator="true" rows="10" style="margin-bottom:20px"

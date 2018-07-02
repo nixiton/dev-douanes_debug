@@ -14,6 +14,7 @@
 <div   class="body collapse in table-responsive">
 
     <p:dataTable   var="op" value="#{suivieditionBean.listOpESArtByDirection}"
+    			currentPageReportTemplate="({currentPage} sur {totalPages})" emptyMessage="Aucun resultat"
                  paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}  "
                  paginator="true" rows="100" style="margin-bottom:20px">
         <f:facet name="header">
@@ -47,7 +48,7 @@
 			</p:panel>
         </p:column>
         <p:column style=" text-align: center; word-wrap: break-word;">
-            <f:facet name="header">quantité</f:facet>
+            <f:facet name="header">Quantité</f:facet>
             <p:panel rendered="#{op['class'].simpleName eq 'OpSortieArticle'}">
 					<h:outputText value="#{op.nombreToS}" />
 		</p:panel>
@@ -56,7 +57,7 @@
 		</p:panel>
         </p:column>
         <p:column style=" text-align: center; word-wrap: break-word;">
-            <f:facet name="header">Prix unitaire</f:facet>
+            <f:facet name="header">Montant</f:facet>
             <p:panel rendered="#{op['class'].simpleName eq 'OpEntreeArticle'}">
 				<h:outputText value="#{op.article.prix}" />
 		</p:panel>
@@ -65,7 +66,7 @@
 		</p:panel>
         </p:column>
         <p:column style=" text-align: center; word-wrap: break-word;">
-            <f:facet name="header">Montant</f:facet>
+            <f:facet name="header">Montant total</f:facet>
             <p:panel rendered="#{op['class'].simpleName eq 'OpEntreeArticle'}">
 				<h:outputText value="#{op.article.prix*op.article.nombre}" />
 		</p:panel>

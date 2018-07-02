@@ -13,6 +13,7 @@
 
 
     <p:dataTable   var="c" value="#{suivieditionBean.listOperationEntreeByDirection}" 
+    			currentPageReportTemplate="({currentPage} sur {totalPages})"
                  paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}  "
                  paginator="true" rows="10" style="margin-bottom:20px" >
         
@@ -45,7 +46,7 @@
         </p:column>
         <p:column sortBy="#{c.operateur.im}" style="text-align: center; word-wrap: break-word;">
             <f:facet name="header">
-                <h:outputText value="Operateur" />
+                <h:outputText value="Opérateur" />
             </f:facet>
             <h:outputText value="#{c.operateur.im}" />
         </p:column>

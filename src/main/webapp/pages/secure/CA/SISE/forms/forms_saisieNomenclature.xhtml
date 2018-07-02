@@ -42,7 +42,7 @@
                     <div class="col-lg-6">
 
                         <p:selectOneMenu id="zone"  styleClass="form-control top" converter="#{refConverter}" value="#{siseBean.typeObjet}">
-                            <f:selectItem itemValue="#{null}" itemLabel="-- Selectionner --" /> 
+                            <f:selectItem itemValue="#{null}" itemLabel="Selectionner" /> 
                             <f:selectItems value="#{siseBean.listTypeObjet}" var="type" itemLabel="#{type.designation}"/>
                         </p:selectOneMenu>
 

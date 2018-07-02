@@ -1,6 +1,5 @@
 
 
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
     xmlns:ui="http://java.sun.com/jsf/facelets"
@@ -17,28 +16,29 @@
     
  <h:form>
     <p:dataTable var="c" value="#{suivieditionBean.listESForGrandLivreOld}"
+    		currentPageReportTemplate="({currentPage} sur {totalPages})"
 			paginatorTemplate="{CurrentPageReport}  {PreviousPageLink} {PageLinks} {NextPageLink} {Exporters}"
 			paginator="true" style="margin-bottom:20px"
 			widgetVar="EtatAppreciatif"
 			id="etatAppreciatif"
-			sortBy="#{c[15]}"
+			sortBy="#{c[15]}" emptyMessage="Aucun résultat"
 			>
 			<f:facet name="header">
        			 <span>ETAT APPRECIATIF ANNEE </span>
        			 <span>
        			 		<h:form >
        			 			<p:outputLabel for="annee_etat_appreciatif" value="" />
-        					<p:calendar id="annee_etat_appreciatif" value="#{EtatAppreciatifBean.date}" locale="de" navigator="true" pattern="yyyy-MMM-dd" required="true"/>
+        					<p:calendar id="annee_etat_appreciatif" value="#{EtatAppreciatifBean.date}" locale="fr" navigator="true" pattern="dd MMMM yyyy" required="true"/>
      			 			<p:dialog modal="true" resizable="false" header="Values" widgetVar="dlg" showEffect="fold">
         						<p:panelGrid id="display_journal" columns="2" columnClasses="label,value">
       			 					 <h:outputText value="" />
 						            <h:outputText value="#{EtatAppreciatifBean.date}">
-						                <f:convertDateTime pattern="yyyy-MMM-dd" />
+						                <f:convertDateTime pattern="dd MMMM yyyy" />
 				                  	</h:outputText>
        			 				</p:panelGrid>
     						</p:dialog>
     						#{EtatAppreciatifBean.setListe(suivieditionBean.listESForGrandLivreOld)}
-    						<h:commandButton value="Next" action="#{EtatAppreciatifBean.execute(suivieditionBean.listESForGrandLivreOld)}"/>
+    						<h:commandButton value="Exporter" action="#{EtatAppreciatifBean.execute(suivieditionBean.listESForGrandLivreOld)}"/>
        			 		</h:form>
        			 </span>
     		</f:facet>
@@ -155,5 +155,7 @@
 
 
 </div>
-
+<script type="text/javascript">
+PrimeFaces.locales ['fr'] = { closeText: 'Fermer', prevText: 'Précédent', nextText: 'Suivant', monthNames: ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre' ], monthNamesShort: ['Jan', 'Fév', 'Mar', 'Avr', 'Mai', 'Jun', 'Jul', 'Aoû', 'Sep', 'Oct', 'Nov', 'Déc' ], dayNames: ['Dimanche', 'Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi'], dayNamesShort: ['Dim', 'Lun', 'Mar', 'Mer', 'Jeu', 'Ven', 'Sam'], dayNamesMin: ['D', 'L', 'M', 'M', 'J', 'V', 'S'], weekHeader: 'Semaine', firstDay: 1, isRTL: false, showMonthAfterYear: false, yearSuffix:'', timeOnlyTitle: 'Choisir l\'heure', timeText: 'Heure', hourText: 'Heures', minuteText: 'Minutes', secondText: 'Secondes', currentText: 'Maintenant', ampm: false, month: 'Mois', week: 'Semaine', day: 'Jour', allDayText: 'Toute la journée' };
+</script>
 </html>

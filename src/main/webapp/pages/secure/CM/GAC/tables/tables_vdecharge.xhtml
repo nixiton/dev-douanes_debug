@@ -12,7 +12,8 @@
 
 <div   class="body collapse in table-responsive">
 
-    <p:dataTable   var="d" value="#{suivieditionBean.listOperationSortieByDirection}" 
+    <p:dataTable   var="d" value="#{suivieditionBean.listOperationSortieByDirection}"
+    			currentPageReportTemplate="({currentPage} sur {totalPages})" 
                  paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}  "
                  paginator="true" rows="10" style="margin-bottom:20px">
         <p:column style="text-align: center; word-wrap: break-word;">
@@ -27,11 +28,11 @@
             #{d.motifsortie.designation}
         </p:column>
          <p:column style="text-align: center; word-wrap: break-word;">
-            <f:facet name="header">ID Materiel</f:facet>
+            <f:facet name="header">ID Matériel</f:facet>
             #{d.mat.idMateriel}
         </p:column>
         <p:column style="text-align: center; word-wrap: break-word;">
-            <f:facet name="header">N° Serie Materiel</f:facet>
+            <f:facet name="header">N° Série Matériel</f:facet>
             #{d.mat.numSerie}
         </p:column>
          <p:column style="text-align: center; word-wrap: break-word;">
@@ -39,7 +40,7 @@
             #{d.direc.codeDirection}
         </p:column>
         <p:column style="text-align: center; word-wrap: break-word;">
-            <f:facet name="header">Numeros operation</f:facet>
+            <f:facet name="header">Numéro d'operation</f:facet>
             #{d.numoperation}
         </p:column>
         <p:column style="text-align: center; word-wrap: break-word;">

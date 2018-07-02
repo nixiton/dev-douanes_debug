@@ -15,6 +15,7 @@
 
 
     <p:dataTable   var="a" value="#{suivieditionBean.listOperationAttributionByDirection}" 
+    			currentPageReportTemplate="({currentPage} sur {totalPages})"
                  paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}  "
                  paginator="true" rows="10" style="margin-bottom:20px">
         <p:column style="text-align: center; word-wrap: break-word;">
@@ -29,11 +30,11 @@
         	<h:outputText value="#{a.date} #{a.time}" />
         </p:column>
         <p:column style="text-align: center; word-wrap: break-word;">
-            <f:facet name="header">Rérérence materiel</f:facet>
+            <f:facet name="header">Rérérence matériel</f:facet>
             #{a.mat.reference}
         </p:column>
         <p:column style="text-align: center; word-wrap: break-word;">
-            <f:facet name="header">N° Serie Materiel</f:facet>
+            <f:facet name="header">N° Série Matériel</f:facet>
             #{a.mat.numSerie}
         </p:column>
          <p:column style="text-align: center; word-wrap: break-word;">
@@ -58,7 +59,7 @@
         </p:column>
         <p:column style="text-align: center; word-wrap: break-word;">
         	<f:facet name="header">
-                <h:outputText value="Etat détenteur éffectif" />
+                <h:outputText value="Etat détenteur effectif" />
             </f:facet>
             <h:form>
                 <h:commandLink  action="#{docbean.generateDetenteur(a)}" target="_blank">
