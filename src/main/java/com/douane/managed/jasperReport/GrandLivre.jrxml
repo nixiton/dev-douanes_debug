@@ -441,6 +441,7 @@ DES MOUVEMENTS D’ENTREE ET DE SORTIE
 						<jr:detailCell style="table 1_TD" height="114" rowSpan="1">
 							<textField>
 								<reportElement x="0" y="0" width="40" height="114" uuid="ce3717c4-900d-4153-88ed-16ace37a0fc3"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle"/>
 								<textFieldExpression><![CDATA[$F{nomenclature}]]></textFieldExpression>
 							</textField>
 						</jr:detailCell>
@@ -459,6 +460,7 @@ DES MOUVEMENTS D’ENTREE ET DE SORTIE
 						<jr:detailCell style="table 1_TD" height="114" rowSpan="1">
 							<textField>
 								<reportElement x="0" y="0" width="30" height="114" uuid="60942f34-405b-455a-a332-d53782514d5d"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle"/>
 								<textFieldExpression><![CDATA[$F{row1}]]></textFieldExpression>
 							</textField>
 						</jr:detailCell>
@@ -477,6 +479,7 @@ DES MOUVEMENTS D’ENTREE ET DE SORTIE
 						<jr:detailCell style="table 1_TD" height="114" rowSpan="1">
 							<textField>
 								<reportElement x="0" y="0" width="110" height="114" uuid="18a87710-c995-4fee-8f04-ea2f1f6dcbc8"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle"/>
 								<textFieldExpression><![CDATA[$F{row2}]]></textFieldExpression>
 							</textField>
 						</jr:detailCell>
@@ -495,6 +498,7 @@ DES MOUVEMENTS D’ENTREE ET DE SORTIE
 						<jr:detailCell style="table 1_TD" height="114" rowSpan="1">
 							<textField>
 								<reportElement x="0" y="0" width="60" height="114" uuid="c72ec10b-2bf0-45cf-a34f-b0fb3ce02504"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle"/>
 								<textFieldExpression><![CDATA[$F{row3}]]></textFieldExpression>
 							</textField>
 						</jr:detailCell>
@@ -521,6 +525,7 @@ DES MOUVEMENTS D’ENTREE ET DE SORTIE
 							<jr:detailCell style="table 1_TD" height="114" rowSpan="1">
 								<textField>
 									<reportElement x="0" y="0" width="40" height="114" uuid="3c21c677-7b13-4399-beed-2c17c9144251"/>
+									<textElement textAlignment="Center" verticalAlignment="Middle"/>
 									<textFieldExpression><![CDATA[$F{row5}]]></textFieldExpression>
 								</textField>
 							</jr:detailCell>
@@ -537,6 +542,7 @@ DES MOUVEMENTS D’ENTREE ET DE SORTIE
 							<jr:detailCell style="table 1_TD" height="114">
 								<textField>
 									<reportElement x="0" y="0" width="60" height="114" uuid="9b310e41-45f2-4696-9ba6-f646d84a930c"/>
+									<textElement textAlignment="Center" verticalAlignment="Middle"/>
 									<textFieldExpression><![CDATA[$F{row3}*$F{row5}]]></textFieldExpression>
 								</textField>
 							</jr:detailCell>
@@ -547,7 +553,7 @@ DES MOUVEMENTS D’ENTREE ET DE SORTIE
 						<jr:tableHeader style="table 1_TH" height="134" rowSpan="3">
 							<staticText>
 								<reportElement x="0" y="0" width="50" height="134" uuid="00293530-62d4-4ff2-a73c-43b1dd729617"/>
-								<textElement rotation="Left"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle" rotation="Left"/>
 								<text><![CDATA[Mouvements effectuées]]></text>
 							</staticText>
 						</jr:tableHeader>
@@ -574,6 +580,7 @@ DES MOUVEMENTS D’ENTREE ET DE SORTIE
 							<jr:detailCell style="table 1_TD" height="114">
 								<textField>
 									<reportElement x="0" y="0" width="45" height="114" uuid="12b2dde1-052d-4350-a727-c764f0884419"/>
+									<textElement textAlignment="Center" verticalAlignment="Middle"/>
 									<textFieldExpression><![CDATA[$F{row6} + ", " + $F{row7}]]></textFieldExpression>
 								</textField>
 							</jr:detailCell>
@@ -590,6 +597,7 @@ DES MOUVEMENTS D’ENTREE ET DE SORTIE
 							<jr:detailCell style="table 1_TD" height="114">
 								<textField>
 									<reportElement x="0" y="0" width="45" height="114" uuid="c5a628a2-4cdb-444b-b31c-89e869162381"/>
+									<textElement textAlignment="Center" verticalAlignment="Middle"/>
 									<textFieldExpression><![CDATA[$F{row14} + ", " + $F{row15}]]></textFieldExpression>
 								</textField>
 							</jr:detailCell>
@@ -599,12 +607,14 @@ DES MOUVEMENTS D’ENTREE ET DE SORTIE
 							<jr:tableHeader style="table 1_TH" height="104" rowSpan="2">
 								<staticText>
 									<reportElement x="0" y="0" width="45" height="104" uuid="d0e7b92a-48e4-456b-84bf-7293ba2e4804"/>
+									<textElement textAlignment="Center" verticalAlignment="Middle"/>
 									<text><![CDATA[Origine des entrées et désignation des sorties]]></text>
 								</staticText>
 							</jr:tableHeader>
 							<jr:detailCell style="table 1_TD" height="114">
 								<textField>
 									<reportElement x="0" y="0" width="45" height="114" uuid="82529029-3bed-4263-83f7-710646e68f1a"/>
+									<textElement textAlignment="Center" verticalAlignment="Middle"/>
 									<textFieldExpression><![CDATA[$F{row14} + ", " + $F{row15}]]></textFieldExpression>
 								</textField>
 							</jr:detailCell>
@@ -630,6 +640,7 @@ DES MOUVEMENTS D’ENTREE ET DE SORTIE
 								<jr:detailCell style="table 1_TD" height="114">
 									<textField>
 										<reportElement x="0" y="0" width="25" height="114" uuid="e186ddf7-bdcb-4c51-a570-c336c83b6359"/>
+										<textElement textAlignment="Center" verticalAlignment="Middle"/>
 										<textFieldExpression><![CDATA[$F{row12}]]></textFieldExpression>
 									</textField>
 								</jr:detailCell>
@@ -646,6 +657,7 @@ DES MOUVEMENTS D’ENTREE ET DE SORTIE
 								<jr:detailCell style="table 1_TD" height="114">
 									<textField>
 										<reportElement x="0" y="0" width="69" height="114" uuid="0fe2517e-2645-4cd2-b46d-94cfc1da2230"/>
+										<textElement textAlignment="Center" verticalAlignment="Middle"/>
 										<textFieldExpression><![CDATA[$F{row12} * $F{row3}]]></textFieldExpression>
 									</textField>
 								</jr:detailCell>
@@ -672,6 +684,7 @@ DES MOUVEMENTS D’ENTREE ET DE SORTIE
 								<jr:detailCell style="table 1_TD" height="114">
 									<textField>
 										<reportElement x="0" y="0" width="21" height="114" uuid="1703b646-1f46-4ed4-aa1f-7f0a5894f55b"/>
+										<textElement textAlignment="Center" verticalAlignment="Middle"/>
 										<textFieldExpression><![CDATA[$F{row13}]]></textFieldExpression>
 									</textField>
 								</jr:detailCell>
@@ -688,6 +701,7 @@ DES MOUVEMENTS D’ENTREE ET DE SORTIE
 								<jr:detailCell style="table 1_TD" height="114">
 									<textField>
 										<reportElement x="0" y="0" width="70" height="114" uuid="5f52e620-34d5-4ac2-8486-4b6cb317ecd0"/>
+										<textElement textAlignment="Center" verticalAlignment="Middle"/>
 										<textFieldExpression><![CDATA[$F{row13} * $F{row3}]]></textFieldExpression>
 									</textField>
 								</jr:detailCell>
@@ -714,6 +728,7 @@ DES MOUVEMENTS D’ENTREE ET DE SORTIE
 								<jr:detailCell style="table 1_TD" height="114">
 									<textField>
 										<reportElement x="0" y="0" width="20" height="114" uuid="be32b96b-10eb-4f33-b8b0-5d6b1b666c09"/>
+										<textElement textAlignment="Center" verticalAlignment="Middle"/>
 										<textFieldExpression><![CDATA[$F{row8}]]></textFieldExpression>
 									</textField>
 								</jr:detailCell>
@@ -730,6 +745,7 @@ DES MOUVEMENTS D’ENTREE ET DE SORTIE
 								<jr:detailCell style="table 1_TD" height="114">
 									<textField>
 										<reportElement x="0" y="0" width="68" height="114" uuid="cf5ff60a-94c9-42d6-93ed-45fec7937d46"/>
+										<textElement textAlignment="Center" verticalAlignment="Middle"/>
 										<textFieldExpression><![CDATA[$F{row9}]]></textFieldExpression>
 									</textField>
 								</jr:detailCell>

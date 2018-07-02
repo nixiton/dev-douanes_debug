@@ -563,7 +563,20 @@
 			<to-view-id>/pages/secure/CA/SISE/content_forms/content_forms_saisieAdresse.xhtml</to-view-id>
 			<redirect />
 		</navigation-case>
-
+		<!-- navigation case pdf et docx -->
+		
+		<navigation-case>
+			<from-outcome>pdfOrdreEntree</from-outcome>
+			<to-view-id>/pages/secure/CM/tables/dialogs/ordreEntree.pdf</to-view-id>
+			<redirect />
+		</navigation-case>
+		
+		<navigation-case>
+			<from-outcome>docOrdreEntree</from-outcome>
+			<to-view-id>/pages/secure/CM/tables/dialogs/ordreEntree.pdf</to-view-id>
+			<redirect />
+		</navigation-case>
+		
 		<navigation-case>
 			<from-outcome>dialogJournal</from-outcome>
 			<to-view-id>/pages/secure/CM/DGD/tables/dialogs/dialogs_Journal.xhtml</to-view-id>

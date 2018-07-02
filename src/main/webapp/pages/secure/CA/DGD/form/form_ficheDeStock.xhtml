@@ -22,7 +22,8 @@
 	         <p>Désignation de l’article :<p:inputText value ="#{JasperTableExampleBean.pdfForm.num2}" style="text-align: center;width: 25%"/>Espèce d’unité : <p:inputText value ="#{JasperTableExampleBean.pdfForm.num3}" style="text-align: center;width: 25%"/></p> 
 			 <br/>
 			</div>
-			<br/><p:commandButton action="#{JasperTableExampleBean.ficheStockReport(FicheStockBean.liste)}" type="submit" value="generatePDF" ajax="false" ></p:commandButton>
+			<br/><p:commandButton action="#{JasperTableExampleBean.ficheStockReport(FicheStockBean.liste)}" type="submit" value="Exporter en PDF" ajax="false" ></p:commandButton>
+			<br/><p:commandButton action="#{JasperTableExampleBean.ficheStockDoc(FicheStockBean.liste)}" type="submit" value="Exporter en Word" ajax="false" ></p:commandButton>
 		</div></h:form>
 	</h:body>
 </html>

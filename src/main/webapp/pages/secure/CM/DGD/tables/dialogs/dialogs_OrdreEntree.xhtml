@@ -235,7 +235,9 @@
  	<div class="col-md-1"></div>
     
 </div>
-	<p:commandButton type="submit" value="generatePDF" ajax="false" action="#{JasperTableExampleBean.ordreEntreeReport(gacBean)}">
+	<p:commandButton type="submit" value="Exporter en PDF" ajax="false" action="#{JasperTableExampleBean.ordreEntreeReport(gacBean)}">
+	 </p:commandButton><br/>
+	 <p:commandButton type="submit" value="Exporter en Word" ajax="false" action="#{JasperTableExampleBean.ordreEntreeDoc(gacBean)}">
 	 </p:commandButton>
 </h:form>
 </div>

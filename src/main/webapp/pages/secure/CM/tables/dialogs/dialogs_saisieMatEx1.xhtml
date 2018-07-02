@@ -117,7 +117,10 @@
             <br></br><br></br>
 
 		<h:form>
-			<p:commandButton value="generatePDF" ajax="false" action="#{JasperTableExampleBean.saisieMatexReport(docbean.curentOperationAttrToPdf)}"> </p:commandButton>
+			<p:commandButton value="Exporter en PDF" ajax="false" action="#{JasperTableExampleBean.saisieMatexReport(docbean.curentOperationAttrToPdf)}"> </p:commandButton>
+			<br/>
+			<p:commandButton value="Exporter en Word" ajax="false" action="#{JasperTableExampleBean.saisieMatexDoc(docbean.curentOperationAttrToPdf)}"> </p:commandButton>
+			
 		</h:form>
         </div>
 </html>

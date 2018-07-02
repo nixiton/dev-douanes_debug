@@ -329,7 +329,10 @@
 	A Antananarivo, le <p:inputText value="#{JasperTableExampleBean.pdfForm.date}" style="text-align: center;width: 25%"/> <br/> <br/>
 	<div class="col-md-9">LE GAC</div> <div class="col-md-3" style="text-align: center;">LE DEPOSITAIRE COMPTABLE</div>
 	<br></br><br></br><br></br>
-    <p:commandButton action="#{JasperTableExampleBean.etatAppreciatifReport(EtatAppreciatifBean.liste)}" type="submit" value="generatePDF" ajax="false" ></p:commandButton>		
+    <p:commandButton action="#{JasperTableExampleBean.etatAppreciatifReport(EtatAppreciatifBean.liste)}" type="submit" value="Exporter en PDF" ajax="false" ></p:commandButton>		
+	<br/>
+	<p:commandButton action="#{JasperTableExampleBean.etatAppreciatifDoc(EtatAppreciatifBean.liste)}" type="submit" value="Exporter en Word" ajax="false" ></p:commandButton>		
+	
 	</div>
 	
 	</h:form>

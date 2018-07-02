@@ -121,7 +121,9 @@
 	        </p:subTable>
 		</p:dataTable>  -->	
 	</div>
-	<p:commandButton action="#{JasperTableExampleBean.grandLivreReport(livreAnnuelBean.liste)}" type="submit" value="generatePDF" ajax="false" ></p:commandButton>
+	<p:commandButton action="#{JasperTableExampleBean.grandLivreReport(livreAnnuelBean.liste)}" type="submit" value="Exporter en PDF" ajax="false" ></p:commandButton>
+	<br/>
+	<p:commandButton action="#{JasperTableExampleBean.grandLivreDoc(livreAnnuelBean.liste)}" type="submit" value="Exporter en Word" ajax="false" ></p:commandButton>
 	</h:form>
 </h:body>
 	

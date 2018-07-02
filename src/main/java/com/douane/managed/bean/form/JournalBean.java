@@ -1,7 +1,10 @@
 package com.douane.managed.bean.form;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
@@ -31,7 +34,8 @@ public class JournalBean {
 	}
 	public String execute(List <Object[]> l) {
 		this.li = l;
-		this.dateF = this.dateD = this.dat.toString();
+		DateFormat  df = new SimpleDateFormat("EEE dd MMM yyyy", Locale.FRANCE);
+		this.dateF = this.dateD = df.format(this.dat);
 		return "dialogJournal";
 	}
 	public Date getDat() {
