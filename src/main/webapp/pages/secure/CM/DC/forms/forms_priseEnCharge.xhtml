@@ -14,7 +14,7 @@
 
     <div class="body">
 
-        <h:form class="form-horizontal">
+        <h:form class="form-horizontal" id="fileUpoadForm">
 
             <p:messages id="messages" showDetail="true" autoUpdate="true" />
 
@@ -149,17 +149,20 @@
 				</div>
                 <div class="col-lg-6">
 
-                     <p:selectOneMenu value="#{depositaireBean.marq}" converter="#{refConverter}" panelStyle="width:180px"  style="width:160px"
-                         effect="fade" var="t" filter="true" filterMatchMode="startsWith">
-                        <f:selectItem itemValue="#{null}" itemLabel="Selectionner" /> 
-                            <f:selectItems value="#{siseBean.listMarque}" var="theme" itemLabel="#{theme.designation}" itemValue="#{theme}" />
-                        <p:column>
-                            <h:outputText value="#{t.designation}" />
-                        </p:column>
-
-                    </p:selectOneMenu>
-          
-                </div>
+	                    <p:selectOneMenu value="#{depositaireBean.marq}" converter="#{refConverter}" panelStyle="width:180px"  style="width:160px"
+	                         effect="fade" var="t" filter="true" filterMatchMode="startsWith">
+	                        <f:selectItem itemValue="#{null}"  itemLabel="Selectionner" noSelectionOption="true"/> 
+	                 
+	                        <f:selectItems value="#{siseBean.listMarque}" var="theme" itemLabel="#{theme.designation}" itemValue="#{theme}" />
+	                        <p:column>
+	                            <h:outputText value="#{t.designation}" />
+	                        </p:column>
+	                        <f:selectItem itemValue="#{siseBean.nouvmark}" itemLabel="ajouter" />
+                			<p:ajax listener="#{siseBean.addNewMarque}" />
+	                        
+	
+	                    </p:selectOneMenu>
+                    </div>
      		</div>
      		<hr/>
      		
@@ -420,6 +423,14 @@
             </div>
 
         </h:form>
+        <p:dialog id="addNewMarkDialog" widgetVar="widget_addNewJMarkDialog" header="ajouter marque">
+        
+    		<h:form>
+        		<p:inputText value="#{siseBean.nouvmark.designation}" required="true" />
+        		<p:commandButton value="Ajouter" action="#{siseBean.saveNewMark}" update="@form" />
+        		<p:messages />
+    		</h:form>
+		</p:dialog>
 
     </div>
 
