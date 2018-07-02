@@ -88,9 +88,9 @@
             <h:outputText value="#{materiel.dc.nomAgent}" />
         </p:column>
         <p:column exportable="false" style="width: 5%; text-align: center; word-wrap: break-word;">
-
-            <f:facet name="header">Détail</f:facet>
-            <p:commandButton  action="#{suivieditionBean.setMateriel(materiel)}" update=":detail"
+            <f:facet name="header"><h:outputText value="Détail" /></f:facet>
+            
+            	<p:commandButton  action="#{suivieditionBean.setMateriel(materiel)}" update=":detail"
             oncomplete="PF('detail').show()" icon="ui-icon-zoomin"/>
         </p:column> 
         <p:column exportable="false" style="width: 5%; text-align: center; word-wrap: break-word;">
