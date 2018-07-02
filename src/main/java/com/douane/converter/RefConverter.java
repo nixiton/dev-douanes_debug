@@ -43,7 +43,8 @@ public class RefConverter implements Converter {
             	if(value.equals("null")) {
             		return new Marque();
             	}
-                
+            	
+            	
 
                 Referentiel ref = refmetierimpl.findById(Long.parseLong(value));
                 if(ref instanceof EtatMateriel)
@@ -112,11 +113,12 @@ public class RefConverter implements Converter {
     }
 
     public String getAsString(FacesContext fc, UIComponent uic, Object object) {
-        if(object != null) {
+    	
+    	if(object != null) {
             return String.valueOf(((Referentiel) object).getId());
         }
         else {
-            return null;
+            return "";
         }
     }
 

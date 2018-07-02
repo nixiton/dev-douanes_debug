@@ -58,39 +58,18 @@
 
                     </h:selectOneMenu-->
 
-                        <p:selectOneMenu id="zone"  styleClass="form-control top" converter="#{refConverter}" value="#{depositaireBean.articleExToAdd.codeArticle}">
-                            <f:selectItem itemValue="#{null}" itemLabel="Selectionner" /> 
+                        <p:selectOneMenu id="zone"  styleClass="form-control top" converter="#{codeArtConverter}" value="#{depositaireBean.articleExToAdd.codeArticle}">
+                            <f:selectItem itemValue="#{null}" itemLabel="Selectionner"/> 
                             <f:selectItems value="#{siseBean.listCodeArticle}" var="type" itemLabel="#{type.designation}"/>
-                            
+                            <f:selectItem itemValue="#{siseBean.nouvarticle}" itemLabel="Ajouter" />
+                			<p:ajax listener="#{siseBean.addNewArticle}" />
                         </p:selectOneMenu>
-
+                        
                     </div>
 
 				</div>
               	<hr></hr>      
-                
-                <div class="row">
-					<div class="col-lg-4 col-lg-offset-1">   
-					    <label for="text1" class="control-label col-lg-4">Marque
-                    	</label>
-					</div>
-                    <div class="col-lg-6">
-
-	                    <p:selectOneMenu value="#{depositaireBean.articleExToAdd.marqueArticle}" converter="#{refConverter}" panelStyle="width:180px"  style="width:160px"
-	                         effect="fade" var="t" filter="true" filterMatchMode="startsWith">
-	                        <f:selectItem itemValue="#{null}" itemLabel="Selectionner" /> 
-	                            <f:selectItems value="#{siseBean.listMarque}" var="theme" itemLabel="#{theme.designation}" itemValue="#{theme}" />
-	                        <p:column>
-	                            <h:outputText value="#{t != null ? t.designation : 'Selectionner'}" />
-	                        </p:column>
-	
-	                    </p:selectOneMenu>
-
                   
-
-                    </div>
-				</div>
-                <hr></hr>   
 				<div class="row">
 					<div class="col-lg-4 col-lg-offset-1">
 
@@ -209,10 +188,63 @@
 
             </div>
 
-            
-
-
         </h:form>
+         <p:dialog id="addNewArticleDialog" widgetVar="widget_addNewJArticleDialog" header="ajouter article">
+        
+    		<h:form>
+    		<div class="form-group">
+				<div class="row">
+					<div class="col-lg-4 col-lg-offset-1">
+						<label for="text1" class="control-label col-lg-4">Désignation
+						</label>
+					</div>
+					<div class="col-lg-6">
+	
+						<p:inputText   required="true"
+							value="#{siseBean.nouvarticle.designation}"
+							requiredMessage="Désingation obligatoire"
+							placeholder="Désignation" styleClass="form-control top"></p:inputText>
+	
+					</div>
+					
+				</div>
+				<hr></hr>
+				<div class="row">
+					<div class="col-lg-4 col-lg-offset-1">
+						<label for="text1" class="control-label col-lg-4">Type d'objet
+	                    </label>
+					</div>
+                    <div class="col-lg-6">
+
+                        <p:selectOneMenu id="zone"  styleClass="form-control top" converter="#{refConverter}" value="#{siseBean.nouvarticle.typeObjet}">
+                            <f:selectItem itemValue="#{null}" itemLabel="Selectionner" /> 
+                            <f:selectItems value="#{siseBean.listTypeObjet}" var="type" itemLabel="#{type.designation}"/>
+                        </p:selectOneMenu>
+
+                    </div>
+
+               </div>
+			   <hr></hr>
+			</div>
+
+			<div class="form-group">
+				<label for="text1" class="control-label col-lg-4"></label>
+
+				<div class="col-lg-4">
+					<h:commandLink id="btnSignId" action="#{siseBean.saveNewArticle}" value=""
+						class="btn btn-lg btn-primary btn-block">
+						<i class="fa fa-plus"> </i>  Créer
+					</h:commandLink>
+				</div>
+
+				<div class="col-lg-4"></div>
+
+			</div>
+
+      
+    		</h:form>
+		</p:dialog>
+        
 
     </div>
 

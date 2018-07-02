@@ -5,53 +5,11 @@
       xmlns:h="http://java.sun.com/jsf/html" xmlns:p="http://java.sun.com/jsf/html">
 
 
-<h:head xmlns:h="http://java.sun.com/jsf/html"
-        xmlns:f="http://java.sun.com/jsf/core"
-        xmlns:ui="http://java.sun.com/jsf/facelets"
-        xmlns:p="http://primefaces.org/ui">
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <title>Articles éxistants</title>
-
-    <!-- ***********SCRIPT*************-->
 
 
-    <!-- Bootstrap -->
-    <link rel="stylesheet" href="#{request.contextPath}/pages/unsecure/assets/lib/bootstrap/css/bootstrap.css" />
-
-    <!-- Font Awesome -->
-    <link rel="stylesheet"
-          href="#{request.contextPath}/pages/unsecure/assets/lib/font-awesome/css/font-awesome.css" />
-
-    <!-- Metis core stylesheet -->
-    <link rel="stylesheet" href="#{request.contextPath}/pages/unsecure/assets/css/main.css" />
-
-    <h:outputStylesheet name="#{request.contextPath}/pages/unsecure/pages/unsecure/assets/css/main.css"></h:outputStylesheet>
-
-    <!-- metisMenu stylesheet -->
-    <link rel="stylesheet" href="#{request.contextPath}/pages/unsecure/assets/lib/metismenu/metisMenu.css" />
-
-    <!-- onoffcanvas stylesheet -->
-    <link rel="stylesheet" href="#{request.contextPath}/pages/unsecure/assets/lib/onoffcanvas/onoffcanvas.css" />
-
-    <!-- animate.css stylesheet -->
-    <link rel="stylesheet" href="#{request.contextPath}/pages/unsecure/assets/lib/animate.css/animate.css" />
-    <link type="text/css" href="#{request.contextPath}/pages/unsecure/assets/lib/jquery_ui/css/jquery-ui.css"
-          rel="stylesheet" />
-
-    <link rel="stylesheet"
-          href="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.2.5/fullcalendar.min.css" />
-    <link
-            href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css"
-            rel="stylesheet" />
-
-    <link rel="stylesheet" href="#{request.contextPath}/pages/unsecure/assets/css/style-switcher.css" />
-    <link rel="stylesheet/less" type="text/css"
-          href="#{request.contextPath}/pages/unsecure/assets/less/theme.less" />
-
-
-
-    <!--**********SCRIPT************** -->
-</h:head>
+<ui:include src="/pages/unsecure/components/header.xhtml">
+    <ui:param name="title" value="Articles éxistants" />
+</ui:include>
 
 
 

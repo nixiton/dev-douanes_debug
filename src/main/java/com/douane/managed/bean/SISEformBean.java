@@ -1226,6 +1226,37 @@ public class SISEformBean {
         ajax.update("fileUpoadForm");
         ajax.execute("PF('widget_addNewJMarkDialog').hide()");
     }
+	
+	
+	private CodeArticle nouvarticle = new CodeArticle();
+	public CodeArticle getNouvarticle() {
+		return nouvarticle;
+	}
+
+	public void setNouvarticle(CodeArticle nouvarticle) {
+		this.nouvarticle = nouvarticle;
+	}
+	
+	public void addNewArticle(AjaxBehaviorEvent event) {
+		System.out.println("ajouter new article");
+		if (nouvarticle.equals(((UIInput) event.getComponent()).getValue())) {
+			System.out.println("mitovy");
+            RequestContext ajax = RequestContext.getCurrentInstance();
+            ajax.update("addNewArticleDialog");
+            ajax.execute("PF('widget_addNewJArticleDialog').show()");
+       }
+		
+		
+	}
+	public void saveNewArticle() {
+		Agent agent = (Agent) RequestFilter.getSession().getAttribute("agent");
+		refmetierimpl.addRef(nouvarticle, agent);
+		nouvarticle = new CodeArticle();
+
+        RequestContext ajax = RequestContext.getCurrentInstance();
+        ajax.update("fileUpoadForm");
+        ajax.execute("PF('widget_addNewJArticleDialog').hide()");
+    }
 
 	/*
 	 * public void onRowCancel(RowEditEvent event) { FacesMessage msg = new
