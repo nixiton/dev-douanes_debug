@@ -9,7 +9,7 @@
 <h:head></h:head> 	
 	<p:growl id="growl" for="myerror" showDetail="true" sticky="true" redisplay="false"/>
 	
-    <p:dialog id="detail" widgetVar="detail" closable="false">
+    <p:dialog id="detail" widgetVar="detail" closable="false" header="Détails validation décharge" showEffect="explode" hideEffect="explode" width="1250" height="450">
 
     <h:form class="form-horizontal">
             <p:commandButton actionListner="#{gacBean.exit()}" icon="ui-icon-delete"
@@ -47,6 +47,9 @@
                     <tr>
                         <td><strong>Référence</strong></td>
                         <td>#{gacBean.curentopSortieForValidation.mat.reference}</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
                     </tr>
                     <tr>
                         <p:panel rendered="#{gacBean.curentopSortieForValidation.state eq 'WAITING' }">
@@ -77,24 +80,7 @@
 
                           </td>
                           <td>
-                                	<!-- 
-                                        <h:form>
-
-
-                                        <label for="text1" >Motif de demande de correction
-                                                </label>
-
-                                        <h:inputText value="#{gacBean.motif}" 
-                                                    styleClass="form-control top"></h:inputText>
-
-                                        <h:commandButton  action="#{gacBean.aModifierDechargeSortie(gacBean.curentopSortieForValidation)}" value="A modifier"
-                                                    class="btn btn-lg btn-primary btn-block">
-                                            <!-f:param name="operationValide" value="#{gacBean.curentopSortieForValidation}"/->
-                                        </h:commandButton>
-
-                                        
-                                    </h:form> -->
-                               
+                                	
 
                         </td>
                     </p:panel>

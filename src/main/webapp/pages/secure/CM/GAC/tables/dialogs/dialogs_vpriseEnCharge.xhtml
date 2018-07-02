@@ -51,7 +51,7 @@
                         <tr>
                             <td><strong>Référence</strong></td>
                             <td>#{mat.reference}</td>
-                            <td><strong>Numero de série</strong></td>
+                            <td><strong>Numéro de série</strong></td>
                             <td>#{mat.numSerie}</td>
                             <td><strong>Document</strong></td>
                             <td>
@@ -85,11 +85,11 @@
                         <c:if test="#{mat['class'].simpleName eq 'MaterielNouv' }">
 
                             <tr>
-                                <td><strong>Montant sur fature</strong></td>
+                                <td><strong>Montant</strong></td>
                                 <td>#{mat.design.pu}</td>
                                 <td><strong>Financement</strong></td>
                                 <td>#{mat.design.financement.designation}</td>
-                                <td><strong>Réference facture</strong></td>
+                                <td><strong>Réference pj</strong></td>
                                 <td>#{mat.design.refFacture}</td>
                             </tr>
 
@@ -97,6 +97,9 @@
                                 <c:if test="#{gacBean.opEntreeToValidate['class'].simpleName eq 'OpEntree' }">
 
                                     <tr>
+                                    
+                                    	<td> - </td>
+                                        <td></td>
                                         <td><strong>Facture</strong></td>
                                         <td>
 
@@ -111,8 +114,7 @@
                                             </c:if>
 
                                         </td>
-                                        <td> - </td>
-                                        <td></td>
+                                       
                                         <td> - </td>
                                         <td></td>
                                     </tr>
@@ -124,9 +126,12 @@
                             <tr>
                                 <td><strong>Mode d'acquisition</strong></td>
                                 <td>#{mat.design.modAcq.designation}</td>
+                                <!--  
                                 <td><strong>Fournisseur</strong></td>
-                                <td>#{mat.design.fournisseur.designation}</td>
-                                <td><strong>Dépositaire</strong></td>
+                                <td>#{mat.design.fournisseur.designation}</td> -->
+                                <td> </td>
+                                <td> </td>
+                                <td><strong>Dépositaire</strong></td> 
                                 <td>#{mat.dc.im} - #{mat.dc.nomAgent}</td>
                             </tr>
 
@@ -197,23 +202,7 @@
                     </td>
                    
                     <td>
-                    	 <!--  
-                        <h:form>
-
-
-                            <label for="text1" >Motif de demande de correction
-                            </label>
-
-                            <h:inputText value="#{gacBean.motif}"
-                                         styleClass="form-control top"></h:inputText>
-
-                            <h:commandButton  action="#{gacBean.aModifierPrisEnChargeEntreMat(gacBean.opEntreeToValidate)}" value="A modifier"
-                                              class="btn btn-lg btn-primary btn-block">
-                                <!-f:param name="operationValide" value="#{gacBean.opEntreeToValidate}"/->
-                            </h:commandButton>
-
-
-                        </h:form> -->
+                    
                     </td> 
                 </tr>
 

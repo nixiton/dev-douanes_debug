@@ -35,7 +35,7 @@
                         <td>#{gacBean.opSortieArticleToValidate.nombreToS}</td>
                     </tr>
                     <tr>
-						<td><strong>Prix unitaire</strong></td>
+						<td><strong>Montant</strong></td>
                         <td>#{gacBean.opSortieArticleToValidate.article.prix}</td>
                         <td><strong>Nombre restants en ce moment</strong></td>
                         <td>#{depositaireBean.calculNombreRestant(gacBean.opSortieArticleToValidate.article)}</td>
@@ -93,23 +93,7 @@
                                 </h:form>
                         </td>
                         <td>
-                        <!-- 
-                            <h:form>
-
-
-                                <label for="text1" >Motif de demande de correction
-                                        </label>
-
-                                <h:inputText value="#{gacBean.motif}" 
-                                            styleClass="form-control top"></h:inputText>
-
-                                <h:commandButton  action="#{gacBean.reqSortirArtAModifier(gacBean.opSortieArticleToValidate)}" value="A modifier"
-                                            class="btn btn-lg btn-primary btn-block">
-                                    
-                                </h:commandButton>
-
-                                
-                            </h:form> -->
+                        
                         </td>
                     </tr>
 

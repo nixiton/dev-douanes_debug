@@ -9,7 +9,7 @@
 <h:head></h:head> 	
 	<p:growl id="growl" for="myerror" showDetail="true" sticky="true" redisplay="false"/>
 	
-    <p:dialog id="detail" widgetVar="detail" closable="false">
+    <p:dialog id="detail" widgetVar="detail" closable="false" header="Détails validation détachement" showEffect="explode" hideEffect="explode" width="1250" height="450">
 
     <h:form class="form-horizontal">
             <p:commandButton actionListner="#{gacBean.exit()}" icon="ui-icon-delete"
@@ -28,7 +28,7 @@
                         <td><strong>Type de matériel</strong></td>
                         <td>#{gacBean.opDetToValidate.mat.design.nomenMat.designation}</td>
                         <td></td>
-                        <td><strong>Imatriculation détenteur</strong></td>
+                        <td><strong>Immatriculation détenteur</strong></td>
                         <td>#{gacBean.opDetToValidate.detenteur.im}</td>
                     </tr>
                     <tr>
@@ -53,8 +53,11 @@
                         <td>#{gacBean.opDetToValidate.motifDettachement.designation}</td>
                     </tr>
                     <tr>
-                        <td><strong>Numero de série</strong></td>
+                        <td><strong>Numéro de série</strong></td>
                         <td>#{gacBean.opDetToValidate.mat.numSerie}</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
                     </tr>
                     <tr>
                         <p:panel rendered="#{gacBean.opDetToValidate.state eq 'WAITING' }">
@@ -85,24 +88,7 @@
 
                         </td>
                         <td>
-                         <!--  
-                            <h:form>
-
-
-                                        <label for="text1" >Motif de demande de correction
-                                                </label>
-
-                                        <h:inputText value="#{gacBean.motif}" 
-                                                    styleClass="form-control top"></h:inputText>
-
-                                        <h:commandButton  action="#{gacBean.aModifierDetachement(gacBean.opDetToValidate)}" value="A modifier"
-                                                    class="btn btn-lg btn-primary btn-block">
-                                            <!-f:param name="operationValide" value="#{gacBean.opDetToValidate}"/->
-                                        </h:commandButton>
-
-                                        
-                                    </h:form>
-							-->
+                         
                         </td>
                     </p:panel>
                     </tr>     
