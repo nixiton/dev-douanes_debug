@@ -123,7 +123,7 @@
 			<p:watermark for="comptable1" value="#{gacBean.curentOperation1.direction.designation}" />
 			<p:inputText id="matiere" value="#{JasperTableExampleBean.ordreEB.matieres}"  /> 
 			<p:watermark for="matiere" value="#{gacBean.curentOperation1.mat.origine}" />  -->
-			#{gacBean.curentOperation1.mat.origine} 
+			#{gacBean.curentOperation1.listMat[0].design.origine} 
  		</div>
 
 
