@@ -101,6 +101,14 @@
 		<field name="row13" class="java.lang.Integer"/>
 		<field name="row14" class="java.lang.String"/>
 		<field name="row15" class="java.lang.String"/>
+		<sortField name="nomenclature"/>
+		<sortField name="row2"/>
+		<group name="Group by designation" keepTogether="true">
+			<groupExpression><![CDATA[$F{row2}]]></groupExpression>
+		</group>
+		<group name="Group by nomenclature" keepTogether="true">
+			<groupExpression><![CDATA[$F{nomenclature}]]></groupExpression>
+		</group>
 	</subDataset>
 	<subDataset name="Table Dataset 3" uuid="26a1ce04-a853-4877-b77c-427421bdac73"/>
 	<parameter name="p1" class="java.lang.String"/>
