@@ -588,7 +588,7 @@ $P{materiel}.getDesign().getRenseignement()]]></textFieldExpression>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{lieu}]]></textFieldExpression>
 			</textField>
-			<textField>
+			<textField pattern="dd MMMM yyyy">
 				<reportElement x="432" y="1" width="123" height="20" uuid="cf267c35-c76e-47e6-94ad-ed72654434d6"/>
 				<textElement textAlignment="Center">
 					<font size="12"/>
@@ -609,7 +609,7 @@ $P{materiel}.getDesign().getRenseignement()]]></textFieldExpression>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{comptable2}]]></textFieldExpression>
 			</textField>
-			<textField>
+			<textField pattern="dd MMMM yyyy">
 				<reportElement x="126" y="92" width="137" height="19" uuid="1705e935-62de-4752-baf5-58682bfeec7b"/>
 				<textElement>
 					<font size="12"/>
@@ -617,11 +617,11 @@ $P{materiel}.getDesign().getRenseignement()]]></textFieldExpression>
 				<textFieldExpression><![CDATA[$P{date1}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="2" y="259" width="206" height="40" uuid="9941ed82-ebb2-4007-91d0-a37acfe858af"/>
+				<reportElement x="2" y="260" width="206" height="38" uuid="9941ed82-ebb2-4007-91d0-a37acfe858af"/>
 				<text><![CDATA[(3)Procés-verbal de recette, de recensement etc, ou tel régistre ou carnet, ou la piéce de sortie correspondante.]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="2" y="221" width="206" height="20" uuid="c3df7065-2b3f-48ae-af8a-2eb14770e775"/>
+				<reportElement x="2" y="221" width="206" height="18" uuid="c3df7065-2b3f-48ae-af8a-2eb14770e775"/>
 				<text><![CDATA[(1) En toute lettre]]></text>
 			</staticText>
 			<staticText>
@@ -696,7 +696,7 @@ $P{materiel}.getDesign().getRenseignement()]]></textFieldExpression>
 				<textElement>
 					<font size="12"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$P{Comptable2}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$P{comptable2}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="1" y="318" width="207" height="39" uuid="5f27ef05-0dbe-4771-a800-936fbc2e98e6"/>

@@ -173,7 +173,7 @@
 							</staticText>
 						</jr:tableHeader>
 						<jr:detailCell style="table_TD" height="55">
-							<textField>
+							<textField pattern="dd MMMM yyyy">
 								<reportElement x="0" y="0" width="80" height="55" uuid="39c6ec55-2a2e-452f-85de-10b2e1e28705"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle"/>
 								<textFieldExpression><![CDATA[$F{row0}]]></textFieldExpression>

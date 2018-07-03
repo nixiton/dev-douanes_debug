@@ -263,18 +263,18 @@ L’Instruction Générale du 22 juillet 1955
 		</band>
 	</title>
 	<pageHeader>
-		<band height="75" splitType="Stretch">
+		<band height="82" splitType="Stretch">
 			<staticText>
-				<reportElement x="12" y="0" width="543" height="33" uuid="bee4d2df-f839-4997-a55f-3879441f50de"/>
-				<textElement textAlignment="Center">
+				<reportElement x="0" y="0" width="555" height="33" uuid="bee4d2df-f839-4997-a55f-3879441f50de"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="12"/>
 				</textElement>
-				<text><![CDATA[                                  	JOURNAL
-	EN QUANTITES ET EN VALEUR DES ENTREES ET DES SORTIES
+				<text><![CDATA[JOURNAL
+EN QUANTITES ET EN VALEUR DES ENTREES ET DES SORTIES
 ]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="158" y="51" width="43" height="22" uuid="e544886e-7d8f-4457-b366-1ddbd4ae6837"/>
+				<reportElement x="158" y="57" width="43" height="20" uuid="e544886e-7d8f-4457-b366-1ddbd4ae6837"/>
 				<textElement>
 					<font size="12"/>
 				</textElement>
@@ -282,67 +282,39 @@ L’Instruction Générale du 22 juillet 1955
                                                                                                                                                      (6)……………………………………………………………………………..]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="12" y="33" width="117" height="20" uuid="aa681976-eafc-463e-8526-99d3d8707812"/>
+				<reportElement x="12" y="37" width="117" height="20" uuid="aa681976-eafc-463e-8526-99d3d8707812"/>
 				<textElement>
 					<font size="12"/>
 				</textElement>
 				<text><![CDATA[Nombre de feuillets :]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="129" y="33" width="426" height="20" uuid="44147395-bb98-4eb3-bb19-5a23269daa0e"/>
-				<textElement verticalAlignment="Middle">
+				<reportElement x="327" y="57" width="23" height="20" uuid="d358ca02-d195-43f0-b343-49229db5212e"/>
+				<textElement verticalAlignment="Top">
 					<font size="12"/>
 				</textElement>
-				<text><![CDATA[……………………………………........................................]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="201" y="53" width="126" height="20" uuid="b8ba8ab0-583f-4a6b-8d78-179f9972e2ef"/>
-				<textElement verticalAlignment="Bottom">
-					<font size="12"/>
-				</textElement>
-				<text><![CDATA[ ……………………….,]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="327" y="53" width="151" height="20" uuid="d358ca02-d195-43f0-b343-49229db5212e"/>
-				<textElement verticalAlignment="Bottom">
-					<font size="12"/>
-				</textElement>
-				<text><![CDATA[,le………………………]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="478" y="53" width="77" height="20" uuid="090871b6-4c11-4ef1-bfba-e6d4d34be2f4"/>
-				<textElement verticalAlignment="Bottom">
-					<font size="12"/>
-				</textElement>
-				<text><![CDATA[20……...]]></text>
+				<text><![CDATA[,le]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="129" y="31" width="349" height="20" uuid="069120b3-0cbc-4c8f-b2ce-5d8752e4af58"/>
+				<reportElement x="129" y="37" width="349" height="20" uuid="069120b3-0cbc-4c8f-b2ce-5d8752e4af58"/>
 				<textElement textAlignment="Center">
 					<font size="12"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{nbFeuillets}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="201" y="51" width="112" height="20" uuid="2e04c868-a6aa-47a0-8171-acf1bd7907e9"/>
+				<reportElement x="201" y="57" width="112" height="20" uuid="2e04c868-a6aa-47a0-8171-acf1bd7907e9"/>
 				<textElement textAlignment="Center">
 					<font size="12"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{lieu}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="351" y="51" width="115" height="20" uuid="2a43a566-5534-4179-a0ed-7116b570c538"/>
+				<reportElement x="350" y="57" width="115" height="20" uuid="2a43a566-5534-4179-a0ed-7116b570c538"/>
 				<textElement textAlignment="Center">
 					<font size="12"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{date}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="502" y="55" width="53" height="20" uuid="2760b02a-6a00-474b-966e-ae5812915aee"/>
-				<textElement>
-					<font size="12"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$P{ans}]]></textFieldExpression>
 			</textField>
 		</band>
 	</pageHeader>
@@ -369,53 +341,15 @@ L’Instruction Générale du 22 juillet 1955
 				</textElement>
 				<text><![CDATA[Terminé le]]></text>
 			</staticText>
-			<staticText>
-				<reportElement x="106" y="1" width="95" height="20" uuid="fc52638d-cf1a-4492-b41e-a5176ecfd8eb"/>
-				<textElement verticalAlignment="Bottom"/>
-				<text><![CDATA[..............]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="106" y="21" width="95" height="20" uuid="646a1065-34b7-4a7e-a5e8-74ff0fd6ab8f"/>
-				<textElement verticalAlignment="Bottom"/>
-				<text><![CDATA[..............]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="201" y="0" width="96" height="21" uuid="bd243b64-b22d-4f5d-b440-fa730615eab9"/>
-				<textElement>
-					<font size="12"/>
-				</textElement>
-				<text><![CDATA[20..]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="201" y="21" width="96" height="20" uuid="ca421b62-21c9-4ea2-844c-aaa62b0c589a"/>
-				<textElement>
-					<font size="12"/>
-				</textElement>
-				<text><![CDATA[20..]]></text>
-			</staticText>
 			<textField>
-				<reportElement x="106" y="1" width="95" height="20" uuid="7a561acd-162e-4d74-87c5-6479ba1ad3a1"/>
+				<reportElement x="110" y="0" width="100" height="20" uuid="7a561acd-162e-4d74-87c5-6479ba1ad3a1"/>
 				<textElement>
 					<font size="12"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{debutDate}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="213" y="1" width="84" height="20" uuid="c6ee0fc3-44c8-466f-9964-cb8ac7a46323"/>
-				<textElement textAlignment="Center">
-					<font size="12"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$P{date1}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="223" y="21" width="74" height="20" uuid="cdbd9ee1-d8be-47a4-b204-426803ce19fb"/>
-				<textElement>
-					<font size="12"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$P{date2}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="101" y="21" width="100" height="20" uuid="782f9130-aa00-4933-8333-85e715eb394b"/>
+				<reportElement x="110" y="21" width="100" height="20" uuid="782f9130-aa00-4933-8333-85e715eb394b"/>
 				<textElement>
 					<font size="12"/>
 				</textElement>
@@ -456,7 +390,7 @@ L’Instruction Générale du 22 juillet 1955
 							</staticText>
 						</jr:tableHeader>
 						<jr:detailCell style="table 2_TD" height="70" rowSpan="1">
-							<textField>
+							<textField pattern="dd MMMM yyyy">
 								<reportElement x="0" y="0" width="60" height="70" uuid="f865bd91-313c-44b9-b80d-6a9c115d5957"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle"/>
 								<textFieldExpression><![CDATA[$F{row1}]]></textFieldExpression>

@@ -259,7 +259,7 @@ Fitiavana-Tanindrazana- Fandrosoana
 				<textElement>
 					<font size="12"/>
 				</textElement>
-				<text><![CDATA[Instruction Generale du 22 juiller 1955]]></text>
+				<text><![CDATA[Instruction Generale du 22 juillet 1955]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="213" y="33" width="20" height="20" uuid="19702852-7978-4f3e-97b7-464f0fd5b082"/>
@@ -440,7 +440,7 @@ Fitiavana-Tanindrazana- Fandrosoana
 								</staticText>
 							</jr:tableHeader>
 							<jr:detailCell style="table 1_TD" height="90">
-								<textField>
+								<textField pattern="dd MMMM yyyy">
 									<reportElement x="0" y="0" width="40" height="90" uuid="444343c3-122f-4155-aaac-b03a8cf06974"/>
 									<textElement textAlignment="Center" verticalAlignment="Middle"/>
 									<textFieldExpression><![CDATA[$F{row15}]]></textFieldExpression>
@@ -619,7 +619,7 @@ Fitiavana-Tanindrazana- Fandrosoana
 								<textElement textAlignment="Center" verticalAlignment="Middle">
 									<font size="12"/>
 								</textElement>
-								<text><![CDATA[4 Operation A]]></text>
+								<text><![CDATA[5 Operation A]]></text>
 							</staticText>
 						</jr:tableHeader>
 						<jr:column width="40" uuid="a7fc04fb-64b2-4aa9-ba7c-a4dc4bddde00">
@@ -669,7 +669,7 @@ Fitiavana-Tanindrazana- Fandrosoana
 								<textElement textAlignment="Center" verticalAlignment="Middle">
 									<font size="12"/>
 								</textElement>
-								<text><![CDATA[5 Operation A]]></text>
+								<text><![CDATA[10 Operation A]]></text>
 							</staticText>
 						</jr:tableHeader>
 						<jr:column width="40" uuid="1c27f639-f71c-4e8a-ae3d-51dad465c021">
@@ -931,7 +931,7 @@ Fitiavana-Tanindrazana- Fandrosoana
 				</textElement>
 				<text><![CDATA[LE DEPOSITAIRE COMTABLE]]></text>
 			</staticText>
-			<textField pattern="dd MMM yyyy">
+			<textField pattern="dd MMMM yyyy">
 				<reportElement x="330" y="71" width="100" height="23" uuid="3544ae94-6116-4e13-99c3-9ff2de18cd36"/>
 				<textElement>
 					<font size="11"/>

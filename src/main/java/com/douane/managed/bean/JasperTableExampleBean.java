@@ -266,7 +266,8 @@ public class JasperTableExampleBean implements Serializable{
             parameters.put("approOuService", this.ordreEB.getApproOuService());
             parameters.put("comptable", op.getDirection().getDesignation());
             parameters.put("comptable1", op.getOperateur().getNomAgent());
-            parameters.put("matieres", this.ordreEB.getMatieres());
+            parameters.put("matieres", op.getListMat().get(0).getDesign().getOrigine());
+            parameters.put("arrte", this.ordreEB.getOrdre());
             parameters.put("ordre", this.ordreEB.getOrdre());
             parameters.put("somme", this.ordreEB.getSomme());
             parameters.put("concordance", this.ordreEB.getConcordance());
@@ -320,13 +321,15 @@ public class JasperTableExampleBean implements Serializable{
             parameters.put("approOuService", this.ordreEB.getApproOuService());
             parameters.put("comptable", op.getDirection().getDesignation());
             parameters.put("comptable1", op.getOperateur().getNomAgent());
-            parameters.put("matieres", this.ordreEB.getMatieres());
+            parameters.put("matieres",  op.getListMat().get(0).getDesign().getOrigine());
             parameters.put("ordre", this.ordreEB.getOrdre());
             parameters.put("somme", this.ordreEB.getSomme());
+            parameters.put("arret",this.ordreEB.getOrdre());
             parameters.put("concordance", this.ordreEB.getConcordance());
             DateFormat df = new SimpleDateFormat("dd MMMM yyyy", Locale.FRANCE);
             parameters.put("date", df.format(op.getDate()));
             parameters.put("date2", this.ordreEB.getDate2());
+            parameters.put("lieu", this.ordreEB.getLieu());
             parameters.put("lieu1", this.ordreEB.getLieu1());
             parameters.put("date1", this.ordreEB.getDate1());
             JasperPrint jasperPrint = JasperFillManager.fillReport(url.getPath(), parameters, new JREmptyDataSource());
@@ -381,10 +384,14 @@ public class JasperTableExampleBean implements Serializable{
             parameters.put("ordre", this.ordreS.getOrdre());
             parameters.put("somme", this.ordreS.getSomme());
             parameters.put("concordance", this.ordreS.getConformite());
-            parameters.put("date1", op.getDate().toString());
+            DateFormat df = new SimpleDateFormat("dd MMMM yyyy", Locale.FRANCE);
+            parameters.put("date1", df.format(op.getDate()));
             parameters.put("date4", this.ordreS.getNum4());
+            parameters.put("arret", this.ordreS.getOrdre());
             parameters.put("lieu", this.ordreS.getLieu());
-            parameters.put("date", op.getDate().toString());
+            //DateFormat df = new SimpleDateFormat("dd MMMM yyyy", Locale.FRANCE);
+            parameters.put("date", df.format(op.getDate()));
+            //parameters.put("date", op.getDate().toString());operateur.nomAgent
             parameters.put("comptable2", op.getOperateur().getNomAgent());
             parameters.put("lieu1", this.ordreS.getLieu2());
             parameters.put("date5", this.ordreS.getDate2());
@@ -437,12 +444,16 @@ public class JasperTableExampleBean implements Serializable{
             parameters.put("matiere",  op.getMat().getDesign().getOrigine());
             //mila alamina ny jsxml sy ny entree
             parameters.put("ordre", this.ordreS.getOrdre());
+            parameters.put("arret", this.ordreS.getOrdre());
             parameters.put("somme", this.ordreS.getSomme());
             parameters.put("concordance", this.ordreS.getConformite());
-            parameters.put("date1", op.getDate().toString());
+            DateFormat df = new SimpleDateFormat("dd MMMM yyyy", Locale.FRANCE);
+            parameters.put("date1", df.format(op.getDate()));
+            //parameters.put("date1", op.getDate().toString());
             parameters.put("date4", this.ordreS.getNum4());
             parameters.put("lieu", this.ordreS.getLieu());
-            parameters.put("date", op.getDate().toString());
+            //DateFormat df = new SimpleDateFormat("dd MMMM yyyy", Locale.FRANCE);
+            parameters.put("date", df.format(op.getDate()));
             parameters.put("comptable2", op.getOperateur().getNomAgent());
             parameters.put("lieu1", this.ordreS.getLieu2());
             parameters.put("date5", this.ordreS.getDate2());
@@ -688,7 +699,7 @@ public class JasperTableExampleBean implements Serializable{
             parameters.put("nbFeuillets", this.livre.getNbFeuillets());
             parameters.put("lieu", this.livre.getLieu());
             parameters.put("date", this.livre.getDate());
-            parameters.put("ans", this.livre.getAns());
+            parameters.put("ans", "");
             
             JasperPrint jasperPrint = JasperFillManager.fillReport(url.getPath(), parameters, new JREmptyDataSource());
             response.reset();
@@ -727,7 +738,7 @@ public class JasperTableExampleBean implements Serializable{
             parameters.put("nbFeuillets", this.livre.getNbFeuillets());
             parameters.put("lieu", this.livre.getLieu());
             parameters.put("date", this.livre.getDate());
-            parameters.put("ans", this.livre.getAns());
+            parameters.put("ans", "");
             
             JasperPrint jasperPrint = JasperFillManager.fillReport(url.getPath(), parameters, new JREmptyDataSource());
           //EXPORT THROUGH STREAM

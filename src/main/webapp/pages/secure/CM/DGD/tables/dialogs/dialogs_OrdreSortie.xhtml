@@ -190,7 +190,12 @@
 
  			<div class="col-md-6">
 
-            A <p:inputText value="#{JasperTableExampleBean.ordreS.lieu}" style="text-align:center; " size="20"></p:inputText>, le  <strong>#{docbean.curentOpeationSortieToPdf.date}</strong> <br></br>
+            A <p:inputText value="#{JasperTableExampleBean.ordreS.lieu}" style="text-align:center; " size="20"></p:inputText>
+            , le  <strong>
+            <h:outputText value="#{docbean.curentOpeationSortieToPdf.date}">
+            	<f:convertDateTime pattern="dd MMMM yyyy" locale="fr-Fr" timeZone="GMT+3"/>
+            </h:outputText>
+            </strong> <br></br>
 			<p style="margin:2em;">
 				Le Comptable (2) <p:inputText value="#{JasperTableExampleBean.ordreS.comptable}" style="text-align: center; " size="20"></p:inputText>
 			</p>
@@ -217,7 +222,11 @@
  			<div class="col-md-6">
                 <!--   Les matières et objets désignés ci-dessus ont été délivrés et portés en sortie.<br></br>
                 Les matières et objets désignés ci-dessus ont été  portés en sortie dans les écriture.<br></br> -->
- 				A <p:inputText  value="#{JasperTableExampleBean.ordreS.lieu2}" style="text-align: center;"></p:inputText>, le <strong>#{docbean.curentOpeationSortieToPdf.date}</strong><br></br>
+ 				A <p:inputText  value="#{JasperTableExampleBean.ordreS.lieu2}" style="text-align: center;"></p:inputText>
+ 				, le <strong>
+ 				<h:outputText value="#{docbean.curentOpeationSortieToPdf.date}">
+	            	<f:convertDateTime pattern="dd MMMM yyyy" locale="fr-Fr" timeZone="GMT+3"/>
+	            </h:outputText></strong><br></br>
  				<p>
  				Le comptable (2) <strong>#{docbean.curentOpeationSortieToPdf.operateur.nomAgent} </strong><br></br>
  				</p>
