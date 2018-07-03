@@ -16,7 +16,7 @@
                  paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}  "
                  paginator="true" rows="30" style="margin-bottom:20px"
                  emptyMessage="Aucun resultat" filteredValue="#{depositaireBean.listOperations}" 
-                 >
+                 rowKey="#{c.id}">
                  
                  
 		<f:facet name="header">
