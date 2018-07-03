@@ -21,7 +21,14 @@
             #{d.id}
         </p:column>
         <p:column headerText="Date" style="text-align: center; word-wrap: break-word;">
-        	<h:outputText value="#{d.date} #{d.time}" />
+        	
+        	<h:outputText value="#{d.date}" >
+            	<f:convertDateTime pattern="dd MMMM yyyy " timeZone="GMT+3"/>
+            </h:outputText>
+            -
+            <h:outputText value="#{d.time}" >
+            	<f:convertDateTime pattern="HH:mm" timeZone="GMT+3" />
+            </h:outputText>
         </p:column>
         <p:column style="text-align: center; word-wrap: break-word;">
             <f:facet name="header">Détenteur</f:facet>

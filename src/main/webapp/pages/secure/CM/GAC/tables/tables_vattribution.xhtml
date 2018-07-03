@@ -27,7 +27,15 @@
             #{a.mat.idMateriel}
         </p:column>
         <p:column headerText="Date" style="text-align: center; word-wrap: break-word;">
-        	<h:outputText value="#{a.date} #{a.time}" />
+        	
+        	<h:outputText value="#{a.date}" >
+            	<f:convertDateTime pattern="dd MMMM yyyy " timeZone="GMT+3"/>
+            </h:outputText>
+            -
+            <h:outputText value="#{a.time}" >
+            	<f:convertDateTime pattern="HH:mm" timeZone="GMT+3" />
+            </h:outputText>
+        	
         </p:column>
         <p:column style="text-align: center; word-wrap: break-word;">
             <f:facet name="header">Rérérence matériel</f:facet>

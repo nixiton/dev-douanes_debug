@@ -25,7 +25,13 @@
             <f:facet name="header">
                 <h:outputText value="Date"/>
             </f:facet>
-            <h:outputText value="#{a.date}" />
+        	<h:outputText value="#{a.date}" >
+            	<f:convertDateTime pattern="dd MMMM yyyy " timeZone="GMT+3"/>
+            </h:outputText>
+            -
+            <h:outputText value="#{a.time}" >
+            	<f:convertDateTime pattern="HH:mm" timeZone="GMT+3" />
+            </h:outputText>
         </p:column>
 
         <p:column style=" text-align: center; word-wrap: break-word;">
