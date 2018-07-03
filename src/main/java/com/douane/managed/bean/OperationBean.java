@@ -8,6 +8,7 @@ import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.RequestScoped;
+import javax.faces.view.ViewScoped;
 
 import com.douane.entite.Agent;
 import com.douane.entite.Operation;
@@ -15,7 +16,7 @@ import com.douane.metier.user.IUserMetier;
 import com.douane.requesthttp.RequestFilter;
 
 @ManagedBean(name="operationBean")
-@RequestScoped
+@ViewScoped
 public class OperationBean {
 	private static final String SUCCESS = "success";
     private static final String ERROR   = "error";
@@ -58,6 +59,7 @@ public class OperationBean {
 	}
 
 	public List<Operation> getListOperations() {
+		if(listOperations ==null) {
 		//this.setListOperations(usermetierimpl.getListOp());
 		Date date = new Date();
 		Calendar calendar = new GregorianCalendar();
@@ -68,6 +70,7 @@ public class OperationBean {
         Agent agent = (Agent)RequestFilter.getSession().getAttribute("agent");
 		
 		this.setListOperations(usermetierimpl.getListAllOperationByDirectionByYearByDateAsc(agent.getDirection(), sdate, edate));
+		}
 		return listOperations;
 	}
 

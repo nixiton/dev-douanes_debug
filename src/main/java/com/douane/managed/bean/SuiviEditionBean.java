@@ -220,8 +220,11 @@ public class SuiviEditionBean {
 	// -------------GET List of operations by DIRECTION
 	// --------------------------------
 	public List<Operation> getListOperatoinByDirection() {
+		if(listOperatoinByDirection == null) {
 		Agent agent = (Agent) RequestFilter.getSession().getAttribute("agent");
-		return usermetierimpl.getListOpByDirection(agent.getDirection());
+		listOperatoinByDirection= usermetierimpl.getListOpByDirection(agent.getDirection());
+		}
+		return listOperatoinByDirection;
 	}
 
 	public void setListOperatoinByDirection(List<Operation> l) {
@@ -1502,6 +1505,18 @@ private List<Materiel> listHistoriqueMatDirection;
 
 	public void setListHistoriqueMatDirection(List<Materiel> listHistoriqueMatDirection) {
 		this.listHistoriqueMatDirection = listHistoriqueMatDirection;
+	}
+	private List<Materiel> listAllMateriel;
+	
+	public List<Materiel> getListAllMateriel() {
+		if(listAllMateriel ==null) {
+			listAllMateriel = usermetierimpl.getListMat();
+		}
+		return listAllMateriel;
+	}
+
+	public void setListAllMateriel(List<Materiel> listAllMateriel) {
+		this.listAllMateriel = listAllMateriel;
 	}
 	
 

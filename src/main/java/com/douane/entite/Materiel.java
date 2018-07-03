@@ -359,12 +359,12 @@ public class Materiel implements Serializable{
 		if(this.getDesign().getAnneeAcquisition()!=null) {
 			anneeacquisition = this.getDesign().getAnneeAcquisition();
 		}
-		this.code = "COD"+
-				"DIR"+codeDirection+
-				"NOM"+codeNomenclature+
-				"TM"+codeTypeMateriel+
-				"INC"+numerotype+
-				"AA"+anneeacquisition;
+		this.code = ""+
+				""+codeDirection+
+				""+codeNomenclature+
+				""+codeTypeMateriel+
+				""+numerotype+
+				""+anneeacquisition;
 	}
 
 	public CategorieMat getCategorie() {

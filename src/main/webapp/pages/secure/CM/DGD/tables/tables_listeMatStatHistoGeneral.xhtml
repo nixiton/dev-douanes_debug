@@ -15,13 +15,14 @@
 <div   class="body collapse in table-responsive">
 
 <h:form>
-    <p:dataTable   var="materiel" value="#{depositaireBean.listAllMateriel}"
+    <p:dataTable   var="materiel" value="#{suivieditionBean.listAllMateriel}"
     				id="historiquematerielsgeneral"
     			 widgetVar="MaterielTable" 
     			 currentPageReportTemplate="({currentPage} sur {totalPages})"
                  paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {Exporters}"
                  paginator="true" rows="20" style="margin-bottom:20px"
-                 emptyMessage="Aucun resultat" filteredValue="#{dtFilterView.filteredOperations}">
+                 emptyMessage="Aucun resultat" filteredValue="#{depositaireBean.listAllMateriel}"
+                 rowKey="#{materiel.idMateriel}">
         
         <f:facet name="{Exporters}">
             <h:commandLink>
@@ -64,9 +65,12 @@
             </f:facet>
             <h:outputText value="#{materiel.design.nomenMat.designation}" />
         </p:column>
-        <p:column style="width: 7%; text-align: center; word-wrap: break-word;">
-            <f:facet name="header">
-                <h:outputText value="Etat" />
+        <p:column filterBy="#{materiel.etat}" headerText="Etat"  filterMatchMode="exact" style="width: 7%; text-align: center; word-wrap: break-word;">
+           <f:facet name="filter">
+                <p:selectOneMenu onchange="PF('MaterielTable').filter()" >
+                    <f:selectItem itemLabel="Selectionner" itemValue="#{null}" noSelectionOption="true" />
+                    <f:selectItems value="#{siseBean.listEtatMateriel}" />
+                </p:selectOneMenu>
             </f:facet>
             <h:outputText value="#{materiel.etat.designation}" />
         </p:column>
@@ -85,24 +89,24 @@
         <p:column exportable="false" style="width: 5%; text-align: center; word-wrap: break-word;">
 
             <f:facet name="header">Détail</f:facet>
-            <p:commandButton  action="#{suivieditionBean.setMateriel(materiel)}" update=":detail"
+            <p:commandButton  action="#{suivieditionBean.setMateriel(materiel.idMateriel)}" update=":detail"
             oncomplete="PF('detail').show()" icon="ui-icon-zoomin"/>
         </p:column> 
         <p:column exportable="false" style="width: 5%; text-align: center; word-wrap: break-word;">
             <f:facet name="header">Statut</f:facet>
-            <p:commandButton  action="#{suivieditionBean.setMateriel(materiel)}" 
+            <p:commandButton  action="#{suivieditionBean.setMateriel(materiel.idMateriel)}" 
             oncomplete="PF('statut').show()" icon="ui-icon-info" update=":statut">
 
             </p:commandButton>
         </p:column>
         <p:column exportable="false" style="width: 5%; text-align: center; word-wrap: break-word;">
             <f:facet name="header">Historique</f:facet>
-            <p:commandButton  action="#{suivieditionBean.setMateriel(materiel)}" 
+            <p:commandButton  action="#{suivieditionBean.setMateriel(materiel.idMateriel)}" 
             oncomplete="PF('historique').show()" icon="ui-icon-clipboard" update=":historique">
             </p:commandButton>
         </p:column>
         
-         <p:column filterBy="#{materiel.direc}" headerText="Direction"  filterMatchMode="exact" style="width: 8%; text-align: center; word-wrap: break-word;">
+         <p:column filterBy="#{materiel.direc}" headerText="Direction"  filterMatchMode="contains" style="width: 8%; text-align: center; word-wrap: break-word;">
             <f:facet name="filter">
                 <p:selectOneMenu onchange="PF('MaterielTable').filter()" >
                     <f:selectItem itemLabel="Selectionner" itemValue="#{null}" noSelectionOption="true" />
@@ -111,6 +115,7 @@
             </f:facet>
             <h:outputText value="#{materiel.direc.designation !=null ? materiel.direc.designation :'Non disponible'}" />
         </p:column>
+        
         <p:column filterBy="#{materiel.validation}" headerText="Statut" filterMatchMode="equals" style=" text-align: center; word-wrap: break-word;">
             <f:facet name="filter">
                 <p:selectOneButton onchange="PF('MaterielTable').filter()">

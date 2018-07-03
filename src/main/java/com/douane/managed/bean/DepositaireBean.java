@@ -436,7 +436,10 @@ public class DepositaireBean {
 	}
 
 	public List<Materiel> getListAllMateriel() {
-		return usermetierimpl.getListMat();
+		if(listAllMateriel ==null) {
+			listAllMateriel = usermetierimpl.getListMat();
+		}
+		return listAllMateriel;
 	}
 
 	public void setListAllMateriel(List<Materiel> listAllMateriel) {
@@ -3033,6 +3036,40 @@ public class DepositaireBean {
 
 	public void setListHistoriqueMatDirection(List<Materiel> listHistoriqueMatDirection) {
 		this.listHistoriqueMatDirection = listHistoriqueMatDirection;
+	}
+	
+	private List<Operation> listOperatoinByDirection;
+	public List<Operation> getListOperatoinByDirection() {
+		if(listOperatoinByDirection == null) {
+		Agent agent = (Agent) RequestFilter.getSession().getAttribute("agent");
+		listOperatoinByDirection= usermetierimpl.getListOpByDirection(agent.getDirection());
+		}
+		return listOperatoinByDirection;
+	}
+
+	public void setListOperatoinByDirection(List<Operation> l) {
+		this.listOperatoinByDirection = l;
+	}
+	
+	private List<Operation> listOperations;
+	public List<Operation> getListOperations() {
+		if(listOperations ==null) {
+		//this.setListOperations(usermetierimpl.getListOp());
+		Date date = new Date();
+		Calendar calendar = new GregorianCalendar();
+		calendar.setTime(date);
+		int year = calendar.get(Calendar.YEAR);
+		Date sdate = new GregorianCalendar(year-2, Calendar.JANUARY, 1).getTime();
+        Date edate = new GregorianCalendar(year+1, Calendar.DECEMBER, 30).getTime();
+        Agent agent = (Agent)RequestFilter.getSession().getAttribute("agent");
+		
+		this.setListOperations(usermetierimpl.getListAllOperationByDirectionByYearByDateAsc(agent.getDirection(), sdate, edate));
+		}
+		return listOperations;
+	}
+
+	public void setListOperations(List<Operation> listOperations) {
+		this.listOperations = listOperations;
 	}
 
 }
