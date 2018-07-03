@@ -129,7 +129,7 @@
 		<band splitType="Stretch"/>
 	</background>
 	<title>
-		<band height="276" splitType="Stretch">
+		<band height="350" splitType="Stretch">
 			<staticText>
 				<reportElement x="165" y="90" width="80" height="33" uuid="c6865f87-e1b1-4498-b187-c56370a25385"/>
 				<textElement textAlignment="Justified" verticalAlignment="Middle">
@@ -285,12 +285,8 @@ L’Instruction Générale du 22 juillet 1955
 				</textElement>
 				<textFieldExpression><![CDATA[$P{materiel}]]></textFieldExpression>
 			</textField>
-		</band>
-	</title>
-	<pageHeader>
-		<band height="70" splitType="Stretch">
 			<staticText>
-				<reportElement x="110" y="1" width="532" height="37" uuid="5172dc42-c3a4-44d6-abe1-af99d223734e"/>
+				<reportElement x="120" y="280" width="532" height="37" uuid="5172dc42-c3a4-44d6-abe1-af99d223734e"/>
 				<textElement textAlignment="Center">
 					<font size="12"/>
 				</textElement>
@@ -300,63 +296,63 @@ DES MOUVEMENTS D’ENTREE ET DE SORTIE
 ]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="124" y="38" width="122" height="27" uuid="3299aef0-7782-4a9c-8b2a-1263d6946b08"/>
+				<reportElement x="134" y="317" width="122" height="27" uuid="3299aef0-7782-4a9c-8b2a-1263d6946b08"/>
 				<textElement>
 					<font size="12"/>
 				</textElement>
 				<text><![CDATA[Nombre de feuillets :]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="246" y="38" width="117" height="27" uuid="1bde76c5-87de-4f70-a037-cd8ed246c70f"/>
+				<reportElement x="256" y="317" width="117" height="27" uuid="1bde76c5-87de-4f70-a037-cd8ed246c70f"/>
 				<textElement>
 					<font size="12"/>
 				</textElement>
 				<text><![CDATA[]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="246" y="38" width="100" height="27" uuid="ba765549-1eda-4763-a368-9bae5dcd2813"/>
+				<reportElement x="256" y="317" width="100" height="27" uuid="ba765549-1eda-4763-a368-9bae5dcd2813"/>
 				<textElement textAlignment="Center">
 					<font size="12"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{nbFeuillets}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="363" y="40" width="17" height="25" uuid="3f3022ac-0e71-450a-8a17-61664f650422"/>
+				<reportElement x="373" y="319" width="17" height="25" uuid="3f3022ac-0e71-450a-8a17-61664f650422"/>
 				<textElement>
 					<font size="12"/>
 				</textElement>
 				<text><![CDATA[A]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="380" y="40" width="112" height="25" uuid="fa2ba841-edf0-4f7d-8e6c-c10c5c37d19f"/>
+				<reportElement x="390" y="319" width="112" height="25" uuid="fa2ba841-edf0-4f7d-8e6c-c10c5c37d19f"/>
 				<textElement>
 					<font size="12"/>
 				</textElement>
 				<text><![CDATA[]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="380" y="40" width="89" height="25" uuid="49d5706b-712b-4469-a1ab-b619ed9c18ca"/>
+				<reportElement x="390" y="319" width="89" height="25" uuid="49d5706b-712b-4469-a1ab-b619ed9c18ca"/>
 				<textElement textAlignment="Center">
 					<font size="12"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{lieu}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="492" y="40" width="11" height="25" uuid="8573f697-3c5e-400e-9ad6-3634b7fe10cb"/>
+				<reportElement x="502" y="319" width="11" height="25" uuid="8573f697-3c5e-400e-9ad6-3634b7fe10cb"/>
 				<textElement>
 					<font size="12"/>
 				</textElement>
 				<text><![CDATA[le]]></text>
 			</staticText>
 			<textField pattern="dd MMMM yyyy">
-				<reportElement x="503" y="38" width="131" height="30" uuid="b793579c-63a9-47a1-8daf-3ebaa20deb6e"/>
+				<reportElement x="513" y="317" width="131" height="30" uuid="b793579c-63a9-47a1-8daf-3ebaa20deb6e"/>
 				<textElement>
 					<font size="12"/>
 				</textElement>
 				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
 			</textField>
 		</band>
-	</pageHeader>
+	</title>
 	<detail>
 		<band height="193" splitType="Stretch">
 			<componentElement>
