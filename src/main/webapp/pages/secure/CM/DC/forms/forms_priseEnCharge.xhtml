@@ -160,7 +160,7 @@
 	                        <p:column>
 	                            <h:outputText value="#{t.designation}" />
 	                        </p:column>
-	                        <f:selectItem itemValue="#{siseBean.nouvmark}" itemLabel="ajouter" />
+	                        <f:selectItem itemValue="#{siseBean.nouvmark}" itemLabel="Ajouter" />
                 			<p:ajax listener="#{siseBean.addNewMarque}" />
 	                        
 	
@@ -426,13 +426,22 @@
             </div>
 
         </h:form>
-        <p:dialog id="addNewMarkDialog" widgetVar="widget_addNewJMarkDialog" header="ajouter marque">
+        <p:dialog id="addNewMarkDialog" widgetVar="widget_addNewJMarkDialog" header="Ajout de marque" showEffect="explode" hideEffect="explode" width="375" height="125" minWidth="350" minHeight="125">
         
-    		<h:form>
-        		<p:inputText value="#{siseBean.nouvmark.designation}" required="true" />
-        		<p:commandButton value="Ajouter" action="#{siseBean.saveNewMark}" update="@form" />
-        		<p:messages />
-    		</h:form>
+    		<hr/>
+        	<div class="row">
+        		<h:form>
+        		<div class="col-lg-8">
+        			<p:inputText value="#{siseBean.nouvmark.designation}" required="true" />
+        		</div>
+        		<div class="col-lg-4">
+        			<p:commandButton value="Ajouter" action="#{siseBean.saveNewMark}" update="@form" icon="ui-icon-circle-plus" />
+        			<p:messages />
+        		</div>
+        		</h:form>
+        	</div>
+   			<hr/>
+
 		</p:dialog>
 
     </div>

@@ -192,10 +192,11 @@
             </div>
 
         </h:form>
-         <p:dialog id="addNewArticleDialog" widgetVar="widget_addNewJArticleDialog" header="ajouter article">
+         <p:dialog id="addNewArticleDialog" widgetVar="widget_addNewJArticleDialog" header="Ajout d'article" showEffect="explode" hideEffect="explode" width="500" height="300" minWidth="350" minHeight="125">
         
     		<h:form>
     		<div class="form-group">
+    		<hr/>
 				<div class="row">
 					<div class="col-lg-4 col-lg-offset-1">
 						<label for="text1" class="control-label col-lg-4">Désignation
@@ -235,11 +236,11 @@
 
 				<div class="col-lg-4">
 					<h:commandLink id="btnSignId" action="#{siseBean.saveNewArticle}" value=""
-						class="btn btn-lg btn-primary btn-block">
+						class="btn btn-lg btn-primary btn-block" style="color:white;">
 						<i class="fa fa-plus"> </i>  Créer
 					</h:commandLink>
 				</div>
-
+				<br/>
 				<div class="col-lg-4"></div>
 
 			</div>
