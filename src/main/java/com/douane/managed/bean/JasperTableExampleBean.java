@@ -3,9 +3,12 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.Serializable;
 import java.net.URL;
+import java.text.DateFormat;
 import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 
 import javax.faces.bean.ManagedBean;
@@ -20,6 +23,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.douane.entite.OpAttribution;
+import com.douane.entite.OpEntree;
 import com.douane.entite.OpSortie;
 import com.douane.entite.Operation;
 import com.douane.managed.bean.JasperData.FicheStockData;
@@ -236,7 +240,7 @@ public class JasperTableExampleBean implements Serializable{
     }
     
 	public void ordreEntreeReport(GACBean gacBean) throws IOException {
-		Operation op = gacBean.getCurentOperation1();
+		OpEntree op = (OpEntree) gacBean.getCurentOperation1();
 		List<Object[]> l = gacBean.getDesingationByOpEntree(op);
 		OrdreEntreeData datalist = new OrdreEntreeData(l);
 		FacesContext facescontext = FacesContext.getCurrentInstance();
@@ -252,8 +256,9 @@ public class JasperTableExampleBean implements Serializable{
             Map<String, Object> parameters = new HashMap<String, Object>();
             parameters.put ("dataSource" , datalist.getDataAsDataSource());
             parameters.put("num3", this.ordreEB.getNum3());
+            parameters.put("matieres", op.getListMat().get(0).getDesign().getOrigine());
             parameters.put("num4", this.ordreEB.getNum4());
-            //parameters.put("chap", this.ordreEB.get());
+            parameters.put("budget", this.ordreEB.getBudget());
             parameters.put("chap", this.ordreEB.getChap());
             parameters.put("article", this.ordreEB.getArticle());
             parameters.put("paragraphe", this.ordreEB.getParagraphe());
@@ -265,8 +270,11 @@ public class JasperTableExampleBean implements Serializable{
             parameters.put("ordre", this.ordreEB.getOrdre());
             parameters.put("somme", this.ordreEB.getSomme());
             parameters.put("concordance", this.ordreEB.getConcordance());
-            parameters.put("date", this.ordreEB.getDate());
+            //parameters.put("opDate", op.getDate());
+            DateFormat df = new SimpleDateFormat("dd MMMM yyyy", Locale.FRANCE);
+            parameters.put("date", df.format(op.getDate()));
             parameters.put("date2", this.ordreEB.getDate2());
+            parameters.put("lieu", this.ordreEB.getLieu());
             parameters.put("lieu1", this.ordreEB.getLieu1());
             parameters.put("date1", this.ordreEB.getDate1());
             JasperPrint jasperPrint = JasperFillManager.fillReport(url.getPath(), parameters, new JREmptyDataSource());
@@ -285,7 +293,7 @@ public class JasperTableExampleBean implements Serializable{
         
 	}
 	public void ordreEntreeDoc(GACBean gacBean) throws IOException {
-		Operation op = gacBean.getCurentOperation1();
+		OpEntree op = (OpEntree) gacBean.getCurentOperation1();
 		List<Object[]> l = gacBean.getDesingationByOpEntree(op);
 		OrdreEntreeData datalist = new OrdreEntreeData(l);
 		FacesContext facescontext = FacesContext.getCurrentInstance();
@@ -303,7 +311,8 @@ public class JasperTableExampleBean implements Serializable{
             parameters.put ("dataSource" , datalist.getDataAsDataSource());
             parameters.put("num3", this.ordreEB.getNum3());
             parameters.put("num4", this.ordreEB.getNum4());
-            //parameters.put("chap", this.ordreEB.get());
+            parameters.put("matieres", op.getListMat().get(0).getDesign().getOrigine());
+            parameters.put("budget", this.ordreEB.getBudget());
             parameters.put("chap", this.ordreEB.getChap());
             parameters.put("article", this.ordreEB.getArticle());
             parameters.put("paragraphe", this.ordreEB.getParagraphe());
@@ -315,7 +324,8 @@ public class JasperTableExampleBean implements Serializable{
             parameters.put("ordre", this.ordreEB.getOrdre());
             parameters.put("somme", this.ordreEB.getSomme());
             parameters.put("concordance", this.ordreEB.getConcordance());
-            parameters.put("date", this.ordreEB.getDate());
+            DateFormat df = new SimpleDateFormat("dd MMMM yyyy", Locale.FRANCE);
+            parameters.put("date", df.format(op.getDate()));
             parameters.put("date2", this.ordreEB.getDate2());
             parameters.put("lieu1", this.ordreEB.getLieu1());
             parameters.put("date1", this.ordreEB.getDate1());
@@ -763,7 +773,7 @@ public class JasperTableExampleBean implements Serializable{
             parameters.put("num7", this.pdfForm.getNum7());
             parameters.put("num8", this.pdfForm.getNum8());
             parameters.put("num07", this.pdfForm.getNum7());
-            parameters.put("num08", this.pdfForm.getNum9());
+            parameters.put("numO8", this.pdfForm.getNum9());
             parameters.put("somme", this.pdfForm.getSomme());
             parameters.put("somme1", this.pdfForm.getSomme1());
             parameters.put("somme2", this.pdfForm.getSomme2());

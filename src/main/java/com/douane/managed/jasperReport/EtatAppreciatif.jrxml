@@ -124,7 +124,7 @@
 		<band splitType="Stretch"/>
 	</background>
 	<title>
-		<band height="244" splitType="Stretch">
+		<band height="360" splitType="Stretch">
 			<staticText>
 				<reportElement x="193" y="0" width="217" height="33" uuid="260cd361-2e0d-4ef8-94b5-750af12361b8"/>
 				<textElement textAlignment="Center">
@@ -303,149 +303,99 @@ Fitiavana-Tanindrazana- Fandrosoana
 				<reportElement x="0" y="180" width="138" height="50" uuid="269ea225-43e8-476b-a345-7064268ec605"/>
 				<text><![CDATA[(8) Premier ou deuxiéme jour du trimestre ou, d'il y a lieu date de la prise de la remise du service]]></text>
 			</staticText>
-		</band>
-	</title>
-	<pageHeader>
-		<band height="46" splitType="Stretch">
 			<staticText>
-				<reportElement x="107" y="0" width="315" height="22" uuid="d859a3fe-b735-4e58-8aa9-beae87c87c89"/>
+				<reportElement x="112" y="239" width="315" height="22" uuid="d859a3fe-b735-4e58-8aa9-beae87c87c89"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="12" isBold="true"/>
 				</textElement>
 				<text><![CDATA[ETAT APPRECIATIF]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="0" y="22" width="539" height="20" uuid="28552911-8890-4d90-8a07-b496d27ad59a"/>
+				<reportElement x="5" y="261" width="539" height="20" uuid="28552911-8890-4d90-8a07-b496d27ad59a"/>
 				<textElement>
 					<font size="14"/>
 				</textElement>
 				<text><![CDATA[présentant  les mouvements des entrées et des sorties effectuées pendant l'année......]]></text>
 			</staticText>
-		</band>
-	</pageHeader>
-	<columnHeader>
-		<band height="104" splitType="Stretch">
 			<staticText>
-				<reportElement x="0" y="0" width="63" height="20" uuid="b67245a0-6a9c-4846-a824-9026ddbd9ce7"/>
+				<reportElement x="0" y="295" width="63" height="20" uuid="b67245a0-6a9c-4846-a824-9026ddbd9ce7"/>
 				<textElement>
 					<font size="12"/>
 				</textElement>
 				<text><![CDATA[Ci-joint(6)]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="0" y="20" width="539" height="20" uuid="35d7a367-3323-42eb-8d24-89c18b594922"/>
+				<reportElement x="0" y="315" width="539" height="20" uuid="35d7a367-3323-42eb-8d24-89c18b594922"/>
 				<textElement>
 					<font size="12"/>
 				</textElement>
 				<text><![CDATA[Gestion de M.(7)]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="0" y="40" width="40" height="20" uuid="2815e636-99b5-41e3-b032-fd2dc06918ed"/>
+				<reportElement x="0" y="335" width="40" height="20" uuid="2815e636-99b5-41e3-b032-fd2dc06918ed"/>
 				<textElement>
 					<font size="12"/>
 				</textElement>
 				<text><![CDATA[Du (8)]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="0" y="60" width="539" height="20" uuid="55527726-70d2-48fd-94d2-134de08d3593"/>
-				<textElement>
-					<font size="12"/>
-				</textElement>
-				<text><![CDATA[Gestion de M.(7)]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="0" y="80" width="40" height="20" uuid="aff9cee2-e1f9-49b7-837e-def4de51dfd2"/>
-				<textElement>
-					<font size="12"/>
-				</textElement>
-				<text><![CDATA[Du (8)]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="63" y="0" width="187" height="20" uuid="f0073a72-4cf2-4fb9-8e4c-cd2bea7d7eb8"/>
+				<reportElement x="63" y="295" width="187" height="20" uuid="f0073a72-4cf2-4fb9-8e4c-cd2bea7d7eb8"/>
 				<textElement>
 					<font size="12"/>
 				</textElement>
 				<text><![CDATA[]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="250" y="0" width="305" height="20" uuid="64ef5278-0739-446a-afd2-550fcce323c0"/>
+				<reportElement x="250" y="295" width="305" height="20" uuid="64ef5278-0739-446a-afd2-550fcce323c0"/>
 				<textElement>
 					<font size="12"/>
 				</textElement>
 				<text><![CDATA[piéces justificatives.]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="63" y="0" width="154" height="20" uuid="ccb8d8fb-b300-4894-84d3-0f262441cc02"/>
+				<reportElement x="63" y="295" width="154" height="20" uuid="ccb8d8fb-b300-4894-84d3-0f262441cc02"/>
 				<textElement textAlignment="Center">
 					<font size="12"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{num6}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="113" y="19" width="377" height="20" uuid="1c902937-3f0a-40a2-a549-34d114d6977e"/>
+				<reportElement x="113" y="314" width="377" height="20" uuid="1c902937-3f0a-40a2-a549-34d114d6977e"/>
 				<textElement textAlignment="Center">
 					<font size="12"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{num7}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="40" y="40" width="143" height="20" uuid="12748bdc-0696-4f49-85dc-976f898f6914"/>
+				<reportElement x="40" y="335" width="143" height="20" uuid="12748bdc-0696-4f49-85dc-976f898f6914"/>
 				<textElement>
 					<font size="12"/>
 				</textElement>
 				<text><![CDATA[]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="40" y="40" width="100" height="20" uuid="a201a372-502e-4e6d-9daf-051dae9f18a5"/>
+				<reportElement x="40" y="335" width="100" height="20" uuid="a201a372-502e-4e6d-9daf-051dae9f18a5"/>
 				<textElement textAlignment="Center">
 					<font size="12"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{num8}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="183" y="40" width="46" height="20" uuid="d9642a32-895b-4382-b0ff-41f06ab32ae7"/>
+				<reportElement x="183" y="335" width="46" height="20" uuid="d9642a32-895b-4382-b0ff-41f06ab32ae7"/>
 				<textElement>
 					<font size="12"/>
 				</textElement>
 				<text><![CDATA[au (8)]]></text>
 			</staticText>
-			<staticText>
-				<reportElement x="230" y="39" width="224" height="20" uuid="fbab7775-72b6-4470-898d-15a5dc302d2f"/>
-				<textElement>
-					<font size="12"/>
-				</textElement>
-				<text><![CDATA[]]></text>
-			</staticText>
 			<textField>
-				<reportElement x="230" y="42" width="192" height="17" uuid="29f4c54f-ecef-4754-833e-24b8ac569c3f"/>
+				<reportElement x="233" y="334" width="195" height="20" uuid="29f4c54f-ecef-4754-833e-24b8ac569c3f"/>
 				<textElement textAlignment="Center">
 					<font size="12"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{numO8}]]></textFieldExpression>
 			</textField>
-			<textField>
-				<reportElement x="96" y="60" width="347" height="20" uuid="665516b1-b760-4c76-86f1-4888022d9777"/>
-				<textElement textAlignment="Center">
-					<font size="12"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$P{num07}]]></textFieldExpression>
-			</textField>
-			<staticText>
-				<reportElement x="40" y="80" width="414" height="20" uuid="d817ee84-56c8-4203-a2db-6ae8dc654609"/>
-				<textElement>
-					<font size="12"/>
-				</textElement>
-				<text><![CDATA[]]></text>
-			</staticText>
-			<textField>
-				<reportElement x="40" y="80" width="290" height="20" uuid="a4d5e687-a907-4634-98de-de912b6014c5"/>
-				<textElement textAlignment="Center">
-					<font size="12"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$P{numo8}]]></textFieldExpression>
-			</textField>
 		</band>
-	</columnHeader>
+	</title>
 	<detail>
 		<band height="175" splitType="Stretch">
 			<componentElement>
@@ -764,95 +714,95 @@ Fitiavana-Tanindrazana- Fandrosoana
 				</jr:table>
 			</componentElement>
 		</band>
-		<band height="200">
+		<band height="167">
 			<componentElement>
-				<reportElement key="table 2" style="table 2" x="15" y="43" width="524" height="143" uuid="707a3eb4-0bf5-480b-aece-f3c9f697923e"/>
+				<reportElement key="table 2" style="table 2" x="15" y="43" width="539" height="104" uuid="707a3eb4-0bf5-480b-aece-f3c9f697923e"/>
 				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" whenNoDataType="Blank">
 					<datasetRun subDataset="Table Dataset 3" uuid="839d67fe-e151-4fca-b00b-3b979726a58d">
 						<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.JREmptyDataSource(1)]]></dataSourceExpression>
 					</datasetRun>
 					<jr:column width="90" uuid="4baeada7-1b52-4f6f-a9b8-8165dacc8f0a">
+						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Colonne1"/>
 						<jr:columnHeader style="table 2_CH" height="54" rowSpan="1">
 							<staticText>
 								<reportElement x="0" y="0" width="90" height="54" uuid="f56b8626-76c1-4b43-97f9-e1476fcaf778"/>
-								<textElement>
+								<textElement textAlignment="Center">
 									<font size="12"/>
 								</textElement>
 								<text><![CDATA[No DE LA NOMENCLATURE]]></text>
 							</staticText>
 						</jr:columnHeader>
-						<jr:columnFooter style="table 2_CH" height="30" rowSpan="1"/>
-						<jr:detailCell style="table 2_TD" height="20" rowSpan="1"/>
+						<jr:detailCell style="table 2_TD" height="50" rowSpan="1"/>
 					</jr:column>
 					<jr:column width="90" uuid="c43f7b02-104a-4463-9f4f-a73c5f239430">
+						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Colonne2"/>
 						<jr:columnHeader style="table 2_CH" height="54" rowSpan="1">
 							<staticText>
 								<reportElement x="0" y="0" width="90" height="54" uuid="a29a9249-4a47-4482-928d-8bc254204bc2"/>
-								<textElement>
+								<textElement textAlignment="Center">
 									<font size="12"/>
 								</textElement>
 								<text><![CDATA[EXISTANT AU  01 Janvier]]></text>
 							</staticText>
 						</jr:columnHeader>
-						<jr:columnFooter style="table 2_CH" height="30" rowSpan="1"/>
-						<jr:detailCell style="table 2_TD" height="20" rowSpan="1"/>
+						<jr:detailCell style="table 2_TD" height="50" rowSpan="1"/>
 					</jr:column>
 					<jr:column width="90" uuid="18b958dc-5ee0-468d-b251-6d7567c2f129">
+						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Colonne3"/>
 						<jr:columnHeader style="table 2_CH" height="54" rowSpan="1">
 							<staticText>
 								<reportElement x="0" y="0" width="90" height="54" uuid="8639b0cb-99bc-4ca1-9825-16045855bda9"/>
-								<textElement>
+								<textElement textAlignment="Center">
 									<font size="12"/>
 								</textElement>
 								<text><![CDATA[ENTREE PENDANT L'ANNEE]]></text>
 							</staticText>
 						</jr:columnHeader>
-						<jr:columnFooter style="table 2_CH" height="30" rowSpan="1"/>
-						<jr:detailCell style="table 2_TD" height="20" rowSpan="1"/>
+						<jr:detailCell style="table 2_TD" height="50" rowSpan="1"/>
 					</jr:column>
 					<jr:column width="90" uuid="826c5ec8-acf0-4e18-ab90-14fbac1032fd">
+						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Colonne4"/>
 						<jr:columnHeader style="table 2_CH" height="54" rowSpan="1">
 							<staticText>
 								<reportElement x="0" y="0" width="90" height="54" uuid="69765e9f-ba40-4dc5-8382-a2884fe8a9a0"/>
-								<textElement>
+								<textElement textAlignment="Center">
 									<font size="12"/>
 								</textElement>
 								<text><![CDATA[TOTAL DE L'EXISTANT ET DES ENTREES]]></text>
 							</staticText>
 						</jr:columnHeader>
-						<jr:columnFooter style="table 2_CH" height="30" rowSpan="1"/>
-						<jr:detailCell style="table 2_TD" height="20" rowSpan="1"/>
+						<jr:detailCell style="table 2_TD" height="50" rowSpan="1"/>
 					</jr:column>
 					<jr:column width="90" uuid="00e0d27a-e588-4258-8fcb-9a931f1e9653">
+						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Colonne5"/>
 						<jr:columnHeader style="table 2_CH" height="54" rowSpan="1">
 							<staticText>
 								<reportElement x="0" y="0" width="90" height="54" uuid="af28a8fb-71f9-4e09-9e60-1fef73edb719"/>
-								<textElement>
+								<textElement textAlignment="Center">
 									<font size="12"/>
 								</textElement>
 								<text><![CDATA[SORTIE PENDANT L'ANNEE]]></text>
 							</staticText>
 						</jr:columnHeader>
-						<jr:columnFooter style="table 2_CH" height="30" rowSpan="1"/>
-						<jr:detailCell style="table 2_TD" height="20" rowSpan="1"/>
+						<jr:detailCell style="table 2_TD" height="50" rowSpan="1"/>
 					</jr:column>
 					<jr:column width="90" uuid="49cd65c9-55dd-47b1-96d6-703a915be61f">
+						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Colonne6"/>
 						<jr:columnHeader style="table 2_CH" height="54" rowSpan="1">
 							<staticText>
 								<reportElement x="0" y="0" width="90" height="54" uuid="1eb81cc3-2b51-4128-a988-c9bc568ccac1"/>
-								<textElement>
+								<textElement textAlignment="Center">
 									<font size="12"/>
 								</textElement>
 								<text><![CDATA[RESTE AU 31 DECEMBRE]]></text>
 							</staticText>
 						</jr:columnHeader>
-						<jr:columnFooter style="table 2_CH" height="30" rowSpan="1"/>
-						<jr:detailCell style="table 2_TD" height="20" rowSpan="1"/>
+						<jr:detailCell style="table 2_TD" height="50" rowSpan="1"/>
 					</jr:column>
 				</jr:table>
 			</componentElement>
 			<staticText>
-				<reportElement x="173" y="0" width="130" height="20" uuid="76f67fc6-7459-4738-ac40-cd05578a840a"/>
+				<reportElement x="215" y="10" width="108" height="20" uuid="76f67fc6-7459-4738-ac40-cd05578a840a"/>
 				<textElement>
 					<font size="12"/>
 				</textElement>

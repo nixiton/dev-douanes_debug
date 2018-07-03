@@ -118,12 +118,11 @@
 
  			<div class="col-md-12">
 			
- 			Seront portés en entrée dans les écritures du comptable <strong>#{gacBean.curentOperation1.direction.designation}</strong> les matières et objets ci-après désignés provenant de ..#{gacBean.curentOperation1.mat.origine}.........................................................
+ 			Seront portés en entrée dans les écritures du comptable <strong>#{gacBean.curentOperation1.direction.designation}</strong> les matières et objets ci-après désignés provenant de #{gacBean.curentOperation1.listMat[0].design.origine}.........................................................
 			<!--  <p:inputText id="comptable1" value="#{JasperTableExampleBean.ordreEB.comptable}"  />
 			<p:watermark for="comptable1" value="#{gacBean.curentOperation1.direction.designation}" />
 			<p:inputText id="matiere" value="#{JasperTableExampleBean.ordreEB.matieres}"  /> 
 			<p:watermark for="matiere" value="#{gacBean.curentOperation1.mat.origine}" />  -->
-			#{gacBean.curentOperation1.listMat[0].design.origine}
  		</div>
 
 
@@ -198,10 +197,15 @@
  			Arrêté le présent ordre d'entrée à (1) <p:inputText value="#{JasperTableExampleBean.ordreEB.ordre}" style="text-align: center;"></p:inputText> article(s) évalué(s) à la somme de (1)
          <p:inputText value="#{JasperTableExampleBean.ordreEB.somme}" style="text-align: center;"></p:inputText><br></br><br></br><br></br>
 
- 			<div class="col-md-6">Le comptable ..<strong>#{gacBean.curentOperation1.operateur.nomAgent}</strong>.. présent en charge des matières désignées et objets désignés ci-dessus dont j'ai vérifié la concordance avec le (3) <p:inputText value="#{JasperTableExampleBean.ordreEB.concordance}" style="text-align: center;width: 30%;"></p:inputText>, le<p:inputText value="#{JasperTableExampleBean.ordreEB.date2}" style="text-align: center;width: 30%;"></p:inputText><br></br><br></br>
+ 			<div class="col-md-6">Le comptable ..<strong>#{gacBean.curentOperation1.operateur.nomAgent}</strong>.. présent en charge des matières désignées et objets désignés ci-dessus dont j'ai vérifié la concordance avec le (3) <p:inputText value="#{JasperTableExampleBean.ordreEB.concordance}" style="text-align: center;width: 30%;"></p:inputText>
+ 			, le <strong>
+ 				<h:outputText value="#{gacBean.curentOperation1.date}">
+                	<f:convertDateTime pattern="dd MMMM yyyy" locale="fr-Fr" timeZone="GMT+3"/>
+                </h:outputText>
+ 			</strong><br></br><br></br>
 			<!-- <p:inputText id="comptable" value="#{JasperTableExampleBean.ordreEB.comptable1}"  />
 			<p:watermark for="comptable" value="#{gacBean.curentOperation1.operateur.nomAgent}" />   -->
- 			Le (4) <strong>#{gacBean.curentOperation1.date}</strong>..
+ 			Le (4) <p:inputText value="#{JasperTableExampleBean.ordreEB.date2}" style="text-align: center;width: 30%;"></p:inputText>
 			<br/><br/><br/><br/><br/>
 			<p style="background-color:#F2F2F2;font-size: 11px!important;">
 				(1)En toutes lettres.<br/>
@@ -214,12 +218,22 @@
  			</div>
 
  			<div class="col-md-6">
- 				A <p:inputText value="#{JasperTableExampleBean.ordreEB.lieu}" style="text-align: center;"></p:inputText>, le ..<strong>#{gacBean.curentOperation1.date}</strong>..<br></br>
+ 				A <p:inputText value="#{JasperTableExampleBean.ordreEB.lieu}" style="text-align: center;"></p:inputText>
+ 				, le ..<strong>
+	 				<h:outputText value="#{gacBean.curentOperation1.date}">
+	                	<f:convertDateTime pattern="dd MMMM yyyy" locale="fr-Fr" timeZone="GMT+3"/>
+	                </h:outputText>
+ 				</strong>..<br></br>
  				Le comptable (2) <strong> #{gacBean.curentOperation1.operateur.nomAgent}</strong>.<br/><br/><br/>
  				<p align="center">Déclaration de prise en charge</p>
  				Le comptable déclare avoir reçu et pris en charge les matières et objets mentionnés dans le tableau ci-dessus.<br></br>
 
- 				A<p:inputText value="#{JasperTableExampleBean.ordreEB.date1}" style="text-align: center;"></p:inputText>, le (5) <strong>#{gacBean.curentOperation1.date}</strong>..<br></br>
+ 				A<p:inputText value="#{JasperTableExampleBean.ordreEB.lieu1}" style="text-align: center;"></p:inputText>
+ 				, le (5) <strong>
+	 				<h:outputText value="#{gacBean.curentOperation1.date}">
+	                	<f:convertDateTime pattern="dd MMMM yyyy" locale="fr-Fr" timeZone="GMT+3"/>
+	                </h:outputText>
+ 				</strong>..<br></br>
 
  				Le comptable (2) <strong>#{gacBean.curentOperation1.operateur.nomAgent}</strong>  <br></br><br></br><br></br><br></br><br></br>
 
