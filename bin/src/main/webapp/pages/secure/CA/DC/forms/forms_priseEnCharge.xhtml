@@ -1,0 +1,228 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+<h:head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>JSF Primefaces Multiple File Upload with Ajax using
+        advanced mode</title>
+</h:head>
+<h:body>
+<div class="col-md-4"></div>
+<div class="box dark col-md-4">
+
+    <div class="body">
+
+        <h:form id="fileUpoadForm" class="form-horizontal" prependId="false"
+                enctype="multipart/form-data">
+
+            
+            <p:messages id="messages" />
+
+            <div class="form-group">
+
+
+
+                    <!--label for="text1" class="control-label col-lg-4">Type des objets
+                    </label>
+
+                    <div class="col-lg-6">
+
+                        <p:selectOneMenu     styleClass="form-control top" converter="#{refConverter}" value="#{depositaireBean.typeObjet}">
+                            <f:selectItem itemValue="#{null}" itemLabel="select" /> 
+                            <f:selectItems value="#{siseBean.listTypeObjet}" var="type" itemLabel="#{type.designation}"/>
+                            
+                        </p:selectOneMenu>
+
+                    <hr></hr>
+
+                    </div-->
+                
+                    
+
+
+                    <label for="text1" class="control-label col-lg-4">Codification des articles
+                    </label>
+
+                    <div class="col-lg-6">
+
+                    <!--h:selectOneMenu  styleClass="form-control top" value="#{saisieMatExMB.nomenclature}">
+                        <f:selectItem itemValue="#{null}" itemLabel="select" />
+                            <f:selectItems value="#{saisieNomMB.nomlenclatureList}" var="nomenclature" itemLabel="#{nomenclature.nomenclature}"/>                                                                       
+
+                    </h:selectOneMenu-->
+
+                        <p:selectOneMenu id="zone"  styleClass="form-control top" converter="#{refConverter}" value="#{depositaireBean.codeArticle}">
+                            <f:selectItem itemValue="#{null}" itemLabel="--select--" /> 
+                            <f:selectItems value="#{siseBean.listCodeArticle}" var="type" itemLabel="#{type.designation}"/>
+                            
+                        </p:selectOneMenu>
+                    <hr></hr>
+
+                    </div>
+
+
+                    
+                
+                    
+
+
+                    <label for="text1" class="control-label col-lg-4">Marque
+                    </label>
+
+                    <div class="col-lg-6">
+
+                    <p:selectOneMenu value="#{depositaireBean.marq}" converter="#{refConverter}" panelStyle="width:180px"  style="width:160px"
+                         effect="fade" var="t" filter="true" filterMatchMode="startsWith">
+                        <f:selectItem itemValue="#{null}" itemLabel="select" /> 
+                            <f:selectItems value="#{siseBean.listMarque}" var="theme" itemLabel="#{theme.designation}" itemValue="#{theme}" />
+                        <p:column>
+                            <h:outputText value="#{t.designation}" />
+                        </p:column>
+
+                    </p:selectOneMenu>
+
+                    <hr></hr>
+
+                    </div>
+
+                    
+
+
+
+                    <label for="text1" class="control-label col-lg-4">Caractéristiques
+                    </label>
+
+                    <div class="col-lg-6">
+                        
+                        <p:inputTextarea value="#{depositaireBean.renseignement}" rows="5" cols="20" counter="display" maxlength="250" counterTemplate="{0} restants." autoResize="false" />
+                            <h:outputText id="display" />
+                        <hr></hr>
+
+                    </div>
+
+
+
+                <label for="text1" class="control-label col-lg-4">Mode d'aquisition
+                </label>
+
+                <div class="col-lg-6">
+
+                     <p:selectOneMenu value="#{depositaireBean.acquisition}" converter="#{refConverter}" panelStyle="width:180px"  style="width:160px"
+                         effect="fade" var="t" filter="true" filterMatchMode="startsWith">
+                        <f:selectItem itemValue="#{null}" itemLabel="select" /> 
+                            <f:selectItems value="#{siseBean.listModeAcquisition}" var="theme" itemLabel="#{theme.designation}" itemValue="#{theme}" />
+                        <p:column>
+                            <h:outputText value="#{t.designation}" />
+                        </p:column>
+
+                    </p:selectOneMenu>
+
+
+                <hr></hr>
+
+                </div>
+
+                <label for="text1" class="control-label col-lg-4">Financement
+                </label>
+
+                <div class="col-lg-6">
+
+
+                    <p:selectOneMenu value="#{depositaireBean.financement}" converter="#{refConverter}" panelStyle="width:180px"  style="width:160px"
+                         effect="fade" var="t" filter="true" filterMatchMode="startsWith">
+                        <f:selectItem itemValue="#{null}" itemLabel="select" /> 
+                            <f:selectItems value="#{siseBean.listFinancement}" var="theme" itemLabel="#{theme.designation}" itemValue="#{theme}" />
+                        <p:column>
+                            <h:outputText value="#{t.designation}" />
+                        </p:column>
+                    </p:selectOneMenu>
+
+                <hr></hr>
+
+                </div>
+                
+                
+                <label for="text1" class="control-label col-lg-4">Fournisseur
+                </label>
+
+                <div class="col-lg-6">
+
+                    <p:selectOneMenu value="#{depositaireBean.fournisseur}" converter="#{refConverter}" panelStyle="width:180px"  style="width:160px"
+                         effect="fade" var="t" filter="true" filterMatchMode="startsWith">
+                        <f:selectItem itemValue="#{null}" itemLabel="--select--" /> 
+                            <f:selectItems value="#{siseBean.listFournisseur}" var="theme" itemLabel="#{theme.designation}" itemValue="#{theme}" />
+                        <p:column>
+                            <h:outputText value="#{t.designation}" />
+                        </p:column>
+                    </p:selectOneMenu>
+
+
+                <hr></hr>
+
+                </div>
+
+
+                <label for="text2" class="control-label col-lg-4">Prix
+                </label>
+
+                <div class="col-lg-6">
+
+                    <p:inputText id="nomenclature" required="true"
+                        value="#{depositaireBean.prix}"
+                        requiredMessage=""
+                        placeholder="Prix" styleClass="form-control top"></p:inputText>
+
+                </div>
+
+                <label for="text2" class="control-label col-lg-4">Nombre
+                </label>
+
+                <div class="col-lg-6">
+
+                    <p:inputText required="true"
+                        value="#{depositaireBean.nombre}"
+                        requiredMessage=""
+                        placeholder="Nombre" styleClass="form-control top"></p:inputText>
+
+                </div>
+                    
+
+                    <div class="col-lg-2"></div>
+
+            </div>
+
+
+
+            
+            
+            <div class="form-group">
+                <label for="text1" class="control-label col-lg-4"></label>
+
+                <div class="col-lg-4">
+                    <h:commandButton id="btnSignId" action="#{depositaireBean.addArticleNouv}" value="Créer"
+                        class="btn btn-lg btn-primary btn-block"/>
+                </div>
+
+                <div class="col-lg-4"></div>
+
+            </div>
+
+
+
+
+            
+
+
+        </h:form>
+
+    </div>
+
+</div>
+
+<div class="col-md-4"></div>
+</h:body>
+</html>
