@@ -150,14 +150,15 @@
                     <div class="col-lg-6">
 
 	                    <p:selectOneMenu value="#{depositaireBean.marq}" converter="#{refConverter}" panelStyle="width:180px"  style="width:160px"
-	                         effect="fade" var="t" filter="true" filterMatchMode="startsWith">
+	                         effect="fade"  filter="true" filterMatchMode="startsWith">
 	                        <f:selectItem itemValue="#{null}"  itemLabel="Selectionner" noSelectionOption="true"/> 
 	                 
 	                        <f:selectItems value="#{siseBean.listMarque}" var="theme" itemLabel="#{theme.designation}" itemValue="#{theme}" />
-	                        <p:column>
+	                       	<!-- <p:column>
 	                            <h:outputText value="#{t.designation}" />
-	                        </p:column>
-	                        <f:selectItem itemValue="#{siseBean.nouvmark}" itemLabel="Ajouter" />
+	                        </p:column> -->
+	                        
+	                        <f:selectItem itemValue="#{siseBean.nouvmark}" itemLabel=" + Ajouter" />
                 			<p:ajax listener="#{siseBean.addNewMarque}" />
 	                        
 	
@@ -276,13 +277,13 @@
 
 
 	                    <p:selectOneMenu value="#{depositaireBean.etat}" converter="#{refConverter}" panelStyle="width:180px"  style="width:160px"
-	                         effect="fade" var="t" filter="true" filterMatchMode="startsWith">
+	                         effect="fade" filter="true" filterMatchMode="startsWith">
 	                        <f:selectItem itemValue="#{null}" itemLabel="Selectionner" /> 
 	                            <f:selectItems value="#{siseBean.listEtatMateriel}" var="theme" itemLabel="#{theme.designation}" itemValue="#{theme}" />
-	                        <p:column>
+	                        <!-- <p:column>
 	                            <h:outputText value="#{t.designation}" />
-	                        </p:column>
-	
+	                        </p:column> -->
+	                        
 	                    </p:selectOneMenu>
 					</div>
                 </div>
