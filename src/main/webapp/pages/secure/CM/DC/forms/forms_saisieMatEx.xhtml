@@ -115,9 +115,13 @@
 					</div>
                    <div class="col-lg-6">
 
-                        <p:selectOneMenu id="zone"  styleClass="form-control top" converter="#{refConverter}" value="#{depositaireBean.typematerielToAdd}" panelStyle="width:160px"  style="width:140px">
+                        <p:selectOneMenu id="zone"  styleClass="form-control top" 
+                        converter="#{refConverter}" value="#{depositaireBean.typematerielToAdd}" 
+                        panelStyle="width:160px"  style="width:140px"
+                        filter="true" filterMatchMode="contains">
                             <f:selectItem itemValue="#{null}" itemLabel="Selectionner" /> 
-                            <f:selectItems value="#{siseBean.listTypeMateriel}" var="type" itemLabel="#{type.designation}"/>
+                            <!-- f:selectItems value="#{siseBean.listTypeMateriel}" var="type" itemLabel="#{type.designation}"/ -->
+                            <f:selectItems value="#{siseBean.groupeListTypeMateriel}" />
                             <p:ajax event="change" update="data" listener="#{depositaireBean.onTypeMaterielChange}" />
                         </p:selectOneMenu>
                     </div>

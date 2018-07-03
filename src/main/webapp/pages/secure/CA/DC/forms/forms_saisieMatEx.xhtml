@@ -58,9 +58,12 @@
 
                     </h:selectOneMenu-->
 
-                        <p:selectOneMenu id="zone"  styleClass="form-control top" converter="#{codeArtConverter}" value="#{depositaireBean.articleExToAdd.codeArticle}">
+                        <p:selectOneMenu id="zone"  styleClass="form-control top" 
+                        converter="#{codeArtConverter}" value="#{depositaireBean.articleExToAdd.codeArticle}"
+                        filter="true" filterMatchMode="contains">
                             <f:selectItem itemValue="#{null}" itemLabel="Selectionner"/> 
-                            <f:selectItems value="#{siseBean.listCodeArticle}" var="type" itemLabel="#{type.designation}"/>
+                            <!-- f:selectItems value="#{siseBean.listCodeArticle}" var="type" itemLabel="#{type.designation}"/-->
+                            <f:selectItems value="#{siseBean.groupeListArticle}" />
                             <f:selectItem itemValue="#{siseBean.nouvarticle}" itemLabel="Ajouter" />
                 			<p:ajax listener="#{siseBean.addNewArticle}" />
                         </p:selectOneMenu>

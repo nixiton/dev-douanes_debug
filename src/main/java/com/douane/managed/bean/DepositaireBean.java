@@ -218,7 +218,11 @@ public class DepositaireBean {
 	public void onTypeMaterielChange() {
 
 		// this.setNomencl(getTypemateriel().getNomenclature());
-		this.setNomencl(getTypematerielToAdd().getNomenclaureParent().getNomenclature());
+		if(getTypematerielToAdd()!=null) {
+			this.setNomencl(getTypematerielToAdd().getNomenclaureParent().getNomenclature());
+		}else {
+			this.setNomencl("");
+		}
 
 	}
 

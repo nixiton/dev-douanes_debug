@@ -19,9 +19,6 @@ import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
@@ -29,6 +26,8 @@ import javax.faces.bean.RequestScoped;
 import javax.faces.component.UIInput;
 import javax.faces.context.FacesContext;
 import javax.faces.event.AjaxBehaviorEvent;
+import javax.faces.model.SelectItem;
+import javax.faces.model.SelectItemGroup;
 
 import java.sql.SQLException;
 
@@ -1257,40 +1256,92 @@ public class SISEformBean {
         ajax.update("fileUpoadForm");
         ajax.execute("PF('widget_addNewJArticleDialog').hide()");
     }
-
-	/*
-	 * public void onRowCancel(RowEditEvent event) { FacesMessage msg = new
-	 * FacesMessage("Edit Cancelled", ((Referentiel)
-	 * event.getObject()).getId().toString());
-	 * FacesContext.getCurrentInstance().addMessage(null, msg); }
-	 */
-
-	/*
-	 * public void onCellEdit(CellEditEvent event) { Agent agent = (Agent)
-	 * RequestFilter.getSession().getAttribute("agent"); Object oldValue =
-	 * event.getOldValue(); Object newValue = event.getNewValue();
-	 * System.out.println("changging*********"); if (!oldValue.equals(newValue)) {
-	 * // Save to the database DataTable table = (DataTable) event.getSource();
-	 * Referentiel ref = (Referentiel) table.getRowData(); refmetierimpl.addRef(ref,
-	 * agent);
-	 * 
-	 * FacesContext.getCurrentInstance().addMessage("myerrorReferentiel", new
-	 * FacesMessage( FacesMessage.SEVERITY_INFO, "Modification terminée",
-	 * "nouveau valeur: " + newValue)); } }
-	 */
 	
-	/*public List<OpEntreeArticle> getListOpEntreeArticleValidateByDirection() {
-		Agent agent = (Agent) RequestFilter.getSession().getAttribute("agent");
-		Date sdate = new GregorianCalendar(2010, Calendar.JANUARY, 1).getTime();
-		Date edate = new GregorianCalendar(2200, Calendar.DECEMBER, 30).getTime();
-		System.out.println("LISTE DES ARTICLES**");
-		return usermetierimpl.getListOpEntreeArtByValideByDirection(EtatOperation.ACCEPTED, agent.getDirection(), sdate, edate);
+	
+
+	private List<SelectItem> groupeListTypeMateriel;
+	
+	public List<SelectItem> getGroupeListTypeMateriel() {
+		
+		if(groupeListTypeMateriel==null) {
+			System.out.println("get it");
+			List<SelectItem> lstgp = new ArrayList<SelectItem>();
+			Map<Nomenclature,List<TypeMateriel>> mapnl = new HashMap<Nomenclature, List<TypeMateriel>>();
+			for(TypeMateriel tm : getListTypeMateriel()) {
+				Nomenclature key = tm.getNomenclaureParent();
+				if(mapnl.containsKey(key)) {
+					List<TypeMateriel> list = mapnl.get(key); list.add(tm);
+				}
+				else {
+					List<TypeMateriel> list = new ArrayList<TypeMateriel>(); list.add(tm);
+					mapnl.put(key, list);
+				}
+			}
+			Iterator<Map.Entry<Nomenclature, List<TypeMateriel>>> iterator = mapnl.entrySet().iterator();
+			while(iterator.hasNext()){
+				Map.Entry<Nomenclature, List<TypeMateriel>> entry = iterator.next();
+				SelectItemGroup g = new SelectItemGroup(entry.getKey().getDesignation());
+				SelectItem[] lesitems = new SelectItem[entry.getValue().size()];
+				int i =0;
+				for(TypeMateriel tm: entry.getValue()) {
+					lesitems[i] = new SelectItem(tm, tm.getDesignation());
+					i=i+1;
+					
+				}
+				g.setSelectItems(lesitems);
+				lstgp.add(g);
+			}
+			System.out.println("got it");
+			System.out.println(lstgp.size());
+			groupeListTypeMateriel = lstgp;
+		}
+		return groupeListTypeMateriel;
 	}
 
-	public void setListOpEntreeArticleValidateByDirection(List<OpEntreeArticle> listOpEntreeArticleValidate) {
-		this.listOpEntreeArticleValidateByDirection = listOpEntreeArticleValidate;
+	public void setGroupeListTypeMateriel(List<SelectItem> groupeListTypeMateriel) {
+		this.groupeListTypeMateriel = groupeListTypeMateriel;
 	}
 
-	private List<OpEntreeArticle> listOpEntreeArticleValidateByDirection;*/
+
+	private List<SelectItem> groupeListArticle;
 	
+	public List<SelectItem> getGroupeListArticle() {
+		if(groupeListArticle==null) {
+			System.out.println("get it");
+			List<SelectItem> lstgp = new ArrayList<SelectItem>();
+			Map<TypeObjet,List<CodeArticle>> mapnl = new HashMap<TypeObjet, List<CodeArticle>>();
+			for(CodeArticle tm : getListCodeArticle()) {
+				TypeObjet key = tm.getTypeObjet();
+				if(mapnl.containsKey(key)) {
+					List<CodeArticle> list = mapnl.get(key); list.add(tm);
+				}
+				else {
+					List<CodeArticle> list = new ArrayList<CodeArticle>(); list.add(tm);
+					mapnl.put(key, list);
+				}
+			}
+			Iterator<Map.Entry<TypeObjet, List<CodeArticle>>> iterator = mapnl.entrySet().iterator();
+			while(iterator.hasNext()){
+				Map.Entry<TypeObjet, List<CodeArticle>> entry = iterator.next();
+				SelectItemGroup g = new SelectItemGroup(entry.getKey().getDesignation());
+				SelectItem[] lesitems = new SelectItem[entry.getValue().size()];
+				int i =0;
+				for(CodeArticle tm: entry.getValue()) {
+					lesitems[i] = new SelectItem(tm, tm.getTypeObjet().getDesignation()+" ("+tm.getDesignation()+")");
+					i=i+1;
+					
+				}
+				g.setSelectItems(lesitems);
+				lstgp.add(g);
+			}
+			System.out.println("got it");
+			System.out.println(lstgp.size());
+			groupeListArticle = lstgp;
+		}
+		return groupeListArticle;
+	}
+
+	public void setGroupeListArticle(List<SelectItem> groupeListArticle) {
+		this.groupeListArticle = groupeListArticle;
+	}
 }

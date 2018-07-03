@@ -113,13 +113,16 @@
 				</div>
                 <div class="col-lg-6">
 
-                    <p:selectOneMenu id="zone"  styleClass="form-control top" converter="#{refConverter}" value="#{depositaireBean.typematerielToAdd}" ajax="false">
-                        <f:selectItem itemValue="#{null}" itemLabel="Selectionner" /> 
-                        <f:selectItems value="#{siseBean.listTypeMateriel}" var="type" itemLabel="#{type.designation}" />
+                    <p:selectOneMenu id="zone"  styleClass="form-control top" 
+                    converter="#{refConverter}" value="#{depositaireBean.typematerielToAdd}" ajax="false"
+                    filter="true" filterMatchMode="contains">
+                        <f:selectItem itemValue="#{null}" itemLabel="Selectionner" noSelectionOption="true"/> 
+                        <!-- f:selectItems value="#{siseBean.listTypeMateriel}" var="type" itemLabel="#{type.designation}" /-->
+                        <f:selectItems value="#{siseBean.groupeListTypeMateriel}" />
                         <p:ajax event="change" update="data" listener="#{depositaireBean.onTypeMaterielChange}" />
                     </p:selectOneMenu>
 
-                </div> 
+                </div>
              </div>               
              <hr></hr>
 			<div class="row">
