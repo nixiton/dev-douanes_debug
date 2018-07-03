@@ -83,7 +83,7 @@
     </p:dialog>
 
 
-    <p:dialog id="detail" widgetVar="detail" header="Détails Matériel" showEffect="explode" hideEffect="explode"  width="750" height="500">
+    <p:dialog id="detail" widgetVar="detail" header="Détails Matériel" showEffect="explode" hideEffect="explode"  width="750" height="650">
       	<br></br>
         <table class="table responsive-table">
 
@@ -143,10 +143,11 @@
                         <td><b>Financement</b></td>
                         <td align="left">#{suivieditionBean.materiel.design.financement.designation}</td>
                     </tr>
+                    <!--  
                     <tr>
                         <td><b>Montant</b></td>
-                        <td align="left">#{suivieditionBean.materiel.design.pu}</td>
-                    </tr>
+                        <td align="left">dièse{suivieditionBean.materiel.design.pu}</td>
+                    </tr> -->
                     <tr>
                         <td><b>Référence pj</b></td>
                         <td align="left">#{suivieditionBean.materiel.design.refFacture}</td>
@@ -157,7 +158,38 @@
                         <td align="left">dièse{suivieditionBean.materiel.design.fournisseur.designation}</td>
                     </tr>  
                     --> 
-                    </p:panel>            
+                    </p:panel>  
+                    <tr>
+                    	<td><strong>Codification</strong></td>
+						<td>#{suivieditionBean.materiel.code}</td>
+                    </tr>
+                    
+                    <tr>
+                   	 	<td><strong>Image</strong></td>
+						<td>
+						    <p:panel rendered="#{suivieditionBean.materiel.design.image != null}">
+						        <h:graphicImage url="data:image/jpg;base64,#{suivieditionBean.materiel.design.image}"
+						                        width="100px" height="75px" title="#{suivieditionBean.materiel.reference}" library="images" onclick="PF('dlg').show();">
+						        </h:graphicImage>
+						        
+						       	<p:dialog widgetVar="dlg" resizable="f" height="330px" width="530px" onShow="js">
+								    <h:graphicImage  library="images" url="data:image/jpg;base64,#{suivieditionBean.materiel.design.image}" width="500px" height="300px"/>
+								 </p:dialog>
+						    </p:panel>
+						</td>
+                    </tr>
+                   
+                    
+                    <tr>
+                    	<td><strong>QRCODE</strong></td>
+						<td>           					
+							<p:barcode value="${suivieditionBean.materiel.direc.designation} - 
+							${suivieditionBean.materiel.design.typematerieladd.designation  } -
+							${suivieditionBean.materiel.numSerie  } -
+							${suivieditionBean.materiel.design.anneeAcquisition}" type="qr"/>
+						</td>
+                    </tr>
+	                              
             </table>
      
     </p:dialog>
