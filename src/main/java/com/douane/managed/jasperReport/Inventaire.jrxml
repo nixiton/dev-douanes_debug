@@ -47,10 +47,14 @@
 		<field name="row9" class="java.lang.Float"/>
 		<field name="row10" class="com.douane.entite.TypeMateriel"/>
 		<field name="row11" class="com.douane.entite.Designation"/>
+		<sortField name="row0"/>
 		<sortField name="row2"/>
 		<variable name="Total" class="java.lang.Float" calculation="Sum">
 			<variableExpression><![CDATA[$F{row9}]]></variableExpression>
 		</variable>
+		<group name="Group by nomenclature">
+			<groupExpression><![CDATA[$F{row0}]]></groupExpression>
+		</group>
 		<group name="Group by designation" keepTogether="true">
 			<groupExpression><![CDATA[$F{row2}]]></groupExpression>
 		</group>
@@ -222,13 +226,16 @@
 	<detail>
 		<band height="241" splitType="Stretch">
 			<componentElement>
-				<reportElement key="table" style="table" x="0" y="22" width="560" height="198" uuid="85e11934-488a-4b34-a260-35210950fe35"/>
+				<reportElement key="table" style="table" x="0" y="0" width="560" height="230" uuid="85e11934-488a-4b34-a260-35210950fe35"/>
 				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
 					<datasetRun subDataset="Table Dataset 1" uuid="1450334a-7813-447b-b77a-0e1556b926b3">
 						<dataSourceExpression><![CDATA[$P{dataSource}]]></dataSourceExpression>
 					</datasetRun>
 					<jr:column width="40" uuid="c4886a22-3445-484a-b5f4-6109070b1f94">
 						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Colonne1"/>
+						<jr:groupHeader groupName="Group by nomenclature">
+							<jr:cell height="30" rowSpan="1"/>
+						</jr:groupHeader>
 						<jr:columnHeader style="table_CH" height="108" rowSpan="2">
 							<staticText>
 								<reportElement x="0" y="0" width="40" height="108" uuid="bbd03a0f-a7dd-4680-b7e8-ea77943c7f8d"/>
@@ -249,6 +256,17 @@
 					</jr:column>
 					<jr:column width="90" uuid="1302fb70-1631-4757-905c-c5c810ca7ec1">
 						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Colonne2"/>
+						<jr:groupHeader groupName="Group by nomenclature">
+							<jr:cell height="30" rowSpan="1">
+								<textField>
+									<reportElement x="0" y="0" width="90" height="30" uuid="7b9bc207-cf5b-458b-91a8-269b56ddd49a"/>
+									<textElement textAlignment="Center" verticalAlignment="Middle">
+										<font size="11" isBold="true"/>
+									</textElement>
+									<textFieldExpression><![CDATA["Nomenclature : " + $F{row0}]]></textFieldExpression>
+								</textField>
+							</jr:cell>
+						</jr:groupHeader>
 						<jr:columnHeader style="table_CH" height="108" rowSpan="2">
 							<staticText>
 								<reportElement x="0" y="0" width="90" height="108" uuid="acf69d6c-9e8d-49ad-858c-909a3504f67a"/>
@@ -269,6 +287,9 @@
 					</jr:column>
 					<jr:column width="50" uuid="236ce356-769c-493a-a1a0-18fc12e06aba">
 						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Colonne3"/>
+						<jr:groupHeader groupName="Group by nomenclature">
+							<jr:cell height="30" rowSpan="1"/>
+						</jr:groupHeader>
 						<jr:columnHeader style="table_CH" height="108" rowSpan="2">
 							<staticText>
 								<reportElement x="0" y="0" width="50" height="108" uuid="066b33a4-428b-4b63-b3e0-4c1c3b8eddaf"/>
@@ -289,6 +310,9 @@
 					</jr:column>
 					<jr:column width="60" uuid="5109a2a8-cfaf-4335-b1b5-68c40d4c5911">
 						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Colonne4"/>
+						<jr:groupHeader groupName="Group by nomenclature">
+							<jr:cell height="30" rowSpan="1"/>
+						</jr:groupHeader>
 						<jr:columnHeader style="table_CH" height="108" rowSpan="2">
 							<staticText>
 								<reportElement x="0" y="0" width="60" height="108" uuid="a2293e7b-0404-4162-af6d-663d46404dd7"/>
@@ -320,6 +344,9 @@
 						</jr:columnHeader>
 						<jr:column width="45" uuid="da9deba9-c2e0-460d-ad19-914c86663e01">
 							<property name="com.jaspersoft.studio.components.table.model.column.name" value="Colonne5"/>
+							<jr:groupHeader groupName="Group by nomenclature">
+								<jr:cell height="30" rowSpan="1"/>
+							</jr:groupHeader>
 							<jr:columnHeader style="table_CH" height="78" rowSpan="1">
 								<staticText>
 									<reportElement x="0" y="0" width="45" height="78" uuid="47ab443d-a2c6-4578-b418-3e209b2f7792"/>
@@ -340,6 +367,9 @@
 						</jr:column>
 						<jr:column width="45" uuid="79061a4b-20cd-4cae-992c-480f15f76857">
 							<property name="com.jaspersoft.studio.components.table.model.column.name" value="Colonne6"/>
+							<jr:groupHeader groupName="Group by nomenclature">
+								<jr:cell height="30" rowSpan="1"/>
+							</jr:groupHeader>
 							<jr:columnHeader style="table_CH" height="78" rowSpan="1">
 								<staticText>
 									<reportElement x="0" y="0" width="45" height="78" uuid="e4b73d1e-d87e-4054-9612-a0e0be72c87d"/>
@@ -360,6 +390,9 @@
 						</jr:column>
 						<jr:column width="45" uuid="89791dc7-eeb2-4eb1-b690-e4e3a5fddf61">
 							<property name="com.jaspersoft.studio.components.table.model.column.name" value="Colonne7"/>
+							<jr:groupHeader groupName="Group by nomenclature">
+								<jr:cell height="30" rowSpan="1"/>
+							</jr:groupHeader>
 							<jr:columnHeader style="table_CH" height="78" rowSpan="1">
 								<staticText>
 									<reportElement x="0" y="0" width="45" height="78" uuid="4dfcf0db-7af4-44ae-9b29-6caaa9509c26"/>
@@ -380,6 +413,9 @@
 						</jr:column>
 						<jr:column width="45" uuid="d557eaf1-57a3-4eea-a0fb-40995e372543">
 							<property name="com.jaspersoft.studio.components.table.model.column.name" value="Colonne8"/>
+							<jr:groupHeader groupName="Group by nomenclature">
+								<jr:cell height="30" rowSpan="1"/>
+							</jr:groupHeader>
 							<jr:columnHeader style="table_CH" height="78" rowSpan="1">
 								<staticText>
 									<reportElement x="0" y="0" width="45" height="78" uuid="4fe78fbe-1a7d-456a-827a-4de3ca1277af"/>
@@ -401,6 +437,9 @@
 					</jr:columnGroup>
 					<jr:column width="50" uuid="c6e36f6c-0d7f-4b39-bee8-0dbcd8dcf781">
 						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Colonne9"/>
+						<jr:groupHeader groupName="Group by nomenclature">
+							<jr:cell height="30" rowSpan="1"/>
+						</jr:groupHeader>
 						<jr:columnHeader style="table_CH" height="108" rowSpan="2">
 							<staticText>
 								<reportElement x="0" y="0" width="50" height="108" uuid="c5a53fca-a8ea-4cd6-a256-69b8ed0c4098"/>
@@ -427,6 +466,9 @@
 					</jr:column>
 					<jr:column width="90" uuid="c4351642-2ed6-44fa-afd6-4228339cf116">
 						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Colonne10"/>
+						<jr:groupHeader groupName="Group by nomenclature">
+							<jr:cell height="30" rowSpan="1"/>
+						</jr:groupHeader>
 						<jr:columnHeader style="table_CH" height="108" rowSpan="2">
 							<staticText>
 								<reportElement x="0" y="0" width="90" height="108" uuid="801393d6-763a-4172-a5d5-e8e7d0618734"/>
