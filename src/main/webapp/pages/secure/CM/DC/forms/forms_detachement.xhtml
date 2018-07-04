@@ -29,15 +29,16 @@
                 	<div class="col-lg-6">
 
 	                    <p:selectOneMenu styleClass="form-control top" converter="#{agentConverter}" value="#{depositaireBean.detenteurDett}"
-	                    effect="fade" id="det" var="t" filter="true" filterMatchMode="startsWith"
+	                    effect="fade" id="det"  filter="true" filterMatchMode="startsWith"
 	                    required="true"
 	                    requiredMessage="Détenteur obligatoire"
 	                    	                    >
 	                            <f:selectItem itemValue="#{null}" itemLabel="Selectionner" /> 
 	                            <f:selectItems value="#{userMB.userListByDirection}" var="type" itemLabel="#{type.im}" itemValue="#{type}"/>
-	                            <p:column>
+	                            <!-- <p:column>
 	                            <h:outputText value="#{t.im}" />
-	                        	</p:column>
+	                        	</p:column> -->
+	                            
 	                            <p:ajax process="@this" event="change" listener="#{depositaireBean.mySetCurrentListMateriel}" update="mat,@this,nom"/>
 	                        </p:selectOneMenu>
 					</div>
@@ -100,15 +101,16 @@
 					</div>
 	                <div class="col-lg-6">
 	
-	                    <p:selectOneMenu id="mat" styleClass="form-control top" value="#{depositaireBean.materielSeclectedDett}" converter="#{materielConverter}"   panelStyle="width:180px"  style="width:160px"
-	                         effect="fade" var="t" filter="true" filterMatchMode="startsWith"
+	                    <p:selectOneMenu id="mat" styleClass="form-control top" value="#{depositaireBean.materielSeclectedDett}" converter="#{materielConverter}"  
+	                         effect="fade" filter="true" filterMatchMode="startsWith"
 	                         required="true"
 	                    requiredMessage="Matériel obligatoire">
 	                        <f:selectItem itemValue="#{null}" itemLabel="Selectionner" /> 
 	                            <f:selectItems value="#{depositaireBean.currentListMateriel}" var="theme" itemLabel="#{theme.numSerie}" itemValue="#{theme}" />
-	                        <p:column>
+	                        <!-- <p:column>
 	                            <h:outputText value="#{t.numSerie}" />
-	                        </p:column>
+	                        </p:column> -->
+	                        
 	                        <p:ajax event="change" update="marque ref num codification" listener="#{depositaireBean.onChangeMateriel}"/>
 	                    </p:selectOneMenu>
 					</div>
@@ -178,15 +180,16 @@
 					</div>
 	                <div class="col-lg-6">
 	
-	                    <p:selectOneMenu value="#{depositaireBean.motifDettachement}" converter="#{refConverter}" panelStyle="width:180px"  style="width:160px"
-	                         effect="fade" var="t" filter="true" filterMatchMode="startsWith"
+	                    <p:selectOneMenu value="#{depositaireBean.motifDettachement}" converter="#{refConverter}" 
+	                         effect="fade" filter="true" filterMatchMode="startsWith"
 	                         required="true"
 	                    requiredMessage="Motif obligatoire">
 	                        <f:selectItem itemValue="#{null}" itemLabel="Selectionner" /> 
 	                            <f:selectItems value="#{depositaireBean.listMotifDettachement}" var="theme" itemLabel="#{theme.designation}" itemValue="#{theme}" />
-	                        <p:column>
+	                        <!-- <p:column>
 	                            <h:outputText value="#{t.designation}" />
-	                        </p:column>
+	                        </p:column> -->
+	                        
 	
 	                    </p:selectOneMenu>
 					</div>

@@ -211,7 +211,7 @@
                 <div class="col-lg-6">
 
 
-                    <p:selectOneMenu value="#{depositaireBean.etat}" converter="#{refConverter}" panelStyle="width:180px"  style="width:160px"
+                    <p:selectOneMenu value="#{depositaireBean.etat}" converter="#{refConverter}" 
                          effect="fade" filter="true" filterMatchMode="startsWith">
                         <f:selectItem itemValue="#{null}" itemLabel="Selectionner" /> 
                             <f:selectItems value="#{siseBean.listEtatMateriel}" var="theme" itemLabel="#{theme.designation}" itemValue="#{theme}" />
@@ -248,7 +248,7 @@
 				</div>
                 <div class="col-lg-6">
 
-                     <p:selectOneMenu value="#{depositaireBean.acquisition}" converter="#{refConverter}" panelStyle="width:180px"  style="width:160px"
+                     <p:selectOneMenu value="#{depositaireBean.acquisition}" converter="#{refConverter}" 
                          effect="fade"  filter="true" filterMatchMode="startsWith">
                         <f:selectItem itemValue="#{null}" itemLabel="Selectionner" /> 
                             <f:selectItems value="#{siseBean.listModeAcquisition}" var="theme" itemLabel="#{theme.designation}" itemValue="#{theme}" />
@@ -304,7 +304,7 @@
                 <div class="col-lg-6">
 
 
-                    <p:selectOneMenu value="#{depositaireBean.financement}" converter="#{refConverter}" panelStyle="width:180px"  style="width:160px"
+                    <p:selectOneMenu value="#{depositaireBean.financement}" converter="#{refConverter}" 
                          effect="fade"  filter="true" filterMatchMode="startsWith">
                         <f:selectItem itemValue="#{null}" itemLabel="Selectionner" /> 
                             <f:selectItems value="#{siseBean.listFinancement}" var="theme" itemLabel="#{theme.designation}" itemValue="#{theme}" />

@@ -55,13 +55,14 @@
 					</div>
                     <div class="col-lg-6">
 
-                    <p:selectOneMenu value="#{depositaireBean.articleTomodify.marqueArticle}" converter="#{refConverter}" panelStyle="width:180px"  style="width:160px"
-                         effect="fade" var="t" filter="true" filterMatchMode="startsWith">
-                        <f:selectItem itemValue="#{null}" itemLabel="select" /> 
+                    <p:selectOneMenu value="#{depositaireBean.articleTomodify.marqueArticle}" converter="#{refConverter}" 
+                         effect="fade"  filter="true" filterMatchMode="startsWith">
+                        <f:selectItem itemValue="#{null}" itemLabel="Selectionner" /> 
                             <f:selectItems value="#{siseBean.listMarque}" var="theme" itemLabel="#{theme.designation}" itemValue="#{theme}" />
-                        <p:column>
+                        <!-- <p:column>
                             <h:outputText value="#{t.designation}" />
-                        </p:column>
+                        </p:column> -->
+                        
 
                     </p:selectOneMenu>
 

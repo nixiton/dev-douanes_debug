@@ -117,7 +117,6 @@
 
                         <p:selectOneMenu id="zone"  styleClass="form-control top" 
                         converter="#{refConverter}" value="#{depositaireBean.typematerielToAdd}" 
-                        panelStyle="width:160px"  style="width:140px"
                         filter="true" filterMatchMode="contains">
                             <f:selectItem itemValue="#{null}" itemLabel="Selectionner" /> 
                             <!-- f:selectItems value="#{siseBean.listTypeMateriel}" var="type" itemLabel="#{type.designation}"/ -->
@@ -149,7 +148,7 @@
 					</div>
                     <div class="col-lg-6">
 
-	                    <p:selectOneMenu value="#{depositaireBean.marq}" converter="#{refConverter}" panelStyle="width:180px"  style="width:160px"
+	                    <p:selectOneMenu value="#{depositaireBean.marq}" converter="#{refConverter}" 
 	                         effect="fade"  filter="true" filterMatchMode="startsWith">
 	                        <f:selectItem itemValue="#{null}"  itemLabel="Selectionner" noSelectionOption="true"/> 
 	                 
@@ -168,7 +167,7 @@
                  <hr></hr>
                 <div class="row">
 					<div class="col-lg-4 col-lg-offset-1">   
-	                    <label for="text1" class="control-label col-lg-4">Prix Unitaire
+	                    <label for="text1" class="control-label col-lg-4">Montant
 	                    </label>
 					</div>
                     <div class="col-lg-6">
@@ -177,7 +176,7 @@
                         value="#{depositaireBean.unitPrice}"
             			required="true"
                         requiredMessage="Prix Unitaire obligatoire"
-                        placeholder="Prix unitaire" styleClass="form-control top"></p:inputText>
+                        placeholder="Montant" styleClass="form-control top"></p:inputText>
                     </div>
                   </div>
 				 <hr></hr>
@@ -276,7 +275,7 @@
                 	<div class="col-lg-6">
 
 
-	                    <p:selectOneMenu value="#{depositaireBean.etat}" converter="#{refConverter}" panelStyle="width:180px"  style="width:160px"
+	                    <p:selectOneMenu value="#{depositaireBean.etat}" converter="#{refConverter}" 
 	                         effect="fade" filter="true" filterMatchMode="startsWith">
 	                        <f:selectItem itemValue="#{null}" itemLabel="Selectionner" /> 
 	                            <f:selectItems value="#{siseBean.listEtatMateriel}" var="theme" itemLabel="#{theme.designation}" itemValue="#{theme}" />

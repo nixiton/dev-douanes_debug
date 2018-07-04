@@ -31,13 +31,14 @@
 					</div>
 	                <div class="col-lg-6">
 	
-	                    <p:selectOneMenu value="#{depositaireBean.motifSortie}" converter="#{refConverter}" panelStyle="width:180px"  style="width:160px"
-	                         effect="fade" var="t" filter="true" filterMatchMode="startsWith">
+	                    <p:selectOneMenu value="#{depositaireBean.motifSortie}" converter="#{refConverter}"
+	                         effect="fade" filter="true" filterMatchMode="startsWith">
 	                        <f:selectItem itemValue="#{null}" itemLabel="Selectionner" /> 
 	                            <f:selectItems value="#{siseBean.listMotifSortie}" var="theme" itemLabel="#{theme.designation}" itemValue="#{theme}" />
-	                        <p:column>
+	                        <!-- <p:column>
 	                            <h:outputText value="#{t.designation}" />
-	                        </p:column>
+	                        </p:column> -->
+	                        
 	                        <p:ajax event="change" update="designation" listener="#{depositaireBean.onMotifSortieChange}"/>
 	                    </p:selectOneMenu>
 					</div>
@@ -53,13 +54,14 @@
 					</div>
 	                <div class="col-lg-6">
 	
-	                    <p:selectOneMenu value="#{depositaireBean.materiel}" converter="#{materielConverter}"   panelStyle="width:180px"  style="width:160px"
-	                         effect="fade" var="t" filter="true" filterMatchMode="startsWith">
+	                    <p:selectOneMenu value="#{depositaireBean.materiel}" converter="#{materielConverter}"
+	                         effect="fade" filter="true" filterMatchMode="startsWith">
 	                        <f:selectItem itemValue="#{null}" itemLabel="Selectionner" /> 
 	                            <f:selectItems value="#{depositaireBean.listAllMaterielValideSansDetenteurByDirection}" var="theme" itemLabel="#{theme.numSerie}" itemValue="#{theme}" />
-	                        <p:column>
+	                        <!-- <p:column>
 	                            <h:outputText value="#{t.numSerie}" />
-	                        </p:column>
+	                        </p:column> -->
+	                        
 	                        <p:ajax event="change" update="marque ref num"/>
 	                    </p:selectOneMenu>
 					</div>

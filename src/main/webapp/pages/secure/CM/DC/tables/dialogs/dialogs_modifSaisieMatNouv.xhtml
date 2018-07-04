@@ -57,7 +57,7 @@
                     <div class="col-lg-6">
 
                         <p:selectOneMenu id="zone"  styleClass="form-control top" converter="#{refConverter}" value="#{depositaireBean.curentMaterielNouv.design.typematerieladd}">
-                            <f:selectItem itemValue="#{null}" itemLabel="--select--" /> 
+                            <f:selectItem itemValue="#{null}" itemLabel="Selectionnner" /> 
                             <f:selectItems value="#{siseBean.listTypeMateriel}" var="type" itemLabel="#{type.designation} - #{type.nomenclaureParent.designation}"/>
                          
                         </p:selectOneMenu>
@@ -75,13 +75,14 @@
 					</div>
                     <div class="col-lg-6">
 
-	                    <p:selectOneMenu value="#{depositaireBean.curentMaterielNouv.design.marque}" converter="#{refConverter}" panelStyle="width:180px"  style="width:160px"
-	                         effect="fade" var="t" filter="true" filterMatchMode="startsWith">
-	                        <f:selectItem itemValue="#{null}" itemLabel="--select--" /> 
+	                    <p:selectOneMenu value="#{depositaireBean.curentMaterielNouv.design.marque}" converter="#{refConverter}" 
+	                         effect="fade" filter="true" filterMatchMode="startsWith">
+	                        <f:selectItem itemValue="#{null}" itemLabel="Selectionner" /> 
 	                            <f:selectItems value="#{siseBean.listMarque}" var="theme" itemLabel="#{theme.designation}" itemValue="#{theme}" />
-	                        <p:column>
+	                       <!-- <p:column>
 	                            <h:outputText value="#{t.designation}" />
-	                        </p:column>
+	                        </p:column> -->
+	                        
 	
 	                    </p:selectOneMenu>
 
@@ -132,13 +133,14 @@
 	                <div class="col-lg-6">
 	
 	
-	                    <p:selectOneMenu value="#{depositaireBean.curentMaterielNouv.etat}" converter="#{refConverter}" panelStyle="width:180px"  style="width:160px"
-	                         effect="fade" var="t" filter="true" filterMatchMode="startsWith">
-	                        <f:selectItem itemValue="#{null}" itemLabel="--select--" /> 
+	                    <p:selectOneMenu value="#{depositaireBean.curentMaterielNouv.etat}" converter="#{refConverter}"
+	                         effect="fade" filter="true" filterMatchMode="startsWith">
+	                        <f:selectItem itemValue="#{null}" itemLabel="Selectionner" /> 
 	                            <f:selectItems value="#{siseBean.listEtatMateriel}" var="theme" itemLabel="#{theme.designation}" itemValue="#{theme}" />
-	                        <p:column>
+	                        <!-- <p:column>
 	                            <h:outputText value="#{t.designation}" />
-	                        </p:column>
+	                        </p:column> -->
+	                        
 	
 	                    </p:selectOneMenu>
 	
@@ -172,13 +174,14 @@
 					</div>
 	                <div class="col-lg-6">
 	
-	                     <p:selectOneMenu value="#{depositaireBean.curentMaterielNouv.design.modAcq}" converter="#{refConverter}" panelStyle="width:180px"  style="width:160px"
-	                         effect="fade" var="t" filter="true" filterMatchMode="startsWith">
-	                        <f:selectItem itemValue="#{null}" itemLabel="--select--" /> 
+	                     <p:selectOneMenu value="#{depositaireBean.curentMaterielNouv.design.modAcq}" converter="#{refConverter}" 
+	                         effect="fade" filter="true" filterMatchMode="startsWith">
+	                        <f:selectItem itemValue="#{null}" itemLabel="Selectionner" /> 
 	                            <f:selectItems value="#{siseBean.listModeAcquisition}" var="theme" itemLabel="#{theme.designation}" itemValue="#{theme}" />
-	                        <p:column>
+	                        <!-- <p:column>
 	                            <h:outputText value="#{t.designation}" />
-	                        </p:column>
+	                        </p:column> -->
+	                        
 	
 	                    </p:selectOneMenu>
 	                </div>
@@ -229,13 +232,14 @@
 					</div>
 	                <div class="col-lg-6">
 
-	                    <p:selectOneMenu value="#{depositaireBean.curentMaterielNouv.design.financement}" converter="#{refConverter}" panelStyle="width:180px"  style="width:160px"
-	                         effect="fade" var="t" filter="true" filterMatchMode="startsWith">
-	                        <f:selectItem itemValue="#{null}" itemLabel="--select--" /> 
+	                    <p:selectOneMenu value="#{depositaireBean.curentMaterielNouv.design.financement}" converter="#{refConverter}" 
+	                         effect="fade" filter="true" filterMatchMode="startsWith">
+	                        <f:selectItem itemValue="#{null}" itemLabel="Selectionner" /> 
 	                            <f:selectItems value="#{siseBean.listFinancement}" var="theme" itemLabel="#{theme.designation}" itemValue="#{theme}" />
-	                        <p:column>
+	                        <!-- <p:column>
 	                            <h:outputText value="#{t.designation}" />
-	                        </p:column>
+	                        </p:column> -->
+	                        
 	                    </p:selectOneMenu>
 
 	                </div>
