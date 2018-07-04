@@ -61,11 +61,12 @@
 	<parameter name="num6" class="java.lang.String"/>
 	<parameter name="approOuService" class="java.lang.String"/>
 	<parameter name="materiel" class="com.douane.entite.Materiel"/>
+	<parameter name="numSortie" class="java.lang.String"/>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
 	<title>
-		<band height="202" splitType="Stretch">
+		<band height="236" splitType="Stretch">
 			<rectangle>
 				<reportElement x="1" y="42" width="120" height="80" backcolor="#D1D1D1" uuid="0155f754-e498-4b8b-9e08-ac2c6bc30cba"/>
 			</rectangle>
@@ -153,7 +154,7 @@ Fitiavana-Tanindrazana- Fandrosoana
 				<textFieldExpression><![CDATA[$P{chap}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="447" y="69" width="105" height="20" uuid="d2e3f9dd-ac85-461f-8a80-4347c528bb63"/>
+				<reportElement x="447" y="69" width="109" height="20" uuid="d2e3f9dd-ac85-461f-8a80-4347c528bb63"/>
 				<textElement textAlignment="Center">
 					<font size="12"/>
 				</textElement>
@@ -181,7 +182,7 @@ Fitiavana-Tanindrazana- Fandrosoana
 				<text><![CDATA[(6)]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="424" y="110" width="122" height="19" uuid="c5773bff-e0ab-4817-85c6-130b689b1a32"/>
+				<reportElement x="424" y="110" width="131" height="19" uuid="c5773bff-e0ab-4817-85c6-130b689b1a32"/>
 				<textElement textAlignment="Center">
 					<font size="12"/>
 				</textElement>
@@ -202,46 +203,60 @@ Fitiavana-Tanindrazana- Fandrosoana
 				<textFieldExpression><![CDATA[$P{num6}]]></textFieldExpression>
 			</textField>
 			<textField pattern="$P{approOuService}">
-				<reportElement x="147" y="129" width="260" height="30" uuid="a934823d-e3d0-4b8b-aa91-6be933d38ea5"/>
+				<reportElement x="180" y="129" width="227" height="30" uuid="a934823d-e3d0-4b8b-aa91-6be933d38ea5"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle" markup="styled">
 					<font size="16" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{approOuService}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="0" y="179" width="274" height="20" uuid="adb4f11c-6b54-4d6d-945c-25cfb515f963"/>
+				<reportElement x="0" y="208" width="274" height="20" uuid="adb4f11c-6b54-4d6d-945c-25cfb515f963"/>
 				<textElement verticalAlignment="Top">
 					<font size="12"/>
 				</textElement>
 				<text><![CDATA[Les matiéres et objets ci-aprés désigne provenant de]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="2" y="161" width="244" height="18" uuid="e0cf8ced-2eee-421a-bb72-f6ef03ecb3ed"/>
+				<reportElement x="2" y="190" width="244" height="18" uuid="e0cf8ced-2eee-421a-bb72-f6ef03ecb3ed"/>
 				<textElement verticalAlignment="Top">
 					<font size="12"/>
 				</textElement>
-				<text><![CDATA[Seront portés en entrée dans les écritures du comptable ]]></text>
+				<text><![CDATA[Seront portés en sortie dans les écritures du comptable ]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="250" y="161" width="302" height="18" uuid="2b4d4cc9-be77-4365-bfbb-b44159f8246d"/>
+				<reportElement x="250" y="190" width="302" height="18" uuid="2b4d4cc9-be77-4365-bfbb-b44159f8246d"/>
 				<textElement markup="html">
 					<font size="12" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{comptable}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="276" y="179" width="271" height="20" uuid="82351992-d929-4f97-bf99-9574635b5aeb"/>
+				<reportElement x="276" y="208" width="279" height="20" uuid="82351992-d929-4f97-bf99-9574635b5aeb"/>
 				<textElement textAlignment="Left">
 					<font size="12"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{matiere}]]></textFieldExpression>
 			</textField>
+			<textField>
+				<reportElement x="422" y="160" width="130" height="30" uuid="40db1074-eb36-40a2-af8a-7a52f16e3344"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{numSortie}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="180" y="160" width="200" height="30" uuid="4f211f2a-1e9c-4c66-baaf-113ab955a572"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ORDRE DE SORTIE]]></text>
+			</staticText>
 		</band>
 	</title>
 	<detail>
 		<band height="226" splitType="Stretch">
 			<componentElement>
-				<reportElement key="table" style="table" x="0" y="0" width="556" height="170" uuid="7a664e40-65b5-4656-ab49-aaafd8ca328e"/>
+				<reportElement key="table" style="table" x="0" y="0" width="560" height="170" uuid="7a664e40-65b5-4656-ab49-aaafd8ca328e"/>
 				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
 					<datasetRun subDataset="Table Dataset 1" uuid="0e70f82d-efdf-4084-9bb9-0740c74341ba">
 						<datasetParameter name="materiel">
@@ -618,7 +633,7 @@ $P{materiel}.getDesign().getRenseignement()]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="2" y="260" width="206" height="38" uuid="9941ed82-ebb2-4007-91d0-a37acfe858af"/>
-				<text><![CDATA[(3)Procés-verbal de recette, de recensement etc, ou tel régistre ou carnet, ou la piéce de sortie correspondante.]]></text>
+				<text><![CDATA[(3)Procés-verbal de recette, de recensement etc, ou tel registre ou carnet, ou la pièce de sortie correspondante.]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="2" y="221" width="206" height="18" uuid="c3df7065-2b3f-48ae-af8a-2eb14770e775"/>
@@ -657,7 +672,7 @@ $P{materiel}.getDesign().getRenseignement()]]></textFieldExpression>
 				<textElement>
 					<font size="12"/>
 				</textElement>
-				<text><![CDATA[Le comptable déclare avoir recu et pris en charge les matiéres et objets mentionnées dans le tableau ci-dessus.]]></text>
+				<text><![CDATA[Le comptable déclare avoir reçu et pris en charge les matières et objets mentionnées dans le tableau ci-dessus.]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="2" y="113" width="39" height="20" uuid="6864a20d-0378-49c2-aa66-7e2c845deb54"/>
@@ -668,7 +683,7 @@ $P{materiel}.getDesign().getRenseignement()]]></textFieldExpression>
 			</staticText>
 			<staticText>
 				<reportElement x="2" y="239" width="206" height="20" uuid="336e644a-f336-4cf1-8479-c80d1ba8c855"/>
-				<text><![CDATA[(2)Gestionnaire ou depositaire]]></text>
+				<text><![CDATA[(2)Gestionnaire ou dépositaire]]></text>
 			</staticText>
 			<textField>
 				<reportElement x="41" y="114" width="222" height="20" uuid="a3c843e4-82ba-49c3-82be-8e82ffcc39c1"/>
@@ -676,27 +691,6 @@ $P{materiel}.getDesign().getRenseignement()]]></textFieldExpression>
 					<font size="12"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{date4}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="298" y="193" width="104" height="20" uuid="1c6ad400-bfff-46ed-ad59-e07d9633f274"/>
-				<textElement textAlignment="Left">
-					<font size="12"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$P{lieu1}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="446" y="193" width="109" height="20" uuid="fd953f34-b3d8-4776-8ea2-b84c4420cd2c"/>
-				<textElement textAlignment="Center">
-					<font size="12"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$P{date5}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="380" y="213" width="176" height="20" uuid="58caf7fd-e1cd-465f-9b5e-fee4164c1102"/>
-				<textElement>
-					<font size="12"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$P{comptable2}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="1" y="318" width="207" height="39" uuid="5f27ef05-0dbe-4771-a800-936fbc2e98e6"/>

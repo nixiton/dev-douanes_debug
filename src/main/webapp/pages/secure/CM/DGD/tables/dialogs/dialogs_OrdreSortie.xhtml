@@ -234,10 +234,10 @@
  				<p align="center">Déclaration de prise en charge</p>
  				<p>Le comptable déclare avoir reçu et pris en charge les matières et objets mentionnés dans le tableau ci-dessus</p>
 				<p>
- 				A <p:inputText value="#{JasperTableExampleBean.ordreS.lieu2}" style="text-align: center;"></p:inputText>, le <p:inputText value="#{JasperTableExampleBean.ordreS.date2}" style="text-align: center;"></p:inputText> <br></br>
+ 				A <p:inputText disabled="true" value="#{JasperTableExampleBean.ordreS.lieu2}" style="text-align: center;"></p:inputText>, le <p:inputText disabled="true" value="#{JasperTableExampleBean.ordreS.date2}" style="text-align: center;"></p:inputText> <br></br>
 				</p>
 				<p>
- 				Le comptable <strong>#{docbean.curentOpeationSortieToPdf.operateur.nomAgent}</strong>  <br></br><br></br><br></br><br></br><br></br>
+ 				Le comptable <!-- strong>#{docbean.curentOpeationSortieToPdf.operateur.nomAgent}</strong -->  <br></br><br></br><br></br><br></br><br></br>
 				</p>
  			</div>
 				<p:commandButton value="Exporter en PDF" ajax="false" action="#{JasperTableExampleBean.ordreSortieReport(docbean.curentOpeationSortieToPdf)}"> </p:commandButton><br/>

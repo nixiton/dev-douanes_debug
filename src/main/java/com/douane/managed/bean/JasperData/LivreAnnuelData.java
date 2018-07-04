@@ -1,7 +1,10 @@
 package com.douane.managed.bean.JasperData;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 import com.douane.entite.Designation;
 import com.douane.entite.Materiel;
@@ -171,6 +174,7 @@ public class LivreAnnuelData {
 		private String row15;
 		
 		public LivreAnnuel(Object[] i) {
+			DateFormat  df = new SimpleDateFormat("dd MMM yyyy", Locale.FRANCE);
 			this.nomenclature= (String)i[0];
 			this.row1= (String)i[1];
 			this.row2= (String)i[2];
@@ -185,7 +189,11 @@ public class LivreAnnuelData {
 			this.row11= (Designation)i[11];
 			this.row12= (Integer)i[12];
 			this.row13= (Integer)i[13];
-			this.row14= i[14].toString();
+			if(i[14].toString() == "") {
+				this.row14 = i[14].toString();
+			}else {
+				this.row14= df.format(i[14]);
+			}
 			this.row15 = (String) i[15];
 		}
 		

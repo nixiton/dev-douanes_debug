@@ -255,6 +255,7 @@ public class JasperTableExampleBean implements Serializable{
             /* Map to hold Jasper report Parameters */
             Map<String, Object> parameters = new HashMap<String, Object>();
             parameters.put ("dataSource" , datalist.getDataAsDataSource());
+            parameters.put("numEntre", op.getNumentree());
             parameters.put("num3", this.ordreEB.getNum3());
             parameters.put("matieres", op.getListMat().get(0).getDesign().getOrigine());
             parameters.put("num4", this.ordreEB.getNum4());
@@ -310,6 +311,7 @@ public class JasperTableExampleBean implements Serializable{
             /* Map to hold Jasper report Parameters */
             Map<String, Object> parameters = new HashMap<String, Object>();
             parameters.put ("dataSource" , datalist.getDataAsDataSource());
+            parameters.put("numEntre", op.getNumentree());
             parameters.put("num3", this.ordreEB.getNum3());
             parameters.put("num4", this.ordreEB.getNum4());
             parameters.put("matieres", op.getListMat().get(0).getDesign().getOrigine());
@@ -368,6 +370,7 @@ public class JasperTableExampleBean implements Serializable{
             /* Map to hold Jasper report Parameters */
             Map<String, Object> parameters = new HashMap<String, Object>();
             parameters.put("materiel", op.getMat());
+            parameters.put("numSortie", op.getNumSortie());
             parameters.put("num5", this.ordreS.getNum5());
             parameters.put("num6", this.ordreS.getNum6());
             parameters.put("budget", this.ordreS.getBudget());
@@ -430,6 +433,7 @@ public class JasperTableExampleBean implements Serializable{
             /* Map to hold Jasper report Parameters */
             Map<String, Object> parameters = new HashMap<String, Object>();
             parameters.put("materiel", op.getMat());
+            parameters.put("numSortie", op.getNumSortie());
             parameters.put("num5", this.ordreS.getNum5());
             parameters.put("num6", this.ordreS.getNum6());
             parameters.put("budget", this.ordreS.getBudget());
