@@ -14,6 +14,9 @@ import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.RequestScoped;
 import javax.faces.bean.ViewScoped;
 import javax.faces.bean.SessionScoped;
+
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.*;
 
 import org.springframework.stereotype.Component;
@@ -593,7 +596,6 @@ public class SuiviEditionBean {
 	}
 
 	private List<Object[]> listESForJournal;
-
 	public List<Object[]> getListESForJournal() {
 		if (listESForJournal == null) {
 			Agent cur = (Agent) RequestFilter.getSession().getAttribute("agent");
@@ -693,6 +695,101 @@ public class SuiviEditionBean {
 		}
 
 		return listESForJournal;
+	}
+
+	public List<Object[]> getFListESForJournal(Date start, Date fin) {
+			Agent cur = (Agent) RequestFilter.getSession().getAttribute("agent");
+			Date date = new Date();
+			Calendar calendar = new GregorianCalendar();
+			calendar.setTime(date);
+			//int year = calendar.get(Calendar.YEAR);
+			Date sdate = start;
+			Date edate = fin;
+			List<OperationES> listop = usermetierimpl.getListOpESForJournal(cur.getDirection(), sdate, edate);
+			List<Object[]> listobjectForJournal = new ArrayList<Object[]>();
+			for (OperationES op : listop) {
+				Object[] row = new Object[12];
+				if (op instanceof OpEntree) {
+					List<Object[]> bydesignation1 = (this.getDesingationByOpEntree(op));
+
+					for (Object[] nom : bydesignation1) {
+						List<Object[]> liste = (List<Object[]>) nom[2];
+						for (Object[] des : liste) {
+							Designation d = (Designation) des[0];
+							// id
+							row[0] = op.getId();
+							// numero d'ordre
+							row[1] = op.getNumoperation();
+							// date
+							row[2] = op.getDate();
+							// origine
+							row[3] = d.getOrigine();
+							// designation
+							row[4] = d.getTypematerieladd().getDesignation() + " - " + d.getMarque() + " - "
+									+ d.getRenseignement() + " - "
+							// mat.getNumSerie();
+							;
+							// espece unite
+							row[5] = d.getEspeceUnite();
+							// pu
+							row[6] = d.getPu();
+							// nombre par desingation entree
+							row[7] = des[1];
+							// total entree
+							row[8] = d.getPu() * (Long) row[7];
+							// nombre par desingation sortie
+							row[9] = new Long(0);
+							// total sortie
+							row[10] = new Float(0);
+							row[11] = d;
+							listobjectForJournal.add(row);
+							row = new Object[12];
+						}
+					} /*
+						 * for(Materiel mat :((OpEntree) op).getListMat()) { //id row[0] = op.getId();
+						 * //numero d'ordre row[1] = op.getNumoperation(); //date row[2] = op.getDate();
+						 * //origine row[3] = mat.getDesign().getOrigine(); // designation row[4] =
+						 * mat.getDesign().getTypematerieladd().getDesignation() + " - " +
+						 * mat.getDesign().getMarque() + " - " + mat.getDesign().getRenseignement() +
+						 * " - " + mat.getNumSerie(); //espece unite row[5] =
+						 * mat.getDesign().getEspeceUnite(); //pu row[6] = mat.getDesign().getPu();
+						 * //nombre par desingation entree row[7] = 1; //total entree row[8] =
+						 * mat.getDesign().getPu()*(Integer)row[7]; //nombre par desingation sortie
+						 * row[9] = 0; //total sortie row[10] = 0; row[11] = mat;
+						 * listobjectForJournal.add(row); row = new Object[12]; }
+						 */
+
+				} else if (op instanceof OpSortie) {
+					// id
+					row[0] = op.getId();
+					// numero d'ordre
+					row[1] = op.getNumoperation();
+					// date
+					row[2] = op.getDate();
+					// origine
+					row[3] = ((OpSortie) op).getMotifsortie().getDesignation();
+					// designation
+					Materiel mat = op.getMat();
+					row[4] = mat.getDesign().getTypematerieladd().getDesignation() + " - " + mat.getDesign().getMarque()
+							+ " - " + mat.getDesign().getRenseignement() + " - " + mat.getNumSerie();
+					// espece unite
+					row[5] = mat.getDesign().getEspeceUnite();
+					// pu
+					row[6] = mat.getDesign().getPu();
+					// nombre par desingation entree
+					row[7] = new Long(0);
+					// total entree
+					row[8] = new Float(0);
+					// nombre par desingation sortie
+					row[9] = 1L;
+					// total sortie
+					row[10] = mat.getDesign().getPu() * (Long) row[9];
+					row[11] = mat.getDesign();
+					listobjectForJournal.add(row);
+					row = new Object[12];
+				}
+			}
+		return listobjectForJournal;
 	}
 
 	public void setListESForJournal(List<Object[]> listESForJournal) {
@@ -905,7 +1002,7 @@ public class SuiviEditionBean {
 
 	public List<Object[]> getListESForGrandLivre() {
 		if (listESForGrandLivre == null) {
-
+			DateFormat  df = new SimpleDateFormat("dd MMM yyyy", Locale.FRANCE);
 			Agent cur = (Agent) RequestFilter.getSession().getAttribute("agent");
 			Date date = new Date();
 			Calendar calendar = new GregorianCalendar();
@@ -964,7 +1061,7 @@ public class SuiviEditionBean {
 				row[11] = mat.getDesign();
 				row[12] = mat;
 				if (o != null) {
-					row[13] = o.getDate().toString();// set année sortie for affichage
+					row[13] = df.format(o.getDate());// set année sortie for affichage
 				}
 
 				resultstable.add(row);
@@ -1031,7 +1128,7 @@ public class SuiviEditionBean {
 					String es = " manuellement ";
 					if (materiels.get(0).getMyoperationEntree() != null
 							&& materiels.get(0).getMyoperationEntree().getDate().compareTo(sdate) < 0) {
-						es = materiels.get(0).getMyoperationEntree().getDate().toString();
+						es = df.format(materiels.get(0).getMyoperationEntree().getDate());
 					}
 					row[6] = "Materiel Existant du " + es;
 					row[5] = materiels.size();
@@ -1080,6 +1177,181 @@ public class SuiviEditionBean {
 		return listESForGrandLivre;
 	}
 
+	public List<Object[]> getListESForGrandLivre(Date start, Date fin) {
+
+			Agent cur = (Agent) RequestFilter.getSession().getAttribute("agent");
+			Date date = new Date();
+			Calendar calendar = new GregorianCalendar();
+			calendar.setTime(date);
+			DateFormat  df = new SimpleDateFormat("dd MMM yyyy", Locale.FRANCE);
+			Date sdate = start;
+			Date edate = fin;
+			System.out.println("RRRRRRRRRRR Begin:");
+			List<Object[]> r = usermetierimpl.getListObjectForinvetaire(cur.getDirection(), sdate, edate);
+			System.out.println("RRRRRRRRRRR Ending:");
+			/*
+			 * for(Object[] o:r) { System.out.println(String.valueOf(o[0]));
+			 * System.out.println(String.valueOf(o[1])); }
+			 */
+			List<Object[]> resultstable = new ArrayList<Object[]>();
+
+			for (Object[] m : r) {
+				Object[] row = new Object[14];
+				Materiel mat = (Materiel) m[1];
+				OpSortie o = (OpSortie) m[0];
+				// Nomenclature
+				row[0] = mat.getDesign().getNomenMat().getNomenclature();
+				// Numéros du folio du grand livre
+				row[1] = mat.getIdMateriel();
+				// Désignation du matériel
+				row[2] = mat.getDesign().getTypematerieladd().getDesignation() + " - "
+						+ mat.getDesign().getMarque().getDesignation() + " - " + mat.getDesign().getRenseignement()
+						+ " - "
+				// + mat.getNumSerie()
+				;
+				// Espèce des unités
+				row[3] = mat.getDesign().getEspeceUnite();
+				// Prix de l’unité
+				row[4] = mat.getDesign().getPu();
+				// Existantes au 1er Janvier X
+				row[5] = 0;
+				// Entrées pendant l’année X
+				if (mat.getMyoperationEntree() == null || mat.getMyoperationEntree().getDate().compareTo(sdate) < 0) {
+					row[6] = "Materiel Existant";
+					row[5] = 1;
+				} else {
+					row[6] = mat.getMyoperationEntree().getNumoperation();
+				}
+
+				// Sortie pendant l’année X
+				if (o == null) {
+					row[7] = "Aucune sortie";
+				} else {
+					row[7] = o.getNumoperation();
+				}
+				// Reste au 31 déc. X
+				row[8] = "reste";
+				// Décompte
+				row[9] = "decompte";
+				row[10] = mat.getDesign().getTypematerieladd();
+				row[11] = mat.getDesign();
+				row[12] = mat;
+				if (o != null) {
+					row[13] = df.format(o.getDate());// set année sortie for affichage
+				}
+
+				resultstable.add(row);
+			}
+
+			// group by designation
+			List<Object[]> resultstableGrouped = new ArrayList<Object[]>();
+
+			Map<Designation, List<Object[]>> map = new HashMap<Designation, List<Object[]>>();
+
+			for (Object[] o : resultstable) {
+				Designation key = (Designation) o[11];
+				if (map.containsKey(key)) {
+					List<Object[]> list = map.get(key);
+					list.add(o);
+
+				} else {
+					List<Object[]> list = new ArrayList<Object[]>();
+					list.add(o);
+					map.put(key, list);
+				}
+
+			}
+			for (Map.Entry<Designation, List<Object[]>> entry : map.entrySet()) {
+				// System.out.println(entry.getKey().getIdDesignation() + ":" +
+				// entry.getValue().size());
+				Object[] row = new Object[16];
+				Designation des = entry.getKey();
+				List<Object[]> infos = entry.getValue();
+				// materiels
+				List<Materiel> materiels = new ArrayList<Materiel>();
+				for (Object[] o : infos) {
+					materiels.add((Materiel) ((infos.get(0))[12]));
+				}
+
+				// Nomenclature
+				row[0] = des.getNomenMat().getNomenclature();
+				// Espèces des unités
+				row[1] = des.getEspeceUnite();
+				// Désignation des objets (1)
+				row[2] = (infos.get(0))[2];
+				;
+				String series = "";
+				for (Object[] o : infos) {
+					series = series + ((Materiel) (o[12])).getNumSerie();
+				}
+				row[2] = row[2] + series;
+				// Prix de l’unité
+				row[3] = des.getPu();
+				;
+				// Prix de l’unité
+				row[4] = des.getPu();
+				// Existantes au 1er Janvier X
+				row[5] = 0;
+				// Entrées pendant l’année X
+				row[6] = "";
+				// date des entrées et des sorties
+				row[14] = ""; // entrée
+				row[15] = ""; // sorties
+
+				int entreeAx = 0;// entree pendant année X
+				if (materiels.get(0).getMyoperationEntree() == null
+						|| materiels.get(0).getMyoperationEntree().getDate().compareTo(sdate) < 0) {
+					String es = " manuellement ";
+					if (materiels.get(0).getMyoperationEntree() != null
+							&& materiels.get(0).getMyoperationEntree().getDate().compareTo(sdate) < 0) {
+						es =df.format(materiels.get(0).getMyoperationEntree().getDate());
+					}
+					row[6] = "Materiel Existant du " + es;
+					row[5] = materiels.size();
+					entreeAx = 0;
+
+				} else {
+					row[6] = materiels.get(0).getMyoperationEntree().getNumoperation();
+					entreeAx = materiels.size();
+					row[14] = materiels.get(0).getMyoperationEntree().getDate();
+				}
+
+				// Sortie pendant l’année X
+				String sortie = "";
+				String sortieAnnee = "xxxx";
+				int sortieAx = 0;
+				for (Object[] o : infos) {
+					if (!o[7].equals("Aucune sortie")) {
+						sortie = sortie + " - " + (String) o[7];
+						sortieAx = sortieAx + 1;
+						sortieAnnee = sortieAnnee + " , " + (String) o[13];
+					}
+
+				}
+				row[15] = sortieAnnee; // set annees sorties
+				row[7] = sortie;
+				/*
+				 * if(o ==null) { row[7] = "Aucune sortie"; } else { row[7] =
+				 * o.getNumoperation(); }
+				 */
+				// Reste au 31 déc. X
+				row[8] = (Integer) row[5] + entreeAx - sortieAx; // existant + entree en X - sortie en X
+				// Décompte
+				row[9] = (Integer) row[8] * des.getPu();
+				row[10] = des.getTypematerieladd();
+				row[11] = des;
+
+				// nombre entree et sortie pour affichage
+				row[12] = entreeAx;
+				row[13] = sortieAx;
+
+				resultstableGrouped.add(row);
+			}
+
+		return resultstableGrouped;
+	}
+
+	
 	public void setListESForGrandLivre(List<Object[]> listESForGrandLivre) {
 		this.listESForGrandLivre = listESForGrandLivre;
 	}

@@ -21,7 +21,7 @@
          <p:column style=" text-align: center; word-wrap: break-word;">
             <f:facet name="header">Détail</f:facet>
              <h:form>
-                <h:commandLink  action="#{gacBean.setAnnee1(d)}" target="_blank">
+                <h:commandLink  action="#{livreAnnuelBean.executer(suivieditionBean,d)}" target="_blank">
                     <i class="fa fa-file-archive-o"></i>
                 </h:commandLink>
             </h:form>
@@ -49,18 +49,9 @@
        			 <span>GRAND LIVRE DES MOUVEMENTS D’ENTREE ET DE SORTIE ANNEE</span> 
        			 <span>
        			 		<h:form >
-       			 			<p:outputLabel for="annee_livre_annuel" value="" />
-        					<p:calendar id="annee_livre_annuel" value="#{livreAnnuelBean.d}" locale="fr" navigator="true" pattern="dd MMMM yyyy" required="true"/>
-     			 			<p:dialog modal="true" resizable="false" header="Values" widgetVar="dlg" showEffect="fold">
-        						<p:panelGrid id="display_livre_annuel" columns="3" columnClasses="label,value">
-      			 					 <h:outputText value="" />
-						            <h:outputText value="#{livreAnnuelBean.d}">
-						                <f:convertDateTime pattern="dd MMMM yyyy" />
-				                  	</h:outputText>
-				                  	
-						           
-       			 				</p:panelGrid>
-    						</p:dialog>
+       			 			<!-- p:outputLabel for="annee_livre_annuel" value="" />
+        					<p:calendar id="annee_livre_annuel" value="#{livreAnnuelBean.d}" locale="fr" navigator="true" pattern="yyyy" required="true"/ -->
+     			 			
     						<h:commandButton value="Exporter" action="#{livreAnnuelBean.execute(suivieditionBean.listESForGrandLivre)}"/>
        			 		</h:form>
        			 </span>

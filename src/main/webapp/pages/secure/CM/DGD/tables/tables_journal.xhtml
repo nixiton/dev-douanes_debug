@@ -29,22 +29,32 @@
 			id="journaltable1"
 			>
 			<f:facet name="header">
-       			 <span>JOURNAL DES MOUVEMENTS D’ENTREE ET DE SORTIE ANNEE</span> 
+       			 <span>JOURNAL DES MOUVEMENTS D’ENTREE ET DE SORTIE ANNEE</span> <br/>
        			 <span>
        			 		<h:form >
-       			 			<p:outputLabel for="annee_journal" value="" />
-        					<p:calendar id="annee_journal" value="#{JournalBean.dat}" navigator="true" pattern="dd MMMM yyyy" required="true" locale="fr"/>
+       			 			<p:outputLabel for="annee_journal" value="Exporter le journal du " />
+        					<p:calendar id="annee_journal" size="8" value="#{JournalBean.dat}" navigator="true" pattern="dd MMMM yyyy" required="true" locale="fr"/>
      			 			<p:dialog modal="true" resizable="false" header="Values" widgetVar="dlg" showEffect="fold">
         						<p:panelGrid id="display_journal" columns="2" columnClasses="label,value">
       			 					 <h:outputText value="" />
 						            <h:outputText value="#{JournalBean.dat}">
 						                <f:convertDateTime pattern="dd MMMM yyyy" locale="Locale.FRANCE"/>
 				                  	</h:outputText>
-				                  	
-						           
        			 				</p:panelGrid>
     						</p:dialog>
-    						<h:commandButton value="Exporter" action="#{JournalBean.execute(suivieditionBean.listESForJournal)}"/>
+    						
+    						<p:outputLabel for="annee_fin" value=" au " />
+        					<p:calendar id="annee_fin" size="8" value="#{JournalBean.datF}" navigator="true" pattern="dd MMMM yyyy" required="true" locale="fr"/>
+     			 			<p:dialog modal="true" resizable="false" header="Values" widgetVar="dlg" showEffect="fold">
+        						<p:panelGrid id="display_fin" columns="2" columnClasses="label,value">
+      			 					 <h:outputText value="" />
+						            <h:outputText value="#{JournalBean.datF}">
+						                <f:convertDateTime pattern="dd MMMM yyyy" locale="Locale.FRANCE"/>
+				                  	</h:outputText>
+       			 				</p:panelGrid>
+    						</p:dialog>
+    						
+    						<h:commandButton value="Exporter" action="#{JournalBean.execute(suivieditionBean)}"/>
        			 		</h:form>
        			 </span>
     		</f:facet>
@@ -89,7 +99,9 @@
             	<h:outputText value="#{c[1]}" />
 			</p:column>
 			<p:column headerText="Date des entrées et des sorties" style=" text-align: center; word-wrap: break-word;">
-            	<h:outputText value="#{c[2]}" />
+            	<h:outputText value="#{c[2]}">
+                	<f:convertDateTime pattern="dd MMMM yyyy" locale="fr-Fr" timeZone="GMT+3"/>
+                </h:outputText>
         	</p:column>
 
 			<p:column headerText="Origine des entrées et désignation des sorties" style=" text-align: center; word-wrap: break-word;">		
