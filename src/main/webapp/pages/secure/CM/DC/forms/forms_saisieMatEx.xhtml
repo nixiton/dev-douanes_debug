@@ -47,10 +47,14 @@
                             </p:fileUpload>
                         </p:panel>
                         <p:panel rendered="#{row.uploaded}">
-                            Document  Transféré      <p:commandLink
-                                title="remove" value=" - document enlevé"
+                            Document  Transféré -      
+                            <h:commandLink
+                                title="remove" value=""
                                 actionListener="#{depositaireBean.removeDoc(row)}" update="docId"
-                                ajax="true" process="@this" />
+                                ajax="true" process="@this" class="btn btn-sm btn-warning">
+                                <i class="fa fa-close"> </i> Enlever document
+                            </h:commandLink>
+                       
                         </p:panel>
                     </p:column>
 
@@ -75,10 +79,13 @@
                             </p:fileUpload>
                         </p:panel>
                         <p:panel rendered="#{rowIm.uploaded}">
-                            Image transféré      <p:commandLink
-                                title="remove" value=" - document enlevé"
+                            Image transféré -     
+                           <h:commandLink
+                                title="remove" value=""
                                 actionListener="#{depositaireBean.removeDoc(rowIm)}" update="imId"
-                                ajax="true" process="@this" />
+                                ajax="true" process="@this" class="btn btn-sm btn-warning " >
+                                <i class="fa fa-close"> </i> Enlever document
+                           </h:commandLink>
                         </p:panel>
                     </p:column>
 
