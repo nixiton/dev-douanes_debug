@@ -13,6 +13,7 @@ import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
@@ -23,7 +24,9 @@ import com.douane.model.EtatOperation;
 public abstract class Operation implements Serializable{
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.TABLE)
+	//@GeneratedValue(strategy=GenerationType.TABLE)
+	@SequenceGenerator (name = "generator_operation", sequenceName = "OP_SEQ", allocationSize = 1) 
+	@GeneratedValue (strategy = GenerationType.SEQUENCE, generator = "generator_operation")
 	protected Long id;
 	
 	@Temporal(TemporalType.DATE)

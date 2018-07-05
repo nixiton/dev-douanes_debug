@@ -686,6 +686,9 @@ public class SISEformBean {
 	public String addDirection() throws SQLException {
 		try {
 			Direction direction = new Direction(this.getDesignation(), this.getCodeDirection());
+			direction.setBudget(this.getBudget());
+			direction.setTrois(this.getTrois());
+			direction.setQuatre(this.getQuatre());
 			Agent agent = (Agent) RequestFilter.getSession().getAttribute("agent");
 			refmetierimpl.addRef(direction, agent);
 			return SUCCESS;
@@ -1343,5 +1346,70 @@ public class SISEformBean {
 
 	public void setGroupeListArticle(List<SelectItem> groupeListArticle) {
 		this.groupeListArticle = groupeListArticle;
+	}
+	
+	private String budget;
+	private String trois;
+	private String quatre;
+
+
+	public String getBudget() {
+		return budget;
+	}
+
+	public void setBudget(String budget) {
+		this.budget = budget;
+	}
+
+	public String getTrois() {
+		return trois;
+	}
+
+	public void setTrois(String trois) {
+		this.trois = trois;
+	}
+
+	public String getQuatre() {
+		return quatre;
+	}
+
+	public void setQuatre(String quatre) {
+		this.quatre = quatre;
+	}
+	
+	public Devise getDevise() {
+		return devise;
+	}
+
+	public void setDevise(Devise devise) {
+		this.devise = devise;
+	}
+
+	private Devise devise = new Devise();
+	
+	public String addDevise() {
+		Agent agent = (Agent) RequestFilter.getSession().getAttribute("agent");
+		refmetierimpl.addRef(this.getDevise(), agent);
+		return SUCCESS;
+	}
+	
+	private List<Devise> listDevise;
+	
+	public List<Devise> getListDevise() {
+		if (listDevise == null) {
+			ArrayList<Referentiel> r = (ArrayList<Referentiel>) refmetierimpl.listRef(new Devise());
+			List<Devise> ds = new ArrayList<Devise>();
+			for (Object d : r) {
+				if (d instanceof Devise) {
+					ds.add((Devise) d);
+				}
+			}
+			listDevise = ds;
+		}
+		return listDevise;
+	}
+
+	public void setListDevise(List<Devise> listDevise) {
+		this.listDevise = listDevise;
 	}
 }

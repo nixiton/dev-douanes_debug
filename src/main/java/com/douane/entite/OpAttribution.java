@@ -1,5 +1,6 @@
 package com.douane.entite;
 
+import java.util.Calendar;
 import java.util.Date;
 
 import javax.persistence.Entity;
@@ -53,5 +54,39 @@ public class OpAttribution extends Operation{
 	public void setDetenteurEffectif(String detenteurEffectif) {
 		this.detenteurEffectif = detenteurEffectif;
 	}
+	
+	public String getNumerodet() {
+		return numerodet;
+	}
+	public void setNumerodet(String numerodet) {
+		this.numerodet = numerodet;
+	}
+
+	private String numerodet;
+	
+	public void generateNumDet(Long currentNum) {
+		//Date today = new Date();
+		
+	    int d = Calendar.getInstance().get(Calendar.DAY_OF_MONTH); String dd="x";
+	    int m = Calendar.getInstance().get(Calendar.MONTH); String mm="x";
+	    int y = Calendar.getInstance().get(Calendar.YEAR); String yy="x";
+	    if(d < 10){
+	      dd="0"+d;
+	    }else {
+	    	dd=""+d;
+	    }
+	    if(m < 10){
+	       mm="0"+m;
+	    }else {
+	    	mm=""+m;
+	    }
+		yy=""+y%200;
+		String codeDirection ="tsy misy";
+		if(this.getDirection()!=null) {
+			codeDirection = this.getDirection().getCodeDirection();
+		}
+		this.numerodet="OA "+ currentNum+ "/"+codeDirection+ "/" +dd+ "/" +mm+ "/" +yy;
+	}
+	
 	
 }

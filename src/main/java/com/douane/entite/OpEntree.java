@@ -60,7 +60,6 @@ public class OpEntree extends OperationES{
 		
 		this.numoperation="OE "+ currentNum+ "/"+codeDirection+ "/" +dd+ "/" +mm+ "/" +yy;
 	}
-	
 	public String getNumentree() {
 		return this.numoperation;
 	}

@@ -532,6 +532,12 @@
 			<to-view-id>/pages/secure/CM/SISE/content_forms/content_forms_saisiePoste.xhtml</to-view-id>
 			<redirect />
 		</navigation-case>
+		
+		<navigation-case>
+			<from-outcome>add_Devise</from-outcome>
+			<to-view-id>/pages/secure/CM/SISE/content_forms/content_forms_saisieDevise.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
 
 		<navigation-case>
 			<from-outcome>add_Porte</from-outcome>
@@ -959,6 +965,20 @@
 				<view-param>
                     <name>view</name>
                     <value>poste</value>
+                </view-param>
+			</redirect>
+		</navigation-case>
+		
+		<navigation-case>
+			<from-action>#{siseBean.addDevise}</from-action>
+			<from-outcome>success</from-outcome>
+			<!-- >to-view-id>/pages/secure/CM/SISE/saisieRef.xhtml#poste</to-view-id-->
+			<to-view-id>/pages/secure/CM/SISE/saisieRef.xhtml</to-view-id>
+					
+			<redirect>
+				<view-param>
+                    <name>view</name>
+                    <value>devise</value>
                 </view-param>
 			</redirect>
 		</navigation-case>

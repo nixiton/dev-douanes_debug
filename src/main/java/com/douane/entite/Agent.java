@@ -13,6 +13,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Transient;
 
 import javax.persistence.FetchType;
@@ -22,7 +23,9 @@ public class Agent implements Serializable {
 
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	//@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@SequenceGenerator (name = "generator_agent", sequenceName = "AG_SEQ", allocationSize = 1) 
+	@GeneratedValue (strategy = GenerationType.SEQUENCE, generator = "generator_agent")
 	private Long idAgent;
 
 	@Column(unique = true)

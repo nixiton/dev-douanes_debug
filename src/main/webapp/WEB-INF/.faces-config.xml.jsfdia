@@ -406,244 +406,246 @@
     TARGET="rules:#pages#secure#CM#SISE#content_forms#content_forms_saisiePoste.xhtml"
     TITLE="add_Poste" model-entity="JSFProcessItemOutput"/>
    <PROCESS-ITEM-OUTPUT
-    ID="add_Porte::#pages#secure#CA#SISE#content_forms#content_forms_saisiePorte.xhtml"
+    ID="add_Devise::#pages#secure#CM#SISE#content_forms#content_forms_saisieDevise.xhtml"
     NAME="output51"
+    PATH="/pages/secure/CM/SISE/content_forms/content_forms_saisieDevise.xhtml"
+    TARGET="rules:#pages#secure#CM#SISE#content_forms#content_forms_saisieDevise.xhtml"
+    TITLE="add_Devise" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="add_Porte::#pages#secure#CA#SISE#content_forms#content_forms_saisiePorte.xhtml"
+    NAME="output52"
     PATH="/pages/secure/CA/SISE/content_forms/content_forms_saisiePorte.xhtml"
     TARGET="rules:#pages#secure#CA#SISE#content_forms#content_forms_saisiePorte.xhtml"
     TITLE="add_Porte" model-entity="JSFProcessItemOutput"/>
    <PROCESS-ITEM-OUTPUT
+    ID="add_Role::#pages#secure#CM#SISE#content_forms#content_forms_saisieRole.xhtml"
+    NAME="output53"
+    PATH="/pages/secure/CM/SISE/content_forms/content_forms_saisieRole.xhtml"
+    TARGET="rules:#pages#secure#CM#SISE#content_forms#content_forms_saisieRole.xhtml"
+    TITLE="add_Role" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
     ID="add_RoleCA::#pages#secure#CA#SISE#content_forms#content_forms_saisieRole.xhtml"
-    NAME="output52"
+    NAME="output54"
     PATH="/pages/secure/CA/SISE/content_forms/content_forms_saisieRole.xhtml"
     TARGET="rules:#pages#secure#CA#SISE#content_forms#content_forms_saisieRole.xhtml"
     TITLE="add_RoleCA" model-entity="JSFProcessItemOutput"/>
    <PROCESS-ITEM-OUTPUT
     ID="add_Service::#pages#secure#CM#SISE#content_forms#content_forms_saisieService.xhtml"
-    NAME="output53"
+    NAME="output55"
     PATH="/pages/secure/CM/SISE/content_forms/content_forms_saisieService.xhtml"
     TARGET="rules:#pages#secure#CM#SISE#content_forms#content_forms_saisieService.xhtml"
     TITLE="add_Service" model-entity="JSFProcessItemOutput"/>
    <PROCESS-ITEM-OUTPUT
     ID="add_Adresse::#pages#secure#CM#SISE#content_forms#content_forms_saisieAdresse.xhtml"
-    NAME="output54"
+    NAME="output56"
     PATH="/pages/secure/CM/SISE/content_forms/content_forms_saisieAdresse.xhtml"
     TARGET="rules:#pages#secure#CM#SISE#content_forms#content_forms_saisieAdresse.xhtml"
     TITLE="add_Adresse" model-entity="JSFProcessItemOutput"/>
    <PROCESS-ITEM-OUTPUT
     ID="add_AdresseCA::#pages#secure#CA#SISE#content_forms#content_forms_saisieAdresse.xhtml"
-    NAME="output55"
+    NAME="output57"
     PATH="/pages/secure/CA/SISE/content_forms/content_forms_saisieAdresse.xhtml"
     TARGET="rules:#pages#secure#CA#SISE#content_forms#content_forms_saisieAdresse.xhtml"
     TITLE="add_AdresseCA" model-entity="JSFProcessItemOutput"/>
    <PROCESS-ITEM-OUTPUT
     ID="pdfOrdreEntree::#pages#secure#CM#tables#dialogs#ordreEntree.pdf"
-    NAME="output56"
+    NAME="output58"
     PATH="/pages/secure/CM/tables/dialogs/ordreEntree.pdf"
     TARGET="rules:#pages#secure#CM#tables#dialogs#ordreEntree.pdf"
     TITLE="pdfOrdreEntree" model-entity="JSFProcessItemOutput"/>
    <PROCESS-ITEM-OUTPUT
     ID="docOrdreEntree::#pages#secure#CM#tables#dialogs#ordreEntree.pdf"
-    NAME="output57"
+    NAME="output59"
     PATH="/pages/secure/CM/tables/dialogs/ordreEntree.pdf"
     TARGET="rules:#pages#secure#CM#tables#dialogs#ordreEntree.pdf"
     TITLE="docOrdreEntree" model-entity="JSFProcessItemOutput"/>
    <PROCESS-ITEM-OUTPUT
     ID="dialogJournal::#pages#secure#CM#DGD#tables#dialogs#dialogs_Journal.xhtml"
-    NAME="output58"
+    NAME="output60"
     PATH="/pages/secure/CM/DGD/tables/dialogs/dialogs_Journal.xhtml"
     TARGET="rules:#pages#secure#CM#DGD#tables#dialogs#dialogs_Journal.xhtml"
     TITLE="dialogJournal" model-entity="JSFProcessItemOutput"/>
    <PROCESS-ITEM-OUTPUT
     ID="dialogLivre::#pages#secure#CM#tables#dialogs#dialogs_grandLivre.xhtml"
-    NAME="output59"
+    NAME="output61"
     PATH="/pages/secure/CM/tables/dialogs/dialogs_grandLivre.xhtml"
     TARGET="rules:#pages#secure#CM#tables#dialogs#dialogs_grandLivre.xhtml"
     TITLE="dialogLivre" model-entity="JSFProcessItemOutput"/>
    <PROCESS-ITEM-OUTPUT
     ID="dialogEtatAppreciatif::#pages#secure#CM#DGD#tables#dialogs#dialogs_EtatAppreciatif.xhtml"
-    NAME="output60"
+    NAME="output62"
     PATH="/pages/secure/CM/DGD/tables/dialogs/dialogs_EtatAppreciatif.xhtml"
     TARGET="rules:#pages#secure#CM#DGD#tables#dialogs#dialogs_EtatAppreciatif.xhtml"
     TITLE="dialogEtatAppreciatif" model-entity="JSFProcessItemOutput"/>
    <PROCESS-ITEM-OUTPUT
     ID="dialogFicheStock::#pages#secure#CA#DGD#form#form_ficheDeStock.xhtml"
-    NAME="output61"
+    NAME="output63"
     PATH="/pages/secure/CA/DGD/form/form_ficheDeStock.xhtml"
     TARGET="rules:#pages#secure#CA#DGD#form#form_ficheDeStock.xhtml"
     TITLE="dialogFicheStock" model-entity="JSFProcessItemOutput"/>
    <PROCESS-ITEM-OUTPUT
     ID="dialogJournalAdmin::#pages#secure#CA#DGD#tables#dialogs#dialogs_Journal.xhtml"
-    NAME="output62"
+    NAME="output64"
     PATH="/pages/secure/CA/DGD/tables/dialogs/dialogs_Journal.xhtml"
     TARGET="rules:#pages#secure#CA#DGD#tables#dialogs#dialogs_Journal.xhtml"
     TITLE="dialogJournalAdmin" model-entity="JSFProcessItemOutput"/>
    <PROCESS-ITEM-OUTPUT
     ID="dialog::#pages#secure#CM#tables#dialogs#dialogs_saisieMatEx.xhtml"
-    NAME="output63"
+    NAME="output65"
     PATH="/pages/secure/CM/tables/dialogs/dialogs_saisieMatEx.xhtml"
     TARGET="rules:#pages#secure#CM#tables#dialogs#dialogs_saisieMatEx.xhtml"
     TITLE="dialog" model-entity="JSFProcessItemOutput"/>
    <PROCESS-ITEM-OUTPUT
     ID="dialog6::#pages#secure#CM#tables#dialogs#dialogs_saisieMatEx1.xhtml"
-    NAME="output64"
+    NAME="output66"
     PATH="/pages/secure/CM/tables/dialogs/dialogs_saisieMatEx1.xhtml"
     TARGET="rules:#pages#secure#CM#tables#dialogs#dialogs_saisieMatEx1.xhtml"
     TITLE="dialog6" model-entity="JSFProcessItemOutput"/>
    <PROCESS-ITEM-OUTPUT
     ID="ordre::#pages#secure#CM#DGD#tables#dialogs#dialogs_OrdreEntree.xhtml"
-    NAME="output65"
+    NAME="output67"
     PATH="/pages/secure/CM/DGD/tables/dialogs/dialogs_OrdreEntree.xhtml"
     TARGET="rules:#pages#secure#CM#DGD#tables#dialogs#dialogs_OrdreEntree.xhtml"
     TITLE="ordre" model-entity="JSFProcessItemOutput"/>
    <PROCESS-ITEM-OUTPUT
     ID="ordreSortie::#pages#secure#CM#DGD#tables#dialogs#dialogs_OrdreSortie.xhtml"
-    NAME="output66"
+    NAME="output68"
     PATH="/pages/secure/CM/DGD/tables/dialogs/dialogs_OrdreSortie.xhtml"
     TARGET="rules:#pages#secure#CM#DGD#tables#dialogs#dialogs_OrdreSortie.xhtml"
     TITLE="ordreSortie" model-entity="JSFProcessItemOutput"/>
    <PROCESS-ITEM-OUTPUT
     ID="annee::#pages#secure#CM#DGD#tables#dialogs#dialogs_LivreAnnuel.xhtml"
-    NAME="output67"
+    NAME="output69"
     PATH="/pages/secure/CM/DGD/tables/dialogs/dialogs_LivreAnnuel.xhtml"
     TARGET="rules:#pages#secure#CM#DGD#tables#dialogs#dialogs_LivreAnnuel.xhtml"
     TITLE="annee" model-entity="JSFProcessItemOutput"/>
    <PROCESS-ITEM-OUTPUT
     ID="anneeEtatAp::#pages#secure#CM#DGD#tables#dialogs#dialogs_EtatAppreciatif.xhtml"
-    NAME="output68"
+    NAME="output70"
     PATH="/pages/secure/CM/DGD/tables/dialogs/dialogs_EtatAppreciatif.xhtml"
     TARGET="rules:#pages#secure#CM#DGD#tables#dialogs#dialogs_EtatAppreciatif.xhtml"
     TITLE="anneeEtatAp" model-entity="JSFProcessItemOutput"/>
    <PROCESS-ITEM-OUTPUT
     ID="anneeInv::#pages#secure#CM#DGD#tables#dialogs#dialogs_Inventaire.xhtml"
-    NAME="output69"
+    NAME="output71"
     PATH="/pages/secure/CM/DGD/tables/dialogs/dialogs_Inventaire.xhtml"
     TARGET="rules:#pages#secure#CM#DGD#tables#dialogs#dialogs_Inventaire.xhtml"
     TITLE="anneeInv" model-entity="JSFProcessItemOutput"/>
    <PROCESS-ITEM-OUTPUT
     ID="success:#{userMB.addUserRef}:#pages#unsecure#login.xhtml"
-    NAME="output70" PATH="/pages/unsecure/login.xhtml"
+    NAME="output72" PATH="/pages/unsecure/login.xhtml"
     TARGET="rules:#pages#unsecure#login.xhtml"
     TITLE="#{userMB.addUserRef}:success" model-entity="JSFProcessItemOutput"/>
    <PROCESS-ITEM-OUTPUT
     ID="success:#{siseBean.addNomenclature}:#pages#secure#CM#SISE#saisieRef.xhtml"
-    NAME="output71" PATH="/pages/secure/CM/SISE/saisieRef.xhtml"
+    NAME="output73" PATH="/pages/secure/CM/SISE/saisieRef.xhtml"
     TARGET="rules:#pages#secure#CM#SISE#saisieRef.xhtml"
     TITLE="#{siseBean.addNomenclature}:success" model-entity="JSFProcessItemOutput"/>
    <PROCESS-ITEM-OUTPUT
     ID="success:#{siseBean.addBureau}:#pages#secure#CM#SISE#saisieRef.xhtml"
-    NAME="output72" PATH="/pages/secure/CM/SISE/saisieRef.xhtml"
+    NAME="output74" PATH="/pages/secure/CM/SISE/saisieRef.xhtml"
     TARGET="rules:#pages#secure#CM#SISE#saisieRef.xhtml"
     TITLE="#{siseBean.addBureau}:success" model-entity="JSFProcessItemOutput"/>
    <PROCESS-ITEM-OUTPUT
-    ID="success:#{siseBean.addBureauCA}:#pages#secure#CA#SISE#saisieRef.xhtml"
-    NAME="output73" PATH="/pages/secure/CA/SISE/saisieRef.xhtml"
-    TARGET="rules:#pages#secure#CA#SISE#saisieRef.xhtml"
-    TITLE="#{siseBean.addBureauCA}:success" model-entity="JSFProcessItemOutput"/>
-   <PROCESS-ITEM-OUTPUT
     ID="success:#{siseBean.addAdresse}:#pages#secure#CM#SISE#saisieRef.xhtml"
-    NAME="output74" PATH="/pages/secure/CM/SISE/saisieRef.xhtml"
+    NAME="output75" PATH="/pages/secure/CM/SISE/saisieRef.xhtml"
     TARGET="rules:#pages#secure#CM#SISE#saisieRef.xhtml"
     TITLE="#{siseBean.addAdresse}:success" model-entity="JSFProcessItemOutput"/>
    <PROCESS-ITEM-OUTPUT
     ID="success:#{siseBean.addAdresseCA}:#pages#secure#CA#SISE#saisieRef.xhtml"
-    NAME="output75" PATH="/pages/secure/CA/SISE/saisieRef.xhtml"
+    NAME="output76" PATH="/pages/secure/CA/SISE/saisieRef.xhtml"
     TARGET="rules:#pages#secure#CA#SISE#saisieRef.xhtml"
     TITLE="#{siseBean.addAdresseCA}:success" model-entity="JSFProcessItemOutput"/>
    <PROCESS-ITEM-OUTPUT
     ID="success:#{userMB.addAgent}:#pages#secure#CM#SISE#saisieRef.xhtml"
-    NAME="output76" PATH="/pages/secure/CM/SISE/saisieRef.xhtml"
+    NAME="output77" PATH="/pages/secure/CM/SISE/saisieRef.xhtml"
     TARGET="rules:#pages#secure#CM#SISE#saisieRef.xhtml"
     TITLE="#{userMB.addAgent}:success" model-entity="JSFProcessItemOutput"/>
    <PROCESS-ITEM-OUTPUT
     ID="success:#{userMB.addAgentCA}:#pages#secure#CA#SISE#saisieRef.xhtml"
-    NAME="output77" PATH="/pages/secure/CA/SISE/saisieRef.xhtml"
+    NAME="output78" PATH="/pages/secure/CA/SISE/saisieRef.xhtml"
     TARGET="rules:#pages#secure#CA#SISE#saisieRef.xhtml"
     TITLE="#{userMB.addAgentCA}:success" model-entity="JSFProcessItemOutput"/>
    <PROCESS-ITEM-OUTPUT
     ID="success:#{siseBean.addDirection}:#pages#secure#CM#SISE#saisieRef.xhtml"
-    NAME="output78" PATH="/pages/secure/CM/SISE/saisieRef.xhtml"
+    NAME="output79" PATH="/pages/secure/CM/SISE/saisieRef.xhtml"
     TARGET="rules:#pages#secure#CM#SISE#saisieRef.xhtml"
     TITLE="#{siseBean.addDirection}:success" model-entity="JSFProcessItemOutput"/>
    <PROCESS-ITEM-OUTPUT
     ID="success:#{siseBean.addEtatMateriel}:#pages#secure#CM#SISE#saisieRef.xhtml"
-    NAME="output79" PATH="/pages/secure/CM/SISE/saisieRef.xhtml"
+    NAME="output80" PATH="/pages/secure/CM/SISE/saisieRef.xhtml"
     TARGET="rules:#pages#secure#CM#SISE#saisieRef.xhtml"
     TITLE="#{siseBean.addEtatMateriel}:success" model-entity="JSFProcessItemOutput"/>
    <PROCESS-ITEM-OUTPUT
     ID="success:#{siseBean.addFinancement}:#pages#secure#CM#SISE#saisieRef.xhtml"
-    NAME="output80" PATH="/pages/secure/CM/SISE/saisieRef.xhtml"
+    NAME="output81" PATH="/pages/secure/CM/SISE/saisieRef.xhtml"
     TARGET="rules:#pages#secure#CM#SISE#saisieRef.xhtml"
     TITLE="#{siseBean.addFinancement}:success" model-entity="JSFProcessItemOutput"/>
    <PROCESS-ITEM-OUTPUT
     ID="success:#{siseBean.addFinancementCA}:#pages#secure#CA#SISE#saisieRef.xhtml"
-    NAME="output81" PATH="/pages/secure/CA/SISE/saisieRef.xhtml"
+    NAME="output82" PATH="/pages/secure/CA/SISE/saisieRef.xhtml"
     TARGET="rules:#pages#secure#CA#SISE#saisieRef.xhtml"
     TITLE="#{siseBean.addFinancementCA}:success" model-entity="JSFProcessItemOutput"/>
    <PROCESS-ITEM-OUTPUT
     ID="success:#{siseBean.addFournisseur}:#pages#secure#CM#SISE#saisieRef.xhtml"
-    NAME="output82" PATH="/pages/secure/CM/SISE/saisieRef.xhtml"
+    NAME="output83" PATH="/pages/secure/CM/SISE/saisieRef.xhtml"
     TARGET="rules:#pages#secure#CM#SISE#saisieRef.xhtml"
     TITLE="#{siseBean.addFournisseur}:success" model-entity="JSFProcessItemOutput"/>
    <PROCESS-ITEM-OUTPUT
     ID="success:#{siseBean.addFournisseurCA}:#pages#secure#CA#SISE#saisieRef.xhtml"
-    NAME="output83" PATH="/pages/secure/CA/SISE/saisieRef.xhtml"
+    NAME="output84" PATH="/pages/secure/CA/SISE/saisieRef.xhtml"
     TARGET="rules:#pages#secure#CA#SISE#saisieRef.xhtml"
     TITLE="#{siseBean.addFournisseurCA}:success" model-entity="JSFProcessItemOutput"/>
    <PROCESS-ITEM-OUTPUT
     ID="success:#{siseBean.addLocalite}:#pages#secure#CM#SISE#saisieRef.xhtml"
-    NAME="output84" PATH="/pages/secure/CM/SISE/saisieRef.xhtml"
+    NAME="output85" PATH="/pages/secure/CM/SISE/saisieRef.xhtml"
     TARGET="rules:#pages#secure#CM#SISE#saisieRef.xhtml"
     TITLE="#{siseBean.addLocalite}:success" model-entity="JSFProcessItemOutput"/>
    <PROCESS-ITEM-OUTPUT
     ID="success:#{siseBean.addMarque}:#pages#secure#CM#SISE#saisieRef.xhtml"
-    NAME="output85" PATH="/pages/secure/CM/SISE/saisieRef.xhtml"
+    NAME="output86" PATH="/pages/secure/CM/SISE/saisieRef.xhtml"
     TARGET="rules:#pages#secure#CM#SISE#saisieRef.xhtml"
     TITLE="#{siseBean.addMarque}:success" model-entity="JSFProcessItemOutput"/>
    <PROCESS-ITEM-OUTPUT
     ID="success:#{siseBean.addMarqueCA}:#pages#secure#CA#SISE#saisieRef.xhtml"
-    NAME="output86" PATH="/pages/secure/CA/SISE/saisieRef.xhtml"
+    NAME="output87" PATH="/pages/secure/CA/SISE/saisieRef.xhtml"
     TARGET="rules:#pages#secure#CA#SISE#saisieRef.xhtml"
     TITLE="#{siseBean.addMarqueCA}:success" model-entity="JSFProcessItemOutput"/>
    <PROCESS-ITEM-OUTPUT
     ID="success:#{siseBean.addTypeObjet}:#pages#secure#CA#SISE#saisieRef.xhtml"
-    NAME="output87" PATH="/pages/secure/CA/SISE/saisieRef.xhtml"
+    NAME="output88" PATH="/pages/secure/CA/SISE/saisieRef.xhtml"
     TARGET="rules:#pages#secure#CA#SISE#saisieRef.xhtml"
     TITLE="#{siseBean.addTypeObjet}:success" model-entity="JSFProcessItemOutput"/>
    <PROCESS-ITEM-OUTPUT
     ID="success:#{siseBean.addCodeArticle}:#pages#secure#CA#SISE#saisieRef.xhtml"
-    NAME="output88" PATH="/pages/secure/CA/SISE/saisieRef.xhtml"
+    NAME="output89" PATH="/pages/secure/CA/SISE/saisieRef.xhtml"
     TARGET="rules:#pages#secure#CA#SISE#saisieRef.xhtml"
     TITLE="#{siseBean.addCodeArticle}:success" model-entity="JSFProcessItemOutput"/>
    <PROCESS-ITEM-OUTPUT
     ID="success:#{siseBean.addModeAcquisition}:#pages#secure#CM#SISE#saisieRef.xhtml"
-    NAME="output89" PATH="/pages/secure/CM/SISE/saisieRef.xhtml"
+    NAME="output90" PATH="/pages/secure/CM/SISE/saisieRef.xhtml"
     TARGET="rules:#pages#secure#CM#SISE#saisieRef.xhtml"
     TITLE="#{siseBean.addModeAcquisition}:success" model-entity="JSFProcessItemOutput"/>
    <PROCESS-ITEM-OUTPUT
     ID="success:#{siseBean.addModeAcquisitionCA}:#pages#secure#CA#SISE#saisieRef.xhtml"
-    NAME="output90" PATH="/pages/secure/CA/SISE/saisieRef.xhtml"
+    NAME="output91" PATH="/pages/secure/CA/SISE/saisieRef.xhtml"
     TARGET="rules:#pages#secure#CA#SISE#saisieRef.xhtml"
     TITLE="#{siseBean.addModeAcquisitionCA}:success" model-entity="JSFProcessItemOutput"/>
    <PROCESS-ITEM-OUTPUT
     ID="success:#{siseBean.addModeDecharge}:#pages#secure#CM#SISE#saisieRef.xhtml"
-    NAME="output91" PATH="/pages/secure/CM/SISE/saisieRef.xhtml"
+    NAME="output92" PATH="/pages/secure/CM/SISE/saisieRef.xhtml"
     TARGET="rules:#pages#secure#CM#SISE#saisieRef.xhtml"
     TITLE="#{siseBean.addModeDecharge}:success" model-entity="JSFProcessItemOutput"/>
    <PROCESS-ITEM-OUTPUT
     ID="success:#{siseBean.addMotifSortie}:#pages#secure#CM#SISE#saisieRef.xhtml"
-    NAME="output92" PATH="/pages/secure/CM/SISE/saisieRef.xhtml"
+    NAME="output93" PATH="/pages/secure/CM/SISE/saisieRef.xhtml"
     TARGET="rules:#pages#secure#CM#SISE#saisieRef.xhtml"
     TITLE="#{siseBean.addMotifSortie}:success" model-entity="JSFProcessItemOutput"/>
    <PROCESS-ITEM-OUTPUT
-    ID="success:#{siseBean.addPoste}:#pages#secure#CM#SISE#saisieRef.xhtml"
-    NAME="output93" PATH="/pages/secure/CM/SISE/saisieRef.xhtml"
-    TARGET="rules:#pages#secure#CM#SISE#saisieRef.xhtml"
-    TITLE="#{siseBean.addPoste}:success" model-entity="JSFProcessItemOutput"/>
-   <PROCESS-ITEM-OUTPUT
-    ID="success:#{siseBean.addRole}:#pages#secure#CM#SISE#saisieRef.xhtml"
+    ID="success:#{siseBean.addDevise}:#pages#secure#CM#SISE#saisieRef.xhtml"
     NAME="output94" PATH="/pages/secure/CM/SISE/saisieRef.xhtml"
     TARGET="rules:#pages#secure#CM#SISE#saisieRef.xhtml"
-    TITLE="#{siseBean.addRole}:success" model-entity="JSFProcessItemOutput"/>
+    TITLE="#{siseBean.addDevise}:success" model-entity="JSFProcessItemOutput"/>
    <PROCESS-ITEM-OUTPUT
     ID="success:#{siseBean.addRoleCA}:#pages#secure#CA#SISE#saisieRef.xhtml"
     NAME="output95" PATH="/pages/secure/CA/SISE/saisieRef.xhtml"
@@ -1096,4 +1098,8 @@
     TARGET="rules:#pages#secure#choice.xhtml" TITLE="choix_compta" model-entity="JSFProcessItemOutput"/>
   </PROCESS-ITEM>
  </PROCESS-ITEM>
+ <PROCESS-ITEM
+  NAME="rules:#pages#secure#CM#SISE#content_forms#content_forms_saisieDevise.xhtml"
+  PATH="/pages/secure/CM/SISE/content_forms/content_forms_saisieDevise.xhtml"
+  SHAPE="848,4449,0,0" model-entity="JSFProcessGroup"/>
 </PROCESS>

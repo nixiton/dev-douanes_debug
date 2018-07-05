@@ -10,6 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.MappedSuperclass;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Transient;
 
 import org.springframework.core.style.ToStringCreator;
@@ -19,7 +20,9 @@ import org.springframework.core.style.ToStringCreator;
 public abstract class Referentiel implements Serializable {
 	
 	@Id
-	@GeneratedValue(strategy=GenerationType.TABLE)
+	//@GeneratedValue(strategy=GenerationType.TABLE)
+	@SequenceGenerator (name = "generator_ref", sequenceName = "REF_SEQ", allocationSize = 1) 
+	@GeneratedValue (strategy = GenerationType.SEQUENCE, generator = "generator_ref")
 	protected Long id;
 	
 	@Column(name="designation")

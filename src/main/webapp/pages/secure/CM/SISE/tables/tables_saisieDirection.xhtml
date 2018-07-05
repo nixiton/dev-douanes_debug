@@ -52,6 +52,31 @@
            </p:cellEditor>
             
         </p:column>
+        <p:column style="width: 10%; text-align: center; word-wrap: break-word;">
+            <f:facet name="header">Budget</f:facet>
+            <p:cellEditor>
+               <f:facet name="output"><h:outputText value="#{b.budget}" /></f:facet>
+               <f:facet name="input"><p:inputText value="#{b.budget}" style="width:80%"/></f:facet>
+           </p:cellEditor>
+            
+        </p:column>
+        <p:column style="width: 10%; text-align: center; word-wrap: break-word;">
+            <f:facet name="header">Trois</f:facet>
+            <p:cellEditor>
+               <f:facet name="output"><h:outputText value="#{b.trois}" /></f:facet>
+               <f:facet name="input"><p:inputText value="#{b.trois}" style="width:80%"/></f:facet>
+           </p:cellEditor>
+            
+        </p:column>
+        <p:column style="width: 10%; text-align: center; word-wrap: break-word;">
+            <f:facet name="header">Quatre</f:facet>
+            <p:cellEditor>
+               <f:facet name="output"><h:outputText value="#{b.quatre}" /></f:facet>
+               <f:facet name="input"><p:inputText value="#{b.quatre}" style="width:80%"/></f:facet>
+           </p:cellEditor>
+            
+        </p:column>
+        
         <p:column style="width: 3%; text-align: center; word-wrap: break-word;">
         <p:rowEditor />
         </p:column>

@@ -28,5 +28,28 @@ public class Direction extends Referentiel {
 		this.codeDirection = codeDirection;
 	}
 	
+	private String Budget;
+	private String trois;
+	private String quatre;
+
+	public String getBudget() {
+		return Budget;
+	}
+	public void setBudget(String budget) {
+		Budget = budget;
+	}
+	public String getTrois() {
+		return trois;
+	}
+	public void setTrois(String trois) {
+		this.trois = trois;
+	}
+	public String getQuatre() {
+		return quatre;
+	}
+	public void setQuatre(String quatre) {
+		this.quatre = quatre;
+	}
+	
 
 }

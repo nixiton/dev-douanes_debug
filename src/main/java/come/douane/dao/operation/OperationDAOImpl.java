@@ -89,6 +89,9 @@ public class OperationDAOImpl implements IOperationDAO{
 		attr.valider();
 		System.out.println("*************************************AFAKA***************7");
 		//oprepos.save(attr);
+		//set etat detenteur numero
+		attr.generateNumDet(this.countOpAttrByYearByDirection (new Date(), attr.getDirection()));
+		
 		em.merge(attr);
 		System.out.println("*************************************AFAKA***************8");
 		return m;
@@ -823,6 +826,23 @@ public class OperationDAOImpl implements IOperationDAO{
 	    }
 	    System.out.println("a reporter : "+entree +" - "+sortie);
 		return entree-sortie;
+		
+	}
+	
+	public Long countOpAttrByYearByDirection(Date date,Direction d) {
+		Calendar cal = Calendar.getInstance();
+		cal.setTime(date);
+		int year = cal.get(Calendar.YEAR);
+		Query q= em.createQuery("SELECT COUNT(oa.id) FROM OpAttribution oa"
+				+ " where YEAR(oa.date)=:year "
+				+ " and oa.direction =:direct"
+				+ " and oa.state=:etat");
+		q.setParameter("direct", d);
+		q.setParameter("year", year);
+		q.setParameter("etat", EtatOperation.ACCEPTED);
+		
+		Long r = (Long) q.getSingleResult();
+		return r;
 	}
 
 	
