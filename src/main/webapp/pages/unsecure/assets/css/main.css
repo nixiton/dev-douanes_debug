@@ -2499,7 +2499,7 @@ body.error .logo h1 {
 .login .form-signin {
   max-width: 330px;
   padding: 20px;
-   margin: 100px auto 0;
+  margin: 100px auto 0;
   background-color: #fff;
   border-radius: 3px;
 }
@@ -2516,8 +2516,8 @@ body.error .logo h1 {
   position: relative;
   font-size: 16px;
   height: auto;
-  padding: 10px;
-  margin-bottom: 10px;
+  /*padding: 10px;
+  margin-bottom: 10px;*/
 }
 .login .form-signin input[type="text"]:focus,
 .login .form-signin input[type="password"]:focus,
