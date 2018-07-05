@@ -25,8 +25,8 @@
  				CHAPITRE(1) <p:inputText value ="#{JasperTableExampleBean.livre.chap}" style="text-align: center;width: 25%"></p:inputText>
  				ARTICLE <p:inputText value ="#{JasperTableExampleBean.livre.article}" style="text-align: center;width: 25%"></p:inputText> <br></br>
  				(2) <p:inputText value ="#{JasperTableExampleBean.livre.libelle}"  style="text-align: center;width: 70%"></p:inputText><br></br>
- 				(3) <p:inputText value ="#{JasperTableExampleBean.livre.subd}" style="text-align: center;width: 70%"></p:inputText><br></br>
- 				(4) <p:inputText  value ="#{JasperTableExampleBean.livre.materiel}" style="text-align: center;width: 70%"></p:inputText><br></br>
+ 				(3) #{livreAnnuelBean.trois}<br></br>
+ 				(4) #{livreAnnuelBean.quatre}<br></br>
  				(5) <p:inputText  value ="#{JasperTableExampleBean.livre.indication}" style="text-align: center;width: 70%"></p:inputText><br></br>
  			</div>
         </div>
@@ -121,7 +121,10 @@
 	        </p:subTable>
 		</p:dataTable>  -->	
 	</div>
-	<p:commandButton action="#{JasperTableExampleBean.grandLivreReport(livreAnnuelBean.liste)}" type="submit" value="Exporter en PDF" ajax="false" ></p:commandButton>
+	<p:commandButton action="#{JasperTableExampleBean.grandLivreReport(livreAnnuelBean.liste)}" type="submit" value="Exporter en PDF" ajax="false" >
+		<f:setPropertyActionListener target="#{JasperTableExampleBean.livre.subd}" value="#{livreAnnuelBean.trois}" />
+ 		<f:setPropertyActionListener target="#{JasperTableExampleBean.livre.materiel}" value="#{livreAnnuelBean.quatre}" />
+	</p:commandButton>
 	<br/>
 	<p:commandButton action="#{JasperTableExampleBean.grandLivreDoc(livreAnnuelBean.liste)}" type="submit" value="Exporter en Word" ajax="false" ></p:commandButton>
 	</h:form>

@@ -15,6 +15,8 @@ import com.douane.managed.bean.SuiviEditionBean;
 @SessionScoped
 @ManagedBean(name="JournalBean")
 public class JournalBean {
+	private String trois;
+	private String quatre;
 	private String dateD;
 	private String dateF;
 	private Date dat;
@@ -41,6 +43,11 @@ public class JournalBean {
 		DateFormat  df = new SimpleDateFormat("dd MMMM yyyy", Locale.FRANCE);
 		this.dateD = df.format(this.dat);
 		this.dateF  = df.format(this.datF);
+		this.trois = this.quatre ="tsy misy";
+		if(s.getDirection() !=null) {
+			this.trois = s.getDirection().getTrois();
+			this.quatre = s.getDirection().getQuatre();
+		}else System.out.println("tsy tonga ny journal.Direction");
 		return "dialogJournal";
 	}
 	public Date getDat() {
@@ -60,5 +67,17 @@ public class JournalBean {
 	}
 	public void setLi(List<Object[]> li) {
 		this.li = li;
+	}
+	public String getTrois() {
+		return trois;
+	}
+	public void setTrois(String trois) {
+		this.trois = trois;
+	}
+	public String getQuatre() {
+		return quatre;
+	}
+	public void setQuatre(String quatre) {
+		this.quatre = quatre;
 	}
 }

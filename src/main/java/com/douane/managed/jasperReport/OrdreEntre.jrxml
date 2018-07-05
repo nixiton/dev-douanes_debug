@@ -287,7 +287,7 @@ Fitiavana-Tanindrazana- Fandrosoana
 				<textFieldExpression><![CDATA[$P{approOuService}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="51" y="80" width="89" height="20" uuid="97096bf0-5a3c-4d72-ace5-318bcf4b7e97"/>
+				<reportElement x="51" y="80" width="89" height="20" isPrintWhenDetailOverflows="true" uuid="97096bf0-5a3c-4d72-ace5-318bcf4b7e97"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="10" isBold="true"/>
 				</textElement>

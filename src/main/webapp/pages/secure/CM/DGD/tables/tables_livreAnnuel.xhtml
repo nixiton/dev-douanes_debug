@@ -52,7 +52,7 @@
        			 			<!-- p:outputLabel for="annee_livre_annuel" value="" />
         					<p:calendar id="annee_livre_annuel" value="#{livreAnnuelBean.d}" locale="fr" navigator="true" pattern="yyyy" required="true"/ -->
      			 			
-    						<h:commandButton value="Exporter" action="#{livreAnnuelBean.execute(suivieditionBean.listESForGrandLivre)}"/>
+    						<h:commandButton value="Exporter" action="#{livreAnnuelBean.execute(suivieditionBean)}"/>
        			 		</h:form>
        			 </span>
     		</f:facet>

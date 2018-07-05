@@ -4,6 +4,7 @@
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="261"/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
 	<style name="table">
 		<box>
 			<pen lineWidth="1.0" lineColor="#000000"/>
@@ -133,7 +134,7 @@ Fitiavana-Tanindrazana- Fandrosoana
 				<textElement verticalAlignment="Middle">
 					<font size="12"/>
 				</textElement>
-				<text><![CDATA[(2).......................................................................................
+				<text><![CDATA[(2)
                                   -----------------------------]]></text>
 			</staticText>
 			<staticText>
@@ -141,7 +142,7 @@ Fitiavana-Tanindrazana- Fandrosoana
 				<textElement verticalAlignment="Bottom">
 					<font size="12"/>
 				</textElement>
-				<text><![CDATA[(5).......................................................................................
+				<text><![CDATA[(5)
                                   -----------------------------]]></text>
 			</staticText>
 			<staticText>
@@ -149,7 +150,7 @@ Fitiavana-Tanindrazana- Fandrosoana
 				<textElement verticalAlignment="Bottom">
 					<font size="12"/>
 				</textElement>
-				<text><![CDATA[(3).......................................................................................
+				<text><![CDATA[(3)
                                   -----------------------------]]></text>
 			</staticText>
 			<staticText>
@@ -157,7 +158,7 @@ Fitiavana-Tanindrazana- Fandrosoana
 				<textElement verticalAlignment="Bottom">
 					<font size="12"/>
 				</textElement>
-				<text><![CDATA[(4).......................................................................................
+				<text><![CDATA[(4)
                                   -----------------------------]]></text>
 			</staticText>
 			<staticText>
@@ -233,28 +234,28 @@ L’Instruction Générale du 22 juillet 1955
 				<textFieldExpression><![CDATA[$P{article}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="29" y="110" width="294" height="20" uuid="b83f661d-ff6b-4074-b357-d3c7c5d98139"/>
+				<reportElement x="53" y="109" width="199" height="20" uuid="b83f661d-ff6b-4074-b357-d3c7c5d98139"/>
 				<textElement textAlignment="Center">
 					<font size="12"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{num2}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="29" y="142" width="294" height="20" uuid="cc1b10e0-2824-485c-a96b-dc73ca010cd7"/>
+				<reportElement x="52" y="142" width="200" height="20" uuid="cc1b10e0-2824-485c-a96b-dc73ca010cd7"/>
 				<textElement textAlignment="Center">
 					<font size="12"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{num3}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="29" y="174" width="294" height="20" uuid="7c2e143a-5746-4301-b7be-555acdfaf427"/>
+				<reportElement x="54" y="174" width="199" height="20" uuid="7c2e143a-5746-4301-b7be-555acdfaf427"/>
 				<textElement textAlignment="Center">
 					<font size="12"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{num4}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="29" y="207" width="294" height="20" uuid="53cf71b6-db90-45d5-9951-e5314bc1b2cb"/>
+				<reportElement x="54" y="210" width="199" height="20" uuid="53cf71b6-db90-45d5-9951-e5314bc1b2cb"/>
 				<textElement textAlignment="Center">
 					<font size="12"/>
 				</textElement>

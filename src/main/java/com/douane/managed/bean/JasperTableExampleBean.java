@@ -147,7 +147,7 @@ public class JasperTableExampleBean implements Serializable{
             		+ op.getMat().getReference()
             		;
             
-            //parameters.put("parameter1", htmlString);
+            parameters.put("service", op.getDirection().getDesignation());
             parameters.put("nomDepositaire", op.getOperateur().getNomAgent());
             parameters.put("fonctionDepositaire", fDepo);
             parameters.put("nomDetenteur", op.getDetenteur().getNomAgent());
@@ -204,7 +204,7 @@ public class JasperTableExampleBean implements Serializable{
             		+ op.getMat().getReference()
             		;
             
-            //parameters.put("parameter1", htmlString);
+            parameters.put("service", op.getDirection().getDesignation());
             parameters.put("nomDepositaire", op.getOperateur().getNomAgent());
             parameters.put("fonctionDepositaire", fDepo);
             parameters.put("nomDetenteur", op.getDetenteur().getNomAgent());
@@ -256,9 +256,9 @@ public class JasperTableExampleBean implements Serializable{
             Map<String, Object> parameters = new HashMap<String, Object>();
             parameters.put ("dataSource" , datalist.getDataAsDataSource());
             parameters.put("numEntre", op.getNumentree());
-            parameters.put("num3", this.ordreEB.getNum3());
+            parameters.put("num3", op.getDirection().getTrois());
             parameters.put("matieres", op.getListMat().get(0).getDesign().getOrigine());
-            parameters.put("num4", this.ordreEB.getNum4());
+            parameters.put("num4", op.getDirection().getQuatre());
             parameters.put("budget", this.ordreEB.getBudget());
             parameters.put("chap", this.ordreEB.getChap());
             parameters.put("article", this.ordreEB.getArticle());
@@ -312,8 +312,8 @@ public class JasperTableExampleBean implements Serializable{
             Map<String, Object> parameters = new HashMap<String, Object>();
             parameters.put ("dataSource" , datalist.getDataAsDataSource());
             parameters.put("numEntre", op.getNumentree());
-            parameters.put("num3", this.ordreEB.getNum3());
-            parameters.put("num4", this.ordreEB.getNum4());
+            parameters.put("num3", op.getDirection().getTrois());
+            parameters.put("num4", op.getDirection().getQuatre());
             parameters.put("matieres", op.getListMat().get(0).getDesign().getOrigine());
             parameters.put("budget", this.ordreEB.getBudget());
             parameters.put("chap", this.ordreEB.getChap());

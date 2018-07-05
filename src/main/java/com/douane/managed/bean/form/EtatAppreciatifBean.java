@@ -5,17 +5,23 @@ import java.util.List;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+
+import com.douane.managed.bean.SuiviEditionBean;
 @SessionScoped
 @ManagedBean(name="EtatAppreciatifBean")
 public class EtatAppreciatifBean {
 	private Date date;
+	private String trois;
+	private String quatre;
 	private List<Object[]> liste;
 	public EtatAppreciatifBean() {
 		this.date = new Date();
 	}
-	public String execute(List<Object[]> l) {
-		if (l != null) {
-			this.liste = l;
+	public String execute(SuiviEditionBean s) {
+		if (s != null) {
+			this.liste = s.getListESForGrandLivreOld();
+			this.trois = s.getDirection().getTrois();
+			this.quatre = s.getDirection().getQuatre();
 			//System.out.println("etat Appreciatif null");
 		}
 		//this.liste = l;
@@ -32,6 +38,18 @@ public class EtatAppreciatifBean {
 	}
 	public void setListe(List<Object[]> liste) {
 		this.liste = liste;
+	}
+	public String getTrois() {
+		return trois;
+	}
+	public void setTrois(String trois) {
+		this.trois = trois;
+	}
+	public String getQuatre() {
+		return quatre;
+	}
+	public void setQuatre(String quatre) {
+		this.quatre = quatre;
 	}
 
 }

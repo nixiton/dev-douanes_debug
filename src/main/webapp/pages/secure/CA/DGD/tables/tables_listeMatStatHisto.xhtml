@@ -49,19 +49,29 @@
                  sortBy="#{row[1]}"
                  >
          <f:facet name="header">
-        	JOURNAL DE LA COMPTABILITE ADMINISTRATIVE
+        	JOURNAL DE LA COMPTABILITE ADMINISTRATIVE<br/>
         	<h:form >
-		 			<p:outputLabel for="annee_livre_annuel" value=""/>
-					<p:calendar id="annee_livre_annuel" value="#{JournalABean.date}" locale="fr" navigator="true" pattern="dd MMMM yyyy" required="true"/>
+		 			<p:outputLabel for="annee_journal_debut" value="Exporter de "/>
+					<p:calendar id="annee_journal_debut" value="#{JournalABean.date}" locale="fr" navigator="true" pattern="dd MMMM yyyy" required="true"/>
 				<p:dialog modal="true" resizable="false" header="Values" widgetVar="dlg" showEffect="fold">
-					<p:panelGrid id="display_livre_annuel" columns="3" columnClasses="label,value">
+					<p:panelGrid id="display_livre_" columns="3" columnClasses="label,value">
 						<h:outputText value="" />
 				        <h:outputText value="#{JournalABean.date}">
 			            <f:convertDateTime pattern="dd MMMM yyyy" />
 	            	</h:outputText>
 	 				</p:panelGrid>
 				</p:dialog>
-			<h:commandButton value="Exporter" action="#{JournalABean.execute(suivieditionBean.getListForJournalStock())}"/>
+				<p:outputLabel for="annee_journal_fin" value=" à "/>
+					<p:calendar id="annee_journal_fin" value="#{JournalABean.datF}" locale="fr" navigator="true" pattern="dd MMMM yyyy" required="true"/>
+				<p:dialog modal="true" resizable="false" header="Values" widgetVar="dlg" showEffect="fold">
+					<p:panelGrid id="display_livre_annuel" columns="3" columnClasses="label,value">
+						<h:outputText value="" />
+				        <h:outputText value="#{JournalABean.datF}">
+			            <f:convertDateTime pattern="dd MMMM yyyy" />
+	            	</h:outputText>
+	 				</p:panelGrid>
+				</p:dialog>
+			<h:commandButton value="Exporter" action="#{JournalABean.execute(suivieditionBean)}"/>
 	 		</h:form>
     	</f:facet>
         

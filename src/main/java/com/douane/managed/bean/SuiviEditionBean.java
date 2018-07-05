@@ -33,7 +33,10 @@ public class SuiviEditionBean {
 
 	@ManagedProperty(value = "#{usermetier}")
 	IUserMetier usermetierimpl;
-
+	public SuiviEditionBean(){
+		Agent cur = (Agent) RequestFilter.getSession().getAttribute("agent");
+		this.direction = cur.getDirection();
+	}
 	private Agent agentOperateur;
 	private Direction direction;
 	private Date startDate;
@@ -599,6 +602,7 @@ public class SuiviEditionBean {
 	public List<Object[]> getListESForJournal() {
 		if (listESForJournal == null) {
 			Agent cur = (Agent) RequestFilter.getSession().getAttribute("agent");
+			//this.direction = cur.getDirection();
 			Date date = new Date();
 			Calendar calendar = new GregorianCalendar();
 			calendar.setTime(date);
@@ -1681,7 +1685,72 @@ public class SuiviEditionBean {
 		}
 		return resulttable;
 	}
-
+	
+	public List<Object[]> getListForJournalStock(Date s, Date f) {
+		List<Operation> lesoperations = getListOpESArtByDirection();
+		// structure de données
+		List<Object[]> resulttable = new ArrayList<Object[]>();
+		Object[] row = new Object[8];
+		for (Operation o : lesoperations) {
+			if((s.compareTo(o.getDate()) <= 0) && (f.compareTo(o.getDate()) >= 0))   {
+				// numero d'ordre
+				row[0] = "" + o.getId().toString();
+				// date operation
+				row[1] = o.getDate();
+				// reference
+				row[2] = " a ajouter " + o.getId();
+				// origine
+				row[3] = "";
+				// designation des articles
+				row[4] = "";
+				// quantite
+				row[5] = new Long (0);
+				// prix unitaire
+				row[6] = new Float(0);
+				// Montant total
+				row[7] = new Float(0);
+	
+				// processing
+				if (o instanceof OpEntreeArticle) {
+					row[0] = row[0] + "/E";
+					row[3] = "a ajouter origine";
+					Article a = ((OpEntreeArticle) o).getArticle();
+					row[4] = a.getCodeArticle().getTypeObjet().getDesignation() + " (" + a.getCodeArticle().getDesignation()
+							+ " ) " + a.getMarqueArticle();
+					row[5] = a.getNombre();
+					row[6] = a.getPrix();
+					row[7] = (Long) row[5] * (Float) row[6];
+					//set reference entree
+					if(a.getReference()!=null) {
+						row[2] = a.getReference();
+					}
+					if(a.getOrigine()!=null) {
+						row[3] = a.getOrigine();
+					}
+					
+	
+				} else if (o instanceof OpSortieArticle) {
+					row[0] = row[0] + "/S";
+					row[3] = (((OpSortieArticle) o).getBeneficiaire()).getNomAgent();
+					Article a = ((OpSortieArticle) o).getArticle();
+					row[4] = a.getCodeArticle().getTypeObjet().getDesignation() + " (" + a.getCodeArticle().getDesignation()
+							+ " ) " + a.getMarqueArticle();
+					row[5] = a.getNombre();
+					row[6] = a.getPrix();
+					row[7] = (Long) row[5] * (Float) row[6];
+					if(((OpSortieArticle) o).getDecision()!=null) {
+						row[2]=((OpSortieArticle) o).getDecision();
+					}
+	
+				}
+	
+				resulttable.add(row);
+				row = new Object[8];
+			}
+		}
+		return resulttable;
+	}
+	
 	public List<Operation> getListOpESArtByDirectionByCod(CodeArticle codeart) {
 		Agent cur = (Agent) RequestFilter.getSession().getAttribute("agent");
 		Date date = new Date();

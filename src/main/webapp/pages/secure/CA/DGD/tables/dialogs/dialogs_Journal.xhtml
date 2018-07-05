@@ -18,8 +18,8 @@
  				CHAPITRE(1) <p:inputText value ="#{JasperTableExampleBean.journal.chapitre}" style="text-align: center;width: 25%"></p:inputText>
  				ARTICLE <p:inputText value ="#{JasperTableExampleBean.journal.article}" style="text-align: center;width: 25%"></p:inputText> <br></br>
  				(2) <p:inputText value ="#{JasperTableExampleBean.journal.num2}"  style="text-align: center;width: 70%"></p:inputText><br></br>
- 				(3) <p:inputText value ="#{JasperTableExampleBean.journal.num3}" style="text-align: center;width: 70%"></p:inputText><br></br>
- 				(4) <p:inputText  value ="#{JasperTableExampleBean.journal.num4}" style="text-align: center;width: 70%"></p:inputText><br></br>
+ 				(3) #{JournalABean.trois}<br></br>
+ 				(4) #{JournalABean.quatre}<br></br>
  				(5) <p:inputText  value ="#{JasperTableExampleBean.journal.num5}" style="text-align: center;width: 70%"></p:inputText><br></br>
  			</div>
  		</div>
@@ -62,8 +62,14 @@
 	 		</div>
  		</div>
  		<div class="col-md-3">
- 			<br/><p:commandButton action="#{JasperTableExampleBean.journalReport(JournalABean.dateD, JournalABean.dateF, JournalABean.liste)}" type="submit" value="Exporter en PDF" ajax="false" ></p:commandButton>
- 			<br/><p:commandButton action="#{JasperTableExampleBean.journalDoc(JournalABean.dateD, JournalABean.dateF, JournalABean.liste)}" type="submit" value="Exporter en Word" ajax="false" ></p:commandButton>
+ 			<br/><p:commandButton action="#{JasperTableExampleBean.journalReport(JournalABean.dateD, JournalABean.dateF, JournalABean.liste)}" type="submit" value="Exporter en PDF" ajax="false" >
+	 			<f:setPropertyActionListener target="#{JasperTableExampleBean.journal.num3}" value="#{JournalABean.trois}" />
+	 			<f:setPropertyActionListener target="#{JasperTableExampleBean.journal.num4}" value="#{JournalABean.quatre}" />
+ 			</p:commandButton>
+ 			<br/><p:commandButton action="#{JasperTableExampleBean.journalDoc(JournalABean.dateD, JournalABean.dateF, JournalABean.liste)}" type="submit" value="Exporter en Word" ajax="false" >
+	 			<f:setPropertyActionListener target="#{JasperTableExampleBean.journal.num3}" value="#{JournalABean.trois}" />
+	 			<f:setPropertyActionListener target="#{JasperTableExampleBean.journal.num4}" value="#{JournalABean.quatre}" />
+ 			</p:commandButton>
  		</div>
 </div>
 <div class="col-mid-1"></div>
