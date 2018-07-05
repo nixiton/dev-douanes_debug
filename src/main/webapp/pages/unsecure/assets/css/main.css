@@ -2654,3 +2654,6 @@ border-collapse: collapse;
  .ui-shadow {
  	box-shadow: 2px 2px 6px rgba(0, 64, 255, 0.9);
  }
+.ui-column-filter.ui-inputfield.ui-inputtext.ui-widget.ui-state-default.ui-corner-all{
+	width: 80% !important;
+}

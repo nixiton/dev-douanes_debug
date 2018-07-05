@@ -40,11 +40,11 @@
             </h:commandLink>
         </f:facet>
         
-        <p:column headerText="ID"  style="width: 7%; text-align: center; word-wrap: break-word; ">
+        <p:column headerText="ID"  style="width: 5%; text-align: center; word-wrap: break-word; ">
             <h:outputText value="#{materiel.idMateriel}" />
             
         </p:column >
-        <p:column headerText="Numéro Série" filterBy="#{materiel.numSerie}" filterMatchMode="contains" style="width: 9%; text-align: center; word-wrap: break-word;">
+        <p:column headerText="Numéro Série" filterBy="#{materiel.numSerie}" filterMatchMode="contains" style="width: 7%; text-align: center; word-wrap: break-word;">
             <h:outputText value="#{materiel.numSerie}" />
             
         </p:column>
@@ -52,11 +52,11 @@
              <h:outputText value="#{materiel.design.typematerieladd.designation}" />
             
         </p:column>
-        <p:column headerText="Codification" filterBy="#{materiel.code}" filterMatchMode="contains" style="width: 9%; text-align: center; word-wrap: break-word;">
+        <p:column headerText="Codification" filterBy="#{materiel.code}" filterMatchMode="contains" style="width: 8%; text-align: center; word-wrap: break-word;">
             <h:outputText value="#{materiel.code}" />
             
         </p:column>
-        <p:column filterBy="#{materiel.design.nomenMat}" headerText="Nomenclature"  filterMatchMode="exact" style="width: 9%; text-align: center; word-wrap: break-word;">
+        <p:column filterBy="#{materiel.design.nomenMat}" headerText="Nomenclature"  filterMatchMode="exact" style="width: 15%; text-align: center; word-wrap: break-word;">
             <f:facet name="filter">
                 <p:selectOneMenu onchange="PF('MaterielTable').filter()" >
                     <f:selectItem itemLabel="Selectionner" itemValue="#{null}" noSelectionOption="true" />
@@ -86,20 +86,20 @@
             </f:facet>
             <h:outputText value="#{materiel.dc.nomAgent}" />
         </p:column>
-        <p:column exportable="false" style="width: 5%; text-align: center; word-wrap: break-word;">
+        <p:column exportable="false" style="width: 4%; text-align: center; word-wrap: break-word;">
 
             <f:facet name="header">Détail</f:facet>
             <p:commandButton  action="#{suivieditionBean.setMateriel(materiel.idMateriel)}" update=":detail"
             oncomplete="PF('detail').show()" icon="ui-icon-zoomin"/>
         </p:column> 
-        <p:column exportable="false" style="width: 5%; text-align: center; word-wrap: break-word;">
+        <p:column exportable="false" style="width: 4%; text-align: center; word-wrap: break-word;">
             <f:facet name="header">Statut</f:facet>
             <p:commandButton  action="#{suivieditionBean.setMateriel(materiel.idMateriel)}" 
             oncomplete="PF('statut').show()" icon="ui-icon-info" update=":statut">
 
             </p:commandButton>
         </p:column>
-        <p:column exportable="false" style="width: 5%; text-align: center; word-wrap: break-word;">
+        <p:column exportable="false" style="width: 4%; text-align: center; word-wrap: break-word;">
             <f:facet name="header">Historique</f:facet>
             <p:commandButton  action="#{suivieditionBean.setMateriel(materiel.idMateriel)}" 
             oncomplete="PF('historique').show()" icon="ui-icon-clipboard" update=":historique">
@@ -116,7 +116,7 @@
             <h:outputText value="#{materiel.direc.designation !=null ? materiel.direc.designation :'Non disponible'}" />
         </p:column>
         
-        <p:column filterBy="#{materiel.validation}" headerText="Statut" filterMatchMode="equals" style=" text-align: center; word-wrap: break-word;">
+        <p:column filterBy="#{materiel.validation}" headerText="Statut" filterMatchMode="equals" style="width: 6%; text-align: center; word-wrap: break-word;">
             <f:facet name="filter">
                 <p:selectOneButton onchange="PF('MaterielTable').filter()">
                     <f:converter converterId="javax.faces.Boolean" />
