@@ -40,7 +40,7 @@
 		<p:dataTable var="c" value="#{suivieditionBean.listESForGrandLivre}"
 			currentPageReportTemplate="({currentPage} sur {totalPages})"
 			paginatorTemplate="{CurrentPageReport}  {PreviousPageLink} {PageLinks} {NextPageLink} {Exporters}"
-			paginator="true" style="margin-bottom:20px"
+			paginator="true" style="margin-bottom:20px" emptyMessage="Aucun résultat"
 			sortBy="#{c[0]}"
 			widgetVar="LivreAnnuel"
 			id="livreannuel"

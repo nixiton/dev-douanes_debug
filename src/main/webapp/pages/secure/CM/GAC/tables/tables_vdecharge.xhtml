@@ -15,7 +15,7 @@
     <p:dataTable   var="d" value="#{suivieditionBean.listOperationSortieByDirection}"
     			currentPageReportTemplate="({currentPage} sur {totalPages})" 
                  paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}  "
-                 paginator="true" rows="10" style="margin-bottom:20px">
+                 paginator="true" rows="10" style="margin-bottom:20px" emptyMessage="Aucun résultat">
         <p:column style="text-align: center; word-wrap: break-word;">
             <f:facet name="header">ID</f:facet>
             #{d.id}

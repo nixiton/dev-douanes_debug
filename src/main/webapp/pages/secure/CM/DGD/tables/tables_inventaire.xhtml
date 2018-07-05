@@ -35,7 +35,7 @@
     <p:dataTable var="m" value="#{suivieditionBean.listobjectForInvetaire}"
     		currentPageReportTemplate="({currentPage} sur {totalPages})"
 			paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}"
-			paginator="true" style="margin-bottom:20px"
+			paginator="true" style="margin-bottom:20px" emptyMessage="Aucun résultat"
 			widgetVar="InventaireTable11"
 			id="inventaireTable11"
 			sortBy="#{m[0]}"
