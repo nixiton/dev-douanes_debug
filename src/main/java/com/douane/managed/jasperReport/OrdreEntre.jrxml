@@ -137,6 +137,7 @@
 	<parameter name="approOuService" class="java.lang.String"/>
 	<parameter name="dataSource" class="net.sf.jasperreports.engine.data.JRBeanCollectionDataSource"/>
 	<parameter name="numEntre" class="java.lang.String"/>
+	<parameter name="filamatra" class="java.lang.String"/>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
@@ -161,13 +162,12 @@
 				<text><![CDATA[(4)]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="193" y="-9" width="253" height="49" uuid="02cebd8a-c6a8-4b13-9043-646bbfca4e8c"/>
+				<reportElement x="190" y="0" width="253" height="20" uuid="02cebd8a-c6a8-4b13-9043-646bbfca4e8c"/>
 				<textElement textAlignment="Center">
 					<font size="12"/>
 				</textElement>
 				<text><![CDATA[REPOBLIKAN’I MADAGASIKARA
-Fitiavana-Tanindrazana- Fandrosoana
---------------------------
+
 
 ]]></text>
 			</staticText>
@@ -180,14 +180,14 @@ Fitiavana-Tanindrazana- Fandrosoana
 			</staticText>
 			<textField>
 				<reportElement x="28" y="0" width="122" height="20" uuid="a2f6f78f-8712-4dfc-b213-4c57e6299c3a"/>
-				<textElement textAlignment="Center">
+				<textElement textAlignment="Left">
 					<font size="12"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{num3}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="28" y="20" width="122" height="20" uuid="0d65db40-2045-4aa3-b2eb-4bdf9cf6707d"/>
-				<textElement textAlignment="Center">
+				<textElement textAlignment="Left">
 					<font size="12"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{num4}]]></textFieldExpression>
@@ -327,6 +327,18 @@ Fitiavana-Tanindrazana- Fandrosoana
 					<font size="12"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{numEntre}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="271" y="40" width="90" height="18" uuid="749855de-8c20-4f56-a27d-f7f0a6968b63"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[--------------------------]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="190" y="21" width="253" height="19" uuid="5a39c1af-af46-4715-817c-560649358c91"/>
+				<textElement textAlignment="Center">
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{filamatra}]]></textFieldExpression>
 			</textField>
 		</band>
 	</title>
