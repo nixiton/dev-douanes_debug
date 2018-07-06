@@ -93,7 +93,9 @@
                     </tr>
                     <tr>
                         <td><b>Montant</b></td>
-                        <td align="left">#{suivieditionBean.materiel.design.pu}</td>
+                        <td align="left">
+		                   <h:outputText value="#{suivieditionBean.materiel.design.pu}" ><f:convertNumber pattern="¤#,##0.00" currencySymbol=""></f:convertNumber></h:outputText>
+		                </td>
                     </tr>
                     <tr>
                         <td><b>Référence</b></td>

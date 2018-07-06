@@ -111,7 +111,9 @@
 					</div>
 	                <div class="col-lg-6">
 	
-	                    <h:outputText id="prix" value="#{depositaireBean.article != null ? depositaireBean.article.prix : ''}"/>
+	                    <h:outputText id="prix" value="#{depositaireBean.article != null ? depositaireBean.article.prix : ''}">
+	                    	 <f:convertNumber pattern="¤#,##0.00" currencySymbol=""></f:convertNumber>
+	                    </h:outputText>
 	
 	                </div>
                </div>

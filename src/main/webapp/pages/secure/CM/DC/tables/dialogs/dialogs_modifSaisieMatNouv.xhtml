@@ -258,7 +258,9 @@
                         value="#{depositaireBean.curentMaterielNouv.design.pu}"
                         required="true"
             			requiredMessage="Prix unitaire obligatoire"
-                        placeholder="Prix unitaire" styleClass="form-control top"></p:inputText>
+                        placeholder="Prix unitaire" styleClass="form-control top">
+                        	<f:convertNumber pattern="¤#,##0.00" currencySymbol=""></f:convertNumber>
+                        </p:inputText>
 
                     </div>
 				</div>

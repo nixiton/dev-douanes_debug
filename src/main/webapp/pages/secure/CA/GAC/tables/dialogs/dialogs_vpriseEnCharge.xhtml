@@ -28,7 +28,9 @@
                     
                     <tr>
                         <td><strong>Montant</strong></td>
-                        <td>#{gacBean.opEntreeArticleToValidate.article.prix}</td>
+                        <td>
+                        	<h:outputText value="#{gacBean.opEntreeArticleToValidate.article.prix}" ><f:convertNumber pattern="¤#,##0.00" currencySymbol=""></f:convertNumber></h:outputText>
+                     	</td>
                         <td><strong>Nombre</strong></td>
                         <td>#{gacBean.opEntreeArticleToValidate.article.nombre}</td>
                     </tr>
@@ -60,7 +62,9 @@
                         <td>#{gacBean.opEntreeArticleToValidate.article.fournisseur.designation}</td> -->
                         
                         <td><strong>Montant</strong></td>
-                        <td>#{gacBean.opEntreeArticleToValidate.article.prix}</td>
+                        <td>
+                        	<h:outputText value="#{gacBean.opEntreeArticleToValidate.article.prix}" ><f:convertNumber pattern="¤#,##0.00" currencySymbol=""></f:convertNumber></h:outputText>
+                     	</td>
                         <td><strong>Nombre</strong></td>
                         <td>#{gacBean.opEntreeArticleToValidate.article.nombre}</td>
                     </tr>

@@ -108,13 +108,17 @@
 				<h:outputText value="#{c[2]}" />			
 			</p:column>
 			<p:column headerText="Prix de l’unité" style=" text-align: center; word-wrap: break-word;" > 
-				<h:outputText value="#{c[3]}" />			
+				<h:outputText value="#{c[3]}" >
+					<f:convertNumber pattern="¤#,##0.00" currencySymbol=""></f:convertNumber>
+				</h:outputText>			
 			</p:column>
 			<p:column headerText="Quantité" style=" text-align: center; word-wrap: break-word;"> 
 				<h:outputText value="#{c[5]}" />			
 			</p:column>
 			<p:column headerText="Valeur" style=" text-align: center; word-wrap: break-word;"> 
-				<h:outputText value="#{c[3]*c[5]}" />			
+				<h:outputText value="#{c[3]*c[5]}" >
+					<f:convertNumber pattern="¤#,##0.00" currencySymbol=""></f:convertNumber>
+				</h:outputText>			
 			</p:column>
 			<p:column headerText="Mouvements  effectués" style=" text-align: center; word-wrap: break-word;"> 
 				<h:outputText value="A remplir" />			
@@ -132,19 +136,25 @@
 				<h:outputText value="#{c[12]}" />			
 			</p:column>
 			<p:column headerText="Valeur" style=" text-align: center; word-wrap: break-word;"> 
-				<h:outputText value="#{c[12]*c[3]}" />			
+				<h:outputText value="#{c[12]*c[3]}" >
+					<f:convertNumber pattern="¤#,##0.00" currencySymbol=""></f:convertNumber>
+				</h:outputText>			
 			</p:column>
 			<p:column headerText="Quantité" style=" text-align: center; word-wrap: break-word;"> 
 				<h:outputText value="#{c[13]}" />			
 			</p:column>
 			<p:column headerText="Valeur" style=" text-align: center; word-wrap: break-word;"> 
-				<h:outputText value="#{c[13]*c[3]}" />			
+				<h:outputText value="#{c[13]*c[3]}" >
+					<f:convertNumber pattern="¤#,##0.00" currencySymbol=""></f:convertNumber>
+				</h:outputText>			
 			</p:column>
 			<p:column headerText="Quantité" style=" text-align: center; word-wrap: break-word;"> 
 				<h:outputText value="#{c[8]}" />			
 			</p:column>
 			<p:column headerText="Valeur" style=" text-align: center; word-wrap: break-word;"> 
-				<h:outputText value="#{c[9]}" />			
+				<h:outputText value="#{c[9]}" >
+					<f:convertNumber pattern="¤#,##0.00" currencySymbol=""></f:convertNumber>
+				</h:outputText>			
 			</p:column>
 			
 			

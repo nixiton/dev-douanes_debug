@@ -31,7 +31,9 @@
                       	<td><strong>Validité</strong></td>
                         <td>#{depositaireBean.curentArticle.validation}</td>
                         <td><strong>Montant</strong></td>
-                        <td>#{depositaireBean.curentArticle.prix}</td>
+                        <td>
+                        	<h:outputText value="#{depositaireBean.curentArticle.prix}" ><f:convertNumber pattern="¤#,##0.00" currencySymbol=""></f:convertNumber></h:outputText>
+                     	</td>	
                       </tr>
                       <tr>
                         <td><strong>Article</strong></td>

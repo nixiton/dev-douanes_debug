@@ -65,7 +65,9 @@
 
                             <tr>
                                 <td><strong>Montant </strong></td>
-                                <td>#{mat.design.pu}</td>
+                                <td>
+		                        	<h:outputText value="#{mat.design.pu}" ><f:convertNumber pattern="¤#,##0.00" currencySymbol=""></f:convertNumber></h:outputText>
+		                     	</td>
                                 <td><strong>Financement</strong></td>
                                 <td>#{mat.design.financement.designation}</td>
                                 <td><strong>Référence pj</strong></td>

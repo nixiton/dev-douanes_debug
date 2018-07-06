@@ -29,7 +29,9 @@
                     </tr>
                     <tr>
                         <td><strong>Montant</strong></td>
-                        <td>#{depositaireBean.curentMaterielEx.design.pu}</td>
+                        <td>
+                        	<h:outputText value="#{depositaireBean.curentMaterielEx.design.pu}" ><f:convertNumber pattern="¤#,##0.00" currencySymbol=""></f:convertNumber></h:outputText>
+                     	</td>
                         <td></td>
                         <td><strong>Marque</strong></td>
                         <td>#{depositaireBean.curentMaterielEx.design.marque.designation}</td>

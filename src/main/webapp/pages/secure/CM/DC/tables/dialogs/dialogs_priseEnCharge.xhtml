@@ -19,18 +19,20 @@
 
         <table class="table responsive-table">
                     <tr>
-                        <td><strong>Type de materiel</strong></td>
+                        <td><strong>Type de matériel</strong></td>
                         <td>#{depositaireBean.curentMaterielNouv.design.nomenMat.designation}</td>
                         <td></td>
                         <td><strong>Financement</strong></td>
                         <td>#{depositaireBean.curentMaterielNouv.design.financement.designation}</td>
                     </tr>
                     <tr>
-                        <td><strong>Type de Materiel - Nomenclature</strong></td>
+                        <td><strong>Type de Matériel - Nomenclature</strong></td>
                         <td>#{depositaireBean.curentMaterielNouv.design.typematerieladd.designation} - #{depositaireBean.curentMaterielNouv.design.nomenMat.nomenclature}</td>
                         <td></td>
                         <td><strong>Montant</strong></td>
-                        <td>#{depositaireBean.curentMaterielNouv.design.pu}</td>
+                        <td>
+                            <h:outputText value="#{depositaireBean.curentMaterielNouv.design.pu}" ><f:convertNumber pattern="¤#,##0.00" currencySymbol=""></f:convertNumber></h:outputText>
+                        </td>
                     </tr>
                     <tr>
                         <td><strong>Marque</strong></td>
