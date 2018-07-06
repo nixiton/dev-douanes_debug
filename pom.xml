@@ -469,7 +469,7 @@
 	</profiles>
 
 	<build>
-		<finalName>java-tomcat-maven-example</finalName>
+		<finalName>douane-equipment</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
