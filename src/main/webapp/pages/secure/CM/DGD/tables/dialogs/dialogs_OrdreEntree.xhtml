@@ -9,7 +9,11 @@
     xmlns:c="http://java.sun.com/jsp/jstl/core"
     >
 
-
+<style>
+	div.devise{
+		padding-right : 10% !important;
+	}
+</style>
 <ui:include src="/pages/unsecure/components/header.xhtml">
 </ui:include>
 
@@ -26,18 +30,35 @@
  		<br></br><br></br><br></br><br></br><br></br>
  			
  			<div class="col-md-3">
+ 				<br/>
  				(3) <h:outputText value="#{gacBean.curentOperation1.direction.trois}" /><br></br>
  				(4) <h:outputText value="#{gacBean.curentOperation1.direction.quatre}"/><br></br>
 
  			</div>
 
  			<div class="col-md-6">
+ 				 <!-- 
+ 				 <h:graphicImage width="100%"
+                    value="/pages/unsecure/assets/images/mada.png" /> -->
+                <div class="row">
+                	<div class="col-lg-10 col-lg-offset-1 " style="padding-left:5%;"><h3><b>REPOBLIKAN ' I  MADAGASIKARA</b></h3></div>
+ 				</div>
+ 				<div class="row devise">
+					<p:selectOneMenu value="#{selected}">
+                        <f:selectItem itemValue="#{null}" itemLabel="Fitiavana - Tanindrazana - Fandroasoana" /> 
+                        <f:selectItem itemLabel="Devise 1" itemValue="Devise 1" />
+			            <f:selectItem itemLabel="Devise 2" itemValue="Devise 2" />
+			            <f:selectItem itemLabel="Devise 3" itemValue="Devise 3" />
+                        <!-- >f:selectItems value="#{null}" itemLabel="#{null}"  /-->
+                       	
+                    </p:selectOneMenu>	                 
+                </div>
+ 				<br/>
  				
- 				<h:graphicImage width="100%"
-                    value="/pages/unsecure/assets/images/mada.png" />
  			</div>
 
  			<div class="col-md-3">
+ 				<br/>
  				Modèle n°7
                 <!--   <button id="cmd">generate PDF</button>-->
  			</div>

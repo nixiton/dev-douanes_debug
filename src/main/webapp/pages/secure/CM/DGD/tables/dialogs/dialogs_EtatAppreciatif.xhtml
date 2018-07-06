@@ -11,6 +11,12 @@
 <head>
     <title>Etat Appreciatif</title>
 </head>
+<style>
+	div.devise{
+		padding-right : 0% !important;
+	}
+</style>
+
 <ui:include src="/pages/unsecure/components/header.xhtml">
 </ui:include>
 
@@ -27,12 +33,29 @@
 
  		<div class="col-md-12">
  			<div class="col-md-3">
+ 				<br></br><br></br>
  				<h:graphicImage width="100%"
                     value="/pages/unsecure/assets/images/gauche.png" />
 
  			</div>
 
  			<div class="col-md-6" style="text-align: center;">
+ 			
+ 				<div class="row">
+                	<div class="col-lg-10 col-lg-offset-1 " style="padding-left:5%;"><h3><b>REPOBLIKAN ' I  MADAGASIKARA</b></h3></div>
+ 				</div>
+ 				<div class="row devise">
+					<p:selectOneMenu value="#{selected}">
+                        <f:selectItem itemValue="#{null}" itemLabel="Fitiavana - Tanindrazana - Fandroasoana" /> 
+                        <f:selectItem itemLabel="Devise 1" itemValue="Devise 1" />
+			            <f:selectItem itemLabel="Devise 2" itemValue="Devise 2" />
+			            <f:selectItem itemLabel="Devise 3" itemValue="Devise 3" />
+                        <!-- >f:selectItems value="#{null}" itemLabel="#{null}"  /-->
+                       	
+                    </p:selectOneMenu>	                 
+                </div>
+ 				<br/>
+ 				
  				
  				(1)<p:inputText value="#{JasperTableExampleBean.pdfForm.num1}" style="text-align: center;width: 70%"></p:inputText><br></br>
  				
@@ -65,6 +88,7 @@
 
 
  			<div class="col-md-3">
+ 				<br></br><br></br>
  				Modèle n°9
 
                 <br></br><br></br>

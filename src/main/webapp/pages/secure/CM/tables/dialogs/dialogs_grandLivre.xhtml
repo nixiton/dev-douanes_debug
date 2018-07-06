@@ -10,7 +10,11 @@
 		  writing-mode: vertical-lr;
 		  -webkit-writing-mode: vertical-lr;
 		  -ms-writing-mode: vertical-lr;
-		}   
+		} 
+
+	div.devise{
+		padding-right : 10% !important;
+ 	}
     </style>
 </h:head>
 <ui:include src="/pages/unsecure/components/header.xhtml"></ui:include>
@@ -19,7 +23,25 @@
 	<h:form><div class="col-md-10" style="font-size: 18px!important;color: #5f5f5f; border:1px solid #bfbfbf; padding-bottom:70px">
 		<div class="col-md-3"></div>
         <div class="col-md-6">
-			<h:graphicImage width="100%" value="/pages/unsecure/assets/images/mada.png" />
+	        <div class="col-md-12">
+	        	<!-- <h:graphicImage width="100%" value="/pages/unsecure/assets/images/mada.png" /> -->
+	        	<div class="row">
+                	<div class="col-lg-10 col-lg-offset-1 " style="padding-left:5%;"><h3><b>REPOBLIKAN ' I  MADAGASIKARA</b></h3></div>
+ 				</div>
+ 				<div class="row devise">
+					<p:selectOneMenu value="#{selected}">
+                        <f:selectItem itemValue="#{null}" itemLabel="Fitiavana - Tanindrazana - Fandroasoana" /> 
+                        <f:selectItem itemLabel="Devise 1" itemValue="Devise 1" />
+			            <f:selectItem itemLabel="Devise 2" itemValue="Devise 2" />
+			            <f:selectItem itemLabel="Devise 3" itemValue="Devise 3" />
+                        <!-- >f:selectItems value="#{null}" itemLabel="#{null}"  /-->
+                       	
+                    </p:selectOneMenu>	                 
+                </div>
+ 				<br/>
+	        	
+	        </div>
+			
 			<div class="col-md-12" style="text-align: center;">
  				BUDGET <br/><p:inputText value ="#{JasperTableExampleBean.livre.budget}" style="text-align: center;width:100%"></p:inputText> <br/>
  				CHAPITRE(1) <p:inputText value ="#{JasperTableExampleBean.livre.chap}" style="text-align: center;width: 25%"></p:inputText>
