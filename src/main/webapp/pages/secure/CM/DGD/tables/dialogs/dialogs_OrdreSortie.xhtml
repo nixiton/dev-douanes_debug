@@ -14,7 +14,7 @@
 		padding-right : 10% !important;
 	}
 </style>
-
+<h:head></h:head>
 <ui:include src="/pages/unsecure/components/header.xhtml">
 </ui:include>
 
@@ -42,16 +42,11 @@
                 <div class="row">
                 	<div class="col-lg-10 col-lg-offset-1 " style="padding-left:5%;"><h3><b>REPOBLIKAN ' I  MADAGASIKARA</b></h3></div>
  				</div>
- 				<div class="row devise">
-					<p:selectOneMenu value="#{selected}">
-                        <f:selectItem itemValue="#{null}" itemLabel="Fitiavana - Tanindrazana - Fandroasoana" /> 
-                        <f:selectItem itemLabel="Devise 1" itemValue="Devise 1" />
-			            <f:selectItem itemLabel="Devise 2" itemValue="Devise 2" />
-			            <f:selectItem itemLabel="Devise 3" itemValue="Devise 3" />
-                        <!-- >f:selectItems value="#{null}" itemLabel="#{null}"  /-->
-                       	
+ 				<div class="row devise"><f:view contentType="text/html">
+					<p:selectOneMenu id="devise" value="#{JasperTableExampleBean.ordreS.filamatra}">
+                        <f:selectItems value="#{siseBean.mapDevise}" />
                     </p:selectOneMenu>	                 
-                </div>
+                </f:view></div>
  				<br/>
  			</div>
 

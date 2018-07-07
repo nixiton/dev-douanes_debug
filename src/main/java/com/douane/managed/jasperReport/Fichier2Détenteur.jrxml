@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.5.1.final using JasperReports Library version 6.5.1  -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Fichier2Détenteur" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" isSummaryNewPage="true" uuid="feac92ec-0b3d-4f27-b9f1-ddc0f160d5fb">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
@@ -32,28 +33,39 @@
 	<parameter name="detenteur" class="java.lang.String"/>
 	<parameter name="nombreDet" class="java.lang.String"/>
 	<parameter name="valeur" class="java.lang.String"/>
+	<parameter name="filamatra" class="java.lang.String"/>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
 	<title>
-		<band height="79" splitType="Stretch">
-			<image>
-				<reportElement x="0" y="0" width="141" height="79" uuid="5590db97-6d76-40b0-94f7-00c33c1dbf11"/>
-				<imageExpression><![CDATA["C:\\Users\\SELVER\\Downloads\\douanedocplus\\MFB.png"]]></imageExpression>
+		<band height="82" splitType="Stretch">
+			<image scaleImage="FillFrame">
+				<reportElement x="0" y="0" width="80" height="79" uuid="5590db97-6d76-40b0-94f7-00c33c1dbf11"/>
+				<imageExpression><![CDATA["./fadinteranana.png"]]></imageExpression>
 			</image>
 			<staticText>
-				<reportElement x="237" y="12" width="260" height="46" uuid="96bc1380-170c-47d5-8871-fde635dcc998"/>
-				<textElement textAlignment="Center">
+				<reportElement x="237" y="2" width="260" height="28" uuid="96bc1380-170c-47d5-8871-fde635dcc998"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="12"/>
 				</textElement>
-				<text><![CDATA[   REPOBLIKAN’I MADAGASIKARA
-           Fitiavana - Tanindrazana - Fandrosoana
-----------------]]></text>
+				<text><![CDATA[ REPOBLIKAN’I MADAGASIKARA]]></text>
 			</staticText>
-			<image>
-				<reportElement x="670" y="0" width="114" height="67" uuid="33bf3558-7942-4a1f-9a41-b1dc893447bf"/>
-				<imageExpression><![CDATA["C:\\Users\\SELVER\\Downloads\\douanedocplus\\MFB.png"]]></imageExpression>
+			<image scaleImage="FillFrame">
+				<reportElement x="670" y="0" width="81" height="67" uuid="33bf3558-7942-4a1f-9a41-b1dc893447bf"/>
+				<imageExpression><![CDATA["./mfb.png"]]></imageExpression>
 			</image>
+			<staticText>
+				<reportElement x="237" y="52" width="260" height="18" uuid="3e8ee883-7a84-4f03-b1b6-71f9929f054a"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[----------------]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="237" y="30" width="260" height="20" uuid="932ddc26-045c-4255-a4df-77a2614ea8ad"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{filamatra}]]></textFieldExpression>
+			</textField>
 		</band>
 	</title>
 	<pageHeader>

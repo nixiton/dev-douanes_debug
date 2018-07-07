@@ -125,6 +125,7 @@
 	<parameter name="ans" class="java.lang.String"/>
 	<parameter name="materiel" class="java.lang.String"/>
 	<parameter name="dataSource" class="net.sf.jasperreports.engine.data.JRBeanCollectionDataSource"/>
+	<parameter name="filamatra" class="java.lang.String"/>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
@@ -138,13 +139,11 @@
 				<text><![CDATA[CHAPITRE(1)]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="165" y="13" width="315" height="46" uuid="0faa547c-29ad-412c-9051-d747dae27d27"/>
+				<reportElement x="165" y="4" width="315" height="17" uuid="0faa547c-29ad-412c-9051-d747dae27d27"/>
 				<textElement textAlignment="Center">
 					<font size="12"/>
 				</textElement>
 				<text><![CDATA[REPOBLIKAN’I MADAGASIKARA
-Fitiavana-Tanindrazana- Fandrosoana
---------------------------
 ]]></text>
 			</staticText>
 			<staticText>
@@ -350,6 +349,18 @@ DES MOUVEMENTS D’ENTREE ET DE SORTIE
 					<font size="12"/>
 				</textElement>
 				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="165" y="40" width="315" height="19" uuid="5fa63397-319c-4c60-bb56-68da1759970e"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[--------------------------]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="165" y="20" width="314" height="20" uuid="c280c8ad-19ad-4d99-99ff-27f21085ea5a"/>
+				<textElement textAlignment="Center">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{filamatra}]]></textFieldExpression>
 			</textField>
 		</band>
 	</title>

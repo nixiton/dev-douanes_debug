@@ -1380,7 +1380,21 @@ public class SISEformBean {
 	public Devise getDevise() {
 		return devise;
 	}
-
+	private Map<String,String> mapDevise;
+	public Map<String,String> getMapDevise(){
+		if(mapDevise == null) {
+			Map<String, String> filamatras = new HashMap<String, String>();
+			for(Devise d : this.getListDevise()) {
+				filamatras.put(d.getDesignation(), d.getDesignation());
+				System.out.println(d.getDesignation());
+			}
+			this.mapDevise = filamatras;
+		}
+		return this.mapDevise;
+	}
+	public void setMapDevise(Map<String,String> md) {
+		this.mapDevise = md;
+	}
 	public void setDevise(Devise devise) {
 		this.devise = devise;
 	}

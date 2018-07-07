@@ -1,10 +1,16 @@
 package com.douane.managed.bean;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.StringJoiner;
 
+import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
+
+import com.douane.entite.Devise;
 @ManagedBean(name="ordreEntree")
 public class ordreEntreeBean {
+	private String filamatra;
 	private String num3;
 	private String num4;
 	private String chap;
@@ -24,7 +30,22 @@ public class ordreEntreeBean {
 	private String date2;
 	private String lieu1;
 	private String date1;
+	/*private Map<String,String> filamatras = new HashMap<String, String>();
+	@PostConstruct
+    public void init() {
+		filamatras = new HashMap<String, String>();
+		SISEformBean s = new SISEformBean();
+		for(Devise d : s.getListDevise()) {
+			filamatras.put(d.getDesignation(), d.getDesignation());
+		}
+    }
 	
+	public Map<String, String> getFilamatras() {
+		return filamatras;
+	}
+	public void setFilamatras(Map<String, String> filamatras) {
+		this.filamatras = filamatras;
+	}*/
 	public String toString() {
 		StringJoiner joiner = new StringJoiner(" ");
 		joiner.add("ordreEntree = ").add(num3).add(num4).add(chap).add(article).add(paragraphe).add(noumJour).add(comptable).add(matieres).add(ordre).add(chap)
@@ -145,6 +166,12 @@ public class ordreEntreeBean {
 	}
 	public void setApproOuService(String approOuService) {
 		this.approOuService = approOuService;
+	}
+	public String getFilamatra() {
+		return filamatra;
+	}
+	public void setFilamatra(String filamatra) {
+		this.filamatra = filamatra;
 	}
 		
 }

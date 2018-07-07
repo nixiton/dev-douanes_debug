@@ -1,8 +1,14 @@
 package com.douane.managed.bean.form;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.StringJoiner;
 
+import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
+
+import com.douane.entite.Devise;
+import com.douane.managed.bean.SISEformBean;
 
 @ManagedBean(name="pdfForm")
 public class PdfFormBean {
@@ -24,6 +30,14 @@ public class PdfFormBean {
 	private String somme2;
 	private String date;
 	private String lieu;
+	private String filamatra;
+	
+	public String getFilamatra() {
+		return filamatra;
+	}
+	public void setFilamatra(String filamatra) {
+		this.filamatra = filamatra;
+	}
 	public String getLieu() {
 		return lieu;
 	}

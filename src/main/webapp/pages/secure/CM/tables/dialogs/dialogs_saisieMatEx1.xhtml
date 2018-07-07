@@ -10,13 +10,13 @@
 		padding-right : 10% !important;
 	}
 </style>
-
+<h:head></h:head>
 <ui:include src="/pages/unsecure/components/header.xhtml">
 </ui:include>
 
 
     <!--p:dialog id="detail" widgetVar="detail"-->
-
+<h:form>
 
     <div   class="body collapse in table-responsive">
 
@@ -33,16 +33,12 @@
             	<div class="row">
                 	<div class="col-lg-10 col-lg-offset-1 " style="padding-left:5%;"><h3><b>REPOBLIKAN ' I  MADAGASIKARA</b></h3></div>
  				</div>
- 				<div class="row devise">
-					<p:selectOneMenu value="#{selected}">
-                        <f:selectItem itemValue="#{null}" itemLabel="Fitiavana - Tanindrazana - Fandroasoana" /> 
-                        <f:selectItem itemLabel="Devise 1" itemValue="Devise 1" />
-			            <f:selectItem itemLabel="Devise 2" itemValue="Devise 2" />
-			            <f:selectItem itemLabel="Devise 3" itemValue="Devise 3" />
-                        <!-- >f:selectItems value="#{null}" itemLabel="#{null}"  /-->
+ 				<div class="row devise"><f:view contentType="text/html">
+					<p:selectOneMenu value="#{JasperTableExampleBean.pdfForm.filamatra}" appendTo="@this">
+                        <f:selectItems value="#{siseBean.mapDevise}" />
                        	
                     </p:selectOneMenu>	                 
-                </div>
+                </f:view></div>
  				<br/>       
         
 		</div>
@@ -116,7 +112,9 @@
 
             <div class="col-md-1"></div>
 
-            <div class="col-md-10">Arrêté le présent état de détenteur effectif au nombre de <p:inputText style="text-align: center;"></p:inputText> Articles à une valeur de <p:inputText style="text-align: center;"></p:inputText> Ariary.</div>
+            <div class="col-md-10">Arrêté le présent état de détenteur effectif au nombre de 
+            <p:inputText value ="#{JasperTableExampleBean.pdfForm.num1}"  style="text-align: center;"></p:inputText>
+            articles à une valeur de <p:inputText value="#{JasperTableExampleBean.pdfForm.num2}" style="text-align: center;"></p:inputText> Ariary.</div>
 
             <div class="col-md-1"></div>
 
@@ -141,13 +139,11 @@
             <br></br><br></br>
             <br></br><br></br>
             <br></br><br></br>
-    
-		<h:form>
+
 			<p:commandButton value="Exporter en PDF" ajax="false" action="#{JasperTableExampleBean.saisieMatexReport(docbean.curentOperationAttrToPdf)}"> </p:commandButton>
 			<br/>
 			<p:commandButton value="Exporter en Word" ajax="false" action="#{JasperTableExampleBean.saisieMatexDoc(docbean.curentOperationAttrToPdf)}"> </p:commandButton>
-			
-		</h:form>
+
 	 </div>
-	</div>
+	</div></h:form>
 </html>

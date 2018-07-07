@@ -15,9 +15,11 @@
 	<parameter name="designationMat" class="java.lang.String"/>
 	<parameter name="especeunite" class="java.lang.String"/>
 	<parameter name="pu" class="java.lang.Float"/>
+	<parameter name="num2" class="java.lang.String"/>
 	<parameter name="nbr" class="java.lang.Integer"/>
 	<parameter name="valeurtotal" class="java.lang.Float"/>
 	<parameter name="service" class="java.lang.String"/>
+	<parameter name="num1" class="java.lang.String"/>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
@@ -87,6 +89,7 @@ DIRECTION GENERALE DES DOUANES
 					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
 					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
 				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
 				<text><![CDATA[NOMBRE]]></text>
 			</staticText>
 			<staticText>
@@ -97,6 +100,7 @@ DIRECTION GENERALE DES DOUANES
 					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
 					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
 				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
 				<text><![CDATA[DESIGNATION]]></text>
 			</staticText>
 			<staticText>
@@ -107,6 +111,7 @@ DIRECTION GENERALE DES DOUANES
 					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
 					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
 				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
 				<text><![CDATA[VALEUR TOTALE]]></text>
 			</staticText>
 			<staticText>
@@ -117,6 +122,7 @@ DIRECTION GENERALE DES DOUANES
 					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
 					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
 				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
 				<text><![CDATA[PRIX UNITAIRE]]></text>
 			</staticText>
 			<staticText>
@@ -127,6 +133,7 @@ DIRECTION GENERALE DES DOUANES
 					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
 					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
 				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
 				<text><![CDATA[ESPECE DES UNITES]]></text>
 			</staticText>
 		</band>
@@ -141,6 +148,7 @@ DIRECTION GENERALE DES DOUANES
 					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
 					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
 				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
 				<textFieldExpression><![CDATA[$P{designationMat}]]></textFieldExpression>
 			</textField>
 			<textField>
@@ -151,6 +159,7 @@ DIRECTION GENERALE DES DOUANES
 					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
 					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
 				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
 				<textFieldExpression><![CDATA[$P{especeunite}]]></textFieldExpression>
 			</textField>
 			<textField>
@@ -161,6 +170,7 @@ DIRECTION GENERALE DES DOUANES
 					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
 					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
 				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
 				<textFieldExpression><![CDATA[$P{pu}]]></textFieldExpression>
 			</textField>
 			<textField>
@@ -171,6 +181,7 @@ DIRECTION GENERALE DES DOUANES
 					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
 					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
 				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
 				<textFieldExpression><![CDATA[$P{nbr}]]></textFieldExpression>
 			</textField>
 			<textField>
@@ -181,6 +192,7 @@ DIRECTION GENERALE DES DOUANES
 					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
 					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
 				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
 				<textFieldExpression><![CDATA[$P{valeurtotal}]]></textFieldExpression>
 			</textField>
 		</band>
@@ -194,36 +206,59 @@ DIRECTION GENERALE DES DOUANES
 	<summary>
 		<band height="124" splitType="Stretch">
 			<staticText>
-				<reportElement x="10" y="10" width="303" height="20" uuid="e0cc84a1-044c-42fa-ba4e-2611e7ebd168"/>
+				<reportElement x="0" y="10" width="254" height="16" uuid="e0cc84a1-044c-42fa-ba4e-2611e7ebd168"/>
+				<textElement>
+					<font size="11"/>
+				</textElement>
 				<text><![CDATA[Arrêté le présent état de détenteur effectif au nombre de]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="341" y="70" width="100" height="20" uuid="2f845eaa-e4dd-499b-bf1a-ab4990769866"/>
+				<reportElement x="340" y="52" width="100" height="20" uuid="2f845eaa-e4dd-499b-bf1a-ab4990769866"/>
 				<text><![CDATA[Antananarivo, le]]></text>
 			</staticText>
-			<textField pattern="EEEEE dd MMMMM yyyy">
-				<reportElement x="441" y="70" width="100" height="20" uuid="f25b0e6e-057b-4666-8f80-b919bd4f23ed"/>
+			<textField pattern="EEEEE dd MMMM yyyy">
+				<reportElement x="440" y="52" width="100" height="20" uuid="f25b0e6e-057b-4666-8f80-b919bd4f23ed"/>
 				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="210" y="30" width="100" height="20" uuid="dac58ef0-2d62-4a91-addb-0c960b7fa83a"/>
+				<reportElement x="521" y="26" width="32" height="20" uuid="dac58ef0-2d62-4a91-addb-0c960b7fa83a"/>
+				<textElement>
+					<font size="11"/>
+				</textElement>
 				<text><![CDATA[Ariary.]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="340" y="90" width="164" height="18" uuid="e542a587-7674-4ba0-8661-5ea43a8c5607"/>
+				<reportElement x="339" y="72" width="164" height="18" uuid="e542a587-7674-4ba0-8661-5ea43a8c5607"/>
 				<textFieldExpression><![CDATA[$P{nomDepositaire}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="350" y="10" width="140" height="16" uuid="a1a613b4-e5da-4d6e-a613-b8ec2474e841"/>
-				<text><![CDATA[Articles à une valeur de]]></text>
+				<reportElement x="440" y="10" width="113" height="16" uuid="a1a613b4-e5da-4d6e-a613-b8ec2474e841"/>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<text><![CDATA[articles à une valeur de]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="10" y="70" width="100" height="20" uuid="be96e1a5-2917-449a-b18f-bb3fdcc685f5"/>
+				<reportElement x="9" y="52" width="100" height="20" uuid="be96e1a5-2917-449a-b18f-bb3fdcc685f5"/>
 				<text><![CDATA[Reconnu exact]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="10" y="84" width="164" height="24" uuid="9bcf14fe-b20c-40ce-9aef-2b9c780bf7a8"/>
+				<reportElement x="9" y="66" width="164" height="24" uuid="9bcf14fe-b20c-40ce-9aef-2b9c780bf7a8"/>
 				<textFieldExpression><![CDATA[$P{nomDetenteur}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="254" y="10" width="186" height="16" uuid="2e4f5ffa-a68d-4c51-b1e4-7e7b193b18f5"/>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{num1}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="26" width="521" height="20" uuid="317670b3-18ef-4e05-b015-61ab94cfa0bf"/>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{num2}]]></textFieldExpression>
 			</textField>
 		</band>
 	</summary>

@@ -5,14 +5,26 @@
     xmlns:h="http://java.sun.com/jsf/html"
     xmlns:p="http://primefaces.org/ui"
     >
+    
+<h:head></h:head>
 	<ui:include src="/pages/unsecure/components/header.xhtml"></ui:include>
 	<div class="col-md-1"></div>
 	<h:form><div class="col-md-10" style="font-size: 18px!important;color: #5f5f5f;">
         <div class="col-md-3"></div>
         <div class="col-md-6">
-			<div class="col-md-12"><h:graphicImage width="100%"
-                  value="/pages/unsecure/assets/images/mada.png" />
-             </div>
+			<div class="col-md-12">
+				<!--  <h:graphicImage width="100%"
+                  value="/pages/unsecure/assets/images/mada.png" /> -->
+                <div class="row">
+                	<div class="col-lg-10 col-lg-offset-1 " style="padding-left:5%;"><h3><b>REPOBLIKAN ' I  MADAGASIKARA</b></h3></div>
+ 				</div>
+ 				<div class="row devise"><f:view contentType="text/html">
+					<p:selectOneMenu value="#{JasperTableExampleBean.journal.filamatra}">
+                        <f:selectItems value="#{siseBean.mapDevise}" />
+                    </p:selectOneMenu>	                 
+                </f:view></div>
+ 				<br/>
+            </div>
              <div class="col-md-12" style="text-align: center;">
  				BUDGET <br/><p:inputText value ="#{JasperTableExampleBean.journal.budget}" style="text-align: center;width:100%"></p:inputText> <br/>
  				CHAPITRE(1) <p:inputText value ="#{JasperTableExampleBean.journal.chapitre}" style="text-align: center;width: 25%"></p:inputText>

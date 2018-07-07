@@ -1,6 +1,13 @@
 package com.douane.managed.bean.form;
 
+import java.util.HashMap;
+import java.util.Map;
+
+import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
+
+import com.douane.entite.Devise;
+import com.douane.managed.bean.SISEformBean;
 
 @ManagedBean(name="GrandLivre")
 
@@ -16,6 +23,29 @@ public class GrandLivreBean {
 	private String lieu;
 	private String date;
 	private String ans;
+	private String filamatra;
+	private Map<String,String> filamatras = new HashMap<String, String>();
+	@PostConstruct
+    public void init() {
+		filamatras = new HashMap<String, String>();
+		SISEformBean s = new SISEformBean();
+		for(Devise d : s.getListDevise()) {
+			filamatras.put(d.getDesignation(), d.getDesignation());
+		}
+    }
+	
+	public Map<String, String> getFilamatras() {
+		return filamatras;
+	}
+	public void setFilamatras(Map<String, String> filamatras) {
+		this.filamatras = filamatras;
+	}
+	public String getFilamatra() {
+		return filamatra;
+	}
+	public void setFilamatra(String filamatra) {
+		this.filamatra = filamatra;
+	}
 	public String getBudget() {
 		return budget;
 	}

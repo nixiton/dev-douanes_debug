@@ -1,12 +1,19 @@
 package com.douane.managed.bean.saisieRef;
 
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.StringJoiner;
 
+import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
+
+import com.douane.entite.Devise;
+import com.douane.managed.bean.SISEformBean;
 @ManagedBean(name="journalFormBean")
 public class JournalFormBean {
+	private String filamatra;
 	private String budget;
 	private String chapitre;
 	private String article;
@@ -22,7 +29,13 @@ public class JournalFormBean {
 	private String finDate;
 	private String arrete;
 	private String date1;
-	
+
+	public String getFilamatra() {
+		return filamatra;
+	}
+	public void setFilamatra(String filamatra) {
+		this.filamatra = filamatra;
+	}
 	public String toString() {
 		StringJoiner joiner = new StringJoiner(" ");
 		joiner.add("JournalForm = ").add(budget).add(chapitre).add(article).add(num2).add(num3).add(num4).add(num5)

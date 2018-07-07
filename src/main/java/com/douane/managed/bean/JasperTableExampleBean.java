@@ -148,6 +148,9 @@ public class JasperTableExampleBean implements Serializable{
             		;
             
             parameters.put("service", op.getDirection().getDesignation());
+            parameters.put("filamatra", this.pdfForm.getFilamatra());
+            parameters.put("num1", this.pdfForm.getNum1());
+            parameters.put("num2", this.pdfForm.getNum2());
             parameters.put("nomDepositaire", op.getOperateur().getNomAgent());
             parameters.put("fonctionDepositaire", fDepo);
             parameters.put("nomDetenteur", op.getDetenteur().getNomAgent());
@@ -205,6 +208,9 @@ public class JasperTableExampleBean implements Serializable{
             		;
             
             parameters.put("service", op.getDirection().getDesignation());
+            parameters.put("filamatra", this.pdfForm.getFilamatra());
+            parameters.put("num1", this.pdfForm.getNum1());
+            parameters.put("num2", this.pdfForm.getNum2());
             parameters.put("nomDepositaire", op.getOperateur().getNomAgent());
             parameters.put("fonctionDepositaire", fDepo);
             parameters.put("nomDetenteur", op.getDetenteur().getNomAgent());
@@ -255,6 +261,7 @@ public class JasperTableExampleBean implements Serializable{
             /* Map to hold Jasper report Parameters */
             Map<String, Object> parameters = new HashMap<String, Object>();
             parameters.put ("dataSource" , datalist.getDataAsDataSource());
+            parameters.put ("filamatra" , this.ordreEB.getFilamatra());
             parameters.put("numEntre", op.getNumentree());
             parameters.put("num3", op.getDirection().getTrois());
             parameters.put("matieres", op.getListMat().get(0).getDesign().getOrigine());
@@ -311,6 +318,7 @@ public class JasperTableExampleBean implements Serializable{
             /* Map to hold Jasper report Parameters */
             Map<String, Object> parameters = new HashMap<String, Object>();
             parameters.put ("dataSource" , datalist.getDataAsDataSource());
+            parameters.put ("filamatra" , this.ordreEB.getFilamatra());
             parameters.put("numEntre", op.getNumentree());
             parameters.put("num3", op.getDirection().getTrois());
             parameters.put("num4", op.getDirection().getQuatre());
@@ -370,6 +378,7 @@ public class JasperTableExampleBean implements Serializable{
             /* Map to hold Jasper report Parameters */
             Map<String, Object> parameters = new HashMap<String, Object>();
             parameters.put("materiel", op.getMat());
+            parameters.put ("filamatra" , this.ordreS.getFilamatra());
             parameters.put("numSortie", op.getNumSortie());
             parameters.put("num5", this.ordreS.getNum5());
             parameters.put("num6", this.ordreS.getNum6());
@@ -433,6 +442,7 @@ public class JasperTableExampleBean implements Serializable{
             /* Map to hold Jasper report Parameters */
             Map<String, Object> parameters = new HashMap<String, Object>();
             parameters.put("materiel", op.getMat());
+            parameters.put ("filamatra" , this.ordreS.getFilamatra());
             parameters.put("numSortie", op.getNumSortie());
             parameters.put("num5", this.ordreS.getNum5());
             parameters.put("num6", this.ordreS.getNum6());
@@ -496,6 +506,7 @@ public class JasperTableExampleBean implements Serializable{
             /* Map to hold Jasper report Parameters */
             Map<String, Object> parameters = new HashMap<String, Object>();
             parameters.put("dataSource", data.getDataSource());
+            parameters.put ("filamatra" , this.journal.getFilamatra());
             parameters.put("budget", this.journal.getBudget());
             parameters.put("chapitre", this.journal.getChapitre());
             parameters.put("article", this.journal.getArticle());
@@ -506,12 +517,12 @@ public class JasperTableExampleBean implements Serializable{
             parameters.put("nbFeuillets", this.journal.getNbFeuillets());
             parameters.put("lieu", this.journal.getLieu());
             parameters.put("date", this.journal.getDate());
-            parameters.put("ans", "");
+            parameters.put("ans", "vide");
             parameters.put("debutDate", this.journal.getDebutDate());
             parameters.put("date1", "");
             parameters.put("FinDate", this.journal.getFinDate());
-            parameters.put("date2", ""); 
-            parameters.put("arrete", "");
+            parameters.put("date2", "vide"); 
+            parameters.put("arrete", "vide");
             parameters.put("lieu2", this.journal.getLieu());
             
             JasperPrint jasperPrint = JasperFillManager.fillReport(url.getPath(), parameters, new JREmptyDataSource());
@@ -544,6 +555,7 @@ public class JasperTableExampleBean implements Serializable{
             /* Map to hold Jasper report Parameters */
             Map<String, Object> parameters = new HashMap<String, Object>();
             parameters.put("dataSource", data.getDataSource());
+            parameters.put ("filamatra" , this.journal.getFilamatra());
             parameters.put("budget", this.journal.getBudget());
             parameters.put("chapitre", this.journal.getChapitre());
             parameters.put("article", this.journal.getArticle());
@@ -596,6 +608,7 @@ public class JasperTableExampleBean implements Serializable{
             /* Map to hold Jasper report Parameters */
             Map<String, Object> parameters = new HashMap<String, Object>();
             parameters.put("budget", this.journal.getBudget());
+            parameters.put ("filamatra" , this.journal.getFilamatra());
             parameters.put("dataSource", data.getDataSource());
             parameters.put("chapitre", this.journal.getChapitre());
             parameters.put("article", this.journal.getArticle());
@@ -644,6 +657,7 @@ public class JasperTableExampleBean implements Serializable{
             /* Map to hold Jasper report Parameters */
             Map<String, Object> parameters = new HashMap<String, Object>();
             parameters.put("budget", this.journal.getBudget());
+            parameters.put ("filamatra" , this.journal.getFilamatra());
             parameters.put("dataSource", data.getDataSource());
             parameters.put("chapitre", this.journal.getChapitre());
             parameters.put("article", this.journal.getArticle());
@@ -693,6 +707,7 @@ public class JasperTableExampleBean implements Serializable{
             /* Map to hold Jasper report Parameters */
             Map<String, Object> parameters = new HashMap<String, Object>();
             parameters.put("dataSource",laData.getDataSource());
+            parameters.put ("filamatra" , this.livre.getFilamatra());
             parameters.put("budget", this.livre.getBudget());
             parameters.put("chap", this.livre.getChap());
             parameters.put("article", this.livre.getArticle());
@@ -732,6 +747,7 @@ public class JasperTableExampleBean implements Serializable{
             /* Map to hold Jasper report Parameters */
             Map<String, Object> parameters = new HashMap<String, Object>();
             parameters.put("dataSource",laData.getDataSource());
+            parameters.put ("filamatra" , this.livre.getFilamatra());
             parameters.put("budget", this.livre.getBudget());
             parameters.put("chap", this.livre.getChap());
             parameters.put("article", this.livre.getArticle());
@@ -776,6 +792,7 @@ public class JasperTableExampleBean implements Serializable{
             /* Map to hold Jasper report Parameters */
             Map<String, Object> parameters = new HashMap<String, Object>();
             parameters.put("dataSource", data.getDataSource());
+            parameters.put ("filamatra" , this.pdfForm.getFilamatra());
             parameters.put("materiel", this.pdfForm.getNum1());
             parameters.put("budget", this.pdfForm.getBudget());
             parameters.put("chp", this.pdfForm.getChapitre());
@@ -824,6 +841,7 @@ public class JasperTableExampleBean implements Serializable{
             /* Map to hold Jasper report Parameters */
             Map<String, Object> parameters = new HashMap<String, Object>();
             parameters.put("dataSource", data.getDataSource());
+            parameters.put ("filamatra" , this.pdfForm.getFilamatra());
             parameters.put("materiel", this.pdfForm.getNum1());
             parameters.put("budget", this.pdfForm.getBudget());
             parameters.put("chp", this.pdfForm.getChapitre());
@@ -877,6 +895,7 @@ public class JasperTableExampleBean implements Serializable{
             /* Map to hold Jasper report Parameters */
             Map<String, Object> parameters = new HashMap<String, Object>();
             parameters.put("dataSource", idata.getDataSource());
+            parameters.put("filamatra", this.pdfForm.getFilamatra());
             parameters.put("budget", this.pdfForm.getBudget());
             parameters.put("exo", this.pdfForm.getNum9());
             parameters.put("chap", this.pdfForm.getChapitre());
@@ -884,16 +903,16 @@ public class JasperTableExampleBean implements Serializable{
             parameters.put("paragraphe", this.pdfForm.getParagraphe());
             parameters.put("service", this.pdfForm.getNum1());
             parameters.put("hotel", this.pdfForm.getNum2());
-            parameters.put("date", "");
+            parameters.put("date", "null");
             parameters.put("arret", this.pdfForm.getSomme());
             parameters.put("somme", this.pdfForm.getSomme1());
             parameters.put("lieu", this.pdfForm.getSomme2());
-            parameters.put("ans", "0");
+            parameters.put("ans", "null");
             parameters.put("lieu1", this.pdfForm.getLieu());
             parameters.put("date1", this.pdfForm.getDate());
             parameters.put("an1", this.pdfForm.getNum3());
             parameters.put("date3", this.pdfForm.getNum4());
-            parameters.put("vu2", "");
+            parameters.put("vu2", "null");
             JasperPrint jasperPrint = JasperFillManager.fillReport(url.getPath(), parameters, new JREmptyDataSource());
             response.reset();
             response.setContentType("application/pdf");
@@ -925,6 +944,7 @@ public class JasperTableExampleBean implements Serializable{
             Map<String, Object> parameters = new HashMap<String, Object>();
             parameters.put("dataSource", idata.getDataSource());
             parameters.put("budget", this.pdfForm.getBudget());
+            parameters.put("filamatra", this.pdfForm.getFilamatra());
             parameters.put("exo", this.pdfForm.getNum9());
             parameters.put("chap", this.pdfForm.getChapitre());
             parameters.put("article", this.pdfForm.getArticle());

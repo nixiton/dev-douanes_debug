@@ -119,6 +119,7 @@
 	<parameter name="parameter1" class="net.sf.jasperreports.engine.data.JRBeanCollectionDataSource"/>
 	<parameter name="materiel" class="java.lang.String"/>
 	<parameter name="dataSource" class="net.sf.jasperreports.engine.data.JRBeanCollectionDataSource"/>
+	<parameter name="filamatra" class="java.lang.String"/>
 	<variable name="var1" class="java.lang.String"/>
 	<background>
 		<band splitType="Stretch"/>
@@ -126,12 +127,12 @@
 	<title>
 		<band height="360" splitType="Stretch">
 			<staticText>
-				<reportElement x="193" y="0" width="217" height="33" uuid="260cd361-2e0d-4ef8-94b5-750af12361b8"/>
+				<reportElement x="193" y="0" width="217" height="20" uuid="260cd361-2e0d-4ef8-94b5-750af12361b8"/>
 				<textElement textAlignment="Center">
 					<font size="12"/>
 				</textElement>
 				<text><![CDATA[REPOBLIKAN I MADAGASIKARA
-Fitiavana-Tanindrazana- Fandrosoana
+
 ]]></text>
 			</staticText>
 			<staticText>
@@ -262,14 +263,14 @@ Fitiavana-Tanindrazana- Fandrosoana
 				<text><![CDATA[Instruction Generale du 22 juillet 1955]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="213" y="33" width="20" height="20" uuid="19702852-7978-4f3e-97b7-464f0fd5b082"/>
+				<reportElement x="213" y="37" width="20" height="20" uuid="19702852-7978-4f3e-97b7-464f0fd5b082"/>
 				<textElement>
 					<font size="12"/>
 				</textElement>
 				<text><![CDATA[(1)]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="233" y="33" width="177" height="20" uuid="51f17c7d-6493-4077-afd2-d5afdda29a22"/>
+				<reportElement x="233" y="37" width="177" height="20" uuid="51f17c7d-6493-4077-afd2-d5afdda29a22"/>
 				<textElement textAlignment="Center">
 					<font size="12"/>
 				</textElement>
@@ -393,6 +394,13 @@ Fitiavana-Tanindrazana- Fandrosoana
 					<font size="12"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{numO8}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="193" y="20" width="217" height="17" uuid="52039cb7-2933-445c-993e-546f1fc04515"/>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{filamatra}]]></textFieldExpression>
 			</textField>
 		</band>
 	</title>

@@ -1,8 +1,14 @@
 package com.douane.managed.bean.saisieRef;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.StringJoiner;
 
+import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
+
+import com.douane.entite.Devise;
+import com.douane.managed.bean.SISEformBean;
 @ManagedBean(name="ordreSortie")
 public class OrdreSortieFormBean {
 		private String num5;
@@ -18,6 +24,13 @@ public class OrdreSortieFormBean {
 			this.paragraphe = paragraphe;
 		}
 		//mila mampiditra paragraphe
+		private String filamatra;
+		public String getFilamatra() {
+			return filamatra;
+		}
+		public void setFilamatra(String filamatra) {
+			this.filamatra = filamatra;
+		}
 		private String num2;
 		private String approOuService;
 		private String ordre;
@@ -32,6 +45,22 @@ public class OrdreSortieFormBean {
 		private String num7;
 		private String lieu2;
 		private String date2;
+		private Map<String,String> filamatras = new HashMap<String, String>();
+		@PostConstruct
+	    public void init() {
+			filamatras = new HashMap<String, String>();
+			SISEformBean s = new SISEformBean();
+			for(Devise d : s.getListDevise()) {
+				filamatras.put(d.getDesignation(), d.getDesignation());
+			}
+	    }
+		
+		public Map<String, String> getFilamatras() {
+			return filamatras;
+		}
+		public void setFilamatras(Map<String, String> filamatras) {
+			this.filamatras = filamatras;
+		}
 		public String toString() {
 			StringJoiner joiner = new StringJoiner(" ");
 			joiner.add("ordreSortie = ").add(num5).add(num6).add(num4).add(budget).add(chapitre).add(num2).add(approOuService)

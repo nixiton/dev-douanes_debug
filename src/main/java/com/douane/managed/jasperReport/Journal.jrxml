@@ -106,6 +106,7 @@
 	<parameter name="arrete" class="java.lang.String"/>
 	<parameter name="lieu2" class="java.lang.String"/>
 	<parameter name="dataSource" class="net.sf.jasperreports.engine.data.JRBeanCollectionDataSource"/>
+	<parameter name="filamatra" class="java.lang.String"/>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
@@ -119,13 +120,11 @@
 				<text><![CDATA[CHAPITRE(1)]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="12" y="0" width="311" height="49" uuid="dd9309f9-7ec9-4d25-9f0f-5ae583c1ceba"/>
+				<reportElement x="12" y="0" width="311" height="20" uuid="dd9309f9-7ec9-4d25-9f0f-5ae583c1ceba"/>
 				<textElement textAlignment="Center">
 					<font size="12"/>
 				</textElement>
 				<text><![CDATA[REPOBLIKAN’I MADAGASIKARA
-Fitiavana-Tanindrazana- Fandrosoana
---------------------------
 
 ]]></text>
 			</staticText>
@@ -260,6 +259,18 @@ L’Instruction Générale du 22 juillet 1955
 					<font size="12"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{num5}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="14" y="36" width="309" height="14" uuid="9216ef37-54db-4ce7-8f06-1ac13c081dc6"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[--------------------------]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="12" y="20" width="311" height="16" uuid="8790cd01-f52b-494b-9c14-cfadd4eeb0a7"/>
+				<textElement textAlignment="Center">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{filamatra}]]></textFieldExpression>
 			</textField>
 		</band>
 	</title>
