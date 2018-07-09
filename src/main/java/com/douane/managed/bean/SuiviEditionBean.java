@@ -1820,6 +1820,73 @@ public class SuiviEditionBean {
 		return resulttable;
 	}
 	
+	public List<Operation> getListOpESArtByDirectionByCod(CodeArticle codeart,Date s, Date f) {
+		Agent cur = (Agent) RequestFilter.getSession().getAttribute("agent");
+		Date sdate = s;
+		Date edate = f;
+		return usermetierimpl.getListOpESArtValideByDirectionByCod(codeart, cur.getDirection(), sdate, edate);
+	}
+	public List<Object[]> getListForJournalStockByCod(CodeArticle code, Date s, Date f) {
+		List<Operation> lesoperations = getListOpESArtByDirectionByCod(code,s,f);
+		// structure de données
+		List<Object[]> resulttable = new ArrayList<Object[]>();
+		Object[] row = new Object[10];
+		for (Operation o : lesoperations) {
+			// Date operation
+			row[0] = null;
+			// reference entrée
+			row[1] = new Long(0);//"";
+			// quantite entrée
+			row[2] = new Long(0);
+			// quantite entrée cumulée
+			row[3] = new Long(0);
+			// reference sortie
+			row[4] = new Long(0);//"";
+			// quantite sortie
+			row[5] = new Long(0);
+			// quantite de depart à reporter
+			row[6] = new Long(0);
+			//espece des unites
+			row[8] = "";
+
+			// Remplissage à partir du liste des operations
+
+			// initiale
+			row[0] = o.getDate();
+
+			// entree
+			if (o instanceof OpEntreeArticle) {
+				row[1] = o.getId(); // need to add this attribut for operation reference
+				row[2] = (Long) (((OpEntreeArticle) o).getArticle().getNombre());
+				row[3] = (Long) row[2] + 0; // need to set previous nombre
+				row[8] = ((OpEntreeArticle) o).getArticle().getEspeceunit();
+			}
+			// sortie
+			else if (o instanceof OpSortieArticle) {
+				row[4] = o.getId();
+				row[5] = (Long) (((OpSortieArticle) o).getNombreToS());
+				row[8] = ((OpSortieArticle) o).getArticle().getEspeceunit();
+
+			}
+			// report
+			row[6] = areportByCod(code);
+			//row[6] = 5;
+			resulttable.add(row);
+			row = new Object[9];
+		}
+
+		Collections.sort(resulttable, new Comparator<Object[]>() {
+			public int compare(Object[] s1, Object[] s2) {
+				Date d1 = (Date) s1[0];
+				Date d2 = (Date) s2[0];
+				System.out.println("date :" + d1);
+				return d1.compareTo(d2);
+			}
+		});
+
+		return resulttable;
+	}
+
 	public Long areportByCod(CodeArticle code)
 	{
 		Date date = new Date();

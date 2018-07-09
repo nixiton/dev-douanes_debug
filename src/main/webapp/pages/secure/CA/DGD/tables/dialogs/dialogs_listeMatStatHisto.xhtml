@@ -19,18 +19,24 @@
                  paginator="true" rows="100" style="margin-bottom:20px">
          <f:facet name="header">
         	FICHE DE STOCK de #{depositaireBean.articleToFiche.typeObjet.designation} (#{depositaireBean.articleToFiche.designation})
-            <h:form >
-		 			<p:outputLabel for="annee_livre_annuel" value=""/>
-					<p:calendar id="annee_livre_annuel" value="#{FicheStockBean.date}" locale="fr" navigator="true" pattern="dd MMMM yyyy" required="true"/>
+            <br/><h:form >
+		 			<p:outputLabel for="stock_debut" value="Exporter de "/>
+					<p:calendar id="stock_debut" value="#{FicheStockBean.date}" locale="fr" navigator="true" pattern="dd MMMM yyyy" required="true"/>
 				<p:dialog modal="true" resizable="false" header="Values" widgetVar="dlg" showEffect="fold">
-					<p:panelGrid id="display_livre_annuel" columns="3" columnClasses="label,value">
+					<p:panelGrid id="display_stock_debut" columns="3" columnClasses="label,value">
 						<h:outputText value="" />
 				        <h:outputText value="#{FicheStockBean.date}">
 			            <f:convertDateTime pattern="dd MMMM yyyy" />
 	            	</h:outputText>
 	 				</p:panelGrid>
 				</p:dialog>
-			<h:commandButton value="Next" action="#{FicheStockBean.execute(suivieditionBean.getListForJournalStockByCod(depositaireBean.articleToFiche))}"/>
+				<p:outputLabel for="stock_fin" value=" à "/>
+					<p:calendar id="stock_fin" value="#{FicheStockBean.dateF}" locale="fr" navigator="true" pattern="dd MMMM yyyy" required="true"/>
+				<p:dialog modal="true" resizable="false" header="Values" widgetVar="dlg" showEffect="fold">
+					<p:panelGrid id="display_stock_fin" columns="3" columnClasses="label,value">
+	 				</p:panelGrid>
+				</p:dialog>
+			<h:commandButton value="Next" action="#{FicheStockBean.execute(suivieditionBean, depositaireBean)}"/>
 	 		</h:form>
     	</f:facet>
          <p:columnGroup type="header">
