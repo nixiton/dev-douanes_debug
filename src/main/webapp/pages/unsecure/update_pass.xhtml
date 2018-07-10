@@ -177,7 +177,9 @@
 	                    </div>
 	                    <div class="col-md-6">
 	                    	<p:password id="password1" 
-                                value="#{userMB.newPass}" match="password2" required="true">
+                                value="#{userMB.newPass}" match="password2" required="true" requiredMessage="Mot de passe obligatoire" 
+                                validatorMessage=" Erreur de longueur de Mot de passe (longueur minimale requise : 8) ou Erreur de confirmation de mot de passe" >
+							<f:validateLength minimum="8" />
                     		</p:password>
 	                    </div>
                        
@@ -191,8 +193,9 @@
                                    value="Retaper nouveau mot de passe : " />
 	                    </div>
 	                    <div class="col-md-6">
-	                    	<p:password id="password2" 
-                                value="#{userMB.newPass}" required="true">
+	                    	<p:password id="password2"   
+                                value="#{userMB.newPass}" required="true" requiredMessage="Confirmation Mot de passe obligatoire" 
+                                validatorMessage="Erreur de confirmation de mot de passe">
                     		</p:password>
 	                    </div>
                     	
@@ -203,7 +206,6 @@
 
                     <h:commandButton id="addUser" action="#{userMB.changePass}"
                                      value="Enregistrer" ajax="false" class="btn btn-lg btn-primary btn-block" />
-
 
 
                 </h:form>

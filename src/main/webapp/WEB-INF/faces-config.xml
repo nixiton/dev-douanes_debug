@@ -197,7 +197,21 @@
 		</navigation-case>
 
 		<navigation-case>
+			<from-action>#{topMenuMB.goToDashboardCM}</from-action>
+			<from-outcome>cm</from-outcome>
+			<to-view-id>/pages/secure/CM/ComptaMatiere.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+
+		<navigation-case>
 			<from-action>#{topMenuMB.goToDashboard}</from-action>
+			<from-outcome>ca</from-outcome>
+			<to-view-id>/pages/secure/CA/ComptaAdmin.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		
+		<navigation-case>
+			<from-action>#{topMenuMB.goToDashboardCA}</from-action>
 			<from-outcome>ca</from-outcome>
 			<to-view-id>/pages/secure/CA/ComptaAdmin.xhtml</to-view-id>
 			<redirect />

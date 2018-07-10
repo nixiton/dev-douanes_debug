@@ -39,7 +39,7 @@
 					<p:inputText id="im"  value="#{userMB.im}"
 						required="true"
 						requiredMessage="Immatricule obligatoire"
-						>
+						validatorMessage="Immatriculation : la longueur minimale requise est 6">
 						<f:validateLength minimum="6" />
 					</p:inputText>
 				</div>
@@ -86,12 +86,14 @@
 						value="Mot de passe : " />
 				</div>
 				<div class="col-lg-6 ">
-					<p:password id="password1" 
-						value="#{userMB.password}" match="password2" required="true"
-						validatorMessage="mot de passe non-confirmé"
-						requiredMessage="Mot de passe obligatoire">
+					<p:password id="password1" match="password2" 
+						value="#{userMB.password}" required="true" 
+						requiredMessage="Mot de passe obligatoire" 
+						validatorMessage=" Erreur de longueur de Mot de passe (longueur minimale requise : 8) ou Erreur de confirmation de mot de passe"
+						>
 							<f:validateLength minimum="8" />
 					</p:password>
+					
 				</div>
 			</div>
 			<hr></hr>
@@ -103,10 +105,11 @@
 				</div>
 				<div class="col-lg-6">
 					<p:password id="password2" 
-						value="#{userMB.password}" required="true"
-						requiredMessage="Confirmation Mot de passe obligatoire"
-						validatorMessage="mot de passe non-confirmé" >
-						<f:validateLength minimum="8" />
+						value="#{userMB.password}"  required="true"
+						requiredMessage="Confirmation Mot de passe obligatoire" 
+						validatorMessage="Erreur de confirmation de mot de passe"
+						
+						>
 					</p:password>
 				</div>
 			</div>
