@@ -23,7 +23,7 @@
                 	<div class="col-lg-10 col-lg-offset-1 " style="padding-left:5%;"><h3><b>REPOBLIKAN ' I  MADAGASIKARA</b></h3></div>
  				</div>
  				<div class="row devise"><f:view contentType="text/html">
-					<p:selectOneMenu value="#{JasperTableExampleBean.journal.filamatra}">
+					<p:selectOneMenu value="#{JasperTableExampleBean.journal.filamatra}"  appendTo="@this">
                         <f:selectItems value="#{siseBean.mapDevise}" />
                     </p:selectOneMenu>	                 
                 </f:view></div>
@@ -73,10 +73,9 @@
 		 			   
 	        			<p:calendar value ="#{JasperTableExampleBean.journal.finDate}" id="date2" locale="fr" navigator="true" pattern="dd-MMM-yyyy" /><br/>
         			 -->
-	 		</div>
-	 		
+	 		</div><br/>
+	 		<div class="col-md-12">
 	 		<p:dataTable var="c" value="#{JournalBean.li}"
-			style="margin-bottom:20px"
 			sortBy="#{c[0]}"
 			id="journaltable1"
 			emptyMessage="Aucun résultat"
@@ -151,7 +150,7 @@
 				<h:outputText value="#{c[10]}" />
 			</p:column>
 
-		</p:dataTable>
+		</p:dataTable></div>
  		</div>
  		<div class="col-md-3">
  			<br/><p:commandButton action="#{JasperTableExampleBean.journalMatiereReport(JournalBean.dateD, JournalBean.dateF, JournalBean.li)}" type="submit" value="Exporter en PDF" ajax="false" >
@@ -165,6 +164,6 @@
  		</div>
 </div>
 <div class="col-mid-1"></div>
-
 </h:form>
+<script src='http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.5/jquery-ui.min.js'></script>
 </html>

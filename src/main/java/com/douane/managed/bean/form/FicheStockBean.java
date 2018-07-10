@@ -1,5 +1,6 @@
 package com.douane.managed.bean.form;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -20,6 +21,7 @@ public class FicheStockBean {
 	public FicheStockBean() {
 		this.date = new Date();
 		this.dateF = new Date();
+		this.liste = new ArrayList<Object[]>();
 	}
 	public String execute(List<Object[]> l) {
 		if (l != null) {
@@ -31,13 +33,16 @@ public class FicheStockBean {
 	}
 	public String execute(SuiviEditionBean s,DepositaireBean d) {
 		//suivieditionBean.getListForJournalStockByCod(depositaireBean.articleToFiche)
-		if (d != null) {
+		if (d != null && s != null) {
 			this.liste = s.getListForJournalStockByCod(d.getArticleToFiche(),this.date,this.dateF);
 			//#{depositaireBean.articleToFiche.typeObjet.designation} (#{depositaireBean.articleToFiche.designation}
 			//this.folio = d.getArticle().getReference();
 			this.designation = d.getArticleToFiche().getTypeObjet().getDesignation() + "(" + d.getArticleToFiche().getDesignation() +")";
-			this.espece = (String) ((this.liste.get(0)) [8]);
+			if(this.liste.size() > 0)
+				this.espece = (String) ((this.liste.get(0)) [8]);
 			//System.out.println("etat Appreciatif null");
+		}else {
+			System.out.println("tsy misy depositaire");
 		}
 		//this.liste = l;
 		return "dialogFicheStock";

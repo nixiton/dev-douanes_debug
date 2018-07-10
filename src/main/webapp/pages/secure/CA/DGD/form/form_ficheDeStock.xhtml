@@ -27,6 +27,7 @@
 			 <br/>
 			 <div>
 			 <p:dataTable   var="row" value="#{FicheStockBean.liste}" 
+			 	emptyMessage="Aucun resultat" 
 				currentPageReportTemplate="({currentPage} sur {totalPages})"
                  paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}  "
                  paginator="false" rows="100" style="margin-bottom:20px">

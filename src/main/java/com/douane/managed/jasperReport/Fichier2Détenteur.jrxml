@@ -39,10 +39,6 @@
 	</background>
 	<title>
 		<band height="82" splitType="Stretch">
-			<image scaleImage="FillFrame">
-				<reportElement x="0" y="0" width="80" height="79" uuid="5590db97-6d76-40b0-94f7-00c33c1dbf11"/>
-				<imageExpression><![CDATA["./fadinteranana.png"]]></imageExpression>
-			</image>
 			<staticText>
 				<reportElement x="237" y="2" width="260" height="28" uuid="96bc1380-170c-47d5-8871-fde635dcc998"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
@@ -72,6 +68,7 @@
 		<band height="103" splitType="Stretch">
 			<staticText>
 				<reportElement x="0" y="0" width="237" height="95" uuid="03124018-1d64-4610-85f4-56d82597ee33"/>
+				<textElement textAlignment="Center"/>
 				<text><![CDATA[MINISTERE DES FINANCES ET DU BUDGET
 ----------------------
 SECRETARIAT GENERAL

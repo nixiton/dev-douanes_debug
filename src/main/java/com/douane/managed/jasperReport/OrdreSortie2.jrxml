@@ -19,12 +19,12 @@
 			<pen lineWidth="1.0" lineColor="#000000"/>
 		</box>
 	</style>
-	<style name="table_TH" mode="Opaque" backcolor="#F0F8FF">
+	<style name="table_TH" mode="Opaque" backcolor="#FFFFFF">
 		<box>
 			<pen lineWidth="0.5" lineColor="#000000"/>
 		</box>
 	</style>
-	<style name="table_CH" mode="Opaque" backcolor="#BFE1FF">
+	<style name="table_CH" mode="Opaque" backcolor="#FFFFFF">
 		<box>
 			<pen lineWidth="0.5" lineColor="#000000"/>
 		</box>
@@ -67,10 +67,7 @@
 		<band splitType="Stretch"/>
 	</background>
 	<title>
-		<band height="236" splitType="Stretch">
-			<rectangle>
-				<reportElement x="1" y="42" width="120" height="80" backcolor="#D1D1D1" uuid="0155f754-e498-4b8b-9e08-ac2c6bc30cba"/>
-			</rectangle>
+		<band height="261" splitType="Stretch">
 			<staticText>
 				<reportElement x="482" y="0" width="70" height="20" uuid="14a21728-ae3a-4e4a-968a-69a87db5d12e"/>
 				<textElement>
@@ -123,7 +120,7 @@
 				<text><![CDATA[(3) Service]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="237" y="110" width="187" height="19" uuid="99a6baa9-61ac-47a2-a193-1415305a2088"/>
+				<reportElement x="0" y="123" width="187" height="19" uuid="99a6baa9-61ac-47a2-a193-1415305a2088"/>
 				<textElement verticalAlignment="Top">
 					<font size="12"/>
 				</textElement>
@@ -172,7 +169,7 @@
 				<text><![CDATA[(6)]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="424" y="110" width="131" height="19" uuid="c5773bff-e0ab-4817-85c6-130b689b1a32"/>
+				<reportElement x="187" y="123" width="92" height="19" uuid="c5773bff-e0ab-4817-85c6-130b689b1a32"/>
 				<textElement textAlignment="Center">
 					<font size="12"/>
 				</textElement>
@@ -193,49 +190,49 @@
 				<textFieldExpression><![CDATA[$P{num6}]]></textFieldExpression>
 			</textField>
 			<textField pattern="$P{approOuService}">
-				<reportElement x="180" y="129" width="227" height="30" uuid="a934823d-e3d0-4b8b-aa91-6be933d38ea5"/>
+				<reportElement x="180" y="154" width="200" height="30" uuid="a934823d-e3d0-4b8b-aa91-6be933d38ea5"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle" markup="styled">
 					<font size="16" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{approOuService}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="0" y="208" width="274" height="20" uuid="adb4f11c-6b54-4d6d-945c-25cfb515f963"/>
+				<reportElement x="0" y="233" width="274" height="20" uuid="adb4f11c-6b54-4d6d-945c-25cfb515f963"/>
 				<textElement verticalAlignment="Top">
 					<font size="12"/>
 				</textElement>
 				<text><![CDATA[Les matiéres et objets ci-aprés désigne provenant de]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="2" y="190" width="244" height="18" uuid="e0cf8ced-2eee-421a-bb72-f6ef03ecb3ed"/>
+				<reportElement x="2" y="215" width="244" height="18" uuid="e0cf8ced-2eee-421a-bb72-f6ef03ecb3ed"/>
 				<textElement verticalAlignment="Top">
 					<font size="12"/>
 				</textElement>
 				<text><![CDATA[Seront portés en sortie dans les écritures du comptable ]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="250" y="190" width="302" height="18" uuid="2b4d4cc9-be77-4365-bfbb-b44159f8246d"/>
+				<reportElement x="250" y="215" width="302" height="18" uuid="2b4d4cc9-be77-4365-bfbb-b44159f8246d"/>
 				<textElement markup="html">
 					<font size="12" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{comptable}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="276" y="208" width="279" height="20" uuid="82351992-d929-4f97-bf99-9574635b5aeb"/>
+				<reportElement x="276" y="233" width="279" height="20" uuid="82351992-d929-4f97-bf99-9574635b5aeb"/>
 				<textElement textAlignment="Left">
 					<font size="12"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{matiere}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="422" y="160" width="130" height="30" uuid="40db1074-eb36-40a2-af8a-7a52f16e3344"/>
+				<reportElement x="422" y="185" width="130" height="30" uuid="40db1074-eb36-40a2-af8a-7a52f16e3344"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="12"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{numSortie}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="180" y="160" width="200" height="30" uuid="4f211f2a-1e9c-4c66-baaf-113ab955a572"/>
+				<reportElement x="180" y="185" width="200" height="30" uuid="4f211f2a-1e9c-4c66-baaf-113ab955a572"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="16" isBold="true"/>
 				</textElement>
@@ -544,9 +541,6 @@ $P{materiel}.getDesign().getRenseignement()]]></textFieldExpression>
 	</detail>
 	<summary>
 		<band height="363">
-			<rectangle>
-				<reportElement x="1" y="221" width="207" height="137" backcolor="#D1D1D1" uuid="a361db43-b355-4959-8d84-854e863ea00c"/>
-			</rectangle>
 			<staticText>
 				<reportElement x="0" y="0" width="78" height="20" uuid="e20ba79b-7ba8-4fb8-9d6e-4d39919c71d5"/>
 				<textElement>

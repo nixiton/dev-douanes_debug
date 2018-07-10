@@ -185,7 +185,7 @@ DIRECTION GENERALE DES DOUANES
 				<textFieldExpression><![CDATA[$P{nbr}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="463" y="0" width="90" height="40" uuid="834a1387-6971-42f7-9f27-dd4f1e240646"/>
+				<reportElement x="463" y="0" width="92" height="40" uuid="834a1387-6971-42f7-9f27-dd4f1e240646"/>
 				<box>
 					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
 					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
