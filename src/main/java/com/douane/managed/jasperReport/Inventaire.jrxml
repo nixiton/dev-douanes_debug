@@ -35,6 +35,7 @@
 		</box>
 	</style>
 	<subDataset name="Table Dataset 1" uuid="a02b6442-a325-4e0a-873f-026c668510f1">
+		<parameter name="year" class="java.lang.String"/>
 		<field name="row0" class="java.lang.String"/>
 		<field name="row1" class="java.lang.Long"/>
 		<field name="row2" class="java.lang.String"/>
@@ -209,15 +210,15 @@
 				<text><![CDATA[Modèle n° 2]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="0" y="202" width="341" height="20" uuid="860cc3c0-16f8-4b09-a500-a4507d14dd94"/>
+				<reportElement x="0" y="202" width="280" height="20" uuid="860cc3c0-16f8-4b09-a500-a4507d14dd94"/>
 				<textElement>
 					<font size="12" isBold="false"/>
 				</textElement>
-				<text><![CDATA[du mobilier et des objets d'ameublement existant au decembre]]></text>
+				<text><![CDATA[du mobilier et des objets d'ameublement existant au]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="343" y="202" width="103" height="20" uuid="8ee6c4f5-3e87-47a6-8528-332fd414a47e"/>
-				<textElement textAlignment="Center">
+				<reportElement x="280" y="202" width="120" height="20" uuid="8ee6c4f5-3e87-47a6-8528-332fd414a47e"/>
+				<textElement textAlignment="Left">
 					<font size="12"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{date}]]></textFieldExpression>
@@ -236,7 +237,10 @@
 			<componentElement>
 				<reportElement key="table" style="table" x="0" y="0" width="560" height="230" uuid="85e11934-488a-4b34-a260-35210950fe35"/>
 				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
-					<datasetRun subDataset="Table Dataset 1" uuid="1450334a-7813-447b-b77a-0e1556b926b3">
+					<datasetRun subDataset="Table Dataset 1" uuid="e03d0ec9-e1f3-4f1e-992d-95e26a22a815">
+						<datasetParameter name="year">
+							<datasetParameterExpression><![CDATA[$P{date}]]></datasetParameterExpression>
+						</datasetParameter>
 						<dataSourceExpression><![CDATA[$P{dataSource}]]></dataSourceExpression>
 					</datasetRun>
 					<jr:column width="40" uuid="c4886a22-3445-484a-b5f4-6109070b1f94">
@@ -407,7 +411,7 @@
 									<textElement textAlignment="Center" verticalAlignment="Middle">
 										<font size="12"/>
 									</textElement>
-									<text><![CDATA[Sortie pendant l'année]]></text>
+									<text><![CDATA[Sortie pendant la periode]]></text>
 								</staticText>
 							</jr:columnHeader>
 							<jr:columnFooter style="table_CH" height="30" rowSpan="1"/>
@@ -425,13 +429,11 @@
 								<jr:cell height="30" rowSpan="1"/>
 							</jr:groupHeader>
 							<jr:columnHeader style="table_CH" height="78" rowSpan="1">
-								<staticText>
-									<reportElement x="0" y="0" width="45" height="78" uuid="4fe78fbe-1a7d-456a-827a-4de3ca1277af"/>
-									<textElement textAlignment="Center" verticalAlignment="Middle">
-										<font size="12"/>
-									</textElement>
-									<text><![CDATA[Reste au 31 décembre]]></text>
-								</staticText>
+								<textField>
+									<reportElement x="0" y="0" width="45" height="78" uuid="2c33dbc8-c221-4fee-94a5-50fe8218189a"/>
+									<textElement textAlignment="Center" verticalAlignment="Middle"/>
+									<textFieldExpression><![CDATA["Reste au " + $P{year}]]></textFieldExpression>
+								</textField>
 							</jr:columnHeader>
 							<jr:columnFooter style="table_CH" height="30" rowSpan="1"/>
 							<jr:detailCell style="table_TD" height="62">
@@ -516,13 +518,6 @@
 				<text><![CDATA[articles et à la somme de ]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="220" y="42" width="142" height="20" uuid="5e51cf26-4222-4d15-ac6b-f9b2056e44a8"/>
-				<textElement>
-					<font size="12"/>
-				</textElement>
-				<text><![CDATA[le trente et un décembre]]></text>
-			</staticText>
-			<staticText>
 				<reportElement x="0" y="42" width="90" height="20" uuid="c63e0029-a946-42eb-8853-4306957c22c8"/>
 				<textElement>
 					<font size="12"/>
@@ -552,11 +547,11 @@
 				<textFieldExpression><![CDATA[$P{lieu}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="362" y="42" width="85" height="20" uuid="06a28c74-9fee-49ef-918d-9a31ff782c41"/>
+				<reportElement x="220" y="42" width="227" height="20" uuid="06a28c74-9fee-49ef-918d-9a31ff782c41"/>
 				<textElement>
 					<font size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$P{ans}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[", le " + $P{date}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="12" y="85" width="133" height="20" uuid="54772cf4-902d-45c1-a116-7d5e3f25d59b"/>
@@ -622,7 +617,7 @@
 				<text><![CDATA[Vu, le (2)]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="419" y="122" width="134" height="20" uuid="ad69a577-508e-47ea-9962-03467b98cf1f"/>
+				<reportElement x="421" y="138" width="134" height="20" uuid="ad69a577-508e-47ea-9962-03467b98cf1f"/>
 				<textElement>
 					<font size="12"/>
 				</textElement>

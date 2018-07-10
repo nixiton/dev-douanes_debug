@@ -114,7 +114,7 @@
  				
  				<h:graphicImage width="100%"
                     value="/pages/unsecure/assets/images/inv.png" /><br></br>
-                    <strong>du mobilier et des objets d'ameublement existant au 31 Décembre #{gacBean.annee}</strong>
+                    <strong>du mobilier et des objets d'ameublement existant au #{InventaireBean.dateF}</strong>
                     <br></br><br></br><br></br>
  			</div>
 
@@ -129,7 +129,7 @@
     <div class="col-md-12">
         Arrêté le présent inventaire <p:inputText value="#{JasperTableExampleBean.pdfForm.somme}"  style="text-align: center;width:60%"/> articles<br/>
         Et à la somme de <p:inputText value="#{JasperTableExampleBean.pdfForm.somme1}" style="text-align: center;width:70%"/> <br></br><br></br><br></br>
-        Fait en double à <p:inputText value="#{JasperTableExampleBean.pdfForm.somme2}" style="text-align: center;width:30%"/> le trente et un Décembre #{gacBean.annee}<br></br>
+        Fait en double à <p:inputText value="#{JasperTableExampleBean.pdfForm.somme2}" style="text-align: center;width:30%"/> le #{InventaireBean.dateF}<br></br>
     </div>
 	<br></br><br></br>
     <div class="col-md-12" style="text-align: center;">
@@ -151,13 +151,12 @@
         
         <div class="col-md-9"></div>
         <div class="col-md-3">
-            Vu<br></br>
-            le (2)<p:inputText value="#{JasperTableExampleBean.pdfForm.num4}" style="text-align: center;width:50%"/>    <br></br><br></br><br></br>
+            Vu le (2)<p:inputText value="#{JasperTableExampleBean.pdfForm.num4}" style="text-align: center;width:50%"/>    <br></br><br></br><br></br>
         </div>
     </div>
-	<p:commandButton action="#{JasperTableExampleBean.inventaireReport(gacBean.listeInventaire)}" type="submit" value="Exporter en PDF" ajax="false" ></p:commandButton>
+	<p:commandButton action="#{JasperTableExampleBean.inventaireReport(InventaireBean.li, InventaireBean.dateF)}" type="submit" value="Exporter en PDF" ajax="false" ></p:commandButton>
     <br/>
-    <p:commandButton action="#{JasperTableExampleBean.inventaireDoc(gacBean.listeInventaire)}" type="submit" value="Exporter en Word" ajax="false" ></p:commandButton>
+    <p:commandButton action="#{JasperTableExampleBean.inventaireDoc(InventaireBean.li,InventaireBean.dateF)}" type="submit" value="Exporter en Word" ajax="false" ></p:commandButton>
     
     </h:form>
     #{depositaireBean.exity()}

@@ -879,7 +879,7 @@ public class JasperTableExampleBean implements Serializable{
 	}
 	
 	
-	public void inventaireReport(List <Object[]> li) throws IOException {
+	public void inventaireReport(List <Object[]> li, String year) throws IOException {
 		//System.out.println(this.pdfForm.toString());
 		if(li == null) {
 			System.out.println("null ilay liste inventaire voaray");
@@ -903,16 +903,16 @@ public class JasperTableExampleBean implements Serializable{
             parameters.put("paragraphe", this.pdfForm.getParagraphe());
             parameters.put("service", this.pdfForm.getNum1());
             parameters.put("hotel", this.pdfForm.getNum2());
-            parameters.put("date", "null");
+            parameters.put("date", year);
             parameters.put("arret", this.pdfForm.getSomme());
             parameters.put("somme", this.pdfForm.getSomme1());
             parameters.put("lieu", this.pdfForm.getSomme2());
-            parameters.put("ans", "null");
+            parameters.put("ans", year );
             parameters.put("lieu1", this.pdfForm.getLieu());
             parameters.put("date1", this.pdfForm.getDate());
             parameters.put("an1", this.pdfForm.getNum3());
-            parameters.put("date3", this.pdfForm.getNum4());
-            parameters.put("vu2", "null");
+            parameters.put("date3","null" );
+            parameters.put("vu2", this.pdfForm.getNum4());
             JasperPrint jasperPrint = JasperFillManager.fillReport(url.getPath(), parameters, new JREmptyDataSource());
             response.reset();
             response.setContentType("application/pdf");
@@ -927,7 +927,7 @@ public class JasperTableExampleBean implements Serializable{
             ex.printStackTrace();
         }
 	}
-	public void inventaireDoc(List <Object[]> li) throws IOException {
+	public void inventaireDoc(List <Object[]> li, String year) throws IOException {
 		//System.out.println(this.pdfForm.toString());
 		if(li == null) {
 			System.out.println("null ilay liste inventaire voaray");
@@ -951,16 +951,16 @@ public class JasperTableExampleBean implements Serializable{
             parameters.put("paragraphe", this.pdfForm.getParagraphe());
             parameters.put("service", this.pdfForm.getNum1());
             parameters.put("hotel", this.pdfForm.getNum2());
-            parameters.put("date", "");
+            parameters.put("date", year);
             parameters.put("arret", this.pdfForm.getSomme());
             parameters.put("somme", this.pdfForm.getSomme1());
             parameters.put("lieu", this.pdfForm.getSomme2());
-            parameters.put("ans", "0");
+            parameters.put("ans", year);
             parameters.put("lieu1", this.pdfForm.getLieu());
             parameters.put("date1", this.pdfForm.getDate());
             parameters.put("an1", this.pdfForm.getNum3());
-            parameters.put("date3", this.pdfForm.getNum4());
-            parameters.put("vu2", "");
+            parameters.put("date3", "null");
+            parameters.put("vu2", this.pdfForm.getNum4());
             JasperPrint jasperPrint = JasperFillManager.fillReport(url.getPath(), parameters, new JREmptyDataSource());
           //EXPORT THROUGH STREAM
             response.reset();
