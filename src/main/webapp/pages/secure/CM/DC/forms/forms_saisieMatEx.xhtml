@@ -24,8 +24,8 @@
             <p:messages id="messages" showDetail="true" autoUpdate="true" />
 
             <div class="form-group">
-
-					
+				
+				
                 <!-- *********************************FILE UPLOAD ****************************************************-->
 
             <p:outputPanel id="testContainer">
@@ -61,6 +61,7 @@
 
 
                 </p:dataTable>
+                
                 <!-- **IMAGE UPLOAD** -->
                 <p:dataTable id="imId" var="rowIm"
                              value="#{depositaireBean.imageList}" editable="true"
@@ -84,7 +85,7 @@
                                 title="remove" value=""
                                 actionListener="#{depositaireBean.removeDoc(rowIm)}" update="imId"
                                 ajax="true" process="@this" class="btn btn-sm btn-warning " >
-                                <i class="fa fa-close"> </i> Enlever document
+                                <i class="fa fa-close"> </i> Enlever Image
                            </h:commandLink>
                         </p:panel>
                     </p:column>
@@ -97,6 +98,7 @@
 
 
             </p:outputPanel>
+            
             <br />
             <div class="row">
 					<div class="col-lg-6 col-lg-offset-3">
@@ -107,7 +109,6 @@
              </div>
             <!-- *********************************FILE UPLOAD ****************************************************-->
 
-            
 
 
 
@@ -183,7 +184,9 @@
                         value="#{depositaireBean.unitPrice}"
             			required="true"
                         requiredMessage="Prix Unitaire obligatoire"
-                        placeholder="Montant" styleClass="form-control top"></p:inputText>
+                        placeholder="Montant" styleClass="form-control top"
+                        id = "montant"
+                        ></p:inputText>
                     </div>
                   </div>
 				 <hr></hr>

@@ -7,6 +7,7 @@ import java.util.*;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.context.FacesContext;
+import javax.servlet.http.HttpServletRequest;
 
 import com.douane.entite.Useri;
 import com.douane.metier.user.UserMetier;
@@ -51,7 +52,7 @@ public class CustomAuthenticationProvider implements AuthenticationProvider {
         String password = authentication.getCredentials().toString();
         //Agent user = null;
         Agent user;
-        if (immatriculation.matches("[0-9]+") && immatriculation.length() > 2) {
+        if (immatriculation.matches("[0-9]+") && immatriculation.length() >=0) {
             user = usermetier.findAgentByIm(Long.parseLong(immatriculation));
             if (user == null) {
                 log.info("username not found " + immatriculation);
@@ -67,7 +68,14 @@ public class CustomAuthenticationProvider implements AuthenticationProvider {
 
                 ip = InetAddress.getLocalHost();
                 System.out.println("Current IP address : " + ip.getHostAddress());
-                user.setIp(ip.getHostAddress());
+                HttpServletRequest request = (HttpServletRequest) FacesContext.getCurrentInstance().getExternalContext().getRequest();
+                String ipAddress = request.getHeader("X-FORWARDED-FOR");
+                if (ipAddress == null) {
+                    ipAddress = request.getRemoteAddr();
+                }
+                System.out.println("ipAddress:" + ipAddress);
+                
+                user.setIp(ipAddress);
             } catch (UnknownHostException e) {
                 user.setIp("IP default");
                 e.printStackTrace();
@@ -77,7 +85,7 @@ public class CustomAuthenticationProvider implements AuthenticationProvider {
         }
         else
         {
-        	FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Erreur Immatriculation:" + immatriculation));
+        	FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Erreur Immatriculation: " + immatriculation));
             user = null;
         }
         //RequestFilter.getSession().setAttribute("agent",usermetier.findAgentByIm(Long.parseLong(immatriculation)));
@@ -90,7 +98,7 @@ public class CustomAuthenticationProvider implements AuthenticationProvider {
         }
 
         if (!passwordEncoder.matches(password, user.getPassword())) {
-            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Mot de passe non valide" + immatriculation));
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Mot de passe non valide " + immatriculation));
             throw new BadCredentialsException("tidak berhasil login dengan user " + immatriculation);
         }
         /*

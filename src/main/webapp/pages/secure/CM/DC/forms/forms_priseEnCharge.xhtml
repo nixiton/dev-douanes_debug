@@ -331,10 +331,12 @@
 				</div>
                 <div class="col-lg-6">
 
-                    <p:inputText   required="true"
+                    <p:inputText   id="Montant" required="true"
                         value="#{depositaireBean.unitPrice}"
                         requiredMessage="Champ Montant obligatoire"
-                        placeholder="Montant" styleClass="form-control top" resetValues="true"></p:inputText>
+                        placeholder="Montant" styleClass="form-control top" resetValues="true"
+                        validatorMessage="Montant doit être une chiffre"
+                        ></p:inputText>
 
                
                 </div>
