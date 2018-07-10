@@ -35,23 +35,38 @@
 		<sec:intercept-url pattern="/pages/secure/CA/ComptaAdmin.xhtml"
 						   access="hasAnyRole('ROLE_DC','ROLE_ADMIN','ROLE_CONS', 'ROLE_GAC', 'ROLE_SISE')" />
 
-
+		
 		<sec:intercept-url pattern="/pages/secure/CM/DC/**"
-						   access="hasAnyRole('ROLE_DC','ROLE_ADMIN','ROLE_CONS')" />
+						   access="hasAnyRole('ROLE_DC','ROLE_ADMIN','ROLE_CONS','ROLE_SISE')" />
+						   
+		<sec:intercept-url pattern="/pages/secure/CA/DC/**"
+						   access="hasAnyRole('ROLE_DC','ROLE_ADMIN','ROLE_CONS','ROLE_SISE')" />
 
 		<!-- CONSULTATION-->
 		<sec:intercept-url pattern="/pages/secure/CM/DGD/**"
-						   access="hasAnyRole('ROLE_CONS','ROLE_ADMIN','ROLE_CONS')" />
+						   access="hasAnyRole('ROLE_CONS','ROLE_ADMIN','ROLE_SISE','ROLE_GAC','ROLE_DC')" />
+						   
+						   <sec:intercept-url pattern="/pages/secure/CA/DGD/**"
+						   access="hasAnyRole('ROLE_CONS','ROLE_ADMIN','ROLE_SISE','ROLE_GAC','ROLE_DC')" />
+		
 
 		<!-- GAC-->
 		<sec:intercept-url pattern="/pages/secure/CM/GAC/**"
 						   access="hasAnyRole('ROLE_GAC','ROLE_ADMIN','ROLE_CONS')" />
+						   
+						   <sec:intercept-url pattern="/pages/secure/CA/GAC/**"
+						   access="hasAnyRole('ROLE_GAC','ROLE_ADMIN','ROLE_CONS')" />
 		<!-- SISE-->
 		<sec:intercept-url pattern="/pages/secure/CM/SISE/**"
 						   access="hasAnyRole('ROLE_SISE','ROLE_ADMIN','ROLE_CONS')" />
-
+						   
+						   <sec:intercept-url pattern="/pages/secure/CA/SISE/**"
+						   access="hasAnyRole('ROLE_SISE','ROLE_ADMIN','ROLE_CONS')" />
+		<!-- ALL -->
 		<sec:intercept-url pattern="/pages/secure/**"
 						   access="hasAnyRole('ROLE_ADMIN','ROLE_CONS')" />
+						   
+						
 
 		<!-- Page level Spring Security : Permit access to resources in /pages/unsecure/** -->
 		<sec:intercept-url pattern="/pages/unsecure/**"

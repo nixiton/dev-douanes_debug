@@ -101,7 +101,12 @@
 								Tableau de bord
 							</h:commandLink></li>
 					</c:if>
-					<c:if test="#{topMenuMB.curentAgent.roleAgent.role eq 'ROLE_ADMIN' or topMenuMB.curentAgent.roleAgent.role eq 'ROLE_SISE' or topMenuMB.curentAgent.roleAgent.role eq 'ROLE_SE'}">
+					<c:if test="#{topMenuMB.curentAgent.roleAgent.role eq 'ROLE_ADMIN' 
+					or topMenuMB.curentAgent.roleAgent.role eq 'ROLE_SISE' 
+					or topMenuMB.curentAgent.roleAgent.role eq 'ROLE_SE'
+					or topMenuMB.curentAgent.roleAgent.role eq 'ROLE_DG'
+					or topMenuMB.curentAgent.roleAgent.role eq 'ROLE_DRF'
+					}">
 
 					<li><h:link value="Saisie
 								des référentiels"
@@ -109,7 +114,10 @@
 
 					</c:if>
 
-					<c:if test="#{topMenuMB.curentAgent.roleAgent.role eq 'ROLE_ADMIN' or topMenuMB.curentAgent.roleAgent.role eq 'ROLE_DC'}">
+					<c:if test="#{topMenuMB.curentAgent.roleAgent.role eq 'ROLE_ADMIN' 
+					or topMenuMB.curentAgent.roleAgent.role eq 'ROLE_DC'
+					or topMenuMB.curentAgent.roleAgent.role eq 'ROLE_SISE'
+					}">
 
 					<li class="dropdown"><a href="#" class="dropdown-toggle"
 						data-toggle="dropdown" style="color:#CCC"> Saisie des materiels <b class="caret"></b>
@@ -126,7 +134,8 @@
 					
 
 					
-			            
+			         <c:if test="#{topMenuMB.curentAgent.roleAgent.role eq 'ROLE_ADMIN' 
+					or topMenuMB.curentAgent.roleAgent.role eq 'ROLE_DC'}">   
 			        
 					<li class="dropdown"><a href="#" class="dropdown-toggle"
 						data-toggle="dropdown" style="color:#CCC"> Détenteur <b class="caret"></b>
@@ -138,20 +147,38 @@
 						</ul></li>
 
 					<li><h:link value="Décharge" outcome="decharge" immediate="true" style="color:#CCC"/></li>
-
+					</c:if>
 				</c:if>
 
-					<c:if test="#{topMenuMB.curentAgent.roleAgent.role eq 'ROLE_ADMIN' or topMenuMB.curentAgent.roleAgent.role eq 'ROLE_DC' or topMenuMB.curentAgent.roleAgent.role eq 'ROLE_GAC' or topMenuMB.curentAgent.roleAgent.role eq 'ROLE_SE'}">
+					<c:if test="#{topMenuMB.curentAgent.roleAgent.role eq 'ROLE_ADMIN' 
+					or topMenuMB.curentAgent.roleAgent.role eq 'ROLE_DC' 
+					or topMenuMB.curentAgent.roleAgent.role eq 'ROLE_GAC' 
+					or topMenuMB.curentAgent.roleAgent.role eq 'ROLE_SE'
+					or topMenuMB.curentAgent.roleAgent.role eq 'ROLE_DG'
+					or topMenuMB.curentAgent.roleAgent.role eq 'ROLE_DRF'
+					or topMenuMB.curentAgent.roleAgent.role eq 'ROLE_SISE'
+					}">
 
 					<li class='dropdown '><a href="#" class="dropdown-toggle"
 						data-toggle="dropdown" style="color:#CCC"> Suivi et édition des états
 							réglementaires <b class="caret"></b>
 					</a>
 						<ul class="dropdown-menu">
+						<c:if test="#{topMenuMB.curentAgent.roleAgent.role eq 'ROLE_ADMIN' 
+						or topMenuMB.curentAgent.roleAgent.role eq 'ROLE_SISE'
+						or topMenuMB.curentAgent.roleAgent.role eq 'ROLE_GAC'
+						or topMenuMB.curentAgent.roleAgent.role eq 'ROLE_DG'
+						or topMenuMB.curentAgent.roleAgent.role eq 'ROLE_DRF'
+						}">
 							<li><h:link value="Traçabilité" outcome="tracabilite" immediate="true" /></li>
+						</c:if>
 							<li><h:link
 									value="Liste des matériels, statut et historique" outcome="liste_mat" immediate="true" /></li>
-							<c:if test="#{topMenuMB.curentAgent.roleAgent.role eq 'ROLE_ADMIN'}">
+							<c:if test="#{topMenuMB.curentAgent.roleAgent.role eq 'ROLE_ADMIN'
+									or topMenuMB.curentAgent.roleAgent.role eq 'ROLE_DG'
+									or topMenuMB.curentAgent.roleAgent.role eq 'ROLE_DRF'
+									or topMenuMB.curentAgent.roleAgent.role eq 'ROLE_SISE'
+							}">
 						<li><h:link
 									value="Liste générale des matériels"
 									outcome="liste_mats" immediate="true" /></li>

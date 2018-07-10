@@ -4,6 +4,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 
 import com.douane.entite.Agent;
+import com.douane.entite.Materiel;
 import com.douane.requesthttp.RequestFilter;
 
 import org.springframework.transaction.annotation.Transactional;
@@ -40,5 +41,8 @@ public class topMenuMgmtBean {
 	}
 	public String goToDashboardCA(){
 		return "ca";
+	}
+	public boolean isMaterialNonAcceptedAndAgentDC(Materiel m ) {
+		return (!m.isValidation() && this.getCurentAgent().getRoleAgent().getRole().equals("ROLE_DC"));
 	}
 }

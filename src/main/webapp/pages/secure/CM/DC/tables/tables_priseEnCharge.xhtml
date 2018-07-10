@@ -3,12 +3,15 @@
     xmlns:ui="http://java.sun.com/jsf/facelets"
     xmlns:f="http://java.sun.com/jsf/core"
     xmlns:h="http://java.sun.com/jsf/html"
-    xmlns:p="http://primefaces.org/ui">
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:c="http://java.sun.com/jsp/jstl/core">
 
 <h:head></h:head>
 
 <div   class="body collapse in table-responsive">
-
+	<c:if test="#{topMenuMB.curentAgent.roleAgent.role eq 'ROLE_ADMIN' 
+            or topMenuMB.curentAgent.roleAgent.role eq 'ROLE_DC'
+            }">
     <div class="row">
 		<div class="col-lg-2">
 	        <h:link value="" outcome="add_PriseEnCharge"
@@ -19,6 +22,7 @@
         <hr></hr>
 		<br/>
     </div>    
+    </c:if>
 	<h:form>
 
 
@@ -121,8 +125,106 @@
             </f:facet>
             <p:commandButton  action="#{depositaireBean.setCurentMaterielNouv(materiel)}"
             oncomplete="PF('detail').show()" icon="ui-icon-zoomin" update=":detail"/>
+            <c:if test="#{topMenuMB.curentAgent.roleAgent.role eq 'ROLE_ADMIN' 
+            or topMenuMB.curentAgent.roleAgent.role eq 'ROLE_SISE'
+            or (topMenuMB.curentAgent.roleAgent.role eq 'ROLE_DC' and materiel.isValidation)
+            }">
              <p:commandButton  action="#{depositaireBean.setCurentMaterielNouv(materiel)}" update=":modifMatNouv"
             oncomplete="PF('modifMatNouv').show()" icon="ui-icon-pencil"/>
+            </c:if>
+        </p:column>
+    </p:dataTable>
+    
+    </h:form>
+    
+    
+    
+    <h:form>
+
+
+    <p:dataTable   var="materiel" value="#{depositaireBean.listMaterielNouveauNonValide}"
+                 widgetVar="MaterielTable"
+                 currentPageReportTemplate="({currentPage} sur {totalPages})"
+                 paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}  "
+                 paginator="true" rows="10" style="margin-bottom:20px"
+                 emptyMessage="Aucun resultat" filteredValue="#{dtFilterView.filteredOperations}"
+                 >
+ 
+        <p:column filterBy="#{materiel.idMateriel}" filterMatchMode="contains" style="width:7%; text-align: center; word-wrap: break-word;">
+            <f:facet name="header">
+                <h:outputText value="ID" />
+            </f:facet>
+            <h:outputText value="#{materiel.idMateriel}" />
+        </p:column> 
+        <p:column filterBy="#{materiel.design.nomenMat}" headerText="Nomenclature"  filterMatchMode="exact" style="width:23%; text-align: center; word-wrap: break-word;">
+            <f:facet name="filter">
+                <p:selectOneMenu onchange="PF('MaterielTable').filter()" >
+                    <f:selectItem itemLabel="Selectionner" itemValue="#{null}" noSelectionOption="true" />
+                    <f:selectItems value="#{siseBean.listNomenclature}" />
+                </p:selectOneMenu>
+            </f:facet>
+            <f:facet name="header">
+                <h:outputText value="Type de matériel" />
+            </f:facet>
+            <h:outputText value="#{materiel.design.nomenMat.designation}" />
+        </p:column>
+        <p:column style="width:10%; text-align: center; word-wrap: break-word;">
+            <f:facet name="header">
+                <h:outputText value="Nomenclature" />
+            </f:facet>
+            <h:outputText value="#{materiel.design.nomenMat.nomenclature}" />
+        </p:column>
+        <p:column style="width:10%; text-align: center; word-wrap: break-word;">
+            <f:facet name="header">
+                <h:outputText value="Marque" />
+            </f:facet>
+            <h:outputText value="#{materiel.design.marque.designation}" />
+        </p:column>
+        <p:column  filterBy="#{materiel.reference}" filterMatchMode="contains" style="width:10%; text-align: center; word-wrap: break-word;">
+            <f:facet name="header">
+                <h:outputText value="Référence" />
+            </f:facet>
+           <h:outputText value=" #{materiel.reference}" />
+        </p:column>
+        <p:column filterBy="#{materiel.numSerie}" filterMatchMode="contains" style="width:10%; text-align: center; word-wrap: break-word;">
+            <f:facet name="header">
+                <h:outputText value="Numéro de Série" />
+            </f:facet>
+            <h:outputText value="#{materiel.numSerie}" />
+        </p:column>
+        <!--p:column>
+            <f:facet name="header">
+                <h:outputText value="Caractéristique" />
+            </f:facet>
+            <h:outputText value="#{materiel.caract}" />
+        </p:column-->
+        <p:column style="width:10%; text-align: center; word-wrap: break-word;">
+            <f:facet name="header">
+                <h:outputText value="Mode d'aquisition" />
+            </f:facet>
+            <h:outputText value="#{materiel.design.modAcq.designation}" />
+        </p:column>
+        
+		<p:column filterBy="#{materiel.code}" filterMatchMode="contains" style="width:8%; text-align: center; word-wrap: break-word;">
+            <f:facet name="header" >
+                <h:outputText value="Code" />
+            </f:facet>
+            <h:outputText value="#{materiel.code}" />
+        </p:column>
+        <p:column style="width:7%; text-align: center; word-wrap: break-word;">
+
+            <f:facet name="header">
+                <h:outputText value="Détail" />
+            </f:facet>
+            <p:commandButton  action="#{depositaireBean.setCurentMaterielNouv(materiel)}"
+            oncomplete="PF('detail').show()" icon="ui-icon-zoomin" update=":detail"/>
+            <c:if test="#{topMenuMB.curentAgent.roleAgent.role eq 'ROLE_ADMIN' 
+            or topMenuMB.curentAgent.roleAgent.role eq 'ROLE_SISE'
+            or topMenuMB.curentAgent.roleAgent.role eq 'ROLE_DC'
+            }">
+             <p:commandButton  action="#{depositaireBean.setCurentMaterielNouv(materiel)}" update=":modifMatNouv"
+            oncomplete="PF('modifMatNouv').show()" icon="ui-icon-pencil"/>
+            </c:if>
         </p:column>
     </p:dataTable>
     

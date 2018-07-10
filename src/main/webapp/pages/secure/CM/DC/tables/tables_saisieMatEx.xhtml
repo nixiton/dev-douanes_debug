@@ -4,12 +4,17 @@
     xmlns:f="http://java.sun.com/jsf/core"
     xmlns:h="http://java.sun.com/jsf/html"
     xmlns:pe="http://primefaces.org/ui/extensions"
-    xmlns:p="http://primefaces.org/ui">
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:c="http://java.sun.com/jsp/jstl/core">
+
 
 <h:head></h:head>
 
 <div   class="body collapse in table-responsive">
-
+	
+	<c:if test="#{topMenuMB.curentAgent.roleAgent.role eq 'ROLE_ADMIN' 
+            or topMenuMB.curentAgent.roleAgent.role eq 'ROLE_DC'
+            }">
     <div class="row">
 		<div class="col-lg-2">
 	        <h:link value="" outcome="add_Mat_Ex"
@@ -19,7 +24,8 @@
         </div>
         <hr></hr>
 		<br/>
-    </div>    
+    </div>
+    </c:if>
     <h:form>
     <p:dataTable   var="materiel" value="#{depositaireBean.listMaterielexistant}"
                  widgetVar="MaterielTable"
@@ -123,9 +129,13 @@
             </f:facet>
             <p:commandButton  action="#{depositaireBean.setCurentMaterielEx(materiel)}" update=":detail"
             oncomplete="PF('detail').show()" icon="ui-icon-zoomin"/>
+            <c:if test="#{topMenuMB.curentAgent.roleAgent.role eq 'ROLE_ADMIN' 
+            or topMenuMB.curentAgent.roleAgent.role eq 'ROLE_SISE'
+            or (topMenuMB.curentAgent.roleAgent.role eq 'ROLE_DC' and materiel.isValidation)
+            }">
             <p:commandButton  action="#{depositaireBean.setCurentMaterielEx(materiel)}" update=":modifMatex"
             oncomplete="PF('modifMatex').show()" icon="ui-icon-pencil"/>
-            
+            </c:if>
         </p:column>
     </p:dataTable>
     </h:form>

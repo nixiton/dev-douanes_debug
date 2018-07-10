@@ -76,6 +76,8 @@ public interface IUserMetier {
 	public List<Materiel> getMatByDetenteurAndDirection(Agent detenteur,Direction direction);
 	public List<MaterielNouv> getListMaterielNouvValide();
 	
+	public List<MaterielNouv> getListMaterielNouvNonValide();
+	
 
 	public List<Materiel> getListMatByService(Service service);//tokony tsy miasa
 	public List<Materiel> getListMatByBureau(Bureau bureau);//tokony tsy miasa

@@ -1366,6 +1366,13 @@ public class UserMetier implements IUserMetier {
 		
 		return operationdao.areporter(code,direction,stopdat);
 	}
+
+	@Override
+	public List<MaterielNouv> getListMaterielNouvNonValide() {
+		// TODO Auto-generated method stub
+		Agent agent = (Agent) RequestFilter.getSession().getAttribute("agent");
+		return materielNouvRepository.findByValidationAndDirecOrderByIdMaterielDesc(false, agent.getDirection());
+	}
 	
 
 
