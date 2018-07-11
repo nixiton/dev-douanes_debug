@@ -112,25 +112,25 @@
                 
 
                 <p:panel id="designation" >
-
                     <p:panel rendered="#{depositaireBean.motifSortie.designation eq 'Affectation'}" >
-                    <label for="text1" >Destination</label>
-
-
-
-                    <label for="text1" >Direction</label>
-
-                    <p:selectOneMenu  styleClass="form-control top" converter="#{refConverter}" value="#{depositaireBean.destinationDirec}">
-                        <f:selectItem itemValue="#{null}" itemLabel="--select--" /> 
-                            <f:selectItems value="#{siseBean.listDirection}" var="b" itemLabel="#{b.codeDirection}" itemValue="#{b}"/>
-                    </p:selectOneMenu>
-
-                    <hr></hr>
-                </p:panel>
+                    	<div class="row">
+							<div class="col-lg-4 col-lg-offset-1">
+			                    <label for="text1" >Destination</label>
+			                    <label for="text1" >Direction</label>
+							</div>
+							<div class="col-lg-6">
+			                    <p:selectOneMenu  styleClass="form-control top" converter="#{refConverter}" value="#{depositaireBean.destinationDirec}">
+			                        <f:selectItem itemValue="#{null}" itemLabel="Selectionner" /> 
+			                            <f:selectItems value="#{siseBean.listDirection}" var="b" itemLabel="#{b.codeDirection}" itemValue="#{b}"/>
+			                    </p:selectOneMenu>
+							</div>
+						</div>
+	                    
+               		</p:panel>
 
                 </p:panel>
                 
-
+				<hr></hr>
 
              	<div class="col-lg-2"></div>
 

@@ -92,9 +92,9 @@
                         <td align="left">#{suivieditionBean.materiel.idMateriel}</td>
                     </tr>
                     <tr>
-                        <td><b>Montant</b></td>
+                        <td><b>Prix unitaire</b></td>
                         <td align="left">
-		                   <h:outputText value="#{suivieditionBean.materiel.design.pu}" ><f:convertNumber pattern="¤#,##0.00" currencySymbol=""></f:convertNumber></h:outputText>
+		                   <h:outputText value="#{suivieditionBean.materiel.design.pu}" ><f:convertNumber pattern="¤#,##0" currencySymbol="Ar "></f:convertNumber></h:outputText>
 		                </td>
                     </tr>
                     <tr>

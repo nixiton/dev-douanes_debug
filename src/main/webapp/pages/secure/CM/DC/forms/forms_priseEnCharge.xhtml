@@ -42,6 +42,7 @@
                                           sizeLimit="1000000"
                                           allowTypes="/(\.|\/)(gif|jpeg|txt|png|pdf|doc|docx)$/">
                                 <f:attribute name="docObj" value="#{row}"></f:attribute>
+                                Document accepté : gif, jpeg, png, txt, pdf, doc, docx
                             </p:fileUpload>
                         </p:panel>
                         <p:panel rendered="#{row.uploaded}">
@@ -75,6 +76,7 @@
                                           
                                           >
                                 <f:attribute name="docObj" value="#{rowIm}"></f:attribute>
+                                Type d'image accepté : gif, jpeg, png
                             </p:fileUpload>
                         </p:panel>
                         <p:panel rendered="#{rowIm.uploaded}">
@@ -326,16 +328,16 @@
         	 <div class="row">
 				<div class="col-lg-4 col-lg-offset-1"> 
 
-	                <label for="text1" class="control-label col-lg-4">Montant 
+	                <label for="text1" class="control-label col-lg-4">Prix Unitaire 
 	                </label>
 				</div>
                 <div class="col-lg-6">
 
                     <p:inputText   id="Montant" required="true"
                         value="#{depositaireBean.unitPrice}"
-                        requiredMessage="Champ Montant obligatoire"
-                        placeholder="Montant" styleClass="form-control top" resetValues="true"
-                        validatorMessage="Montant doit être une chiffre"
+                        requiredMessage="Champ Prix Unitaire obligatoire"
+                        placeholder="Prix unitaire en Ariary" styleClass="form-control top" resetValues="true"
+                        validatorMessage="Le montant(prix unitaire) doit être une chiffre"
                         ></p:inputText>
 
                
@@ -393,20 +395,22 @@
                              editMode="cell" widgetVar="documentTable" rowIndexVar="rowIndex" emptyMessage="Aucun enregistrement">
                              
                     
-                    <p:column headerText="N°">
+                    <p:column headerText="N°" style="width:4%; text-align: center; word-wrap: break-word;">
 						#{rowIndex+1}
 					</p:column>
 
-                    <p:column headerText="Référence">
+                    <p:column headerText="Référence" style="width:7%; text-align: center; word-wrap: break-word;">
                         #{m.reference}
                     </p:column>
-                    <p:column headerText="Numero Série">
+                    <p:column headerText="Numero Série" style="width:7%; text-align: center; word-wrap: break-word;">
                         #{m.numSerie}
                     </p:column>
                     
-                    <p:column headerText="Supprimer"> <p:commandButton value="supprimer" process="@this"
+                    <p:column headerText="Supprimer" style="width:4%; text-align: center; word-wrap: break-word;"> 
+                    	<p:commandButton value="X" process="@this"
                              update="refid" actionListener="#{depositaireBean.deleteMateriel(rowIndex)}"
-                             ajax="true" /></p:column>
+                             ajax="true" />
+                    </p:column>
 
                 </p:dataTable>
                 

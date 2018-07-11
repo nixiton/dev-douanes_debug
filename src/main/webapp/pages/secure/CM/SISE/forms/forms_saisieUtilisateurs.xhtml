@@ -86,7 +86,7 @@
 						value="Mot de passe : " />
 				</div>
 				<div class="col-lg-6 ">
-					<p:password id="password1" match="password2" 
+					<p:password id="password1"  match="password2"	
 						value="#{userMB.password}" required="true" 
 						requiredMessage="Mot de passe obligatoire" 
 						validatorMessage=" Erreur de longueur de Mot de passe (longueur minimale requise : 8) ou Erreur de confirmation de mot de passe"
@@ -107,8 +107,7 @@
 					<p:password id="password2" 
 						value="#{userMB.password}"  required="true"
 						requiredMessage="Confirmation Mot de passe obligatoire" 
-						validatorMessage="Erreur de confirmation de mot de passe"
-						
+						validatorMessage="Erreur de confirmation de mot de passe" 				
 						>
 					</p:password>
 				</div>

@@ -85,9 +85,9 @@
                         <c:if test="#{mat['class'].simpleName eq 'MaterielNouv' }">
 
                             <tr>
-                                <td><strong>Montant</strong></td>
+                                <td><strong>Prix unitaire</strong></td>
                                 <td>
-		                        	<h:outputText value="#{mat.design.pu}" ><f:convertNumber pattern="¤#,##0.00" currencySymbol=""></f:convertNumber></h:outputText>
+		                        	<h:outputText value="#{mat.design.pu}" ><f:convertNumber pattern="¤#,##0" currencySymbol="Ar "></f:convertNumber></h:outputText>
 		                     	</td>
                                 <td><strong>Financement</strong></td>
                                 <td>#{mat.design.financement.designation}</td>

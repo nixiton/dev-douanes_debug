@@ -29,9 +29,9 @@
                         <td><strong>Type de Matériel - Nomenclature</strong></td>
                         <td>#{depositaireBean.curentMaterielNouv.design.typematerieladd.designation} - #{depositaireBean.curentMaterielNouv.design.nomenMat.nomenclature}</td>
                         <td></td>
-                        <td><strong>Montant</strong></td>
+                        <td><strong>Prix unitaire</strong></td>
                         <td>
-                            <h:outputText value="#{depositaireBean.curentMaterielNouv.design.pu}" ><f:convertNumber pattern="¤#,##0.00" currencySymbol=""></f:convertNumber></h:outputText>
+                            <h:outputText value="#{depositaireBean.curentMaterielNouv.design.pu}" ><f:convertNumber pattern="¤#,##0" currencySymbol="Ar "></f:convertNumber></h:outputText>
                         </td>
                     </tr>
                     <tr>

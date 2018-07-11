@@ -72,7 +72,7 @@
 				<p:column rowspan="3" headerText="Numéro d’ordre de la nomenclature" sortBy="#{c[0]}" style=" text-align: center; word-wrap: break-word;"/>
                 <p:column rowspan="3" headerText="Espèces des unités" style=" text-align: center; word-wrap: break-word;"/>
                 <p:column rowspan="3" headerText="Désignation des objets (1)" sortBy="#{c[0].design.typematerieladd.designation}" style=" text-align: center; word-wrap: break-word;"></p:column>
-                <p:column rowspan="3" headerText="Prix de l’unité" style=" text-align: center; word-wrap: break-word;"></p:column>
+                <p:column rowspan="3" headerText="Prix de l’unité (en Ariary)" style=" text-align: center; word-wrap: break-word;"></p:column>
                 <p:column colspan="2" headerText="Existant au 1er janvier X" style=" text-align: center; word-wrap: break-word;"></p:column>
                 <p:column rowspan="3" headerText="Mouvements  effectués (2)" style=" text-align: center; word-wrap: break-word;"></p:column>
                 <p:column colspan="9" headerText="ANNEE X" style=" text-align: center; word-wrap: break-word;"></p:column>
@@ -109,7 +109,7 @@
 			</p:column>
 			<p:column headerText="Prix de l’unité" style=" text-align: center; word-wrap: break-word;" > 
 				<h:outputText value="#{c[3]}" >
-					<f:convertNumber pattern="¤#,##0.00" currencySymbol=""></f:convertNumber>
+					<f:convertNumber pattern="¤#,##0" currencySymbol=""></f:convertNumber>
 				</h:outputText>			
 			</p:column>
 			<p:column headerText="Quantité" style=" text-align: center; word-wrap: break-word;"> 
@@ -117,7 +117,7 @@
 			</p:column>
 			<p:column headerText="Valeur" style=" text-align: center; word-wrap: break-word;"> 
 				<h:outputText value="#{c[3]*c[5]}" >
-					<f:convertNumber pattern="¤#,##0.00" currencySymbol=""></f:convertNumber>
+					<f:convertNumber pattern="¤#,##0" currencySymbol=""></f:convertNumber>
 				</h:outputText>			
 			</p:column>
 			<p:column headerText="Mouvements  effectués" style=" text-align: center; word-wrap: break-word;"> 
@@ -137,7 +137,7 @@
 			</p:column>
 			<p:column headerText="Valeur" style=" text-align: center; word-wrap: break-word;"> 
 				<h:outputText value="#{c[12]*c[3]}" >
-					<f:convertNumber pattern="¤#,##0.00" currencySymbol=""></f:convertNumber>
+					<f:convertNumber pattern="¤#,##0" currencySymbol=""></f:convertNumber>
 				</h:outputText>			
 			</p:column>
 			<p:column headerText="Quantité" style=" text-align: center; word-wrap: break-word;"> 
@@ -145,7 +145,7 @@
 			</p:column>
 			<p:column headerText="Valeur" style=" text-align: center; word-wrap: break-word;"> 
 				<h:outputText value="#{c[13]*c[3]}" >
-					<f:convertNumber pattern="¤#,##0.00" currencySymbol=""></f:convertNumber>
+					<f:convertNumber pattern="¤#,##0" currencySymbol=""></f:convertNumber>
 				</h:outputText>			
 			</p:column>
 			<p:column headerText="Quantité" style=" text-align: center; word-wrap: break-word;"> 
@@ -153,7 +153,7 @@
 			</p:column>
 			<p:column headerText="Valeur" style=" text-align: center; word-wrap: break-word;"> 
 				<h:outputText value="#{c[9]}" >
-					<f:convertNumber pattern="¤#,##0.00" currencySymbol=""></f:convertNumber>
+					<f:convertNumber pattern="¤#,##0" currencySymbol=""></f:convertNumber>
 				</h:outputText>			
 			</p:column>
 			

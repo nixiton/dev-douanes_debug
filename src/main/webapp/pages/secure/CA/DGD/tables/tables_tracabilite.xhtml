@@ -59,19 +59,19 @@
         <p:column style=" text-align: center; word-wrap: break-word;">
             <f:facet name="header">Montant</f:facet>
             <p:panel rendered="#{op['class'].simpleName eq 'OpEntreeArticle'}">
-				<h:outputText value="#{op.article.prix}" ><f:convertNumber pattern="¤#,##0.00" currencySymbol=""></f:convertNumber></h:outputText>
+				<h:outputText value="#{op.article.prix}" ><f:convertNumber pattern="¤#,##0" currencySymbol=""></f:convertNumber></h:outputText>
 		</p:panel>
 		<p:panel rendered="#{op['class'].simpleName eq 'OpSortieArticle'}">
-				<h:outputText value="#{op.article.prix}" ><f:convertNumber pattern="¤#,##0.00" currencySymbol=""></f:convertNumber></h:outputText>
+				<h:outputText value="#{op.article.prix}" ><f:convertNumber pattern="¤#,##0" currencySymbol=""></f:convertNumber></h:outputText>
 		</p:panel>
         </p:column>
         <p:column style=" text-align: center; word-wrap: break-word;">
             <f:facet name="header">Montant total</f:facet>
             <p:panel rendered="#{op['class'].simpleName eq 'OpEntreeArticle'}">
-				<h:outputText value="#{op.article.prix*op.article.nombre}" ><f:convertNumber pattern="¤#,##0.00" currencySymbol=""></f:convertNumber></h:outputText>
+				<h:outputText value="#{op.article.prix*op.article.nombre}" ><f:convertNumber pattern="¤#,##0" currencySymbol=""></f:convertNumber></h:outputText>
 		</p:panel>
 		<p:panel rendered="#{op['class'].simpleName eq 'OpSortieArticle'}">
-				<h:outputText value="#{op.article.prix*op.nombreToS}" ><f:convertNumber pattern="¤#,##0.00" currencySymbol=""></f:convertNumber></h:outputText>
+				<h:outputText value="#{op.article.prix*op.nombreToS}" ><f:convertNumber pattern="¤#,##0" currencySymbol=""></f:convertNumber></h:outputText>
 		</p:panel>
         </p:column>
         
