@@ -231,20 +231,28 @@
                     <td> <h:outputText value="#{materiel.especeUnite}" /></td>
                     <td><h:outputText value="#{materiel.nomenMat.designation}, #{materiel.typematerieladd.designation} , #{materiel.renseignement}" /></td>
                     <td><c:if test="#{materiel['class'].simpleName eq 'MaterielEx'}">
-                    <h:outputText value="#{materiel.pu}" />
+                    <h:outputText value="#{materiel.pu}" >
+                    	<f:convertNumber pattern="¤#,##0" currencySymbol=""></f:convertNumber>		
+                    </h:outputText>
                     </c:if>
 
                     <c:if test="#{materiel['class'].simpleName eq 'MaterielNouv'}">
-                    <h:outputText value="#{materiel.montant_facture}" />                    
+                    <h:outputText value="#{materiel.montant_facture}" >
+                    	<f:convertNumber pattern="¤#,##0" currencySymbol=""></f:convertNumber>		
+                    </h:outputText>                    
                 </c:if>
             </td>
                     <td><h:outputText value="" />1</td>
                     <td><h:outputText value="" /><c:if test="#{materiel['class'].simpleName eq 'MaterielEx'}">
-                    <h:outputText value="#{1*materiel.pu}" />
+                    <h:outputText value="#{1*materiel.pu}" >
+                    	<f:convertNumber pattern="¤#,##0" currencySymbol=""></f:convertNumber>		
+                    </h:outputText>
                     </c:if>
 
                     <c:if test="#{materiel['class'].simpleName eq 'MaterielNouv'}">
-                    <h:outputText value="#{1*materiel.montant_facture}" />                    
+                    <h:outputText value="#{1*materiel.montant_facture}" >
+                    	<f:convertNumber pattern="¤#,##0" currencySymbol=""></f:convertNumber>		
+                    </h:outputText>                    
                 </c:if></td>
                     <td>
                         <c:set target="#{suivieditionBean}" property="materiel" value="#{materiel}" />
@@ -269,20 +277,28 @@
                     <td> <h:outputText value="#{o.mat.especeUnite}" /></td>
                     <td><h:outputText value="#{o.mat.nomenMat.designation}, #{o.mat.typematerieladd.designation} , #{o.mat.renseignement}" /></td>
                     <td><c:if test="#{o.mat['class'].simpleName eq 'MaterielEx'}">
-                    <h:outputText value="#{o.mat.pu}" />
+                    <h:outputText value="#{o.mat.pu}" >
+                    	<f:convertNumber pattern="¤#,##0" currencySymbol=""></f:convertNumber>		
+                    </h:outputText>
                     </c:if>
 
                     <c:if test="#{o.mat['class'].simpleName eq 'MaterielNouv'}">
-                    <h:outputText value="#{o.mat.montant_facture}" />                    
+                    <h:outputText value="#{o.mat.montant_facture}" >
+                    	<f:convertNumber pattern="¤#,##0" currencySymbol=""></f:convertNumber>		
+                    </h:outputText>                    
                 </c:if>
             </td>
                     <td><h:outputText value="" />1</td>
                     <td><h:outputText value="" /><c:if test="#{o.mat['class'].simpleName eq 'MaterielEx'}">
-                    <h:outputText value="#{1*o.mat.pu}" />
+                    <h:outputText value="#{1*o.mat.pu}" >
+                    	<f:convertNumber pattern="¤#,##0" currencySymbol=""></f:convertNumber>		
+                    </h:outputText>
                     </c:if>
 
                     <c:if test="#{o.mat['class'].simpleName eq 'MaterielNouv'}">
-                    <h:outputText value="#{1*o.mat.montant_facture}" />                    
+                    <h:outputText value="#{1*o.mat.montant_facture}" >
+                    	<f:convertNumber pattern="¤#,##0" currencySymbol=""></f:convertNumber>		
+                    </h:outputText>                    
                 </c:if></td>
                     <td>
                         <c:set target="#{suivieditionBean}" property="materiel" value="#{o.mat}" />
@@ -368,11 +384,15 @@
                     <td> <h:outputText value="" /></td>
                     <td><h:outputText value="" />1</td>
                     <td><h:outputText value="" /><c:if test="#{materiel['class'].simpleName eq 'MaterielEx'}">
-                    <h:outputText value="#{1*materiel.pu}" />
+                    <h:outputText value="#{1*materiel.pu}" >
+                    	<f:convertNumber pattern="¤#,##0" currencySymbol=""></f:convertNumber>		
+                    </h:outputText>
                     </c:if>
 
                     <c:if test="#{materiel['class'].simpleName eq 'MaterielNouv'}">
-                    <h:outputText value="#{1*materiel.montant_facture}" />                    
+                    <h:outputText value="#{1*materiel.montant_facture}" >
+                    	<f:convertNumber pattern="¤#,##0" currencySymbol=""></f:convertNumber>		
+                    </h:outputText>                    
                 </c:if></td>
                 </tr>
 
@@ -401,11 +421,15 @@
                     <td> <h:outputText value="" /></td>
                     <td><h:outputText value="" />1</td>
                     <td><h:outputText value="" /><c:if test="#{o.mat['class'].simpleName eq 'MaterielEx'}">
-                    <h:outputText value="#{1*o.mat.pu}" />
+                    <h:outputText value="#{1*o.mat.pu}" >
+                    	<f:convertNumber pattern="¤#,##0" currencySymbol=""></f:convertNumber>		
+                    </h:outputText>
                     </c:if>
 
                     <c:if test="#{o.mat['class'].simpleName eq 'MaterielNouv'}">
-                    <h:outputText value="#{1*o.mat.montant_facture}" />                    
+                    <h:outputText value="#{1*o.mat.montant_facture}" >
+                    	<f:convertNumber pattern="¤#,##0" currencySymbol=""></f:convertNumber>		
+                    </h:outputText>                    
                 </c:if></td>
                 </tr>
 

@@ -99,9 +99,17 @@
                                 #{docbean.curentOperationAttrToPdf.mat.reference}
                                  </td>
                                 <td>#{docbean.curentOperationAttrToPdf.mat.design.especeUnite}</td>
-                                <td>#{docbean.curentOperationAttrToPdf.mat.design.pu}</td>
+                                <td>
+                                	<h:outputText value="#{docbean.curentOperationAttrToPdf.mat.design.pu}" >
+                                		<f:convertNumber pattern="¤#,##0" currencySymbol=""></f:convertNumber>
+                                	</h:outputText>
+                                </td>
                                 <td>1</td>
-                                <td>#{docbean.curentOperationAttrToPdf.mat.design.pu*1}</td>
+                                <td>
+                                	<h:outputText value="#{docbean.curentOperationAttrToPdf.mat.design.pu*1}" >
+                                		<f:convertNumber pattern="¤#,##0" currencySymbol=""></f:convertNumber>
+                                	</h:outputText>
+                                </td>
                             </tr>
                         </table>
                     </tr>                    

@@ -82,7 +82,9 @@
                                 <f:facet name="header">
                                     <h:outputText value="PRIX UNITAIRE " />
                                 </f:facet>
-                                <h:outputText value="#{c.pu}" />
+                                <h:outputText value="#{c.pu}" >
+                                	<f:convertNumber pattern="¤#,##0" currencySymbol=""></f:convertNumber>
+                                </h:outputText>
                             </p:column>
 
                             <p:column>
@@ -96,7 +98,9 @@
                                 <f:facet name="header">
                                     <h:outputText value="VALEUR TOTALE" />
                                 </f:facet>
-                                <h:outputText value="#{c.pu}" />
+                                <h:outputText value="#{c.pu}" >
+                                	<f:convertNumber pattern="¤#,##0" currencySymbol=""></f:convertNumber>
+                                </h:outputText>
                             </p:column>
 
                         </p:dataTable>

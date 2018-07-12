@@ -178,22 +178,42 @@
                     <td>#{docbean.curentOpeationSortieToPdf.mat.design.especeUnite}</td>
                     <td>1</td>
                     <c:if test="#{docbean.curentOpeationSortieToPdf.mat['class'].simpleName eq 'MaterielEx'}">
-                    <td>#{docbean.curentOpeationSortieToPdf.mat.design.pu}</td>
+                    <td>
+                    	<h:outputText value="#{docbean.curentOpeationSortieToPdf.mat.design.pu}" >
+ 							 <f:convertNumber pattern="¤#,##0" currencySymbol=""></f:convertNumber> 
+ 						</h:outputText>
+                    </td>
                     </c:if>
 
                     <c:if test="#{docbean.curentOpeationSortieToPdf.mat['class'].simpleName eq 'MaterielNouv'}">
-                    <td>#{docbean.curentOpeationSortieToPdf.mat.design.pu}</td>
+                    <td>
+                    	<h:outputText value="#{docbean.curentOpeationSortieToPdf.mat.design.pu}" >
+ 							 <f:convertNumber pattern="¤#,##0" currencySymbol=""></f:convertNumber> 
+ 						</h:outputText>
+                    </td>
                     </c:if>
 
                     <c:if test="#{docbean.curentOpeationSortieToPdf.mat['class'].simpleName eq 'MaterielEx'}">
-                    <td>#{1*docbean.curentOpeationSortieToPdf.mat.design.pu}</td>
+                    <td>
+                    	<h:outputText value="#{1*docbean.curentOpeationSortieToPdf.mat.design.pu}" >
+ 							 <f:convertNumber pattern="¤#,##0" currencySymbol=""></f:convertNumber> 
+ 						</h:outputText>
+                    </td>
                     </c:if>
 
                     <c:if test="#{docbean.curentOpeationSortieToPdf.mat['class'].simpleName eq 'MaterielNouv'}">
-                    <td>#{1*docbean.curentOpeationSortieToPdf.mat.design.pu}</td>
+                    <td>
+                    	<h:outputText value="#{1*docbean.curentOpeationSortieToPdf.mat.design.pu}" >
+ 							 <f:convertNumber pattern="¤#,##0" currencySymbol=""></f:convertNumber> 
+ 						</h:outputText>
+                    </td>
                     </c:if>
 
-                    <td>#{1*docbean.curentOpeationSortieToPdf.mat.design.pu}</td>
+                    <td>
+                    	<h:outputText value="#{1*docbean.curentOpeationSortieToPdf.mat.design.pu}" >
+ 							 <f:convertNumber pattern="¤#,##0" currencySymbol=""></f:convertNumber> 
+ 						</h:outputText>
+                    </td>
                     <td>#{docbean.curentOpeationSortieToPdf.mat.reference} - #{docbean.curentOpeationSortieToPdf.mat.design.refFacture}</td>
                 </tr>
 

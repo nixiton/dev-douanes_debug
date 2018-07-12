@@ -193,8 +193,16 @@
  					<td style="text-align:center"> #{desu[0].typematerieladd.designation} - #{desu[0].marque.designation} - #{desu[0].renseignement}</td>
  					<td style="text-align:center">#{desu[0].especeUnite}</td>
  					<td style="text-align:center">#{desu[1]}</td>
- 					<td style="text-align:center">#{desu[0].pu}</td>
-                    <td style="text-align:center">#{desu[1]*desu[0].pu}</td>
+ 					<td style="text-align:center">
+ 						<h:outputText value="#{desu[0].pu}" >
+							<f:convertNumber pattern="¤#,##0" currencySymbol=""></f:convertNumber>		
+						</h:outputText>
+ 					</td>
+                    <td style="text-align:center">
+                    	<h:outputText value="#{desu[1]*desu[0].pu}" >
+							<f:convertNumber pattern="¤#,##0" currencySymbol=""></f:convertNumber>		
+						</h:outputText>
+                    </td>
                    
                     <c:if test="${loop.index eq 0}">
                     <td rowspan= "#{des[2].size()}" style="text-align:center"> #{des[1]} </td>
