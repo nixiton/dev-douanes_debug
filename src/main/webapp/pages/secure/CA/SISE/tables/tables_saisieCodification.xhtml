@@ -37,7 +37,7 @@
 			<f:facet name="header">ID</f:facet>
 			#{nomenclature.id}
 		</p:column>
-		<p:column style="width:6%; text-align: center; word-wrap: break-word;">
+		<p:column filterBy="#{nomenclature.designation}" filterMatchMode="contains" style="width:6%; text-align: center; word-wrap: break-word;">
 			<f:facet name="header">Désignation</f:facet>
 			<p:cellEditor>
                <f:facet name="output"><h:outputText value="#{nomenclature.designation}" /></f:facet>

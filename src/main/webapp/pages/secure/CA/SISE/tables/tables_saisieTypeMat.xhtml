@@ -34,7 +34,7 @@
 			<f:facet name="header">ID</f:facet>
 			#{typemateriel.id}
 		</p:column>
-		<p:column style=" width:6%; text-align: center; word-wrap: break-word;">
+		<p:column filterBy="#{typemateriel.designation}" filterMatchMode="contains" style=" width:6%; text-align: center; word-wrap: break-word;">
 			<f:facet name="header">Désignation</f:facet>
 			<p:cellEditor>
                <f:facet name="output"><h:outputText value="#{typemateriel.designation}" /></f:facet>
@@ -42,7 +42,7 @@
            </p:cellEditor> 
 			
 		</p:column>
-		<p:column style=" width:6%; text-align: center; word-wrap: break-word;">
+		<p:column filterBy="#{typemateriel.caracteristique}" filterMatchMode="contains" style=" width:6%; text-align: center; word-wrap: break-word;">
 			<f:facet name="header">Caracteristique</f:facet>
 			<p:cellEditor>
                <f:facet name="output"><h:outputText value="#{typemateriel.caracteristique}" /></f:facet>

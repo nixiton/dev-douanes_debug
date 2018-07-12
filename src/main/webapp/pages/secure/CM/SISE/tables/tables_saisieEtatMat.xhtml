@@ -35,7 +35,7 @@
 			<f:facet name="header">ID</f:facet>
 			#{etat.id}
 		</p:column>
-		<p:column style="width: 15%; text-align: center; word-wrap: break-word;">
+		<p:column filterBy="#{etat.designation}" filterMatchMode="contains" style="width: 15%; text-align: center; word-wrap: break-word;">
 			<f:facet name="header">Désignation</f:facet>
 			<p:cellEditor>
                <f:facet name="output"><h:outputText value="#{etat.designation}" /></f:facet>

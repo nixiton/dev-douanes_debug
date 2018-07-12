@@ -34,21 +34,21 @@
 			<f:facet name="header">ID</f:facet>
 			#{typemateriel.id}
 		</p:column>
-		<p:column style="width: 9%; text-align: center;  word-wrap: break-word;">
+		<p:column filterBy="#{typemateriel.designation}" filterMatchMode="contains" style="width: 9%; text-align: center;  word-wrap: break-word;">
 			<f:facet name="header">Désignation</f:facet>
            <p:cellEditor>
                <f:facet name="output"><h:outputText value="#{typemateriel.designation}" /></f:facet>
                <f:facet name="input"><p:inputText value="#{typemateriel.designation}" style="width:80%"/></f:facet>
            </p:cellEditor>
 		</p:column>
-		<p:column style="width: 9%; text-align: center;  word-wrap: break-word;">
+		<p:column filterBy="#{typemateriel.codeTypeMate}" filterMatchMode="contains" style="width: 9%; text-align: center;  word-wrap: break-word;">
 			<f:facet name="header">Code Type Materiel</f:facet>
 			<p:cellEditor>
                <f:facet name="output"><h:outputText value="#{typemateriel.codeTypeMate}" /></f:facet>
                <f:facet name="input"><p:inputText value="#{typemateriel.codeTypeMate}" style="width:80%"/></f:facet>
            </p:cellEditor>
 		</p:column>
-		<p:column style="width: 9%; text-align: center;  word-wrap: break-word;">
+		<p:column filterBy="#{typemateriel.nomenclaureParent.nomenclature}" filterMatchMode="contains" style="width: 9%; text-align: center;  word-wrap: break-word;">
 			<f:facet name="header">Nomenclature</f:facet>
 			<p:cellEditor>
                <f:facet name="output"><h:outputText value="#{typemateriel.nomenclaureParent.nomenclature}" /></f:facet>

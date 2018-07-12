@@ -28,11 +28,11 @@
             <f:facet name="header">ID</f:facet>
             #{b.idUser}
         </p:column>
-        <p:column style="width: 15%; text-align: center; word-wrap: break-word;">
+        <p:column filterBy="#{b.designation}" filterMatchMode="contains" style="width: 15%; text-align: center; word-wrap: break-word;">
             <f:facet name="header">Désignation</f:facet>
             #{b.designation}
         </p:column>
-        <p:column style="width: 15%; text-align: center; word-wrap: break-word;">
+        <p:column filterBy="#{b.role}" filterMatchMode="contains" style="width: 15%; text-align: center; word-wrap: break-word;">
             <f:facet name="header">Fonction</f:facet>
             #{b.role}
         </p:column>
