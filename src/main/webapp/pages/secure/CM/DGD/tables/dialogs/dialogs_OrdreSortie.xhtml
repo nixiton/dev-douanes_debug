@@ -129,7 +129,7 @@
 
  			<div class="col-md-12">
 			<p>
- 			Seront portés en sortie dans les écritures du comptable  <strong>#{docbean.curentOpeationSortieToPdf.direction.designation}</strong> les matières et objets ci-après désignés provenant de  <strong>#{docbean.curentOpeationSortieToPdf.mat.design.origine}</strong>
+ 			Seront portés en sortie dans les écritures du comptable  #{docbean.curentOpeationSortieToPdf.direction.designation} les matières et objets ci-après désignés provenant de  #{docbean.curentOpeationSortieToPdf.mat.design.origine}
 			</p>
  		</div>
 
@@ -221,16 +221,16 @@
 
  			<br></br><br></br><br></br><br></br>
 
- 			Arrêté le présent ordre de sortie à  <p:inputText value="#{JasperTableExampleBean.ordreS.ordre}" style="text-align: center;" size="16"></p:inputText> Article évalué à la somme de <p:inputText value="#{JasperTableExampleBean.ordreS.somme}" style="text-align: center;"></p:inputText>  <br></br><br></br><br></br>
+ 			Arrêté le présent ordre de sortie à  <p:inputText value="#{JasperTableExampleBean.ordreS.ordre}" style="text-align: center;" size="16"></p:inputText> article(s) évalué à la somme de <p:inputText value="#{JasperTableExampleBean.ordreS.somme}" style="text-align: center;"></p:inputText>  <br></br><br></br><br></br>
 
  			<div class="col-md-6">
 
-            A <p:inputText value="#{JasperTableExampleBean.ordreS.lieu}" style="text-align:center; " size="20"></p:inputText>
-            , le  <strong>
+            A <h:outputText value="#{docbean.curentOpeationSortieToPdf.direction.trois}" />
+            , le  
             <h:outputText value="#{docbean.curentOpeationSortieToPdf.date}">
             	<f:convertDateTime pattern="dd MMMM yyyy" locale="fr-Fr" timeZone="GMT+3"/>
             </h:outputText>
-            </strong> <br></br>
+             <br></br>
 			<p style="margin:2em;">
 				Le Comptable (2) <p:inputText value="#{JasperTableExampleBean.ordreS.comptable}" style="text-align: center; " size="20"></p:inputText>
 			</p>
@@ -239,7 +239,11 @@
 			</p>	
             <p>
             	(3)Le comptable #{docbean.curentOpeationSortieToPdf.operateur.nomAgent}  portera en sortie dans ses écritures les matières désignées  et objets désignés ci-dessus dont je certifie la conformité avec. <br></br>
-             <p:inputText value="#{JasperTableExampleBean.ordreS.conformite}" style="text-align: center;"></p:inputText> , le <p:inputText value="#{JasperTableExampleBean.ordreS.dateConformite}" style="text-align: center;"></p:inputText> <br></br><br></br>
+             A <h:outputText value="#{docbean.curentOpeationSortieToPdf.direction.trois}" /> , le 
+             <h:outputText value="#{docbean.curentOpeationSortieToPdf.date}">
+            	<f:convertDateTime pattern="dd MMMM yyyy" locale="fr-Fr" timeZone="GMT+3"/>
+            </h:outputText>
+             <br></br><br></br>
 			</p>
  			Le (4) <p:inputText value="#{JasperTableExampleBean.ordreS.num4}" style="text-align: center;"></p:inputText> 
  			<br/><br/><br/>
@@ -257,21 +261,25 @@
  			</div>
 
  			<div class="col-md-6">
-                <!--   Les matières et objets désignés ci-dessus ont été délivrés et portés en sortie.<br></br>
-                Les matières et objets désignés ci-dessus ont été  portés en sortie dans les écriture.<br></br> -->
- 				A <p:inputText  value="#{JasperTableExampleBean.ordreS.lieu2}" style="text-align: center;"></p:inputText>
- 				, le <strong>
+                (3) Les matières et objets désignés ci-dessus ont été délivrés et portés en sortie.<br></br>
+                (3) Les matières et objets désignés ci-dessus ont été  portés en sortie dans les écriture.<br></br>
+ 				A <h:outputText value="#{docbean.curentOpeationSortieToPdf.direction.trois}" />
+ 				, le 
  				<h:outputText value="#{docbean.curentOpeationSortieToPdf.date}">
 	            	<f:convertDateTime pattern="dd MMMM yyyy" locale="fr-Fr" timeZone="GMT+3"/>
-	            </h:outputText></strong><br></br>
+	            </h:outputText><br></br>
  				<p>
- 				Le comptable (2) <strong>#{docbean.curentOpeationSortieToPdf.operateur.nomAgent} </strong><br></br>
+ 				Le comptable (2) #{docbean.curentOpeationSortieToPdf.operateur.nomAgent} <br></br>
  				</p>
  				<br/><br/>
  				<p align="center">Déclaration de prise en charge</p>
  				<p>Le comptable déclare avoir reçu et pris en charge les matières et objets mentionnés dans le tableau ci-dessus</p>
 				<p>
- 				A <p:inputText disabled="true" value="#{JasperTableExampleBean.ordreS.lieu2}" style="text-align: center;"></p:inputText>, le <p:inputText disabled="true" value="#{JasperTableExampleBean.ordreS.date2}" style="text-align: center;"></p:inputText> <br></br>
+ 				A <h:outputText value="#{docbean.curentOpeationSortieToPdf.direction.trois}" />, le 
+ 				<h:outputText value="#{docbean.curentOpeationSortieToPdf.date}">
+	            	<f:convertDateTime pattern="dd MMMM yyyy" locale="fr-Fr" timeZone="GMT+3"/>
+	            </h:outputText>
+ 				 <br></br>
 				</p>
 				<p>
  				Le comptable <!-- strong>#{docbean.curentOpeationSortieToPdf.operateur.nomAgent}</strong -->  <br></br><br></br><br></br><br></br><br></br>

@@ -43,7 +43,6 @@
  				<div class="row devise"><f:view contentType="text/html">
 					<p:selectOneMenu value="#{JasperTableExampleBean.pdfForm.filamatra}">
                         <f:selectItems value="#{siseBean.mapDevise}" />
-                       	
                     </p:selectOneMenu>	                 
                 </f:view></div>
  				<br/>
@@ -91,7 +90,7 @@
         <br></br><br></br>
         <div class="col-md-12">
 
-            Service d (1) <p:inputText value="#{JasperTableExampleBean.pdfForm.num1}" style="text-align: center;width:80%"/> <br></br>
+            Service d (1) #{siseBean.designation} <p:inputText value="#{JasperTableExampleBean.pdfForm.num1}" style="text-align: center;width:80%"/> <br></br>
             <br></br><br></br>
         </div>
         <br></br><br></br>
@@ -114,7 +113,7 @@
  				
  				<h:graphicImage width="100%"
                     value="/pages/unsecure/assets/images/inv.png" /><br></br>
-                    <strong>du mobilier et des objets d'ameublement existant au #{InventaireBean.dateF}</strong>
+                    du mobilier et des objets d'ameublement existant au #{InventaireBean.dateF}
                     <br></br><br></br><br></br>
  			</div>
 

@@ -233,7 +233,7 @@
 		</band>
 	</title>
 	<detail>
-		<band height="316" splitType="Stretch">
+		<band height="222" splitType="Stretch">
 			<componentElement>
 				<reportElement key="table" style="table" x="0" y="0" width="560" height="210" uuid="7a664e40-65b5-4656-ab49-aaafd8ca328e"/>
 				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
@@ -477,8 +477,10 @@ $P{materiel}.getDesign().getRenseignement()]]></textFieldExpression>
 					</jr:column>
 				</jr:table>
 			</componentElement>
+		</band>
+		<band height="50">
 			<textField>
-				<reportElement x="0" y="270" width="550" height="42" uuid="d1f962d5-01c1-4c3c-89fe-1694a93059f0"/>
+				<reportElement x="0" y="4" width="550" height="42" uuid="d1f962d5-01c1-4c3c-89fe-1694a93059f0"/>
 				<textElement textAlignment="Left">
 					<font size="12"/>
 				</textElement>
@@ -501,7 +503,7 @@ $P{materiel}.getDesign().getRenseignement()]]></textFieldExpression>
 				<text><![CDATA[A]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="2" y="106" width="13" height="22" uuid="2d62cf14-8967-4bd6-93ee-21475578d648"/>
+				<reportElement x="0" y="110" width="18" height="20" uuid="2d62cf14-8967-4bd6-93ee-21475578d648"/>
 				<textElement textAlignment="Left" verticalAlignment="Top">
 					<font size="12"/>
 				</textElement>
@@ -543,7 +545,7 @@ $P{materiel}.getDesign().getRenseignement()]]></textFieldExpression>
 				<textFieldExpression><![CDATA[$P{comptable2}]]></textFieldExpression>
 			</textField>
 			<textField pattern="dd MMMM yyyy">
-				<reportElement x="110" y="108" width="153" height="19" uuid="93909861-4c41-4c1c-8793-2d4f1eb2cce2"/>
+				<reportElement x="140" y="110" width="123" height="19" uuid="93909861-4c41-4c1c-8793-2d4f1eb2cce2"/>
 				<textElement>
 					<font size="12"/>
 				</textElement>
@@ -613,6 +615,27 @@ portés au présent ordre.]]></text>
 				<text><![CDATA[(3) Les matiéres et  objets désignés ci dessus ont été délivrés et potés en sortie.
 (3) Les matiéres et objets désignées ci dessus ont été portés en sorties dans les écritures.]]></text>
 			</staticText>
+			<textField>
+				<reportElement x="18" y="110" width="122" height="19" uuid="d8bb26db-db7f-4bdd-ace2-d536f840b1f7"/>
+				<textElement textAlignment="Left">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{lieu}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="300" y="301" width="106" height="20" uuid="002d515a-c863-4b72-9e3d-10f4bc3487eb"/>
+				<textElement textAlignment="Left">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{lieu}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd MMMM yyyy">
+				<reportElement x="448" y="301" width="102" height="19" uuid="8ab52b60-0d84-4e28-aadc-450d0521ddc7"/>
+				<textElement textAlignment="Left">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{date}]]></textFieldExpression>
+			</textField>
 		</band>
 	</detail>
 	<pageFooter>

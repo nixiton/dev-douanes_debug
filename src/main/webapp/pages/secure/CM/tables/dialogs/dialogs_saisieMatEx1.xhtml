@@ -130,7 +130,10 @@
 
 
             <div class="col-md-8"></div><div class="col-md-4"> 
-                Antananarivo, le #{docbean.curentOperationAttrToPdf.date} <br></br>
+                Antananarivo, le 
+                <h:outputText value="#{docbean.curentOperationAttrToPdf.date}">
+                	<f:convertDateTime pattern="dd MMMM yyyy" locale="fr-Fr" timeZone="GMT+3"/>
+             </h:outputText>  <br></br>
                 #{docbean.curentOperationAttrToPdf.operateur.nomAgent}
             </div><br></br><br></br>
 

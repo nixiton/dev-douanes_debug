@@ -20,6 +20,7 @@
 	<parameter name="valeurtotal" class="java.lang.Float"/>
 	<parameter name="service" class="java.lang.String"/>
 	<parameter name="num1" class="java.lang.String"/>
+	<parameter name="date" class="java.util.Date"/>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
@@ -198,38 +199,13 @@ DIRECTION GENERALE DES DOUANES
 		</band>
 		<band height="146">
 			<staticText>
-				<reportElement x="0" y="10" width="254" height="16" uuid="5d073ee0-6f40-4a35-bcea-1c6ee45912a6"/>
-				<textElement>
-					<font size="11"/>
-				</textElement>
-				<text><![CDATA[Arrêté le présent état de détenteur effectif au nombre de]]></text>
-			</staticText>
-			<staticText>
 				<reportElement x="340" y="52" width="80" height="20" uuid="d14a3878-db13-4723-abd0-8caaa58381cd"/>
 				<text><![CDATA[Antananarivo, le]]></text>
-			</staticText>
-			<textField pattern="EEEEE dd MMMM yyyy">
-				<reportElement x="420" y="52" width="120" height="20" uuid="b7aceb4c-3358-4a96-95b9-be184f150bcc"/>
-				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
-			</textField>
-			<staticText>
-				<reportElement x="521" y="26" width="32" height="20" uuid="172b285f-cd13-48e9-8662-904584e2b3b1"/>
-				<textElement>
-					<font size="11"/>
-				</textElement>
-				<text><![CDATA[Ariary.]]></text>
 			</staticText>
 			<textField>
 				<reportElement x="339" y="72" width="164" height="18" uuid="cc34a8b1-3d2c-4a26-8ec7-3cccf70e6ead"/>
 				<textFieldExpression><![CDATA[$P{nomDepositaire}]]></textFieldExpression>
 			</textField>
-			<staticText>
-				<reportElement x="440" y="10" width="113" height="16" uuid="8c316057-9b97-4285-85ea-a30229ac8cb7"/>
-				<textElement>
-					<font size="11"/>
-				</textElement>
-				<text><![CDATA[article(s) à une valeur de]]></text>
-			</staticText>
 			<staticText>
 				<reportElement x="9" y="52" width="100" height="20" uuid="b0754f8e-3a19-4966-9911-3af3d3aa9fb0"/>
 				<text><![CDATA[Reconnu exact]]></text>
@@ -238,19 +214,13 @@ DIRECTION GENERALE DES DOUANES
 				<reportElement x="9" y="72" width="164" height="24" uuid="c9b6f2d9-69d1-4d80-8b71-b50f6f21c05d"/>
 				<textFieldExpression><![CDATA[$P{nomDetenteur}]]></textFieldExpression>
 			</textField>
-			<textField>
-				<reportElement x="254" y="10" width="186" height="16" uuid="bb3c8c1b-d6f2-4019-b69c-912df1cdbd1e"/>
-				<textElement>
-					<font size="11"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$P{num1}]]></textFieldExpression>
+			<textField pattern="dd MMMM yyyy">
+				<reportElement x="420" y="52" width="90" height="20" uuid="fb9faea4-4cc4-4058-b6b5-270169ff0b82"/>
+				<textFieldExpression><![CDATA[$P{date}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="0" y="26" width="521" height="20" uuid="5e6bcc6d-d10d-4e8f-abe8-b86545cd2f84"/>
-				<textElement>
-					<font size="11"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$P{num2}]]></textFieldExpression>
+				<reportElement x="0" y="0" width="555" height="40" uuid="f2eebafd-795c-4e88-8ba2-8edfeb22b062"/>
+				<textFieldExpression><![CDATA["Arrêté le présent état de détenteur effectif au nombre de " + $P{num1} + " article(s) à une valeur de "  + $P{num2} + " Ariary."]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>
