@@ -126,7 +126,7 @@
         <property name="driverClass" value="org.postgresql.Driver"/>
         <!--property name="jdbcUrl" value="jdbc:postgres://ec2-54-247-81-97.eu-west-1.compute.amazonaws.com:5432/d8jgiq3ojrd8fn"/-->
         <property name="jdbcUrl" value="jdbc:postgresql://localhost:5432/douane"/>
-        <property name="user" value="misa"/>
+        <property name="user" value="postgres"/>
         <property name="password" value="123456"/>
         <property name="maxPoolSize" value="10" />
         <property name="maxStatements" value="0" />

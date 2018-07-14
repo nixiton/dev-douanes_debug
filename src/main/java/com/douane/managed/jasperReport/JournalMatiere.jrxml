@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with Jaspersoft Studio version 6.5.1.final using JasperReports Library version 6.5.1  -->
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Journal" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="e53f56c0-d2d2-41ee-a57b-598abaa7405e">
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Journal" pageWidth="595" pageHeight="842" whenNoDataType="NoPages" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="e53f56c0-d2d2-41ee-a57b-598abaa7405e">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="261"/>
@@ -162,20 +162,13 @@
 				</textElement>
 				<text><![CDATA[           Modèle n°02
     Article 33 de
-L’Instruction Générale du 22 juillet 1955
+L'Instruction Générale du 22 juillet 1955
 (1)Numéro de chapitre
 (2) libellé de chapitre
 (3) subdivision du service
-(4) magasin ou matériel en service selon qu’il s’agit d’un matériel en approvisionnement ou matériel en service.
+(4) magasin ou matériel en service selon qu'il s'agit d'un matériel en approvisionnement ou matériel en service.
 (5)indication du magasin ou de la catégorie du matériel en service auquel se rapporte le journal
 (6)signature du chef du service ou de son délégué]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="91" y="77" width="79" height="33" uuid="e5746b70-abbf-4257-a7e7-11286a8b8292"/>
-				<textElement textAlignment="Justified" verticalAlignment="Middle">
-					<font size="12"/>
-				</textElement>
-				<text><![CDATA[………............]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="170" y="77" width="79" height="33" uuid="5856ac03-417c-4b0e-b7b9-a494c3d1233b"/>
@@ -185,21 +178,6 @@ L’Instruction Générale du 22 juillet 1955
 				<text><![CDATA[ARTICLE]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="244" y="77" width="79" height="33" uuid="2ff30b9a-293e-48f4-9532-becc5f838c4d"/>
-				<textElement textAlignment="Justified" verticalAlignment="Middle">
-					<font size="12"/>
-				</textElement>
-				<text><![CDATA[.......................]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="158" y="50" width="165" height="27" uuid="ae7c37c5-d113-4dae-8f79-285827346ed5"/>
-				<textElement verticalAlignment="Middle">
-					<font size="12"/>
-				</textElement>
-				<text><![CDATA[...........................
-]]></text>
-			</staticText>
-			<staticText>
 				<reportElement x="12" y="49" width="146" height="28" uuid="80bd0bd8-2109-4ca3-b705-ae92ed7e937e"/>
 				<textElement textAlignment="Right">
 					<font size="12"/>
@@ -207,22 +185,22 @@ L’Instruction Générale du 22 juillet 1955
 				<text><![CDATA[BUDGET GENERAL]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="158" y="50" width="91" height="16" uuid="0d07a292-2a8c-4f4e-bc85-84a8cbe9da77"/>
-				<textElement textAlignment="Center">
+				<reportElement x="158" y="50" width="159" height="27" uuid="0d07a292-2a8c-4f4e-bc85-84a8cbe9da77"/>
+				<textElement textAlignment="Left">
 					<font size="12"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{budget}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="91" y="77" width="79" height="23" uuid="906f3b2e-1a03-4693-9365-934f3e19dfe5"/>
+				<reportElement x="91" y="77" width="79" height="33" uuid="906f3b2e-1a03-4693-9365-934f3e19dfe5"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="12"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{chapitre}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="249" y="80" width="64" height="20" uuid="ce6b3f06-85d7-4eb2-a0e7-aefe8512249b"/>
-				<textElement>
+				<reportElement x="249" y="80" width="74" height="30" uuid="ce6b3f06-85d7-4eb2-a0e7-aefe8512249b"/>
+				<textElement verticalAlignment="Middle">
 					<font size="12"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{article}]]></textFieldExpression>
@@ -265,40 +243,26 @@ EN QUANTITES ET EN VALEUR DES ENTREES ET DES SORTIES
 ]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="148" y="292" width="43" height="22" uuid="e544886e-7d8f-4457-b366-1ddbd4ae6837"/>
+				<reportElement x="158" y="292" width="33" height="20" uuid="e544886e-7d8f-4457-b366-1ddbd4ae6837"/>
 				<textElement>
 					<font size="12"/>
 				</textElement>
 				<text><![CDATA[       A
-                                                                                                                                                     (6)……………………………………………………………………………..]]></text>
+                                                                                                                                                     (6)�����������������������������..]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="2" y="274" width="117" height="20" uuid="aa681976-eafc-463e-8526-99d3d8707812"/>
 				<textElement>
 					<font size="12"/>
 				</textElement>
-				<text><![CDATA[Nombre de feuillets :]]></text>
+				<text><![CDATA[Nombre de feuillets :]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="119" y="274" width="426" height="20" uuid="44147395-bb98-4eb3-bb19-5a23269daa0e"/>
-				<textElement verticalAlignment="Middle">
+				<reportElement x="317" y="292" width="24" height="20" uuid="d358ca02-d195-43f0-b343-49229db5212e"/>
+				<textElement verticalAlignment="Top">
 					<font size="12"/>
 				</textElement>
-				<text><![CDATA[……………………………………........................................]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="191" y="294" width="126" height="20" uuid="b8ba8ab0-583f-4a6b-8d78-179f9972e2ef"/>
-				<textElement verticalAlignment="Bottom">
-					<font size="12"/>
-				</textElement>
-				<text><![CDATA[ ……………………….,]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="317" y="294" width="151" height="20" uuid="d358ca02-d195-43f0-b343-49229db5212e"/>
-				<textElement verticalAlignment="Bottom">
-					<font size="12"/>
-				</textElement>
-				<text><![CDATA[,le………………………]]></text>
+				<text><![CDATA[,le]]></text>
 			</staticText>
 			<textField>
 				<reportElement x="119" y="272" width="349" height="20" uuid="069120b3-0cbc-4c8f-b2ce-5d8752e4af58"/>
@@ -333,7 +297,7 @@ EN QUANTITES ET EN VALEUR DES ENTREES ET DES SORTIES
 				<textElement textAlignment="Center">
 					<font size="12"/>
 				</textElement>
-				<text><![CDATA[JOURNAL DE LA COMPTABILITÉ MATIERE]]></text>
+				<text><![CDATA[JOURNAL DE LA COMPTABILITE MATIERE]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="13" y="337" width="94" height="20" uuid="06467f09-3a31-48a1-8163-25214641af05"/>
@@ -342,18 +306,8 @@ EN QUANTITES ET EN VALEUR DES ENTREES ET DES SORTIES
 				</textElement>
 				<text><![CDATA[Terminé le]]></text>
 			</staticText>
-			<staticText>
-				<reportElement x="107" y="317" width="95" height="20" uuid="fc52638d-cf1a-4492-b41e-a5176ecfd8eb"/>
-				<textElement verticalAlignment="Bottom"/>
-				<text><![CDATA[..............]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="107" y="337" width="95" height="20" uuid="646a1065-34b7-4a7e-a5e8-74ff0fd6ab8f"/>
-				<textElement verticalAlignment="Bottom"/>
-				<text><![CDATA[..............]]></text>
-			</staticText>
 			<textField>
-				<reportElement x="115" y="317" width="95" height="20" uuid="7a561acd-162e-4d74-87c5-6479ba1ad3a1"/>
+				<reportElement x="110" y="316" width="100" height="20" uuid="7a561acd-162e-4d74-87c5-6479ba1ad3a1"/>
 				<textElement>
 					<font size="12"/>
 				</textElement>
@@ -371,7 +325,7 @@ EN QUANTITES ET EN VALEUR DES ENTREES ET DES SORTIES
 				<textElement textAlignment="Center">
 					<font size="12"/>
 				</textElement>
-				<text><![CDATA[REPOBLIKAN’I MADAGASIKARA
+				<text><![CDATA[REPOBLIKAN'I MADAGASIKARA
 
 ]]></text>
 			</staticText>
@@ -393,7 +347,7 @@ EN QUANTITES ET EN VALEUR DES ENTREES ET DES SORTIES
 		<band height="152" splitType="Stretch">
 			<componentElement>
 				<reportElement key="table 2" style="table 2" x="0" y="12" width="555" height="120" uuid="e1e007fa-01b8-4145-ba42-865f3afc37e2"/>
-				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" whenNoDataType="Blank">
 					<datasetRun subDataset="Table Dataset 3" uuid="7e47d002-6acd-413f-bb30-d6a415688eef">
 						<dataSourceExpression><![CDATA[$P{dataSource}]]></dataSourceExpression>
 					</datasetRun>
@@ -405,7 +359,7 @@ EN QUANTITES ET EN VALEUR DES ENTREES ET DES SORTIES
 								<textElement textAlignment="Center" verticalAlignment="Middle">
 									<font size="8"/>
 								</textElement>
-								<text><![CDATA[Numéros d’ordre des pièces justificatives 
+								<text><![CDATA[Numéros d'ordre des pièces justificatives 
 (Livre journal)
 ]]></text>
 							</staticText>
@@ -466,7 +420,7 @@ des entrées et désignation des sorties
 								<textElement textAlignment="Center" verticalAlignment="Middle">
 									<font size="8"/>
 								</textElement>
-								<text><![CDATA[Numéro d’ordre de la nomenclature sommaire]]></text>
+								<text><![CDATA[Numéro d'ordre de la nomenclature sommaire]]></text>
 							</staticText>
 						</jr:tableHeader>
 						<jr:detailCell style="table 2_TD" height="60" rowSpan="1">
@@ -485,8 +439,8 @@ des entrées et désignation des sorties
 								<textElement textAlignment="Center" verticalAlignment="Middle">
 									<font size="8"/>
 								</textElement>
-								<text><![CDATA[Désignation 
-des matières et objets
+								<text><![CDATA[D�signation 
+des mati�res et objets
 ]]></text>
 							</staticText>
 						</jr:tableHeader>
@@ -505,7 +459,7 @@ des matières et objets
 								<reportElement x="0" y="0" width="47" height="60" uuid="1c65ff5e-4e7a-4093-87ec-c04838a2a9c8"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle"/>
 								<text><![CDATA[Espèces
- des unités
+ des unitès
 ]]></text>
 							</staticText>
 						</jr:tableHeader>
@@ -523,7 +477,7 @@ des matières et objets
 							<staticText>
 								<reportElement x="0" y="0" width="56" height="60" uuid="e8cfc74a-bb96-4c60-9436-b9f4261f945a"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle"/>
-								<text><![CDATA[Prix de l’unité]]></text>
+								<text><![CDATA[Prix de l'unité]]></text>
 							</staticText>
 						</jr:tableHeader>
 						<jr:detailCell style="table 2_TD" height="60" rowSpan="1">
@@ -669,41 +623,46 @@ des matières et objets
 				</jr:table>
 			</componentElement>
 		</band>
-	</detail>
-	<summary>
-		<band height="55" splitType="Stretch">
+		<band height="50">
 			<staticText>
-				<reportElement x="0" y="3" width="129" height="25" uuid="e6062ea2-7ddb-4f16-8699-b13bc8d16a9d"/>
+				<reportElement x="0" y="0" width="129" height="25" uuid="e6062ea2-7ddb-4f16-8699-b13bc8d16a9d"/>
 				<textElement textAlignment="Center">
 					<font size="12"/>
 				</textElement>
 				<text><![CDATA[Arrété le présent journal]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="129" y="3" width="131" height="25" uuid="48b93c0a-c50c-4c85-bb29-87bd8076ad7f"/>
-				<textElement textAlignment="Center">
-					<font size="12"/>
-				</textElement>
-				<text><![CDATA[]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="81" y="28" width="100" height="20" uuid="73c5ab69-f0b4-4ac8-b266-c3b5bd19d0e8"/>
+				<reportElement x="81" y="25" width="100" height="20" uuid="73c5ab69-f0b4-4ac8-b266-c3b5bd19d0e8"/>
 				<textElement textAlignment="Center">
 					<font size="12"/>
 				</textElement>
 				<text><![CDATA[Antananarivo, le]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="129" y="3" width="100" height="25" uuid="739805b1-84ef-4638-8d84-c67889b0f7c6"/>
-				<textElement textAlignment="Center">
+				<reportElement x="129" y="0" width="421" height="25" uuid="739805b1-84ef-4638-8d84-c67889b0f7c6"/>
+				<textElement textAlignment="Left">
 					<font size="12"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{arrete}]]></textFieldExpression>
 			</textField>
 			<textField pattern="dd MMMM yyyy">
-				<reportElement x="181" y="28" width="100" height="15" uuid="6d43ad62-e7f7-4b38-aca4-59c6ffeb6289"/>
+				<reportElement x="181" y="25" width="100" height="20" uuid="6d43ad62-e7f7-4b38-aca4-59c6ffeb6289"/>
 				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
 			</textField>
 		</band>
-	</summary>
+	</detail>
+	<pageFooter>
+		<band height="50">
+			<textField>
+				<reportElement x="356" y="10" width="100" height="30" uuid="d67718c1-9905-4de2-969c-c736b5d02335"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="456" y="10" width="100" height="30" uuid="a269c9ea-cd04-4f60-9f09-29948e6c2ef2"/>
+				<textElement textAlignment="Left"/>
+				<textFieldExpression><![CDATA[" sur " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
 </jasperReport>

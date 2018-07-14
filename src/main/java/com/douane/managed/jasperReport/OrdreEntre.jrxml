@@ -142,7 +142,7 @@
 		<band splitType="Stretch"/>
 	</background>
 	<title>
-		<band height="291" splitType="Stretch">
+		<band height="259" splitType="Stretch">
 			<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.FreeLayout"/>
 			<staticText>
 				<reportElement x="203" y="0" width="253" height="20" uuid="02cebd8a-c6a8-4b13-9043-646bbfca4e8c"/>
@@ -155,14 +155,14 @@
 ]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="0" y="0" width="140" height="20" uuid="a2f6f78f-8712-4dfc-b213-4c57e6299c3a"/>
+				<reportElement x="0" y="0" width="180" height="21" uuid="a2f6f78f-8712-4dfc-b213-4c57e6299c3a"/>
 				<textElement textAlignment="Left">
 					<font size="12"/>
 				</textElement>
-				<textFieldExpression><![CDATA["(3) " + $P{num3}]]></textFieldExpression>
+				<textFieldExpression><![CDATA["(3) " + $P{comptable}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="1" y="20" width="139" height="20" uuid="0d65db40-2045-4aa3-b2eb-4bdf9cf6707d"/>
+				<reportElement x="-1" y="21" width="181" height="20" uuid="0d65db40-2045-4aa3-b2eb-4bdf9cf6707d"/>
 				<textElement textAlignment="Left">
 					<font size="12"/>
 				</textElement>
@@ -180,7 +180,7 @@
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="12"/>
 				</textElement>
-				<textFieldExpression><![CDATA["CHAPITRE " + $P{chap} + " ARTICLE " + $P{article} ]]></textFieldExpression>
+				<textFieldExpression><![CDATA["CHAPITRE " + $P{chap} + " ARTICLE " + $P{article}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="210" y="116" width="240" height="20" uuid="265e7eae-ad68-41c8-bc7d-60cd92a835a1"/>
@@ -190,54 +190,43 @@
 				<textFieldExpression><![CDATA["PARAGRAPHE" + $P{paragraphe}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="0" y="40" width="100" height="20" uuid="c59c6ab2-a757-477c-b400-031cd037857b"/>
+				<reportElement x="2" y="41" width="100" height="20" uuid="c59c6ab2-a757-477c-b400-031cd037857b"/>
 				<text><![CDATA[(1) Numéro chapitre]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="0" y="60" width="113" height="20" uuid="579e5ed2-68d2-4b66-a2ff-9b9987f9ff87"/>
+				<reportElement x="0" y="61" width="113" height="20" uuid="579e5ed2-68d2-4b66-a2ff-9b9987f9ff87"/>
 				<text><![CDATA[(2) Libellé du chapitre]]></text>
 			</staticText>
-			<staticText>
-				<reportElement x="0" y="110" width="125" height="20" uuid="ae794431-4159-45f4-b211-cd8ae58661d1"/>
-				<text><![CDATA[(4) Subsivision du chapitre]]></text>
-			</staticText>
 			<textField>
-				<reportElement x="0" y="163" width="297" height="17" uuid="4510d42c-d21f-4187-ac31-2d5d0eae1d01"/>
+				<reportElement x="-1" y="140" width="297" height="17" uuid="4510d42c-d21f-4187-ac31-2d5d0eae1d01"/>
 				<textElement textAlignment="Center" verticalAlignment="Top">
 					<font size="12"/>
 				</textElement>
 				<textFieldExpression><![CDATA["Numéro du nombre du journal(2) "+$P{noumJour}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="79" y="184" width="401" height="30" uuid="9401ea66-d281-45f7-b46d-fd439ae6b4a6"/>
+				<reportElement x="78" y="161" width="401" height="30" uuid="9401ea66-d281-45f7-b46d-fd439ae6b4a6"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="15" isBold="false"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{approOuService}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="0" y="80" width="140" height="30" isPrintWhenDetailOverflows="true" uuid="97096bf0-5a3c-4d72-ace5-318bcf4b7e97"/>
-				<textElement textAlignment="Left" verticalAlignment="Top">
-					<font size="10" isBold="false"/>
-				</textElement>
-				<textFieldExpression><![CDATA["(3) Service : " +$P{comptable} ]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="0" y="238" width="554" height="20" uuid="ce4ebc0e-7181-4035-b3a5-f0c909d7e339"/>
+				<reportElement x="-1" y="215" width="554" height="20" uuid="ce4ebc0e-7181-4035-b3a5-f0c909d7e339"/>
 				<textElement textAlignment="Left">
 					<font size="12" isBold="false"/>
 				</textElement>
 				<textFieldExpression><![CDATA["Seront portés en entrée dans les écritures du comptable "+$P{comptable}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="-1" y="258" width="555" height="20" uuid="f5d3db30-5907-498b-a7c0-15e01671d427"/>
+				<reportElement x="-2" y="237" width="555" height="20" uuid="f5d3db30-5907-498b-a7c0-15e01671d427"/>
 				<textElement textAlignment="Left">
 					<font size="12"/>
 				</textElement>
 				<textFieldExpression><![CDATA["Les matières et objets ci-après désigné provenant de " + $P{matieres}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="79" y="214" width="401" height="24" uuid="ead61d3c-3530-453e-9291-3342fc82e4ba"/>
+				<reportElement x="78" y="191" width="401" height="24" uuid="ead61d3c-3530-453e-9291-3342fc82e4ba"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="12"/>
 				</textElement>
@@ -258,10 +247,10 @@
 		</band>
 	</title>
 	<detail>
-		<band height="155" splitType="Stretch">
+		<band height="151" splitType="Stretch">
 			<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.FreeLayout"/>
 			<componentElement>
-				<reportElement key="table" style="table" x="0" y="0" width="560" height="149" uuid="5f1ae3d2-f9d8-430f-b568-89b6392b98ee"/>
+				<reportElement key="table" style="table" x="0" y="0" width="560" height="150" uuid="5f1ae3d2-f9d8-430f-b568-89b6392b98ee"/>
 				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
 					<datasetRun subDataset="Table Dataset 1" uuid="0d0639ea-b8e9-487c-afce-82bf4c228b7c">
 						<dataSourceExpression><![CDATA[$P{dataSource}]]></dataSourceExpression>
@@ -283,12 +272,12 @@
 								<text><![CDATA[Numéro]]></text>
 							</staticText>
 						</jr:columnHeader>
-						<jr:column width="40" uuid="c055731f-5735-4305-9b41-d64412bf908e">
+						<jr:column width="30" uuid="c055731f-5735-4305-9b41-d64412bf908e">
 							<property name="com.jaspersoft.studio.components.table.model.column.name" value="Colonne1"/>
 							<jr:columnHeader style="table_CH" height="51" rowSpan="1">
 								<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.VerticalRowLayout"/>
 								<staticText>
-									<reportElement x="0" y="0" width="40" height="51" uuid="b776e73a-4d99-464b-ba97-de8ba9dfef08"/>
+									<reportElement x="0" y="0" width="30" height="51" uuid="b776e73a-4d99-464b-ba97-de8ba9dfef08"/>
 									<box>
 										<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
 										<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
@@ -296,12 +285,11 @@
 										<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
 									</box>
 									<textElement textAlignment="Center" verticalAlignment="Middle">
-										<font size="10"/>
+										<font size="8"/>
 									</textElement>
 									<text><![CDATA[Du  folio du grand livre]]></text>
 								</staticText>
 							</jr:columnHeader>
-							<jr:columnFooter height="2" rowSpan="1"/>
 							<jr:detailCell style="table_TD" height="68" rowSpan="1">
 								<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.FreeLayout"/>
 								<box>
@@ -312,11 +300,11 @@
 								</box>
 							</jr:detailCell>
 						</jr:column>
-						<jr:column width="40" uuid="ffe58b3a-3f5a-49a0-94f4-6d37a06af9a2">
+						<jr:column width="50" uuid="ffe58b3a-3f5a-49a0-94f4-6d37a06af9a2">
 							<property name="com.jaspersoft.studio.components.table.model.column.name" value="Colonne2"/>
 							<jr:columnHeader style="table_CH" height="51" rowSpan="1">
 								<staticText>
-									<reportElement x="0" y="0" width="40" height="51" uuid="25ce5556-55ad-4af9-bba9-2047db57bf9f"/>
+									<reportElement x="0" y="0" width="50" height="51" uuid="25ce5556-55ad-4af9-bba9-2047db57bf9f"/>
 									<box>
 										<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
 										<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
@@ -329,10 +317,9 @@
 									<text><![CDATA[De nomenclature sommaire]]></text>
 								</staticText>
 							</jr:columnHeader>
-							<jr:columnFooter height="2" rowSpan="1"/>
 							<jr:detailCell style="table_TD" height="68">
 								<textField>
-									<reportElement key="" isPrintRepeatedValues="false" x="0" y="0" width="40" height="68" isRemoveLineWhenBlank="true" printWhenGroupChanges="nom" uuid="a67f4e7f-a3e0-40d8-a1e6-8e0635c5598d"/>
+									<reportElement key="" isPrintRepeatedValues="false" x="0" y="0" width="50" height="68" isRemoveLineWhenBlank="true" printWhenGroupChanges="nom" uuid="a67f4e7f-a3e0-40d8-a1e6-8e0635c5598d"/>
 									<box>
 										<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
 										<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
@@ -362,7 +349,6 @@
 								<text><![CDATA[Désignation des matières et objets]]></text>
 							</staticText>
 						</jr:columnHeader>
-						<jr:columnFooter height="2" rowSpan="1"/>
 						<jr:detailCell style="table_TD" height="68" rowSpan="1">
 							<textField>
 								<reportElement x="0" y="0" width="60" height="68" uuid="6c02f1dc-061e-43bf-9963-11e98d8720a2"/>
@@ -394,7 +380,6 @@
 								<text><![CDATA[Espèces des unités]]></text>
 							</staticText>
 						</jr:columnHeader>
-						<jr:columnFooter height="2" rowSpan="1"/>
 						<jr:detailCell style="table_TD" height="68" rowSpan="1">
 							<textField>
 								<reportElement x="0" y="0" width="50" height="68" uuid="11d06a79-a29c-4289-ae04-e4d909ca97c9"/>
@@ -426,7 +411,6 @@
 								<text><![CDATA[Quantités]]></text>
 							</staticText>
 						</jr:columnHeader>
-						<jr:columnFooter height="2" rowSpan="1"/>
 						<jr:detailCell style="table_TD" height="68">
 							<textField>
 								<reportElement x="0" y="0" width="57" height="68" uuid="5c3bbdf1-38ed-4602-9a61-ce5465438cbb"/>
@@ -511,7 +495,6 @@
 								<text><![CDATA[Par numéro de la nomenclature sommaire]]></text>
 							</staticText>
 						</jr:columnHeader>
-						<jr:columnFooter height="2" rowSpan="1"/>
 						<jr:detailCell style="table_TD" height="68" rowSpan="1">
 							<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.FreeLayout"/>
 							<textField pattern="#,##0">
@@ -525,7 +508,7 @@
 								<textElement textAlignment="Center" verticalAlignment="Middle"/>
 								<textFieldExpression><![CDATA[$F{pu}]]></textFieldExpression>
 							</textField>
-							<textField>
+							<textField pattern="#,##0">
 								<reportElement x="70" y="0" width="73" height="68" uuid="39ffdf0e-2868-45e0-bcba-9fa6816b7df1"/>
 								<box>
 									<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
@@ -536,7 +519,7 @@
 								<textElement textAlignment="Center" verticalAlignment="Middle"/>
 								<textFieldExpression><![CDATA[$V{partielles}]]></textFieldExpression>
 							</textField>
-							<textField>
+							<textField pattern="#,##0">
 								<reportElement isPrintRepeatedValues="false" x="143" y="0" width="79" height="68" printWhenGroupChanges="nom" uuid="724900db-4c62-47f7-ad9f-90fd663204fc"/>
 								<box>
 									<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
@@ -566,7 +549,6 @@
 								<text><![CDATA[Numéro de la pièce justificative de sortie correspondante ou indication de la référence s'il y a lieu]]></text>
 							</staticText>
 						</jr:columnHeader>
-						<jr:columnFooter height="2" rowSpan="1"/>
 						<jr:detailCell style="table_TD" height="68" rowSpan="1">
 							<textField>
 								<reportElement x="0" y="0" width="91" height="68" uuid="c9244ca6-75b8-4964-b093-765fcd6098e9"/>
@@ -584,102 +566,90 @@
 				</jr:table>
 			</componentElement>
 		</band>
-		<band height="72">
+		<band height="50">
 			<textField>
-				<reportElement x="0" y="0" width="554" height="60" uuid="05373ecb-5ffb-4707-bc96-5bdfae14d2b0"/>
+				<reportElement x="0" y="0" width="554" height="50" uuid="05373ecb-5ffb-4707-bc96-5bdfae14d2b0"/>
 				<textElement textAlignment="Left">
 					<font size="12"/>
 				</textElement>
-				<textFieldExpression><![CDATA["Arrêté le présent ordre d'entrée à(1) " +$P{ordre} +" articles évalués à la somme de(1) "+ $P{somme} ]]></textFieldExpression>
+				<textFieldExpression><![CDATA["Arrêté le présent ordre d'entrée à(1) " +$P{ordre} +" articles évalués à la somme de(1) "+ $P{somme}]]></textFieldExpression>
 			</textField>
 		</band>
-	</detail>
-	<summary>
-		<band height="369">
+		<band height="254">
 			<textField>
-				<reportElement x="289" y="15" width="263" height="20" uuid="d155e397-f0c5-4afd-8448-8a8fe3c6b5fc"/>
+				<reportElement x="288" y="3" width="263" height="20" uuid="f22c8e8a-0cd7-49f9-a936-2b7a14e110c6"/>
 				<textElement textAlignment="Left">
-					<font size="12"/>
+					<font size="11"/>
 				</textElement>
 				<textFieldExpression><![CDATA["A " + $P{lieu} + " le " + $P{date}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="286" y="40" width="266" height="20" uuid="0e44fb57-eceb-498b-a7d5-b1c378a6b6dd"/>
+				<reportElement x="288" y="23" width="266" height="20" uuid="f236e331-2036-4526-8f54-bd2d68101ecb"/>
 				<textElement textAlignment="Left">
-					<font size="12" isBold="false"/>
+					<font size="11" isBold="false"/>
 				</textElement>
 				<textFieldExpression><![CDATA["Le comptable(2) "+$P{comptable1}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="0" y="15" width="260" height="125" uuid="a7abe0d0-4823-4739-b17b-a6d295f355f9"/>
-				<textElement textAlignment="Left" verticalAlignment="Top">
-					<font size="12"/>
+				<reportElement x="2" y="3" width="260" height="117" uuid="7a2dab12-c7ef-4040-8586-f72f18b1306f"/>
+				<textElement textAlignment="Justified" verticalAlignment="Top">
+					<font size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA["Le comptable " + $P{comptable1} + " prendra en charge les  matières et désignés et objets désignées ci-dessus dont j'ai vérifié la concordance avec le (3) " + $P{concordance} + ", le " + $P{date} + "\nLe (4) " + $P{date2}]]></textFieldExpression>
+				<textFieldExpression><![CDATA["Le comptable " + $P{comptable1} + " prendra en charge les  matières et désignés et objets désignées ci-dessus dont j'ai vérifié la concordance avec le (3) " + $P{concordance} + "\nA " + $P{lieu} + " , le " + $P{date} + "\nLe (4) " + $P{date2}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="326" y="158" width="172" height="20" uuid="e9977f00-d592-413d-bfe8-df11af7a94ca"/>
+				<reportElement x="328" y="146" width="172" height="20" uuid="a416e647-a3ad-44c7-9fab-c89811f20f94"/>
 				<textElement textAlignment="Left">
 					<font size="11" isUnderline="true"/>
 				</textElement>
 				<text><![CDATA[Déclaration de prise en charge]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="282" y="178" width="272" height="42" uuid="77ffe8e9-f926-415a-9c7a-9af6ecd92a15"/>
+				<reportElement x="284" y="166" width="272" height="42" uuid="f8e106cb-2229-4519-b562-72b15dbb3dbd"/>
 				<textElement>
 					<font size="11"/>
 				</textElement>
 				<text><![CDATA[Le comptable déclare avoir reçu et pris en charge les matières et objets mentionnées dans le tableau ci-dessus.]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="2" y="230" width="100" height="20" uuid="136727a0-2bd0-4e6b-9d47-1f3878e692ab"/>
-				<textElement>
+				<reportElement x="3" y="166" width="259" height="82" uuid="4ec401c9-d977-426e-81a6-9a110eae82e7"/>
+				<textElement textAlignment="Justified">
 					<font size="9"/>
 				</textElement>
-				<text><![CDATA[(1) En toute lettre]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="2" y="250" width="193" height="20" uuid="76cef0db-d27a-4cad-ae3f-3649880ebb1a"/>
-				<textElement>
-					<font size="9"/>
-				</textElement>
-				<text><![CDATA[(2)Gestionnaire du depositaire]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="4" y="270" width="246" height="30" uuid="5b035d7f-b003-4e10-9add-46003a470bc4"/>
-				<textElement>
-					<font size="9"/>
-				</textElement>
-				<text><![CDATA[(3)Procès verbal de recette de recouvrement etc..,ou tel registre ou carnet, ou la pièces de sortie correspondante.]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="3" y="300" width="203" height="20" uuid="f9563097-cd74-431b-9856-218b6a60f353"/>
-				<textElement>
-					<font size="9"/>
-				</textElement>
-				<text><![CDATA[(4)Chef de service ou son délégué]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="2" y="320" width="250" height="36" uuid="181a0809-f8e6-45e7-958b-6ffb9103e4bc"/>
-				<textElement>
-					<font size="9"/>
-				</textElement>
-				<text><![CDATA[(5)La date de déclaration de prise en charge doit concorder avec de l'ordre de donné par le chef de service ou son délégué.]]></text>
+				<text><![CDATA[(1) En toute lettre
+(2)Gestionnaire du depositaire
+(3)Procès verbal de recette de recouvrement etc..,ou tel registre ou carnet, ou la pièces de sortie correspondante.
+(4)Chef de service ou son délégué
+(5)La date de déclaration de prise en charge doit concorder avec de l'ordre de donné par le chef de service ou son délégué.]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="280" y="220" width="274" height="20" uuid="b5d787d8-4335-4228-8fa9-dd0201567b10"/>
+				<reportElement x="282" y="208" width="274" height="20" uuid="8d337877-22b7-4371-93ee-3b376601f1ad"/>
 				<textElement>
 					<font size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA["A "+ $P{lieu1}  + "le (5)" + $P{date}]]></textFieldExpression>
+				<textFieldExpression><![CDATA["A "+ $P{lieu1}  + " le (5)" + $P{date}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="281" y="240" width="272" height="20" uuid="1fde1c64-eacb-43aa-ad8c-53790c51b6e0"/>
+				<reportElement x="283" y="228" width="272" height="20" uuid="f81f0ee1-7c83-437b-beea-9d27ae7b5963"/>
 				<textElement textAlignment="Left">
-					<font size="12"/>
+					<font size="11"/>
 				</textElement>
 				<textFieldExpression><![CDATA["Le comptable (2) " + $P{comptable1}]]></textFieldExpression>
 			</textField>
 		</band>
-	</summary>
+	</detail>
+	<pageFooter>
+		<band height="33">
+			<textField>
+				<reportElement x="372" y="0" width="100" height="30" uuid="18f79492-36a6-48d7-a93a-fe132341a6e6"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="472" y="0" width="100" height="30" uuid="17d488d0-c32d-452a-bf44-12d8e8b115cd"/>
+				<textElement textAlignment="Left"/>
+				<textFieldExpression><![CDATA[" sur " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
 </jasperReport>

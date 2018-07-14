@@ -29,8 +29,8 @@
  			
  			<div class="col-md-3">
  				<br/>
- 				(5)<p:inputText value="#{JasperTableExampleBean.ordreS.num5}" style="text-align: center;width: 80%"></p:inputText><br></br>
- 				(6)<p:inputText value="#{JasperTableExampleBean.ordreS.num6}" style="text-align: center;width: 80%"></p:inputText><br></br>
+ 				<h:outputText value="#{docbean.curentOpeationSortieToPdf.direction}" /> <!-- p:inputText value="#{JasperTableExampleBean.ordreS.num5}" style="text-align: center;width: 80%"></p:inputText--><br></br>
+ 				<h:outputText value="#{docbean.curentOpeationSortieToPdf.direction.quatre}" /> <!--p:inputText value="#{JasperTableExampleBean.ordreS.num6}" style="text-align: center;width: 80%"></p:inputText --><br></br>
 
  			</div>
 
@@ -55,11 +55,9 @@
  				Modèle n°7
  			</div>
  		<div class="col-md-12">
- 			<div class="col-md-3">
- 				 Numéro de chapitre<br></br>
- 				 Libelé de chapitre<br></br>
- 				 Service :<strong> #{docbean.curentOpeationSortieToPdf.direction} </strong> <br></br>
- 				 Subdivision de chapitre<br></br>
+ 			<div class="col-md-3" style="font-size: 11px!important;">
+ 				 (1) Numéro de chapitre<br></br>
+ 				 (2) Libelé de chapitre<br></br>
 
  			</div>
 
@@ -80,7 +78,7 @@
 
  			<div class="col-md-10" style="text-align: center;">
  				
- 				CHAPITRE <p:inputText value="#{JasperTableExampleBean.ordreS.chapitre}" style="text-align: center;width: 30%"></p:inputText> ARTICLE <p:inputText value="#{JasperTableExampleBean.ordreS.article}" style="text-align: center;width: 30%"></p:inputText> <br></br>
+ 				CHAPITRE (1) <p:inputText value="#{JasperTableExampleBean.ordreS.chapitre}" style="text-align: center;width: 30%"></p:inputText> ARTICLE <p:inputText value="#{JasperTableExampleBean.ordreS.article}" style="text-align: center;width: 30%"></p:inputText> <br></br>
  				PARAGRAPHE <p:inputText value="#{JasperTableExampleBean.ordreS.paragraphe}" style="text-align: center;width: 30%"></p:inputText><br></br>
 
  			</div>
@@ -95,7 +93,7 @@
 
  			<div class="col-md-12">
  				<div class="col-md-3">
- 				Numero d'ordre du journal :(2)
+ 				Numero d'ordre du journal(2) :
  				</div>
  				<div class="col-md-1">
  				<p:inputText value="#{JasperTableExampleBean.ordreS.num2}" style="text-align: center;width:70%;"></p:inputText>
@@ -237,22 +235,24 @@
 				Le Comptable (2) <p:inputText value="#{JasperTableExampleBean.ordreS.comptable}" style="text-align: center; " size="20"></p:inputText>
 			</p>
 			<p>
-				(3)Le comptable <strong>#{docbean.curentOpeationSortieToPdf.operateur.im}  #{docbean.curentOpeationSortieToPdf.operateur.nomAgent} </strong> délivrera et portera en sortie dans ses écritures les matières désignées et objets désignés ci-dessus.<br></br>
+				(3)Le comptable #{docbean.curentOpeationSortieToPdf.operateur.nomAgent} délivrera et portera en sortie dans ses écritures les matières désignées et objets désignés ci-dessus.<br></br>
 			</p>	
             <p>
-            	(3)Le comptable <strong> #{docbean.curentOpeationSortieToPdf.operateur.im}  #{docbean.curentOpeationSortieToPdf.operateur.nomAgent} </strong>  portera en sortie dans ses écritures les matières désignées  et objets désignés ci-dessus dont je certifie la conformité avec. <br></br>
+            	(3)Le comptable #{docbean.curentOpeationSortieToPdf.operateur.nomAgent}  portera en sortie dans ses écritures les matières désignées  et objets désignés ci-dessus dont je certifie la conformité avec. <br></br>
              <p:inputText value="#{JasperTableExampleBean.ordreS.conformite}" style="text-align: center;"></p:inputText> , le <p:inputText value="#{JasperTableExampleBean.ordreS.dateConformite}" style="text-align: center;"></p:inputText> <br></br><br></br>
 			</p>
  			Le (4) <p:inputText value="#{JasperTableExampleBean.ordreS.num4}" style="text-align: center;"></p:inputText> 
  			<br/><br/><br/>
  			<p style="background-color:#F2F2F2;font-size: 11px!important;">
-				(1)En toutes lettres.<br/>
-				(2)Gestionnaire ou dépositaire.<br/>
-				(3)Procès-verbal de recette, de recensement etc, ou tel
-				registre ou carnet, ou la pièce de sortie correspondante.<br/>
-				(4)Chef de service ou son délégué.<br/>
-				(5)La date de la déclaration de prise en charge doit  concorder avec la date de l'ordre donné par le chef de service ou son délégué.
-			</p> 
+				((1) En toute lettre<br/>
+				(2) Gestionnaire ou dépositaire<br/>
+				(3) Rayer, selon le cas la première et seconde formule. La seconde est maintenue <br/>dans le cas où la sortie est déja  effecutée et ou l'ordre de sortie constitue un certificat administratif<br/>
+				(4) Chef de service ou son délégué<br/>
+				(5) N'est pas utilisé s'il s'agit de certificat administratif<br/>
+				(6) Nom et qualité<br/>
+				(7) Caisse ou colis ou matières et objets<br/>
+				(8) La date de recepissé est celle qui doit figurer dans les écritures<br/>
+				</p> 
 
  			</div>
 

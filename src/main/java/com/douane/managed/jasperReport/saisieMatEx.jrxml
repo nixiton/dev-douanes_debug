@@ -139,7 +139,7 @@ DIRECTION GENERALE DES DOUANES
 		</band>
 	</columnHeader>
 	<detail>
-		<band height="125" splitType="Stretch">
+		<band height="67" splitType="Stretch">
 			<textField>
 				<reportElement x="0" y="0" width="198" height="40" uuid="305a5d3d-a670-49c9-bcc9-6902d24e0dfe"/>
 				<box>
@@ -196,70 +196,76 @@ DIRECTION GENERALE DES DOUANES
 				<textFieldExpression><![CDATA[$P{valeurtotal}]]></textFieldExpression>
 			</textField>
 		</band>
-	</detail>
-	<columnFooter>
-		<band height="45" splitType="Stretch"/>
-	</columnFooter>
-	<pageFooter>
-		<band splitType="Stretch"/>
-	</pageFooter>
-	<summary>
-		<band height="124" splitType="Stretch">
+		<band height="146">
 			<staticText>
-				<reportElement x="0" y="10" width="254" height="16" uuid="e0cc84a1-044c-42fa-ba4e-2611e7ebd168"/>
+				<reportElement x="0" y="10" width="254" height="16" uuid="5d073ee0-6f40-4a35-bcea-1c6ee45912a6"/>
 				<textElement>
 					<font size="11"/>
 				</textElement>
 				<text><![CDATA[Arrêté le présent état de détenteur effectif au nombre de]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="340" y="52" width="100" height="20" uuid="2f845eaa-e4dd-499b-bf1a-ab4990769866"/>
+				<reportElement x="340" y="52" width="80" height="20" uuid="d14a3878-db13-4723-abd0-8caaa58381cd"/>
 				<text><![CDATA[Antananarivo, le]]></text>
 			</staticText>
 			<textField pattern="EEEEE dd MMMM yyyy">
-				<reportElement x="440" y="52" width="100" height="20" uuid="f25b0e6e-057b-4666-8f80-b919bd4f23ed"/>
+				<reportElement x="420" y="52" width="120" height="20" uuid="b7aceb4c-3358-4a96-95b9-be184f150bcc"/>
 				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="521" y="26" width="32" height="20" uuid="dac58ef0-2d62-4a91-addb-0c960b7fa83a"/>
+				<reportElement x="521" y="26" width="32" height="20" uuid="172b285f-cd13-48e9-8662-904584e2b3b1"/>
 				<textElement>
 					<font size="11"/>
 				</textElement>
 				<text><![CDATA[Ariary.]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="339" y="72" width="164" height="18" uuid="e542a587-7674-4ba0-8661-5ea43a8c5607"/>
+				<reportElement x="339" y="72" width="164" height="18" uuid="cc34a8b1-3d2c-4a26-8ec7-3cccf70e6ead"/>
 				<textFieldExpression><![CDATA[$P{nomDepositaire}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="440" y="10" width="113" height="16" uuid="a1a613b4-e5da-4d6e-a613-b8ec2474e841"/>
+				<reportElement x="440" y="10" width="113" height="16" uuid="8c316057-9b97-4285-85ea-a30229ac8cb7"/>
 				<textElement>
 					<font size="11"/>
 				</textElement>
-				<text><![CDATA[articles à une valeur de]]></text>
+				<text><![CDATA[article(s) à une valeur de]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="9" y="52" width="100" height="20" uuid="be96e1a5-2917-449a-b18f-bb3fdcc685f5"/>
+				<reportElement x="9" y="52" width="100" height="20" uuid="b0754f8e-3a19-4966-9911-3af3d3aa9fb0"/>
 				<text><![CDATA[Reconnu exact]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="9" y="66" width="164" height="24" uuid="9bcf14fe-b20c-40ce-9aef-2b9c780bf7a8"/>
+				<reportElement x="9" y="72" width="164" height="24" uuid="c9b6f2d9-69d1-4d80-8b71-b50f6f21c05d"/>
 				<textFieldExpression><![CDATA[$P{nomDetenteur}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="254" y="10" width="186" height="16" uuid="2e4f5ffa-a68d-4c51-b1e4-7e7b193b18f5"/>
+				<reportElement x="254" y="10" width="186" height="16" uuid="bb3c8c1b-d6f2-4019-b69c-912df1cdbd1e"/>
 				<textElement>
 					<font size="11"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{num1}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="0" y="26" width="521" height="20" uuid="317670b3-18ef-4e05-b015-61ab94cfa0bf"/>
+				<reportElement x="0" y="26" width="521" height="20" uuid="5e6bcc6d-d10d-4e8f-abe8-b86545cd2f84"/>
 				<textElement>
 					<font size="11"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{num2}]]></textFieldExpression>
 			</textField>
 		</band>
-	</summary>
+	</detail>
+	<pageFooter>
+		<band height="50">
+			<textField>
+				<reportElement x="360" y="10" width="100" height="30" uuid="fc114def-336b-492f-a126-d94df30a6def"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="460" y="10" width="100" height="30" uuid="ed00ec74-2e1f-450d-94c4-1dd8f46a8275"/>
+				<textElement textAlignment="Left"/>
+				<textFieldExpression><![CDATA[" sur " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
 </jasperReport>
