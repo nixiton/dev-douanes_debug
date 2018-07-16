@@ -524,7 +524,7 @@ public class JasperTableExampleBean implements Serializable{
             parameters.put("date1", "");
             parameters.put("FinDate", this.journal.getFinDate());
             parameters.put("date2", "vide"); 
-            parameters.put("arrete", "vide");
+            parameters.put("arrete", this.journal.getArrete());
             parameters.put("lieu2", this.journal.getLieu());
             
             JasperPrint jasperPrint = JasperFillManager.fillReport(url.getPath(), parameters, new JREmptyDataSource());
@@ -573,7 +573,7 @@ public class JasperTableExampleBean implements Serializable{
             parameters.put("date1", "");
             parameters.put("FinDate", this.journal.getFinDate());
             parameters.put("date2", ""); 
-            parameters.put("arrete", "");
+            parameters.put("arrete", this.journal.getArrete());
             parameters.put("lieu2", this.journal.getLieu());
             
             JasperPrint jasperPrint = JasperFillManager.fillReport(url.getPath(), parameters, new JREmptyDataSource());
@@ -626,7 +626,7 @@ public class JasperTableExampleBean implements Serializable{
             parameters.put("date1", "");
             parameters.put("FinDate", this.journal.getFinDate());
             parameters.put("date2", ""); 
-            parameters.put("arrete", "");
+            parameters.put("arrete", this.journal.getArrete());
             parameters.put("lieu2", this.journal.getLieu());
             
             JasperPrint jasperPrint = JasperFillManager.fillReport(url.getPath(), parameters, new JREmptyDataSource());
@@ -675,7 +675,7 @@ public class JasperTableExampleBean implements Serializable{
             parameters.put("date1", "");
             parameters.put("FinDate", this.journal.getFinDate());
             parameters.put("date2", ""); 
-            parameters.put("arrete", "");
+            parameters.put("arrete", this.journal.getArrete());
             parameters.put("lieu2", this.journal.getLieu());
             
             JasperPrint jasperPrint = JasperFillManager.fillReport(url.getPath(), parameters, new JREmptyDataSource());

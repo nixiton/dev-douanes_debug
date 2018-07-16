@@ -26,8 +26,9 @@
  				<br/>
             </div>
              <div class="col-md-12" style="text-align: center;">
-             	Direction : La direction<br></br><br/>
- 				Service : #{JournalABean.trois} Bureau : #{JournalABean.quatre}<br></br>
+             	#{siseBean.direction}
+             	COMPTABILITE ADMINISTRATIVE<br></br><br/>
+             	<div class="col-md-6">Service : #{JournalABean.direction}</div> <div class="col-md-6">Bureau : #{JournalABean.trois}</div><br></br>
  				</div>
  		</div>
  		<div class="col-md-1"></div>
@@ -76,13 +77,17 @@
     </p:dataTable>
 	 		</div>
  		</div>
+ 		
  		<div class="col-md-3">
+ 		<p>Arrété le présent journal <p:inputText value="#{JasperTableExampleBean.journal.arrete}"></p:inputText> </p>
  			<br/><p:commandButton action="#{JasperTableExampleBean.journalReport(JournalABean.dateD, JournalABean.dateF, JournalABean.liste)}" type="submit" value="Exporter en PDF" ajax="false" >
-	 			<f:setPropertyActionListener target="#{JasperTableExampleBean.journal.num3}" value="#{JournalABean.trois}" />
+	 			<f:setPropertyActionListener target="#{JasperTableExampleBean.journal.num3}" value="#{JournalABean.direction}" />
+	 			<f:setPropertyActionListener target="#{JasperTableExampleBean.journal.lieu}" value="#{JournalABean.trois}" />
 	 			<f:setPropertyActionListener target="#{JasperTableExampleBean.journal.num4}" value="#{JournalABean.quatre}" />
  			</p:commandButton>
  			<br/><p:commandButton action="#{JasperTableExampleBean.journalDoc(JournalABean.dateD, JournalABean.dateF, JournalABean.liste)}" type="submit" value="Exporter en Word" ajax="false" >
-	 			<f:setPropertyActionListener target="#{JasperTableExampleBean.journal.num3}" value="#{JournalABean.trois}" />
+	 			<f:setPropertyActionListener target="#{JasperTableExampleBean.journal.num3}" value="#{JournalABean.direction}" />
+	 			<f:setPropertyActionListener target="#{JasperTableExampleBean.journal.lieu}" value="#{JournalABean.trois}" />
 	 			<f:setPropertyActionListener target="#{JasperTableExampleBean.journal.num4}" value="#{JournalABean.quatre}" />
  			</p:commandButton>
  		</div>

@@ -21,13 +21,14 @@
 	<parameter name="service" class="java.lang.String"/>
 	<parameter name="num1" class="java.lang.String"/>
 	<parameter name="date" class="java.util.Date"/>
+	<parameter name="filamatra" class="java.lang.String"/>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
 	<title>
-		<band height="122" splitType="Stretch">
+		<band height="167" splitType="Stretch">
 			<staticText>
-				<reportElement x="170" y="0" width="219" height="80" uuid="63e84b14-e4b9-4d99-aa78-23d075a89760"/>
+				<reportElement x="170" y="60" width="219" height="80" uuid="63e84b14-e4b9-4d99-aa78-23d075a89760"/>
 				<textElement textAlignment="Center"/>
 				<text><![CDATA[MINISTERE DES FINANCES ET DU BUDGET
 ----------------------
@@ -37,12 +38,29 @@ DIRECTION GENERALE DES DOUANES
 ----------------------]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="210" y="80" width="140" height="20" uuid="e359ed88-03d9-4896-b939-13918d19b9a7"/>
+				<reportElement x="210" y="140" width="140" height="20" uuid="e359ed88-03d9-4896-b939-13918d19b9a7"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="12"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{service}]]></textFieldExpression>
 			</textField>
+			<textField>
+				<reportElement x="0" y="22" width="555" height="38" uuid="ffbde8e3-f931-41ce-bd9e-c99053bb5370"/>
+				<textElement textAlignment="Center">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{filamatra}+ 
+"\n--------------------------"]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="2" width="555" height="20" uuid="df6c90a4-93c2-4db2-8788-3bfc30be5ff8"/>
+				<textElement textAlignment="Center">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[REPOBLIKAN’I MADAGASIKARA
+
+]]></text>
+			</staticText>
 		</band>
 	</title>
 	<pageHeader>

@@ -122,15 +122,15 @@
 ]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="82" y="60" width="199" height="40" uuid="b83f661d-ff6b-4074-b357-d3c7c5d98139"/>
+				<reportElement x="180" y="60" width="199" height="40" uuid="b83f661d-ff6b-4074-b357-d3c7c5d98139"/>
 				<textElement textAlignment="Center">
 					<font size="12"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$P{num2} + 
+				<textFieldExpression><![CDATA["Comptabilité Administrative" + 
 "\n--------------------------"]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="281" y="60" width="200" height="40" uuid="cc1b10e0-2824-485c-a96b-dc73ca010cd7"/>
+				<reportElement x="80" y="100" width="200" height="34" uuid="cc1b10e0-2824-485c-a96b-dc73ca010cd7"/>
 				<textElement textAlignment="Center">
 					<font size="12"/>
 				</textElement>
@@ -138,7 +138,7 @@
 "\n--------------------------"]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="180" y="100" width="199" height="34" uuid="7c2e143a-5746-4301-b7be-555acdfaf427"/>
+				<reportElement x="280" y="100" width="199" height="34" uuid="7c2e143a-5746-4301-b7be-555acdfaf427"/>
 				<textElement textAlignment="Center">
 					<font size="12"/>
 				</textElement>
@@ -329,22 +329,22 @@
 				<textElement textAlignment="Left">
 					<font size="12"/>
 				</textElement>
-				<textFieldExpression><![CDATA["Arrété le présent journal " + $P{arrete}]]></textFieldExpression>
+				<textFieldExpression><![CDATA["Arrété le présent journal " + $P{arrete} + " Ariary."]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="130" y="29" width="90" height="27" uuid="906e376b-32d3-4703-98e9-50dc36bb9108"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{lieu} + " , le "]]></textFieldExpression>
 			</textField>
 			<textField pattern="dd MMMM yyyy">
-				<reportElement x="200" y="29" width="110" height="27" uuid="906e376b-32d3-4703-98e9-50dc36bb9108"/>
+				<reportElement x="220" y="29" width="130" height="27" uuid="c6c02961-14e1-48dc-b260-11026556fbae"/>
 				<textElement>
 					<font size="12"/>
 				</textElement>
 				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
 			</textField>
-			<staticText>
-				<reportElement x="110" y="28" width="90" height="28" uuid="a12eea05-6afd-4453-bef7-f5fd4882fedd"/>
-				<textElement textAlignment="Left">
-					<font size="12"/>
-				</textElement>
-				<text><![CDATA[Antananarivo, le ]]></text>
-			</staticText>
 		</band>
 	</detail>
 	<pageFooter>

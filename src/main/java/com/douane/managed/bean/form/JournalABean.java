@@ -13,6 +13,14 @@ import com.douane.managed.bean.SuiviEditionBean;
 @SessionScoped
 @ManagedBean(name="JournalABean")
 public class JournalABean {
+	private String direction;
+	
+	public String getDirection() {
+		return direction;
+	}
+	public void setDirection(String direction) {
+		this.direction = direction;
+	}
 	private String trois;
 	public String getTrois() {
 		return trois;
@@ -43,6 +51,7 @@ public class JournalABean {
 		this.dateF  = df.format(this.datF);
 		this.trois = this.quatre ="tsy misy";
 		if(s.getDirection() !=null) {
+			this.direction = s.getDirection().getDesignation();
 			this.trois = s.getDirection().getTrois();
 			this.quatre = s.getDirection().getQuatre();
 		}else System.out.println("tsy tonga ny journal.Direction");

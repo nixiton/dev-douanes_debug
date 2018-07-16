@@ -35,7 +35,7 @@
  				CHAPITRE(1) <p:inputText value ="#{JasperTableExampleBean.journal.chapitre}" style="text-align: center;width: 25%"></p:inputText>
  				ARTICLE <p:inputText value ="#{JasperTableExampleBean.journal.article}" style="text-align: center;width: 25%"></p:inputText> <br></br>
  				(2) <p:inputText value ="#{JasperTableExampleBean.journal.num2}"  style="text-align: center;width: 70%"></p:inputText><br></br>
- 				(3) <h:outputText value="#{JournalBean.trois}" /><br></br> 
+ 				(3) <h:outputText value="#{JournalBean.direction}" /><br></br> 
  				(4) <h:outputText value="#{JournalBean.quatre}" /><br></br>
  				(5) <p:inputText  value ="#{JasperTableExampleBean.journal.num5}" style="text-align: center;width: 70%"></p:inputText><br></br>
  			</div>
@@ -64,10 +64,10 @@
  			Nombre de feuillets  :  <p:inputText  value ="#{JasperTableExampleBean.journal.nbFeuillets}" style="text-align: center;width: 70%"></p:inputText>
  		</div>
 		<div class="col-md-12">
-	 		<div class="col-md-12" style="padding-left: 33%;">
-	 			A <p:inputText value ="#{JasperTableExampleBean.journal.lieu}" style="text-align: center;"></p:inputText>, le <p:inputText value ="#{JasperTableExampleBean.journal.date}" style="text-align: center;"></p:inputText><br></br>
+	 		<div class="col-md-12">
+	 			A <h:outputText value="#{JournalBean.trois}" />, le <p:inputText value ="#{JasperTableExampleBean.journal.date}" style="text-align: center;"></p:inputText><br></br>
 	 		</div><br/>
-	 		<div class="col-md-12" style="padding-left: 33%;">
+	 		<div class="col-md-12">
 	 			(6) <p:inputText value ="#{JasperTableExampleBean.journal.num6}" style="text-align: center;width: 50%"></p:inputText><br></br>
         			 Commencé le : <h:outputText value="#{JournalBean.dateD}"/> Terminé le : <h:outputText value="#{JournalBean.dateF}"/>
         				<!--<p:calendar value ="#{JasperTableExampleBean.journal.debutDate}" id="date1" locale="fr" navigator="true" pattern="yyyy-MMM-dd" /><br/>
@@ -158,10 +158,16 @@
 			</p:column>
 
 		</p:dataTable></div>
+		
+ 		</div>
+ 		<div class="col-md-12">
+ 		 <p>Arrété le présent journal <p:inputText value ="#{JasperTableExampleBean.journal.arrete}"  style="text-align: center;width: 70%"></p:inputText> Ariary<br></br>
+ 		</p>
  		</div>
  		<div class="col-md-3">
  			<br/><p:commandButton action="#{JasperTableExampleBean.journalMatiereReport(JournalBean.dateD, JournalBean.dateF, JournalBean.li)}" type="submit" value="Exporter en PDF" ajax="false" >
- 			<f:setPropertyActionListener target="#{JasperTableExampleBean.journal.num3}" value="#{JournalBean.trois}" />
+ 			<f:setPropertyActionListener target="#{JasperTableExampleBean.journal.num3}" value="#{JournalBean.direction}" />
+ 			<f:setPropertyActionListener target="#{JasperTableExampleBean.journal.lieu}" value="#{JournalBean.trois}" />
  			<f:setPropertyActionListener target="#{JasperTableExampleBean.journal.num4}" value="#{JournalBean.quatre}" />
  			</p:commandButton>
  			<br/>
@@ -171,7 +177,8 @@
             or topMenuMB.curentAgent.roleAgent.role eq 'ROLE_DRF'
             }">
  			<p:commandButton action="#{JasperTableExampleBean.journalMatiereDoc(JournalBean.dateD, JournalBean.dateF, JournalBean.li)}" type="submit" value="Exporter en Word" ajax="false" >
- 			<f:setPropertyActionListener target="#{JasperTableExampleBean.journal.num3}" value="#{JournalBean.trois}" />
+ 			<f:setPropertyActionListener target="#{JasperTableExampleBean.journal.num3}" value="#{JournalBean.direction}" />
+ 			<f:setPropertyActionListener target="#{JasperTableExampleBean.journal.lieu}" value="#{JournalBean.trois}" />
  			<f:setPropertyActionListener target="#{JasperTableExampleBean.journal.num4}" value="#{JournalBean.quatre}" />
  			</p:commandButton>
  			</c:if>
