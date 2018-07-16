@@ -1,5 +1,6 @@
 package com.douane.repository;
 
+import java.util.Date;
 import java.util.List;
 
 import com.douane.model.EtatOperation;
@@ -18,5 +19,7 @@ public interface OpDettRepository extends CrudRepository<OpDettachement, Long>{
     public List<OpDettachement> findByMat(Materiel m);
     public List<OpDettachement> findByMatAndState(Materiel m, EtatOperation e);
 	public List<OpDettachement> findByDirectionOrderByDateDesc(Direction direction);
+	public List<OpDettachement> findByDirectionAndDateBetweenOrderByDateDesc(Direction direction, Date sdate,
+			Date edate);
 }
 

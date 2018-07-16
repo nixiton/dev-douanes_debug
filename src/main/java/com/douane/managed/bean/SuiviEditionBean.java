@@ -239,7 +239,13 @@ public class SuiviEditionBean {
 
 	public List<OpEntree> getListOperationEntreeByDirection() {
 		Agent agent = (Agent) RequestFilter.getSession().getAttribute("agent");
-		return usermetierimpl.getListOpEntreeByDirection(agent.getDirection());
+		Date date = new Date();
+		Calendar calendar = new GregorianCalendar();
+		calendar.setTime(date);
+		int year = calendar.get(Calendar.YEAR);
+		Date sdate = new GregorianCalendar(year - 2, Calendar.JANUARY, 1).getTime();
+		Date edate = new GregorianCalendar(year + 1, Calendar.DECEMBER, 30).getTime();
+		return usermetierimpl.getListOpEntreeByDirection(agent.getDirection(),sdate,edate);
 	}
 
 	public void setListOperationEntreeByDirection(List<OpEntree> l) {
@@ -248,7 +254,13 @@ public class SuiviEditionBean {
 
 	public List<OpSortie> getListOperationSortieByDirection() {
 		Agent agent = (Agent) RequestFilter.getSession().getAttribute("agent");
-		return usermetierimpl.getListOpSortieByDirection(agent.getDirection());
+		Date date = new Date();
+		Calendar calendar = new GregorianCalendar();
+		calendar.setTime(date);
+		int year = calendar.get(Calendar.YEAR);
+		Date sdate = new GregorianCalendar(year - 2, Calendar.JANUARY, 1).getTime();
+		Date edate = new GregorianCalendar(year + 1, Calendar.DECEMBER, 30).getTime();
+		return usermetierimpl.getListOpSortieByDirection(agent.getDirection(),sdate,edate);
 	}
 
 	public void setListOperationSortieByDirection(List<OpSortie> l) {
@@ -375,7 +387,13 @@ public class SuiviEditionBean {
 
 	public List<OpAttribution> getListOperationAttributionByDirection() {
 		Agent agent = (Agent) RequestFilter.getSession().getAttribute("agent");
-		return usermetierimpl.getListOpAttrByDirection(agent.getDirection());
+		Date date = new Date();
+		Calendar calendar = new GregorianCalendar();
+		calendar.setTime(date);
+		int year = calendar.get(Calendar.YEAR);
+		Date sdate = new GregorianCalendar(year - 2, Calendar.JANUARY, 1).getTime();
+		Date edate = new GregorianCalendar(year + 1, Calendar.DECEMBER, 30).getTime();
+		return usermetierimpl.getListOpAttrByDirection(agent.getDirection(),sdate,edate);
 	}
 
 	public void setListOperationAttributionByDirection(List<OpAttribution> l) {
@@ -384,7 +402,13 @@ public class SuiviEditionBean {
 
 	public List<OpDettachement> getListOperationDeetachementByDirection() {
 		Agent agent = (Agent) RequestFilter.getSession().getAttribute("agent");
-		return usermetierimpl.getListOpDettByDirection(agent.getDirection());
+		Date date = new Date();
+		Calendar calendar = new GregorianCalendar();
+		calendar.setTime(date);
+		int year = calendar.get(Calendar.YEAR);
+		Date sdate = new GregorianCalendar(year - 2, Calendar.JANUARY, 1).getTime();
+		Date edate = new GregorianCalendar(year + 1, Calendar.DECEMBER, 30).getTime();
+		return usermetierimpl.getListOpDettByDirection(agent.getDirection(),sdate,edate);
 	}
 
 	public void setListOperationDeetachementByDirection(List<OpDettachement> l) {
@@ -1007,7 +1031,7 @@ public class SuiviEditionBean {
 			Calendar calendar = new GregorianCalendar();
 			calendar.setTime(date);
 			int year = calendar.get(Calendar.YEAR);
-			Date sdate = new GregorianCalendar(year, Calendar.APRIL, 30).getTime();
+			Date sdate = new GregorianCalendar(year, Calendar.JANUARY, 1).getTime();
 			Date edate = new GregorianCalendar(year + 1, Calendar.DECEMBER, 30).getTime();
 			System.out.println("RRRRRRRRRRR Begin:");
 			List<Object[]> r = usermetierimpl.getListObjectForinvetaire(cur.getDirection(), sdate, edate);

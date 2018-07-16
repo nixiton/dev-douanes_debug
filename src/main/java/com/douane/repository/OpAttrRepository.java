@@ -1,5 +1,6 @@
 package com.douane.repository;
 
+import java.util.Date;
 import java.util.List;
 
 import com.douane.entite.*;
@@ -14,5 +15,6 @@ public interface OpAttrRepository extends CrudRepository<OpAttribution, Long>{
     public List<OpAttribution> findByMatAndState(Materiel m, EtatOperation e);
 	public List<OpAttribution> findByDirectionOrderByDateDesc(Direction direction);
 	public List<OpAttribution> findByDirectionOrderByIdDesc(Direction direction);
+	public List<OpAttribution> findByDirectionAndDateBetweenOrderByIdDesc(Direction direction, Date sdate, Date edate);
 
 }

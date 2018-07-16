@@ -100,13 +100,13 @@ public interface IUserMetier {
 	public List<OpSortie> getListOpSortieByOperator(Agent operator);
 
 	public List<Operation> getListOpByDirection(Direction direction);
-	public List<OpEntree> getListOpEntreeByDirection(Direction direction);
-	public List<OpSortie> getListOpSortieByDirection(Direction direction);
+	/*public List<OpEntree> getListOpEntreeByDirection(Direction direction);
+	public List<OpSortie> getListOpSortieByDirection(Direction direction);*/
 
 	public List<OpAttribution> getListOpAttrByOperator(Agent operator);
 	public List<OpDettachement> getListOpDettByOperatort(Agent operator);
-	public List<OpAttribution> getListOpAttrByDirection(Direction direction);
-	public List<OpDettachement> getListOpDettByDirection(Direction direction);
+	public List<OpAttribution> getListOpAttrByDirection(Direction direction, Date sdate, Date edate);
+	List<OpDettachement> getListOpDettByDirection(Direction direction, Date sdate, Date edate);
 
 
 	
@@ -209,6 +209,8 @@ public interface IUserMetier {
 	
 	public List<Operation> getListOpESArtValideByDirectionByCod(CodeArticle codeart, Direction direction, Date startDate,	Date endDate);
 	public Long getAreporter(CodeArticle code, Direction direction, Date stopdate);
+	List<OpSortie> getListOpSortieByDirection(Direction direction, Date sdate, Date edate);
+	List<OpEntree> getListOpEntreeByDirection(Direction direction, Date sdate, Date edate);
 	
 
 }

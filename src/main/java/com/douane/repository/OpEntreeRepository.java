@@ -1,5 +1,6 @@
 package com.douane.repository;
 
+import java.util.Date;
 import java.util.List;
 
 import com.douane.model.EtatOperation;
@@ -23,6 +24,11 @@ public interface OpEntreeRepository extends CrudRepository<OpEntree, Long>{
 	public List<OpEntree> findByMatAndState(Materiel m, EtatOperation e);
 	public List<OpEntree> findByStateAndDirection(EtatOperation  e, Direction d);
 	public List<OpEntree> findByDirectionOrderByIdDesc(Direction direction);
+	public List<OpEntree> findByStateAndDirectionAndDateBetween(EtatOperation etat, Direction d, Date sdate,
+			Date edate);
+	public List<OpEntree> findByStateAndDirectionAndDateBetweenOrderByIdDesc(EtatOperation etat, Direction d,
+			Date sdate, Date edate);
+	public List<OpEntree> findByDirectionAndDateBetweenOrderByIdDesc(Direction direction, Date sdate, Date edate);
 	
 }
 

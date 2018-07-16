@@ -1,5 +1,6 @@
 package com.douane.repository;
 
+import java.util.Date;
 import java.util.List;
 
 import com.douane.entite.*;
@@ -15,6 +16,9 @@ public interface OpSortieRepository extends CrudRepository<OpSortie, Long>{
 	public List<OpSortie> findByDirectionOrderByDateDesc(Direction direction);
 	public List<OpSortie> findByDirectionAndState(Direction direction, EtatOperation accepted);
 	public List<OpSortie> findByDirectionOrderByIdDesc(Direction direction);
+	public List<OpSortie> findByDirectionAndStateAndDateBetweenOrderByIdDesc(Direction direction,
+			EtatOperation accepted, Date sdate, Date edate);
+	public List<OpSortie> findByDirectionAndDateBetweenOrderByIdDesc(Direction direction, Date sdate, Date edate);
 
 }
 

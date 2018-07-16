@@ -686,15 +686,15 @@ public class UserMetier implements IUserMetier {
 	}
 
 	@Override
-	public List<OpEntree> getListOpEntreeByDirection(Direction direction) {
+	public List<OpEntree> getListOpEntreeByDirection(Direction direction, Date sdate, Date edate) {
 		// TODO Auto-generated method stub
-		return opentreerepos.findByDirectionOrderByIdDesc(direction);
+		return opentreerepos.findByDirectionAndDateBetweenOrderByIdDesc(direction,sdate,edate);
 	}
 
 	@Override
-	public List<OpSortie> getListOpSortieByDirection(Direction direction) {
+	public List<OpSortie> getListOpSortieByDirection(Direction direction, Date sdate, Date edate) {
 		// TODO Auto-generated method stub
-		return opsortierepos.findByDirectionOrderByIdDesc(direction);
+		return opsortierepos.findByDirectionAndDateBetweenOrderByIdDesc(direction,sdate,edate);
 	}
 
 	@Override
@@ -829,15 +829,15 @@ public class UserMetier implements IUserMetier {
 	}
 
 	@Override
-	public List<OpAttribution> getListOpAttrByDirection(Direction direction) {
+	public List<OpAttribution> getListOpAttrByDirection(Direction direction,Date sdate, Date edate) {
 		// TODO Auto-generated method stub
-		return opattrrepos.findByDirectionOrderByIdDesc(direction);
+		return opattrrepos.findByDirectionAndDateBetweenOrderByIdDesc(direction,sdate,edate);
 	}
 
 	@Override
-	public List<OpDettachement> getListOpDettByDirection(Direction direction) {
+	public List<OpDettachement> getListOpDettByDirection(Direction direction,Date sdate, Date edate) {
 		// TODO Auto-generated method stub
-		return opdettrepos.findByDirectionOrderByDateDesc(direction);
+		return opdettrepos.findByDirectionAndDateBetweenOrderByDateDesc(direction,sdate,edate);
 	}
 
 	@Override
@@ -1214,7 +1214,13 @@ public class UserMetier implements IUserMetier {
 	@Override
 	public List<OpSortie> getListOpSortieValideByDirection(Direction direction) {
 		// TODO Auto-generated method stub
-		return opsortierepos.findByDirectionAndState(direction, EtatOperation.ACCEPTED);
+		Date date = new Date();
+		Calendar calendar = new GregorianCalendar();
+		calendar.setTime(date);
+		int year = calendar.get(Calendar.YEAR);
+		Date sdate = new GregorianCalendar(year-2, Calendar.JANUARY, 1).getTime();
+        Date edate = new GregorianCalendar(year+1, Calendar.DECEMBER, 30).getTime();
+		return opsortierepos.findByDirectionAndStateAndDateBetweenOrderByIdDesc(direction, EtatOperation.ACCEPTED,sdate,edate);
 	}
 
 	@Override
@@ -1320,7 +1326,15 @@ public class UserMetier implements IUserMetier {
 	@Override
 	public List<OpEntree> listOpentreeByStateByDirection(EtatOperation etat, Direction d) {
 		// TODO Auto-generated method stub
-		return opentreerepos.findByStateAndDirection(etat, d);
+		//this.direction = cur.getDirection();
+		Date date = new Date();
+		Calendar calendar = new GregorianCalendar();
+		calendar.setTime(date);
+		int year = calendar.get(Calendar.YEAR);
+		Date sdate = new GregorianCalendar(year - 3, Calendar.JANUARY, 1).getTime();
+		Date edate = new GregorianCalendar(year + 1, Calendar.DECEMBER, 30).getTime();
+		
+		return opentreerepos.findByStateAndDirectionAndDateBetweenOrderByIdDesc(etat, d,sdate,edate);
 	}
 
 	@Override
