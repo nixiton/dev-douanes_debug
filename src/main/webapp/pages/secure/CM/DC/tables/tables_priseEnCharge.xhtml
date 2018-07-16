@@ -45,7 +45,7 @@
         </p:column> 
         <p:column filterBy="#{materiel.design.nomenMat}" headerText="Nomenclature"  filterMatchMode="exact" style="width:23%; text-align: center; word-wrap: break-word;">
             <f:facet name="filter">
-                <p:selectOneMenu onchange="PF('MaterielTable').filter()" >
+                <p:selectOneMenu onchange="PF('MaterielTable').filter()" panelStyle="width:250px;" >
                     <f:selectItem itemLabel="Selectionner" itemValue="#{null}" noSelectionOption="true" />
                     <f:selectItems value="#{siseBean.listNomenclature}" />
                 </p:selectOneMenu>
@@ -163,7 +163,7 @@
         </p:column> 
         <p:column filterBy="#{materiel.design.nomenMat}" headerText="Nomenclature"  filterMatchMode="exact" style="width:23%; text-align: center; word-wrap: break-word;">
             <f:facet name="filter">
-                <p:selectOneMenu onchange="PF('MaterielTable').filter()" >
+                <p:selectOneMenu onchange="PF('MaterielTable').filter()" panelStyle="width:250px;">
                     <f:selectItem itemLabel="Selectionner" itemValue="#{null}" noSelectionOption="true" />
                     <f:selectItems value="#{siseBean.listNomenclature}" />
                 </p:selectOneMenu>
