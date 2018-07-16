@@ -618,29 +618,48 @@ public class SuiviEditionBean {
 	}
 
 	private List<Object[]> listESForJournal;
-	public List<Object[]> getListESForJournal() {
+	public List<Object[]> getListESForJournal(Date fdate) {
 		if (listESForJournal == null) {
 			Agent cur = (Agent) RequestFilter.getSession().getAttribute("agent");
 			//this.direction = cur.getDirection();
 			Date date = new Date();
+			if(fdate !=null) {
+				 date = fdate;
+				 System.out.println(" fdate not null");
+			}else {
+				System.out.println(" fdate  null");
+			}
 			Calendar calendar = new GregorianCalendar();
 			calendar.setTime(date);
 			int year = calendar.get(Calendar.YEAR);
-			Date sdate = new GregorianCalendar(year - 2, Calendar.JANUARY, 1).getTime();
-			Date edate = new GregorianCalendar(year + 1, Calendar.DECEMBER, 30).getTime();
+			System.out.println(" my year "+ year);
+			Date sdate = new GregorianCalendar(year , Calendar.JANUARY, 1).getTime();
+			Date edate = new GregorianCalendar(year , Calendar.DECEMBER, 30).getTime();
 			List<OperationES> listop = usermetierimpl.getListOpESForJournal(cur.getDirection(), sdate, edate);
+			Collections.sort(listop, new Comparator<OperationES>() {
+				public int compare(OperationES o1, OperationES o2) {
+					Long id1 = o1.getId();
+					Long id2 = o2.getId();
+					//System.out.println("date :" + d1);
+					return id1.compareTo(id2);
+				}
+			});
 			List<Object[]> listobjectForJournal = new ArrayList<Object[]>();
+			Long i = 1L;
 			for (OperationES op : listop) {
-				Object[] row = new Object[12];
+				Object[] row = new Object[13];
+				
 				if (op instanceof OpEntree) {
 					List<Object[]> bydesignation1 = (this.getDesingationByOpEntree(op));
 
 					for (Object[] nom : bydesignation1) {
 						List<Object[]> liste = (List<Object[]>) nom[2];
 						for (Object[] des : liste) {
+							
 							Designation d = (Designation) des[0];
 							// id
-							row[0] = op.getId();
+							row[12] = op.getId();
+							row[0] = i;
 							// numero d'ordre
 							row[1] = op.getNumoperation();
 							// date
@@ -666,7 +685,8 @@ public class SuiviEditionBean {
 							row[10] = new Float(0);
 							row[11] = d;
 							listobjectForJournal.add(row);
-							row = new Object[12];
+							row = new Object[13];
+							i = i+1;
 						}
 					} /*
 						 * for(Materiel mat :((OpEntree) op).getListMat()) { //id row[0] = op.getId();
@@ -684,7 +704,8 @@ public class SuiviEditionBean {
 
 				} else if (op instanceof OpSortie) {
 					// id
-					row[0] = op.getId();
+					row[12] = op.getId();
+					row[0] = i;
 					// numero d'ordre
 					row[1] = op.getNumoperation();
 					// date
@@ -709,7 +730,8 @@ public class SuiviEditionBean {
 					row[10] = mat.getDesign().getPu() * (Long) row[9];
 					row[11] = mat.getDesign();
 					listobjectForJournal.add(row);
-					row = new Object[12];
+					row = new Object[13];
+					i=i+1;
 				}
 			}
 
@@ -718,6 +740,141 @@ public class SuiviEditionBean {
 		}
 
 		return listESForJournal;
+	}
+	
+	public List<Object[]> ourListESForJournal(Date fdate) {
+			Agent cur = (Agent) RequestFilter.getSession().getAttribute("agent");
+			//this.direction = cur.getDirection();
+			Date date = new Date();
+			if(fdate !=null) {
+				 date = fdate;
+				 System.out.println(" fdate not null");
+			}else {
+				System.out.println(" fdate  null");
+			}
+			Calendar calendar = new GregorianCalendar();
+			calendar.setTime(date);
+			int year = calendar.get(Calendar.YEAR);
+			System.out.println(" my year "+ year);
+			Date sdate = new GregorianCalendar(year , Calendar.JANUARY, 1).getTime();
+			Date edate = new GregorianCalendar(year , Calendar.DECEMBER, 30).getTime();
+			List<OperationES> listop = usermetierimpl.getListOpESForJournal(cur.getDirection(), sdate, edate);
+			Collections.sort(listop, new Comparator<OperationES>() {
+				public int compare(OperationES o1, OperationES o2) {
+					Long id1 = o1.getId();
+					Long id2 = o2.getId();
+					//System.out.println("date :" + d1);
+					return id1.compareTo(id2);
+				}
+			});
+			List<Object[]> listobjectForJournal = new ArrayList<Object[]>();
+			Long i = 1L;
+			for (OperationES op : listop) {
+				Object[] row = new Object[13];
+				
+				if (op instanceof OpEntree) {
+					List<Object[]> bydesignation1 = (this.getDesingationByOpEntree(op));
+
+					for (Object[] nom : bydesignation1) {
+						List<Object[]> liste = (List<Object[]>) nom[2];
+						for (Object[] des : liste) {
+							
+							Designation d = (Designation) des[0];
+							// id
+							row[12] = op.getId();
+							row[0] = i;
+							// numero d'ordre
+							row[1] = op.getNumoperation();
+							// date
+							row[2] = op.getDate();
+							// origine
+							row[3] = d.getOrigine();
+							// designation
+							row[4] = d.getTypematerieladd().getDesignation() + " - " + d.getMarque() + " - "
+									+ d.getRenseignement() + " - "
+							// mat.getNumSerie();
+							;
+							// espece unite
+							row[5] = d.getEspeceUnite();
+							// pu
+							row[6] = d.getPu();
+							// nombre par desingation entree
+							row[7] = des[1];
+							// total entree
+							row[8] = d.getPu() * (Long) row[7];
+							// nombre par desingation sortie
+							row[9] = new Long(0);
+							// total sortie
+							row[10] = new Float(0);
+							row[11] = d;
+							listobjectForJournal.add(row);
+							row = new Object[13];
+							i = i+1;
+						}
+					} /*
+						 * for(Materiel mat :((OpEntree) op).getListMat()) { //id row[0] = op.getId();
+						 * //numero d'ordre row[1] = op.getNumoperation(); //date row[2] = op.getDate();
+						 * //origine row[3] = mat.getDesign().getOrigine(); // designation row[4] =
+						 * mat.getDesign().getTypematerieladd().getDesignation() + " - " +
+						 * mat.getDesign().getMarque() + " - " + mat.getDesign().getRenseignement() +
+						 * " - " + mat.getNumSerie(); //espece unite row[5] =
+						 * mat.getDesign().getEspeceUnite(); //pu row[6] = mat.getDesign().getPu();
+						 * //nombre par desingation entree row[7] = 1; //total entree row[8] =
+						 * mat.getDesign().getPu()*(Integer)row[7]; //nombre par desingation sortie
+						 * row[9] = 0; //total sortie row[10] = 0; row[11] = mat;
+						 * listobjectForJournal.add(row); row = new Object[12]; }
+						 */
+
+				} else if (op instanceof OpSortie) {
+					// id
+					row[12] = op.getId();
+					row[0] = i;
+					// numero d'ordre
+					row[1] = op.getNumoperation();
+					// date
+					row[2] = op.getDate();
+					// origine
+					row[3] = ((OpSortie) op).getMotifsortie().getDesignation();
+					// designation
+					Materiel mat = op.getMat();
+					row[4] = mat.getDesign().getTypematerieladd().getDesignation() + " - " + mat.getDesign().getMarque()
+							+ " - " + mat.getDesign().getRenseignement() + " - " + mat.getNumSerie();
+					// espece unite
+					row[5] = mat.getDesign().getEspeceUnite();
+					// pu
+					row[6] = mat.getDesign().getPu();
+					// nombre par desingation entree
+					row[7] = new Long(0);
+					// total entree
+					row[8] = new Float(0);
+					// nombre par desingation sortie
+					row[9] = 1L;
+					// total sortie
+					row[10] = mat.getDesign().getPu() * (Long) row[9];
+					row[11] = mat.getDesign();
+					listobjectForJournal.add(row);
+					row = new Object[13];
+					i=i+1;
+				}
+			}
+		return listobjectForJournal;
+	}
+	
+	public List<Object[]> mygetFListESForJournal(Date start, Date fin) {
+		Agent cur = (Agent) RequestFilter.getSession().getAttribute("agent");
+		System.out.println("my es "+start);
+		Calendar calendar = new GregorianCalendar();
+		calendar.setTime(start);
+		int year = calendar.get(Calendar.YEAR);
+		Date sdat = new GregorianCalendar(year , Calendar.JANUARY, 1).getTime();
+		List<Object[]> listebyyeaer = getListESForJournal(sdat);
+		List<Object[]> listefiltered =  new ArrayList<Object[]>();
+		for (Object[] o:listebyyeaer) {
+			if(start.compareTo((Date)(o[2])) >=0 && fin.compareTo((Date)(o[2]))<=0)
+			listefiltered.add(o);
+		}
+		return listefiltered;
+		
 	}
 
 	public List<Object[]> getFListESForJournal(Date start, Date fin) {
