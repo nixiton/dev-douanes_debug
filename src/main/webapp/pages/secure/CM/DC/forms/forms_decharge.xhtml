@@ -32,7 +32,7 @@
 	                <div class="col-lg-6">
 	
 	                    <p:selectOneMenu value="#{depositaireBean.motifSortie}" converter="#{refConverter}"
-	                         effect="fade" filter="true" filterMatchMode="startsWith">
+	                         effect="fade" filter="true" filterMatchMode="startsWith" panelStyle="width:250px;">
 	                        <f:selectItem itemValue="#{null}" itemLabel="Selectionner" /> 
 	                            <f:selectItems value="#{siseBean.listMotifSortie}" var="theme" itemLabel="#{theme.designation}" itemValue="#{theme}" />
 	                        <!-- <p:column>
@@ -55,7 +55,7 @@
 	                <div class="col-lg-6">
 	
 	                    <p:selectOneMenu value="#{depositaireBean.materiel}" converter="#{materielConverter}"
-	                         effect="fade" filter="true" filterMatchMode="startsWith">
+	                         effect="fade" filter="true" filterMatchMode="startsWith" panelStyle="width:250px;">
 	                        <f:selectItem itemValue="#{null}" itemLabel="Selectionner" /> 
 	                            <f:selectItems value="#{depositaireBean.listAllMaterielValideSansDetenteurByDirection}" var="theme" itemLabel="#{theme.numSerie}" itemValue="#{theme}" />
 	                        <!-- <p:column>
@@ -119,7 +119,7 @@
 			                    <label for="text1" >Direction</label>
 							</div>
 							<div class="col-lg-6">
-			                    <p:selectOneMenu  styleClass="form-control top" converter="#{refConverter}" value="#{depositaireBean.destinationDirec}">
+			                    <p:selectOneMenu  styleClass="form-control top" converter="#{refConverter}" value="#{depositaireBean.destinationDirec}" panelStyle="width:250px;">
 			                        <f:selectItem itemValue="#{null}" itemLabel="Selectionner" /> 
 			                            <f:selectItems value="#{siseBean.listDirection}" var="b" itemLabel="#{b.codeDirection}" itemValue="#{b}"/>
 			                    </p:selectOneMenu>

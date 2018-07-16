@@ -56,7 +56,8 @@
 					</div>
                     <div class="col-lg-6">
 
-                        <p:selectOneMenu id="zone"  styleClass="form-control top" converter="#{refConverter}" value="#{depositaireBean.curentMaterielNouv.design.typematerieladd}">
+                        <p:selectOneMenu id="zone"  styleClass="form-control top" converter="#{refConverter}" 
+                        value="#{depositaireBean.curentMaterielNouv.design.typematerieladd}" panelStyle="width:250px;" >
                             <f:selectItem itemValue="#{null}" itemLabel="Selectionnner" /> 
                             <f:selectItems value="#{siseBean.listTypeMateriel}" var="type" itemLabel="#{type.designation} - #{type.nomenclaureParent.designation}"/>
                          
@@ -76,7 +77,7 @@
                     <div class="col-lg-6">
 
 	                    <p:selectOneMenu value="#{depositaireBean.curentMaterielNouv.design.marque}" converter="#{refConverter}" 
-	                         effect="fade" filter="true" filterMatchMode="startsWith">
+	                         effect="fade" filter="true" filterMatchMode="startsWith" panelStyle="width:250px;" >
 	                        <f:selectItem itemValue="#{null}" itemLabel="Selectionner" /> 
 	                            <f:selectItems value="#{siseBean.listMarque}" var="theme" itemLabel="#{theme.designation}" itemValue="#{theme}" />
 	                       <!-- <p:column>
@@ -134,7 +135,7 @@
 	
 	
 	                    <p:selectOneMenu value="#{depositaireBean.curentMaterielNouv.etat}" converter="#{refConverter}"
-	                         effect="fade" filter="true" filterMatchMode="startsWith">
+	                         effect="fade" filter="true" filterMatchMode="startsWith" panelStyle="width:250px;" >
 	                        <f:selectItem itemValue="#{null}" itemLabel="Selectionner" /> 
 	                            <f:selectItems value="#{siseBean.listEtatMateriel}" var="theme" itemLabel="#{theme.designation}" itemValue="#{theme}" />
 	                        <!-- <p:column>
@@ -233,7 +234,7 @@
 	                <div class="col-lg-6">
 
 	                    <p:selectOneMenu value="#{depositaireBean.curentMaterielNouv.design.financement}" converter="#{refConverter}" 
-	                         effect="fade" filter="true" filterMatchMode="startsWith">
+	                         effect="fade" filter="true" filterMatchMode="startsWith" panelStyle="width:250px;" >
 	                        <f:selectItem itemValue="#{null}" itemLabel="Selectionner" /> 
 	                            <f:selectItems value="#{siseBean.listFinancement}" var="theme" itemLabel="#{theme.designation}" itemValue="#{theme}" />
 	                        <!-- <p:column>

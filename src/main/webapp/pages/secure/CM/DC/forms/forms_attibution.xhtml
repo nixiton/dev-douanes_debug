@@ -30,7 +30,7 @@
                 <div class="col-lg-6">
 
                     <p:selectOneMenu value="#{depositaireBean.materielSeclected}" converter="#{materielConverter}" 
-                         effect="fade" filter="true" filterMatchMode="startsWith">
+                         effect="fade" filter="true" filterMatchMode="startsWith" panelStyle="width:250px;">
                         <f:selectItem itemValue="#{null}" itemLabel=" Selectionner"  noSelectionOption="true"/> 
                         <f:selectItems value="#{depositaireBean.listAllMaterielValideSansDetenteurByDirection}" var="theme" itemLabel="#{theme.numSerie}" itemValue="#{theme}" />
                         <!-- <p:column>
@@ -93,8 +93,8 @@
                 <div class="col-lg-6">
 
                     <p:selectOneMenu styleClass="form-control top" converter="#{agentConverter}" value="#{depositaireBean.detenteur}"
-                    effect="fade" filter="true" filterMatchMode="startsWith"
-                    required="true" requiredMessage="Détenteur obligatoire"
+                    effect="fade" filter="true" filterMatchMode="startsWith" panelStyle="width:250px;"
+                    required="true" requiredMessage="Détenteur obligatoire" 
                     >
                             <f:selectItem itemValue="#{null}" itemLabel="Selectionner"  noSelectionOption="true"/> 
                             <f:selectItems value="#{userMB.userListByDirection}" var="type" itemLabel="#{type.im}" itemValue="#{type}"/>

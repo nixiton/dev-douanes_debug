@@ -60,7 +60,7 @@
 
                         <p:selectOneMenu id="zone"  styleClass="form-control top" 
                         converter="#{codeArtConverter}" value="#{depositaireBean.articleExToAdd.codeArticle}"
-                        filter="true" filterMatchMode="contains">
+                        filter="true" filterMatchMode="contains" panelStyle="width:250px;">
                             <f:selectItem itemValue="#{null}" itemLabel="Selectionner"/> 
                             <!-- f:selectItems value="#{siseBean.listCodeArticle}" var="type" itemLabel="#{type.designation}"/-->
                             <f:selectItems value="#{siseBean.groupeListArticle}" />

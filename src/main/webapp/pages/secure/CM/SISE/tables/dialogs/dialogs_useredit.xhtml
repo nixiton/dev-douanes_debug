@@ -73,7 +73,7 @@
 					</div>
 					<div class="col-lg-6">
 						<p:selectOneMenu id="agentdir" value="#{editAgent.direction}" converter="#{refConverter}"
-	                         effect="fade"  filter="true" filterMatchMode="startsWith">
+	                         effect="fade"  filter="true" filterMatchMode="startsWith" panelStyle="width:250px;" >
 	                        <f:selectItem itemValue="#{null}" itemLabel="Selectionner" /> 
 	                            <f:selectItems value="#{siseBean.listDirection}" var="theme" itemLabel="#{theme.designation}" itemValue="#{theme}" />
 	                        <!-- <p:column>
@@ -94,7 +94,7 @@
 					</div>
 					<div class="col-lg-6">
 						<p:selectOneMenu value="#{editAgent.posteny}" converter="#{refConverter}" 
-	                         effect="fade" filter="true" filterMatchMode="startsWith">
+	                         effect="fade" filter="true" filterMatchMode="startsWith" panelStyle="width:250px;" >
 	                        <f:selectItem itemValue="#{null}" itemLabel="Selectionner" /> 
 	                            <f:selectItems value="#{siseBean.listPoste}" var="theme" itemLabel="#{theme.designation}" itemValue="#{theme}" />
 	                        <!-- <p:column>
@@ -114,7 +114,7 @@
 					</div>
 					<div class="col-lg-6">
 						<p:selectOneMenu value="#{editAgent.roleAgent}" converter="#{useriConverter}" 
-	                         effect="fade"  filter="true" filterMatchMode="startsWith">
+	                         effect="fade"  filter="true" filterMatchMode="startsWith" panelStyle="width:250px;" >
 	                        <f:selectItem itemValue="#{null}" itemLabel="Selectionner" /> 
 	                            <f:selectItems value="#{siseBean.listUseri}" var="theme" itemLabel="#{theme.designation}" itemValue="#{theme}" />
 	                        <!-- <p:column>

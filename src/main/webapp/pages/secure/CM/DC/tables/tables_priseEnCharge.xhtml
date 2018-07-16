@@ -34,6 +34,9 @@
                  emptyMessage="Aucun resultat" filteredValue="#{dtFilterView.filteredOperations}"
                  >
  
+ 		<f:facet name="header">
+        Prise en charge acceptée
+   		 </f:facet>
         <p:column filterBy="#{materiel.idMateriel}" filterMatchMode="contains" style="width:7%; text-align: center; word-wrap: break-word;">
             <f:facet name="header">
                 <h:outputText value="ID" />
@@ -149,7 +152,9 @@
                  paginator="true" rows="10" style="margin-bottom:20px"
                  emptyMessage="Aucun resultat" filteredValue="#{dtFilterView.filteredOperations}"
                  >
- 
+ 		<f:facet name="header">
+        Prise en charge non acceptée
+   		 </f:facet>
         <p:column filterBy="#{materiel.idMateriel}" filterMatchMode="contains" style="width:7%; text-align: center; word-wrap: break-word;">
             <f:facet name="header">
                 <h:outputText value="ID" />

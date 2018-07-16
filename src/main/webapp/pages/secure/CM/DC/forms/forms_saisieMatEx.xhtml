@@ -126,9 +126,9 @@
 					</div>
                    <div class="col-lg-6">
 
-                        <p:selectOneMenu id="zone"  styleClass="form-control top" 
+                        <p:selectOneMenu id="zone"  styleClass=" form-control top" 
                         converter="#{refConverter}" value="#{depositaireBean.typematerielToAdd}" 
-                        filter="true" filterMatchMode="contains">
+                        filter="true" filterMatchMode="contains" panelStyle="width:250px;">
                             <f:selectItem itemValue="#{null}" itemLabel="Selectionner" /> 
                             <!-- f:selectItems value="#{siseBean.listTypeMateriel}" var="type" itemLabel="#{type.designation}"/ -->
                             <f:selectItems value="#{siseBean.groupeListTypeMateriel}" />
@@ -160,7 +160,7 @@
                     <div class="col-lg-6">
 
 	                    <p:selectOneMenu value="#{depositaireBean.marq}" converter="#{refConverter}" 
-	                         effect="fade"  filter="true" filterMatchMode="startsWith">
+	                         effect="fade"  filter="true" filterMatchMode="startsWith" panelStyle="width:250px;" >
 	                        <f:selectItem itemValue="#{null}"  itemLabel="Selectionner" noSelectionOption="true"/> 
 	                 
 	                        <f:selectItems value="#{siseBean.listMarque}" var="theme" itemLabel="#{theme.designation}" itemValue="#{theme}" />
@@ -289,7 +289,7 @@
 
 
 	                    <p:selectOneMenu value="#{depositaireBean.etat}" converter="#{refConverter}" 
-	                         effect="fade" filter="true" filterMatchMode="startsWith">
+	                         effect="fade" filter="true" filterMatchMode="startsWith" panelStyle="width:250px;" >
 	                        <f:selectItem itemValue="#{null}" itemLabel="Selectionner" /> 
 	                            <f:selectItems value="#{siseBean.listEtatMateriel}" var="theme" itemLabel="#{theme.designation}" itemValue="#{theme}" />
 	                        <!-- <p:column>

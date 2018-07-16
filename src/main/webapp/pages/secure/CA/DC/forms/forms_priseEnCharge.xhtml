@@ -59,7 +59,7 @@
 
                         <p:selectOneMenu id="zone"  styleClass="form-control top" 
                         converter="#{codeArtConverter}" value="#{depositaireBean.codeArticle}"
-                        filter="true" filterMatchMode="contains">
+                        filter="true" filterMatchMode="contains" panelStyle="width:250px;">
                             <f:selectItem itemValue="#{null}" itemLabel="Selectionner" /> 
                             <!-- f:selectItems value="#{siseBean.listCodeArticle}" var="type" itemLabel="#{type.designation}"/-->
                             <f:selectItems value="#{siseBean.groupeListArticle}" />
@@ -96,7 +96,7 @@
 	                <div class="col-lg-6">
 	
 	                     <p:selectOneMenu value="#{depositaireBean.acquisition}" converter="#{refConverter}"
-	                         effect="fade"  filter="true" filterMatchMode="startsWith">
+	                         effect="fade"  filter="true" filterMatchMode="startsWith" panelStyle="width:250px;">
 	                        <f:selectItem itemValue="#{null}" itemLabel="Selectionner" /> 
 	                            <f:selectItems value="#{siseBean.listModeAcquisition}" var="theme" itemLabel="#{theme.designation}" itemValue="#{theme}" />
 	                        <!-- <p:column>
@@ -118,7 +118,7 @@
 	
 	
 	                    <p:selectOneMenu value="#{depositaireBean.financement}" converter="#{refConverter}" 
-	                         effect="fade" filter="true" filterMatchMode="startsWith">
+	                         effect="fade" filter="true" filterMatchMode="startsWith" panelStyle="width:250px;">
 	                        <f:selectItem itemValue="#{null}" itemLabel="Selectionner" /> 
 	                            <f:selectItems value="#{siseBean.listFinancement}" var="theme" itemLabel="#{theme.designation}" itemValue="#{theme}" />
 	                        <!-- <p:column>

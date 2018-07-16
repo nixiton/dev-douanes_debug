@@ -29,7 +29,7 @@
                 	<div class="col-lg-6">
 
 	                    <p:selectOneMenu styleClass="form-control top" converter="#{agentConverter}" value="#{depositaireBean.detenteurDett}"
-	                    effect="fade" id="det"  filter="true" filterMatchMode="startsWith"
+	                    effect="fade" id="det"  filter="true" filterMatchMode="startsWith" panelStyle="width:250px;"
 	                    required="true"
 	                    requiredMessage="Détenteur obligatoire"
 	                    	                    >
@@ -102,7 +102,7 @@
 	                <div class="col-lg-6">
 	
 	                    <p:selectOneMenu id="mat" styleClass="form-control top" value="#{depositaireBean.materielSeclectedDett}" converter="#{materielConverter}"  
-	                         effect="fade" filter="true" filterMatchMode="startsWith"
+	                         effect="fade" filter="true" filterMatchMode="startsWith" panelStyle="width:250px;"
 	                         required="true"
 	                    requiredMessage="Matériel obligatoire">
 	                        <f:selectItem itemValue="#{null}" itemLabel="Selectionner" /> 
@@ -181,7 +181,7 @@
 	                <div class="col-lg-6">
 	
 	                    <p:selectOneMenu value="#{depositaireBean.motifDettachement}" converter="#{refConverter}" 
-	                         effect="fade" filter="true" filterMatchMode="startsWith"
+	                         effect="fade" filter="true" filterMatchMode="startsWith" panelStyle="width:250px;"
 	                         required="true"
 	                    requiredMessage="Motif obligatoire">
 	                        <f:selectItem itemValue="#{null}" itemLabel="Selectionner" /> 

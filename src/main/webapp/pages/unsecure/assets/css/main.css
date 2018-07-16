@@ -2657,3 +2657,7 @@ border-collapse: collapse;
 .ui-column-filter.ui-inputfield.ui-inputtext.ui-widget.ui-state-default.ui-corner-all{
 	width: 80% !important;
 }
+.ui-selectonemenu-items.ui-selectonemenu-list.ui-widget-content.ui-widget.ui-corner-all.ui-helper-reset{
+  text-overflow: ellipsis !important;
+  overflow: hidden !important;
+}

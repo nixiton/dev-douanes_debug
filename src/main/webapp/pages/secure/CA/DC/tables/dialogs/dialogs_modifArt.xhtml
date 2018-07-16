@@ -56,7 +56,7 @@
                     <div class="col-lg-6">
 
                     <p:selectOneMenu value="#{depositaireBean.articleTomodify.marqueArticle}" converter="#{refConverter}" 
-                         effect="fade"  filter="true" filterMatchMode="startsWith">
+                         effect="fade"  filter="true" filterMatchMode="startsWith" panelStyle="width:250px;">
                         <f:selectItem itemValue="#{null}" itemLabel="Selectionner" /> 
                             <f:selectItems value="#{siseBean.listMarque}" var="theme" itemLabel="#{theme.designation}" itemValue="#{theme}" />
                         <!-- <p:column>

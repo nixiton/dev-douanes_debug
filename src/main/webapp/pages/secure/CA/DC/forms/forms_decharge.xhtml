@@ -30,7 +30,7 @@
 	                <div class="col-lg-6">
 	
 	                    <p:selectOneMenu styleClass="form-control top" converter="#{agentConverter}" value="#{depositaireBean.agentDest}"
-	                    effect="fade" var="t" filter="true" filterMatchMode="startsWith"
+	                    effect="fade" var="t" filter="true" filterMatchMode="startsWith" panelStyle="width:250px;"
 	                    required="true" requiredMessage="Bénéficiaire obligatoire"
 	                    >
 	                            <f:selectItem itemValue="#{null}" itemLabel="Selectionner" /> 
@@ -65,8 +65,8 @@
 					</div>
 	                <div class="col-lg-6">
 	
-	                    <p:selectOneMenu value="#{depositaireBean.article}" converter="#{articleConverter}"   panelStyle="width:180px"  style="width:160px"
-	                         effect="fade" var="t" filter="true" filterMatchMode="startsWith"
+	                    <p:selectOneMenu value="#{depositaireBean.article}" converter="#{articleConverter}"   style="width:160px"
+	                         effect="fade" var="t" filter="true" filterMatchMode="startsWith" panelStyle="width:250px;"
 	                         required="true" requiredMessage="Code article obligatoire"
 	                         >
 	                        <f:selectItem itemValue="#{null}" itemLabel="Selectionner" /> 
