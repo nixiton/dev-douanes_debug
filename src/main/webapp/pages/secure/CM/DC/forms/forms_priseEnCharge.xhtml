@@ -50,6 +50,7 @@
                             <h:commandLink
                                 title="remove" value=""
                                 actionListener="#{depositaireBean.removeDoc(row)}" update="docId"
+                                immediate="true"
                                 ajax="true" process="@this" class="btn btn-sm btn-warning " >
                                 <i class="fa fa-close"> </i> Enlever document
                            </h:commandLink>
@@ -84,8 +85,9 @@
                             <h:commandLink
                                 title="remove" value=" "
                                 actionListener="#{depositaireBean.removeDoc(rowIm)}" update="imId"
+                                immediate="true"
                                 ajax="true" process="@this" class="btn btn-sm btn-warning " >
-                                <i class="fa fa-close"> </i> Enlever document
+                                <i class="fa fa-close"> </i> Enlever image
                            	</h:commandLink>
                         </p:panel>
                     </p:column>

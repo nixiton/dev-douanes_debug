@@ -27,9 +27,10 @@
 				
 				
                 <!-- *********************************FILE UPLOAD ****************************************************-->
-
+			
             <p:outputPanel id="testContainer">
-
+				
+				 
                 <p:dataTable id="docId" var="row"
                              value="#{depositaireBean.documentList}" editable="true"
                              editMode="cell" widgetVar="documentTable">
@@ -40,7 +41,7 @@
                         <p:panel rendered="#{!row.uploaded}">
                             <p:fileUpload value="#{depositaireBean.document}"
                                           fileUploadListener="#{depositaireBean.uploadDoc_Advanced}"
-                                          mode="advanced" dragDropSupport="false" update="@this,docId"
+                                          mode="advanced" dragDropSupport="false" update="docId,@this"
                                           sizeLimit="1000000"
                                           allowTypes="/(\.|\/)(gif|jpe?g|png|txt|pdf|doc|docx)$/">
                                 <f:attribute name="docObj" value="#{row}"></f:attribute>
@@ -52,8 +53,9 @@
                             Document  Transféré -      
                             <h:commandLink
                                 title="remove" value=""
-                                actionListener="#{depositaireBean.removeDoc(row)}" update="docId"
-                                ajax="true" process="@this" class="btn btn-sm btn-warning">
+                                actionListener="#{depositaireBean.removeDoc(row)}" update="docId,@this"
+                                immediate="true"
+                                ajax="true" process="@this,uploaddoc" class="btn btn-sm btn-warning">
                                 <i class="fa fa-close"> </i> Enlever document
                             </h:commandLink>
                        
@@ -63,6 +65,7 @@
 
 
                 </p:dataTable>
+                
                 
                 <!-- **IMAGE UPLOAD** -->
                 <p:dataTable id="imId" var="rowIm"
@@ -87,6 +90,7 @@
                            <h:commandLink
                                 title="remove" value=""
                                 actionListener="#{depositaireBean.removeDoc(rowIm)}" update="imId"
+                                immediate="true"
                                 ajax="true" process="@this" class="btn btn-sm btn-warning " >
                                 <i class="fa fa-close"> </i> Enlever Image
                            </h:commandLink>
