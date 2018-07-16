@@ -1,6 +1,8 @@
 package com.douane.metier.user;
 
+import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
@@ -628,7 +630,7 @@ public class UserMetier implements IUserMetier {
 	@Override
 	public List<ArticleEx> getListArticleEx(Direction d) {
 		// TODO Auto-generated method stub
-		return (List<ArticleEx>) artexreops.findByDirecArtOrderByIdArticleDesc(d);
+		return (List<ArticleEx>) artexreops.findTop200ByDirecArtOrderByIdArticleDesc(d);
 		// return null;
 	}
 
@@ -655,7 +657,7 @@ public class UserMetier implements IUserMetier {
 	public List<Operation> getListOpByOperator(Agent operator) {
 		// TODO Auto-generated method stub
 		// return oprepos.findByOperateur(operator);
-		int maxresult = 200;
+		int maxresult = 2000;
 		return operationdao.getListOperationByOperator(operator, maxresult);
 	}
 
@@ -674,7 +676,13 @@ public class UserMetier implements IUserMetier {
 	@Override
 	public List<Operation> getListOpByDirection(Direction direction) {
 		// TODO Auto-generated method stub
-		return oprepos.findByDirectionOrderByIdDesc(direction);
+		Date date = new Date();
+		Calendar calendar = new GregorianCalendar();
+		calendar.setTime(date);
+		int year = calendar.get(Calendar.YEAR);
+		Date sdate = new GregorianCalendar(year-2, Calendar.JANUARY, 1).getTime();
+        Date edate = new GregorianCalendar(year+1, Calendar.DECEMBER, 30).getTime();
+		return oprepos.findByDirectionAndDateBetweenOrderByIdDesc(direction, sdate, edate);
 	}
 
 	@Override
@@ -1169,7 +1177,7 @@ public class UserMetier implements IUserMetier {
 	@Override
 	public List<ArticleNouv> getListArtNouvByValidationByDirection(boolean val, Direction d) {
 		// TODO Auto-generated method stub
-		return artnouvreops.findByValidationAndDirecArtOrderByIdArticleDesc(val, d);
+		return artnouvreops.findTop200ByValidationAndDirecArtOrderByIdArticleDesc(val, d);
 	}
 
 	@Override

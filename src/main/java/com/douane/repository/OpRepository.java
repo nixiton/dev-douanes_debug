@@ -1,5 +1,6 @@
 package com.douane.repository;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.data.repository.CrudRepository;
@@ -14,5 +15,6 @@ public interface OpRepository extends CrudRepository<Operation, Long>{
 	public List<Operation> findByDirection(Direction direction);
 	public List<Operation> findByDirectionOrderByDateDesc(Direction direction);
 	public List<Operation> findByDirectionOrderByIdDesc(Direction direction);
+	public List<Operation> findByDirectionAndDateBetweenOrderByIdDesc(Direction direction, Date sdate, Date edate);
 
 }

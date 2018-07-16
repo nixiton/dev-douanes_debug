@@ -583,14 +583,9 @@ public class SuiviEditionBean {
 
 	private List<Operation> listOpESArtByDirection;
 
-	public List<Operation> getListOpESArtByDirection() {
+	public List<Operation> getListOpESArtByDirection(Date sdate, Date edate) {
 		Agent cur = (Agent) RequestFilter.getSession().getAttribute("agent");
-		Date date = new Date();
-		Calendar calendar = new GregorianCalendar();
-		calendar.setTime(date);
-		int year = calendar.get(Calendar.YEAR);
-		Date sdate = new GregorianCalendar(year - 2, Calendar.JANUARY, 1).getTime();
-		Date edate = new GregorianCalendar(year + 1, Calendar.DECEMBER, 30).getTime();
+		
 		return usermetierimpl.getListOpESArtValideByDirection(cur.getDirection(), sdate, edate);
 	}
 
@@ -1744,7 +1739,13 @@ public class SuiviEditionBean {
 
 	// List object format for fiche de stock
 	public List<Object[]> getListForFicheStock() {
-		List<Operation> lesoperations = getListOpESArtByDirection();
+		Date date = new Date();
+		Calendar calendar = new GregorianCalendar();
+		calendar.setTime(date);
+		int year = calendar.get(Calendar.YEAR);
+		Date sdate = new GregorianCalendar(year - 2, Calendar.JANUARY, 1).getTime();
+		Date edate = new GregorianCalendar(year + 1, Calendar.DECEMBER, 30).getTime();
+		List<Operation> lesoperations = getListOpESArtByDirection(sdate,edate);
 		// structure de données
 		List<Object[]> resulttable = new ArrayList<Object[]>();
 		Object[] row = new Object[8];
@@ -1801,7 +1802,13 @@ public class SuiviEditionBean {
 
 	// list objet format pour journal
 	public List<Object[]> getListForJournalStock() {
-		List<Operation> lesoperations = getListOpESArtByDirection();
+		Date date = new Date();
+		Calendar calendar = new GregorianCalendar();
+		calendar.setTime(date);
+		int year = calendar.get(Calendar.YEAR);
+		Date sdate = new GregorianCalendar(year - 2, Calendar.JANUARY, 1).getTime();
+		Date edate = new GregorianCalendar(year + 1, Calendar.DECEMBER, 30).getTime();
+		List<Operation> lesoperations = getListOpESArtByDirection(sdate, edate);
 		// structure de données
 		List<Object[]> resulttable = new ArrayList<Object[]>();
 		Object[] row = new Object[8];
@@ -1847,7 +1854,7 @@ public class SuiviEditionBean {
 				row[3] = (((OpSortieArticle) o).getBeneficiaire()).getNomAgent();
 				Article a = ((OpSortieArticle) o).getArticle();
 				row[4] = a.getCodeArticle().getTypeObjet().getDesignation() + " (" + a.getCodeArticle().getDesignation()
-						+ " ) " + a.getMarqueArticle();
+						+ " ) ";
 				row[5] = a.getNombre();
 				row[6] = a.getPrix();
 				row[7] = (Long) row[5] * (Float) row[6];
@@ -1864,12 +1871,12 @@ public class SuiviEditionBean {
 	}
 	
 	public List<Object[]> getListForJournalStock(Date s, Date f) {
-		List<Operation> lesoperations = getListOpESArtByDirection();
+		List<Operation> lesoperations = getListOpESArtByDirection(s,f);
 		// structure de données
 		List<Object[]> resulttable = new ArrayList<Object[]>();
 		Object[] row = new Object[8];
 		for (Operation o : lesoperations) {
-			if((s.compareTo(o.getDate()) <= 0) && (f.compareTo(o.getDate()) >= 0))   {
+			//if((s.compareTo(o.getDate()) <= 0) && (f.compareTo(o.getDate()) >= 0))   {
 				// numero d'ordre
 				row[0] = "" + o.getId().toString();
 				// date operation
@@ -1893,7 +1900,7 @@ public class SuiviEditionBean {
 					row[3] = "a ajouter origine";
 					Article a = ((OpEntreeArticle) o).getArticle();
 					row[4] = a.getCodeArticle().getTypeObjet().getDesignation() + " (" + a.getCodeArticle().getDesignation()
-							+ " ) " + a.getMarqueArticle();
+							+ " ) ";
 					row[5] = a.getNombre();
 					row[6] = a.getPrix();
 					row[7] = (Long) row[5] * (Float) row[6];
@@ -1923,7 +1930,7 @@ public class SuiviEditionBean {
 	
 				resulttable.add(row);
 				row = new Object[8];
-			}
+			//}
 		}
 		return resulttable;
 	}
@@ -1934,8 +1941,8 @@ public class SuiviEditionBean {
 		Calendar calendar = new GregorianCalendar();
 		calendar.setTime(date);
 		int year = calendar.get(Calendar.YEAR);
-		Date sdate = new GregorianCalendar(year , Calendar.MAY, 1).getTime();
-		Date edate = new GregorianCalendar(year + 1, Calendar.DECEMBER, 30).getTime();
+		Date sdate = new GregorianCalendar(year , Calendar.JANUARY, 1).getTime();
+		Date edate = new GregorianCalendar(year, Calendar.DECEMBER, 30).getTime();
 		return usermetierimpl.getListOpESArtValideByDirectionByCod(codeart, cur.getDirection(), sdate, edate);
 	}
 

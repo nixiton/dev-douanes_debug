@@ -934,8 +934,13 @@ public class SISEformBean {
 
 	public List<OpEntreeArticle> getListOpEntreeArticle() {
 		Agent agent = (Agent) RequestFilter.getSession().getAttribute("agent");
-		Date sdate = new GregorianCalendar(2010, Calendar.JANUARY, 1).getTime();
-		Date edate = new GregorianCalendar(2200, Calendar.DECEMBER, 30).getTime();
+		Date date = new Date();
+		Calendar calendar = new GregorianCalendar();
+		calendar.setTime(date);
+		int year = calendar.get(Calendar.YEAR);
+		Date sdate = new GregorianCalendar(year - 3, Calendar.JANUARY, 1).getTime();
+		Date edate = new GregorianCalendar(year + 1, Calendar.DECEMBER, 30).getTime();
+		
 		return usermetierimpl.getListOpEntreeArtByDirection(agent.getDirection(), sdate, edate);
 	}
 
@@ -944,9 +949,12 @@ public class SISEformBean {
 	}
 
 	public List<OpSortieArticle> getListOpSortieArticle() {
-		Agent agent = (Agent) RequestFilter.getSession().getAttribute("agent");
-		Date sdate = new GregorianCalendar(2010, Calendar.JANUARY, 1).getTime();
-		Date edate = new GregorianCalendar(2020, Calendar.DECEMBER, 30).getTime();
+		Agent agent = (Agent) RequestFilter.getSession().getAttribute("agent");Date date = new Date();
+		Calendar calendar = new GregorianCalendar();
+		calendar.setTime(date);
+		int year = calendar.get(Calendar.YEAR);
+		Date sdate = new GregorianCalendar(year - 3, Calendar.JANUARY, 1).getTime();
+		Date edate = new GregorianCalendar(year + 1, Calendar.DECEMBER, 30).getTime();
 		return usermetierimpl.getListOpSortieArtByDirection(agent.getDirection(), sdate, edate);
 
 	}

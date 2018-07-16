@@ -16,5 +16,6 @@ public interface ArticleNouvRepository extends CrudRepository<ArticleNouv,Long> 
     public List<ArticleNouv> findAll();
     public List<ArticleNouv> findByValidationAndDirecArt(boolean validation, Direction direc);
 	public List<ArticleNouv> findByValidationAndDirecArtOrderByIdArticleDesc(boolean val, Direction d);
+	public List<ArticleNouv> findTop200ByValidationAndDirecArtOrderByIdArticleDesc(boolean val, Direction d);
     
 }
