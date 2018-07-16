@@ -155,8 +155,13 @@
     </div>
 	<p:commandButton action="#{JasperTableExampleBean.inventaireReport(InventaireBean.li, InventaireBean.dateF)}" type="submit" value="Exporter en PDF" ajax="false" ></p:commandButton>
     <br/>
+    <c:if test="#{topMenuMB.curentAgent.roleAgent.role eq 'ROLE_ADMIN' 
+            or topMenuMB.curentAgent.roleAgent.role eq 'ROLE_SISE'
+            or topMenuMB.curentAgent.roleAgent.role eq 'ROLE_DG'
+            or topMenuMB.curentAgent.roleAgent.role eq 'ROLE_DRF'
+            }">
     <p:commandButton action="#{JasperTableExampleBean.inventaireDoc(InventaireBean.li,InventaireBean.dateF)}" type="submit" value="Exporter en Word" ajax="false" ></p:commandButton>
-    
+    </c:if>
     </h:form>
     #{depositaireBean.exity()}
 

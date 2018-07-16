@@ -851,9 +851,9 @@ public class SuiviEditionBean {
 							row[7] = nom[1];
 						} else if (nomenclcurrent.getNomenclature().equals("3")) {
 							row[9] = nom[1];
-						} else if (nomenclcurrent.getNomenclature().equals("4")) {
-							row[11] = nom[1];
 						} else if (nomenclcurrent.getNomenclature().equals("5")) {
+							row[11] = nom[1];
+						} else if (nomenclcurrent.getNomenclature().equals("10")) {
 							row[13] = nom[1];
 						}
 						// nomenclature
@@ -926,9 +926,9 @@ public class SuiviEditionBean {
 						row[8] = mat.getDesign().getPu();
 					} else if (nomenclcurrent.getNomenclature().equals("3")) {
 						row[10] = mat.getDesign().getPu();
-					} else if (nomenclcurrent.getNomenclature().equals("4")) {
-						row[12] = mat.getDesign().getPu();
 					} else if (nomenclcurrent.getNomenclature().equals("5")) {
+						row[12] = mat.getDesign().getPu();
+					} else if (nomenclcurrent.getNomenclature().equals("10")) {
 						row[14] = mat.getDesign().getPu();
 					}
 

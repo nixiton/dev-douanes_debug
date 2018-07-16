@@ -360,10 +360,10 @@ public class Materiel implements Serializable{
 			anneeacquisition = this.getDesign().getAnneeAcquisition();
 		}
 		this.code = ""+
-				""+codeDirection+
-				""+codeNomenclature+
-				""+codeTypeMateriel+
-				""+numerotype+
+				""+codeDirection+ "/" +
+				""+codeNomenclature+ "/" +
+				""+codeTypeMateriel+ "/" +
+				""+numerotype+ "/" +
 				""+anneeacquisition;
 	}
 
