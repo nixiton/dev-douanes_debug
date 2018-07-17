@@ -22,6 +22,7 @@
 	<parameter name="num1" class="java.lang.String"/>
 	<parameter name="date" class="java.util.Date"/>
 	<parameter name="filamatra" class="java.lang.String"/>
+	<parameter name="lieu" class="java.lang.String"/>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
@@ -216,10 +217,6 @@ DIRECTION GENERALE DES DOUANES
 			</textField>
 		</band>
 		<band height="146">
-			<staticText>
-				<reportElement x="340" y="52" width="80" height="20" uuid="d14a3878-db13-4723-abd0-8caaa58381cd"/>
-				<text><![CDATA[Antananarivo, le]]></text>
-			</staticText>
 			<textField>
 				<reportElement x="339" y="72" width="164" height="18" uuid="cc34a8b1-3d2c-4a26-8ec7-3cccf70e6ead"/>
 				<textFieldExpression><![CDATA[$P{nomDepositaire}]]></textFieldExpression>
@@ -233,12 +230,16 @@ DIRECTION GENERALE DES DOUANES
 				<textFieldExpression><![CDATA[$P{nomDetenteur}]]></textFieldExpression>
 			</textField>
 			<textField pattern="dd MMMM yyyy">
-				<reportElement x="420" y="52" width="90" height="20" uuid="fb9faea4-4cc4-4058-b6b5-270169ff0b82"/>
+				<reportElement x="413" y="50" width="90" height="20" uuid="fb9faea4-4cc4-4058-b6b5-270169ff0b82"/>
 				<textFieldExpression><![CDATA[$P{date}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="0" y="0" width="555" height="40" uuid="f2eebafd-795c-4e88-8ba2-8edfeb22b062"/>
 				<textFieldExpression><![CDATA["Arrêté le présent état de détenteur effectif au nombre de " + $P{num1} + " article(s) à une valeur de "  + $P{num2} + " Ariary."]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="339" y="50" width="73" height="20" uuid="3a7b97a6-e1ad-4b39-a6fe-9bb40623b97c"/>
+				<textFieldExpression><![CDATA[$P{lieu} + " ,le "]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>

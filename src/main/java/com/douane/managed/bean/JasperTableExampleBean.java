@@ -161,6 +161,7 @@ public class JasperTableExampleBean implements Serializable{
             parameters.put("date", op.getDate());
             parameters.put("nbr", 1);
             parameters.put("valeurtotal", op.getMat().getDesign().getPu());
+            parameters.put("lieu", op.getDirection().getTrois());
             
             JasperPrint jasperPrint = JasperFillManager.fillReport(url.getPath(), parameters, new JREmptyDataSource());
             response.reset();
@@ -222,7 +223,7 @@ public class JasperTableExampleBean implements Serializable{
             parameters.put("date", op.getDate());
             parameters.put("nbr", 1);
             parameters.put("valeurtotal", op.getMat().getDesign().getPu());
-            
+            parameters.put("lieu", op.getDirection().getTrois());
             JasperPrint jasperPrint = JasperFillManager.fillReport(url.getPath(), parameters, new JREmptyDataSource());
             //EXPORT THROUGH STREAM
             response.reset();
@@ -812,7 +813,7 @@ public class JasperTableExampleBean implements Serializable{
             parameters.put("somme1", this.pdfForm.getSomme1());
             parameters.put("somme2", this.pdfForm.getSomme2());
             parameters.put("date1", this.pdfForm.getDate());
-            
+            parameters.put("lieu", this.pdfForm.getLieu());
             
             JasperPrint jasperPrint = JasperFillManager.fillReport(url.getPath(), parameters, new JREmptyDataSource());
             response.reset();
@@ -856,11 +857,12 @@ public class JasperTableExampleBean implements Serializable{
             parameters.put("num7", this.pdfForm.getNum7());
             parameters.put("num8", this.pdfForm.getNum8());
             parameters.put("num07", this.pdfForm.getNum7());
-            parameters.put("num08", this.pdfForm.getNum9());
+            parameters.put("numO8", this.pdfForm.getNum9());
             parameters.put("somme", this.pdfForm.getSomme());
             parameters.put("somme1", this.pdfForm.getSomme1());
             parameters.put("somme2", this.pdfForm.getSomme2());
-            parameters.put("date1", this.pdfForm.getDate());        
+            parameters.put("date1", this.pdfForm.getDate());  
+            parameters.put("lieu", this.pdfForm.getLieu());      
             JasperPrint jasperPrint = JasperFillManager.fillReport(url.getPath(), parameters, new JREmptyDataSource());
           //EXPORT THROUGH STREAM
             response.reset();

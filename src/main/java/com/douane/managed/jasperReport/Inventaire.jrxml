@@ -22,16 +22,25 @@
 	<style name="table_TH" mode="Opaque" backcolor="#FFFFFF">
 		<box>
 			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+			<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+			<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+			<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
 		</box>
 	</style>
 	<style name="table_CH" mode="Opaque" backcolor="#FFFFFF">
 		<box>
 			<pen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="1.0"/>
 		</box>
 	</style>
 	<style name="table_TD" mode="Opaque" backcolor="#FFFFFF">
 		<box>
 			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+			<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
 		</box>
 	</style>
 	<subDataset name="Table Dataset 1" uuid="a02b6442-a325-4e0a-873f-026c668510f1">
@@ -126,14 +135,14 @@
 			</staticText>
 			<staticText>
 				<reportElement x="13" y="140" width="100" height="20" uuid="22229cad-a096-47f6-b83f-2a646308b40b"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
+				<textElement textAlignment="Left" verticalAlignment="Top">
 					<font size="12"/>
 				</textElement>
 				<text><![CDATA[Service d(1)]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="12" y="160" width="100" height="20" uuid="7bb334a3-8cee-46a0-a490-72d232a293fa"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
+				<textElement textAlignment="Left" verticalAlignment="Top">
 					<font size="12"/>
 				</textElement>
 				<text><![CDATA[Hôtel du(2)]]></text>
@@ -385,7 +394,7 @@
 									<textElement textAlignment="Center" verticalAlignment="Middle">
 										<font size="10"/>
 									</textElement>
-									<text><![CDATA[Entrées pendant l'années]]></text>
+									<text><![CDATA[Entrées pendant l'année]]></text>
 								</staticText>
 							</jr:columnHeader>
 							<jr:columnFooter style="table_CH" height="30" rowSpan="1"/>
@@ -408,7 +417,7 @@
 									<textElement textAlignment="Center" verticalAlignment="Middle">
 										<font size="12"/>
 									</textElement>
-									<text><![CDATA[Sortie pendant la periode]]></text>
+									<text><![CDATA[Sortie pendant la période]]></text>
 								</staticText>
 							</jr:columnHeader>
 							<jr:columnFooter style="table_CH" height="30" rowSpan="1"/>
@@ -580,32 +589,32 @@
 				<textFieldExpression><![CDATA[$P{lieu1}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="168" y="119" width="85" height="20" uuid="20118ac7-dd4e-437c-99eb-8ec57482e52c"/>
+				<reportElement x="168" y="119" width="112" height="20" uuid="20118ac7-dd4e-437c-99eb-8ec57482e52c"/>
 				<textElement>
 					<font size="12"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$P{date1}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$P{date}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="17" y="148" width="27" height="20" uuid="c5d50a7d-103d-40fc-b7fa-ef25014437d3"/>
+				<reportElement x="17" y="148" width="33" height="20" uuid="c5d50a7d-103d-40fc-b7fa-ef25014437d3"/>
 				<textElement>
 					<font size="12"/>
 				</textElement>
 				<text><![CDATA[Le(1)]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="151" y="148" width="118" height="20" uuid="48c4a12b-b6bc-412d-baf5-585a75745861"/>
+				<reportElement x="17" y="168" width="118" height="20" uuid="48c4a12b-b6bc-412d-baf5-585a75745861"/>
 				<textElement>
 					<font size="12"/>
 				</textElement>
 				<text><![CDATA[détenteur effectif,]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="44" y="148" width="107" height="20" uuid="60c170a3-a245-4053-8456-48aa2071a79b"/>
+				<reportElement x="50" y="148" width="230" height="20" uuid="60c170a3-a245-4053-8456-48aa2071a79b"/>
 				<textElement>
 					<font size="12"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$P{date3}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$P{date1}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="360" y="148" width="59" height="20" uuid="d348458c-c1c9-4694-98f4-c38164e0cfa6"/>

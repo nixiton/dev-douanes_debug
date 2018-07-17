@@ -90,7 +90,7 @@
         <br></br><br></br>
         <div class="col-md-12">
 
-            Service d (1) #{siseBean.designation} <p:inputText value="#{JasperTableExampleBean.pdfForm.num1}" style="text-align: center;width:80%"/> <br></br>
+            (1) #{suivieditionBean.direction.designation}<br></br>
             <br></br><br></br>
         </div>
         <br></br><br></br>
@@ -140,8 +140,8 @@
         
         Vu et reconnu exact : <br></br>
 
-        A<p:inputText value="#{JasperTableExampleBean.pdfForm.lieu}"  style="text-align: center;width:10%"/> le <p:inputText  style="text-align: center;width:10%"/> <br></br>
-        Le (1)<p:inputText value="#{JasperTableExampleBean.pdfForm.date}" style="text-align: center;width:20%"/> <br/>
+        A #{suivieditionBean.direction.trois} le <p:inputText  style="text-align: center;width:10%"/> <br></br>
+        Le (1) #{suivieditionBean.direction.designation} <br/>
         <p:inputText value="#{JasperTableExampleBean.pdfForm.num3}" style="text-align: center;width:20%"/> détenteur effectif,
         
     </div>
@@ -153,14 +153,24 @@
             Vu le (2)<p:inputText value="#{JasperTableExampleBean.pdfForm.num4}" style="text-align: center;width:50%"/>    <br></br><br></br><br></br>
         </div>
     </div>
-	<p:commandButton action="#{JasperTableExampleBean.inventaireReport(InventaireBean.li, InventaireBean.dateF)}" type="submit" value="Exporter en PDF" ajax="false" ></p:commandButton>
+	<p:commandButton action="#{JasperTableExampleBean.inventaireReport(InventaireBean.li, InventaireBean.dateF)}" type="submit" value="Exporter en PDF" ajax="false" >
+		<f:setPropertyActionListener target="#{JasperTableExampleBean.pdfForm.num1}" value="#{suivieditionBean.direction.designation}" />
+ 		<f:setPropertyActionListener target="#{JasperTableExampleBean.pdfForm.date}" value="#{suivieditionBean.direction.designation}" />
+ 		<f:setPropertyActionListener target="#{JasperTableExampleBean.pdfForm.lieu}" value="#{suivieditionBean.direction.trois}" />
+ 		
+	</p:commandButton>
     <br/>
     <c:if test="#{topMenuMB.curentAgent.roleAgent.role eq 'ROLE_ADMIN' 
             or topMenuMB.curentAgent.roleAgent.role eq 'ROLE_SISE'
             or topMenuMB.curentAgent.roleAgent.role eq 'ROLE_DG'
             or topMenuMB.curentAgent.roleAgent.role eq 'ROLE_DRF'
             }">
-    <p:commandButton action="#{JasperTableExampleBean.inventaireDoc(InventaireBean.li,InventaireBean.dateF)}" type="submit" value="Exporter en Word" ajax="false" ></p:commandButton>
+    <p:commandButton action="#{JasperTableExampleBean.inventaireDoc(InventaireBean.li,InventaireBean.dateF)}" type="submit" value="Exporter en Word" ajax="false" >
+    	<f:setPropertyActionListener target="#{JasperTableExampleBean.pdfForm.num1}" value="#{suivieditionBean.direction.designation}" />
+ 		<f:setPropertyActionListener target="#{JasperTableExampleBean.pdfForm.date}" value="#{suivieditionBean.direction.designation}" />
+ 		<f:setPropertyActionListener target="#{JasperTableExampleBean.pdfForm.lieu}" value="#{suivieditionBean.direction.trois}" />
+ 		
+    </p:commandButton>
     </c:if>
     </h:form>
     #{depositaireBean.exity()}

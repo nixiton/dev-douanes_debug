@@ -76,7 +76,7 @@
 			<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
 			<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
 			<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
-			<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+			<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
 		</box>
 	</style>
 	<style name="table 2_TH" mode="Opaque" backcolor="#FFFFFF">
@@ -407,7 +407,7 @@ DES MOUVEMENTS D’ENTREE ET DE SORTIE
 				<textFieldExpression><![CDATA[$P{ans}]]></textFieldExpression>
 			</textField>
 		</band>
-		<band height="293">
+		<band height="284">
 			<componentElement>
 				<reportElement key="table 1" style="table 1" x="-4" y="0" width="812" height="250" uuid="0b08cece-b1ff-4af3-965d-80a1a3cd04ac"/>
 				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">

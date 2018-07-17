@@ -10,6 +10,7 @@ import com.douane.managed.bean.SuiviEditionBean;
 @SessionScoped
 @ManagedBean(name="EtatAppreciatifBean")
 public class EtatAppreciatifBean {
+	private String service;
 	private Date date;
 	private String trois;
 	private String quatre;
@@ -22,6 +23,7 @@ public class EtatAppreciatifBean {
 			this.liste = s.getListESForGrandLivreOld();
 			this.trois = s.getDirection().getTrois();
 			this.quatre = s.getDirection().getQuatre();
+			this.service = s.getDirection().getDesignation();
 			//System.out.println("etat Appreciatif null");
 		}
 		//this.liste = l;
@@ -50,6 +52,12 @@ public class EtatAppreciatifBean {
 	}
 	public void setQuatre(String quatre) {
 		this.quatre = quatre;
+	}
+	public String getService() {
+		return service;
+	}
+	public void setService(String service) {
+		this.service = service;
 	}
 
 }
