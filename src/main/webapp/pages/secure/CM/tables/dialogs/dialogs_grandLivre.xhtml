@@ -44,7 +44,7 @@
  				CHAPITRE(1) <p:inputText value ="#{JasperTableExampleBean.livre.chap}" style="text-align: center;width: 25%"></p:inputText>
  				ARTICLE <p:inputText value ="#{JasperTableExampleBean.livre.article}" style="text-align: center;width: 25%"></p:inputText> <br></br>
  				(2) <p:inputText value ="#{JasperTableExampleBean.livre.libelle}"  style="text-align: center;width: 70%"></p:inputText><br></br>
- 				(3) #{livreAnnuelBean.trois}<br></br>
+ 				(3) #{livreAnnuelBean.service}<br></br>
  				(4) #{livreAnnuelBean.quatre}<br></br>
  				(5) <p:inputText  value ="#{JasperTableExampleBean.livre.indication}" style="text-align: center;width: 70%"></p:inputText><br></br>
  			</div>
@@ -67,10 +67,10 @@
  		</div>
  		<div class="col-md-12" style="text-align: center;">
  			<h4>MATERIEL EN SERVICE</h4>
- 			<h1>GRAND LIVRE ANNUEL</h1>
+ 			<h1>GRAND LIVRE ANNUEL #{livreAnnuelBean.anne}</h1>
  			<h3>DES MOUVEMENTS D’ENTREE ET DE SORTIE</h3>
  			<p>Nombre de feuillets  : <p:inputText value ="#{JasperTableExampleBean.livre.nbFeuillets}" style="text-align: center;"></p:inputText>
- 			. A <p:inputText value ="#{JasperTableExampleBean.livre.lieu}" style="text-align: center;"></p:inputText> le <p:inputText value ="#{JasperTableExampleBean.livre.date}" style="text-align: center;"></p:inputText>.</p>
+ 			. A #{livreAnnuelBean.trois} le <h:outputText value="#{livreAnnuelBean.dateF}" />. </p>
  		</div>
  		<!-- <p:dataTable style="font-size: 11px;" emptyMessage="">
 	           
@@ -141,7 +141,10 @@
 		</p:dataTable>  -->	
 	</div>
 	<p:commandButton action="#{JasperTableExampleBean.grandLivreReport(livreAnnuelBean.liste)}" type="submit" value="Exporter en PDF" ajax="false" >
-		<f:setPropertyActionListener target="#{JasperTableExampleBean.livre.subd}" value="#{livreAnnuelBean.trois}" />
+		<f:setPropertyActionListener target="#{JasperTableExampleBean.livre.subd}" value="#{livreAnnuelBean.service}" />
+		<f:setPropertyActionListener target="#{JasperTableExampleBean.livre.lieu}" value="#{livreAnnuelBean.trois}" />
+		<f:setPropertyActionListener target="#{JasperTableExampleBean.livre.date}" value="#{livreAnnuelBean.dateF}" />
+ 		<f:setPropertyActionListener target="#{JasperTableExampleBean.livre.ans}" value="#{livreAnnuelBean.anne}" />
  		<f:setPropertyActionListener target="#{JasperTableExampleBean.livre.materiel}" value="#{livreAnnuelBean.quatre}" />
 	</p:commandButton>
 	<br/>
@@ -150,7 +153,13 @@
             or topMenuMB.curentAgent.roleAgent.role eq 'ROLE_DG'
             or topMenuMB.curentAgent.roleAgent.role eq 'ROLE_DRF'
             }">
-	<p:commandButton action="#{JasperTableExampleBean.grandLivreDoc(livreAnnuelBean.liste)}" type="submit" value="Exporter en Word" ajax="false" ></p:commandButton>
+	<p:commandButton action="#{JasperTableExampleBean.grandLivreDoc(livreAnnuelBean.liste)}" type="submit" value="Exporter en Word" ajax="false" >
+		<f:setPropertyActionListener target="#{JasperTableExampleBean.livre.subd}" value="#{livreAnnuelBean.service}" />
+		<f:setPropertyActionListener target="#{JasperTableExampleBean.livre.lieu}" value="#{livreAnnuelBean.trois}" />
+		<f:setPropertyActionListener target="#{JasperTableExampleBean.livre.date}" value="#{livreAnnuelBean.dateF}" />
+ 		<f:setPropertyActionListener target="#{JasperTableExampleBean.livre.ans}" value="#{livreAnnuelBean.anne}" />
+ 		<f:setPropertyActionListener target="#{JasperTableExampleBean.livre.materiel}" value="#{livreAnnuelBean.quatre}" />
+	</p:commandButton>
 	</c:if>
 	</h:form>
 </h:body>

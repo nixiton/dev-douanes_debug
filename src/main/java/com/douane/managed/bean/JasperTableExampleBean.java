@@ -720,7 +720,7 @@ public class JasperTableExampleBean implements Serializable{
             parameters.put("nbFeuillets", this.livre.getNbFeuillets());
             parameters.put("lieu", this.livre.getLieu());
             parameters.put("date", this.livre.getDate());
-            parameters.put("ans", "");
+            parameters.put("ans",this.livre.getAns());
             
             JasperPrint jasperPrint = JasperFillManager.fillReport(url.getPath(), parameters, new JREmptyDataSource());
             response.reset();
@@ -760,7 +760,7 @@ public class JasperTableExampleBean implements Serializable{
             parameters.put("nbFeuillets", this.livre.getNbFeuillets());
             parameters.put("lieu", this.livre.getLieu());
             parameters.put("date", this.livre.getDate());
-            parameters.put("ans", "");
+            parameters.put("ans",this.livre.getAns());
             
             JasperPrint jasperPrint = JasperFillManager.fillReport(url.getPath(), parameters, new JREmptyDataSource());
           //EXPORT THROUGH STREAM
