@@ -1927,6 +1927,15 @@ public class SuiviEditionBean {
 		Date sdate = new GregorianCalendar(year - 2, Calendar.JANUARY, 1).getTime();
 		Date edate = new GregorianCalendar(year + 1, Calendar.DECEMBER, 30).getTime();
 		List<Operation> lesoperations = getListOpESArtByDirection(sdate,edate);
+		Collections.sort(lesoperations, new Comparator<Operation>() {
+			public int compare(Operation o1, Operation o2) {
+				Long id1 = o1.getId();
+				Long id2 = o2.getId();
+				//System.out.println("date :" + d1);
+				return id1.compareTo(id2);
+			}
+		});
+		
 		// structure de données
 		List<Object[]> resulttable = new ArrayList<Object[]>();
 		Object[] row = new Object[8];
@@ -1982,20 +1991,31 @@ public class SuiviEditionBean {
 	}
 
 	// list objet format pour journal
-	public List<Object[]> getListForJournalStock() {
+	public List<Object[]> getListForJournalStock(Date fdate) {
+		// if date not set
 		Date date = new Date();
+		if(fdate !=null) {
+			 date = fdate;
+			 System.out.println(" fdate not null");
+		}else {
+			System.out.println(" fdate  null");
+		}
 		Calendar calendar = new GregorianCalendar();
 		calendar.setTime(date);
 		int year = calendar.get(Calendar.YEAR);
-		Date sdate = new GregorianCalendar(year - 2, Calendar.JANUARY, 1).getTime();
-		Date edate = new GregorianCalendar(year + 1, Calendar.DECEMBER, 30).getTime();
+		Date sdate = new GregorianCalendar(year , Calendar.JANUARY, 1).getTime();
+		Date edate = new GregorianCalendar(year , Calendar.DECEMBER, 31).getTime();
+		//end date set
 		List<Operation> lesoperations = getListOpESArtByDirection(sdate, edate);
 		// structure de données
 		List<Object[]> resulttable = new ArrayList<Object[]>();
-		Object[] row = new Object[8];
+		Long i = 1L;
+		Object[] row = new Object[9];
 		for (Operation o : lesoperations) {
+			//id
+			row[8] = "" + o.getId().toString();
 			// numero d'ordre
-			row[0] = "" + o.getId().toString();
+			row[0] = i;
 			// date operation
 			row[1] = o.getDate();
 			// reference
@@ -2046,10 +2066,93 @@ public class SuiviEditionBean {
 			}
 
 			resulttable.add(row);
-			row = new Object[8];
+			row = new Object[9];
+			i=i+1;
 		}
 		return resulttable;
 	}
+	
+	// Used in jouenalabean
+		public List<Object[]> ourListForJournalStock(Date fdate) {
+			// if date not set
+			Date date = new Date();
+			if(fdate !=null) {
+				 date = fdate;
+				 System.out.println(" fdate not null");
+			}else {
+				System.out.println(" fdate  null");
+			}
+			Calendar calendar = new GregorianCalendar();
+			calendar.setTime(date);
+			int year = calendar.get(Calendar.YEAR);
+			Date sdate = new GregorianCalendar(year , Calendar.JANUARY, 1).getTime();
+			Date edate = new GregorianCalendar(year , Calendar.DECEMBER, 31).getTime();
+			//end date set
+			List<Operation> lesoperations = getListOpESArtByDirection(sdate, edate);
+			// structure de données
+			List<Object[]> resulttable = new ArrayList<Object[]>();
+			Long i = 1L;
+			Object[] row = new Object[9];
+			for (Operation o : lesoperations) {
+				//id
+				row[8] = "" + o.getId().toString();
+				// numero d'ordre
+				row[0] = i;
+				// date operation
+				row[1] = o.getDate();
+				// reference
+				row[2] = " a ajouter " + o.getId();
+				// origine
+				row[3] = "";
+				// designation des articles
+				row[4] = "";
+				// quantite
+				row[5] = new Long (0);
+				// prix unitaire
+				row[6] = new Float(0);
+				// Montant total
+				row[7] = new Float(0);
+
+				// processing
+				if (o instanceof OpEntreeArticle) {
+					row[0] = row[0] + "/E";
+					row[3] = "a ajouter origine";
+					Article a = ((OpEntreeArticle) o).getArticle();
+					row[4] = a.getCodeArticle().getTypeObjet().getDesignation() + " (" + a.getCodeArticle().getDesignation()
+							+ " ) " + a.getMarqueArticle();
+					row[5] = a.getNombre();
+					row[6] = a.getPrix();
+					row[7] = (Long) row[5] * (Float) row[6];
+					//set reference entree
+					if(a.getReference()!=null) {
+						row[2] = a.getReference();
+					}
+					if(a.getOrigine()!=null) {
+						row[3] = a.getOrigine();
+					}
+					
+
+				} else if (o instanceof OpSortieArticle) {
+					row[0] = row[0] + "/S";
+					row[3] = (((OpSortieArticle) o).getBeneficiaire()).getNomAgent();
+					Article a = ((OpSortieArticle) o).getArticle();
+					row[4] = a.getCodeArticle().getTypeObjet().getDesignation() + " (" + a.getCodeArticle().getDesignation()
+							+ " ) ";
+					row[5] = a.getNombre();
+					row[6] = a.getPrix();
+					row[7] = (Long) row[5] * (Float) row[6];
+					if(((OpSortieArticle) o).getDecision()!=null) {
+						row[2]=((OpSortieArticle) o).getDecision();
+					}
+
+				}
+
+				resulttable.add(row);
+				row = new Object[9];
+				i=i+1;
+			}
+			return resulttable;
+		}
 	
 	public List<Object[]> getListForJournalStock(Date s, Date f) {
 		List<Operation> lesoperations = getListOpESArtByDirection(s,f);

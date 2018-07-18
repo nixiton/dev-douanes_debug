@@ -2,6 +2,7 @@ package com.douane.managed.bean.form;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
@@ -45,7 +46,12 @@ public class JournalABean {
 		this.datF = new Date();
 	}
 	public String execute(SuiviEditionBean s) {
-		this.liste = s.getListForJournalStock(this.date , this.datF);//this.date , this.datF
+		//this.liste = s.getListForJournalStock(this.date , this.datF);//this.date , this.datF
+		this.liste = s.ourListForJournalStock(date);
+		// this myget
+		this.liste = this.mygetFListESAForJournal(liste, date, datF);
+		
+		
 		DateFormat  df = new SimpleDateFormat("dd MMMM yyyy", Locale.FRANCE);
 		this.dateD = df.format(this.date);
 		this.dateF  = df.format(this.datF);
@@ -56,6 +62,16 @@ public class JournalABean {
 			this.quatre = s.getDirection().getQuatre();
 		}else System.out.println("tsy tonga ny journal.Direction");
 		return "dialogJournalAdmin";
+	}
+	
+	public List<Object[]> mygetFListESAForJournal(List<Object[]> listebyyeaer,Date start, Date fin) {
+		List<Object[]> listefiltered =  new ArrayList<Object[]>();
+		for (Object[] o:listebyyeaer) {
+			if(start.compareTo((Date)(o[1])) <=0 && fin.compareTo((Date)(o[1]))>=0)
+			listefiltered.add(o);
+		}
+		return listefiltered;
+		
 	}
 	public Date getDate() {
 		return date;
