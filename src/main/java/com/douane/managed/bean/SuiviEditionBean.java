@@ -1612,13 +1612,13 @@ public class SuiviEditionBean {
 	}
 
 	public List<Object[]> getListobjectForInvetaire() {
-		if (listobjectForInvetaire == null) {
+		//if (listobjectForInvetaire == null) {
 			Agent cur = (Agent) RequestFilter.getSession().getAttribute("agent");
 			Date date = new Date();
 			Calendar calendar = new GregorianCalendar();
 			calendar.setTime(date);
 			int year = calendar.get(Calendar.YEAR);
-			Date sdate = new GregorianCalendar(year, Calendar.JANUARY, 11).getTime();
+			Date sdate = new GregorianCalendar(year, Calendar.JANUARY, 1).getTime();
 			Date edate = new GregorianCalendar(year, Calendar.DECEMBER, 31).getTime();
 			System.out.println("RRRRRRRRRRR Begin:");
 			List<Object[]> r = usermetierimpl.getListObjectForinvetaire(cur.getDirection(), sdate, edate);
@@ -1633,6 +1633,11 @@ public class SuiviEditionBean {
 				Object[] row = new Object[13];
 				Materiel mat = (Materiel) m[1];
 				OpSortie o = (OpSortie) m[0];
+				
+				if(mat.getMyoperationEntree()!=null && mat.getMyoperationEntree().getDate().compareTo(edate)>=0){
+					System.out.println("mat tsy misy"+ mat.getReference());
+					continue;
+				}
 				// Nomenclature
 				row[0] = mat.getDesign().getNomenMat().getNomenclature();
 				// Numéros du folio du grand livre
@@ -1650,7 +1655,7 @@ public class SuiviEditionBean {
 				// Existantes au 1er Janvier X
 				row[5] = 0;
 				// Entrées pendant l’année X
-				if (mat.getMyoperationEntree() == null || mat.getMyoperationEntree().getDate().compareTo(sdate) < 0) {
+				if (mat.getMyoperationEntree() == null || mat.getMyoperationEntree().getDate().compareTo(sdate) <= 0) {
 					row[6] = "Materiel Existant";
 					row[5] = 1;
 				} else {
@@ -1658,10 +1663,14 @@ public class SuiviEditionBean {
 				}
 
 				// Sortie pendant l’année X
-				if (o == null) {
+				if (o == null ) {
 					row[7] = "Aucune sortie";
-				} else {
+				}else {
+					if(o.getDate()!=null && o.getDate().compareTo(edate)>=0) {
+						row[7] = "Aucune sortie";
+					}else {
 					row[7] = o.getNumoperation();
+					}
 				}
 				// Reste au 31 déc. X
 				row[8] = "reste";
@@ -1731,6 +1740,7 @@ public class SuiviEditionBean {
 							&& materiels.get(0).getMyoperationEntree().getDate().compareTo(sdate) < 0) {
 						es = materiels.get(0).getMyoperationEntree().getDate().toString();
 					}
+					
 					row[6] = "Materiel Existant " + es;
 					row[5] = materiels.size();
 					entreeAx = 0;
@@ -1770,7 +1780,7 @@ public class SuiviEditionBean {
 			}
 
 			listobjectForInvetaire = resultstableGrouped;
-		}
+		//}
 
 		return listobjectForInvetaire;
 	}

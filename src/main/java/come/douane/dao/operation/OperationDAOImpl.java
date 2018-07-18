@@ -740,6 +740,7 @@ public class OperationDAOImpl implements IOperationDAO{
 				+ "and opso.direction =:direct "
 				+ "and opso.state =:etat "
 					+ "and opso.date>=:date "
+					//+ "and opso.date<=:edate "
 	       		);
 		Query query2 = em.createQuery("select m from Materiel m    "
 				+ "where m.validation =:val "
@@ -747,6 +748,7 @@ public class OperationDAOImpl implements IOperationDAO{
 	       		);
 		query1.setParameter("direct", d);
 		query1.setParameter("date", startDate);
+		//query1.setParameter("edate", endDate);
 		query1.setParameter("etat", EtatOperation.ACCEPTED);
 		
 		query2.setParameter("direct", d);
