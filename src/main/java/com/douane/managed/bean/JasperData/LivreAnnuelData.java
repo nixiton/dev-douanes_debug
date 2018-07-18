@@ -162,6 +162,14 @@ public class LivreAnnuelData {
 			this.row15 = row15;
 		}
 
+		public String getRow16() {
+			return row16;
+		}
+
+		public void setRow16(String row16) {
+			this.row16 = row16;
+		}
+
 		private String row6;
 		private String row7;
 		private Integer row8;
@@ -172,7 +180,7 @@ public class LivreAnnuelData {
 		private Integer row13;
 		private String row14;///TO-DO
 		private String row15;
-		
+		private String row16;
 		public LivreAnnuel(Object[] i) {
 			DateFormat  df = new SimpleDateFormat("dd MMM yyyy", Locale.FRANCE);
 			this.nomenclature= (String)i[0];
@@ -195,6 +203,8 @@ public class LivreAnnuelData {
 				this.row14= df.format(i[14]);
 			}
 			this.row15 = (String) i[15];
+			this.row16 = (String) i[16] + ", " + (String) i[17];
+			
 		}
 		
 		

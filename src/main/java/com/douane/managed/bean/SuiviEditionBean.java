@@ -1376,11 +1376,9 @@ public class SuiviEditionBean {
 
 	public List<Object[]> getListESForGrandLivre(Date start, Date fin) {
 
-			Agent cur = (Agent) RequestFilter.getSession().getAttribute("agent");
-			Date date = new Date();
-			Calendar calendar = new GregorianCalendar();
-			calendar.setTime(date);
+		if (listESForGrandLivre == null) {
 			DateFormat  df = new SimpleDateFormat("dd MMM yyyy", Locale.FRANCE);
+			Agent cur = (Agent) RequestFilter.getSession().getAttribute("agent");
 			Date sdate = start;
 			Date edate = fin;
 			System.out.println("RRRRRRRRRRR Begin:");
@@ -1393,7 +1391,7 @@ public class SuiviEditionBean {
 			List<Object[]> resultstable = new ArrayList<Object[]>();
 
 			for (Object[] m : r) {
-				Object[] row = new Object[14];
+				Object[] row = new Object[15];
 				Materiel mat = (Materiel) m[1];
 				OpSortie o = (OpSortie) m[0];
 				// Nomenclature
@@ -1412,6 +1410,8 @@ public class SuiviEditionBean {
 				row[4] = mat.getDesign().getPu();
 				// Existantes au 1er Janvier X
 				row[5] = 0;
+				// Sortie du matériel
+				row[14] = null;
 				// Entrées pendant l’année X
 				if (mat.getMyoperationEntree() == null || mat.getMyoperationEntree().getDate().compareTo(sdate) < 0) {
 					row[6] = "Materiel Existant";
@@ -1425,6 +1425,7 @@ public class SuiviEditionBean {
 					row[7] = "Aucune sortie";
 				} else {
 					row[7] = o.getNumoperation();
+					row[14]=o;
 				}
 				// Reste au 31 déc. X
 				row[8] = "reste";
@@ -1461,7 +1462,7 @@ public class SuiviEditionBean {
 			for (Map.Entry<Designation, List<Object[]>> entry : map.entrySet()) {
 				// System.out.println(entry.getKey().getIdDesignation() + ":" +
 				// entry.getValue().size());
-				Object[] row = new Object[16];
+				Object[] row = new Object[18];
 				Designation des = entry.getKey();
 				List<Object[]> infos = entry.getValue();
 				// materiels
@@ -1494,39 +1495,53 @@ public class SuiviEditionBean {
 				// date des entrées et des sorties
 				row[14] = ""; // entrée
 				row[15] = ""; // sorties
+				//origine des entrées et motifs des sorties
+				row[16] = "";
+				row[17] = "";
 
 				int entreeAx = 0;// entree pendant année X
 				if (materiels.get(0).getMyoperationEntree() == null
 						|| materiels.get(0).getMyoperationEntree().getDate().compareTo(sdate) < 0) {
-					String es = " manuellement ";
+					String es = "  ";
 					if (materiels.get(0).getMyoperationEntree() != null
 							&& materiels.get(0).getMyoperationEntree().getDate().compareTo(sdate) < 0) {
-						es =df.format(materiels.get(0).getMyoperationEntree().getDate());
+						es = "du " +df.format(materiels.get(0).getMyoperationEntree().getDate());
 					}
-					row[6] = "Materiel Existant du " + es;
+					row[6] = "Materiel Existant  " + es;
 					row[5] = materiels.size();
 					entreeAx = 0;
+					//set origine des entrées pour le premier matériel
+					row[16] =  materiels.get(0).getDesign().getOrigine();  
 
 				} else {
 					row[6] = materiels.get(0).getMyoperationEntree().getNumoperation();
 					entreeAx = materiels.size();
 					row[14] = materiels.get(0).getMyoperationEntree().getDate();
+					row[16] =  row[16]+ materiels.get(0).getDesign().getRefFacture() + " - "+materiels.get(0).getDesign().getOrigine(); 
 				}
 
 				// Sortie pendant l’année X
 				String sortie = "";
 				String sortieAnnee = "xxxx";
+				String sortieMotif="";
 				int sortieAx = 0;
 				for (Object[] o : infos) {
 					if (!o[7].equals("Aucune sortie")) {
 						sortie = sortie + " - " + (String) o[7];
 						sortieAx = sortieAx + 1;
 						sortieAnnee = sortieAnnee + " , " + (String) o[13];
+						OpSortie sortieoperation =  (OpSortie) o[14];
+						sortieMotif = sortieoperation.getMotifsortie().getDesignation();
+						if(sortieoperation.getDirec()!=null) {
+							sortieMotif = sortieMotif+ " vers " + sortieoperation.getDirec().getDesignation();
+						}
+						row[17] = row[17]  +sortieMotif; //motifs des sorties
 					}
 
 				}
 				row[15] = sortieAnnee; // set annees sorties
 				row[7] = sortie;
+				
 				/*
 				 * if(o ==null) { row[7] = "Aucune sortie"; } else { row[7] =
 				 * o.getNumoperation(); }
@@ -1545,7 +1560,9 @@ public class SuiviEditionBean {
 				resultstableGrouped.add(row);
 			}
 
-		return resultstableGrouped;
+			listESForGrandLivre = resultstableGrouped;
+		}
+		return listESForGrandLivre;
 	}
 
 	
