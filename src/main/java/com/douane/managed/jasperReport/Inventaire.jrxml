@@ -251,6 +251,7 @@
 					</datasetRun>
 					<jr:column width="40" uuid="c4886a22-3445-484a-b5f4-6109070b1f94">
 						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Colonne1"/>
+						<jr:tableFooter height="30" rowSpan="1"/>
 						<jr:groupHeader groupName="Group by nomenclature">
 							<jr:cell height="30" rowSpan="1"/>
 						</jr:groupHeader>
@@ -263,7 +264,6 @@
 								<text><![CDATA[Numéros du folio du grand livre]]></text>
 							</staticText>
 						</jr:columnHeader>
-						<jr:columnFooter style="table_CH" height="30" rowSpan="1"/>
 						<jr:detailCell style="table_TD" height="62" rowSpan="1">
 							<textField>
 								<reportElement x="0" y="0" width="40" height="62" uuid="29a34349-5dc7-4af7-b692-c39ba50e84ab"/>
@@ -274,6 +274,7 @@
 					</jr:column>
 					<jr:column width="90" uuid="1302fb70-1631-4757-905c-c5c810ca7ec1">
 						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Colonne2"/>
+						<jr:tableFooter height="30" rowSpan="1"/>
 						<jr:groupHeader groupName="Group by nomenclature">
 							<jr:cell height="30" rowSpan="1">
 								<textField>
@@ -294,7 +295,6 @@
 								<text><![CDATA[Désignation du matériel]]></text>
 							</staticText>
 						</jr:columnHeader>
-						<jr:columnFooter style="table_CH" height="30" rowSpan="1"/>
 						<jr:detailCell style="table_TD" height="62" rowSpan="1">
 							<textField>
 								<reportElement x="0" y="0" width="90" height="62" uuid="f135381f-3720-459d-ba95-13862829076b"/>
@@ -305,6 +305,7 @@
 					</jr:column>
 					<jr:column width="50" uuid="236ce356-769c-493a-a1a0-18fc12e06aba">
 						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Colonne3"/>
+						<jr:tableFooter height="30" rowSpan="1"/>
 						<jr:groupHeader groupName="Group by nomenclature">
 							<jr:cell height="30" rowSpan="1"/>
 						</jr:groupHeader>
@@ -317,7 +318,6 @@
 								<text><![CDATA[Espèce unités]]></text>
 							</staticText>
 						</jr:columnHeader>
-						<jr:columnFooter style="table_CH" height="30" rowSpan="1"/>
 						<jr:detailCell style="table_TD" height="62" rowSpan="1">
 							<textField>
 								<reportElement x="0" y="0" width="50" height="62" uuid="f48bdbf7-4c37-41b7-8bd6-90cd9908f377"/>
@@ -328,6 +328,7 @@
 					</jr:column>
 					<jr:column width="60" uuid="5109a2a8-cfaf-4335-b1b5-68c40d4c5911">
 						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Colonne4"/>
+						<jr:tableFooter height="30" rowSpan="1"/>
 						<jr:groupHeader groupName="Group by nomenclature">
 							<jr:cell height="30" rowSpan="1"/>
 						</jr:groupHeader>
@@ -340,7 +341,6 @@
 								<text><![CDATA[Prix de l'unité]]></text>
 							</staticText>
 						</jr:columnHeader>
-						<jr:columnFooter style="table_CH" height="30" rowSpan="1"/>
 						<jr:detailCell style="table_TD" height="62">
 							<textField>
 								<reportElement x="0" y="0" width="60" height="62" uuid="6c21e556-1d5f-4741-8d12-080648cfeffd"/>
@@ -362,6 +362,7 @@
 						</jr:columnHeader>
 						<jr:column width="45" uuid="da9deba9-c2e0-460d-ad19-914c86663e01">
 							<property name="com.jaspersoft.studio.components.table.model.column.name" value="Colonne5"/>
+							<jr:tableFooter height="30" rowSpan="1"/>
 							<jr:groupHeader groupName="Group by nomenclature">
 								<jr:cell height="30" rowSpan="1"/>
 							</jr:groupHeader>
@@ -374,7 +375,6 @@
 									<text><![CDATA[Existantes au 1er janvier]]></text>
 								</staticText>
 							</jr:columnHeader>
-							<jr:columnFooter style="table_CH" height="30" rowSpan="1"/>
 							<jr:detailCell style="table_TD" height="62" rowSpan="1">
 								<textField>
 									<reportElement x="0" y="0" width="45" height="62" uuid="ca6c4e26-dcb4-496d-b817-fb05048b762e"/>
@@ -385,6 +385,7 @@
 						</jr:column>
 						<jr:column width="45" uuid="79061a4b-20cd-4cae-992c-480f15f76857">
 							<property name="com.jaspersoft.studio.components.table.model.column.name" value="Colonne6"/>
+							<jr:tableFooter height="30" rowSpan="1"/>
 							<jr:groupHeader groupName="Group by nomenclature">
 								<jr:cell height="30" rowSpan="1"/>
 							</jr:groupHeader>
@@ -397,7 +398,6 @@
 									<text><![CDATA[Entrées pendant l'année]]></text>
 								</staticText>
 							</jr:columnHeader>
-							<jr:columnFooter style="table_CH" height="30" rowSpan="1"/>
 							<jr:detailCell style="table_TD" height="62">
 								<textField>
 									<reportElement x="0" y="0" width="45" height="62" uuid="44aa70d2-3f7a-4fa8-9391-ec91b55dc069"/>
@@ -408,6 +408,7 @@
 						</jr:column>
 						<jr:column width="45" uuid="89791dc7-eeb2-4eb1-b690-e4e3a5fddf61">
 							<property name="com.jaspersoft.studio.components.table.model.column.name" value="Colonne7"/>
+							<jr:tableFooter height="30" rowSpan="1"/>
 							<jr:groupHeader groupName="Group by nomenclature">
 								<jr:cell height="30" rowSpan="1"/>
 							</jr:groupHeader>
@@ -420,7 +421,6 @@
 									<text><![CDATA[Sortie pendant la période]]></text>
 								</staticText>
 							</jr:columnHeader>
-							<jr:columnFooter style="table_CH" height="30" rowSpan="1"/>
 							<jr:detailCell style="table_TD" height="62">
 								<textField>
 									<reportElement x="0" y="0" width="45" height="62" uuid="3fa9e5cc-678a-47e9-9ac0-4269838362c5"/>
@@ -431,6 +431,7 @@
 						</jr:column>
 						<jr:column width="45" uuid="d557eaf1-57a3-4eea-a0fb-40995e372543">
 							<property name="com.jaspersoft.studio.components.table.model.column.name" value="Colonne8"/>
+							<jr:tableFooter height="30" rowSpan="1"/>
 							<jr:groupHeader groupName="Group by nomenclature">
 								<jr:cell height="30" rowSpan="1"/>
 							</jr:groupHeader>
@@ -441,7 +442,6 @@
 									<textFieldExpression><![CDATA["Reste au " + $P{year}]]></textFieldExpression>
 								</textField>
 							</jr:columnHeader>
-							<jr:columnFooter style="table_CH" height="30" rowSpan="1"/>
 							<jr:detailCell style="table_TD" height="62">
 								<textField>
 									<reportElement x="0" y="0" width="45" height="62" uuid="5ee6794a-f0bc-42d1-b680-b63f797305d4"/>
@@ -453,6 +453,13 @@
 					</jr:columnGroup>
 					<jr:column width="50" uuid="c6e36f6c-0d7f-4b39-bee8-0dbcd8dcf781">
 						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Colonne9"/>
+						<jr:tableFooter height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="50" height="30" uuid="18a2db71-0939-4d0e-a251-8687d6e02329"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle"/>
+								<text><![CDATA[TOTAL]]></text>
+							</staticText>
+						</jr:tableFooter>
 						<jr:groupHeader groupName="Group by nomenclature">
 							<jr:cell height="30" rowSpan="1"/>
 						</jr:groupHeader>
@@ -465,13 +472,6 @@
 								<text><![CDATA[Décompte]]></text>
 							</staticText>
 						</jr:columnHeader>
-						<jr:columnFooter style="table_CH" height="30" rowSpan="1">
-							<staticText>
-								<reportElement x="0" y="0" width="50" height="30" uuid="18a2db71-0939-4d0e-a251-8687d6e02329"/>
-								<textElement textAlignment="Center" verticalAlignment="Middle"/>
-								<text><![CDATA[TOTAL]]></text>
-							</staticText>
-						</jr:columnFooter>
 						<jr:detailCell style="table_TD" height="62" rowSpan="1">
 							<textField>
 								<reportElement x="0" y="0" width="50" height="62" uuid="d1976804-04b6-4970-8576-a1ef9a7b3b7d"/>
@@ -482,6 +482,13 @@
 					</jr:column>
 					<jr:column width="90" uuid="c4351642-2ed6-44fa-afd6-4228339cf116">
 						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Colonne10"/>
+						<jr:tableFooter height="30" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="90" height="30" uuid="6f260208-fded-42e2-9e0a-4031ba3ed0e7"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle"/>
+								<textFieldExpression><![CDATA[$V{Total}]]></textFieldExpression>
+							</textField>
+						</jr:tableFooter>
 						<jr:groupHeader groupName="Group by nomenclature">
 							<jr:cell height="30" rowSpan="1"/>
 						</jr:groupHeader>
@@ -494,13 +501,6 @@
 								<text><![CDATA[Observation]]></text>
 							</staticText>
 						</jr:columnHeader>
-						<jr:columnFooter style="table_CH" height="30" rowSpan="1">
-							<textField>
-								<reportElement x="0" y="0" width="90" height="30" uuid="6f260208-fded-42e2-9e0a-4031ba3ed0e7"/>
-								<textElement textAlignment="Center" verticalAlignment="Middle"/>
-								<textFieldExpression><![CDATA[$V{Total}]]></textFieldExpression>
-							</textField>
-						</jr:columnFooter>
 						<jr:detailCell style="table_TD" height="62" rowSpan="1"/>
 					</jr:column>
 				</jr:table>
