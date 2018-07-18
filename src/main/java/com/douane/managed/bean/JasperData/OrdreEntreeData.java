@@ -27,7 +27,7 @@ public class OrdreEntreeData {
 				Long lo = (Long) desu[1];
 				Float pu = desu0.getPu();
 				Float som = (Float) des[1];
-				String orig = desu0.getOrigine();
+				String orig = desu0.getRefFacture();
 				oe = new OrdreEntree(nom.getNomenclature(), designat, esp, lo, pu,orig, som);
 				newOne.add(oe);
 			}

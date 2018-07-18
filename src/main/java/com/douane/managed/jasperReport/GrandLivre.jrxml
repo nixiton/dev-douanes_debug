@@ -119,6 +119,7 @@
 		<field name="row13" class="java.lang.Integer"/>
 		<field name="row14" class="java.lang.String"/>
 		<field name="row15" class="java.lang.String"/>
+		<field name="row16" class="java.lang.String"/>
 		<sortField name="nomenclature"/>
 		<sortField name="row2"/>
 		<group name="Group by designation" keepTogether="true">
@@ -409,7 +410,7 @@ DES MOUVEMENTS D’ENTREE ET DE SORTIE
 		</band>
 		<band height="284">
 			<componentElement>
-				<reportElement key="table 1" style="table 1" x="-4" y="0" width="812" height="250" uuid="0b08cece-b1ff-4af3-965d-80a1a3cd04ac"/>
+				<reportElement key="table 1" style="table 1" x="-4" y="0" width="803" height="250" uuid="0b08cece-b1ff-4af3-965d-80a1a3cd04ac"/>
 				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
 					<datasetRun subDataset="Table Dataset 2" uuid="37a3db68-3aea-42f8-9a2a-3c5327fc905b">
 						<datasetParameter name="date">
@@ -420,11 +421,11 @@ DES MOUVEMENTS D’ENTREE ET DE SORTIE
 						</datasetParameter>
 						<dataSourceExpression><![CDATA[$P{dataSource}]]></dataSourceExpression>
 					</datasetRun>
-					<jr:column width="40" uuid="e7ef1342-a7bd-47cf-8e02-f711781a82d3">
+					<jr:column width="30" uuid="e7ef1342-a7bd-47cf-8e02-f711781a82d3">
 						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Colonne1"/>
 						<jr:tableHeader style="table 1_TH" height="134" rowSpan="3">
 							<staticText>
-								<reportElement x="0" y="0" width="40" height="134" uuid="6231279d-fa3a-46e0-8eed-6b04f9bc3027"/>
+								<reportElement x="0" y="0" width="30" height="134" uuid="6231279d-fa3a-46e0-8eed-6b04f9bc3027"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle">
 									<font size="11"/>
 								</textElement>
@@ -433,7 +434,7 @@ DES MOUVEMENTS D’ENTREE ET DE SORTIE
 						</jr:tableHeader>
 						<jr:detailCell style="table 1_TD" height="114" rowSpan="1">
 							<textField>
-								<reportElement x="0" y="0" width="40" height="114" uuid="ce3717c4-900d-4153-88ed-16ace37a0fc3"/>
+								<reportElement x="0" y="0" width="30" height="114" uuid="ce3717c4-900d-4153-88ed-16ace37a0fc3"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle"/>
 								<textFieldExpression><![CDATA[$F{nomenclature}]]></textFieldExpression>
 							</textField>
@@ -458,11 +459,11 @@ DES MOUVEMENTS D’ENTREE ET DE SORTIE
 							</textField>
 						</jr:detailCell>
 					</jr:column>
-					<jr:column width="110" uuid="0c11918f-fc27-4243-a9c8-59b2d0250fcf">
+					<jr:column width="90" uuid="0c11918f-fc27-4243-a9c8-59b2d0250fcf">
 						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Colonne3"/>
 						<jr:tableHeader style="table 1_TH" height="134" rowSpan="3">
 							<staticText>
-								<reportElement x="0" y="0" width="110" height="134" uuid="beb67f36-5558-4ead-a063-3f60ef1aa139"/>
+								<reportElement x="0" y="0" width="90" height="134" uuid="beb67f36-5558-4ead-a063-3f60ef1aa139"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle">
 									<font size="12"/>
 								</textElement>
@@ -471,7 +472,7 @@ DES MOUVEMENTS D’ENTREE ET DE SORTIE
 						</jr:tableHeader>
 						<jr:detailCell style="table 1_TD" height="114" rowSpan="1">
 							<textField>
-								<reportElement x="0" y="0" width="110" height="114" uuid="18a87710-c995-4fee-8f04-ea2f1f6dcbc8"/>
+								<reportElement x="0" y="0" width="90" height="114" uuid="18a87710-c995-4fee-8f04-ea2f1f6dcbc8"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle"/>
 								<textFieldExpression><![CDATA[$F{row2}]]></textFieldExpression>
 							</textField>
@@ -489,7 +490,7 @@ DES MOUVEMENTS D’ENTREE ET DE SORTIE
 							</staticText>
 						</jr:tableHeader>
 						<jr:detailCell style="table 1_TD" height="114" rowSpan="1">
-							<textField>
+							<textField pattern="#,##0">
 								<reportElement x="0" y="0" width="60" height="114" uuid="c72ec10b-2bf0-45cf-a34f-b0fb3ce02504"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle"/>
 								<textFieldExpression><![CDATA[$F{row3}]]></textFieldExpression>
@@ -539,7 +540,7 @@ DES MOUVEMENTS D’ENTREE ET DE SORTIE
 								</staticText>
 							</jr:tableHeader>
 							<jr:detailCell style="table 1_TD" height="114">
-								<textField>
+								<textField pattern="#,##0">
 									<reportElement x="0" y="0" width="60" height="114" uuid="9b310e41-45f2-4696-9ba6-f646d84a930c"/>
 									<textElement textAlignment="Center" verticalAlignment="Middle"/>
 									<textFieldExpression><![CDATA[$F{row3}*$F{row5}]]></textFieldExpression>
@@ -558,12 +559,12 @@ DES MOUVEMENTS D’ENTREE ET DE SORTIE
 						</jr:tableHeader>
 						<jr:detailCell style="table 1_TD" height="114" rowSpan="1"/>
 					</jr:column>
-					<jr:columnGroup width="412" uuid="32ff1bb7-938d-4c0f-a674-1a8d4048c479">
+					<jr:columnGroup width="432" uuid="32ff1bb7-938d-4c0f-a674-1a8d4048c479">
 						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Colonnes [9]"/>
 						<jr:tableHeader height="30" rowSpan="1">
 							<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.HorizontalRowLayout"/>
 							<staticText>
-								<reportElement x="0" y="0" width="206" height="30" uuid="5f4e066b-5095-4afa-b5c0-d4ace66adddb"/>
+								<reportElement x="0" y="0" width="216" height="30" uuid="5f4e066b-5095-4afa-b5c0-d4ace66adddb"/>
 								<box>
 									<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
 									<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
@@ -574,7 +575,7 @@ DES MOUVEMENTS D’ENTREE ET DE SORTIE
 								<text><![CDATA[Annee]]></text>
 							</staticText>
 							<textField>
-								<reportElement x="206" y="0" width="206" height="30" uuid="61417b5d-be6f-4c25-9565-bfe4dddd85be"/>
+								<reportElement x="216" y="0" width="216" height="30" uuid="61417b5d-be6f-4c25-9565-bfe4dddd85be"/>
 								<box>
 									<pen lineWidth="0.0"/>
 									<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
@@ -620,11 +621,11 @@ DES MOUVEMENTS D’ENTREE ET DE SORTIE
 								</textField>
 							</jr:detailCell>
 						</jr:column>
-						<jr:column width="45" uuid="7f838866-eb7d-4bc2-a480-eac8c0fff31b">
+						<jr:column width="91" uuid="7f838866-eb7d-4bc2-a480-eac8c0fff31b">
 							<property name="com.jaspersoft.studio.components.table.model.column.name" value="Colonne10"/>
 							<jr:tableHeader style="table 1_TH" height="104" rowSpan="2">
 								<staticText>
-									<reportElement x="0" y="0" width="45" height="104" uuid="d0e7b92a-48e4-456b-84bf-7293ba2e4804"/>
+									<reportElement x="0" y="0" width="91" height="104" uuid="d0e7b92a-48e4-456b-84bf-7293ba2e4804"/>
 									<textElement textAlignment="Center" verticalAlignment="Middle">
 										<font size="9"/>
 									</textElement>
@@ -633,17 +634,17 @@ DES MOUVEMENTS D’ENTREE ET DE SORTIE
 							</jr:tableHeader>
 							<jr:detailCell style="table 1_TD" height="114">
 								<textField>
-									<reportElement x="0" y="0" width="45" height="114" uuid="82529029-3bed-4263-83f7-710646e68f1a"/>
+									<reportElement x="0" y="0" width="91" height="114" uuid="4329672f-ea2f-4562-b6fb-d56fcecef280"/>
 									<textElement textAlignment="Center" verticalAlignment="Middle"/>
-									<textFieldExpression><![CDATA[$F{row14} + ", " + $F{row15}]]></textFieldExpression>
+									<textFieldExpression><![CDATA[$F{row16}]]></textFieldExpression>
 								</textField>
 							</jr:detailCell>
 						</jr:column>
-						<jr:columnGroup width="94" uuid="6cad23eb-4e4d-479e-b1b0-6c0596ffdbc6">
+						<jr:columnGroup width="90" uuid="6cad23eb-4e4d-479e-b1b0-6c0596ffdbc6">
 							<property name="com.jaspersoft.studio.components.table.model.column.name" value="Colonnes [2]"/>
 							<jr:tableHeader height="30" rowSpan="1">
 								<staticText>
-									<reportElement x="0" y="0" width="94" height="30" uuid="de32238b-f8ce-48b9-ab15-c1a48e8089d9"/>
+									<reportElement x="0" y="0" width="90" height="30" uuid="de32238b-f8ce-48b9-ab15-c1a48e8089d9"/>
 									<box>
 										<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
 										<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
@@ -654,18 +655,18 @@ DES MOUVEMENTS D’ENTREE ET DE SORTIE
 									<text><![CDATA[Entrées]]></text>
 								</staticText>
 							</jr:tableHeader>
-							<jr:column width="25" uuid="c660facc-abc6-419b-8a7a-d00dcd557105">
+							<jr:column width="21" uuid="c660facc-abc6-419b-8a7a-d00dcd557105">
 								<property name="com.jaspersoft.studio.components.table.model.column.name" value="Colonne11"/>
 								<jr:tableHeader style="table 1_TH" height="74" rowSpan="1">
 									<staticText>
-										<reportElement x="0" y="0" width="25" height="74" uuid="cc4f0b0c-0c9a-4dbb-bb60-26922bd8e3a9"/>
+										<reportElement x="0" y="0" width="21" height="74" uuid="cc4f0b0c-0c9a-4dbb-bb60-26922bd8e3a9"/>
 										<textElement textAlignment="Center" verticalAlignment="Middle" rotation="Left"/>
 										<text><![CDATA[Quantité]]></text>
 									</staticText>
 								</jr:tableHeader>
 								<jr:detailCell style="table 1_TD" height="114">
 									<textField>
-										<reportElement x="0" y="0" width="25" height="114" uuid="e186ddf7-bdcb-4c51-a570-c336c83b6359"/>
+										<reportElement x="0" y="0" width="21" height="114" uuid="e186ddf7-bdcb-4c51-a570-c336c83b6359"/>
 										<textElement textAlignment="Center" verticalAlignment="Middle"/>
 										<textFieldExpression><![CDATA[$F{row12}]]></textFieldExpression>
 									</textField>
@@ -681,7 +682,7 @@ DES MOUVEMENTS D’ENTREE ET DE SORTIE
 									</staticText>
 								</jr:tableHeader>
 								<jr:detailCell style="table 1_TD" height="114">
-									<textField>
+									<textField pattern="#,##0">
 										<reportElement x="0" y="0" width="69" height="114" uuid="0fe2517e-2645-4cd2-b46d-94cfc1da2230"/>
 										<textElement textAlignment="Center" verticalAlignment="Middle"/>
 										<textFieldExpression><![CDATA[$F{row12} * $F{row3}]]></textFieldExpression>
@@ -731,7 +732,7 @@ DES MOUVEMENTS D’ENTREE ET DE SORTIE
 									</staticText>
 								</jr:tableHeader>
 								<jr:detailCell style="table 1_TD" height="114">
-									<textField>
+									<textField pattern="#,##0">
 										<reportElement x="0" y="0" width="69" height="114" uuid="5f52e620-34d5-4ac2-8486-4b6cb317ecd0"/>
 										<textElement textAlignment="Center" verticalAlignment="Middle"/>
 										<textFieldExpression><![CDATA[$F{row13} * $F{row3}]]></textFieldExpression>
@@ -739,11 +740,11 @@ DES MOUVEMENTS D’ENTREE ET DE SORTIE
 								</jr:detailCell>
 							</jr:column>
 						</jr:columnGroup>
-						<jr:columnGroup width="93" uuid="bd0e9c7d-a6fa-4124-8e90-c064787f8ad4">
+						<jr:columnGroup width="71" uuid="bd0e9c7d-a6fa-4124-8e90-c064787f8ad4">
 							<property name="com.jaspersoft.studio.components.table.model.column.name" value="Colonnes [2]"/>
 							<jr:tableHeader height="30" rowSpan="1">
 								<staticText>
-									<reportElement x="0" y="0" width="93" height="15" uuid="f3ee9e24-eef4-4b3a-be80-ff1e1befd88a"/>
+									<reportElement x="0" y="0" width="71" height="15" uuid="f3ee9e24-eef4-4b3a-be80-ff1e1befd88a"/>
 									<box>
 										<pen lineWidth="0.0"/>
 										<topPen lineWidth="1.0"/>
@@ -753,7 +754,7 @@ DES MOUVEMENTS D’ENTREE ET DE SORTIE
 									<text><![CDATA[Reste au]]></text>
 								</staticText>
 								<textField>
-									<reportElement x="0" y="15" width="93" height="15" uuid="34032bdd-2f3f-490c-b876-0fca7008b733"/>
+									<reportElement x="0" y="15" width="71" height="15" uuid="34032bdd-2f3f-490c-b876-0fca7008b733"/>
 									<box>
 										<pen lineWidth="0.5"/>
 										<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
@@ -782,18 +783,18 @@ DES MOUVEMENTS D’ENTREE ET DE SORTIE
 									</textField>
 								</jr:detailCell>
 							</jr:column>
-							<jr:column width="71" uuid="a0753512-75e5-4dce-b505-87351ebcedfd">
+							<jr:column width="49" uuid="a0753512-75e5-4dce-b505-87351ebcedfd">
 								<property name="com.jaspersoft.studio.components.table.model.column.name" value="Colonne16"/>
 								<jr:tableHeader style="table 1_TH" height="74" rowSpan="1">
 									<staticText>
-										<reportElement x="0" y="0" width="71" height="74" uuid="c0631665-95d9-49e7-b2ab-3b5d93663dce"/>
+										<reportElement x="0" y="0" width="49" height="74" uuid="c0631665-95d9-49e7-b2ab-3b5d93663dce"/>
 										<textElement textAlignment="Center" verticalAlignment="Middle" rotation="Left"/>
 										<text><![CDATA[valeur]]></text>
 									</staticText>
 								</jr:tableHeader>
 								<jr:detailCell style="table 1_TD" height="114">
-									<textField>
-										<reportElement x="0" y="0" width="71" height="114" uuid="cf5ff60a-94c9-42d6-93ed-45fec7937d46"/>
+									<textField pattern="#,##0">
+										<reportElement x="0" y="0" width="49" height="114" uuid="cf5ff60a-94c9-42d6-93ed-45fec7937d46"/>
 										<textElement textAlignment="Center" verticalAlignment="Middle"/>
 										<textFieldExpression><![CDATA[$F{row9}]]></textFieldExpression>
 									</textField>
