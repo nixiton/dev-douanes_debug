@@ -54,7 +54,7 @@
  <c:if test= "${table == 'journal_admin' || table == 'tous' || empty table }">
   <div   class="body collapse in table-responsive">
     
-    <p:dataTable   var="row" value="#{suivieditionBean.getListForJournalStock()}"
+    <p:dataTable   var="row" value="#{suivieditionBean.getListForJournalStock(null)}"
     			currentPageReportTemplate="({currentPage} sur {totalPages})" emptyMessage="Aucun resultat" 
                  paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}  "
                  paginator="true" rows="100" style="margin-bottom:20px"
@@ -86,6 +86,10 @@
 			<h:commandButton value="Exporter" action="#{JournalABean.execute(suivieditionBean)}"/>
 	 		</h:form>
     	</f:facet>
+    	
+    	<p:column headerText="ID" style=" text-align: center; word-wrap: break-word;">
+        	<h:outputText value="#{row[8]}" />
+        </p:column>
         
         <p:column headerText="N° d’ordre" style=" text-align: center; word-wrap: break-word;">
         	<h:outputText value="#{row[0]}" />

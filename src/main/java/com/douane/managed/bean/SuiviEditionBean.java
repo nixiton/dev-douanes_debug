@@ -2024,6 +2024,14 @@ public class SuiviEditionBean {
 		Date edate = new GregorianCalendar(year , Calendar.DECEMBER, 31).getTime();
 		//end date set
 		List<Operation> lesoperations = getListOpESArtByDirection(sdate, edate);
+		Collections.sort(lesoperations, new Comparator<Operation>() {
+			public int compare(Operation o1, Operation o2) {
+				Long id1 = o1.getId();
+				Long id2 = o2.getId();
+				//System.out.println("date :" + d1);
+				return id1.compareTo(id2);
+			}
+		});
 		// structure de données
 		List<Object[]> resulttable = new ArrayList<Object[]>();
 		Long i = 1L;
@@ -2106,6 +2114,14 @@ public class SuiviEditionBean {
 			Date edate = new GregorianCalendar(year , Calendar.DECEMBER, 31).getTime();
 			//end date set
 			List<Operation> lesoperations = getListOpESArtByDirection(sdate, edate);
+			Collections.sort(lesoperations, new Comparator<Operation>() {
+				public int compare(Operation o1, Operation o2) {
+					Long id1 = o1.getId();
+					Long id2 = o2.getId();
+					//System.out.println("date :" + d1);
+					return id1.compareTo(id2);
+				}
+			});
 			// structure de données
 			List<Object[]> resulttable = new ArrayList<Object[]>();
 			Long i = 1L;
