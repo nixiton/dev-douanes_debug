@@ -1618,7 +1618,7 @@ public class SuiviEditionBean {
 			Calendar calendar = new GregorianCalendar();
 			calendar.setTime(date);
 			int year = calendar.get(Calendar.YEAR);
-			Date sdate = new GregorianCalendar(year, Calendar.APRIL, 30).getTime();
+			Date sdate = new GregorianCalendar(year, Calendar.JANUARY, 11).getTime();
 			Date edate = new GregorianCalendar(year, Calendar.DECEMBER, 31).getTime();
 			System.out.println("RRRRRRRRRRR Begin:");
 			List<Object[]> r = usermetierimpl.getListObjectForinvetaire(cur.getDirection(), sdate, edate);
@@ -1776,7 +1776,7 @@ public class SuiviEditionBean {
 	}
 
 	public List<Object[]> getListobjectForInvetaire(Date s, Date f) {
-		if (listobjectForInvetaire == null) {
+		//if (listobjectForInvetaire == null) {
 			Agent cur = (Agent) RequestFilter.getSession().getAttribute("agent");
 			Date sdate = s;
 			Date edate = f;
@@ -1927,7 +1927,7 @@ public class SuiviEditionBean {
 				row[7] = sortieAx;
 
 				resultstableGrouped.add(row);
-			}
+		//	}
 
 			listobjectForInvetaire = resultstableGrouped;
 		}
