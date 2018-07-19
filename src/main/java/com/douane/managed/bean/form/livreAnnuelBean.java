@@ -22,6 +22,7 @@ public class livreAnnuelBean {
 	private Date d;
 	private String trois;
 	private String quatre;
+	private String dateD;
 	private String dateF;
 	private Integer anne;
 	private List<Object[]> liste;
@@ -45,6 +46,7 @@ public class livreAnnuelBean {
 		Date edate = new GregorianCalendar(i, Calendar.DECEMBER, 31).getTime();
 		this.liste=s.getListESForGrandLivre(sdate,edate);
 		this.service = s.getDirection().getDesignation();
+		this.dateD = df.format(sdate);
 		this.dateF = df.format(edate);
 		return "dialogLivre"; 
 	}

@@ -883,7 +883,7 @@ public class JasperTableExampleBean implements Serializable{
 	}
 	
 	
-	public void inventaireReport(List <Object[]> li, String year) throws IOException {
+	public void inventaireReport(List <Object[]> li, String dateD, String year) throws IOException {
 		//System.out.println(this.pdfForm.toString());
 		if(li == null) {
 			System.out.println("null ilay liste inventaire voaray");
@@ -915,7 +915,7 @@ public class JasperTableExampleBean implements Serializable{
             parameters.put("lieu1", this.pdfForm.getLieu());
             parameters.put("date1", this.pdfForm.getDate());
             parameters.put("an1", this.pdfForm.getNum3());
-            parameters.put("date3","null" );
+            parameters.put("date3", dateD);
             parameters.put("vu2", this.pdfForm.getNum4());
             JasperPrint jasperPrint = JasperFillManager.fillReport(url.getPath(), parameters, new JREmptyDataSource());
             response.reset();
@@ -931,7 +931,7 @@ public class JasperTableExampleBean implements Serializable{
             ex.printStackTrace();
         }
 	}
-	public void inventaireDoc(List <Object[]> li, String year) throws IOException {
+	public void inventaireDoc(List <Object[]> li,String dateD, String year) throws IOException {
 		//System.out.println(this.pdfForm.toString());
 		if(li == null) {
 			System.out.println("null ilay liste inventaire voaray");
@@ -963,7 +963,7 @@ public class JasperTableExampleBean implements Serializable{
             parameters.put("lieu1", this.pdfForm.getLieu());
             parameters.put("date1", this.pdfForm.getDate());
             parameters.put("an1", this.pdfForm.getNum3());
-            parameters.put("date3", "null");
+            parameters.put("date3", dateD);
             parameters.put("vu2", this.pdfForm.getNum4());
             JasperPrint jasperPrint = JasperFillManager.fillReport(url.getPath(), parameters, new JREmptyDataSource());
           //EXPORT THROUGH STREAM

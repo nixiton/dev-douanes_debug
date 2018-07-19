@@ -155,14 +155,14 @@
 ]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="0" y="0" width="180" height="21" uuid="a2f6f78f-8712-4dfc-b213-4c57e6299c3a"/>
+				<reportElement x="0" y="0" width="203" height="35" uuid="a2f6f78f-8712-4dfc-b213-4c57e6299c3a"/>
 				<textElement textAlignment="Left">
 					<font size="12"/>
 				</textElement>
 				<textFieldExpression><![CDATA["(3) " + $P{comptable}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="-1" y="21" width="181" height="20" uuid="0d65db40-2045-4aa3-b2eb-4bdf9cf6707d"/>
+				<reportElement x="-1" y="35" width="204" height="20" uuid="0d65db40-2045-4aa3-b2eb-4bdf9cf6707d"/>
 				<textElement textAlignment="Left">
 					<font size="12"/>
 				</textElement>
@@ -176,26 +176,23 @@
 				<textFieldExpression><![CDATA["BUDGET " + $P{budget}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="180" y="85" width="300" height="31" uuid="eb907a97-9f4a-45cb-8c83-3775fedaed69"/>
+				<reportElement x="130" y="85" width="400" height="31" uuid="eb907a97-9f4a-45cb-8c83-3775fedaed69"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="12"/>
 				</textElement>
 				<textFieldExpression><![CDATA["CHAPITRE " + $P{chap} + " ARTICLE " + $P{article}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="210" y="116" width="240" height="20" uuid="265e7eae-ad68-41c8-bc7d-60cd92a835a1"/>
+				<reportElement x="130" y="116" width="400" height="20" uuid="265e7eae-ad68-41c8-bc7d-60cd92a835a1"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="12"/>
 				</textElement>
 				<textFieldExpression><![CDATA["PARAGRAPHE" + $P{paragraphe}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="2" y="41" width="100" height="20" uuid="c59c6ab2-a757-477c-b400-031cd037857b"/>
-				<text><![CDATA[(1) Numéro chapitre]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="0" y="61" width="113" height="20" uuid="579e5ed2-68d2-4b66-a2ff-9b9987f9ff87"/>
-				<text><![CDATA[(2) Libellé du chapitre]]></text>
+				<reportElement x="2" y="61" width="100" height="29" uuid="c59c6ab2-a757-477c-b400-031cd037857b"/>
+				<text><![CDATA[(1) Numéro chapitre
+(2) Libellé du chapitre]]></text>
 			</staticText>
 			<textField>
 				<reportElement x="-1" y="140" width="297" height="17" uuid="4510d42c-d21f-4187-ac31-2d5d0eae1d01"/>
@@ -612,7 +609,7 @@
 				<text><![CDATA[Le comptable déclare avoir reçu et pris en charge les matières et objets mentionnées dans le tableau ci-dessus.]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="3" y="166" width="259" height="82" uuid="4ec401c9-d977-426e-81a6-9a110eae82e7"/>
+				<reportElement x="3" y="171" width="259" height="82" uuid="4ec401c9-d977-426e-81a6-9a110eae82e7"/>
 				<textElement textAlignment="Left">
 					<font size="9"/>
 				</textElement>

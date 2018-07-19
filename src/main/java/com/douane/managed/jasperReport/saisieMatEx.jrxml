@@ -183,7 +183,7 @@ DIRECTION GENERALE DES DOUANES
 				<textFieldExpression><![CDATA[$P{especeunite}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="313" y="0" width="87" height="40" uuid="1a2c567b-2c39-4824-8eb9-2afc8180ea2b"/>
+				<reportElement x="313" y="0" width="86" height="40" uuid="1a2c567b-2c39-4824-8eb9-2afc8180ea2b"/>
 				<box>
 					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
 					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
@@ -194,7 +194,7 @@ DIRECTION GENERALE DES DOUANES
 				<textFieldExpression><![CDATA[$P{pu}]]></textFieldExpression>
 			</textField>
 			<textField pattern="#,##0">
-				<reportElement x="400" y="0" width="63" height="40" uuid="e56e894b-d03c-414f-aac2-c74b22eb4646"/>
+				<reportElement x="399" y="0" width="64" height="40" uuid="e56e894b-d03c-414f-aac2-c74b22eb4646"/>
 				<box>
 					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
 					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
@@ -239,7 +239,7 @@ DIRECTION GENERALE DES DOUANES
 			</textField>
 			<textField>
 				<reportElement x="339" y="50" width="73" height="20" uuid="3a7b97a6-e1ad-4b39-a6fe-9bb40623b97c"/>
-				<textFieldExpression><![CDATA[$P{lieu} + " ,le "]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$P{lieu} + ", le "]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>

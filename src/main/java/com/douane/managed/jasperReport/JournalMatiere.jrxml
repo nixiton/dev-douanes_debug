@@ -516,7 +516,7 @@ des matières et objets
 							</staticText>
 						</jr:tableHeader>
 						<jr:detailCell style="table 2_TD" height="70" rowSpan="1">
-							<textField>
+							<textField pattern="#,##0">
 								<reportElement x="0" y="0" width="41" height="70" uuid="4065e2e7-bae9-4e11-8076-fbbc9827d740"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle"/>
 								<textFieldExpression><![CDATA[$F{pu}]]></textFieldExpression>
@@ -576,7 +576,7 @@ des matières et objets
 								<textElement textAlignment="Center" verticalAlignment="Middle"/>
 								<textFieldExpression><![CDATA[$F{e_qt}]]></textFieldExpression>
 							</textField>
-							<textField>
+							<textField pattern="#,##0">
 								<reportElement x="29" y="0" width="73" height="70" uuid="ffd1c66c-b8b8-4faf-8b2d-d345c30ab18e"/>
 								<box>
 									<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
@@ -639,7 +639,7 @@ des matières et objets
 								<textElement textAlignment="Center" verticalAlignment="Middle"/>
 								<textFieldExpression><![CDATA[$F{s_qt}]]></textFieldExpression>
 							</textField>
-							<textField>
+							<textField pattern="#,##0">
 								<reportElement x="30" y="0" width="64" height="70" uuid="5765070f-4fb5-4a86-94d1-7c032352cfa2"/>
 								<box>
 									<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>

@@ -84,47 +84,12 @@
 				</textElement>
 				<textFieldExpression><![CDATA["Folio  n° " + $P{numfolio}]]></textFieldExpression>
 			</textField>
-			<staticText>
-				<reportElement x="34" y="52" width="136" height="20" uuid="dda31998-471f-466a-9de5-7a4eed061978"/>
-				<textElement>
-					<font size="12"/>
-				</textElement>
-				<text><![CDATA[Désignation de l’article :]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="170" y="55" width="137" height="20" uuid="2283dbc8-350e-4845-a7d8-b9eb135f8c2b"/>
-				<textElement>
-					<font size="12"/>
-				</textElement>
-				<text><![CDATA[]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="307" y="55" width="92" height="20" uuid="b67367ed-4677-4052-b78f-95747ec9cefb"/>
-				<textElement>
-					<font size="12"/>
-				</textElement>
-				<text><![CDATA[Espèce d’unité :]]></text>
-			</staticText>
 			<textField>
-				<reportElement x="170" y="55" width="100" height="20" uuid="8de0413d-4061-49c2-baa0-d0ecaefc729b"/>
-				<textElement>
+				<reportElement x="10" y="53" width="544" height="20" uuid="8de0413d-4061-49c2-baa0-d0ecaefc729b"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="12"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$P{designation}]]></textFieldExpression>
-			</textField>
-			<staticText>
-				<reportElement x="399" y="55" width="100" height="20" uuid="d36d91a2-a567-42e9-975d-0b083eeb88f5"/>
-				<textElement>
-					<font size="12"/>
-				</textElement>
-				<text><![CDATA[]]></text>
-			</staticText>
-			<textField>
-				<reportElement x="399" y="55" width="100" height="20" uuid="d695edbd-cf1f-4748-818f-aef5b0608dea"/>
-				<textElement>
-					<font size="12"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$P{espace}]]></textFieldExpression>
+				<textFieldExpression><![CDATA["Désignation de l’article : "+ $P{designation} + " Espèce d’unité : " + $P{espace}]]></textFieldExpression>
 			</textField>
 		</band>
 	</title>

@@ -22,6 +22,7 @@ public class GrandLivreBean {
 	private String nbFeuillets;
 	private String lieu;
 	private String date;
+	private String dateD;
 	private String ans;
 	private String filamatra;
 	private Map<String,String> filamatras = new HashMap<String, String>();
@@ -111,5 +112,13 @@ public class GrandLivreBean {
 	}
 	public void setArticle(String article) {
 		this.article = article;
+	}
+
+	public String getDateD() {
+		return dateD;
+	}
+
+	public void setDateD(String dateD) {
+		this.dateD = dateD;
 	}
 }
