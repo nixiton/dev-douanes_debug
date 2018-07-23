@@ -5,11 +5,16 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:p="http://primefaces.org/ui"
+	
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
 	>
 
 <div class="body collapse in table-responsive">
 <h:form id="formUser" onkeypress="if (event.keyCode == 13) {return false; }">
 <p:growl for="myerrorReferentiel" id="msgtableUser" showDetail="true" sticky="true" redisplay="false"/>
+<c:if test="#{topMenuMB.curentAgent.roleAgent.role eq 'ROLE_ADMIN' 
+            or topMenuMB.curentAgent.roleAgent.role eq 'ROLE_SISE'
+            }">
 	<div class="col-lg-4">
 
 		<h:link value="" outcome="add_Utilisateur"
@@ -19,7 +24,7 @@
 		<hr></hr>
 
 	</div>
-
+</c:if>
 	<p:dataTable   var="f" value="#{userMB.userList}" 
 				currentPageReportTemplate="({currentPage} sur {totalPages})"
                  paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}  "
@@ -57,7 +62,9 @@
 			<f:facet name="header">Poste</f:facet>
 			#{f.posteny.designation}
 		</p:column>
-		
+		<c:if test="#{topMenuMB.curentAgent.roleAgent.role eq 'ROLE_ADMIN' 
+            or topMenuMB.curentAgent.roleAgent.role eq 'ROLE_SISE'
+            }">
 		<p:column style="width: 3%; text-align: center; word-wrap: break-word;">
           <p:commandButton   action="#{userMB.setCurrentAgenttomodify(f)}" update=":detailuser"
             oncomplete="PF('detailuser').show()" icon="ui-icon-zoomin"/>
@@ -70,6 +77,7 @@
        </p:commandButton>
         </div>
        </p:column>
+       </c:if>
 	</p:dataTable>
 
 </h:form>

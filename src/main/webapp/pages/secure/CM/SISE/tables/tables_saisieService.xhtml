@@ -8,7 +8,9 @@
     >
 
 <div   class="body collapse in table-responsive">
-
+<c:if test="#{topMenuMB.curentAgent.roleAgent.role eq 'ROLE_ADMIN' 
+            or topMenuMB.curentAgent.roleAgent.role eq 'ROLE_SISE'
+            }">
     <div class="col-lg-4">
 
         <h:link value="" outcome="add_Service"
@@ -18,6 +20,7 @@
         <hr></hr>
 
     </div>
+</c:if>
 
     <p:dataTable   var="b" value="#{siseBean.listService}"
     			currentPageReportTemplate="({currentPage} sur {totalPages})" 

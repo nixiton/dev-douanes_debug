@@ -81,30 +81,51 @@
 
 				<ul class="nav navbar-nav">
 
-					<c:if test="#{topMenuMB.curentAgent.roleAgent.role eq 'ROLE_ADMIN'}">
+					<c:if test="#{topMenuMB.curentAgent.roleAgent.role eq 'ROLE_ADMIN'
+					or topMenuMB.curentAgent.roleAgent.role eq 'ROLE_SISE'
+					or topMenuMB.curentAgent.roleAgent.role eq 'ROLE_DRF'
+					or topMenuMB.curentAgent.roleAgent.role eq 'ROLE_DG'
+					or topMenuMB.curentAgent.roleAgent.role eq 'ROLE_CONS'
+					}"
+					>
 						<li class="active"><h:commandLink
 								action="#{topMenuMB.goToDashboardadmin}" immediate="true" style="color:#CCC">
 								Tableau de bord
 							</h:commandLink></li>
 					</c:if>
-					<c:if test="#{topMenuMB.curentAgent.roleAgent.role eq 'ROLE_GAC' or 
-					topMenuMB.curentAgent.roleAgent.role eq 'ROLE_SISE' or
-				topMenuMB.curentAgent.roleAgent.role eq 'ROLE_DC'}">
+					<c:if test="#{topMenuMB.curentAgent.roleAgent.role eq 'ROLE_ADMIN'
+					or topMenuMB.curentAgent.roleAgent.role eq 'ROLE_SISE'
+					or topMenuMB.curentAgent.roleAgent.role eq 'ROLE_DRF'
+					or topMenuMB.curentAgent.roleAgent.role eq 'ROLE_DG'
+					or topMenuMB.curentAgent.roleAgent.role eq 'ROLE_GAC'
+					or topMenuMB.curentAgent.roleAgent.role eq 'ROLE_DC'
+					or topMenuMB.curentAgent.roleAgent.role eq 'ROLE_CONS'
+					}">
 						<li class="active"><h:commandLink
 								action="#{topMenuMB.goToDashboardCA}" immediate="true" style="color:#CCC">
 								Tableau de bord
 							</h:commandLink></li>
 					</c:if>
-					<c:if test="#{topMenuMB.curentAgent.roleAgent.role eq 'ROLE_ADMIN' or topMenuMB.curentAgent.roleAgent.role eq 'ROLE_SISE' or topMenuMB.curentAgent.roleAgent.role eq 'ROLE_SE'}">
-
+					<c:if test="#{topMenuMB.curentAgent.roleAgent.role eq 'ROLE_ADMIN'
+					or topMenuMB.curentAgent.roleAgent.role eq 'ROLE_SISE'
+					or topMenuMB.curentAgent.roleAgent.role eq 'ROLE_DRF'
+					or topMenuMB.curentAgent.roleAgent.role eq 'ROLE_DG'
+					or topMenuMB.curentAgent.roleAgent.role eq 'ROLE_CONS'
+					}">
 					<li><h:link value="Saisie
 								des référentiels"
 									outcome="saisie_refCA" immediate="true" style="color:#CCC"/></li>
 
 					</c:if>
 
-					<c:if test="#{topMenuMB.curentAgent.roleAgent.role eq 'ROLE_ADMIN' or topMenuMB.curentAgent.roleAgent.role eq 'ROLE_DC'}">
-
+					<c:if test="#{topMenuMB.curentAgent.roleAgent.role eq 'ROLE_ADMIN'
+					or topMenuMB.curentAgent.roleAgent.role eq 'ROLE_SISE'
+					or topMenuMB.curentAgent.roleAgent.role eq 'ROLE_DRF'
+					or topMenuMB.curentAgent.roleAgent.role eq 'ROLE_DG'
+					or topMenuMB.curentAgent.roleAgent.role eq 'ROLE_GAC'
+					or topMenuMB.curentAgent.roleAgent.role eq 'ROLE_DC'
+					or topMenuMB.curentAgent.roleAgent.role eq 'ROLE_CONS'
+					}">
 					<li class="dropdown"><a href="#" class="dropdown-toggle"
 						data-toggle="dropdown" style="color:#CCC"> Saisie et sortie des articles <b class="caret"></b>
 					</a>
@@ -113,14 +134,23 @@
 							<li><h:link value="Entrée des articles existants" outcome="saisie_article" immediate="true"/></li>
 							<li><h:link value="Entrée des nouveaux articles"
 									outcome="articles_priseEnCharge" immediate="true"/></li>
+					<c:if test="#{topMenuMB.curentAgent.roleAgent.role eq 'ROLE_ADMIN'
+					or topMenuMB.curentAgent.roleAgent.role eq 'ROLE_DC'
+					}">
 							<li><h:link value="Sortie articles" outcome="sortie_article" immediate="true" /></li>
-
+					</c:if>
 						</ul></li>
 
 				</c:if>
 
-					<c:if test="#{topMenuMB.curentAgent.roleAgent.role eq 'ROLE_ADMIN' or topMenuMB.curentAgent.roleAgent.role eq 'ROLE_DC' or topMenuMB.curentAgent.roleAgent.role eq 'ROLE_GAC' or topMenuMB.curentAgent.roleAgent.role eq 'ROLE_SE'}">
-
+					<c:if test="#{topMenuMB.curentAgent.roleAgent.role eq 'ROLE_ADMIN'
+					or topMenuMB.curentAgent.roleAgent.role eq 'ROLE_SISE'
+					or topMenuMB.curentAgent.roleAgent.role eq 'ROLE_DRF'
+					or topMenuMB.curentAgent.roleAgent.role eq 'ROLE_DG'
+					or topMenuMB.curentAgent.roleAgent.role eq 'ROLE_GAC'
+					or topMenuMB.curentAgent.roleAgent.role eq 'ROLE_DC'
+					or topMenuMB.curentAgent.roleAgent.role eq 'ROLE_CONS'
+					}">
 					<li class='dropdown '><a href="#" class="dropdown-toggle"
 						data-toggle="dropdown" style="color:#CCC"> Suivi et édition des états
 							réglementaires <b class="caret"></b>

@@ -16,25 +16,46 @@
 		<!-- ADMIN-->
 		<sec:access-denied-handler ref="my403" />
 		<sec:intercept-url pattern="/pages/secure/admin/**"
-						   access="hasAnyRole('ROLE_ADMIN','ROLE_CONS','ROLE_DC','ROLE_GAC','ROLE_SISE')" />
+						   access="hasAnyRole('ROLE_ADMIN','ROLE_CONS','ROLE_DC','ROLE_GAC','ROLE_SISE','ROLE_DG', 'ROLE_DRF')" />
 
 		<sec:intercept-url pattern="/pages/template/common/**"
-						   access="hasAnyRole('ROLE_ADMIN','ROLE_CONS','ROLE_DC','ROLE_GAC','ROLE_SISE')" />
+						   access="hasAnyRole('ROLE_ADMIN','ROLE_CONS','ROLE_DC','ROLE_GAC','ROLE_SISE','ROLE_DG','ROLE_DRF')" />
 
 		<sec:intercept-url pattern="/pages/secure/choice.xhtml"
-						   access="hasAnyRole('ROLE_ADMIN','ROLE_CONS','ROLE_DC','ROLE_GAC','ROLE_SISE')" />
-
-
-
-		<!-- DEPOSITAIRE COMPTABLE -->
-
+						   access="hasAnyRole('ROLE_ADMIN','ROLE_CONS','ROLE_DC','ROLE_GAC','ROLE_SISE','ROLE_DG','ROLE_DRF')" />
+						   
+		<sec:intercept-url pattern="/pages/secure/CM/ComptaMatiere.xhtml"
+						   access="hasAnyRole('ROLE_DC','ROLE_ADMIN','ROLE_CONS', 'ROLE_GAC', 'ROLE_SISE','ROLE_DG','ROLE_DRF')" />
 
 		<sec:intercept-url pattern="/pages/secure/CM/ComptaMatiere.xhtml"
-						   access="hasAnyRole('ROLE_DC','ROLE_ADMIN','ROLE_CONS', 'ROLE_GAC', 'ROLE_SISE')" />
+						   access="hasAnyRole('ROLE_DC','ROLE_ADMIN','ROLE_CONS', 'ROLE_GAC', 'ROLE_SISE','ROLE_DG','ROLE_DRF')" />
 
 		<sec:intercept-url pattern="/pages/secure/CA/ComptaAdmin.xhtml"
-						   access="hasAnyRole('ROLE_DC','ROLE_ADMIN','ROLE_CONS', 'ROLE_GAC', 'ROLE_SISE')" />
+						   access="hasAnyRole('ROLE_DC','ROLE_ADMIN','ROLE_CONS', 'ROLE_GAC', 'ROLE_SISE','ROLE_DG','ROLE_DRF')" />
+		<sec:intercept-url pattern=" /pages/secure/admin/adminCA.xhtml"
+						   access="hasAnyRole('ROLE_ADMIN','ROLE_CONS', 'ROLE_SISE','ROLE_DG','ROLE_DRF')" />
+						   
+						  
 
+		<!-- SAISIE DES REFERENCES -->
+		<sec:intercept-url pattern="/pages/secure/CM/SISE/saisieRef.xhtml"
+						   access="hasAnyRole('ROLE_ADMIN','ROLE_CONS', 'ROLE_GAC', 'ROLE_SISE', 'ROLE_DG','ROLE_DRF')" />
+		<sec:intercept-url pattern="/pages/secure/CA/SISE/saisieRef.xhtml"
+						   access="hasAnyRole('ROLE_ADMIN','ROLE_CONS', 'ROLE_GAC', 'ROLE_SISE', 'ROLE_DG','ROLE_DRF')" />
+
+		<!-- DEPOSITAIRE COMPTABLE -->
+		<sec:intercept-url pattern="/pages/secure/CM/DC/saisieMatEx.xhtml"
+						   access="hasAnyRole('ROLE_DC','ROLE_ADMIN','ROLE_CONS','ROLE_SISE', 'ROLE_DG','ROLE_DRF')" />
+		<sec:intercept-url pattern="/pages/secure/CM/DC/priseEnCharge.xhtml"
+						   access="hasAnyRole('ROLE_DC','ROLE_ADMIN','ROLE_CONS','ROLE_SISE', 'ROLE_DG','ROLE_DRF')" />
+						   
+		<sec:intercept-url pattern="/pages/secure/CA/DC/saisieMatEx.xhtml"
+						   access="hasAnyRole('ROLE_DC','ROLE_ADMIN','ROLE_CONS','ROLE_SISE', 'ROLE_DG','ROLE_DRF')" />
+		<sec:intercept-url pattern="/pages/secure/CA/DC/priseEnCharge.xhtml"
+						   access="hasAnyRole('ROLE_DC','ROLE_ADMIN','ROLE_CONS','ROLE_SISE', 'ROLE_DG','ROLE_DRF')" />
+						
+		<sec:intercept-url pattern="/pages/secure/CA/DC/decharge.xhtml"
+						   access="hasAnyRole('ROLE_DC','ROLE_ADMIN')" />
 		
 		<sec:intercept-url pattern="/pages/secure/CM/DC/**"
 						   access="hasAnyRole('ROLE_DC','ROLE_ADMIN','ROLE_CONS','ROLE_SISE')" />
@@ -43,25 +64,33 @@
 						   access="hasAnyRole('ROLE_DC','ROLE_ADMIN','ROLE_CONS','ROLE_SISE')" />
 
 		<!-- CONSULTATION-->
+		<sec:intercept-url pattern="/pages/secure/CM/DGD/listeMatStatHisto.xhtml"
+						   access="hasAnyRole('ROLE_DC','ROLE_CONS','ROLE_ADMIN','ROLE_SISE','ROLE_GAC','ROLE_DG','ROLE_DRF')" />
+		<sec:intercept-url pattern="/pages/secure/CM/DGD/editionEtats.xhtml"
+						   access="hasAnyRole('ROLE_DC','ROLE_CONS','ROLE_ADMIN','ROLE_SISE','ROLE_GAC','ROLE_DG','ROLE_DRF')" />
+		
+		<sec:intercept-url pattern="/pages/secure/CM/tables/dialogs/dialogs_grandLivre.xhtml"
+						   access="hasAnyRole('ROLE_DC','ROLE_CONS','ROLE_ADMIN','ROLE_SISE','ROLE_GAC','ROLE_DG','ROLE_DRF')" />
+						   				   
 		<sec:intercept-url pattern="/pages/secure/CM/DGD/**"
-						   access="hasAnyRole('ROLE_CONS','ROLE_ADMIN','ROLE_SISE','ROLE_GAC','ROLE_DC')" />
+						   access="hasAnyRole('ROLE_CONS','ROLE_ADMIN','ROLE_SISE','ROLE_GAC','ROLE_DG','ROLE_DRF')" />
 						   
-						   <sec:intercept-url pattern="/pages/secure/CA/DGD/**"
-						   access="hasAnyRole('ROLE_CONS','ROLE_ADMIN','ROLE_SISE','ROLE_GAC','ROLE_DC')" />
+		<sec:intercept-url pattern="/pages/secure/CA/DGD/**"
+						   access="hasAnyRole('ROLE_CONS','ROLE_ADMIN','ROLE_SISE','ROLE_GAC','ROLE_DG','ROLE_DRF','ROLE_DRF')" />
 		
 
 		<!-- GAC-->
 		<sec:intercept-url pattern="/pages/secure/CM/GAC/**"
-						   access="hasAnyRole('ROLE_GAC','ROLE_ADMIN','ROLE_CONS')" />
+						   access="hasAnyRole('ROLE_GAC','ROLE_ADMIN')" />
 						   
 						   <sec:intercept-url pattern="/pages/secure/CA/GAC/**"
-						   access="hasAnyRole('ROLE_GAC','ROLE_ADMIN','ROLE_CONS')" />
+						   access="hasAnyRole('ROLE_GAC','ROLE_ADMIN')" />
 		<!-- SISE-->
 		<sec:intercept-url pattern="/pages/secure/CM/SISE/**"
-						   access="hasAnyRole('ROLE_SISE','ROLE_ADMIN','ROLE_CONS')" />
+						   access="hasAnyRole('ROLE_SISE','ROLE_ADMIN')" />
 						   
 						   <sec:intercept-url pattern="/pages/secure/CA/SISE/**"
-						   access="hasAnyRole('ROLE_SISE','ROLE_ADMIN','ROLE_CONS')" />
+						   access="hasAnyRole('ROLE_SISE','ROLE_ADMIN')" />
 		<!-- ALL -->
 		<sec:intercept-url pattern="/pages/secure/**"
 						   access="hasAnyRole('ROLE_ADMIN','ROLE_CONS')" />
