@@ -137,6 +137,39 @@
 	</navigation-rule>
 	
 	<navigation-rule>
+		<from-view-id>/pages/unsecure/error_404.xhtml</from-view-id>
+		
+		<navigation-case>
+			<from-outcome>return_choice</from-outcome>
+			<to-view-id>/pages/secure/choice.xhtml</to-view-id>
+			<redirect />
+		
+		</navigation-case>
+	</navigation-rule>
+	
+	<navigation-rule>
+		<from-view-id>/pages/unsecure/error_400.xhtml</from-view-id>
+		
+		<navigation-case>
+			<from-outcome>return_choice</from-outcome>
+			<to-view-id>/pages/secure/choice.xhtml</to-view-id>
+			<redirect />
+		
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+	
+		<from-view-id>/pages/unsecure/error_401.xhtml</from-view-id>
+		
+		<navigation-case>
+			<from-outcome>return_choice</from-outcome>
+			<to-view-id>/pages/secure/choice.xhtml</to-view-id>
+			<redirect />
+		
+		</navigation-case>
+	</navigation-rule>
+	
+	<navigation-rule>
 		<from-view-id>/*</from-view-id>
 		
 		<navigation-case>

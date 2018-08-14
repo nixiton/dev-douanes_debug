@@ -10,7 +10,7 @@
 
     
 <ui:include src="components/header.xhtml">
-	<ui:param name="title" value="Page protégée" />
+	<ui:param name="title" value="Requête non prise en charge" />
 </ui:include>
 
 
@@ -96,13 +96,17 @@
 
 	<div class="form-signin">
 		<div class="text-center">
-			<div><h3>Accès interdit</h3></div>
+			<div><h3>Requête non prise en charge</h3></div>
 			<h:graphicImage value="/pages/unsecure/assets/images/logo.jpeg" />
 		</div>
 		<br ></br >
 		<div class="tab-content text-center">
 			<div id="login" class="tab-pane active">
-				<strong>#{customaccessBean.message}</strong>
+				<p>
+				<strong>Veuillez recharger la page désirée.</strong>
+				</p>
+				<p> Contactez l'<strong>administrateur</strong> si le problème persiste.
+				</p>
 			</div>
 		</div>
 		

@@ -50,7 +50,7 @@ public class AppExceptionHandler extends HttpServlet {
         PrintWriter out = response.getWriter();
         out.write("<html><head><title>Exception/Error Details</title></head><body>");
         if(statusCode != 500){
-            out.write("<h3>Error Details</h3>");
+            out.write("<h3>Error Details mine</h3>");
             out.write("<strong>Status Code</strong>:"+statusCode+"<br>");
             out.write("<strong>Requested URI</strong>:"+requestUri);
         }else{

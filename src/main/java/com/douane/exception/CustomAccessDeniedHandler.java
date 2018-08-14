@@ -40,10 +40,10 @@ public class CustomAccessDeniedHandler implements AccessDeniedHandler {
 
         if (auth != null) {
             setMessage( "Utilisateur: " + auth.getName()
-                    + " a tenter d'accéder à une page protégée: "
+                    + " a tenté d'accéder à une page protégée: "
                     + request.getRequestURI());
             RequestFilter.getSession().setAttribute("messageAccessDenied", "User: " + auth.getName()
-                    + " a tenter d'accéder à une page protégée: "
+                    + " a tenté d'accéder à une page protégée: "
                     + request.getRequestURI());
             LOG.warn(getMessage());
         }
