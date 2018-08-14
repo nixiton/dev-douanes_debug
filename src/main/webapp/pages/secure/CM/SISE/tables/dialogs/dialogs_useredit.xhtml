@@ -125,6 +125,34 @@
 	                    </p:selectOneMenu>
 					</div>
                   </div>
+                  
+                  <hr></hr>
+				<!-- MDP-->
+				<h:form>
+				<div class="row">
+					<div class="col-lg-6 col-lg-offset-1">
+						<h:outputLabel styleClass="col-md-6" 
+							value="Modifier Mot de Passe " />
+					</div>
+					
+					<div class="col-lg-4">
+						<p:commandButton value="Oui" >
+  							<f:ajax listener="#{siseBean.showmdp}" event="click" render="changemdp @form"></f:ajax>
+						</p:commandButton>
+						<p:commandButton value="Non" >
+  							<f:ajax listener="#{siseBean.hidemdp}" event="click" render="changemdp @form"></f:ajax>
+						</p:commandButton>
+					</div>
+					
+                  </div>
+                  <h:panelGroup layout="block" rendered="#{siseBean.invismdp}" id="changemdp">
+                  <div class="row">
+                  	<div class="col-lg-4 col-lg-offset-1">
+                  		
+                 	 </div>
+                  </div>
+                  </h:panelGroup>
+                  </h:form>
               	<br/><br/>
              </div>
                     

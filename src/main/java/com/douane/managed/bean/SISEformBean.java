@@ -1543,4 +1543,18 @@ public class SISEformBean {
 		return result;
 	}
 	
+		private boolean invismdp=false;
+		public boolean isInvismdp() {
+			return invismdp;
+		}
+
+		public void setInvismdp(boolean invismdp) {
+			this.invismdp = invismdp;
+		}
+		public void showmdp() {
+			this.invismdp = true;
+		}
+		public void hidemdp() {
+			this.invismdp = false;
+		}
 }
