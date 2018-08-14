@@ -183,6 +183,12 @@ public class OrdreSortieFormBean {
 		public void setArticle(String article) {
 			this.article = article;
 		}
-		
+		private String dirc;
+		public String getDirc() {
+			return dirc;
+		}
+		public void setDirc(String dirc) {
+			this.dirc = dirc;
+		}
 		
 }

@@ -17,7 +17,7 @@
 
         <h:link value="" outcome="add_Devise"
             class="btn btn-lg btn-primary btn-block " immediate="true" >
-            <i class="fa fa-plus-circle">  </i>  Ajouter
+            <i class="fa fa-plus-circle">  </i>  Changer
        	</h:link>
         <hr></hr>
 
@@ -45,6 +45,18 @@
             <p:cellEditor>
                <f:facet name="output"><h:outputText value="#{b.designation}" /></f:facet>
                <f:facet name="input"><p:inputText value="#{b.designation}" style="width:80%"/></f:facet>
+           </p:cellEditor>
+        
+        
+        </p:column>
+        <p:column filterBy="#{b.dateExpire}" filterMatchMode="contains" style="width: 15%; text-align: center; word-wrap: break-word;">
+            <f:facet name="header">Date du changement</f:facet>
+            <p:cellEditor>
+               <f:facet name="output"><h:outputText value="#{b.dateExpire}" /></f:facet>
+               <f:facet name="input">
+               
+               <p:calendar value="#{b.dateExpire}" navigator="true" style="width:80%" />
+               </f:facet>
            </p:cellEditor>
         
         

@@ -173,5 +173,13 @@ public class ordreEntreeBean {
 	public void setFilamatra(String filamatra) {
 		this.filamatra = filamatra;
 	}
+	
+	private String dirc;
+	public String getDirc() {
+		return dirc;
+	}
+	public void setDirc(String dirc) {
+		this.dirc = dirc;
+	}
 		
 }

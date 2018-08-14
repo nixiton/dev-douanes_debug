@@ -8,10 +8,14 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.douane.dao.referentiel.IRefDAO;
 import com.douane.entite.Agent;
+import com.douane.entite.Direction;
+import com.douane.entite.DirectionTitleHist;
 import com.douane.entite.EtatMateriel;
 import com.douane.entite.FournisseurDetail;
 import com.douane.entite.OpSaisie;
 import com.douane.entite.Referentiel;
+import com.douane.repository.DirHistRepository;
+import com.douane.repository.DirRepository;
 import com.douane.repository.FournRepository;
 import com.douane.repository.OpRepository;
 import com.douane.repository.RefRepository;
@@ -27,7 +31,10 @@ public class RefMetierImpl implements IRefMetier{
 	private FournRepository fournrepos;
 	@Autowired
 	private OpRepository oprepos;
-	
+	@Autowired
+	private DirHistRepository dirhistrepos;
+	@Autowired
+	private DirRepository dirrepos;
 
 	public IRefDAO getRefdao() {
 		return refdao;
@@ -48,6 +55,11 @@ public class RefMetierImpl implements IRefMetier{
 		saisiref.valider();
 		oprepos.save(saisiref);
 		return refx;
+	}
+	@Override
+	public Direction updateDirection(Direction d) {
+		System.out.println("id : "+d.getId());
+		return dirrepos.save(d);
 	}
 	@Override
 	public Referentiel updateRef(Referentiel r, Agent oper) {
@@ -109,6 +121,21 @@ public class RefMetierImpl implements IRefMetier{
 	public Referentiel findById(Long id) {
 		// TODO Auto-generated method stub
 		return refrepos.findOne(id);
+	}
+
+	@Override
+	public DirectionTitleHist saveDirHisto(DirectionTitleHist dh) {
+		// TODO Auto-generated method stub
+		dh = dirhistrepos.save(dh);
+		return dh;
+	}
+
+	public DirRepository getDirrepos() {
+		return dirrepos;
+	}
+
+	public void setDirrepos(DirRepository dirrepos) {
+		this.dirrepos = dirrepos;
 	}
 
 	

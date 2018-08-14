@@ -99,11 +99,11 @@ public abstract class Referentiel implements Serializable {
 		if (getClass() != obj.getClass())
 			return false;
 		Referentiel other = (Referentiel) obj;
-		if (designation == null) {
+		/*if (designation == null) {
 			if (other.designation != null)
 				return false;
 		} else if (!designation.equals(other.designation))
-			return false;
+			return false;*/
 		if (id == null) {
 			if (other.id != null)
 				return false;

@@ -31,7 +31,10 @@
  			
  			<div class="col-md-3">
  				<br/>
- 				(3) <h:outputText value="#{gacBean.curentOperation1.direction}" /><br></br>
+ 				
+ 				(3) <p:selectOneMenu id="directionint" value="#{JasperTableExampleBean.ordreEB.dirc}">
+                        <f:selectItems value="#{siseBean.mapDirection(gacBean.curentOperation1.direction, gacBean.curentOperation1.date)}" />
+                    </p:selectOneMenu><br></br>
  				(4) <h:outputText value="#{gacBean.curentOperation1.direction.quatre}"/><br></br>
 
  			</div>

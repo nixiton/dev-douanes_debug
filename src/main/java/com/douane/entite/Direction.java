@@ -2,7 +2,12 @@ package com.douane.entite;
 
 import javax.persistence.*;
 
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
+
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Direction extends Referentiel {
@@ -49,6 +54,58 @@ public class Direction extends Referentiel {
 	}
 	public void setQuatre(String quatre) {
 		this.quatre = quatre;
+	}
+	
+	@OneToMany(cascade=CascadeType.ALL)
+	@JoinTable
+	  (
+	      name="directionhistor",
+	      joinColumns={ @JoinColumn(name="dirid", referencedColumnName="id") },
+	      inverseJoinColumns={ @JoinColumn(name="dirtitleid", referencedColumnName="idtitle", unique=true) }
+	  )
+	@LazyCollection(LazyCollectionOption.FALSE)
+	private List<DirectionTitleHist> listTitle = new ArrayList<DirectionTitleHist>();
+	
+	
+	public List<DirectionTitleHist> getListTitle() {
+		return listTitle;
+	}
+	public void setListTitle(List<DirectionTitleHist> listTitle) {
+		this.listTitle = listTitle;
+	}
+	public void addTitle(DirectionTitleHist t) {
+		listTitle.add(t);
+		t.setDirection(this);
+	}
+	public void removeTitle(DirectionTitleHist t) {
+		listTitle.remove(t);
+		t.setDirection(null);
+	}
+	
+	
+	@Transient
+	private String lastTitle;
+	public String getLastTitle() {
+		if(listTitle.size()>0) {
+			
+			return listTitle.get(listTitle.size()-1).getTitle();
+		}
+		return "None";
+	}
+	public void setLastTitle(String title) {
+		this.lastTitle = title;
+	}
+	@Transient
+	private DirectionTitleHist lastTitleObj;
+	public DirectionTitleHist getLastTitleObj() {
+		if(listTitle.size()>0) {
+			
+			return listTitle.get(listTitle.size()-1);
+		}
+		return null;
+	}
+	public void setLastTitleObj(DirectionTitleHist title) {
+		this.lastTitleObj = title;
 	}
 	
 

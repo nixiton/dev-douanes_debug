@@ -19,7 +19,7 @@
 			<br/>
             <div class="form-group">
             	<div class="row">
-					<div class="col-lg-4 col-lg-offset-1">	
+					<div class="col-lg-6 ">	
 		                <label for="text1" class="control-label col-lg-4">Devise
 		                </label>
 					</div>
@@ -27,11 +27,35 @@
 					
 	                    <p:inputText   required="true"
 	                        value="#{siseBean.devise.designation}"
-	                        requiredMessage=""
+	                        requiredMessage="Devise est obligatoire"
 	                        placeholder="Devise de la république" styleClass="form-control top"></p:inputText>
 	
 	                </div>
+	                
                 </div>
+                
+                <div class="row">
+					<div class="col-lg-6">
+						
+		                <p:outputLabel styleClass="control-label col-lg-12" for="annee_devise" value="Date du changement de devise " />
+					</div>
+	                
+						
+						<div class="col-lg-6">
+        					<p:calendar id="annee_devise"  value="#{siseBean.devise.dateExpire}" navigator="true" pattern="dd MMMM yyyy" required="true" locale="fr"/>
+     			 			<p:dialog modal="true" resizable="false" header="Values" widgetVar="dlg" showEffect="fold">
+        						<p:panelGrid id="display_devise" columns="2" columnClasses="label,value">
+      			 					 <h:outputText value="" />
+						            <h:outputText value="#{siseBean.devise.dateExpire}">
+						                <f:convertDateTime pattern="dd MMMM yyyy" locale="Locale.FRANCE"/>
+				                  	</h:outputText>
+       			 				</p:panelGrid>
+    						</p:dialog>
+	               		 </div>
+	                
+                </div>
+                
+                
               
             </div>
 			<hr></hr>
@@ -57,5 +81,7 @@
 </div>
 
 <div class="col-md-4"></div>
-
+<script type="text/javascript">
+PrimeFaces.locales ['fr'] = { closeText: 'Fermer', prevText: 'Précédent', nextText: 'Suivant', monthNames: ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre' ], monthNamesShort: ['Jan', 'Fév', 'Mar', 'Avr', 'Mai', 'Jun', 'Jul', 'Aoû', 'Sep', 'Oct', 'Nov', 'Déc' ], dayNames: ['Dimanche', 'Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi'], dayNamesShort: ['Dim', 'Lun', 'Mar', 'Mer', 'Jeu', 'Ven', 'Sam'], dayNamesMin: ['D', 'L', 'M', 'M', 'J', 'V', 'S'], weekHeader: 'Semaine', firstDay: 1, isRTL: false, showMonthAfterYear: false, yearSuffix:'', timeOnlyTitle: 'Choisir l\'heure', timeText: 'Heure', hourText: 'Heures', minuteText: 'Minutes', secondText: 'Secondes', currentText: 'Maintenant', ampm: false, month: 'Mois', week: 'Semaine', day: 'Jour', allDayText: 'Toute la journée' };
+</script>
 </html>

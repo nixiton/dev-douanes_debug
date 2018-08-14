@@ -683,18 +683,36 @@ public class SISEformBean {
 		return SUCCESS;
 	}
 
-	public String addDirection() throws SQLException {
+	public String addDirection() {
 		try {
 			Direction direction = new Direction(this.getDesignation(), this.getCodeDirection());
 			direction.setBudget(this.getBudget());
 			direction.setTrois(this.getTrois());
 			direction.setQuatre(this.getQuatre());
+			
+			//add title to list
+			//save direction title
+			DirectionTitleHist dirtitle = new DirectionTitleHist();
+			dirtitle.setTitle(this.getDesignation());
+			dirtitle.setDate(new Date());
+			
+			//add dirtitle
+			direction.addTitle(dirtitle);
+			//refmetierimpl.saveDirHisto(dirtitle);
+			//set direction title
+			
+			
 			Agent agent = (Agent) RequestFilter.getSession().getAttribute("agent");
 			refmetierimpl.addRef(direction, agent);
 			return SUCCESS;
 		} catch (DataIntegrityViolationException ex) {
 			FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_FATAL, "Code direction  unique",
 					getCodeDirection() + " existe déjà");
+			FacesContext.getCurrentInstance().addMessage(null, message);
+			return "";
+		}catch(SQLException exu){
+			FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_FATAL, "Erreur interne",
+					" Une erreur s'est produite pendant la requête");
 			FacesContext.getCurrentInstance().addMessage(null, message);
 			return "";
 		}
@@ -1434,4 +1452,95 @@ public class SISEformBean {
 	public void setListDevise(List<Devise> listDevise) {
 		this.listDevise = listDevise;
 	}
+	
+	
+
+	private Direction directionToModify = new Direction();
+	public Direction getDirectionToModify() {
+		return directionToModify;
+	}
+
+	public void setDirectionToModify(Direction directionToModify) {
+		this.directionToModify = directionToModify;
+	}
+	public void setCurrentDirectiontomodify(Direction d) {
+		Map<String,Object> sessionMapObj = FacesContext.getCurrentInstance().getExternalContext().getSessionMap();
+		sessionMapObj.put("editDir", d);
+		this.setDirectionToModify(d);
+	}
+	
+	public void updateDirection(Direction d) {
+		if(d==null) {
+			FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Erreur direction inconnue", "Direction inconnue");
+			FacesContext.getCurrentInstance().validationFailed();
+			FacesContext.getCurrentInstance().addMessage("editdirectionerror", message);
+			System.out.println("direction null");
+			return ;
+		}
+		try {
+		//Agent operat = (Agent) RequestFilter.getSession().getAttribute("agent");
+		System.out.println("id : "+d.getId());
+		refmetierimpl.updateDirection(d);
+		
+		System.out.println("add direction");
+		}catch(Exception e) {
+			FacesMessage messagea = new FacesMessage(FacesMessage.SEVERITY_WARN, "Erreur Modification Direction", "Ne respecte pas les contraintes");
+			FacesContext.getCurrentInstance().validationFailed();
+			FacesContext.getCurrentInstance().addMessage("editdirectionerror", messagea);
+		}
+		finally {
+			//Map<String,Object> sessionMapObj = FacesContext.getCurrentInstance().getExternalContext().getSessionMap();
+			//sessionMapObj.remove("editAgent");
+		}
+	}
+	public void exit() {
+		this.directionToModify=new Direction();
+		//sessionMapObj.put("editDir", d);
+		Map<String,Object> sessionMapObj = FacesContext.getCurrentInstance().getExternalContext().getSessionMap();
+		sessionMapObj.remove("editDir");
+		FacesMessage messagea = new FacesMessage(FacesMessage.SEVERITY_INFO, "Modification Direction", "La modification a été annulée");
+		FacesContext.getCurrentInstance().addMessage("editdirectionerror", messagea);
+		
+	}
+	
+	
+
+	private DirectionTitleHist dirhist = new DirectionTitleHist();
+	public DirectionTitleHist getDirhist() {
+		return dirhist;
+	}
+
+	public void setDirhist(DirectionTitleHist dirhist) {
+		this.dirhist = dirhist;
+	}
+	
+	public void addIntitule(Direction d, DirectionTitleHist dh) {
+		d.addTitle(dh);
+	}
+	
+	public List<SelectItem> mapDirection(Direction d, Date dates){
+		//Map<String, String> filamatras = new HashMap<String, String>();
+		final Date date = dates;
+		System.out.println(date);
+		Collections.sort(d.getListTitle(), new Comparator<DirectionTitleHist>() {
+			public int compare(DirectionTitleHist h1, DirectionTitleHist h2) {
+				Date d1 = h1.getDate();
+				Date d2 = h2.getDate();
+				//System.out.println("date :" + d1);
+				long diff1 = Math.abs(d1.getTime() - date.getTime());
+		        long diff2 = Math.abs(d2.getTime() - date.getTime());
+		        System.out.println(h1.getTitle()+" : "+ diff1 +" - "+ h2.getTitle()+" : "+diff2 +" = " + (diff1-diff2));
+		        return Long.compare(diff1, diff2);
+			}
+		});
+		List<SelectItem> result = new ArrayList<SelectItem>();  
+		for(DirectionTitleHist dh : d.getListTitle()) {
+			System.out.println(dh.getTitle());
+			result.add(new SelectItem(dh.getTitle(), dh.getTitle()));
+			//filamatras.put(dh.getTitle(), dh.getTitle());
+		}
+		
+		return result;
+	}
+	
 }

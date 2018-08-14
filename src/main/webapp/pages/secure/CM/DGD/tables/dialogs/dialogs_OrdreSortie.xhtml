@@ -29,7 +29,9 @@
  			
  			<div class="col-md-3">
  				<br/>
- 				<h:outputText value="#{docbean.curentOpeationSortieToPdf.direction}" /> <!-- p:inputText value="#{JasperTableExampleBean.ordreS.num5}" style="text-align: center;width: 80%"></p:inputText--><br></br>
+ 				<p:selectOneMenu id="directionint" value="#{JasperTableExampleBean.ordreS.dirc}">
+                        <f:selectItems value="#{siseBean.mapDirection(docbean.curentOpeationSortieToPdf.direction, docbean.curentOpeationSortieToPdf.date)}" />
+                 </p:selectOneMenu>
  				<h:outputText value="#{docbean.curentOpeationSortieToPdf.direction.quatre}" /> <!--p:inputText value="#{JasperTableExampleBean.ordreS.num6}" style="text-align: center;width: 80%"></p:inputText --><br></br>
 
  			</div>

@@ -266,7 +266,8 @@ public class JasperTableExampleBean implements Serializable{
             parameters.put ("dataSource" , datalist.getDataAsDataSource());
             parameters.put ("filamatra" , this.ordreEB.getFilamatra());
             parameters.put("numEntre", op.getNumentree());
-            parameters.put("num3", op.getDirection().getDesignation());
+            //parameters.put("num3", op.getDirection().getDesignation());
+            parameters.put("num3", this.ordreEB.getDirc());
             parameters.put("matieres", op.getListMat().get(0).getDesign().getOrigine());
             parameters.put("num4", op.getDirection().getQuatre());
             parameters.put("budget", this.ordreEB.getBudget());
@@ -275,7 +276,8 @@ public class JasperTableExampleBean implements Serializable{
             parameters.put("paragraphe", this.ordreEB.getParagraphe());
             parameters.put("noumJour", this.ordreEB.getNoumJour());
             parameters.put("approOuService", this.ordreEB.getApproOuService());
-            parameters.put("comptable", op.getDirection().getDesignation());
+            //parameters.put("comptable", op.getDirection().getDesignation());
+            parameters.put("comptable", this.ordreEB.getDirc());
             parameters.put("comptable1", op.getOperateur().getNomAgent());
             parameters.put("matieres", op.getListMat().get(0).getDesign().getOrigine());
             parameters.put("arrte", this.ordreEB.getOrdre());
@@ -332,7 +334,8 @@ public class JasperTableExampleBean implements Serializable{
             parameters.put("paragraphe", this.ordreEB.getParagraphe());
             parameters.put("noumJour", this.ordreEB.getNoumJour());
             parameters.put("approOuService", this.ordreEB.getApproOuService());
-            parameters.put("comptable", op.getDirection().getDesignation());
+            //parameters.put("comptable", op.getDirection().getDesignation());
+            parameters.put("comptable", this.ordreEB.getDirc());
             parameters.put("comptable1", op.getOperateur().getNomAgent());
             parameters.put("matieres",  op.getListMat().get(0).getDesign().getOrigine());
             parameters.put("ordre", this.ordreEB.getOrdre());
@@ -392,7 +395,8 @@ public class JasperTableExampleBean implements Serializable{
             parameters.put("num2", this.ordreS.getNum2());
             parameters.put("approOuService", this.ordreS.getApproOuService());
             if(op.getDirection().getDesignation() != null)
-            	parameters.put("comptable", op.getDirection().getDesignation());
+            	//parameters.put("comptable", op.getDirection().getDesignation());
+            	parameters.put("comptable", this.ordreS.getDirc());
             parameters.put("Comptable", op.getOperateur().getNomAgent());
             parameters.put("matiere",  op.getMat().getDesign().getOrigine());
             //mila alamina ny jsxml sy ny entree
@@ -456,7 +460,8 @@ public class JasperTableExampleBean implements Serializable{
             parameters.put("num2", this.ordreS.getNum2());
             parameters.put("approOuService", this.ordreS.getApproOuService());
             if(op.getDirection().getDesignation() != null)
-            	parameters.put("comptable", op.getDirection().getDesignation());
+            	//parameters.put("comptable", op.getDirection().getDesignation());
+            	parameters.put("comptable", this.ordreS.getDirc());
             parameters.put("Comptable", op.getOperateur().getNomAgent());
             parameters.put("matiere",  op.getMat().getDesign().getOrigine());
             //mila alamina ny jsxml sy ny entree
