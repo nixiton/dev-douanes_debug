@@ -698,7 +698,7 @@ public class UserManagedBean implements Serializable {
 	public String exit(){
 		Map<String,Object> sessionMapObj = FacesContext.getCurrentInstance().getExternalContext().getSessionMap();
 		FacesMessage messagea = new FacesMessage(FacesMessage.SEVERITY_INFO, "Modification Agent", "La modification a été annulée");
-		FacesContext.getCurrentInstance().addMessage("editagenterror", messagea);
+		FacesContext.getCurrentInstance().addMessage(null, messagea);
 		//sessionMapObj.remove("editAgent");
 		
 		return null;
@@ -717,6 +717,36 @@ public class UserManagedBean implements Serializable {
 			return null;
 		}
 		return getUsermetierimpl().listAgentByDirection(agent.getDirection());
+	}
+	
+	public void changePassWithoutConfirm(Agent user) {
+		System.out.println("change password");
+		FacesMessage message;
+		try {
+			
+			//user.setPassword(passwordEncoder.encode(getNewPass()));
+			Agent agent = usermetierimpl.findAgentByIm(user.getIm());
+			usermetierimpl.changeAgentPass(agent, passwordEncoder.encode(getNewPass()));
+
+			if (!passwordEncoder.matches(getNewPass(), usermetierimpl.findAgentByIm(user.getIm()).getPassword()))
+			{
+
+			}
+			//agent.setPassword(passwordEncoder.encode(getNewPass()));
+
+			message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Succes", "Mot de passe mise à jour");
+			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Mot de passe mise à jour"));
+			FacesContext.getCurrentInstance().addMessage(null, message);
+
+		} catch (Exception e) {
+
+			message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Erreur changement mot de passe", "Mot de passe n'a pas pu être changer");
+			FacesContext.getCurrentInstance().addMessage(null, message);
+			//throw new SecurityExecption("Wrong credentials");
+
+		}
+
+
 	}
 	
 	

@@ -62,6 +62,10 @@
 						   
 		<sec:intercept-url pattern="/pages/secure/CA/DC/**"
 						   access="hasAnyRole('ROLE_DC','ROLE_ADMIN','ROLE_CONS','ROLE_SISE')" />
+						   
+		<!-- EDITION DES DOCUMENTS -->
+		<sec:intercept-url pattern="/pages/secure/CM/DGD/tables/dialogs/**"
+						   access="hasAnyRole('ROLE_DC','ROLE_CONS','ROLE_ADMIN','ROLE_SISE','ROLE_GAC','ROLE_DG','ROLE_DRF')" />
 
 		<!-- CONSULTATION-->
 		<sec:intercept-url pattern="/pages/secure/CM/DGD/listeMatStatHisto.xhtml"
@@ -70,6 +74,8 @@
 						   access="hasAnyRole('ROLE_DC','ROLE_CONS','ROLE_ADMIN','ROLE_SISE','ROLE_GAC','ROLE_DG','ROLE_DRF')" />
 		
 		<sec:intercept-url pattern="/pages/secure/CM/tables/dialogs/dialogs_grandLivre.xhtml"
+						   access="hasAnyRole('ROLE_DC','ROLE_CONS','ROLE_ADMIN','ROLE_SISE','ROLE_GAC','ROLE_DG','ROLE_DRF')" />
+		<sec:intercept-url pattern="/pages/secure/CM/tables/dialogs/dialogs_saisieMatEx1.xhtml"
 						   access="hasAnyRole('ROLE_DC','ROLE_CONS','ROLE_ADMIN','ROLE_SISE','ROLE_GAC','ROLE_DG','ROLE_DRF')" />
 						   				   
 		<sec:intercept-url pattern="/pages/secure/CM/DGD/**"

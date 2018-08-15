@@ -13,7 +13,7 @@
               modal    = "true"
               
     >
-        
+     <p:growl  redisplay="false" id="all" showDetail="true" autoUpdate="true" />   
             <div class="box dark col-md-12">
 
 	<div class="body">
@@ -73,7 +73,10 @@
 					</div>
 					<div class="col-lg-6">
 						<p:selectOneMenu id="agentdir" value="#{editAgent.direction}" converter="#{refConverter}"
-	                         effect="fade"  filter="true" filterMatchMode="startsWith" panelStyle="width:250px;" >
+	                         effect="fade"  filter="true" filterMatchMode="startsWith" panelStyle="width:250px;" 
+	                         required="true"
+	                         requiredMessage="Direction est obligatoire"
+	                         >
 	                        <f:selectItem itemValue="#{null}" itemLabel="Selectionner" /> 
 	                            <f:selectItems value="#{siseBean.listDirection}" var="theme" itemLabel="#{theme.designation}" itemValue="#{theme}" />
 	                        <!-- <p:column>
@@ -114,12 +117,13 @@
 					</div>
 					<div class="col-lg-6">
 						<p:selectOneMenu value="#{editAgent.roleAgent}" converter="#{useriConverter}" 
-	                         effect="fade"  filter="true" filterMatchMode="startsWith" panelStyle="width:250px;" >
-	                        <f:selectItem itemValue="#{null}" itemLabel="Selectionner" /> 
+	                         effect="fade"  filter="true" filterMatchMode="startsWith" panelStyle="width:250px;" 
+	                         required="true"
+	                         requiredMessage="Fonction est obligatoire"
+	                         >
+	                        <f:selectItem itemValue="#{null}" itemLabel="Selectionner"/> 
 	                            <f:selectItems value="#{siseBean.listUseri}" var="theme" itemLabel="#{theme.designation}" itemValue="#{theme}" />
-	                        <!-- <p:column>
-	                            <h:outputText value="#{t.designation}" />
-	                        </p:column> -->
+	                        
 	                        
 	
 	                    </p:selectOneMenu>
@@ -127,32 +131,7 @@
                   </div>
                   
                   <hr></hr>
-				<!-- MDP-->
-				<h:form>
-				<div class="row">
-					<div class="col-lg-6 col-lg-offset-1">
-						<h:outputLabel styleClass="col-md-6" 
-							value="Modifier Mot de Passe " />
-					</div>
-					
-					<div class="col-lg-4">
-						<p:commandButton value="Oui" >
-  							<f:ajax listener="#{siseBean.showmdp}" event="click" render="changemdp @form"></f:ajax>
-						</p:commandButton>
-						<p:commandButton value="Non" >
-  							<f:ajax listener="#{siseBean.hidemdp}" event="click" render="changemdp @form"></f:ajax>
-						</p:commandButton>
-					</div>
-					
-                  </div>
-                  <h:panelGroup layout="block" rendered="#{siseBean.invismdp}" id="changemdp">
-                  <div class="row">
-                  	<div class="col-lg-4 col-lg-offset-1">
-                  		
-                 	 </div>
-                  </div>
-                  </h:panelGroup>
-                  </h:form>
+				
               	<br/><br/>
              </div>
                     
@@ -189,6 +168,55 @@
 			
 					
 				</h:form>
+				<!-- MDP-->
+				<h:form id="myform">
+                    <p:messages id="messages" showDetail="true" autoUpdate="true" />
+
+                    <hr></hr>
+                                        
+					<div class="row">
+	                    <div class="col-md-6">
+	                    	 <h:outputLabel for="password1" 
+                                   value="Nouveau mot de passe : " />
+	                    </div>
+	                    <div class="col-md-6">
+	                    	<p:password id="password1" 
+                                value="#{userMB.newPass}" match="password2" required="true" requiredMessage="Mot de passe obligatoire" 
+                                validatorMessage=" Erreur de longueur de Mot de passe (longueur minimale requise : 8) ou Erreur de confirmation de mot de passe" >
+							<f:validateLength minimum="8" />
+                    		</p:password>
+	                    </div>
+                       
+                    </div>
+
+                    <hr></hr>
+
+					 <div class="row">
+	                    <div class="col-md-6">
+	                    	 <h:outputLabel  for="password2"
+                                   value="Retaper nouveau mot de passe : " />
+	                    </div>
+	                    <div class="col-md-6">
+	                    	<p:password id="password2"   
+                                value="#{userMB.newPass}" required="true" requiredMessage="Confirmation Mot de passe obligatoire" 
+                                validatorMessage="Erreur de confirmation de mot de passe">
+                    		</p:password>
+	                    </div>
+                    	
+	                    
+                    </div>
+              		 <hr></hr>
+              		 
+              		 <p:commandButton id="changemdp" value="Changer"
+						   
+						   styleClass="btn btn-lg btn-primary btn-block"
+						   actionListener="#{userMB.changePassWithoutConfirm(editAgent)}"
+		   					oncomplete="if (!args.validationFailed) PF('detailuser').hide();" 
+		   					update="@([id$=myform], [id$=tableUserMat])" />
+
+                </h:form>
+				
+				<!-- ENDMDP -->
 	</div>
 
 </div>
