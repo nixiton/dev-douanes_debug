@@ -38,6 +38,7 @@ import com.douane.managed.bean.form.PdfFormBean;
 import com.douane.managed.bean.saisieRef.JournalFormBean;
 import com.douane.managed.bean.saisieRef.OrdreSortieFormBean;
 
+import bsh.This;
 import net.sf.jasperreports.engine.JREmptyDataSource;
 import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JRExporterParameter;
@@ -410,7 +411,7 @@ public class JasperTableExampleBean implements Serializable{
             parameters.put("lieu", op.getDirection().getTrois());
             //DateFormat df = new SimpleDateFormat("dd MMMM yyyy", Locale.FRANCE);
             parameters.put("date", df.format(op.getDate()));
-            //parameters.put("date", op.getDate().toString());operateur.nomAgent
+            parameters.put("numFolio", this.ordreS.getNumFolio());
             parameters.put("comptable2", op.getOperateur().getNomAgent());
             parameters.put("lieu1", this.ordreS.getLieu2());
             parameters.put("date5", this.ordreS.getDate2());
@@ -474,7 +475,7 @@ public class JasperTableExampleBean implements Serializable{
             //parameters.put("date1", op.getDate().toString());
             parameters.put("date4", this.ordreS.getNum4());
             parameters.put("lieu", op.getDirection().getTrois());
-            //DateFormat df = new SimpleDateFormat("dd MMMM yyyy", Locale.FRANCE);
+            parameters.put("numFolio", this.ordreS.getNumFolio());
             parameters.put("date", df.format(op.getDate()));
             parameters.put("comptable2", op.getOperateur().getNomAgent());
             parameters.put("lieu1", this.ordreS.getLieu2());
@@ -819,6 +820,7 @@ public class JasperTableExampleBean implements Serializable{
             parameters.put("somme2", this.pdfForm.getSomme2());
             parameters.put("date1", this.pdfForm.getDate());
             parameters.put("lieu", this.pdfForm.getLieu());
+            parameters.put("annee", Integer.toString(this.pdfForm.getAnnee()));
             
             JasperPrint jasperPrint = JasperFillManager.fillReport(url.getPath(), parameters, new JREmptyDataSource());
             response.reset();
@@ -867,7 +869,8 @@ public class JasperTableExampleBean implements Serializable{
             parameters.put("somme1", this.pdfForm.getSomme1());
             parameters.put("somme2", this.pdfForm.getSomme2());
             parameters.put("date1", this.pdfForm.getDate());  
-            parameters.put("lieu", this.pdfForm.getLieu());      
+            parameters.put("lieu", this.pdfForm.getLieu()); 
+            parameters.put("annee", Integer.toString(this.pdfForm.getAnnee()));
             JasperPrint jasperPrint = JasperFillManager.fillReport(url.getPath(), parameters, new JREmptyDataSource());
           //EXPORT THROUGH STREAM
             response.reset();

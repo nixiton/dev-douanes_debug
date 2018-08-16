@@ -129,10 +129,6 @@ DIRECTION GENERALE DES DOUANES -----------------------]]></text>
 				<reportElement x="341" y="70" width="100" height="20" uuid="2f845eaa-e4dd-499b-bf1a-ab4990769866"/>
 				<text><![CDATA[Antananarivo, le]]></text>
 			</staticText>
-			<textField pattern="EEEEE dd MMMMM yyyy">
-				<reportElement x="441" y="70" width="100" height="20" uuid="f25b0e6e-057b-4666-8f80-b919bd4f23ed"/>
-				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
-			</textField>
 			<staticText>
 				<reportElement x="210" y="30" width="100" height="20" uuid="dac58ef0-2d62-4a91-addb-0c960b7fa83a"/>
 				<text><![CDATA[Ariary.]]></text>

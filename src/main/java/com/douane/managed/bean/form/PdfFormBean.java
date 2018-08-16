@@ -31,6 +31,7 @@ public class PdfFormBean {
 	private String date;
 	private String lieu;
 	private String filamatra;
+	private int annee;
 	
 	public String getFilamatra() {
 		return filamatra;
@@ -152,5 +153,11 @@ public class PdfFormBean {
 	}
 	public void setDate(String date) {
 		this.date = date;
+	}
+	public int getAnnee() {
+		return annee;
+	}
+	public void setAnnee(int annee) {
+		this.annee = annee;
 	}
 }

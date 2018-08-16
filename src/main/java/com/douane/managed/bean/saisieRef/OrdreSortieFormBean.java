@@ -11,6 +11,7 @@ import com.douane.entite.Devise;
 import com.douane.managed.bean.SISEformBean;
 @ManagedBean(name="ordreSortie")
 public class OrdreSortieFormBean {
+		private String numFolio;
 		private String num5;
 		private String num6;
 		private String budget;
@@ -189,6 +190,12 @@ public class OrdreSortieFormBean {
 		}
 		public void setDirc(String dirc) {
 			this.dirc = dirc;
+		}
+		public String getNumFolio() {
+			return numFolio;
+		}
+		public void setNumFolio(String numFolio) {
+			this.numFolio = numFolio;
 		}
 		
 }

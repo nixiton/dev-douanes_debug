@@ -141,7 +141,7 @@
  				
  				<h:graphicImage width="100%"
                     value="/pages/unsecure/assets/images/etat.png" /><br></br>
-                    <strong>effectués pendant l'année ...#{gacBean.annee}................</strong>
+                    <strong>effectués pendant l'année #{EtatAppreciatifBean.annee}</strong>
  			</div>
 
  			<div class="col-md-1" style="font-size: 14px!important;">
@@ -354,14 +354,14 @@
 	<div class="col-md-9">LE GAC</div> <div class="col-md-3" style="text-align: center;">LE DEPOSITAIRE COMPTABLE</div>
 	<br></br><br></br><br></br>
     <p:commandButton action="#{JasperTableExampleBean.etatAppreciatifReport(EtatAppreciatifBean.liste)}" type="submit" value="Exporter en PDF" ajax="false" >
-    	<!-- f:setPropertyActionListener target="#{JasperTableExampleBean.pdfForm.num3}" value="#{EtatAppreciatifBean.service}" /-->
+    	<f:setPropertyActionListener target="#{JasperTableExampleBean.pdfForm.annee}" value="#{EtatAppreciatifBean.annee}" />
  		<f:setPropertyActionListener target="#{JasperTableExampleBean.pdfForm.lieu}" value="#{EtatAppreciatifBean.trois}" />
  		<f:setPropertyActionListener target="#{JasperTableExampleBean.pdfForm.num4}" value="#{EtatAppreciatifBean.quatre}" />
  			
     </p:commandButton>		
 	<br/>
 	<p:commandButton action="#{JasperTableExampleBean.etatAppreciatifDoc(EtatAppreciatifBean.liste)}" type="submit" value="Exporter en Word" ajax="false" >
-		<!-- f:setPropertyActionListener target="#{JasperTableExampleBean.pdfForm.num3}" value="#{EtatAppreciatifBean.service}" /-->
+		<f:setPropertyActionListener target="#{JasperTableExampleBean.pdfForm.annee}" value="#{EtatAppreciatifBean.annee}" />
  		<f:setPropertyActionListener target="#{JasperTableExampleBean.pdfForm.lieu}" value="#{EtatAppreciatifBean.trois}" />
  		<f:setPropertyActionListener target="#{JasperTableExampleBean.pdfForm.num4}" value="#{EtatAppreciatifBean.quatre}" />
  		

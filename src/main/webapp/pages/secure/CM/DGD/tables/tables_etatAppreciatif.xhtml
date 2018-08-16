@@ -27,16 +27,12 @@
        			 <span>ETAT APPRECIATIF ANNEE </span>
        			 <span>
        			 		<h:form >
-       			 			<p:outputLabel for="annee_etat_appreciatif" value="" />
-        					<p:calendar id="annee_etat_appreciatif" value="#{EtatAppreciatifBean.date}" locale="fr" navigator="true" pattern="dd MMMM yyyy" required="true"/>
-     			 			<p:dialog modal="true" resizable="false" header="Values" widgetVar="dlg" showEffect="fold">
-        						<p:panelGrid id="display_journal" columns="2" columnClasses="label,value">
-      			 					 <h:outputText value="" />
-						            <h:outputText value="#{EtatAppreciatifBean.date}">
-						                <f:convertDateTime pattern="dd MMMM yyyy" />
-				                  	</h:outputText>
-       			 				</p:panelGrid>
-    						</p:dialog>
+       			 			<h:outputLabel for="ANNEE" value="ANNEE" style="font-weight:bold"/>
+				            <p:inputText id="ANNEE" value="#{EtatAppreciatifBean.annee}" label="ANNEE" validatorMessage="L'année doit être entre 1950 et #{EtatAppreciatifBean.annee}">
+				                <f:validateDoubleRange minimum="1950" maximum="#{EtatAppreciatifBean.annee}" />
+				            </p:inputText>
+				            <p:message for="ANNEE" />
+       			 			
     						<h:commandButton value="Exporter" action="#{EtatAppreciatifBean.execute(suivieditionBean)}"/>
        			 		</h:form>
        			 </span>

@@ -1180,6 +1180,205 @@ public class SuiviEditionBean {
 		return listESForGrandLivreOld;
 	}
 
+	public List<Object[]> getListInventaire(int year) {
+		if (listESForGrandLivreOld == null) {
+
+			Agent cur = (Agent) RequestFilter.getSession().getAttribute("agent");
+			Date date = new Date();
+			Calendar calendar = new GregorianCalendar();
+			calendar.setTime(date);
+			//int year = calendar.get(Calendar.YEAR);
+			Date sdate = new GregorianCalendar(year - 2, Calendar.JANUARY, 1).getTime();
+			Date edate = new GregorianCalendar(year + 1, Calendar.DECEMBER, 30).getTime();
+			List<OperationES> listop = usermetierimpl.getListOpESForJournal(cur.getDirection(), sdate, edate);
+			List<Object[]> listobjectForLivre = new ArrayList<Object[]>();
+			for (OperationES op : listop) {
+				Object[] row = new Object[16];
+				if (op instanceof OpEntree) {
+					List<Object[]> bydesignation1 = (this.getDesingationByOpEntree(op));
+					// operation
+					// row[1] = op;
+					// numeros operation
+					row[1] = op.getNumoperation();
+					// date
+					row[15] = op.getDate();
+					// Désignation sommaire des opérations
+					row[2] = "";
+
+					// par nomenclature
+					row[4] = new Float(0);
+					row[6] = new Float(0);
+					row[7] = new Float(0);
+					row[8] = new Float(0);
+					row[9] = new Float(0);
+					row[10] = new Float(0);
+					row[11] = new Float(0);
+					row[12] = new Float(0);
+					row[13] = new Float(0);
+					row[14] = new Float(0);
+
+					for (Object[] nom : bydesignation1) {
+						List<Object[]> liste = (List<Object[]>) nom[2];
+						Nomenclature nomenclcurrent = (Nomenclature) nom[0];
+						if (nomenclcurrent.getNomenclature().equals("1")) {
+							row[4] = nom[1];
+						} else if (nomenclcurrent.getNomenclature().equals("2")) {
+							row[7] = nom[1];
+						} else if (nomenclcurrent.getNomenclature().equals("3")) {
+							row[9] = nom[1];
+						} else if (nomenclcurrent.getNomenclature().equals("5")) {
+							row[11] = nom[1];
+						} else if (nomenclcurrent.getNomenclature().equals("10")) {
+							row[13] = nom[1];
+						}
+						// nomenclature
+						row[0] = nom[0];
+
+						// total charge
+						// row[4] = nom[1];
+						// total decharge
+						// row[6] = 0;
+						for (Object[] des : liste) {
+							row[2] = row[2] + " " + ((Designation) des[0]).getOrigine();
+						}
+						// row[2] = row[2] + " xx: " + ((Nomenclature)row[0]).getNomenclature();
+
+						/*
+						 * for(Object[] des: liste) { Designation d = (Designation)des[0]; //designation
+						 * row[0] = d; //operation row[1] = op;
+						 * 
+						 * //numeros operation row[11] = op.getNumoperation(); //date row[12] =
+						 * op.getDate();
+						 * 
+						 * 
+						 * //origine row[2] = d.getOrigine(); //nombre par desingation entree annee X
+						 * row[3] = des[1]; //total entree annee X row[4] = d.getPu()*(Long)row[3];
+						 * //nombre par desingation sortie row[5] = 0; //total sortie row[6] = 0;
+						 * 
+						 * //existant X-1 row[7] = 0L; //valeur X-1 row[8] = (Long)row[7] * d.getPu();
+						 * 
+						 * //restant X row[9] = (Long)row[3] + (Long)row[7]; //valeur restant X
+						 * //row[10] = (Float)row[8] + d.getPu()*(Long)row[9]; row[10] =
+						 * d.getPu()*(Long)row[9];
+						 * 
+						 * 
+						 * }
+						 */
+					}
+					listobjectForLivre.add(row);
+					row = new Object[16];
+
+				} else if (op instanceof OpSortie) {
+					Materiel mat = op.getMat();
+					row[0] = mat.getDesign();
+					// row[1] = op;
+
+					// numeros operation
+					row[1] = op.getNumoperation();
+					// date
+					row[15] = op.getDate();
+
+					// origine
+					row[2] = ((OpSortie) op).getMotifsortie().getDesignation();
+
+					// par nomenclature
+					row[4] = new Float(0);
+					row[6] = new Float(0);
+					row[7] = new Float(0);
+					row[8] = new Float(0);
+					row[9] = new Float(0);
+					row[10] = new Float(0);
+					row[11] = new Float(0);
+					row[12] = new Float(0);
+					row[13] = new Float(0);
+					row[14] = new Float(0);
+
+					// total sortie
+					Nomenclature nomenclcurrent = mat.getDesign().getNomenMat();
+					if (nomenclcurrent.getNomenclature().equals("1")) {
+						row[6] = mat.getDesign().getPu();
+					} else if (nomenclcurrent.getNomenclature().equals("2")) {
+						row[8] = mat.getDesign().getPu();
+					} else if (nomenclcurrent.getNomenclature().equals("3")) {
+						row[10] = mat.getDesign().getPu();
+					} else if (nomenclcurrent.getNomenclature().equals("5")) {
+						row[12] = mat.getDesign().getPu();
+					} else if (nomenclcurrent.getNomenclature().equals("10")) {
+						row[14] = mat.getDesign().getPu();
+					}
+
+					/*
+					 * //row[6] = mat.getDesign().getPu()*(Long)row[5];
+					 * 
+					 * //existant X-1 row[7] = 1L; //valeur X-1 row[8] = mat.getDesign().getPu() *
+					 * (Long) row[7];
+					 * 
+					 * //restant X row[9] = (Long)row[7] - (Long)row[5]; //valeur restant X-X
+					 * row[10] = (Long) row[9] * mat.getDesign().getPu();
+					 * 
+					 */
+
+					listobjectForLivre.add(row);
+					row = new Object[16];
+				}
+			}
+
+			/*
+			 * //group by designation List<Object[]> resultstableGrouped = new
+			 * ArrayList<Object[]>();
+			 * 
+			 * Map<Long, List<Object[]>> map = new HashMap<Long, List<Object[]>>();
+			 * 
+			 * for (Object[] o : listobjectForLivre) { Long key =
+			 * ((Designation)o[0]).getIdDesignation(); if(map.containsKey(key)){
+			 * List<Object[]> list = map.get(key); list.add(o);
+			 * 
+			 * }else{ List<Object[]> list = new ArrayList<Object[]>(); list.add(o);
+			 * map.put(key, list); }
+			 * 
+			 * } for (Map.Entry<Long, List<Object[]>> entry : map.entrySet()) {
+			 * System.out.println(" gp by livre"); System.out.println(entry.getKey() + ":" +
+			 * entry.getValue().size()); Object[] row = new Object[12]; Designation des =
+			 * (Designation)(entry.getValue().get(0))[0]; List<Object[]> infos =
+			 * entry.getValue(); //Operations List<OperationES> opes = new
+			 * ArrayList<OperationES>(); for(Object[] o: infos) {
+			 * opes.add((OperationES)(o[1])); }
+			 * 
+			 * //Designation row[0] = des; //Numéros des operations row[1] = "";
+			 * for(OperationES op:opes) { row[1] = row[1]+op.getNumoperation()+" "; }
+			 * //origine row[2] = ""; for(OperationES op:opes) { if(op instanceof OpEntree)
+			 * { row[2] = row[2] + des.getOrigine() + " "; } else if(op instanceof OpSortie)
+			 * { row[2] = row[2] + ((OpSortie) op).getMotifsortie().getDesignation() + " ";
+			 * } }
+			 * 
+			 * ///nombre par desingation entree annee X row[3] = 0L; for(Object[] o: infos)
+			 * { if((OperationES)(o[1]) instanceof OpEntree) { row[3] = (Long)o[3]; } }
+			 * //total entree annee X row[4] = des.getPu()*(Long)row[3];
+			 * 
+			 * //nombre par desingation sortie row[5] = 0L; for(Object[] o: infos) {
+			 * if((OperationES)(o[1]) instanceof OpSortie) { row[5] = (Long)row[5]+1L; } }
+			 * 
+			 * //total sortie row[6] = des.getPu()*(Long)row[5];
+			 * 
+			 * //existant X-1 MBOLA TSY MMETY row[7] = 0L; for(Object[] o: infos) {
+			 * if((OperationES)(o[1]) instanceof OpSortie) { row[7] = 1L; } } //valeur X-1
+			 * row[8] = des.getPu() * (Long) row[7];
+			 * 
+			 * //restant X row[9] = (Long)row[7] + (Long)row[3] - (Long)row[5]; //valeur
+			 * restant X-X row[10] = (Long) row[9] * des.getPu();
+			 * 
+			 * //date row[11] = ""; for(OperationES op:opes) { row[11] = row[11] +
+			 * op.getDate().toString() + " "; }
+			 * 
+			 * 
+			 * resultstableGrouped.add(row); }
+			 */
+			// set result GP By
+			listESForGrandLivreOld = listobjectForLivre;
+		}
+		return listESForGrandLivreOld;
+	}
+
 	public List<Object[]> getListESForGrandLivre() {
 		if (listESForGrandLivre == null) {
 			DateFormat  df = new SimpleDateFormat("dd MMM yyyy", Locale.FRANCE);

@@ -40,6 +40,7 @@
 	</style>
 	<subDataset name="Table Dataset 1" uuid="37ad626d-1745-46fd-8d8e-743e37629504">
 		<parameter name="materiel" class="com.douane.entite.Materiel"/>
+		<parameter name="numFolio" class="java.lang.String"/>
 	</subDataset>
 	<parameter name="table" class="java.lang.String" isForPrompting="false"/>
 	<parameter name="budget" class="java.lang.String"/>
@@ -67,6 +68,7 @@
 	<parameter name="materiel" class="com.douane.entite.Materiel"/>
 	<parameter name="numSortie" class="java.lang.String"/>
 	<parameter name="filamatra" class="java.lang.String"/>
+	<parameter name="numFolio" class="java.lang.String"/>
 	<title>
 		<band height="261" splitType="Stretch">
 			<staticText>
@@ -241,9 +243,12 @@
 			<componentElement>
 				<reportElement key="table" style="table" x="0" y="0" width="560" height="210" uuid="7a664e40-65b5-4656-ab49-aaafd8ca328e"/>
 				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
-					<datasetRun subDataset="Table Dataset 1" uuid="0e70f82d-efdf-4084-9bb9-0740c74341ba">
+					<datasetRun subDataset="Table Dataset 1" uuid="c3d7c26b-5b23-4053-b3c9-f191ebd228d1">
 						<datasetParameter name="materiel">
 							<datasetParameterExpression><![CDATA[$P{materiel}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="numFolio">
+							<datasetParameterExpression><![CDATA[$P{numFolio}]]></datasetParameterExpression>
 						</datasetParameter>
 						<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.JREmptyDataSource()]]></dataSourceExpression>
 					</datasetRun>
@@ -279,6 +284,11 @@
 								<reportElement x="30" y="0" width="40" height="120" uuid="ab55e1fd-23af-44c9-b3df-d1c1f4e17efc"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle"/>
 								<textFieldExpression><![CDATA[$P{materiel}.getDesign().getNomenMat().getNomenclature()]]></textFieldExpression>
+							</textField>
+							<textField>
+								<reportElement x="0" y="0" width="30" height="120" uuid="6c03c7f3-b855-46af-bcfc-08934bfd35f3"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle"/>
+								<textFieldExpression><![CDATA[$P{numFolio}]]></textFieldExpression>
 							</textField>
 						</jr:detailCell>
 					</jr:column>
