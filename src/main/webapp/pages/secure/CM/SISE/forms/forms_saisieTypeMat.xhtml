@@ -7,8 +7,17 @@
 
 <h:head></h:head>
 
-<div class="col-md-4"></div>
-<div class="box dark col-md-4" >
+<style>
+	.info {
+	  position: fixed;
+	  bottom: 60px;
+	  right: 24px;
+	  height: 55px;
+	}
+</style>
+
+<div class="col-md-3"></div>
+<div class="box dark col-md-6" >
 
 	<div class="body" >
 
@@ -19,7 +28,7 @@
 			<div class="form-group " >
 				<div class="row">
 					<div class="col-lg-4 col-lg-offset-1">
-							<label for="text1" class="control-label">Désignation
+							<label for="text1" class="control-label">Désignation *
 							</label>
 					</div>
 					<div class="col-lg-6">
@@ -33,7 +42,7 @@
 				<hr></hr>
 				<div class="row">
 					<div class="col-lg-4 col-lg-offset-1">
-					<label for="text1" class="control-label ">Code Type Materiel
+					<label for="text1" class="control-label ">Code Type Materiel  *
 					</label>
 					</div>
 					<div class="col-lg-6">
@@ -96,6 +105,10 @@
 
 	</div>
 
+</div>
+
+<div class="alert alert-info info">
+  <strong>( * ) </strong> : Champ obligatoire<br></br>
 </div>
 
 <div class="col-md-4"></div>

@@ -9,6 +9,15 @@
 
  <h:head></h:head>
 
+<style>
+	.info {
+	  position: fixed;
+	  bottom: 60px;
+	  right: 24px;
+	  height: 70px;
+	}
+</style>
+
 <div class="col-md-4"></div>
 <div class="box dark col-md-4">
 
@@ -118,7 +127,7 @@
            	<hr />
 			<div class="row">
 				<div class="col-lg-4 col-lg-offset-1">
-                    <label for="text1" class="control-label col-lg-4">Type de Matériel
+                    <label for="text1" class="control-label col-lg-4">Type de Matériel *
                     </label>
 				</div>
                 <div class="col-lg-6">
@@ -237,7 +246,7 @@
 			<hr/>
 			<div class="row">
 				<div class="col-lg-4 col-lg-offset-1">
-                    <label for="text1" class="control-label col-lg-4">Espèce des unités
+                    <label for="text1" class="control-label col-lg-4">Espèce des unités *
                     </label>
 				</div>
                 <div class="col-lg-6">
@@ -253,7 +262,7 @@
 			<div class="row">
 				<div class="col-lg-4 col-lg-offset-1">
 
-	                <label for="text1" class="control-label col-lg-4">Mode d'aquisition
+	                <label for="text1" class="control-label col-lg-4">Mode d'aquisition 
 	                </label>
 				</div>
                 <div class="col-lg-6">
@@ -293,7 +302,7 @@
             <hr /> -->
             <div class="row">
 				<div class="col-lg-4 col-lg-offset-1">    
-	                <label for="text1" class="control-label col-lg-4">Origine
+	                <label for="text1" class="control-label col-lg-4">Origine *
 	                    </label>
 				</div>
                 <div class="col-lg-6">
@@ -330,7 +339,7 @@
         	 <div class="row">
 				<div class="col-lg-4 col-lg-offset-1"> 
 
-	                <label for="text1" class="control-label col-lg-4">Prix Unitaire 
+	                <label for="text1" class="control-label col-lg-4">Prix Unitaire *(n)
 	                </label>
 				</div>
                 <div class="col-lg-6">
@@ -350,7 +359,7 @@
 			 <div class="row">
 				<div class="col-lg-4 col-lg-offset-1"> 
 
-	                <label for="text1" class="control-label col-lg-4">Référence pj
+	                <label for="text1" class="control-label col-lg-4">Référence pj *
 	                </label>
 				</div>
                 <div class="col-lg-6">
@@ -372,13 +381,13 @@
                            <p:inputText required="true" id="reference"
                         value="#{depositaireBean.matnouvtoadd.reference}"
                         requiredMessage="Champ Référence obligatoire"
-                        placeholder="Référence" styleClass="form-control top"></p:inputText>
+                        placeholder="Référence *" styleClass="form-control top"></p:inputText>
                         </p:panel>
                         <p:panel>
                             <p:inputText  required="true" id="numeroserie"
                         value="#{depositaireBean.matnouvtoadd.numSerie}"
                         requiredMessage="Champ Numero de série obligatoire"
-                        placeholder="Numero de série" styleClass="form-control top"></p:inputText>
+                        placeholder="Numero de série *" styleClass="form-control top"></p:inputText>
               </p:panel>
                <hr/>               
             <!-- /h:form>
@@ -464,6 +473,11 @@
 
     </div>
 
+</div>
+
+<div class="alert alert-info info">
+  <strong>( * ) </strong> : Champ obligatoire<br></br>
+  <strong>( n ) </strong> : Champ à valeur numérique <br></br>
 </div>
 
 <div class="col-md-4"></div>

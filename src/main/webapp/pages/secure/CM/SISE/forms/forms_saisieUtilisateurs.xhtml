@@ -8,6 +8,16 @@
 
 
  <h:head></h:head>
+ 
+ <style>
+	.info {
+	  position: fixed;
+	  bottom: 60px;
+	  right: 24px;
+	  height: 70px;
+	}
+</style>
+ 
 <div class="col-md-4"></div>
 <div class="box dark col-md-4">
 
@@ -19,7 +29,7 @@
 			<div class="row">
 				<div class="col-lg-4 col-lg-offset-1">
 					<h:outputLabel for="name"
-						value="Nom et prénom : " />
+						value="Nom et prénom *: " />
 				</div>
 				<div class="col-lg-6">
 					<p:inputText id="name"  value="#{userMB.name}"
@@ -33,7 +43,7 @@
 				<div class="col-lg-4 col-lg-offset-1">
 						<!-- p:ajax event="blur" update="nameMsg" /-->
 					<h:outputLabel for="im" 
-						value="Immatriculation : " />
+						value="Immatriculation *: " />
 				</div>
 				<div class="col-lg-6">
 					<p:inputText id="im"  value="#{userMB.im}"
@@ -42,6 +52,7 @@
 						validatorMessage="Immatriculation : la longueur minimale requise est 6">
 						<f:validateLength minimum="6" />
 					</p:inputText>
+					(n)(min6)
 				</div>
 			</div>
 			<hr></hr>
@@ -64,7 +75,7 @@
 			<div class="row">
 				<div class="col-lg-4 col-lg-offset-1">
 					<h:outputLabel  
-						value="Fonction " />
+						value="Fonction *" />
 				</div>
 				<div class="col-lg-6 ">
 					<p:selectOneMenu value="#{userMB.roleuser}" converter="#{useriConverter}" 
@@ -83,7 +94,7 @@
 			<div class="row">
 				<div class="col-lg-4 col-lg-offset-1">
 					<h:outputLabel for="password1" 
-						value="Mot de passe : " />
+						value="Mot de passe *: " />
 				</div>
 				<div class="col-lg-6 ">
 					<p:password id="password1"  match="password2"	
@@ -93,7 +104,7 @@
 						>
 							<f:validateLength minimum="8" />
 					</p:password>
-					
+					(min8)
 				</div>
 			</div>
 			<hr></hr>
@@ -110,6 +121,7 @@
 						validatorMessage="Erreur de confirmation de mot de passe" 				
 						>
 					</p:password>
+					(min8)
 				</div>
 			</div>
 			<hr></hr>
@@ -117,7 +129,7 @@
 				<div class="col-lg-4 col-lg-offset-1">
 					<!-- DIRECTION -->
 					<h:outputLabel  
-						value="Direction " />
+						value="Direction *" />
 				</div>
 				<div class="col-lg-6">
 					<p:selectOneMenu value="#{userMB.direction}" converter="#{refConverter}"
@@ -152,7 +164,7 @@
             <div class="row">
 				<div class="col-lg-4 col-lg-offset-1"> 
 					<h:outputLabel 
-						value="Poste " />
+						value="Poste *" />
 				</div>
 				<div class="col-lg-6">
 					<p:selectOneMenu value="#{userMB.poste}" converter="#{refConverter}"
@@ -187,6 +199,12 @@
 			</h:form>
 	</div>
 
+</div>
+
+<div class="alert alert-info info">
+  <strong>( * ) </strong> : Champ obligatoire<br></br>
+  <strong>( n ) </strong> : Champ à valeur numérique<br></br>
+  <strong>( minX ) </strong> : Champ à remplir avec au moins X caractères<br></br>
 </div>
 
 <div class="col-md-4"></div>

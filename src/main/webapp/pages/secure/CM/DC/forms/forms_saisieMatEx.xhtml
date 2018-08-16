@@ -10,7 +10,14 @@
     <title>Saisie des matériels existants</title>
 </h:head>
 
-
+<style>
+	.info {
+	  position: fixed;
+	  bottom: 60px;
+	  right: 24px;
+	  height: 70px;
+	}
+</style>
 
 <h:body>
 <div class="col-md-4"></div>
@@ -125,7 +132,7 @@
            	<hr />
 				<div class="row">
 					<div class="col-lg-4 col-lg-offset-1">
-                    	<label for="text1" class="control-label col-lg-4">Type de Matériel
+                    	<label for="text1" class="control-label col-lg-4">Type de Matériel *
                     	</label>
 					</div>
                    <div class="col-lg-6">
@@ -182,7 +189,7 @@
                  <hr></hr>
                 <div class="row">
 					<div class="col-lg-4 col-lg-offset-1">   
-	                    <label for="text1" class="control-label col-lg-4">Prix unitaire
+	                    <label for="text1" class="control-label col-lg-4">Prix unitaire *(n)
 	                    </label>
 					</div>
                     <div class="col-lg-6">
@@ -235,7 +242,7 @@
 				<div class="row">
 					<div class="col-lg-4 col-lg-offset-1">
 				
-	                    <label for="text1" class="control-label col-lg-4">Année d'acquisition
+	                    <label for="text1" class="control-label col-lg-4">Année d'acquisition *(n)
 	                    </label>
 					</div>
                     <div class="col-lg-6">
@@ -252,7 +259,7 @@
 				
 				<div class="row">
 					<div class="col-lg-4 col-lg-offset-1">
-	                    <label for="text1" class="control-label col-lg-4">Origine
+	                    <label for="text1" class="control-label col-lg-4">Origine *
 	                    </label>
 					</div>
                     <div class="col-lg-6">
@@ -269,7 +276,7 @@
 				
 				<div class="row">
 					<div class="col-lg-4 col-lg-offset-1">
-	                    <label for="text1" class="control-label col-lg-4">Espèce des unités
+	                    <label for="text1" class="control-label col-lg-4">Espèce des unités *
 	                    </label>
 					</div>
                     <div class="col-lg-6">
@@ -316,13 +323,13 @@
                            <p:inputText required="true" id="reference"
                         value="#{depositaireBean.matextoadd.reference}"
                         requiredMessage="Champ Référence obligatoire"
-                        placeholder="Référence" styleClass="form-control top"></p:inputText>
+                        placeholder="Référence *" styleClass="form-control top"></p:inputText>
                         </p:panel>
                         <p:panel>
                             <p:inputText  required="true" id="numeroserie"
                         value="#{depositaireBean.matextoadd.numSerie}"
                         requiredMessage="Champ Numéro de série obligatoire"
-                        placeholder="Numero de série" styleClass="form-control top"></p:inputText>
+                        placeholder="Numero de série *" styleClass="form-control top"></p:inputText>
               </p:panel>
               <hr/>             
            	
@@ -398,6 +405,11 @@
 
     </div>
 
+</div>
+
+<div class="alert alert-info info">
+  <strong>( * ) </strong> : Champ obligatoire<br></br>
+  <strong>( n ) </strong> : Champ à valeur numérique <br></br>
 </div>
 
 <div class="col-md-4"></div>
