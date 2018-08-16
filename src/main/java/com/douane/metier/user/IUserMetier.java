@@ -36,7 +36,7 @@ public interface IUserMetier {
 
 	//les requetes
 	public OpEntree reqEntrerMateriel(List<Materiel> m, Agent dc, String facturePath, String refFacture);
-	public OpSortie reqSortirMateriel(Materiel m, MotifSortie motif, Direction d, Service s, Bureau b, Agent op)throws Exception;
+	//public OpSortie reqSortirMateriel(Materiel m, MotifSortie motif, Direction d, Service s, Bureau b, Agent op)throws Exception;
 	public OpAttribution reqAttribution(Materiel m, Agent oper, Agent detenteur) throws Exception;
 	public OpDettachement reqDettachement(Materiel mat1, Agent agent2, Agent agent1,MotifDecharge m)throws Exception;
 	
@@ -79,8 +79,7 @@ public interface IUserMetier {
 	public List<MaterielNouv> getListMaterielNouvNonValide();
 	
 
-	public List<Materiel> getListMatByService(Service service);//tokony tsy miasa
-	public List<Materiel> getListMatByBureau(Bureau bureau);//tokony tsy miasa
+	
 	public List<Materiel> getListMat();//pour test
 	public List<MaterielEx> getListMatEx();//pour test
 	public List<MaterielNouv> getListMatNouv();//POut test seulement

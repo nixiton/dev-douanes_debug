@@ -88,9 +88,7 @@ public class UserManagedBean implements Serializable {
 	private String designation;
 	private PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 	private Direction direction;
-	private Service service;
-	private Bureau bureau;
-
+	
 	private String designationDir;
 	private String codeDir;
 
@@ -145,8 +143,7 @@ public class UserManagedBean implements Serializable {
 			useri.setRole(role);
 			user.setRoleAgent(useri);
 			//user.setDirection(dir);
-			user.setBureau(getBureau());
-			user.setService(getService());
+			
 			user.setPosteny(getPoste());
 			//getUsermetierimpl().addAgent(user);
 			//refmetierimpl.addRef(new Useri(designation,role), new Agent(getIm(),getName(),hashedPassword,new Useri(designation,role)));
@@ -200,8 +197,7 @@ public class UserManagedBean implements Serializable {
 			//useri.setRole(role);
 			user.setRoleAgent(this.getRoleuser());
 			user.setDirection(this.getDirection());
-			user.setBureau(getBureau());
-			user.setService(getService());
+			
 			user.setPosteny(getPoste());
 			//getUsermetierimpl().addAgent(user);
 			//refmetierimpl.addRef(new Useri(designation,role), new Agent(getIm(),getName(),hashedPassword,new Useri(designation,role)));
@@ -251,8 +247,7 @@ public class UserManagedBean implements Serializable {
 			//useri.setRole(role);
 			user.setRoleAgent(this.getRoleuser());
 			user.setDirection(this.getDirection());
-			user.setBureau(getBureau());
-			user.setService(getService());
+			
 			user.setPosteny(getPoste());
 			//getUsermetierimpl().addAgent(user);
 			//refmetierimpl.addRef(new Useri(designation,role), new Agent(getIm(),getName(),hashedPassword,new Useri(designation,role)));
@@ -326,7 +321,7 @@ public class UserManagedBean implements Serializable {
 			//useri.setRole(role);
 			user.setRoleAgent(getRoleuser());
 			user.setDirection(direction);
-			user.setService(getService());
+			
 			user.setPosteny(getPoste());
 			
 			//getUsermetierimpl().addAgent(user);
@@ -533,26 +528,6 @@ public class UserManagedBean implements Serializable {
 
 	public void setPoste(Poste poste) {
 		this.poste = poste;
-	}
-
-
-	public Service getService() {
-		return service;
-	}
-
-
-	public void setService(Service service) {
-		this.service = service;
-	}
-
-
-	public Bureau getBureau() {
-		return bureau;
-	}
-
-
-	public void setBureau(Bureau bureau) {
-		this.bureau = bureau;
 	}
 
 

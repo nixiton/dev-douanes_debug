@@ -29,10 +29,10 @@ public class MaterielConverter implements Converter {
         if(value != null && value.trim().length() > 0)
         {
             try {
-                System.out.println("***************************MATERIEL CONV*****ERRORR********************************");
+                System.out.println("***************************MATERIEL CONV BEGIN********************************");
                 return this.userMetier.getMatById(Long.parseLong(value));
             } catch(Exception e) {
-                System.out.println("***************************MATERIEL1 CONV*****ERRORR********************************");
+                System.out.println("***************************MATERIEL CONV EXCEPTION********************************");
                 e.printStackTrace();
                 throw new ConverterException(new FacesMessage(FacesMessage.SEVERITY_ERROR, "Erreur Materiel", "Materiel non valide"));
             }

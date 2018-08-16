@@ -19,7 +19,7 @@ import javax.persistence.*;
 public class Materiel implements Serializable{
 	@Column(unique=true)
 	private String code;
-	//@GeneratedValue(strategy=GenerationType.IDENTITY)
+
 	@Id
 	@SequenceGenerator(allocationSize=1, initialValue=1, sequenceName="account_id_seq", name="account_id_seq")
 	@GeneratedValue(generator="account_id_seq", strategy=GenerationType.SEQUENCE)
@@ -31,12 +31,9 @@ public class Materiel implements Serializable{
 	private String autre;
 	//private String codification;
 	private boolean validation;
-	//private boolean aModifier;
 	private String renseignement;
 	private int serienumero;
 	
-
-
 	private byte[] image;
 
 	private String documentPath;
@@ -44,43 +41,38 @@ public class Materiel implements Serializable{
 	public String getImage() throws IOException
 	{
 		ByteArrayInputStream bais;
-		System.out.println("----------------------begint test");
+		
 		if(image != null)
 		{
-			System.out.println("----------------------not null");
 			bais = new ByteArrayInputStream(image);
 		}
 		else
 		{
-			System.out.println("---------------------- null");
 			return null;
 		}
 		try {
 			//BufferedImage imagebuff = ImageIO.read(bais);
-			System.out.println("----------------------not null 1");
+			
 			String encodedImage;
-			System.out.println("----------------------not null 2");
-			//BufferedImage imBuff = ImageIO.read(bais);
-			System.out.println("----------------------not null 3");
+			
 			BufferedImage resizedImg = resize(ImageIO.read(bais), 275, 75);
-			System.out.println("----------------------not null 4");
+			
 			ByteArrayOutputStream os = new ByteArrayOutputStream();
-			System.out.println("----------------------not null 5");
+			
 			if (resizedImg == null) {
 				return null;
 			}
 			ImageIO.write(resizedImg, "jpg", os);
-			System.out.println("----------------------not null 6");
+			
 			encodedImage = new String(Base64.encodeBytes(os.toByteArray()));
-			System.out.println("----------------------not null 7");
+			
 			return encodedImage;
 		}
 		catch(NullPointerException e)
 		{
 			return "";
 		}
-		//return imagebuff;
-		//return image;
+		
 	}
 
 	private  BufferedImage resize(BufferedImage image, int newWidth, int newHeight)
@@ -109,9 +101,7 @@ public class Materiel implements Serializable{
 	@ManyToOne
 	@JoinColumn(name="idEtat")
 	private EtatMateriel etat;
-	@ManyToOne
-	@JoinColumn(name="idCateg")
-	private CategorieMat categorie;
+	
 
 
 	@ManyToOne(fetch = FetchType.LAZY)
@@ -125,13 +115,6 @@ public class Materiel implements Serializable{
 	@ManyToOne
 	@JoinColumn(name="idDirection")
 	private Direction direc;
-	@ManyToOne
-	@JoinColumn(name="idSevice")
-	private Service serv;
-	@ManyToOne
-	@JoinColumn(name="idBureau")
-	private Bureau bureau;
-
 
 
 	private String anneeAcquisition;
@@ -141,18 +124,15 @@ public class Materiel implements Serializable{
 
 
 
-	/*@ManyToOne
-	@JoinColumn(name="idFournisseur")
-	private Fournisseur fourni;
-	*/
-	//@ManyToOne(fetch = FetchType.LAZY)
+	
+	
 	@ManyToOne
 	@JoinColumn(name="imDetenteur")
 	private Agent detenteur;
 
 	@ManyToOne
 	@JoinColumn(name="imDepositaire")
-	//@Transient
+	
 	private Agent dc;
 
 	/*
@@ -236,7 +216,6 @@ public class Materiel implements Serializable{
 		if (!idMateriel.equals(materiel.idMateriel)) return false;
 
 		return leref.equals(materiel.leref);*/
-		System.out.println("herherMat");
 		if (this.getIdMateriel().equals(((Materiel)o).getIdMateriel()))
 			return true;
 		if (this.getIdMateriel()==(((Materiel)o).getIdMateriel()))
@@ -255,13 +234,7 @@ public class Materiel implements Serializable{
 	}
 
 
-	/*public String getCodification() {
-            return codification;
-
-        }
-        public void setCodification(String codification) {
-            this.codification = codification;
-        }*/
+	
 	public Marque getMarque() {
 		return marque;
 	}
@@ -277,18 +250,15 @@ public class Materiel implements Serializable{
 		this.reference = reference;
 		this.numSerie = numSerie;
 		this.autre = autre;
-		//this.codification = codification;
 		this.nomenMat = nomenMat;
 		this.etat = etat;
 		this.caract = caract;
 		this.dc = dc;
 		this.marque = m;
-		//setValidation(false);
 	}
 	public Materiel() {
 		super();
 		this.numeroType = 0L;
-		// TODO Auto-generated constructor stub
 	}
 	@Transient
 	protected String leref;
@@ -307,43 +277,17 @@ public class Materiel implements Serializable{
 		this.validation = validation;
 	}
 
-	/*public boolean isAModifier() {
-		return aModifier;
-	}
-	public void setAModifier(boolean aModifier) {
-		this.aModifier = aModifier;
-	}*/
-
-
 	public Direction getDirec() {
 		return direc;
 	}
 	public void setDirec(Direction direc) {
 		this.direc = direc;
 	}
-	public Service getServ() {
-		return serv;
-	}
-	public void setServ(Service serv) {
-		this.serv = serv;
-	}
-	public Bureau getBureau() {
-		return bureau;
-	}
-	public void setBureau(Bureau bureau) {
-		this.bureau = bureau;
-	}
+	
 	public String getCode() {
 		return code;
 	}
-	/*
-        public Fournisseur getFourni() {
-            return fourni;
-        }
-        public void setFourni(Fournisseur fourni) {
-            this.fourni = fourni;
-        }
-        */
+	
 	public void generateCode(Long numerotype) {
 		String codeDirection = "xxx";
 		String codeTypeMateriel = "xxx";
@@ -367,12 +311,7 @@ public class Materiel implements Serializable{
 				""+anneeacquisition;
 	}
 
-	public CategorieMat getCategorie() {
-		return categorie;
-	}
-	public void setCategorie(CategorieMat categorie) {
-		this.categorie = categorie;
-	}
+	
 	public String getRenseignement() {
 		return renseignement;
 	}
@@ -396,7 +335,6 @@ public class Materiel implements Serializable{
 		this.typematerieladd = typematerieladd;
 	}
 	
-	//okay
 	@ManyToOne
 	@JoinColumn(name="opentreeid")
 	private OpEntree myoperationEntree;

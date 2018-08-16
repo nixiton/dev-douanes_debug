@@ -271,7 +271,7 @@ public class UserMetier implements IUserMetier {
 		return entree;
 	}
 
-	@Override
+	/*@Override
 	public OpSortie reqSortirMateriel(Materiel m, MotifSortie motif, Direction d, Service s, Bureau b, Agent oper)
 			throws Exception {
 		// TODO Auto-generated method stub
@@ -284,15 +284,8 @@ public class UserMetier implements IUserMetier {
 
 		oprepos.save(sortie);
 		return sortie;
-		/*
-		 * }catch(Exception e) { FacesMessage message = new
-		 * FacesMessage(FacesMessage.SEVERITY_WARN,
-		 * "Erreur requete pour operation sortie", e.getMessage());
-		 * FacesContext.getCurrentInstance().addMessage(null, new
-		 * FacesMessage(e.getMessage()));
-		 * FacesContext.getCurrentInstance().addMessage(null, message); return null; }
-		 */
-	}
+		
+	}*/
 
 	@Override
 	public OpSortie reqSortirMateriel(Materiel m, MotifSortie motif, Direction d, Agent oper) throws Exception {
@@ -707,18 +700,6 @@ public class UserMetier implements IUserMetier {
 	public List<Materiel> getListMatByDirection(Direction direction) {
 		// TODO Auto-generated method stub
 		return matrepos.findByDirec(direction);
-	}
-
-	@Override
-	public List<Materiel> getListMatByService(Service service) {
-		// TODO Auto-generated method stub
-		return matrepos.findByServ(service);
-	}
-
-	@Override
-	public List<Materiel> getListMatByBureau(Bureau bureau) {
-		// TODO Auto-generated method stub
-		return matrepos.findByBureau(bureau);
 	}
 
 	@Override

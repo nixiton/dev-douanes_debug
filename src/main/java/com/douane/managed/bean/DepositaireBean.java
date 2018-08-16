@@ -1,13 +1,8 @@
 package com.douane.managed.bean;
 
 import com.douane.entite.*;
-import com.douane.metier.fournisseur.IFournisseurMetier;
-import com.douane.metier.listeDetenteur.DetenteurMetier;
-import com.douane.metier.listeDetenteur.IDetenteurMetier;
-import com.douane.metier.marque.IMarqueMetier;
 import com.douane.metier.nomenclature.INomenclatureMetier;
 import com.douane.metier.referentiel.IRefMetier;
-import com.douane.metier.typeMateriel.ITypeMaterielMetier;
 import com.douane.metier.user.IUserMetier;
 import com.douane.model.DocumentModel;
 //import com.douane.model.UploadedFileByte;
@@ -58,49 +53,23 @@ public class DepositaireBean {
 
 	@Value("${fileupload.size}")
 	private String fileupload;
-	// @Autowired
-	// ConfigurableApplicationContext context;
 
 	private String fileUploadSize;
 
 	private static final String SUCCESS = "success";
 	private static final String ERROR = "error";
 
-	/*
-	 * //@Autowired //@ManagedProperty(value="#{typematerielmetier}")
-	 * ITypeMaterielMetier typematerielmetier;
-	 * 
-	 * //@Autowired
-	 * 
-	 * @ManagedProperty(value="#{nomenclaturemetier}") INomenclatureMetier
-	 * nomenclaturemetier;
-	 * 
-	 * //@Autowired
-	 * 
-	 * @ManagedProperty(value="#{marquemetier}") IMarqueMetier marquemetier;
-	 */
-	// @Autowired
+	
 	@ManagedProperty(value = "#{usermetier}")
 	IUserMetier usermetierimpl;
 
-	@ManagedProperty(value = "#{detenteurmetier}")
-	IDetenteurMetier detenteurmetierimpl;
-
-	/*
-	 * 
-	 * 
-	 * //@Autowired
-	 * 
-	 * @ManagedProperty(value="#{fournisseurmetier}") IFournisseurMetier
-	 * fournisseurmetierimpl;
-	 */
-	// @Autowired
+	
 	@ManagedProperty(value = "#{refmetier}")
 	IRefMetier refmetierimpl;
 
 	private String anneeAcquisition;
 
-	/* attribute foe image */
+	/* attribute for image */
 	private int imgPosition = 0;
 
 	/* attribute for file upload */
@@ -141,9 +110,7 @@ public class DepositaireBean {
 	private EtatMateriel etat;
 	private String etatMatPresent;
 
-	// localisation
-	private Bureau bureau; // tokony tsy miasa
-	private Service service; // tokony tsy miasa
+	
 	private Direction direction;// direction des materiels
 
 	/* acces sur les listes */
@@ -169,9 +136,9 @@ public class DepositaireBean {
 	private String prenom;
 
 	// Sortie Materiel
-	private Bureau destination; // tokony tsy miasa
+	
 	private Direction destinationDirec; // direction de sortie lors de l'affectation
-	private Service destinationService;// tokony tsy miasa
+	
 	private MotifSortie motifSortie;
 	private MotifDecharge motifDettachement;
 	private Agent detenteur;
@@ -180,7 +147,7 @@ public class DepositaireBean {
 	/* Miasa ve */
 	private List<Materiel> currentListMateriel;// miasa aiza
 	// Service
-	private Service serviceforMat;
+	
 	// Current Agent
 	private Agent currentAgent;
 	private Materiel curentMateriel;
@@ -299,7 +266,6 @@ public class DepositaireBean {
 		this.typemateriel = null;
 		this.anneeAcquisition = null;
 		this.autre = null;
-		this.bureau = null;
 		this.fournisseur = null;
 		this.etat = null;
 		this.marq = null;
@@ -308,7 +274,6 @@ public class DepositaireBean {
 		this.reference = null;
 		this.renseignement = null;
 		this.typematerielToAdd = null;
-		this.serviceforMat = null;
 		this.especeUnite = null;
 		this.origine = null;
 		this.refFacture = null;
@@ -484,44 +449,6 @@ public class DepositaireBean {
 	public void setCurrentAgent(Agent currentAgent) {
 		this.currentAgent = currentAgent;
 	}
-
-	public void onGetService() {
-		setServiceforMat(getServiceforMat());
-	}
-
-	/*
-	 * public List<TypeMateriel> getListTypeMateriel() { return
-	 * typematerielmetier.findAllTypeMateriel(); }
-	 * 
-	 * // get nomenclature public List<Nomenclature> getNomenclature() { return
-	 * nomenclaturemetier.findAllNomenclatures(); }
-	 * 
-	 * // get marque public List<Marque> getMarque() { return
-	 * marquemetier.findAllMarque(); } public List<Fournisseur> getFOurnisseur() {
-	 * return fournisseurmetierimpl.findAllFournisseur(); } public
-	 * ITypeMaterielMetier getTypematerielmetier() { return typematerielmetier; }
-	 * 
-	 * public void setTypematerielmetier(ITypeMaterielMetier typematerielmetier) {
-	 * this.typematerielmetier = typematerielmetier; }
-	 * 
-	 * public INomenclatureMetier getNomenclaturemetier() { return
-	 * nomenclaturemetier; }
-	 * 
-	 * public void setNomenclaturemetier(INomenclatureMetier nomenclaturemetier) {
-	 * this.nomenclaturemetier = nomenclaturemetier; }
-	 * 
-	 * public IMarqueMetier getMarquemetier() { return marquemetier; }
-	 * 
-	 * public void setMarquemetier(IMarqueMetier marquemetier) { this.marquemetier =
-	 * marquemetier; }
-	 * 
-	 * public IFournisseurMetier getFournisseurmetierimpl() { return
-	 * fournisseurmetierimpl; }
-	 * 
-	 * public void setFournisseurmetierimpl(IFournisseurMetier
-	 * fournisseurmetierimpl) { this.fournisseurmetierimpl = fournisseurmetierimpl;
-	 * }
-	 */
 
 	// get list detenteur
 	public List<Agent> getDetenteurs() {
@@ -1126,26 +1053,6 @@ public class DepositaireBean {
 		this.caracteristique = caracteristique;
 	}
 
-	public Bureau getBureau() {
-		// RequestFilter.getSession().getAttribute("bureau");
-		return bureau;
-	}
-
-	public void setBureau(Bureau bureau) {
-		// RequestFilter.getSession().setAttribute("bureau", bureau);
-		this.bureau = bureau;
-	}
-
-	public Service getService() {
-		return this.service;
-		// return (Service) RequestFilter.getSession().getAttribute("service");
-	}
-
-	public void setService(Service service) {
-		// RequestFilter.getSession().setAttribute("service", service);
-		this.service = service;
-	}
-
 	public Direction getDirection() {
 		return direction;
 	}
@@ -1195,28 +1102,12 @@ public class DepositaireBean {
 		this.prenom = prenom;
 	}
 
-	public Bureau getDestination() {
-		return destination;
-	}
-
-	public void setDestination(Bureau destination) {
-		this.destination = destination;
-	}
-
 	public Direction getDestinationDirec() {
 		return destinationDirec;
 	}
 
 	public void setDestinationDirec(Direction destinationDirec) {
 		this.destinationDirec = destinationDirec;
-	}
-
-	public Service getDestinationService() {
-		return destinationService;
-	}
-
-	public void setDestinationService(Service destinationService) {
-		this.destinationService = destinationService;
 	}
 
 	public void setListMotifSortie(List<MotifSortie> listMotifSortie) {
@@ -1248,18 +1139,6 @@ public class DepositaireBean {
 		this.materiel = materiel;
 	}
 
-	// list services
-	public List<Service> getListServices() {
-		ArrayList<Referentiel> r = (ArrayList<Referentiel>) refmetierimpl.listRef(new Service());
-		List<Service> ds = new ArrayList<Service>();
-		for (Object d : r) {
-			if (d instanceof Service) {
-				ds.add((Service) d);
-			}
-		}
-		return ds;
-	}
-
 	// ADD LIST MATERIEL WITH BOUTTON NEXT WITHOUT DESIGNATION
 	public String addIntoListMateriel() throws IOException {
 		System.out.println("Add it into list materiel");
@@ -1277,7 +1156,7 @@ public class DepositaireBean {
 		m.setDocumentPath((String) RequestFilter.getSession().getAttribute("documentpath"));
 		RequestFilter.getSession().removeAttribute("documentpath");
 		m.setAutre(getAutre());
-		m.setBureau(getBureau());
+		
 		m.setFournisseur(getFournisseur());
 		m.setEtat(getEtat());
 		m.setMarque(getMarq());
@@ -1287,7 +1166,7 @@ public class DepositaireBean {
 		m.setRenseignement(getRenseignement());
 		m.setTypematerieladd(this.getTypematerielToAdd());
 		m.setNomenMat(this.getTypematerielToAdd().getNomenclaureParent());
-		m.setServ(getServiceforMat());
+		
 		m.setDirec(agent.getDirection());
 		m.setEspeceUnite(getEspeceUnite());
 		m.setOrigine(getOrigine());
@@ -1460,7 +1339,6 @@ public class DepositaireBean {
 
 			m.setAnneeAcquisition((String) "" + Calendar.getInstance().get(Calendar.YEAR) + "");
 
-			m.setBureau(getBureau());
 			// m.setDirec(getDirection());
 			m.setDirec(agent.getDirection());
 
@@ -1482,8 +1360,6 @@ public class DepositaireBean {
 			m.setReference(getReference());
 
 			m.setRenseignement(getRenseignement());
-
-			m.setServ(getService());
 
 			m.setRefFacture(getRefFacture());
 
@@ -1635,23 +1511,13 @@ public class DepositaireBean {
 		this.documentPath = documentPath;
 	}
 
-	public Service getServiceforMat() {
-		return serviceforMat;
-	}
-
-	public void setServiceforMat(Service serviceforMat) {
-		this.serviceforMat = serviceforMat;
-	}
-
+	
 	// ------------------------------PRIME
 	// FACES---------------------------------------
 	// list service
 	// list nomenclature
 	// list marque
 	// list etat
-
-	private Service servicePrim;
-	private List<Service> servicesPrim;
 
 	private Nomenclature nomenclaturePrim;
 	private List<Nomenclature> nomenclaturesPrim;
@@ -1684,14 +1550,6 @@ public class DepositaireBean {
 	private List<Article> listArticle;
 	private List<ArticleNouv> listArticleNouv;
 
-	public List<Service> getServicesPrim() {
-		return servicesPrim;
-	}
-
-	public void setServicesPrim(List<Service> servicesPrim) {
-		this.servicesPrim = servicesPrim;
-	}
-
 	public EtatMateriel getEtatMaterielPrim() {
 		return etatMaterielPrim;
 	}
@@ -1706,14 +1564,6 @@ public class DepositaireBean {
 
 	public void setMarquePrim(Marque marquePrim) {
 		this.marquePrim = marquePrim;
-	}
-
-	public Service getServicePrim() {
-		return servicePrim;
-	}
-
-	public void setServicePrim(Service servicePrim) {
-		this.servicePrim = servicePrim;
 	}
 
 	public Nomenclature getNomenclaturePrim() {
@@ -1773,13 +1623,6 @@ public class DepositaireBean {
 		//setNumSerie(getMaterielSeclected().getNumSerie());
 		//setNomenclatureAutom(getMaterielSeclected().getDesign().getNomenMat().getDesignation());
 		//setCodificationAutom(getMaterielSeclected().getCode());
-	}
-
-	public List<Referentiel> getListDestinaiton() {
-		this.listDestinaiton.add(new Bureau());
-		this.listDestinaiton.add(new Direction());
-		this.listDestinaiton.add(new Service());
-		return listDestinaiton;
 	}
 
 	public void setListDestinaiton(List<Referentiel> listDestinaiton) {
@@ -1884,23 +1727,72 @@ public class DepositaireBean {
 		// ******************************** " +this.getClass().getName());
 		Long idAg = Long.valueOf(1);
 		ExternalContext ec = FacesContext.getCurrentInstance().getExternalContext();
-		System.out.println(FacesContext.getCurrentInstance().toString());
+		
 		String userId = ec.getRequestParameterMap().get(1);
 		Map<String, String> map = ec.getRequestParameterMap();
 		String input = ":det_input";
+		
+		if(map!=null) {
 		for (Map.Entry<String, String> entry : map.entrySet()) {
+			
 			if (entry.getKey().toLowerCase().contains(input.toLowerCase()))
 				idAg = Long.parseLong(entry.getValue());
+			
 			// System.out.println(entry.getKey() + "/" + entry.getValue());
 		}
+		//System.out.println(FacesContext.getCurrentInstance().toString()+" ITO AZA");
 
-		if (!idAg.equals(Long.valueOf(1)))
-			return (List<Materiel>) usermetierimpl.getMatByDetenteurAndValidation(usermetierimpl.findAgentByIm(idAg),
-					true);
-		System.out.println(
-				"****************************SET LIST ******************************** " + this.getClass().getName());
+		if (!idAg.equals(Long.valueOf(1))) {
+			System.out.println(
+					"****************************SET LIST ******************************** " + this.getClass().getName());
+			List<Materiel> result ;
+			try {
+				result = (List<Materiel>)usermetierimpl.getMatByDetenteurAndValidation(usermetierimpl.findAgentByIm(idAg),true);
+				if(result==null) {
+					result = new ArrayList<Materiel>();
+				}
+				for(Materiel mat : result) {
+					System.out.println("list a "+mat.getIdMateriel());
+				}
+				System.out.println("tsy error lust");
+			}catch(Exception e) {
+				System.out.println("error lust");
+				result  = new ArrayList<Materiel>();
+			}
+			System.out.println("lasa");
+			return result;
+					
+			
+		}
+		else {
+			System.out.println(
+			"****************************SET LISTA ******************************** " + this.getClass().getName());
+			return new ArrayList<Materiel>();
+		}
+		}
+		else {
+			System.out.println(
+			"****************************SET LISTA ******************************** " + this.getClass().getName());
+			return new ArrayList<Materiel>();
+		}
+		/*if (this.detenteur == null) {
+			System.out.println("****************************SET LISTNULL ******************************** ");
+			this.setCurrentListMateriel(new ArrayList<Materiel>());
+			this.setNom(null);
+			this.setPrenom(null);
+		} else {
+			this.detenteur = this.getDetenteur();
+			this.setNom(detenteur.getNomAgent());
+			this.setPrenom(detenteur.getPrenomAgent());
+			System.out.println("****************************SET LISTA ******************************** "
+					+ this.getDetenteur().getNomAgent());
+			this.setCurrentListMateriel(
+					(List<Materiel>) usermetierimpl.getMatByDetenteurAndValidation(this.getDetenteur(), true));
+			System.out.println("****************************SET LISTA ******************************** "
+					+ this.getDetenteur().getIm());
+		}*/
 
-		return currentListMateriel;
+		//return currentListMateriel;
 
 	}
 
@@ -1908,7 +1800,7 @@ public class DepositaireBean {
 		this.currentListMateriel = currentListMateriel;
 	}
 
-	public void mySetCurrentListMateriel1(ValueChangeEvent evt) {
+	/*public void mySetCurrentListMateriel1(ValueChangeEvent evt) {
 		System.out.println(
 				"****************************SET LIST ******************************** " + this.getClass().getName());
 		ValueChangeEvent e = evt;
@@ -1916,9 +1808,14 @@ public class DepositaireBean {
 		this.setCurrentListMateriel(
 				(List<Materiel>) usermetierimpl.getMatByDetenteurAndValidation(this.getDetenteur(), true));
 	}
-
+*/
 	// ActionEvent actionEvent
-	public void mySetCurrentListMateriel() {
+	/*public void mySetCurrentListMateriel(ValueChangeEvent evt) {
+		ValueChangeEvent e = evt;
+		if(evt.getNewValue()!=null) {
+			this.setDetenteur((Agent) evt.getNewValue());
+		}
+		
 		if (this.detenteur == null) {
 			this.setCurrentListMateriel(null);
 			this.setNom(null);
@@ -1927,11 +1824,31 @@ public class DepositaireBean {
 			this.detenteur = this.getDetenteur();
 			this.setNom(detenteur.getNomAgent());
 			this.setPrenom(detenteur.getPrenomAgent());
-			System.out.println("****************************SET LIST ******************************** "
+			System.out.println("****************************SET LISTA ******************************** "
 					+ this.getDetenteur().getNomAgent());
 			this.setCurrentListMateriel(
 					(List<Materiel>) usermetierimpl.getMatByDetenteurAndValidation(this.getDetenteur(), true));
-			System.out.println("****************************SET LIST ******************************** "
+			System.out.println("****************************SET LISTA ******************************** "
+					+ this.getDetenteur().getIm());
+		}
+	}*/
+	public void mySetCurrentListMateriel() {
+		
+		
+		if (this.detenteur == null) {
+			System.out.println("****************************SET LISTNULLMYSET ******************************** ");
+			this.setCurrentListMateriel(new ArrayList<Materiel>());
+			this.setNom(null);
+			this.setPrenom(null);
+		} else {
+			this.detenteur = this.getDetenteur();
+			this.setNom(detenteur.getNomAgent());
+			this.setPrenom(detenteur.getPrenomAgent());
+			System.out.println("****************************SET LISTA ******************************** "
+					+ this.getDetenteur().getNomAgent());
+			this.setCurrentListMateriel(
+					(List<Materiel>) usermetierimpl.getMatByDetenteurAndValidation(this.getDetenteur(), true));
+			System.out.println("****************************SET LISTA ******************************** "
 					+ this.getDetenteur().getIm());
 		}
 	}
@@ -2247,9 +2164,7 @@ public class DepositaireBean {
 
 	private Materiel matForEntree;
 
-	public List<Agent> getListDetenteurMatEx() {
-		return detenteurmetierimpl.findAllDetenteur();
-	}
+	
 
 	public void setListDetenteurMatEx(List<Agent> listDetenteurMatEx) {
 		this.listDetenteurMatEx = listDetenteurMatEx;
@@ -2264,14 +2179,7 @@ public class DepositaireBean {
 		this.detenteurMatEx = detenteurMatEx;
 	}
 
-	public IDetenteurMetier getDetenteurmetierimpl() {
-		return detenteurmetierimpl;
-	}
-
-	public void setDetenteurmetierimpl(IDetenteurMetier detenteurmetierimpl) {
-		this.detenteurmetierimpl = detenteurmetierimpl;
-	}
-
+	
 	public List<Materiel> getListMaterielForOpEntree() {
 		return listMaterielForOpEntree;
 	}

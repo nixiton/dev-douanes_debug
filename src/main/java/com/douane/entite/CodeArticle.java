@@ -13,14 +13,12 @@ public class CodeArticle extends Referentiel{
     public CodeArticle() {
         super();
         this.setLeref("CodeArticle");
-        // TODO Auto-generated constructor stub
     }
 
     public CodeArticle(String designation, TypeObjet typeObj) {
         super(designation);
         this.setLeref("CodeArticle");
         this.setTypeObjet(typeObj);
-        // TODO Auto-generated constructor stub
     }
 
     public TypeObjet getTypeObjet() {

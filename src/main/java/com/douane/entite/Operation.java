@@ -122,7 +122,6 @@ public abstract class Operation implements Serializable{
 		// TODO Auto-generated constructor stub
 	}
 	
-	//For xhtml
 	public String getMotifretour() {
 		return motifretour;
 	}

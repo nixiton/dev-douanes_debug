@@ -20,7 +20,6 @@ import javax.persistence.SequenceGenerator;
 @DiscriminatorColumn(name="typeArt", discriminatorType=DiscriminatorType.INTEGER)
 public class Article  implements Serializable{
 
-	//@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Id
 	@SequenceGenerator(allocationSize=1, initialValue=1, sequenceName="account_idart_seq", name="account_idart_seq")
 	@GeneratedValue(generator="account_idart_seq", strategy=GenerationType.SEQUENCE)
@@ -50,7 +49,6 @@ public class Article  implements Serializable{
 
     @ManyToOne
     @JoinColumn(name="imDepositaire")
-    //@Transient
     private Agent dc;
 
     @ManyToOne
@@ -129,7 +127,6 @@ public class Article  implements Serializable{
 	@Override
 	public boolean equals(Object o) {
 
-		System.out.println("herherArticle");
 		if (this.getIdArticle().equals(((Article)o).getIdArticle()))
 			return true;
 		return false;

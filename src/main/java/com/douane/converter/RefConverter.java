@@ -30,7 +30,7 @@ public class RefConverter implements Converter {
     IRefMetier refmetierimpl;
 
     public Object getAsObject(FacesContext fc, UIComponent uic, String value) {
-    	System.out.println("Vao iditra");
+    	
     	
     	if(value==null) {
     		return null;
@@ -39,7 +39,7 @@ public class RefConverter implements Converter {
         if(value != null && value.trim().length() > 0) {
             try {
                 //refmetierimpl
-            	System.out.println("Tafiditra "+value);
+            	System.out.println("REFERENTIEL CONVERTER BEGIN ********** "+value);
             	if(value.equals("null")) {
             		return new Marque();
             	}
@@ -50,7 +50,6 @@ public class RefConverter implements Converter {
                 if(ref instanceof EtatMateriel)
                 {
                 	EtatMateriel e = (EtatMateriel) ref;
-                	System.out.println("Etat Materiel :"+e.getClass().getName()+" - "+e.getDesignation());
                     return e;
                 }
                 else if(ref instanceof Marque)
@@ -61,10 +60,7 @@ public class RefConverter implements Converter {
                 {
                     return (Nomenclature) ref;
                 }
-                else if(ref instanceof Service)
-                {
-                    return (Service) ref;
-                }
+                
                 else if(ref instanceof TypeMateriel)
                 {
                     return (TypeMateriel) ref;
@@ -80,12 +76,6 @@ public class RefConverter implements Converter {
                 }
                 else if(ref instanceof Direction) {
                 	return (Direction) ref;
-                }
-                else if(ref instanceof Service) {
-                	return (Service) ref;
-                }
-                else if(ref instanceof Bureau) {
-                	return (Bureau) ref;
                 }
                 else if(ref instanceof Poste) {
                 	return (Poste) ref;

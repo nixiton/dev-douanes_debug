@@ -48,13 +48,15 @@ public class AppExceptionHandler extends HttpServlet {
         response.setContentType("text/html");
 
         PrintWriter out = response.getWriter();
-        out.write("<html><head><title>Exception/Error Details</title></head><body>");
+        out.write("<html><head><titlePage d'erreur</title></head><body>");
         if(statusCode != 500){
-            out.write("<h3>Error Details mine</h3>");
+            out.write("<h3>Erreur</h3>");
+            out.write("<strong>Contactez l'administrateur</strong3>");
             out.write("<strong>Status Code</strong>:"+statusCode+"<br>");
             out.write("<strong>Requested URI</strong>:"+requestUri);
         }else{
-            out.write("<h3>Exception Details</h3>");
+            out.write("<h3>Exception</h3>");
+            out.write("<strong>Contactez l'administrateur</strong3>");
             out.write("<ul><li>Servlet Name:"+servletName+"</li>");
             out.write("<li>Exception Name:"+throwable.getClass().getName()+"</li>");
             out.write("<li>Requested URI:"+requestUri+"</li>");
@@ -63,7 +65,7 @@ public class AppExceptionHandler extends HttpServlet {
         }
 
         out.write("<br><br>");
-        out.write("<a href=\"index.html\">Home Page</a>");
+        out.write("<a href=/>Home Page</a>");
         out.write("</body></html>");
     }
 }

@@ -31,20 +31,18 @@ public class AgentConverter implements Converter{
 
     @Override
     public Object getAsObject(FacesContext context, UIComponent component, String value) {
-        System.out.println("***************************AGENT CONV*****ERRORR********************************");
+        System.out.println("***************************AGENT CONV BEGIN************************************");
         if(value != null && value.trim().length() > 0)
         {
-            System.out.println("***************************AGENT1 CONV*****ERRORR********************************");
-            try {
-                System.out.println("***************************AGENT2 CONV*****ERRORR********************************");
+          try {
                 return (Agent)this.userMetier.findAgentByIm(Long.parseLong(value));
             } catch(Exception e) {
-                System.out.println("***************************AGENT3 CONV*****ERRORR********************************");
+                System.out.println("***************************AGENT3 CONV EXCEPTION********************************");
                 e.printStackTrace();
                 throw new ConverterException(new FacesMessage(FacesMessage.SEVERITY_ERROR, "Conversion Error", "Not a valid theme."));
             }
         }
-        System.out.println("***************************AGENT4 CONV**NULL***ERRORR********************************");
+        System.out.println("***************************AGENT4 CONV OK********************************");
         return null;
     }
 

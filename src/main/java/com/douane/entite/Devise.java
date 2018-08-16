@@ -16,7 +16,7 @@ public class Devise extends Referentiel {
 
 	public Devise(String designation) {
 		super(designation);
-		this.setLeref("Adresse");
+		this.setLeref("Devise");
 		// TODO Auto-generated constructor stub
 	}
 	

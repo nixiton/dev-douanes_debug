@@ -35,46 +35,8 @@
 	</bean>
 
 
-	<!-- Nomenclature Metier Declaration -->
-	<bean id="bureaumetier" class="com.douane.metier.bureau.BureauMetier">
-		<!-- property name="refdao" ref="refdao"></property -->
-	</bean>
 
-	<!-- Financement Metier Declaration -->
-	<bean id="financementmetier" class="com.douane.metier.financement.FinancementMetier">
-		<!-- property name="refdao" ref="refdao"></property -->
-	</bean>
-
-	<!-- Fournisseur Metier Declaration -->
-	<bean id="fournisseurmetier" class="com.douane.metier.fournisseur.FournisseurMetier">
-		<!-- property name="refdao" ref="refdao"></property -->
-	</bean>
-
-	<!-- Liste déteneteurs Metier Declaration -->
-	<bean id="detenteurmetier" class="com.douane.metier.listeDetenteur.DetenteurMetier">
-		<!-- property name="refdao" ref="refdao"></property -->
-	</bean>
-
-	<!-- Nomenclature Metier Declaration -->
-	<bean id="marquemetier" class="com.douane.metier.marque.MarqueMetier">
-		<!-- property name="refdao" ref="refdao"></property -->
-	</bean>
-
-	<!-- Motif Aquisition Metier Declaration -->
-	<bean id="modeacquisitionmetier" class="com.douane.metier.motifAquisition.ModeAcquisitionMetier">
-		<!-- property name="refdao" ref="refdao"></property -->
-	</bean>
-
-	<!-- Motif décharger Metier Declaration -->
-	<bean id="motifdechargemetier" class="com.douane.metier.motifDecharge.MotifDechargeMetier">
-		<!-- property name="refdao" ref="refdao"></property -->
-	</bean>
-
-	<!-- Type matériel Metier Declaration -->
-	<bean id="typematerielmetier" class="com.douane.metier.typeMateriel.TypeMaterielMetier">
-		<!-- property name="refdao" ref="refdao"></property -->
-	</bean>
-
+	
     <!-- Reference Metier Declaration -->
     <bean id="refmetier" class="com.douane.metier.referentiel.RefMetierImpl">
         <property name="refdao" ref="refdao"></property>

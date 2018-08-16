@@ -54,21 +54,9 @@ public class Agent implements Serializable {
 	@JoinColumn(name="idDirection")
 	private Direction direction;
 	
-	@ManyToOne
-	@JoinColumn(name="idService")
-	private Service service;
 	
-	@ManyToOne
-	@JoinColumn(name="idBureau")
-	private Bureau bureau;
-
-
-
 	@Transient
 	private String ip;
-	//@OneToMany(mappedBy="dc")
-	//@Transient
-	//private List<Materiel> matEntree;
 	
 	public Agent(Long im, String nom_agent, String prenom_agent, Useri role) {
 		super();
@@ -176,22 +164,6 @@ public class Agent implements Serializable {
 		this.direction = direction;
 	}
 
-	public Service getService() {
-		return service;
-	}
-
-	public void setService(Service service) {
-		this.service = service;
-	}
-
-	public Bureau getBureau() {
-		return bureau;
-	}
-
-	public void setBureau(Bureau bureau) {
-		this.bureau = bureau;
-	}
-
 	@Override
 	public boolean equals(Object o) {
 		/*if (this == o) return true;
@@ -202,7 +174,6 @@ public class Agent implements Serializable {
 		if (im != null ? !im.equals(agent.im) : agent.im != null) return false;
 		return roleAgent != null ? roleAgent.equals(agent.roleAgent) : agent.roleAgent == null;
 		*/
-		System.out.println("herherMAgent");
 		if (this.getIm().equals(((Agent)o).getIm()))
 			return true;
 		return false;

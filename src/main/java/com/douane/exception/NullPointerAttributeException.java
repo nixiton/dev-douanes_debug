@@ -15,6 +15,6 @@ public class NullPointerAttributeException extends NullPointerException {
     }
     public NullPointerAttributeException(String message, GetFieldName getFieldName,Method method)
     {
-        super(getFieldName.getFieldName(method)+" must not be empty");
+        super(getFieldName.getFieldName(method)+" ne doit pas être vide");
     }
 }

@@ -100,7 +100,7 @@ public class SISEformBean {
 	 */
 
 	// List des objets
-	private List<Bureau> listBureau;
+	
 	private List<Nomenclature> listNomenclature;
 	private List<Direction> listDirection;
 	private List<EtatMateriel> listEtatMateriel;
@@ -111,11 +111,10 @@ public class SISEformBean {
 	private List<MotifDecharge> listMotifDecharge;
 	private List<TypeMateriel> listTypeMateriel;
 
-	private List<Adresse> listAdresse;
-	private List<Localite> listLocalite;
+	
 	private List<MotifSortie> listMotifSortie;
 	private List<Poste> listPoste;
-	private List<Service> listService;
+	
 	private List<Useri> listUseri;
 	private List<TypeObjet> listTypeObjet;
 
@@ -265,36 +264,7 @@ public class SISEformBean {
 		this.listTypeMateriel = listTypeMateriel;
 	}
 
-	public List<Adresse> getListAdresse() {
-		ArrayList<Referentiel> r = (ArrayList<Referentiel>) refmetierimpl.listRef(new Adresse());
-		List<Adresse> ds = new ArrayList<Adresse>();
-		for (Object d : r) {
-			if (d instanceof Adresse) {
-				ds.add((Adresse) d);
-			}
-		}
-		return ds;
-	}
-
-	public void setListAdresse(List<Adresse> listAdresse) {
-		this.listAdresse = listAdresse;
-	}
-
-	public List<Localite> getListLocalite() {
-		ArrayList<Referentiel> r = (ArrayList<Referentiel>) refmetierimpl.listRef(new Localite());
-		List<Localite> ds = new ArrayList<Localite>();
-		for (Object d : r) {
-			if (d instanceof Localite) {
-				ds.add((Localite) d);
-			}
-		}
-		return ds;
-	}
-
-	public void setListLocalite(List<Localite> listLocalite) {
-		this.listLocalite = listLocalite;
-	}
-
+	
 	public List<MotifSortie> getListMotifSortie() {
 		if(listMotifSortie ==null) {
 		ArrayList<Referentiel> r = (ArrayList<Referentiel>) refmetierimpl.listRef(new MotifSortie());
@@ -329,21 +299,6 @@ public class SISEformBean {
 
 	public void setListPoste(List<Poste> listPoste) {
 		this.listPoste = listPoste;
-	}
-
-	public List<Service> getListService() {
-		ArrayList<Referentiel> r = (ArrayList<Referentiel>) refmetierimpl.listRef(new Service());
-		List<Service> ds = new ArrayList<Service>();
-		for (Object d : r) {
-			if (d instanceof Service) {
-				ds.add((Service) d);
-			}
-		}
-		return ds;
-	}
-
-	public void setListService(List<Service> listService) {
-		this.listService = listService;
 	}
 
 	public List<Useri> getListUseri() {
@@ -583,26 +538,7 @@ public class SISEformBean {
 		this.usermetierimpl = usermetierimpl;
 	}
 
-	public String addBureau() throws SQLException {
-		Bureau b = new Bureau(this.getDesignation(), this.getCodeBureau());
-		Agent agent = (Agent) RequestFilter.getSession().getAttribute("agent");
-		refmetierimpl.addRef(b, agent);
-		return SUCCESS;
-	}
-
-	public String addBureauCA() throws SQLException {
-		Bureau b = new Bureau(this.getDesignation(), this.getCodeBureau());
-		Agent agent = (Agent) RequestFilter.getSession().getAttribute("agent");
-		refmetierimpl.addRef(b, agent);
-		return SUCCESS;
-	}
-
-	public String addLocalite() {
-
-		Agent agent = (Agent) RequestFilter.getSession().getAttribute("agent");
-		refmetierimpl.addRef(new Localite(this.getDesignation()), agent);
-		return SUCCESS;
-	}
+	
 
 	public String addPoste() {
 
@@ -618,18 +554,7 @@ public class SISEformBean {
 		return SUCCESS;
 	}
 
-	public String addAdresse() {
-		Agent agent = (Agent) RequestFilter.getSession().getAttribute("agent");
-		refmetierimpl.addRef(new Adresse(this.getDesignation()), agent);
-		return SUCCESS;
-	}
-
-	public String addAdresseCA() {
-		Agent agent = (Agent) RequestFilter.getSession().getAttribute("agent");
-		refmetierimpl.addRef(new Adresse(this.getDesignation()), agent);
-		return SUCCESS;
-	}
-
+	
 	public String addTypeObjet() {
 		Agent agent = (Agent) RequestFilter.getSession().getAttribute("agent");
 		refmetierimpl.addRef(new TypeObjet(getDesignation(), getCaracteristique()), agent);
@@ -676,12 +601,7 @@ public class SISEformBean {
 		this.listTypeObjet = listTypeObjet;
 	}
 
-	public String addService() throws SQLException {
-		Service service = new Service(this.getDesignation(), this.getCodeService());
-		Agent agent = (Agent) RequestFilter.getSession().getAttribute("agent");
-		refmetierimpl.addRef(service, agent);
-		return SUCCESS;
-	}
+	
 
 	public String addDirection() {
 		try {

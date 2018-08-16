@@ -23,7 +23,7 @@ public class OpAttribution extends Operation{
 		super(date, time, poste, operateur);
 		this.mat = m;
 		this.detenteur = det;
-		this.setDetenteurEffectif("generated detenteur effectif default");
+		this.setDetenteurEffectif("generated default detenteur effectif ");
 		
 	}
 	public OpAttribution() {

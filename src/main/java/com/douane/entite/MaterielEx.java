@@ -17,7 +17,6 @@ public class MaterielEx extends Materiel {
 		super(pu, reference, numSerie, autre, codification, nomenMat, etat, caract, dc, m);
 		this.setDetenteur(detenteur);
 		this.setLeref("Matériel Existant");
-		// TODO Auto-generated constructor stub
 	}
 	
 	

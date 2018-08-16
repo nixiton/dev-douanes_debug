@@ -19,28 +19,11 @@ public class OpSortie extends OperationES{
 	private Direction direc;
 	
 	@ManyToOne
-	@JoinColumn(name="idServ")
-	private Service serv;
-	@ManyToOne
-	@JoinColumn(name="idBureau")
-	private Bureau bureau;
-
-	@ManyToOne
 	@JoinColumn(name="idMotif")
 	private MotifSortie motifsortie;
 	
 	private String pj;
 	
-	public OpSortie(Date date, Date time, String poste, Agent operateur, 
-			Materiel mater, Direction d, Service s, Bureau b, MotifSortie mot) {
-		super(date, time, poste, operateur);
-		this.setMat(mater);
-		this.setDirec(d);
-		this.setService(s);
-		this.setBureau(b);
-		this.setMotifsortie(mot);
-	}
-
 	public OpSortie(Date date, Date time, String poste, Agent operateur, 
 			Materiel mater, Direction d, MotifSortie mot) {
 		super(date, time, poste, operateur);
@@ -98,22 +81,6 @@ public class OpSortie extends OperationES{
 
 	public void setDirec(Direction direc) {
 		this.direc = direc;
-	}
-
-	public Service getServ() {
-		return serv;
-	}
-
-	public void setService(Service serv) {
-		this.serv = serv;
-	}
-
-	public Bureau getBureau() {
-		return bureau;
-	}
-
-	public void setBureau(Bureau bureau) {
-		this.bureau = bureau;
 	}
 
 	public MotifSortie getMotifsortie() {

@@ -34,10 +34,6 @@ public class Designation implements Serializable{
 	private String renseignement;
 	private byte[] image;
 	
-	/*@OneToMany(mappedBy="design")
-	  private List<Materiel> materiels;
-	*/
-
 	@ManyToOne
 	@JoinColumn(name="idNom")
 	private Nomenclature nomenMat;
@@ -75,35 +71,25 @@ public class Designation implements Serializable{
 	public String getImage() throws IOException
 	{
 		ByteArrayInputStream bais;
-		System.out.println("----------------------begint test");
+		
 		if(image != null)
 		{
-			System.out.println("----------------------not null");
 			bais = new ByteArrayInputStream(image);
 		}
 		else
 		{
-			System.out.println("---------------------- null");
 			return null;
 		}
 		try {
 			//BufferedImage imagebuff = ImageIO.read(bais);
-			System.out.println("----------------------not null 1");
 			String encodedImage;
-			System.out.println("----------------------not null 2");
-			//BufferedImage imBuff = ImageIO.read(bais);
-			System.out.println("----------------------not null 3");
 			BufferedImage resizedImg = resize(ImageIO.read(bais), 275, 75);
-			System.out.println("----------------------not null 4");
 			ByteArrayOutputStream os = new ByteArrayOutputStream();
-			System.out.println("----------------------not null 5");
 			if (resizedImg == null) {
 				return null;
 			}
 			ImageIO.write(resizedImg, "jpg", os);
-			System.out.println("----------------------not null 6");
 			encodedImage = new String(Base64.encodeBytes(os.toByteArray()));
-			System.out.println("----------------------not null 7");
 			return encodedImage;
 		}
 		catch(NullPointerException e)
@@ -249,14 +235,5 @@ public class Designation implements Serializable{
 	public void setOrigine(String origine) {
 		this.origine = origine;
 	}
-
-	/*public int getNombreparEntree() {
-		return nombreparEntree;
-	}
-	public void setNombreparEntree(int nombreparEntree) {
-		this.nombreparEntree = nombreparEntree;
-	}
-
-	private int nombreparEntree;*/
 
 }
