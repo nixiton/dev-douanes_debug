@@ -109,7 +109,9 @@
 				<h:outputText value="#{c[1]}" />			
 			</p:column>
 			<p:column headerText="Date" style=" text-align: center; word-wrap: break-word;"> 
-				<h:outputText value="#{c[15]}" />			
+				<h:outputText value="#{c[15]}" >
+					<f:convertDateTime pattern="dd MMMM yyyy" locale="fr-Fr" timeZone="GMT+3"/>
+				</h:outputText>			
 			</p:column>
 			<p:column headerText="Désignation sommaire des opérations" style=" text-align: center; word-wrap: break-word;"> 
 				<h:outputText value="#{c[2]}" />			

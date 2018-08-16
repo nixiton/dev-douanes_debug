@@ -49,13 +49,16 @@
         
         
         </p:column>
-        <p:column filterBy="#{b.dateExpire}" filterMatchMode="contains" style="width: 15%; text-align: center; word-wrap: break-word;">
+        <p:column filterBy="#{b.dateExpire}" filterMatchMode="contains" style="width: 10%; text-align: center; word-wrap: break-word;">
             <f:facet name="header">Date du changement</f:facet>
             <p:cellEditor>
-               <f:facet name="output"><h:outputText value="#{b.dateExpire}" /></f:facet>
-               <f:facet name="input">
-               
-               <p:calendar value="#{b.dateExpire}" navigator="true" style="width:80%" />
+               <f:facet name="output">
+               		<h:outputText value="#{b.dateExpire}" >
+               			<f:convertDateTime pattern="dd MMMM yyyy " timeZone="GMT+3"/>
+             		</h:outputText>
+               	</f:facet>
+               <f:facet name="input">            
+              		<p:calendar value="#{b.dateExpire}" navigator="true" style="width:80%" />
                </f:facet>
            </p:cellEditor>
         

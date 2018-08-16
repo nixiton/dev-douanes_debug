@@ -8,8 +8,8 @@
 
  <h:head></h:head>
 
-<div class="col-md-4"></div>
-<div class="box dark col-md-4">
+<div class="col-md-3"></div>
+<div class="box dark col-md-6">
 
     <div class="body">
 
@@ -20,44 +20,45 @@
             <div class="form-group">
             	<div class="row">
 					<div class="col-lg-6 ">	
-		                <label for="text1" class="control-label col-lg-4">Devise
+		                <label for="text1" class="control-label ">Devise
 		                </label>
 					</div>
-	                <div class="col-lg-6">
+	                <div class="col-lg-6" >
 					
 	                    <p:inputText   required="true"
 	                        value="#{siseBean.devise.designation}"
 	                        requiredMessage="Devise est obligatoire"
-	                        placeholder="Devise de la république" styleClass="form-control top"></p:inputText>
+	                        placeholder="Devise de la république" styleClass="form-control top" style="width=80%;"></p:inputText>
 	
 	                </div>
 	                
                 </div>
-                
+                <br/>
+                <hr/>
                 <div class="row">
 					<div class="col-lg-6">
-						
-		                <p:outputLabel styleClass="control-label col-lg-12" for="annee_devise" value="Date du changement de devise " />
+						<p:outputLabel styleClass="control-label" for="annee_devise" value="Date du changement de devise " />
 					</div>
 	                
 						
-						<div class="col-lg-6">
-        					<p:calendar id="annee_devise"  value="#{siseBean.devise.dateExpire}" navigator="true" pattern="dd MMMM yyyy" required="true" locale="fr"/>
-     			 			<p:dialog modal="true" resizable="false" header="Values" widgetVar="dlg" showEffect="fold">
-        						<p:panelGrid id="display_devise" columns="2" columnClasses="label,value">
-      			 					 <h:outputText value="" />
-						            <h:outputText value="#{siseBean.devise.dateExpire}">
-						                <f:convertDateTime pattern="dd MMMM yyyy" locale="Locale.FRANCE"/>
-				                  	</h:outputText>
-       			 				</p:panelGrid>
-    						</p:dialog>
-	               		 </div>
+					<div class="col-lg-6">
+       					<p:calendar id="annee_devise"  value="#{siseBean.devise.dateExpire}" navigator="true" pattern="dd MMMM yyyy" required="true" locale="fr"/>
+   			 			<p:dialog modal="true" resizable="false" header="Values" widgetVar="dlg" showEffect="fold">
+       						<p:panelGrid id="display_devise" columns="2" columnClasses="label,value">
+     			 					 <h:outputText value="" />
+					            <h:outputText value="#{siseBean.devise.dateExpire}">
+					                <f:convertDateTime pattern="dd MMMM yyyy" locale="Locale.FRANCE"/>
+			                  	</h:outputText>
+      			 				</p:panelGrid>
+   						</p:dialog>
+               		 </div>
 	                
                 </div>
                 
                 
               
             </div>
+            <br/>
 			<hr></hr>
        
             <div class="form-group">
