@@ -11,10 +11,11 @@
     		  header   = "Modification Agent et Utilisateur" 
               position = "center"
               modal    = "true"
+              width="1000" height="700" minWidth="800" minHeight="500"
               
     >
      <p:growl  redisplay="false" id="all" showDetail="true" autoUpdate="true" />   
-            <div class="box dark col-md-12">
+ <div class="box dark col-md-12">
 
 	<div class="body">
 	<p:growl for="editagenterror" redisplay="false" id="messages" showDetail="true" autoUpdate="true" />
@@ -61,7 +62,7 @@
 			
 					</div>
 				</div>
-        		<br/><br/>		
+        		<br/>
 			</div>
 			<div class="box dark col-md-5">
 					<!-- DIRECTION -->
@@ -128,17 +129,15 @@
 	
 	                    </p:selectOneMenu>
 					</div>
+					
                   </div>
-                  
-                  <hr></hr>
-				
-              	<br/><br/>
+				 <br></br>
              </div>
                     
                     <div class="box dark col-md-12">
                     <br/>
                    		<div class="row">
-							<div class="col-lg-6 col-lg-offset-3">
+							<div class="col-lg-6">
 							<!-- h:commandButton id="addUser"
 								value="Mettre Ã  jour" class="btn btn-lg btn-primary btn-block" 
 								actionListener = "#{userMB.updateAgent(editAgent)}"
@@ -152,14 +151,11 @@
 		   					oncomplete="if (!args.validationFailed) PF('detailuser').hide();" 
 		   					update="@([id$=ad], [id$=tableUserMat])" />
 							</div>
-						</div>
-						<hr/>
-						<div class="row">
-							<div class="col-lg-6 col-lg-offset-3">
+							<div class="col-lg-6">
 								<h:commandLink id="cancelUser" action="#{userMB.exit()}"
 						value="" class="btn btn-lg btn-primary btn-block"
 						update="@([id$=ad], [id$=tableUserMat])"
-						>  <!--   i class="fa fa-times" style="color:#fff !important;"> </i-->  <span style="color:#fff !important;">Cancel</span >
+						>  <!--   i class="fa fa-times" style="color:#fff !important;"> </i-->  <span style="color:#fff !important;">Annuler</span >
 								</h:commandLink>
 							</div>
 						</div>
@@ -168,51 +164,77 @@
 			
 					
 				</h:form>
+				<hr></hr>
+				<br></br>
 				<!-- MDP-->
 				<h:form id="myform">
                     <p:messages id="messages" showDetail="true" autoUpdate="true" />
-
-                    <hr></hr>
-                                        
-					<div class="row">
-	                    <div class="col-md-6">
-	                    	 <h:outputLabel for="password1" 
-                                   value="Nouveau mot de passe : " />
+					
+	                  <div class="row">
+	                 
+	                  	<h4> <strong>Modification de mot de passe</strong> </h4>
+	                  </div>
+	                   <hr></hr>    
+                     <div class="box dark col-md-12">  
+                     	<br></br>               
+						<div class="row">
+		                    <div class="col-md-4 col-md-offset-2">
+		                    	 <h:outputLabel for="password1" 
+	                                   value="Nouveau mot de passe : " />
+		                    </div>
+		                    <div class="col-md-6">
+		                    	<p:password id="password1" 
+	                                value="#{userMB.newPass}" match="password2" required="true" requiredMessage="Mot de passe obligatoire" 
+	                                validatorMessage=" Erreur de longueur de Mot de passe (longueur minimale requise : 8) ou Erreur de confirmation de mot de passe" >
+								<f:validateLength minimum="8" />
+	                    		</p:password>
+		                    </div>
+	                       
 	                    </div>
-	                    <div class="col-md-6">
-	                    	<p:password id="password1" 
-                                value="#{userMB.newPass}" match="password2" required="true" requiredMessage="Mot de passe obligatoire" 
-                                validatorMessage=" Erreur de longueur de Mot de passe (longueur minimale requise : 8) ou Erreur de confirmation de mot de passe" >
-							<f:validateLength minimum="8" />
-                    		</p:password>
+	
+	                    <hr></hr>
+	
+						 <div class="row">
+		                    <div class="col-md-4 col-md-offset-2">
+		                    	 <h:outputLabel  for="password2"
+	                                   value="Retaper nouveau mot de passe : " />
+		                    </div>
+		                    <div class="col-md-6">
+		                    	<p:password id="password2"   
+	                                value="#{userMB.newPass}" required="true" requiredMessage="Confirmation Mot de passe obligatoire" 
+	                                validatorMessage="Erreur de confirmation de mot de passe">
+	                    		</p:password>
+		                    </div>
+	                    	
+		                    
 	                    </div>
-                       
-                    </div>
-
-                    <hr></hr>
-
-					 <div class="row">
-	                    <div class="col-md-6">
-	                    	 <h:outputLabel  for="password2"
-                                   value="Retaper nouveau mot de passe : " />
-	                    </div>
-	                    <div class="col-md-6">
-	                    	<p:password id="password2"   
-                                value="#{userMB.newPass}" required="true" requiredMessage="Confirmation Mot de passe obligatoire" 
-                                validatorMessage="Erreur de confirmation de mot de passe">
-                    		</p:password>
-	                    </div>
-                    	
-	                    
-                    </div>
+	                    <br></br>
+                    </div> 
               		 <hr></hr>
               		 
-              		 <p:commandButton id="changemdp" value="Changer"
-						   
-						   styleClass="btn btn-lg btn-primary btn-block"
-						   actionListener="#{userMB.changePassWithoutConfirm(editAgent)}"
-		   					oncomplete="if (!args.validationFailed) PF('detailuser').hide();" 
-		   					update="@([id$=myform], [id$=tableUserMat])" />
+              		
+		   					
+		   			<div class="box dark col-md-12">
+                    <br/>
+                   		<div class="row">
+							<div class="col-lg-6">
+							    <p:commandButton id="changemdp" value="Changer"
+							   
+							   styleClass="btn btn-lg btn-primary btn-block"
+							   actionListener="#{userMB.changePassWithoutConfirm(editAgent)}"
+			   					oncomplete="if (!args.validationFailed) PF('detailuser').hide();" 
+			   					update="@([id$=myform], [id$=tableUserMat])" />
+							</div>
+							<div class="col-lg-6">
+								<h:commandLink id="cancelUser" action="#{userMB.exit()}"
+									value="" class="btn btn-lg btn-primary btn-block"
+									update="@([id$=ad], [id$=tableUserMat])"
+									>  <!--   i class="fa fa-times" style="color:#fff !important;"> </i-->  <span style="color:#fff !important;">Annuler</span >
+								</h:commandLink>
+							</div>
+						</div>
+						<br/>
+					</div>
 
                 </h:form>
 				
