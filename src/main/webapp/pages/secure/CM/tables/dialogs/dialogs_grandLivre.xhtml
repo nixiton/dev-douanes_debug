@@ -44,7 +44,11 @@
  				CHAPITRE(1) <p:inputText value ="#{JasperTableExampleBean.livre.chap}" style="text-align: center;width: 25%"></p:inputText>
  				ARTICLE <p:inputText value ="#{JasperTableExampleBean.livre.article}" style="text-align: center;width: 25%"></p:inputText> <br></br>
  				(2) <p:inputText value ="#{JasperTableExampleBean.livre.libelle}"  style="text-align: center;width: 70%"></p:inputText><br></br>
- 				(3) #{livreAnnuelBean.service}<br></br>
+ 				(3) <f:view contentType="text/html">
+ 				<p:selectOneMenu id="directionint" value="#{JasperTableExampleBean.livre.subd}" appendTo="@this">
+                        <f:selectItems value="#{siseBean.mapDirection(suivieditionBean.direction, livreAnnuelBean.d)}" />
+                 </p:selectOneMenu></f:view>
+ 				<!-- #{livreAnnuelBean.service}--><br></br>
  				(4) #{livreAnnuelBean.quatre}<br></br>
  				(5) <p:inputText  value ="#{JasperTableExampleBean.livre.indication}" style="text-align: center;width: 70%"></p:inputText><br></br>
  			</div>
@@ -141,7 +145,7 @@
 		</p:dataTable>  -->	
 	</div>
 	<p:commandButton action="#{JasperTableExampleBean.grandLivreReport(livreAnnuelBean.liste)}" type="submit" value="Exporter en PDF" ajax="false" >
-		<f:setPropertyActionListener target="#{JasperTableExampleBean.livre.subd}" value="#{livreAnnuelBean.service}" />
+		<!-- f:setPropertyActionListener target="#{JasperTableExampleBean.livre.subd}" value="#{livreAnnuelBean.service}" /-->
 		<f:setPropertyActionListener target="#{JasperTableExampleBean.livre.lieu}" value="#{livreAnnuelBean.trois}" />
 		<f:setPropertyActionListener target="#{JasperTableExampleBean.livre.date}" value="#{livreAnnuelBean.dateF}" />
  		<f:setPropertyActionListener target="#{JasperTableExampleBean.livre.ans}" value="#{livreAnnuelBean.anne}" />
@@ -154,7 +158,7 @@
             or topMenuMB.curentAgent.roleAgent.role eq 'ROLE_DRF'
             }">
 	<p:commandButton action="#{JasperTableExampleBean.grandLivreDoc(livreAnnuelBean.liste)}" type="submit" value="Exporter en Word" ajax="false" >
-		<f:setPropertyActionListener target="#{JasperTableExampleBean.livre.subd}" value="#{livreAnnuelBean.service}" />
+		<!-- f:setPropertyActionListener target="#{JasperTableExampleBean.livre.subd}" value="#{livreAnnuelBean.service}" /-->
 		<f:setPropertyActionListener target="#{JasperTableExampleBean.livre.lieu}" value="#{livreAnnuelBean.trois}" />
 		<f:setPropertyActionListener target="#{JasperTableExampleBean.livre.date}" value="#{livreAnnuelBean.dateF}" />
  		<f:setPropertyActionListener target="#{JasperTableExampleBean.livre.ans}" value="#{livreAnnuelBean.anne}" />
@@ -163,5 +167,5 @@
 	</c:if>
 	</h:form>
 </h:body>
-	
+	<script src='http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.5/jquery-ui.min.js'></script>
 </html>

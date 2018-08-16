@@ -147,7 +147,7 @@ public class JasperTableExampleBean implements Serializable{
             		+ op.getMat().getReference()
             		;
             
-            parameters.put("service", op.getDirection().getDesignation());
+            parameters.put("service", this.pdfForm.getNum3());
             parameters.put("filamatra", this.pdfForm.getFilamatra());
             parameters.put("num1", this.pdfForm.getNum1());
             parameters.put("num2", this.pdfForm.getNum2());
@@ -209,7 +209,7 @@ public class JasperTableExampleBean implements Serializable{
             		+ op.getMat().getReference()
             		;
             
-            parameters.put("service", op.getDirection().getDesignation());
+            parameters.put("service", this.pdfForm.getNum3());
             parameters.put("filamatra", this.pdfForm.getFilamatra());
             parameters.put("num1", this.pdfForm.getNum1());
             parameters.put("num2", this.pdfForm.getNum2());
@@ -918,7 +918,7 @@ public class JasperTableExampleBean implements Serializable{
             parameters.put("lieu", this.pdfForm.getSomme2());
             parameters.put("ans", year );
             parameters.put("lieu1", this.pdfForm.getLieu());
-            parameters.put("date1", this.pdfForm.getDate());
+            parameters.put("date1", this.pdfForm.getNum1());
             parameters.put("an1", this.pdfForm.getNum3());
             parameters.put("date3", dateD);
             parameters.put("vu2", this.pdfForm.getNum4());
@@ -966,7 +966,7 @@ public class JasperTableExampleBean implements Serializable{
             parameters.put("lieu", this.pdfForm.getSomme2());
             parameters.put("ans", year);
             parameters.put("lieu1", this.pdfForm.getLieu());
-            parameters.put("date1", this.pdfForm.getDate());
+            parameters.put("date1", this.pdfForm.getNum1());
             parameters.put("an1", this.pdfForm.getNum3());
             parameters.put("date3", dateD);
             parameters.put("vu2", this.pdfForm.getNum4());

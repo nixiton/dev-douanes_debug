@@ -90,7 +90,10 @@
         <br></br><br></br>
         <div class="col-md-12">
 
-            (1) #{suivieditionBean.direction.designation}<br></br>
+            (1) <p:selectOneMenu id="directionint" value="#{JasperTableExampleBean.pdfForm.num1}" style="font-size: 15px;width: 25% !important">
+                        <f:selectItems value="#{siseBean.mapDirection(suivieditionBean.direction,InventaireBean.datF)}" />
+                    </p:selectOneMenu>
+            <!-- #{suivieditionBean.direction.designation}--> <br></br>
             <br></br><br></br>
         </div>
         <br></br><br></br>
@@ -227,8 +230,7 @@
         </div>
     </div>
 	<p:commandButton action="#{JasperTableExampleBean.inventaireReport(InventaireBean.li, InventaireBean.dateD, InventaireBean.dateF)}" type="submit" value="Exporter en PDF" ajax="false" >
-		<f:setPropertyActionListener target="#{JasperTableExampleBean.pdfForm.num1}" value="#{suivieditionBean.direction.designation}" />
- 		<f:setPropertyActionListener target="#{JasperTableExampleBean.pdfForm.date}" value="#{suivieditionBean.direction.designation}" />
+		
  		<f:setPropertyActionListener target="#{JasperTableExampleBean.pdfForm.lieu}" value="#{suivieditionBean.direction.trois}" />
  		
 	</p:commandButton>
@@ -239,8 +241,7 @@
             or topMenuMB.curentAgent.roleAgent.role eq 'ROLE_DRF'
             }">
     <p:commandButton action="#{JasperTableExampleBean.inventaireDoc(InventaireBean.li,InventaireBean.dateD,InventaireBean.dateF)}" type="submit" value="Exporter en Word" ajax="false" >
-    	<f:setPropertyActionListener target="#{JasperTableExampleBean.pdfForm.num1}" value="#{suivieditionBean.direction.designation}" />
- 		<f:setPropertyActionListener target="#{JasperTableExampleBean.pdfForm.date}" value="#{suivieditionBean.direction.designation}" />
+    	
  		<f:setPropertyActionListener target="#{JasperTableExampleBean.pdfForm.lieu}" value="#{suivieditionBean.direction.trois}" />
  		
     </p:commandButton>

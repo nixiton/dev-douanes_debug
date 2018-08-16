@@ -43,11 +43,11 @@ public class livreAnnuelBean {
 		this.trois  = s.getDirection().getTrois();
 		this.quatre =  s.getDirection().getQuatre();
 		Date sdate = new GregorianCalendar(i, Calendar.JANUARY, 1).getTime();
-		Date edate = new GregorianCalendar(i, Calendar.DECEMBER, 31).getTime();
-		this.liste=s.getListESForGrandLivre(sdate,edate);
+		this.d = new GregorianCalendar(i, Calendar.DECEMBER, 31).getTime();
+		this.liste=s.getListESForGrandLivre(sdate,this.d);
 		this.service = s.getDirection().getDesignation();
 		this.dateD = df.format(sdate);
-		this.dateF = df.format(edate);
+		this.dateF = df.format(this.d);
 		return "dialogLivre"; 
 	}
 	public List<Object[]> getListe() {

@@ -97,7 +97,11 @@
  		<div class="col-md-12">
             <div class="col-md-3" style="font-size: 14px!important;"></div>
  			<div class="col-md-6">
- 			(3) #{EtatAppreciatifBean.service}
+ 			(3) <f:view contentType="text/html">
+ 				<p:selectOneMenu id="directionint" value="#{JasperTableExampleBean.pdfForm.num3}" appendTo="@this" style="font-size: 15px;width: 80% !important">
+                        <f:selectItems value="#{siseBean.mapDirection(suivieditionBean.direction, docbean.curentOpeationSortieToPdf.date)}" />
+                 </p:selectOneMenu></f:view>
+ 			<!-- #{EtatAppreciatifBean.service}-->
  		</div>
  			<div class="col-md-3" style="font-size: 14px!important;">
 
@@ -350,14 +354,14 @@
 	<div class="col-md-9">LE GAC</div> <div class="col-md-3" style="text-align: center;">LE DEPOSITAIRE COMPTABLE</div>
 	<br></br><br></br><br></br>
     <p:commandButton action="#{JasperTableExampleBean.etatAppreciatifReport(EtatAppreciatifBean.liste)}" type="submit" value="Exporter en PDF" ajax="false" >
-    	<f:setPropertyActionListener target="#{JasperTableExampleBean.pdfForm.num3}" value="#{EtatAppreciatifBean.service}" />
+    	<!-- f:setPropertyActionListener target="#{JasperTableExampleBean.pdfForm.num3}" value="#{EtatAppreciatifBean.service}" /-->
  		<f:setPropertyActionListener target="#{JasperTableExampleBean.pdfForm.lieu}" value="#{EtatAppreciatifBean.trois}" />
  		<f:setPropertyActionListener target="#{JasperTableExampleBean.pdfForm.num4}" value="#{EtatAppreciatifBean.quatre}" />
  			
     </p:commandButton>		
 	<br/>
 	<p:commandButton action="#{JasperTableExampleBean.etatAppreciatifDoc(EtatAppreciatifBean.liste)}" type="submit" value="Exporter en Word" ajax="false" >
-		<f:setPropertyActionListener target="#{JasperTableExampleBean.pdfForm.num3}" value="#{EtatAppreciatifBean.service}" />
+		<!-- f:setPropertyActionListener target="#{JasperTableExampleBean.pdfForm.num3}" value="#{EtatAppreciatifBean.service}" /-->
  		<f:setPropertyActionListener target="#{JasperTableExampleBean.pdfForm.lieu}" value="#{EtatAppreciatifBean.trois}" />
  		<f:setPropertyActionListener target="#{JasperTableExampleBean.pdfForm.num4}" value="#{EtatAppreciatifBean.quatre}" />
  		

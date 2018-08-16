@@ -35,7 +35,11 @@
  				CHAPITRE(1) <p:inputText value ="#{JasperTableExampleBean.journal.chapitre}" style="text-align: center;width: 25%"></p:inputText>
  				ARTICLE <p:inputText value ="#{JasperTableExampleBean.journal.article}" style="text-align: center;width: 25%"></p:inputText> <br></br>
  				(2) <p:inputText value ="#{JasperTableExampleBean.journal.num2}"  style="text-align: center;width: 70%"></p:inputText><br></br>
- 				(3) <h:outputText value="#{JournalBean.direction}" /><br></br> 
+ 				(3) <f:view contentType="text/html">
+ 				<p:selectOneMenu id="directionint" value="#{JasperTableExampleBean.journal.num3}" appendTo="@this">
+                       <f:selectItems value="#{siseBean.mapDirection(suivieditionBean.direction, JournalBean.datF)}" />
+                 </p:selectOneMenu></f:view>
+ 				<!-- h:outputText value="#{JournalBean.direction}" /--><br></br> 
  				(4) <h:outputText value="#{JournalBean.quatre}" /><br></br>
  				(5) <p:inputText  value ="#{JasperTableExampleBean.journal.num5}" style="text-align: center;width: 70%"></p:inputText><br></br>
  			</div>
@@ -166,7 +170,7 @@
  		</div>
  		<div class="col-md-3">
  			<br/><p:commandButton action="#{JasperTableExampleBean.journalMatiereReport(JournalBean.dateD, JournalBean.dateF, JournalBean.li)}" type="submit" value="Exporter en PDF" ajax="false" >
- 			<f:setPropertyActionListener target="#{JasperTableExampleBean.journal.num3}" value="#{JournalBean.direction}" />
+ 			<!-- f:setPropertyActionListener target="#{JasperTableExampleBean.journal.num3}" value="#{JournalBean.direction}" /-->
  			<f:setPropertyActionListener target="#{JasperTableExampleBean.journal.lieu}" value="#{JournalBean.trois}" />
  			<f:setPropertyActionListener target="#{JasperTableExampleBean.journal.num4}" value="#{JournalBean.quatre}" />
  			</p:commandButton>
@@ -177,7 +181,7 @@
             or topMenuMB.curentAgent.roleAgent.role eq 'ROLE_DRF'
             }">
  			<p:commandButton action="#{JasperTableExampleBean.journalMatiereDoc(JournalBean.dateD, JournalBean.dateF, JournalBean.li)}" type="submit" value="Exporter en Word" ajax="false" >
- 			<f:setPropertyActionListener target="#{JasperTableExampleBean.journal.num3}" value="#{JournalBean.direction}" />
+ 			<!-- f:setPropertyActionListener target="#{JasperTableExampleBean.journal.num3}" value="#{JournalBean.direction}" /-->
  			<f:setPropertyActionListener target="#{JasperTableExampleBean.journal.lieu}" value="#{JournalBean.trois}" />
  			<f:setPropertyActionListener target="#{JasperTableExampleBean.journal.num4}" value="#{JournalBean.quatre}" />
  			</p:commandButton>

@@ -26,15 +26,15 @@
         </div>
 
 
-        <div class="col-md-6">
+        <div class="col-md-6" style="text-align: center;">
 		<!-- 
         <h:graphicImage width="100%"
                     value="/pages/unsecure/assets/images/top.png" /> -->
             	<div class="row">
-                	<div class="col-lg-10 col-lg-offset-1 " style="padding-left:5%;"><h3><b>REPOBLIKAN ' I  MADAGASIKARA</b></h3></div>
+                	<div><h3><b>REPOBLIKAN ' I  MADAGASIKARA</b></h3></div>
  				</div>
  				<div class="row devise"><f:view contentType="text/html">
-					<p:selectOneMenu value="#{JasperTableExampleBean.pdfForm.filamatra}" appendTo="@this">
+					<p:selectOneMenu value="#{JasperTableExampleBean.pdfForm.filamatra}" appendTo="@this" style="width: 50% !important">
                         <f:selectItems value="#{siseBean.mapDevise}" />
                        	
                     </p:selectOneMenu>	                 
@@ -42,7 +42,7 @@
  				<br/>       
         
 		</div>
-		<div class="col-md-3">
+		<div class="col-md-3" style="text-align: right;">
         			Logo 2
         </div>
 <div class="row">
@@ -54,7 +54,9 @@
             ----------------------<br></br>
             DIRECTION GENERALE DES DOUANES<br></br>
             -----------------------<br></br>
-            #{docbean.curentOperationAttrToPdf.detenteur.direction}<br></br>
+            <f:view contentType="text/html"><p:selectOneMenu id="directionint" value="#{JasperTableExampleBean.pdfForm.num3}" appendTo="@this" style="width: 40% !important">
+               <f:selectItems value="#{siseBean.mapDirection(suivieditionBean.direction, docbean.curentOperationAttrToPdf.date)}"/>
+           </p:selectOneMenu></f:view><br></br>
             ------------------
 
         </div>

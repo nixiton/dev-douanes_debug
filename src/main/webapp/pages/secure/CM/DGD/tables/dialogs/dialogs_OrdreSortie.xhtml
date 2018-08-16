@@ -29,7 +29,7 @@
  			
  			<div class="col-md-3">
  				<br/>
- 				<p:selectOneMenu id="directionint" value="#{JasperTableExampleBean.ordreS.dirc}">
+ 				<p:selectOneMenu id="directionint" value="#{JasperTableExampleBean.ordreS.dirc}" style="font-size: 15px;">
                         <f:selectItems value="#{siseBean.mapDirection(docbean.curentOpeationSortieToPdf.direction, docbean.curentOpeationSortieToPdf.date)}" />
                  </p:selectOneMenu>
  				<h:outputText value="#{docbean.curentOpeationSortieToPdf.direction.quatre}" /> <!--p:inputText value="#{JasperTableExampleBean.ordreS.num6}" style="text-align: center;width: 80%"></p:inputText --><br></br>
@@ -265,22 +265,14 @@
  			<div class="col-md-6">
                 (3) Les matières et objets désignés ci-dessus ont été délivrés et portés en sortie.<br></br>
                 (3) Les matières et objets désignés ci-dessus ont été  portés en sortie dans les écriture.<br></br>
- 				A <h:outputText value="#{docbean.curentOpeationSortieToPdf.direction.trois}" />
- 				, le 
- 				<h:outputText value="#{docbean.curentOpeationSortieToPdf.date}">
-	            	<f:convertDateTime pattern="dd MMMM yyyy" locale="fr-Fr" timeZone="GMT+3"/>
-	            </h:outputText><br></br>
- 				<p>
- 				Le comptable (2) #{docbean.curentOpeationSortieToPdf.operateur.nomAgent} <br></br>
- 				</p>
+ 				A ................................
+ 				, le ...................................<br />
+ 				Le comptable (2) ................................... <br></br>
  				<br/><br/>
  				<p align="center">Déclaration de prise en charge</p>
  				<p>Le comptable déclare avoir reçu et pris en charge les matières et objets mentionnés dans le tableau ci-dessus</p>
 				<p>
- 				A <h:outputText value="#{docbean.curentOpeationSortieToPdf.direction.trois}" />, le 
- 				<h:outputText value="#{docbean.curentOpeationSortieToPdf.date}">
-	            	<f:convertDateTime pattern="dd MMMM yyyy" locale="fr-Fr" timeZone="GMT+3"/>
-	            </h:outputText>
+ 				A ..................................., le ...................................
  				 <br></br>
 				</p>
 				<p>
