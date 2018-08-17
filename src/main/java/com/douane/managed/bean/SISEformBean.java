@@ -1268,6 +1268,7 @@ public class SISEformBean {
 					List<CodeArticle> list = new ArrayList<CodeArticle>(); list.add(tm);
 					mapnl.put(key, list);
 				}
+				System.out.println("mapnl : " + mapnl.get(key));
 			}
 			Iterator<Map.Entry<TypeObjet, List<CodeArticle>>> iterator = mapnl.entrySet().iterator();
 			while(iterator.hasNext()){
