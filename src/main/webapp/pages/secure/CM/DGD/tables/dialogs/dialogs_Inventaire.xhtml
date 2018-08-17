@@ -13,6 +13,9 @@
 	div.devise{
 		padding-right : 10% !important;
 	}
+	.fa span{
+	  display: inline-block !important;
+	}
 </style>
 <ui:include src="/pages/unsecure/components/header.xhtml">
 </ui:include>
@@ -229,7 +232,7 @@
             Vu le (2)<p:inputText value="#{JasperTableExampleBean.pdfForm.num4}" style="text-align: center;width:50%"/>    <br></br><br></br><br></br>
         </div>
     </div>
-	<p:commandButton action="#{JasperTableExampleBean.inventaireReport(InventaireBean.li, InventaireBean.dateD, InventaireBean.dateF)}" type="submit" value="Exporter en PDF" ajax="false" >
+	<p:commandButton  styleClass="ui-priority-primary fa fa-file"  style="width:200px; height:50px;" action="#{JasperTableExampleBean.inventaireReport(InventaireBean.li, InventaireBean.dateD, InventaireBean.dateF)}" type="submit" value="Exporter en PDF" ajax="false" >
 		
  		<f:setPropertyActionListener target="#{JasperTableExampleBean.pdfForm.lieu}" value="#{suivieditionBean.direction.trois}" />
  		
@@ -240,7 +243,7 @@
             or topMenuMB.curentAgent.roleAgent.role eq 'ROLE_DG'
             or topMenuMB.curentAgent.roleAgent.role eq 'ROLE_DRF'
             }">
-    <p:commandButton action="#{JasperTableExampleBean.inventaireDoc(InventaireBean.li,InventaireBean.dateD,InventaireBean.dateF)}" type="submit" value="Exporter en Word" ajax="false" >
+    <p:commandButton styleClass="ui-priority-primary fa fa-file-word-o"  style="width:200px;  height:50px;" action="#{JasperTableExampleBean.inventaireDoc(InventaireBean.li,InventaireBean.dateD,InventaireBean.dateF)}" type="submit" value="Exporter en Word" ajax="false" >
     	
  		<f:setPropertyActionListener target="#{JasperTableExampleBean.pdfForm.lieu}" value="#{suivieditionBean.direction.trois}" />
  		

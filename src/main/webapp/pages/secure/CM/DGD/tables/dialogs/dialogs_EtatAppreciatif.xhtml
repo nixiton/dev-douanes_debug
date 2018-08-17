@@ -15,6 +15,9 @@
 	div.devise{
 		padding-right : 0% !important;
 	}
+	.fa span{
+	  display: inline-block !important;
+	}
 </style>
 
 <ui:include src="/pages/unsecure/components/header.xhtml">
@@ -353,21 +356,23 @@
 	A #{EtatAppreciatifBean.trois}, le <p:inputText value="#{JasperTableExampleBean.pdfForm.date}" style="text-align: center;width: 25%"/> <br/> <br/>
 	<div class="col-md-9">LE GAC</div> <div class="col-md-3" style="text-align: center;">LE DEPOSITAIRE COMPTABLE</div>
 	<br></br><br></br><br></br>
-    <p:commandButton action="#{JasperTableExampleBean.etatAppreciatifReport(EtatAppreciatifBean.liste)}" type="submit" value="Exporter en PDF" ajax="false" >
+    		
+	
+	</div>
+	
+	<p:commandButton styleClass="ui-priority-primary fa fa-file"  style="width:200px; height:50px; " action="#{JasperTableExampleBean.etatAppreciatifReport(EtatAppreciatifBean.liste)}" type="submit" value="Exporter en PDF" ajax="false" >
     	<f:setPropertyActionListener target="#{JasperTableExampleBean.pdfForm.annee}" value="#{EtatAppreciatifBean.annee}" />
  		<f:setPropertyActionListener target="#{JasperTableExampleBean.pdfForm.lieu}" value="#{EtatAppreciatifBean.trois}" />
  		<f:setPropertyActionListener target="#{JasperTableExampleBean.pdfForm.num4}" value="#{EtatAppreciatifBean.quatre}" />
  			
     </p:commandButton>		
 	<br/>
-	<p:commandButton action="#{JasperTableExampleBean.etatAppreciatifDoc(EtatAppreciatifBean.liste)}" type="submit" value="Exporter en Word" ajax="false" >
+	<p:commandButton styleClass="ui-priority-primary fa fa-file-word-o"  style="width:200px;  height:50px; " action="#{JasperTableExampleBean.etatAppreciatifDoc(EtatAppreciatifBean.liste)}" type="submit" value="Exporter en Word" ajax="false" >
 		<f:setPropertyActionListener target="#{JasperTableExampleBean.pdfForm.annee}" value="#{EtatAppreciatifBean.annee}" />
  		<f:setPropertyActionListener target="#{JasperTableExampleBean.pdfForm.lieu}" value="#{EtatAppreciatifBean.trois}" />
  		<f:setPropertyActionListener target="#{JasperTableExampleBean.pdfForm.num4}" value="#{EtatAppreciatifBean.quatre}" />
  		
-	</p:commandButton>		
-	
-	</div>
+	</p:commandButton>
 	
 	</h:form>
     #{gacBean.exity()}

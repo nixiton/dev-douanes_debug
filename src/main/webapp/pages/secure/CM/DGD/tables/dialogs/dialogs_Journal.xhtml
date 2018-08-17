@@ -10,6 +10,9 @@
 	div.devise{
 		padding-right : 10% !important;
 	}
+	.fa span{
+	  display: inline-block !important;
+	}
 </style>
 <h:head></h:head>
 	<ui:include src="/pages/unsecure/components/header.xhtml"></ui:include>
@@ -169,7 +172,11 @@
  		</p>
  		</div>
  		<div class="col-md-3">
- 			<br/><p:commandButton action="#{JasperTableExampleBean.journalMatiereReport(JournalBean.dateD, JournalBean.dateF, JournalBean.li)}" type="submit" value="Exporter en PDF" ajax="false" >
+ 			
+ 		</div>
+</div>
+<div class="col-mid-1"></div>
+<br/><p:commandButton styleClass="ui-priority-primary fa fa-file"  style="width:200px; height:50px; " action="#{JasperTableExampleBean.journalMatiereReport(JournalBean.dateD, JournalBean.dateF, JournalBean.li)}" type="submit" value="Exporter en PDF" ajax="false" >
  			<!-- f:setPropertyActionListener target="#{JasperTableExampleBean.journal.num3}" value="#{JournalBean.direction}" /-->
  			<f:setPropertyActionListener target="#{JasperTableExampleBean.journal.lieu}" value="#{JournalBean.trois}" />
  			<f:setPropertyActionListener target="#{JasperTableExampleBean.journal.num4}" value="#{JournalBean.quatre}" />
@@ -180,15 +187,12 @@
             or topMenuMB.curentAgent.roleAgent.role eq 'ROLE_DG'
             or topMenuMB.curentAgent.roleAgent.role eq 'ROLE_DRF'
             }">
- 			<p:commandButton action="#{JasperTableExampleBean.journalMatiereDoc(JournalBean.dateD, JournalBean.dateF, JournalBean.li)}" type="submit" value="Exporter en Word" ajax="false" >
+ 			<p:commandButton styleClass="ui-priority-primary fa fa-file-word-o"  style="width:200px;  height:50px; " action="#{JasperTableExampleBean.journalMatiereDoc(JournalBean.dateD, JournalBean.dateF, JournalBean.li)}" type="submit" value="Exporter en Word" ajax="false" >
  			<!-- f:setPropertyActionListener target="#{JasperTableExampleBean.journal.num3}" value="#{JournalBean.direction}" /-->
  			<f:setPropertyActionListener target="#{JasperTableExampleBean.journal.lieu}" value="#{JournalBean.trois}" />
  			<f:setPropertyActionListener target="#{JasperTableExampleBean.journal.num4}" value="#{JournalBean.quatre}" />
  			</p:commandButton>
  			</c:if>
- 		</div>
-</div>
-<div class="col-mid-1"></div>
 </h:form>
 <script src='http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.5/jquery-ui.min.js'></script>
 </html>

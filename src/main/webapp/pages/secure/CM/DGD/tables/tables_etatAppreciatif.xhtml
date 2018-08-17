@@ -24,16 +24,16 @@
 			sortBy="#{c[15]}" emptyMessage="Aucun résultat"
 			>
 			<f:facet name="header">
-       			 <span>ETAT APPRECIATIF ANNEE </span>
+       			 <span>ETAT APPRECIATIF </span>
        			 <span>
        			 		<h:form >
        			 			<h:outputLabel for="ANNEE" value="ANNEE" style="font-weight:bold"/>
 				            <p:inputText id="ANNEE" value="#{EtatAppreciatifBean.annee}" label="ANNEE" validatorMessage="L'année doit être entre 1950 et #{EtatAppreciatifBean.annee}">
 				                <f:validateDoubleRange minimum="1950" maximum="#{EtatAppreciatifBean.annee}" />
 				            </p:inputText>
-				            <p:message for="ANNEE" />
+				            <p:message for="ANNEE" /> <h:commandButton value="Exporter" action="#{EtatAppreciatifBean.execute(suivieditionBean)}"/>
        			 			
-    						<h:commandButton value="Exporter" action="#{EtatAppreciatifBean.execute(suivieditionBean)}"/>
+    						
        			 		</h:form>
        			 </span>
     		</f:facet>

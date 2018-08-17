@@ -17,6 +17,9 @@
 	div.devise{
 		padding-right : 10% !important;
  	}
+ 	.fa span{
+	  display: inline-block !important;
+	}
     </style>
 </h:head>
 <ui:include src="/pages/unsecure/components/header.xhtml"></ui:include>
@@ -144,7 +147,7 @@
 	        </p:subTable>
 		</p:dataTable>  -->	
 	</div>
-	<p:commandButton action="#{JasperTableExampleBean.grandLivreReport(livreAnnuelBean.liste)}" type="submit" value="Exporter en PDF" ajax="false" >
+	<p:commandButton styleClass="ui-priority-primary fa fa-file"  style="width:200px; height:50px;" action="#{JasperTableExampleBean.grandLivreReport(livreAnnuelBean.liste)}" type="submit" value="Exporter en PDF" ajax="false" >
 		<!-- f:setPropertyActionListener target="#{JasperTableExampleBean.livre.subd}" value="#{livreAnnuelBean.service}" /-->
 		<f:setPropertyActionListener target="#{JasperTableExampleBean.livre.lieu}" value="#{livreAnnuelBean.trois}" />
 		<f:setPropertyActionListener target="#{JasperTableExampleBean.livre.date}" value="#{livreAnnuelBean.dateF}" />
@@ -157,7 +160,7 @@
             or topMenuMB.curentAgent.roleAgent.role eq 'ROLE_DG'
             or topMenuMB.curentAgent.roleAgent.role eq 'ROLE_DRF'
             }">
-	<p:commandButton action="#{JasperTableExampleBean.grandLivreDoc(livreAnnuelBean.liste)}" type="submit" value="Exporter en Word" ajax="false" >
+	<p:commandButton styleClass="ui-priority-primary fa fa-file-word-o"  style="width:200px;  height:50px; " action="#{JasperTableExampleBean.grandLivreDoc(livreAnnuelBean.liste)}" type="submit" value="Exporter en Word" ajax="false" >
 		<!-- f:setPropertyActionListener target="#{JasperTableExampleBean.livre.subd}" value="#{livreAnnuelBean.service}" /-->
 		<f:setPropertyActionListener target="#{JasperTableExampleBean.livre.lieu}" value="#{livreAnnuelBean.trois}" />
 		<f:setPropertyActionListener target="#{JasperTableExampleBean.livre.date}" value="#{livreAnnuelBean.dateF}" />

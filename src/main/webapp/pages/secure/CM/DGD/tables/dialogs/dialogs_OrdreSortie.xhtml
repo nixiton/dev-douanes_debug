@@ -13,6 +13,9 @@
 	div.devise{
 		padding-right : 10% !important;
 	}
+	.fa span{
+	  display: inline-block !important;
+	}
 </style>
 <h:head></h:head>
 <ui:include src="/pages/unsecure/components/header.xhtml">
@@ -279,9 +282,10 @@
  				Le comptable <!-- strong>#{docbean.curentOpeationSortieToPdf.operateur.nomAgent}</strong -->  <br></br><br></br><br></br><br></br><br></br>
 				</p>
  			</div>
-				<p:commandButton value="Exporter en PDF" ajax="false" action="#{JasperTableExampleBean.ordreSortieReport(docbean.curentOpeationSortieToPdf)}"> </p:commandButton><br/>
-				<p:commandButton value="Exporter en Word" ajax="false" action="#{JasperTableExampleBean.ordreSortieDoc(docbean.curentOpeationSortieToPdf)}"> </p:commandButton>
+				
  	</div>
+ 	<p:commandButton styleClass="ui-priority-primary fa fa-file"  style="width:200px; height:50px; " type="submit" value="Exporter en PDF" ajax="false" action="#{JasperTableExampleBean.ordreSortieReport(docbean.curentOpeationSortieToPdf)}"></p:commandButton><br/>
+	<p:commandButton styleClass="ui-priority-primary fa fa-file-word-o"  style="width:200px;  height:50px; " type="submit" value="Exporter en Word" ajax="false" action="#{JasperTableExampleBean.ordreSortieDoc(docbean.curentOpeationSortieToPdf)}"> </p:commandButton>
 </h:form>
 #{gacBean.exity()}
 
