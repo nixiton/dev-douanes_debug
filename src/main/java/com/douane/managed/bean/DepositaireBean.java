@@ -144,9 +144,9 @@ public class DepositaireBean {
 	private Agent detenteur;
 	private Materiel materiel;
 
-	/* Miasa ve */
-	private List<Materiel> currentListMateriel;// miasa aiza
-	// Service
+	
+	private List<Materiel> currentListMateriel=new ArrayList<Materiel>();
+	
 	
 	// Current Agent
 	private Agent currentAgent;
@@ -1722,7 +1722,7 @@ public class DepositaireBean {
 	}
 
 	public List<Materiel> getCurrentListMateriel() {
-
+/*
 		// System.out.println("****************************SET LIST
 		// ******************************** " +this.getClass().getName());
 		Long idAg = Long.valueOf(1);
@@ -1791,8 +1791,11 @@ public class DepositaireBean {
 			System.out.println("****************************SET LISTA ******************************** "
 					+ this.getDetenteur().getIm());
 		}*/
+		if(this.detenteurDett==null) {
+			currentListMateriel=new ArrayList<Materiel>();
+		}
 
-		//return currentListMateriel;
+		return currentListMateriel;
 
 	}
 
@@ -1835,21 +1838,18 @@ public class DepositaireBean {
 	public void mySetCurrentListMateriel() {
 		
 		
-		if (this.detenteur == null) {
+		if (this.detenteurDett == null) {
 			System.out.println("****************************SET LISTNULLMYSET ******************************** ");
 			this.setCurrentListMateriel(new ArrayList<Materiel>());
 			this.setNom(null);
 			this.setPrenom(null);
 		} else {
-			this.detenteur = this.getDetenteur();
-			this.setNom(detenteur.getNomAgent());
-			this.setPrenom(detenteur.getPrenomAgent());
 			System.out.println("****************************SET LISTA ******************************** "
-					+ this.getDetenteur().getNomAgent());
+					+ this.detenteurDett.getNomAgent());
 			this.setCurrentListMateriel(
-					(List<Materiel>) usermetierimpl.getMatByDetenteurAndValidation(this.getDetenteur(), true));
+					(List<Materiel>) usermetierimpl.getMatByDetenteurAndValidation(this.detenteurDett, true));
 			System.out.println("****************************SET LISTA ******************************** "
-					+ this.getDetenteur().getIm());
+					+ this.detenteurDett.getIm());
 		}
 	}
 
