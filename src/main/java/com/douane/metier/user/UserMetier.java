@@ -446,6 +446,9 @@ public class UserMetier implements IUserMetier {
 	@Override
 	public OpAttribution reqAttribution(Materiel m, Agent oper, Agent detenteur) throws Exception {
 		// TODO Auto-generated method stub
+		if(detenteur==null) {
+			throw new Exception("Détenteur non valide");
+		}
 		if (!m.isValidation()) {
 			throw new Exception("Materiel non validé");
 		}
@@ -549,6 +552,9 @@ public class UserMetier implements IUserMetier {
 	public OpDettachement reqDettachement(Materiel mat1, Agent oper, Agent dete, MotifDecharge m) throws Exception {
 		// TODO Auto-generated method stub
 		// try{
+		if(dete==null) {
+			throw new Exception("Détenteur non valide");
+		}
 		if (mat1.getDetenteur() == null) {
 			throw new Exception("aucun");
 		}

@@ -27,14 +27,21 @@ public class MaterielConverter implements Converter {
     @Override
     public Object getAsObject(FacesContext context, UIComponent component, String value) {
         if(value != null && value.trim().length() > 0)
-        {
+        {	
+        	Long idMat;
+        	try {
+        		idMat=Long.parseLong(value);
+        	}catch(Exception e) {
+        		return null;
+        	}
             try {
                 System.out.println("***************************MATERIEL CONV BEGIN********************************");
-                return this.userMetier.getMatById(Long.parseLong(value));
+                return this.userMetier.getMatById(idMat);
             } catch(Exception e) {
                 System.out.println("***************************MATERIEL CONV EXCEPTION********************************");
-                e.printStackTrace();
-                throw new ConverterException(new FacesMessage(FacesMessage.SEVERITY_ERROR, "Erreur Materiel", "Materiel non valide"));
+                //e.printStackTrace();
+                //throw new ConverterException(new FacesMessage(FacesMessage.SEVERITY_ERROR, "Erreur Materiel", "Materiel non valide"));
+                return null;
             }
         }
         return null;

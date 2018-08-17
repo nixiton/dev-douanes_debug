@@ -34,12 +34,19 @@ public class AgentConverter implements Converter{
         System.out.println("***************************AGENT CONV BEGIN************************************");
         if(value != null && value.trim().length() > 0)
         {
+        	Long idUser;
+        	try {
+        		idUser=Long.parseLong(value);
+        	}catch(Exception e) {
+        		return null;
+        	}
           try {
-                return (Agent)this.userMetier.findAgentByIm(Long.parseLong(value));
+                return (Agent)this.userMetier.findAgentByIm(idUser);
             } catch(Exception e) {
                 System.out.println("***************************AGENT3 CONV EXCEPTION********************************");
-                e.printStackTrace();
-                throw new ConverterException(new FacesMessage(FacesMessage.SEVERITY_ERROR, "Conversion Error", "Not a valid theme."));
+                /*e.printStackTrace();
+                throw new ConverterException(new FacesMessage(FacesMessage.SEVERITY_ERROR, "Conversion Error", "Not a valid theme."));*/
+                return null;
             }
         }
         System.out.println("***************************AGENT4 CONV OK********************************");
@@ -52,7 +59,7 @@ public class AgentConverter implements Converter{
             return String.valueOf(((Agent) object).getIm());
         }
         else {
-            return "";
+            return null;
         }
     }
 

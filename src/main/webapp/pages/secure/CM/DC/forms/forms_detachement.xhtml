@@ -25,7 +25,7 @@
 
         <h:form class="form-horizontal">
 
-            <p:messages id="messages" />
+            <p:messages id="messages" showDetail="true"/>
 			<br/>
             <div class="form-group">
                 
@@ -112,15 +112,14 @@
 	
 	                    <p:selectOneMenu id="mat" styleClass="form-control top" value="#{depositaireBean.materielSeclectedDett}" converter="#{materielConverter}"  
 	                         effect="fade" filter="true" filterMatchMode="startsWith" panelStyle="width:250px;"
-	                         required="true"
-	                    requiredMessage="Matériel obligatoire">
+	                         >
 	                        <f:selectItem itemValue="#{null}" itemLabel="Selectionner" /> 
 	                            <f:selectItems value="#{depositaireBean.currentListMateriel}" var="theme" itemLabel="#{theme.numSerie}" itemValue="#{theme}" />
 	                        <!-- <p:column>
 	                            <h:outputText value="#{t.numSerie}" />
 	                        </p:column> -->
 	                        
-	                        <p:ajax event="change" update="marque ref num codification" listener="#{depositaireBean.onChangeMateriel}"/>
+	                        <p:ajax event="change" update="marque ref num codification" />
 	                    </p:selectOneMenu>
 					</div>
                 </div>

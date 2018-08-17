@@ -155,16 +155,17 @@ public class DepositaireBean {
 	private Long idMat;
 
 	// Methode on Change
-	public String onDetenteurChange() {
+	public void onDetenteurChange() {
+
+		
 		if (getDetenteur() == null) {
 			this.setNom(null);
 			this.setPrenom(null);
-			return null;
 		}
 
-		this.setNom(getDetenteur().getNomAgent());
+		/*this.setNom(getDetenteur().getNomAgent());
 		this.setPrenom(getDetenteur().getPrenomAgent());
-		return null;
+		return null;*/
 	}
 
 	public void onDetenteurDetChange() {
@@ -1431,7 +1432,6 @@ public class DepositaireBean {
 	public String addAttribution() {
 		System.out.println("****************************ADD ATTR**ERRORR********************************");
 		Agent agent = (Agent) RequestFilter.getSession().getAttribute("agent");
-
 		try {
 			// getCurrent Materiel ve?????
 			System.out.println("****************************ADD2 ATTR**ERRORR*****NULL*************************** "
@@ -1444,8 +1444,11 @@ public class DepositaireBean {
 		} catch (Exception e) {
 			// TODO: handle exception
 
-			e.printStackTrace();
-			System.out.println(e.getMessage());
+			/*e.printStackTrace();
+			System.out.println(e.getMessage());*/
+			FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Erreur lors de l'attribution",
+					"Certaines champs ne respectent pas les contraintes");
+			FacesContext.getCurrentInstance().addMessage(null, message);
 			return ERROR;
 		}
 
@@ -1470,8 +1473,9 @@ public class DepositaireBean {
 			return SUCCESS;
 		} catch (Exception e) {
 			// TODO: handle exception
-
-			System.out.println(e.getMessage());
+			FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Erreur lors du déttachement",
+					e.getMessage());
+			FacesContext.getCurrentInstance().addMessage(null, message);
 			return ERROR;
 		}
 
@@ -1497,7 +1501,9 @@ public class DepositaireBean {
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 
-			System.out.println(e.getMessage());
+			FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Erreur lors de la décharge",
+					"Certaines champs ne respectent pas les contraintes ");
+			FacesContext.getCurrentInstance().addMessage(null, message);
 			return ERROR;
 		}
 
@@ -1618,11 +1624,7 @@ public class DepositaireBean {
 			setNomenclatureAutom(null);
 			setCodificationAutom(null);
 		}
-		//marqueAutom = getMaterielSeclected().getDesign().getMarque();
-		//setReferenceAutom(getMaterielSeclected().getReference());
-		//setNumSerie(getMaterielSeclected().getNumSerie());
-		//setNomenclatureAutom(getMaterielSeclected().getDesign().getNomenMat().getDesignation());
-		//setCodificationAutom(getMaterielSeclected().getCode());
+		
 	}
 
 	public void setListDestinaiton(List<Referentiel> listDestinaiton) {
