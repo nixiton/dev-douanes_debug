@@ -110,6 +110,7 @@
 								Tableau de bord
 							</h:commandLink></li>
 					</c:if>
+					
 					<c:if test="#{topMenuMB.curentAgent.roleAgent.role eq 'ROLE_ADMIN' 
 					or topMenuMB.curentAgent.roleAgent.role eq 'ROLE_SISE' 
 					or topMenuMB.curentAgent.roleAgent.role eq 'ROLE_SE'
@@ -122,6 +123,8 @@
 									outcome="saisie_ref" immediate="true" style="color:#CCC"/></li>
 
 					</c:if>
+					
+					<!-- SAISIE MATERIELS DIRECTION -->
 
 					<c:if test="#{topMenuMB.curentAgent.roleAgent.role eq 'ROLE_ADMIN' 
 					or topMenuMB.curentAgent.roleAgent.role eq 'ROLE_DC'
@@ -160,7 +163,7 @@
 					<li><h:link value="Décharge" outcome="decharge" immediate="true" style="color:#CCC"/></li>
 					</c:if>
 				</c:if>
-
+					<!-- SUIVI DIRECTION -->
 					<c:if test="#{topMenuMB.curentAgent.roleAgent.role eq 'ROLE_ADMIN' 
 					or topMenuMB.curentAgent.roleAgent.role eq 'ROLE_DC' 
 					or topMenuMB.curentAgent.roleAgent.role eq 'ROLE_GAC' 
@@ -244,14 +247,75 @@
 								</ul>
 							</li>
 							
-							<!--  <li class="dropdown"><a tableindex="-1" href="#">sous menu</a>
-                                            <ul class="dropdown-menu">
-                                                <li><a tableindex="-1" href="#">Sous-sous menu</a></li>
-                                                <li><a tableindex="-1" href="#">Sous-sous menu</a></li>
-                                                <li><a tableindex="-1" href="#">Sous-sous menu</a></li>
-                                            </ul>
-                                        </li> -->
+						</ul></li>
+						
+
+					</c:if>
+					
+					<!-- SUIVIE GENERALE POUR DG et DRF -->
+					<c:if test="#{topMenuMB.curentAgent.roleAgent.role eq 'ROLE_DG'
+					or topMenuMB.curentAgent.roleAgent.role eq 'ROLE_DRF'
+					or topMenuMB.curentAgent.roleAgent.role eq 'ROLE_SISE'
+					}">
+
+					<li class='dropdown '><a href="#" class="dropdown-toggle"
+						data-toggle="dropdown" style="color:#CCC"> Suivi et édition des états
+							réglementaires général <b class="caret"></b>
+					</a>
+						<ul class="dropdown-menu">
+						
+							<li><h:link value="Traçabilité général" outcome="tracabiliteG" immediate="true" /></li>
+						
+							<li><h:link
+									value="Liste générale des matériels, statut et historique" outcome="liste_mats" immediate="true" /></li>
 							
+						
+							<li class="dropdown-submenu">
+								<!-- <a tabindex="-1" href="#" >Edition des états et registres
+								réglementaire</a> -->
+								<h:link tableindex="-1" 
+											value="Edition des états et registres
+								réglementaire" outcome="edition_etatsG" immediate="true" ></h:link>
+									
+								<ul class="dropdown-menu">
+									<li><h:link tableindex="-1" 
+											value="Ordre entrée" outcome="edition_etatsG" immediate="true" >
+												<f:param name="table" value="ordreEntree" /></h:link>
+									</li>
+									<li><h:link
+											value="Ordre de sortie" outcome="edition_etatsG" immediate="true" >
+												<f:param name="table" value="ordreSortie" /></h:link>
+									</li>
+									<li><h:link
+											value="Journal"
+											outcome="edition_etatsG" immediate="true" >
+												<f:param name="table" value="journal" /></h:link>
+									</li>
+									<li><h:link
+											value="Grand livre annuel"
+											outcome="edition_etatsG" immediate="true" >
+												<f:param name="table" value="livreAnnuel" /></h:link>
+									</li>
+									<li><h:link
+											value="Etat appréciatif"
+											outcome="edition_etatsG" immediate="true" >
+												<f:param name="table" value="etatAppreciatif" /></h:link>
+									</li>
+									<li><h:link
+											value="Inventaire"
+											outcome="edition_etatsG" immediate="true" >
+												<f:param name="table" value="inventaire" /></h:link>
+									</li>
+									<li><h:link
+											value="Etat détenteur effectif"
+											outcome="edition_etatsG" immediate="true" >
+												<f:param name="table" value="etatDetenteurEffectif" /></h:link>
+									</li>
+									
+								</ul>
+							</li>
+							
+													
 						</ul></li>
 						
 

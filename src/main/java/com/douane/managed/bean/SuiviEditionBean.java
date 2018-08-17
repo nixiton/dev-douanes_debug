@@ -619,6 +619,7 @@ public class SuiviEditionBean {
 
 	private List<Object[]> listESForJournal;
 	public List<Object[]> getListESForJournal(Date fdate) {
+		
 		if (listESForJournal == null) {
 			Agent cur = (Agent) RequestFilter.getSession().getAttribute("agent");
 			//this.direction = cur.getDirection();
@@ -711,7 +712,9 @@ public class SuiviEditionBean {
 					// date
 					row[2] = op.getDate();
 					// origine
-					row[3] = ((OpSortie) op).getMotifsortie().getDesignation();
+					if(((OpSortie) op).getMotifsortie()!=null){
+						row[3] = ((OpSortie) op).getMotifsortie().getDesignation();
+					}
 					// designation
 					Materiel mat = op.getMat();
 					row[4] = mat.getDesign().getTypematerieladd().getDesignation() + " - " + mat.getDesign().getMarque()
@@ -834,7 +837,9 @@ public class SuiviEditionBean {
 					// date
 					row[2] = op.getDate();
 					// origine
-					row[3] = ((OpSortie) op).getMotifsortie().getDesignation();
+					if(((OpSortie) op).getMotifsortie()!=null) {
+						row[3] = ((OpSortie) op).getMotifsortie().getDesignation();
+					}
 					// designation
 					Materiel mat = op.getMat();
 					row[4] = mat.getDesign().getTypematerieladd().getDesignation() + " - " + mat.getDesign().getMarque()
@@ -2645,5 +2650,12 @@ private List<Materiel> listHistoriqueMatDirection;
 		this.listAllMateriel = listAllMateriel;
 	}
 	
+	public List<OpEntree> getListOpentreeForOrdreByDir(Direction d) {
+		return usermetierimpl.listOpentreeByStateByDirection(EtatOperation.ACCEPTED, d);
+	}
+	
+	public List<OpSortie> getListSortieValideByDir(Direction d) {
+		return usermetierimpl.getListOpSortieValideByDirection(d);
+	}
 
 }

@@ -337,8 +337,20 @@
 		</navigation-case>
 		
 		<navigation-case>
+			<from-outcome>tracabiliteG</from-outcome>
+			<to-view-id>/pages/secure/CM/DGD/tracabiliteG.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		
+		<navigation-case>
 			<from-outcome>edition_etats</from-outcome>
 			<to-view-id>/pages/secure/CM/DGD/editionEtats.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		
+		<navigation-case>
+			<from-outcome>edition_etatsG</from-outcome>
+			<to-view-id>/pages/secure/CM/DGD/editionEtatsG.xhtml</to-view-id>
 			<redirect />
 		</navigation-case>
 
@@ -354,6 +366,7 @@
 			<redirect />
 		</navigation-case>
 		
+				
 		<navigation-case>
 			<from-outcome>liste_mats</from-outcome>
 			<to-view-id>/pages/secure/CM/DGD/listeMatStatGeneral.xhtml</to-view-id>
@@ -373,6 +386,12 @@
 		<navigation-case>
 			<from-outcome>edition_etats</from-outcome>
 			<to-view-id>/pages/secure/CM/DGD/editionEtats.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		
+		<navigation-case>
+			<from-outcome>edition_etatsG</from-outcome>
+			<to-view-id>/pages/secure/CM/DGD/editionEtatsG.xhtml</to-view-id>
 			<redirect />
 		</navigation-case>
 
