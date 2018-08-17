@@ -165,7 +165,7 @@
 
                  <div class="row">
 					<div class="col-lg-4 col-lg-offset-1">   
-                    	<label for="text1" class="control-label col-lg-4">Marque
+                    	<label for="text1" class="control-label col-lg-4">Marque *
                     	</label>
 					</div>
                     <div class="col-lg-6">
@@ -189,7 +189,7 @@
                  <hr></hr>
                 <div class="row">
 					<div class="col-lg-4 col-lg-offset-1">   
-	                    <label for="text1" class="control-label col-lg-4">Prix unitaire *(n)
+	                    <label for="text1" class="control-label col-lg-4">Prix unitaire *
 	                    </label>
 					</div>
                     <div class="col-lg-6">
@@ -201,6 +201,7 @@
                         placeholder="Prix unitaire en Ariary" styleClass="form-control top"
                         id = "montant"
                         ></p:inputText>
+                        (n)
                     </div>
                   </div>
 				 <hr></hr>
@@ -242,7 +243,7 @@
 				<div class="row">
 					<div class="col-lg-4 col-lg-offset-1">
 				
-	                    <label for="text1" class="control-label col-lg-4">Année d'acquisition *(n)
+	                    <label for="text1" class="control-label col-lg-4">Année d'acquisition *
 	                    </label>
 					</div>
                     <div class="col-lg-6">
@@ -251,7 +252,7 @@
                         value="#{depositaireBean.anneeAcquisition}"
                         requiredMessage="Champ Année d'acquisition obligatoire"
                         placeholder="Année d'acquisition" styleClass="form-control top"></p:inputText>
-
+						(n)
 
                     </div>
 				</div>
@@ -293,7 +294,7 @@
 
 				<div class="row">
 					<div class="col-lg-4 col-lg-offset-1">
-	                    <label for="text1" class="control-label col-lg-4">Etat
+	                    <label for="text1" class="control-label col-lg-4">Etat *
 	                	</label>
 					</div>
                 	<div class="col-lg-6">
@@ -323,13 +324,13 @@
                            <p:inputText required="true" id="reference"
                         value="#{depositaireBean.matextoadd.reference}"
                         requiredMessage="Champ Référence obligatoire"
-                        placeholder="Référence *" styleClass="form-control top"></p:inputText>
+                        placeholder="Référence * (obligatoire)" styleClass="form-control top"></p:inputText>
                         </p:panel>
                         <p:panel>
                             <p:inputText  required="true" id="numeroserie"
                         value="#{depositaireBean.matextoadd.numSerie}"
                         requiredMessage="Champ Numéro de série obligatoire"
-                        placeholder="Numero de série *" styleClass="form-control top"></p:inputText>
+                        placeholder="Numero de série * (obligatoire)" styleClass="form-control top"></p:inputText>
               </p:panel>
               <hr/>             
            	

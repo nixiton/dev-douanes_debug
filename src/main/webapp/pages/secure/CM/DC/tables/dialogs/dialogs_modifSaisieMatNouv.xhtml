@@ -7,6 +7,15 @@
       xmlns:p="http://primefaces.org/ui" xmlns:c="http://java.sun.com/jsp/jstl/core"
 >
 
+<style>
+	.info {
+	  position: fixed;
+	  bottom: 60px;
+	  right: 24px;
+	  height: 70px;
+	}
+</style>
+
     <p:dialog id="modifMatNouv" widgetVar="modifMatNouv"  closable="false"
     		  header   = "Modification d'un nouveau materiel" 
               position = "center"
@@ -51,7 +60,7 @@
 				<div class = "row">
 					<div class="col-lg-4">
 
-	                    <label for="text1" class="control-label ">Type de Matériel
+	                    <label for="text1" class="control-label ">Type de Matériel *
 	                    </label>
 					</div>
                     <div class="col-lg-6">
@@ -70,7 +79,7 @@
 				<div class = "row">
 					<div class="col-lg-4">
 
-	                    <label for="text1" class="control-label ">Marque
+	                    <label for="text1" class="control-label ">Marque *
 	                    </label>
 					
 					</div>
@@ -128,7 +137,7 @@
 				 
 				 <div class = "row">
 					<div class="col-lg-4">					
-						<label for="text1" class="control-label">Etat
+						<label for="text1" class="control-label">Etat *
 	                	</label>
 					</div>
 	                <div class="col-lg-6">
@@ -152,7 +161,7 @@
                 
                	<div class = "row">
 					<div class="col-lg-4">
-		                <label for="text1" class="control-label">Espèce des unités
+		                <label for="text1" class="control-label">Espèce des unités *
 		                    </label>
 					</div>
                     <div class="col-lg-6">
@@ -170,7 +179,7 @@
 				<br></br>
                	<div class = "row">
 					<div class="col-lg-4">
-		                <label for="text1" class="control-label ">Mode d'aquisition
+		                <label for="text1" class="control-label ">Mode d'aquisition *
 		                </label>
 					</div>
 	                <div class="col-lg-6">
@@ -211,7 +220,7 @@
                 -->
                 <div class = "row">
 					<div class="col-lg-4">
-		                <label for="text1" class="control-label col-lg-4">Origine
+		                <label for="text1" class="control-label col-lg-4">Origine *
 		                    </label>
 					</div>
                     <div class="col-lg-6">
@@ -228,8 +237,8 @@
 				<div class = "row">
 					<div class="col-lg-4">
 
-		                <label for="text1" class="control-label ">Financement
-		                </label>
+		                <label for="text1" class="control-label ">Financement *
+		                </label> 
 					</div>
 	                <div class="col-lg-6">
 
@@ -250,7 +259,7 @@
                 <div class = "row">
 					<div class="col-lg-4">
 	
-	                    <label for="text1" class="control-label ">Prix unitaire (en Ariary)
+	                    <label for="text1" class="control-label ">Prix unitaire *
 	                    </label>
 					</div>
                     <div class="col-lg-6">
@@ -259,10 +268,10 @@
                         value="#{depositaireBean.curentMaterielNouv.design.pu}"
                         required="true"
             			requiredMessage="Prix unitaire obligatoire"
-                        placeholder="Prix unitaire" styleClass="form-control top">
+                        placeholder="Prix unitaire (en Ariary)" styleClass="form-control top">
                         	<f:convertNumber pattern="¤#,##0" currencySymbol=""></f:convertNumber>
                         </p:inputText>
-
+						(n)
                     </div>
 				</div>
                 <hr></hr>
@@ -270,12 +279,12 @@
 			
 			<div class="row">
 	             <p:panel>
-	             			<h:outputLabel for="reference" value="Référence:" />
+	             			<h:outputLabel for="reference" value="Référence" />
 	                        <p:inputText id="reference"
 	                        value="#{depositaireBean.curentMaterielNouv.reference}"
 	                        requiredMessage="Champ Référence obligatoire"
 	                        required="true"
-	                        placeholder="Référence" styleClass="form-control top"></p:inputText>
+	                        placeholder="Référence * (obligatoire)" styleClass="form-control top"></p:inputText>
 	                        </p:panel>
                             <hr></hr>
 	                        <p:panel>
@@ -283,7 +292,7 @@
 	                            <p:inputText  required="true" id="numeroserie"
 	                        value="#{depositaireBean.curentMaterielNouv.numSerie}"
 	                        requiredMessage="Champ Numéro de série obligatoire"
-	                        placeholder="Numéro de série" styleClass="form-control top"></p:inputText>
+	                        placeholder="Numéro de série * (obligatoire)" styleClass="form-control top"></p:inputText>
 	                        <hr></hr>
 	              </p:panel>
              </div>
@@ -329,6 +338,10 @@
 
     </div>
 
+</div>
+<div class="alert alert-info info">
+  <strong>( * ) </strong> : Champ obligatoire<br></br>
+  <strong>( n ) </strong> : Champ à valeur unique<br></br>
 </div>
 
 		

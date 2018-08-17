@@ -46,11 +46,11 @@
 			<f:facet name="header">Fonction</f:facet>
 			#{f.roleAgent.designation}
 		</p:column>
-		<p:column style="width: 5%; text-align: center; word-wrap: break-word;">
+		<!--  ><p:column style="width: 5%; text-align: center; word-wrap: break-word;">
 			<f:facet name="header">Rôle</f:facet>
-			#{f.roleAgent.role}
-		</p:column>
-		<p:column filterBy="#{f.direction.designation}" filterMatchMode="contains" style="width: 5%; text-align: center; word-wrap: break-word;">
+			:#{f.roleAgent.role}
+		</p:column> -->
+		<p:column filterBy="#{f.direction.designation}" filterMatchMode="contains" style="width: 10%; text-align: center; word-wrap: break-word;">
 			<f:facet name="header">Direction</f:facet>
 			#{f.direction.designation}
 		</p:column>

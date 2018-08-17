@@ -12,7 +12,7 @@
 	  position: fixed;
 	  bottom: 60px;
 	  right: 24px;
-	  height: 55px;
+	  height: 70px;
 	}
 </style>
 
@@ -78,7 +78,7 @@
 						<div class="row">
 							<div class="row">
 								<div class="col-lg-4 col-lg-offset-1">
-									<label for="text1" class="control-label col-lg-4">Intitulé
+									<label for="text1" class="control-label col-lg-4">Intitulé **
 									</label>
 								</div>
 								<div class="col-lg-6">
@@ -88,7 +88,7 @@
 							<br></br>
         					<div class="row">
 								<div class="col-lg-4 col-lg-offset-1">					
-					                <p:outputLabel styleClass="control-label col-lg-12" for="annee_title" value="Date du changement" />
+					                <p:outputLabel styleClass="control-label col-lg-12" for="annee_title" value="Date du changement **" />
 								</div>
 								
 								<div class="col-lg-4">
@@ -106,9 +106,17 @@
         							<p:commandButton value="Changer" action="#{siseBean.addIntitule(editDir,siseBean.dirhist)}" update="@([id$=direditform])" icon="ui-icon-circle-plus" />
         			
         						</div>
+								
+        						
                 			</div>
        					</div>
+						<div class="row">
+							<div class="col-lg-10 col-lg-offset-1">
+									<br></br>
+									(**) : Champ obligatoire seulement dans le cas du chamgement d'intitulé 
+							</div>
 						
+						</div>
 						<hr></hr>
 						<div class="row">
 							<div class="col-lg-4 col-lg-offset-1">
@@ -120,7 +128,7 @@
 								<p:inputText required="true"
 									value="#{editDir.codeDirection}"
 									requiredMessage="Code direction obligatoire" placeholder="Code"
-									styleClass="form-control top"></p:inputText>
+									styleClass="form-control top"></p:inputText>(u)
 
 							</div>
 						</div>
@@ -206,6 +214,7 @@
 	</div>
 <div class="alert alert-info info">
   <strong>( * ) </strong> : Champ obligatoire<br></br>
+  <strong>( u ) </strong> : Champ à valeur unique<br></br>
  </div>
 	<script type="text/javascript">
 PrimeFaces.locales ['fr'] = { closeText: 'Fermer', prevText: 'Précédent', nextText: 'Suivant', monthNames: ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre' ], monthNamesShort: ['Jan', 'Fév', 'Mar', 'Avr', 'Mai', 'Jun', 'Jul', 'Aoû', 'Sep', 'Oct', 'Nov', 'Déc' ], dayNames: ['Dimanche', 'Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi'], dayNamesShort: ['Dim', 'Lun', 'Mar', 'Mer', 'Jeu', 'Ven', 'Sam'], dayNamesMin: ['D', 'L', 'M', 'M', 'J', 'V', 'S'], weekHeader: 'Semaine', firstDay: 1, isRTL: false, showMonthAfterYear: false, yearSuffix:'', timeOnlyTitle: 'Choisir l\'heure', timeText: 'Heure', hourText: 'Heures', minuteText: 'Minutes', secondText: 'Secondes', currentText: 'Maintenant', ampm: false, month: 'Mois', week: 'Semaine', day: 'Jour', allDayText: 'Toute la journée' };

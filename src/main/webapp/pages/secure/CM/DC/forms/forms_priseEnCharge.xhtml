@@ -166,7 +166,7 @@
 			<div class="row">
 				<div class="col-lg-4 col-lg-offset-1">
 
-	                <label for="text1" class="control-label col-lg-4">Marque
+	                <label for="text1" class="control-label col-lg-4">Marque *
 	                </label>
 				</div>
                 <div class="col-lg-6">
@@ -223,7 +223,7 @@
 			<div class="row">
 				<div class="col-lg-4 col-lg-offset-1">
 			
-	                <label for="text1" class="control-label col-lg-4">Etat
+	                <label for="text1" class="control-label col-lg-4">Etat *
 	                </label>
 
 				</div>
@@ -262,7 +262,7 @@
 			<div class="row">
 				<div class="col-lg-4 col-lg-offset-1">
 
-	                <label for="text1" class="control-label col-lg-4">Mode d'aquisition 
+	                <label for="text1" class="control-label col-lg-4">Mode d'aquisition *
 	                </label>
 				</div>
                 <div class="col-lg-6">
@@ -317,7 +317,7 @@
 			
 			 <div class="row">
 				<div class="col-lg-4 col-lg-offset-1"> 
-	                <label for="text1" class="control-label col-lg-4">Financement
+	                <label for="text1" class="control-label col-lg-4">Financement *
 	                </label>
 				</div>
                 <div class="col-lg-6">
@@ -339,7 +339,7 @@
         	 <div class="row">
 				<div class="col-lg-4 col-lg-offset-1"> 
 
-	                <label for="text1" class="control-label col-lg-4">Prix Unitaire *(n)
+	                <label for="text1" class="control-label col-lg-4">Prix Unitaire *
 	                </label>
 				</div>
                 <div class="col-lg-6">
@@ -350,7 +350,7 @@
                         placeholder="Prix unitaire en Ariary" styleClass="form-control top" resetValues="true"
                         validatorMessage="Le montant(prix unitaire) doit être une chiffre"
                         ></p:inputText>
-
+						(n)
                
                 </div>
             </div>
@@ -381,13 +381,13 @@
                            <p:inputText required="true" id="reference"
                         value="#{depositaireBean.matnouvtoadd.reference}"
                         requiredMessage="Champ Référence obligatoire"
-                        placeholder="Référence *" styleClass="form-control top"></p:inputText>
+                        placeholder="Référence * (obligatoire)" styleClass="form-control top"></p:inputText>
                         </p:panel>
                         <p:panel>
                             <p:inputText  required="true" id="numeroserie"
                         value="#{depositaireBean.matnouvtoadd.numSerie}"
                         requiredMessage="Champ Numero de série obligatoire"
-                        placeholder="Numero de série *" styleClass="form-control top"></p:inputText>
+                        placeholder="Numero de série * (obligatoire)" styleClass="form-control top"></p:inputText>
               </p:panel>
                <hr/>               
             <!-- /h:form>
