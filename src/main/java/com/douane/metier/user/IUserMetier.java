@@ -128,6 +128,7 @@ public interface IUserMetier {
 	public List<OpSortie> getListOpSortieByDirectionByYearByDateAsc(Direction d,  Date startDate, Date endDate);
 	public List<Operation> getListOperationByDirectionByYearByDateAsc(Direction d,  Date startDate, Date endDate);
 
+	public List<Operation> getListAllOperationByYearByDateAsc(Date startDate, Date endDate);
 
 	
 	//okay

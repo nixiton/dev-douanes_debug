@@ -93,6 +93,15 @@
 								Tableau de bord
 							</h:commandLink></li>
 					</c:if>
+					
+					
+					<c:if test="#{topMenuMB.curentAgent.roleAgent.role eq 'ROLE_DG' or topMenuMB.curentAgent.roleAgent.role eq 'ROLE_DRF'}">
+						<li class="active" ><h:commandLink
+								action="#{topMenuMB.goToDashboardGeneral}" immediate="true" style="color:#CCC">
+								Tableau de bord général
+							</h:commandLink></li>
+					</c:if>
+					
 					<c:if test="#{topMenuMB.curentAgent.roleAgent.role eq 'ROLE_GAC' or 
 					topMenuMB.curentAgent.roleAgent.role eq 'ROLE_SISE' or
 				topMenuMB.curentAgent.roleAgent.role eq 'ROLE_DC'}">

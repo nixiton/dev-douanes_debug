@@ -251,6 +251,13 @@
 		</navigation-case>
 		
 		<navigation-case>
+			<from-action>#{topMenuMB.goToDashboardGeneral}</from-action>
+			<from-outcome>dashboardGeneral</from-outcome>
+			<to-view-id>/pages/secure/admin/comptaGeneral.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		
+		<navigation-case>
 			<from-outcome>saisie_ref</from-outcome>
 			<to-view-id>/pages/secure/CM/SISE/saisieRef.xhtml</to-view-id>
 			<redirect />

@@ -2986,6 +2986,27 @@ public class DepositaireBean {
 		this.listOperations = listOperations;
 	}
 	
+	private List<Operation> listAllOperations;
+	public List<Operation> getListAllOperations() {
+		if(listAllOperations ==null) {
+		//this.setListOperations(usermetierimpl.getListOp());
+		Date date = new Date();
+		Calendar calendar = new GregorianCalendar();
+		calendar.setTime(date);
+		int year = calendar.get(Calendar.YEAR);
+		Date sdate = new GregorianCalendar(year-2, Calendar.JANUARY, 1).getTime();
+        Date edate = new GregorianCalendar(year+1, Calendar.DECEMBER, 30).getTime();
+		
+		this.setListOperations(usermetierimpl.getListAllOperationByYearByDateAsc( sdate, edate));
+		}
+		return listAllOperations;
+	}
+
+	public void setListAllOperations(List<Operation> listOperations) {
+		this.listAllOperations = listOperations;
+	}
+	
+	
 	private List<MaterielNouv> listMaterielNouveauNonValide;
 
 	public List<MaterielNouv> getListMaterielNouveauNonValide() {

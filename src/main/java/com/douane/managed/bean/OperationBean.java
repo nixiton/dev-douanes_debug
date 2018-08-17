@@ -28,6 +28,7 @@ public class OperationBean {
 
 	private List<Operation> mesOperations;
 	private List<Operation> listOperations;
+	private List<Operation> listAllOperations;
 	private Operation operation;
 
 
@@ -76,6 +77,28 @@ public class OperationBean {
 
 	public void setListOperations(List<Operation> listOperations) {
 		this.listOperations = listOperations;
+	}
+	
+	
+	
+	public List<Operation> getListAllOperations() {
+		if(listAllOperations ==null) {
+			//this.setListOperations(usermetierimpl.getListOp());
+			Date date = new Date();
+			Calendar calendar = new GregorianCalendar();
+			calendar.setTime(date);
+			int year = calendar.get(Calendar.YEAR);
+			Date sdate = new GregorianCalendar(year-2, Calendar.JANUARY, 1).getTime();
+	        Date edate = new GregorianCalendar(year+1, Calendar.DECEMBER, 30).getTime();
+	        //Agent agent = (Agent)RequestFilter.getSession().getAttribute("agent");
+			
+			this.setListAllOperations(usermetierimpl.getListAllOperationByYearByDateAsc(sdate, edate));
+			}
+		return listAllOperations;
+	}
+
+	public void setListAllOperations(List<Operation> listAllOperations) {
+		this.listAllOperations = listAllOperations;
 	}
 
 }

@@ -1110,6 +1110,15 @@ public class UserMetier implements IUserMetier {
 		// TODO Auto-generated method stub
 		return operationdao.getListOperationByDirectionByYearByDateAsc(d, startDate, endDate);
 	}
+	
+	
+	@Override
+	public List<Operation> getListAllOperationByYearByDateAsc(Date startDate, Date endDate) {
+		// TODO Auto-generated method stub
+		return operationdao.getListAllOperationByYearByDateAsc(startDate, endDate);
+	}
+	
+	
 	@Override
 	public List<Operation> getListAllOperationByDirectionByYearByDateAsc(Direction d, Date startDate, Date endDate) {
 		// TODO Auto-generated method stub
@@ -1382,6 +1391,7 @@ public class UserMetier implements IUserMetier {
 		Agent agent = (Agent) RequestFilter.getSession().getAttribute("agent");
 		return materielNouvRepository.findByValidationAndDirecOrderByIdMaterielDesc(false, agent.getDirection());
 	}
+
 	
 
 

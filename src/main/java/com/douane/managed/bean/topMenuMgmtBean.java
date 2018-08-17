@@ -45,4 +45,8 @@ public class topMenuMgmtBean {
 	public boolean isMaterialNonAcceptedAndAgentDC(Materiel m ) {
 		return (!m.isValidation() && this.getCurentAgent().getRoleAgent().getRole().equals("ROLE_DC"));
 	}
+	
+	public String goToDashboardGeneral(){
+		return "dashboardGeneral";
+	}
 }
