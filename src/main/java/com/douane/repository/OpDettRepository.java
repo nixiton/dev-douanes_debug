@@ -21,5 +21,6 @@ public interface OpDettRepository extends CrudRepository<OpDettachement, Long>{
 	public List<OpDettachement> findByDirectionOrderByDateDesc(Direction direction);
 	public List<OpDettachement> findByDirectionAndDateBetweenOrderByDateDesc(Direction direction, Date sdate,
 			Date edate);
+	public List<OpDettachement> findByDirectionAndDateBetweenOrderByIdDesc(Direction direction, Date sdate, Date edate);
 }
 

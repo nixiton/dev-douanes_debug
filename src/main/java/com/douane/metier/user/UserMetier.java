@@ -532,8 +532,11 @@ public class UserMetier implements IUserMetier {
 	public OpAttribution reqAttrRefuser(OpAttribution attr, String motif) throws Exception {
 		// TODO Auto-generated method stub
 		// try{
-		if (attr.getMat().getDetenteur() != null) {
+		/*if (attr.getMat().getDetenteur() != null) {
 			throw new Exception("Materiel deja detenu");
+		}*/
+		if(motif==null) {
+			motif="";
 		}
 		attr.arefuser(motif);
 		oprepos.save(attr);
@@ -824,7 +827,7 @@ public class UserMetier implements IUserMetier {
 	@Override
 	public List<OpDettachement> getListOpDettByDirection(Direction direction,Date sdate, Date edate) {
 		// TODO Auto-generated method stub
-		return opdettrepos.findByDirectionAndDateBetweenOrderByDateDesc(direction,sdate,edate);
+		return opdettrepos.findByDirectionAndDateBetweenOrderByIdDesc(direction,sdate,edate);
 	}
 
 	@Override

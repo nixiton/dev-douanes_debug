@@ -1547,7 +1547,7 @@ public class SuiviEditionBean {
 						sortieAnnee = sortieAnnee + " , " + (String) o[13];
 						OpSortie sortieoperation =  (OpSortie) o[14];
 						if(sortieoperation.getMotifsortie()!=null) {
-							sortieMotif = sortieoperation.getMotifsortie().getDesignation();
+						sortieMotif = sortieoperation.getMotifsortie().getDesignation();
 						}
 						if(sortieoperation.getDirec()!=null) {
 							sortieMotif = sortieMotif+ " vers " + sortieoperation.getDirec().getDesignation();
@@ -2789,6 +2789,183 @@ public List<Object[]> getListESForJournalByDir(Direction dir,Date fdate) {
 
 		return listobjectForJournal;
 	}
+public List<Object[]> getListobjectForInvetaireByDir(Direction direc) {
+	//if (listobjectForInvetaire == null) {
+		if(direc==null) {
+			Agent cur = (Agent) RequestFilter.getSession().getAttribute("agent");
+			direc = cur.getDirection();
+		}
+		
+		Date date = new Date();
+		Calendar calendar = new GregorianCalendar();
+		calendar.setTime(date);
+		int year = calendar.get(Calendar.YEAR);
+		Date sdate = new GregorianCalendar(year, Calendar.JANUARY, 1).getTime();
+		Date edate = new GregorianCalendar(year, Calendar.DECEMBER, 31).getTime();
+		System.out.println("RRRRRRRRRRR Begin:");
+		List<Object[]> r = usermetierimpl.getListObjectForinvetaire(direc, sdate, edate);
+		System.out.println("RRRRRRRRRRR Ending:");
+		/*
+		 * for(Object[] o:r) { System.out.println(String.valueOf(o[0]));
+		 * System.out.println(String.valueOf(o[1])); }
+		 */
+		List<Object[]> resultstable = new ArrayList<Object[]>();
+
+		for (Object[] m : r) {
+			Object[] row = new Object[13];
+			Materiel mat = (Materiel) m[1];
+			OpSortie o = (OpSortie) m[0];
+			
+			if(mat.getMyoperationEntree()!=null && mat.getMyoperationEntree().getDate().compareTo(edate)>=0){
+				
+				continue;
+			}
+			// Nomenclature
+			row[0] = mat.getDesign().getNomenMat().getNomenclature();
+			// Numéros du folio du grand livre
+			row[1] = mat.getIdMateriel();
+			// Désignation du matériel
+			row[2] = mat.getDesign().getTypematerieladd().getDesignation() + " - "
+					+ mat.getDesign().getMarque().getDesignation() + " - " + mat.getDesign().getRenseignement()
+					+ " - "
+			// + mat.getNumSerie()
+			;
+			// Espèce des unités
+			row[3] = mat.getDesign().getEspeceUnite();
+			// Prix de l’unité
+			row[4] = mat.getDesign().getPu();
+			// Existantes au 1er Janvier X
+			row[5] = 0;
+			// Entrées pendant l’année X
+			if (mat.getMyoperationEntree() == null || mat.getMyoperationEntree().getDate().compareTo(sdate) <= 0) {
+				row[6] = "Materiel Existant";
+				row[5] = 1;
+			} else {
+				row[6] = mat.getMyoperationEntree().getNumoperation();
+			}
+
+			// Sortie pendant l’année X
+			if (o == null ) {
+				row[7] = "Aucune sortie";
+			}else {
+				if(o.getDate()!=null && o.getDate().compareTo(edate)>=0) {
+					row[7] = "Aucune sortie";
+				}else {
+				row[7] = o.getNumoperation();
+				}
+			}
+			// Reste au 31 déc. X
+			row[8] = "reste";
+			// Décompte
+			row[9] = "decompte";
+			row[10] = mat.getDesign().getTypematerieladd();
+			row[11] = mat.getDesign();
+			row[12] = mat;
+
+			resultstable.add(row);
+		}
+
+		// group by designation
+		List<Object[]> resultstableGrouped = new ArrayList<Object[]>();
+
+		Map<Designation, List<Object[]>> map = new HashMap<Designation, List<Object[]>>();
+
+		for (Object[] o : resultstable) {
+			Designation key = (Designation) o[11];
+			if (map.containsKey(key)) {
+				List<Object[]> list = map.get(key);
+				list.add(o);
+
+			} else {
+				List<Object[]> list = new ArrayList<Object[]>();
+				list.add(o);
+				map.put(key, list);
+			}
+
+		}
+		for (Map.Entry<Designation, List<Object[]>> entry : map.entrySet()) {
+			// System.out.println(entry.getKey().getIdDesignation() + ":" +
+			// entry.getValue().size());
+			Object[] row = new Object[12];
+			Designation des = entry.getKey();
+			List<Object[]> infos = entry.getValue();
+			// materiels
+			List<Materiel> materiels = new ArrayList<Materiel>();
+			for (Object[] o : infos) {
+				materiels.add((Materiel) ((infos.get(0))[12]));
+			}
+
+			// Nomenclature
+			row[0] = des.getNomenMat().getNomenclature();
+			// Numéros du folio du grand livre
+			row[1] = des.getIdDesignation();
+			// Désignation du matériel
+			row[2] = (infos.get(0))[2];
+			;
+			String series = "";
+			for (Object[] o : infos) {
+				series = series + ((Materiel) (o[12])).getNumSerie();
+			}
+			row[2] = row[2] + series;
+			// Espèce des unités
+			row[3] = des.getEspeceUnite();
+			// Prix de l’unité
+			row[4] = des.getPu();
+			// Existantes au 1er Janvier X
+			row[5] = 0;
+			// Entrées pendant l’année X
+			int entreeAx = 0;// entree pendant année X
+			if (materiels.get(0).getMyoperationEntree() == null
+					|| materiels.get(0).getMyoperationEntree().getDate().compareTo(sdate) < 0) {
+				String es = "old";
+				if (materiels.get(0).getMyoperationEntree() != null
+						&& materiels.get(0).getMyoperationEntree().getDate().compareTo(sdate) < 0) {
+					es = materiels.get(0).getMyoperationEntree().getDate().toString();
+				}
+				
+				row[6] = "Materiel Existant " + es;
+				row[5] = materiels.size();
+				entreeAx = 0;
+
+			} else {
+				row[6] = materiels.get(0).getMyoperationEntree().getNumoperation();
+				entreeAx = materiels.size();
+			}
+
+			// Sortie pendant l’année X
+			String sortie = "0";
+			int sortieAx = 0;
+			for (Object[] o : infos) {
+				if (!o[7].equals("Aucune sortie")) {
+					sortie = sortie + (String) o[7] + " and ";
+					sortieAx = sortieAx + 1;
+				}
+
+			}
+			row[7] = sortie;
+			/*
+			 * if(o ==null) { row[7] = "Aucune sortie"; } else { row[7] =
+			 * o.getNumoperation(); }
+			 */
+			// Reste au 31 déc. X
+			row[8] = (Integer) row[5] + entreeAx - sortieAx; // existant + entree en X - sortie en X
+			// Décompte
+			row[9] = (Integer) row[8] * des.getPu();
+			row[10] = des.getTypematerieladd();
+			row[11] = des;
+
+			// set nombre entree et sortie pendant X
+			row[6] = entreeAx;
+			row[7] = sortieAx;
+
+			resultstableGrouped.add(row);
+		}
+
+		listobjectForInvetaire = resultstableGrouped;
+	//}
+
+	return listobjectForInvetaire;
+}
 
 
 }

@@ -228,7 +228,7 @@ public class GACBean {
 	public void refuseAttributionDetenteur(OpAttribution attr) {
 		// usermetierimpl.attriuberMateriel(attr);
 		try {
-			usermetierimpl.reqAttrRefuser((OpAttribution) this.getCurentOperation(), this.getMotif());
+			usermetierimpl.reqAttrRefuser(attr, this.getMotif());
 			setAllNull();
 			setCurentNull();
 		} catch (Exception e) {
@@ -236,7 +236,7 @@ public class GACBean {
 			FacesContext context = FacesContext.getCurrentInstance();
 
 			context.addMessage("myerror",
-					new FacesMessage("Error Attribution", "L'attribution n'a pas pu être refusée"));
+					new FacesMessage("Error Attribution", "L'attribution n'a pas pu être refusée car :"+ e.getMessage()));
 			// context.addMessage(null, new FacesMessage("Second Message", "Additional
 			// Message Detail"));
 			System.out.println("erreur refuser Attribution");
