@@ -31,7 +31,7 @@
                  currentPageReportTemplate="({currentPage} sur {totalPages})"
                  paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}  "
                  paginator="true" rows="10" style="margin-bottom:20px"
-                 emptyMessage="Aucun resultat" filteredValue="#{dtFilterView.filteredOperations}"
+                 emptyMessage="Aucun resultat" filteredValue="#{depositaireBean.listMaterielNouveauValide}"
                  >
  
  		<f:facet name="header">
@@ -146,11 +146,11 @@
 
 
     <p:dataTable   var="materiel" value="#{depositaireBean.listMaterielNouveauNonValide}"
-                 widgetVar="MaterielTable"
+                 widgetVar="MaterielTablenon"
                  currentPageReportTemplate="({currentPage} sur {totalPages})"
                  paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}  "
                  paginator="true" rows="10" style="margin-bottom:20px"
-                 emptyMessage="Aucun resultat" filteredValue="#{dtFilterView.filteredOperations}"
+                 emptyMessage="Aucun resultat" filteredValue="#{depositaireBean.listMaterielNouveauNonValide}"
                  >
  		<f:facet name="header">
         Prise en charge non acceptée
@@ -163,7 +163,7 @@
         </p:column> 
         <p:column filterBy="#{materiel.design.nomenMat}" headerText="Nomenclature"  filterMatchMode="exact" style="width:23%; text-align: center; word-wrap: break-word;">
             <f:facet name="filter">
-                <p:selectOneMenu onchange="PF('MaterielTable').filter()" panelStyle="width:250px;">
+                <p:selectOneMenu onchange="PF('MaterielTablenon').filter()" panelStyle="width:250px;">
                     <f:selectItem itemLabel="Selectionner" itemValue="#{null}" noSelectionOption="true" />
                     <f:selectItems value="#{siseBean.listNomenclature}" />
                 </p:selectOneMenu>

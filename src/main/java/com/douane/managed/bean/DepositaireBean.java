@@ -1063,7 +1063,10 @@ public class DepositaireBean {
 	}
 
 	public List<MaterielEx> getListMaterielexistant() {
-		return usermetierimpl.getListMatEx();
+		if(listMaterielexistant==null) {
+			listMaterielexistant = usermetierimpl.getListMatEx();
+		}
+		return listMaterielexistant;
 	}
 
 	public void setListMaterielexistant(List<MaterielEx> listMaterielexistant) {
@@ -1879,7 +1882,10 @@ public class DepositaireBean {
 	private List<MaterielNouv> listMaterielNouveauValide;
 
 	public List<MaterielNouv> getListMaterielNouveauValide() {
-		return usermetierimpl.getListMaterielNouvValide();
+		if(listMaterielNouveauValide==null) {
+			listMaterielNouveauValide = usermetierimpl.getListMaterielNouvValide();
+		}
+		return listMaterielNouveauValide;
 	}
 
 	public void setListMaterielNouveauValide(List<MaterielNouv> listMaterielNouveauValide) {
@@ -3010,7 +3016,10 @@ public class DepositaireBean {
 	private List<MaterielNouv> listMaterielNouveauNonValide;
 
 	public List<MaterielNouv> getListMaterielNouveauNonValide() {
-		return usermetierimpl.getListMaterielNouvNonValide();
+		if(listMaterielNouveauNonValide==null) {
+			listMaterielNouveauNonValide = usermetierimpl.getListMaterielNouvNonValide();
+		}
+		return listMaterielNouveauNonValide;
 	}
 
 	public void setListMaterielNouveauNonValide(List<MaterielNouv> listMaterielNouveauNonValide) {
