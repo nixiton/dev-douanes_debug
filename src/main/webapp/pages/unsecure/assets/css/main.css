@@ -2688,3 +2688,6 @@ border-collapse: collapse;
 .form-horizontal .control-label{
 	padding-top: 0px !important;
 }
+.body.collapse.in.table-responsive{
+	overflow-x: hidden !important;
+}

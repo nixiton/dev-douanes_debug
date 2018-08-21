@@ -67,11 +67,11 @@
                     <tr>
                         <td><b>Mouvements effectués</b></td>
                         <td align="left">
-
-                        #{suivieditionBean.materiel.dc.im} - #{suivieditionBean.materiel.dc.nomAgent} =>
+						<i class="fa fa-arrow-right"></i>
+                        #{suivieditionBean.materiel.dc.im} - #{suivieditionBean.materiel.dc.nomAgent} 
 
                         <ui:repeat value="#{suivieditionBean.listOperationAttributionByMateriel}" var="value">
-                            #{value.detenteur.im} - #{value.detenteur.nomAgent} =>
+                          <i class="fa fa-arrow-right"></i> #{value.detenteur.im} - #{value.detenteur.nomAgent} 
                         </ui:repeat>
 
                         </td>
@@ -83,91 +83,74 @@
     </p:dialog>
 
 
-    <p:dialog id="detail" widgetVar="detail" header="Détails Matériel" showEffect="explode" hideEffect="explode"  width="750" height="650">
+    <p:dialog id="detail" widgetVar="detail" header="Détails Matériel" showEffect="explode" hideEffect="explode"  width="1000" height="400">
       	<br></br>
         <table class="table responsive-table">
 
                     <tr>
                         <td><b>ID</b></td>
                         <td align="left">#{suivieditionBean.materiel.idMateriel}</td>
+                        <td><b>Référence</b></td>
+                        <td align="left">#{suivieditionBean.materiel.reference}</td>
+                        <td><b>Numéro de série</b></td>
+                        <td align="left">#{suivieditionBean.materiel.numSerie}</td>
+                    </tr>
+                    <tr>
+                    	<td><b>Type de matériel</b></td>
+                        <td align="left">#{suivieditionBean.materiel.design.nomenMat.designation}</td>
+                    	<td><b>Nomenclature</b></td>
+                        <td align="left">#{suivieditionBean.materiel.design.nomenMat.designation}</td>
+                        <td><b>Marque</b></td>
+                        <td align="left">#{suivieditionBean.materiel.design.marque.designation}</td>
+                        
                     </tr>
                     <tr>
                         <td><b>Prix unitaire</b></td>
                         <td align="left">
 		                   <h:outputText value="#{suivieditionBean.materiel.design.pu}" ><f:convertNumber pattern="¤#,##0" currencySymbol="Ar "></f:convertNumber></h:outputText>
 		                </td>
+		                <td><b>Financement</b></td>
+                        <td align="left">#{suivieditionBean.materiel.design.financement.designation}</td>
+                        <td><b>Etat</b></td>
+                        <td align="left">#{suivieditionBean.materiel.etat.designation}</td>
                     </tr>
+                   
                     <tr>
-                        <td><b>Référence</b></td>
-                        <td align="left">#{suivieditionBean.materiel.reference}</td>
-                    </tr>
-                    <tr>
-                        <td><b>Numéro de série</b></td>
-                        <td align="left">#{suivieditionBean.materiel.numSerie}</td>
-                    </tr>
-                    <tr>
+                        <td><b>Dépositaire</b></td>
+                        <td align="left">#{suivieditionBean.materiel.dc.im} - #{suivieditionBean.materiel.dc.nomAgent}</td>
+                        <td><strong>Codification</strong></td>
+						<td>#{suivieditionBean.materiel.code}</td>
                         <td><b>Autre</b></td>
                         <td align="left">#{suivieditionBean.materiel.design.autre}</td>
                     </tr>
                     <tr>
-                        <td><b>Nomenclature</b></td>
-                        <td align="left">#{suivieditionBean.materiel.design.nomenMat.designation}</td>
-                    </tr>
-                    <tr>
-                        <td><b>Etat</b></td>
-                        <td align="left">#{suivieditionBean.materiel.etat.designation}</td>
-                    </tr>
-                    <tr>
-                        <td><b>Caractéristiques</b></td>
-                        <td align="left">#{suivieditionBean.materiel.design.renseignement}</td>
-                    </tr>
-                    <tr>
-                        <td><b>Marque</b></td>
-                        <td align="left">#{suivieditionBean.materiel.design.marque.designation}</td>
-                    </tr>
-                    <tr>
-                        <td><b>Dépositaire</b></td>
-                        <td align="left">#{suivieditionBean.materiel.dc.im} - #{suivieditionBean.materiel.dc.nomAgent}</td>
-                    </tr>      
-                    <tr>
-                        <td><b>Type de matériel</b></td>
-                        <td align="left">#{suivieditionBean.materiel.design.nomenMat.designation}</td>
-                    </tr>
-                    
-
-                    <p:panel rendered="#{suivieditionBean.materiel['class'].simpleName eq 'MaterielNouv' }" >
+                   <p:panel rendered="#{suivieditionBean.materiel['class'].simpleName eq 'MaterielNouv' }" >
 
                     <tr>
                         <td><b>Mode d'aquisition</b></td>
                         <td align="left">#{suivieditionBean.materiel.design.modAcq.designation}</td>
-                    </tr>
-                    <tr>
-                        <td><b>Financement</b></td>
-                        <td align="left">#{suivieditionBean.materiel.design.financement.designation}</td>
+                        <td> - </td>
+                        <td> - </td>
+                        <td><b>Référence pj</b></td>
+                        <td align="left">#{suivieditionBean.materiel.design.refFacture}</td>
                     </tr>
                     <!--  
                     <tr>
                         <td><b>Montant</b></td>
                         <td align="left">dièse{suivieditionBean.materiel.design.pu}</td>
-                    </tr> -->
-                    <tr>
-                        <td><b>Référence pj</b></td>
-                        <td align="left">#{suivieditionBean.materiel.design.refFacture}</td>
-                    </tr>
+                    </tr> -->               
                     <!-- 
                     <tr>
                         <td><b>Fournisseur</b></td>
                         <td align="left">dièse{suivieditionBean.materiel.design.fournisseur.designation}</td>
                     </tr>  
                     --> 
-                    </p:panel>  
-                    <tr>
-                    	<td><strong>Codification</strong></td>
-						<td>#{suivieditionBean.materiel.code}</td>
+                    </p:panel> 
                     </tr>
-                    
                     <tr>
-                   	 	<td><strong>Image</strong></td>
+                        <td><b>Caractéristiques</b></td>
+                        <td align="left">#{suivieditionBean.materiel.design.renseignement}</td>
+                        <td><strong>Image</strong></td>
 						<td>
 						    <p:panel rendered="#{suivieditionBean.materiel.design.image != null}">
 						        <h:graphicImage url="data:image/jpg;base64,#{suivieditionBean.materiel.design.image}"
@@ -179,11 +162,7 @@
 								 </p:dialog>
 						    </p:panel>
 						</td>
-                    </tr>
-                   
-                    
-                    <tr>
-                    	<td><strong>QRCODE</strong></td>
+						<td><strong>QRCODE</strong></td>
 						<td>           					
 							<p:barcode value="${suivieditionBean.materiel.direc.designation} - 
 							${suivieditionBean.materiel.design.typematerieladd.designation  } -
@@ -191,6 +170,8 @@
 							${suivieditionBean.materiel.design.anneeAcquisition}" type="qr"/>
 						</td>
                     </tr>
+                    
+                    
 	                              
             </table>
      
