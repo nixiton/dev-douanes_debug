@@ -69,27 +69,13 @@
             </f:facet>
             <h:outputLink id="popuit" value="#">
 			
-			<p:panel rendered="#{c['class'].simpleName eq 'OpEntree' }">
-            Saisie materiel
-        	</p:panel>
-			<p:panel rendered="#{c['class'].simpleName eq 'OpSaisie' }">
-            Saisie réferentiel 
-            </p:panel>
-			<p:panel rendered="#{c['class'].simpleName eq 'OpAttribution' }">
-            Attribution
-            </p:panel>
-			<p:panel rendered="#{c['class'].simpleName eq 'OpDettachement' }">
-            Détachement
-            </p:panel>
-			<p:panel rendered="#{c['class'].simpleName eq 'OpSortie' }">
-            Décharge
-            </p:panel>
-            <p:panel rendered="#{c['class'].simpleName eq 'OpEntreeArticle' }">
-            Saisie  artcile
-            </p:panel>
-            <p:panel rendered="#{c['class'].simpleName eq 'OpSortieArticle' }">
-            Sortie article
-            </p:panel>
+			<h:outputText  rendered="#{c['class'].simpleName eq 'OpEntree'}" value="Saisie materiel" />
+				<h:outputText  rendered="#{c['class'].simpleName eq 'OpSaisie' }" value="Saisie réferentiel" />
+				<h:outputText  rendered="#{c['class'].simpleName eq 'OpAttribution' }" value="Attribution" />
+				<h:outputText  rendered="#{c['class'].simpleName eq 'OpDettachement' }" value="Détachement" />
+				<h:outputText  rendered="#{c['class'].simpleName eq 'OpSortie'}" value="Détachement" />
+				<h:outputText  rendered="#{c['class'].simpleName eq 'OpSortieArticle' }" value=" Sortie article" />
+				<h:outputText  rendered="#{c['class'].simpleName eq 'OpEntreeArticle' }" value=" Saisie  artcile" />
             </h:outputLink>
 			<p:tooltip id="idpopup" for="popuit" value="Identifiant: #{c.id}" trackMouse="true" />
         </p:column>
@@ -97,34 +83,19 @@
                 <f:facet name="header">
                     <h:outputText value="Pièces justificatives" />
                 </f:facet>  
-            <p:panel rendered="#{c['class'].simpleName eq 'OpAttribution' }">
-                <!--h:outputLink value="#{c.detenteurEffectif}"  target="_blank">
-                                <i class="fa fa-file-archive-o"></i>
-                            </h:outputLink-->
-				
-                <h:commandLink  action="#{docbean.generateDetenteur(c)}" target="_blank">
+               				
+                <h:commandLink  rendered="#{c['class'].simpleName eq 'OpAttribution' }" action="#{docbean.generateDetenteur(c)}" target="_blank">
                     <i class="fa fa-file-archive-o"></i>
                 </h:commandLink>
-                
-
- 
-            </p:panel>   
-
-            <p:panel rendered="#{c['class'].simpleName eq 'OpEntree' }">
+                         
 			
-                <h:commandLink  action="#{gacBean.setCurentOperationOrdre(c)}" target="_blank">
+                <h:commandLink  rendered="#{c['class'].simpleName eq 'OpEntree' }" action="#{gacBean.setCurentOperationOrdre(c)}" target="_blank">
                     <i class="fa fa-file-archive-o"></i>
                 </h:commandLink>
- 
-            </p:panel> 
-
-            <p:panel rendered="#{c['class'].simpleName eq 'OpSortie' }">
-		
-                <h:commandLink  action="#{docbean.generateSortie(c)}" target="_blank">
+ 	
+                <h:commandLink  rendered="#{c['class'].simpleName eq 'OpSortie' }" action="#{docbean.generateSortie(c)}" target="_blank">
                     <i class="fa fa-file-archive-o"></i>
-                </h:commandLink>
- 
-            </p:panel>   
+                </h:commandLink> 
 
             </p:column>
 

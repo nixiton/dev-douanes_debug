@@ -43,16 +43,17 @@
 					<h:form>
 						<div  style=" display:inline-block">
 						<h:commandLink action="#{loginMgmtBean.logout}"
-							data-toggle="tooltip" data-original-title="Logout"
-							data-placement="bottom" class="btn btn-metis-1">
+							data-toggle="tooltip" data-original-title="logout"
+							data-placement="bottom" class="btn btn-metis-1" id="logout">
 							<i class="fa fa-power-off"></i>
 						</h:commandLink>
+						<p:tooltip id="toolTipFade" for="logout" value="Se déconnecter" position="bottom	"/>
 						</div>
 						<div  style="background-color:#f8f7a3; display:inline-block; border-radius:5px; width:38px" >
-						<p:commandButton 
+						<p:commandButton id="perso"
 		            		oncomplete="PF('detail3').show()" icon="ui-icon-person " style="width:38px;height:28px"/>
 		           		</div>
-		           		
+		           		<p:tooltip id="toolTip" for="perso" value="A propos" position="bottom"/>
 				</h:form>
 				
 			</div>

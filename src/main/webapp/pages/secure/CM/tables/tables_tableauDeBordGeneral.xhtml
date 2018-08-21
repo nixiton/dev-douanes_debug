@@ -10,19 +10,19 @@
 
 
 <h:form>
-    <p:dataTable var="c" value="#{operationBean.listOperations}" 
-    			 widgetVar="operationsTable"
+    <p:dataTable var="c" value="#{operationBean.listAllOperations}" 
+    			 widgetVar="operationsTableG"
     			 currentPageReportTemplate="({currentPage} sur {totalPages})"
                  paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}  "
                  paginator="true" rows="30" style="margin-bottom:20px"
-                 emptyMessage="Aucun resultat" filteredValue="#{depositaireBean.listOperations}" 
+                 emptyMessage="Aucun resultat" filteredValue="#{depositaireBean.listAllOperations}" 
                  rowKey="#{c.id}">
                  
                  
 		<f:facet name="header">
             <p:outputPanel>
                 <h:outputText value="Rechercher:" />
-                <p:inputText id="globalFilter" onkeyup="PF('operationsTable').filter()" style="width:150px" placeholder="Rechercher"/>
+                <p:inputText id="globalFilter" onkeyup="PF('operationsTableG').filter()" style="width:150px" placeholder="Rechercher"/>
             </p:outputPanel>
         </f:facet>
 		<!--f:facet name=" ">
@@ -51,7 +51,7 @@
 		
 		<p:column filterBy="#{c.state}" headerText="Etat"  filterMatchMode="exact" style="text-align: center; word-wrap: break-word;"  >
 			<f:facet name="filter">
-                <p:selectOneMenu onchange="PF('operationsTable').filter()" panelStyle="width:250px;">
+                <p:selectOneMenu onchange="PF('operationsTableG').filter()" panelStyle="width:250px;">
                     <f:selectItem itemLabel="Selectionner" itemValue="#{null}" noSelectionOption="true" />
                     <f:selectItems value="#{dtFilterView.etats}" />
                 </p:selectOneMenu>
@@ -67,22 +67,20 @@
 	
 		<p:column filterBy="#{c['class']}" headerText="Type d'Opération"  filterMatchMode="exact" style="text-align: center; word-wrap: break-word;">
 			<f:facet name="filter">
-                <p:selectOneMenu onchange="PF('operationsTable').filter()"   panelStyle="width:250px;">
+                <p:selectOneMenu onchange="PF('operationsTableG').filter()"   panelStyle="width:250px;">
                     <f:selectItem itemLabel="Selectionner" itemValue="#{null}" noSelectionOption="true" />
                     <f:selectItems itemLabel="#{dtFilterView.getOperationName(o)}" var="o" value="#{dtFilterView.operations}" />
                 </p:selectOneMenu>
             </f:facet>
             <h:outputLink id="popuit" value="#">
 			
-				<h:outputText  rendered="#{c['class'].simpleName eq 'OpEntree'}" value="Saisie materiel" />
+			<h:outputText  rendered="#{c['class'].simpleName eq 'OpEntree'}" value="Saisie materiel" />
 				<h:outputText  rendered="#{c['class'].simpleName eq 'OpSaisie' }" value="Saisie réferentiel" />
 				<h:outputText  rendered="#{c['class'].simpleName eq 'OpAttribution' }" value="Attribution" />
 				<h:outputText  rendered="#{c['class'].simpleName eq 'OpDettachement' }" value="Détachement" />
 				<h:outputText  rendered="#{c['class'].simpleName eq 'OpSortie'}" value="Détachement" />
 				<h:outputText  rendered="#{c['class'].simpleName eq 'OpSortieArticle' }" value=" Sortie article" />
 				<h:outputText  rendered="#{c['class'].simpleName eq 'OpEntreeArticle' }" value=" Saisie  artcile" />
-			
-			
             </h:outputLink>
 			<p:tooltip id="idpopup" for="popuit" value="Identifiant: #{c.id}" trackMouse="true" />
         </p:column>
@@ -91,7 +89,7 @@
                 <f:facet name="header">
                     <h:outputText value="Pièces justificatives" />
                 </f:facet>  
-             <h:commandLink  rendered="#{c['class'].simpleName eq 'OpAttribution' }" action="#{docbean.generateDetenteur(c)}" target="_blank">
+            <h:commandLink  rendered="#{c['class'].simpleName eq 'OpAttribution' }" action="#{docbean.generateDetenteur(c)}" target="_blank">
                     <i class="fa fa-file-archive-o"></i>
                 </h:commandLink>
                          
@@ -106,7 +104,12 @@
 
             </p:column>
 
-        
+        	<p:column style="text-align: center; word-wrap: break-word;">
+			<f:facet name="header">
+				<h:outputText value="Direction" />
+			</f:facet>
+			<h:outputText value="#{c.direction !=null ? c.direction.designation : 'Aucune'}" />
+		</p:column>
 
 
 	</p:dataTable>
