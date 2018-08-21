@@ -70,11 +70,11 @@
 		<c:if test="#{topMenuMB.curentAgent.roleAgent.role eq 'ROLE_ADMIN' 
             or topMenuMB.curentAgent.roleAgent.role eq 'ROLE_SISE'
             }">
-		<p:column style="width: 4%; text-align: center;">
+		<p:column style="width: 2%; text-align: center;">
            <p:rowEditor />
              
        </p:column>
-       <p:column style="width: 4%; text-align: center;">
+       <p:column style="width: 3%; text-align: center;">
        		<p:commandButton  action="#{siseBean.deleteRow(typemateriel)}"
        icon="ui-icon-close" update=":formType:msgtableType"
        oncomplete="PF('typeTable').filter()">

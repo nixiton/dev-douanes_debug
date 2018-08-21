@@ -2633,8 +2633,10 @@ border-collapse: collapse;
 
 
   .ui-inputfield{
-    border: none !important;
-    border-bottom: #000 1px solid!important;
+    border-top: none !important;
+    border-left: none !important;
+    border-right: none !important;
+    /*border-bottom: #000 1px solid!important;*/
   }
  .ui-row-editing{
  	background-color:#f8f7a3 !important;
@@ -2660,4 +2662,29 @@ border-collapse: collapse;
 .ui-selectonemenu-items.ui-selectonemenu-list.ui-widget-content.ui-widget.ui-corner-all.ui-helper-reset{
   text-overflow: ellipsis !important;
   overflow: hidden !important;
+}
+
+/* css final */
+.ui-widget-header{
+	border: 0px solid #000 !important;
+}
+.ui-datatable thead th, .ui-datatable tbody td{
+	border: 1px dotted #2E6E9E !important;
+	border-opacity:0.5 !important;	
+}
+
+.REFUSED{
+	background-color:#ffebee !important;
+}
+.WAITING{
+	background-color:#fffde7 !important;
+}
+.ui-datatable tbody td{
+	padding: 0.3em !important;
+}
+.ui-widget-header{
+	color:#2E6E9E !important;
+}
+.form-horizontal .control-label{
+	padding-top: 0px !important;
 }

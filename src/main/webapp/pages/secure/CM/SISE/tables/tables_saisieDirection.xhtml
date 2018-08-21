@@ -70,7 +70,7 @@
            </p:cellEditor>
             
         </p:column>
-        <p:column filterBy="#{b.trois}" filterMatchMode="contains" style="width: 7%; text-align: center; word-wrap: break-word;">
+        <p:column filterBy="#{b.trois}" filterMatchMode="contains" style="width: 8%; text-align: center; word-wrap: break-word;">
             <f:facet name="header">Localité</f:facet>
             <p:cellEditor>
                <f:facet name="output"><h:outputText value="#{b.trois}" /></f:facet>
@@ -78,7 +78,7 @@
            </p:cellEditor>
             
         </p:column>
-        <p:column style="width: 7%; text-align: center; word-wrap: break-word;">
+        <!--  <p:column style="width: 7%; text-align: center; word-wrap: break-word;">
             <f:facet name="header">Subdivision de chapitre</f:facet>
             <p:cellEditor>
                <f:facet name="output"><h:outputText value="#{b.quatre}" /></f:facet>
@@ -86,7 +86,7 @@
            </p:cellEditor>
             
         </p:column>
-        
+        -->
         <c:if test="#{topMenuMB.curentAgent.roleAgent.role eq 'ROLE_ADMIN' 
             or topMenuMB.curentAgent.roleAgent.role eq 'ROLE_SISE'
             }">

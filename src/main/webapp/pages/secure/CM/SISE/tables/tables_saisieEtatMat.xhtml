@@ -40,7 +40,7 @@
 			<f:facet name="header">ID</f:facet>
 			#{etat.id}
 		</p:column>
-		<p:column filterBy="#{etat.designation}" filterMatchMode="contains" style="width: 15%; text-align: center; word-wrap: break-word;">
+		<p:column filterBy="#{etat.designation}" filterMatchMode="contains" style="width: 20%; text-align: center; word-wrap: break-word;">
 			<f:facet name="header">Désignation</f:facet>
 			<p:cellEditor>
                <f:facet name="output"><h:outputText value="#{etat.designation}" /></f:facet>
@@ -51,7 +51,7 @@
 		<c:if test="#{topMenuMB.curentAgent.roleAgent.role eq 'ROLE_ADMIN' 
             or topMenuMB.curentAgent.roleAgent.role eq 'ROLE_SISE'
             }">
-		<p:column style="width: 3%; text-align: center; ">
+		<p:column style="width: 2%; text-align: center; ">
 			<p:rowEditor />
 		</p:column>
 		<p:column style="width: 3%; text-align: center; ">

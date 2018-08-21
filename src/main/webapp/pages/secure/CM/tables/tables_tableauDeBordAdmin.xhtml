@@ -21,7 +21,7 @@
                  
 		<f:facet name="header">
             <p:outputPanel>
-                <h:outputText value="Rechercher:" />
+                <p:outputLabel value="Rechercher:" />
                 <p:inputText id="globalFilter" onkeyup="PF('operationsTable').filter()" style="width:150px" placeholder="Rechercher"/>
             </p:outputPanel>
         </f:facet>
@@ -32,7 +32,7 @@
                 <p:dataExporter type="pdf" target="tbl" fileName="mesOperations"/>
             </h:commandLink>
         </f:facet-->
-         <p:column headerText="Date" style="text-align: center; word-wrap: break-word;">
+         <p:column styleClass="#{c.state}" headerText="Date" style="text-align: center; word-wrap: break-word; padding:1%;">
             <h:outputText value="#{c.date}" >
             	<f:convertDateTime pattern="dd MMMM yyyy " timeZone="GMT+3"/>
             </h:outputText>
@@ -42,14 +42,14 @@
             </h:outputText>
         </p:column>
 
-		<p:column style="text-align: center; word-wrap: break-word;">
+		<p:column styleClass="#{c.state}" style="text-align: center; word-wrap: break-word;">
 			<f:facet name="header">
 				<h:outputText value="Poste" />
 			</f:facet>
 			<h:outputText value="#{c.poste}" />
 		</p:column>
 		
-		<p:column filterBy="#{c.state}" headerText="Etat"  filterMatchMode="exact" style="text-align: center; word-wrap: break-word;"  >
+		<p:column  styleClass="#{c.state}" filterBy="#{c.state}" headerText="Etat"  filterMatchMode="exact" style="text-align: center; word-wrap: break-word; "  >
 			<f:facet name="filter">
                 <p:selectOneMenu onchange="PF('operationsTable').filter()" panelStyle="width:250px;">
                     <f:selectItem itemLabel="Selectionner" itemValue="#{null}" noSelectionOption="true" />
@@ -60,12 +60,12 @@
         </p:column>
 
 
-        <p:column headerText="Opérateur" groupRow="true" filterBy="#{c.operateur.im}" filterMatchMode="contains" style="text-align: center; word-wrap: break-word;">
+        <p:column styleClass="#{c.state}" headerText="Opérateur" groupRow="true" filterBy="#{c.operateur.im}" filterMatchMode="contains" style="text-align: center; word-wrap: break-word;">
             <h:outputText value="#{c.operateur.im}" />
         </p:column>
 
 	
-		<p:column filterBy="#{c['class']}" headerText="Type d'Opération"  filterMatchMode="exact" style="text-align: center; word-wrap: break-word;">
+		<p:column styleClass="#{c.state}" filterBy="#{c['class']}" headerText="Type d'Opération"  filterMatchMode="exact" style="text-align: center; word-wrap: break-word;">
 			<f:facet name="filter">
                 <p:selectOneMenu onchange="PF('operationsTable').filter()"   panelStyle="width:250px;">
                     <f:selectItem itemLabel="Selectionner" itemValue="#{null}" noSelectionOption="true" />
@@ -87,7 +87,7 @@
 			<p:tooltip id="idpopup" for="popuit" value="Identifiant: #{c.id}" trackMouse="true" />
         </p:column>
 
-            <p:column style="text-align: center; word-wrap: break-word;">
+            <p:column styleClass="#{c.state}" style="text-align: center; word-wrap: break-word;">
                 <f:facet name="header">
                     <h:outputText value="Pièces justificatives" />
                 </f:facet>  
