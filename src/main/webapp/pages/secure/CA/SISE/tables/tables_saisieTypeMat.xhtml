@@ -34,11 +34,11 @@
                  widgetVar="ArtTable"
                  >
         <p:ajax event="rowEdit" listener="#{siseBean.onRowEdit}" update=":formTypArt:msgtableTypeArt" oncomplete="PF('ArtTable').filter()"/>
-		<p:column style=" width:4%; text-align: center; word-wrap: break-word;">
+		<p:column style=" width:5%; text-align: center; word-wrap: break-word;">
 			<f:facet name="header">ID</f:facet>
 			#{typemateriel.id}
 		</p:column>
-		<p:column filterBy="#{typemateriel.designation}" filterMatchMode="contains" style=" width:6%; text-align: center; word-wrap: break-word;">
+		<p:column filterBy="#{typemateriel.designation}" filterMatchMode="contains" style=" width:15%; text-align: center; word-wrap: break-word;">
 			<f:facet name="header">Désignation</f:facet>
 			<p:cellEditor>
                <f:facet name="output"><h:outputText value="#{typemateriel.designation}" /></f:facet>
@@ -46,7 +46,7 @@
            </p:cellEditor> 
 			
 		</p:column>
-		<p:column filterBy="#{typemateriel.caracteristique}" filterMatchMode="contains" style=" width:6%; text-align: center; word-wrap: break-word;">
+		<p:column filterBy="#{typemateriel.caracteristique}" filterMatchMode="contains" style=" width:10%; text-align: center; word-wrap: break-word;">
 			<f:facet name="header">Caracteristique</f:facet>
 			<p:cellEditor>
                <f:facet name="output"><h:outputText value="#{typemateriel.caracteristique}" /></f:facet>
@@ -60,7 +60,7 @@
 		<p:column style=" width:2%; text-align: center; word-wrap: break-word;">
            <p:rowEditor />
        </p:column>
-       <p:column style=" width:2%; text-align: center; word-wrap: break-word;">
+       <p:column style=" width:3%; text-align: center; word-wrap: break-word;">
        		<p:commandButton  action="#{siseBean.deleteRow(typemateriel)}"
        icon="ui-icon-close" update=":formTypArt:msgtableTypeArt"
        oncomplete="PF('ArtTable').filter()"/>

@@ -13,6 +13,13 @@
 
 <h:head></h:head>
 
+<style>
+	.fa span{
+		display:inline-block !important;
+		
+	}
+</style>
+
 <div class="body collapse in table-responsive">
 <c:if test= "${table == 'ficheStock' || table == 'tous' || empty table }">
 <h:form>
@@ -83,7 +90,7 @@
 	            	</h:outputText>
 	 				</p:panelGrid>
 				</p:dialog>
-			<h:commandButton value="Exporter" action="#{JournalABean.execute(suivieditionBean)}"/>
+			<p:commandButton value="Exporter" action="#{JournalABean.execute(suivieditionBean)}" styleClass="fa fa-download btn btn-lg-primary "> </p:commandButton>
 	 		</h:form>
     	</f:facet>
     	

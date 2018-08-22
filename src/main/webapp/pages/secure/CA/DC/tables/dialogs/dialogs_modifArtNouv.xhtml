@@ -5,10 +5,20 @@
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:p="http://primefaces.org/ui">
+      
+<style>
+	.info {
+	  position: fixed;
+	  bottom: 60px;
+	  right: 24px;
+	  height: 70px;
+	}
+</style>  
+      
  <p:dialog id="modifArtNouv" widgetVar="modifArtNouv"  closable="false"
     		  header   = "Modification du nouvelle article" 
               position = "center"
-              modal    = "true" showEffect="explode" hideEffect="explode" height="750">
+              modal    = "true" showEffect="explode" hideEffect="explode" height="650" width="600">
 <h:body>
 <p:growl for="editartnouverror" redisplay="false" id="messagesgrowlmodify" showDetail="true" autoUpdate="true" />
      
@@ -26,7 +36,7 @@
             <div class="form-group">
             	<div class="row">
             		<div class="col-lg-5">
-	            		<label for="text1" class="control-label col-lg-4">Id
+	            		<label for="text1" class="control-label ">Id
 	                    </label>
 					</div>
                     <div class="col-lg-6">
@@ -37,7 +47,7 @@
                	<hr></hr>
                	<div class="row">
             		<div class="col-lg-5">
-	                    <label for="text1" class="control-label col-lg-4">Article
+	                    <label for="text1" class="control-label ">Article
 	                    </label>
 					</div>
                     <div class="col-lg-6">
@@ -48,7 +58,7 @@
                 <hr></hr>
 				<div class="row">
             		<div class="col-lg-5">
-	                    <label for="text1" class="control-label col-lg-4">Marque
+	                    <label for="text1" class="control-label ">Marque *
 	                    </label>
 					</div>
                     <div class="col-lg-6">
@@ -71,7 +81,7 @@
 				 <hr></hr>
 				<div class="row">
             		<div class="col-lg-5">
-	                    <label for="text1" class="control-label col-lg-4">Caractéristiques
+	                    <label for="text1" class="control-label ">Caractéristiques
 	                    </label>
 					</div>
                     <div class="col-lg-6">
@@ -87,7 +97,7 @@
                 			
 				<div class="row">
 					<div class="col-lg-5">
-	                     <label for="text2" class="control-label col-lg-4">Origine
+	                     <label for="text2" class="control-label ">Origine *
 	              		  </label>
 					</div>
 	                <div class="col-lg-6">
@@ -103,7 +113,7 @@
                
                <div class="row">
 					<div class="col-lg-5">
-	                     <label for="text2" class="control-label col-lg-4">Référence
+	                     <label for="text2" class="control-label ">Référence *
 	              		  </label>
 					</div>
 	                <div class="col-lg-6">
@@ -119,7 +129,7 @@
                
                <div class="row">
 					<div class="col-lg-5">
-	                     <label for="text2" class="control-label col-lg-4">Espèce des unités
+	                     <label for="text2" class="control-label ">Espèce des unités *
 	              		  </label>
 					</div>
 	                <div class="col-lg-6">
@@ -136,7 +146,7 @@
                 
                 <div class="row">
             		<div class="col-lg-5">
-	                    <label for="text1" class="control-label col-lg-4">Mode d'aquisition
+	                    <label for="text1" class="control-label ">Mode d'aquisition *
 	                	</label>
 					</div>
 	                <div class="col-lg-6">
@@ -157,7 +167,7 @@
 				<hr></hr>
 				<div class="row">
             		<div class="col-lg-5">
-		                <label for="text1" class="control-label col-lg-4">Financement
+		                <label for="text1" class="control-label ">Financement *
 		                </label>
 					</div>
 	                <div class="col-lg-6">
@@ -181,7 +191,7 @@
            		<!-- 
                 <div class="row">
             		<div class="col-lg-5">
-		                <label for="text1" class="control-label col-lg-4">Fournisseur
+		                <label for="text1" class="control-label ">Fournisseur
 		                </label>
 					</div>
 	                <div class="col-lg-6">
@@ -201,7 +211,7 @@
 				-->
 				<div class="row">
             		<div class="col-lg-5">
-		                <label for="text2" class="control-label col-lg-4">Montant
+		                <label for="text2" class="control-label ">Montant *
 		                </label>
 					</div>
 	                <div class="col-lg-6">
@@ -211,7 +221,7 @@
 	                        requiredMessage="Montant Obligatoire"
 	                        placeholder="Montant" styleClass="form-control top"> 
                         	<f:convertNumber pattern="¤#,##0" currencySymbol=""></f:convertNumber>
-                     	</p:inputText>
+                     	</p:inputText>(n)
 	
 	                </div>
                 </div>
@@ -219,7 +229,7 @@
                 <div class="row">
             		<div class="col-lg-5">
 
-	                     <label for="text2" class="control-label col-lg-4">Nombre
+	                     <label for="text2" class="control-label ">Nombre *
 	               		 </label>
 					</div>
 	                <div class="col-lg-6">
@@ -227,7 +237,7 @@
 	                    <p:inputText required="true"
 	                        value="#{depositaireBean.articleToModifyNouv.nombre}"
 	                        requiredMessage="Nombre obligatoire"
-	                        placeholder="Nombre" styleClass="form-control top"></p:inputText>
+	                        placeholder="Nombre" styleClass="form-control top"></p:inputText>(n)
 	
                 	</div>
                	</div>
@@ -235,7 +245,7 @@
                     <div class="col-lg-2"></div>
 
             </div>  
-            
+            <hr></hr>
             <div class="form-group">
                 <label for="text1" class="control-label col-lg-0"></label>
 
@@ -269,6 +279,10 @@
 </div>
 
 <div class="col-md-4"></div>
+<div class="alert alert-info info">
+  <strong>( * ) </strong> : Champ obligatoire<br></br>
+  <strong>( n ) </strong> : Champ à valeur numérique<br></br>
+</div>
 </h:body>
 </p:dialog>
 </html>

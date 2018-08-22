@@ -19,8 +19,8 @@
 	}
 </style>
 
-<div class="col-md-4"></div>
-<div class="box dark col-md-4">
+<div class="col-md-3"></div>
+<div class="box dark col-md-6">
 
     <div class="body">
 
@@ -33,7 +33,7 @@
 				<div class="row">
 					<div class="col-lg-4 col-lg-offset-1"> 
 
-		                <label for="text1" class="control-label col-lg-4">Bénéficiaire *
+		                <label for="text1" class="control-label ">Bénéficiaire *
 		                </label>
 						</div>
 	                <div class="col-lg-6">
@@ -56,7 +56,7 @@
                 
                 <div class="row">
 					<div class="col-lg-4 col-lg-offset-1"> 
-		                <label for="text1" class="control-label col-lg-4">Nom Beneficiaire
+		                <label for="text1" class="control-label ">Nom Beneficiaire
 		                </label>
 					</div>
 	                <div class="col-lg-6">
@@ -69,7 +69,7 @@
 
 				<div class="row">
 					<div class="col-lg-4 col-lg-offset-1"> 
-		                <label for="text1" class="control-label col-lg-4">Article *
+		                <label for="text1" class="control-label ">Article *
 		                </label>
 					</div>
 	                <div class="col-lg-6">
@@ -91,7 +91,7 @@
 				
 				<div class="row">
 					<div class="col-lg-4 col-lg-offset-1"> 
-		                <label for="text1" class="control-label col-lg-4">Nombre Total
+		                <label for="text1" class="control-label ">Nombre Total
 		                </label>
 					</div>
 	                <div class="col-lg-6">
@@ -103,7 +103,7 @@
                <hr></hr>
                <div class="row">
 					<div class="col-lg-4 col-lg-offset-1"> 
-		                <label for="text1" class="control-label col-lg-4">Nombre Restant
+		                <label for="text1" class="control-label ">Nombre Restant
 		                </label>
 					</div>
 	                <div class="col-lg-6">
@@ -115,7 +115,7 @@
                <hr></hr> 
                <div class="row">
 					<div class="col-lg-4 col-lg-offset-1"> 
-		                <label for="text1" class="control-label col-lg-4">Montant
+		                <label for="text1" class="control-label ">Montant
 		                </label>
 					</div>
 	                <div class="col-lg-6">
@@ -130,7 +130,7 @@
               
                <div class="row">
 					<div class="col-lg-4 col-lg-offset-1"> 
-		                <label for="text1" class="control-label col-lg-4">Nombre à attribuer *(n)
+		                <label for="text1" class="control-label " >Nombre à attribuer*
 		                </label>
 					</div>
 	                <div class="col-lg-6">
@@ -143,7 +143,7 @@
 	                        validatorMessage="Ce nombre n'est pas valide ou dépasse le nombre d'articles restants">
 	                        <f:validateDoubleRange minimum="0" maximum="#{depositaireBean.article != null ? depositaireBean.calculNombreRestant(depositaireBean.article): 0}" />
 	                        
-	                        </p:inputText>
+	                        </p:inputText>(n)
 	                        <p:message for="nombretodep" />
 	
 	                </div>
@@ -152,7 +152,7 @@
                
                <div class="row">
 					<div class="col-lg-4 col-lg-offset-1"> 
-		                <label for="text1" class="control-label col-lg-4">Décision
+		                <label for="text1" class="control-label ">Décision
 		                </label>
 					</div>
 	                <div class="col-lg-6">

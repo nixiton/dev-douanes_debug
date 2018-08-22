@@ -10,6 +10,16 @@
     <title>JSF Primefaces Multiple File Upload with Ajax using
         advanced mode</title>
 </h:head>
+
+<style>
+	.info {
+	  position: fixed;
+	  bottom: 60px;
+	  right: 24px;
+	  height: 70px;
+	}
+</style>
+
 <h:body>
 <div class="col-md-4"></div>
 <div class="box dark col-md-4">
@@ -46,7 +56,7 @@
 					<div class="col-lg-4 col-lg-offset-1">  
 						<!-- <label for="text1" class="control-label col-lg-4">Codification des articles
 	                    </label> -->
-	                    <label for="text1" class="control-label col-lg-4">Article
+	                    <label for="text1" class="control-label ">Article *
 	                    </label>
 					</div>
                     <div class="col-lg-6">
@@ -76,7 +86,7 @@
 				<div class="row">
 					<div class="col-lg-4 col-lg-offset-1">  
 
-	                    <label for="text1" class="control-label col-lg-4">Caractéristiques
+	                    <label for="text1" class="control-label ">Caractéristiques
 	                    </label>
 					</div>
                     <div class="col-lg-6">
@@ -90,7 +100,7 @@
 				
 				<div class="row">
 					<div class="col-lg-4 col-lg-offset-1">  
-		                <label for="text1" class="control-label col-lg-4">Mode d'aquisition
+		                <label for="text1" class="control-label ">Mode d'aquisition*
 		                </label>
 					</div>
 	                <div class="col-lg-6">
@@ -111,7 +121,7 @@
 				
 				<div class="row">
 					<div class="col-lg-4 col-lg-offset-1">  
-		                <label for="text1" class="control-label col-lg-4">Financement
+		                <label for="text1" class="control-label ">Financement *
 		                </label>
 					</div>
 	                <div class="col-lg-6">
@@ -151,7 +161,7 @@
 				-->
 				<div class="row">
 					<div class="col-lg-4 col-lg-offset-1">
-	                     <label for="text2" class="control-label col-lg-4">Origine
+	                     <label for="text2" class="control-label ">Origine *
 	              		  </label>
 					</div>
 	                <div class="col-lg-6">
@@ -167,7 +177,7 @@
                
                <div class="row">
 					<div class="col-lg-4 col-lg-offset-1">
-	                     <label for="text2" class="control-label col-lg-4">Référence pj
+	                     <label for="text2" class="control-label ">Référence pj *
 	              		  </label>
 					</div>
 	                <div class="col-lg-6">
@@ -183,7 +193,7 @@
                
                <div class="row">
 					<div class="col-lg-4 col-lg-offset-1">
-	                     <label for="text2" class="control-label col-lg-4">Espèce des unités
+	                     <label for="text2" class="control-label ">Espèce des unités *
 	              		  </label>
 					</div>
 	                <div class="col-lg-6">
@@ -199,7 +209,7 @@
 				
 				<div class="row">
 					<div class="col-lg-4 col-lg-offset-1">  
-		                <label for="text2" class="control-label col-lg-4">Nombre
+		                <label for="text2" class="control-label ">Nombre *
 		                </label>
 					</div>
 	                <div class="col-lg-6">
@@ -212,7 +222,7 @@
 	                        validatorMessage="Ce nombre n'est pas valide">
 	                        <f:validateDoubleRange minimum="0"/>
 	                        
-	                        </p:inputText>
+	                        </p:inputText>(n)
 	                        <p:message for="nombretoadd" />
 	
 	                </div>
@@ -221,7 +231,7 @@
 				
 				<div class="row">
 					<div class="col-lg-4 col-lg-offset-1">  	
-		                <label for="text2" class="control-label col-lg-4">Montant
+		                <label for="text2" class="control-label ">Montant *
 		                </label>
 					</div>
 	                <div class="col-lg-6">
@@ -233,7 +243,7 @@
 	                        id="prixtoadd"
 	                        validatorMessage="Ce nombre n'est pas valide"
 	                        >
-	                        <f:validateDoubleRange minimum="0"/></p:inputText>
+	                        <f:validateDoubleRange minimum="0"/></p:inputText> (n)
 	                        <p:message for="prixtoadd" />
 	
 	                </div>
@@ -321,6 +331,11 @@
 
     </div>
 
+</div>
+
+<div class="alert alert-info info">
+  <strong>( * ) </strong> : Champ obligatoire<br></br>
+  <strong>( n ) </strong> : Champ à valeur numérique<br></br>
 </div>
 
 <div class="col-md-4"></div>

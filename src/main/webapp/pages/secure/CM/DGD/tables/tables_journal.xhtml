@@ -9,9 +9,14 @@
 
 <h:head></h:head>
 
+<style>
+	.fa span{
+		display:inline-block !important;
+		
+	}
+</style>
+
 <div class="body collapse in table-responsive">
-
-
 	
 <h:form>
 		<!--p:dataTable   var="c" value="#{suivieditionBean.listOperationByDirectionByYearByDateAsc}"
@@ -33,7 +38,7 @@
        			 <span>
        			 		<h:form >
        			 			<p:outputLabel for="annee_journal" value="Exporter le journal du " />
-        					<p:calendar id="annee_journal" size="8" value="#{JournalBean.dat}" navigator="true" pattern="dd MMMM yyyy" required="true" locale="fr"/>
+        					<p:calendar id="annee_journal" size="20" value="#{JournalBean.dat}" navigator="true" pattern="dd MMMM yyyy" required="true" locale="fr"/>
      			 			<p:dialog modal="true" resizable="false" header="Values" widgetVar="dlg" showEffect="fold">
         						<p:panelGrid id="display_journal" columns="2" columnClasses="label,value">
       			 					 <h:outputText value="" />
@@ -44,7 +49,7 @@
     						</p:dialog>
     						
     						<p:outputLabel for="annee_fin" value=" au " />
-        					<p:calendar id="annee_fin" size="8" value="#{JournalBean.datF}" navigator="true" pattern="dd MMMM yyyy" required="true" locale="fr"/>
+        					<p:calendar id="annee_fin" size="20" value="#{JournalBean.datF}" navigator="true" pattern="dd MMMM yyyy" required="true" locale="fr"/>
      			 			<p:dialog modal="true" resizable="false" header="Values" widgetVar="dlg" showEffect="fold">
         						<p:panelGrid id="display_fin" columns="2" columnClasses="label,value">
       			 					 <h:outputText value="" />
@@ -54,7 +59,7 @@
        			 				</p:panelGrid>
     						</p:dialog>
     						
-    						<h:commandButton value="Exporter" action="#{JournalBean.execute(suivieditionBean)}"/>
+    						<p:commandButton value="Exporter" action="#{JournalBean.execute(suivieditionBean)}" styleClass="btn btn-lg-primary fa fa-download "></p:commandButton>
        			 		</h:form>
        			 </span>
     		</f:facet>

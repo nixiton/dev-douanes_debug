@@ -66,21 +66,14 @@
             </f:facet>
             <h:outputLink id="popuit" value="#">
 			
-			<p:panel rendered="#{c['class'].simpleName eq 'OpEntree' }">
-            Saisie materiel
-        	</p:panel>
-			<p:panel rendered="#{c['class'].simpleName eq 'OpSaisie' }">
-            Saisie réferentiel 
-            </p:panel>
-			<p:panel rendered="#{c['class'].simpleName eq 'OpAttribution' }">
-            Attribution
-            </p:panel>
-			<p:panel rendered="#{c['class'].simpleName eq 'OpDettachement' }">
-            Détachement
-            </p:panel>
-			<p:panel rendered="#{c['class'].simpleName eq 'OpSortie' }">
-            Décharge
-            </p:panel>
+			<h:outputText  rendered="#{c['class'].simpleName eq 'OpEntree'}" value="Saisie materiel" />
+				<h:outputText  rendered="#{c['class'].simpleName eq 'OpSaisie' }" value="Saisie réferentiel" />
+				<h:outputText  rendered="#{c['class'].simpleName eq 'OpAttribution' }" value="Attribution" />
+				<h:outputText  rendered="#{c['class'].simpleName eq 'OpDettachement' }" value="Détachement" />
+				<h:outputText  rendered="#{c['class'].simpleName eq 'OpSortie'}" value="Détachement" />
+				<h:outputText  rendered="#{c['class'].simpleName eq 'OpSortieArticle' }" value=" Sortie article" />
+				<h:outputText  rendered="#{c['class'].simpleName eq 'OpEntreeArticle' }" value=" Saisie  artcile" />
+            
             </h:outputLink>
 			<p:tooltip id="idpopup" for="popuit" value="Identifiant: #{c.id}" trackMouse="true" />
         </p:column>
@@ -155,11 +148,7 @@
 
 </h:form>
 
-<ui:include src="/pages/secure/CM/tables/dialogs/dialogs_vattribution.xhtml"></ui:include>
 
-<ui:include src="/pages/secure/CM/tables/dialogs/dialogs_vdecharge.xhtml"></ui:include>
-
-<ui:include src="/pages/secure/CM/tables/dialogs/dialogs_vpriseEnCharge.xhtml"></ui:include>
 
 
 

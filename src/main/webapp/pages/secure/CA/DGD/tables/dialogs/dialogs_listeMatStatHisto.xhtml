@@ -7,7 +7,12 @@
     xmlns:c="http://java.sun.com/jsp/jstl/core"
     >
 
-
+<style>
+	.fa span{
+		display:inline-block !important;
+		
+	}
+</style>
 
 
 <p:dialog id="historique" widgetVar="historique">
@@ -36,7 +41,7 @@
 					<p:panelGrid id="display_stock_fin" columns="3" columnClasses="label,value">
 	 				</p:panelGrid>
 				</p:dialog>
-			<h:commandButton value="Exporter" action="#{FicheStockBean.execute(suivieditionBean, depositaireBean)}"/>
+			<p:commandButton value="Exporter" action="#{FicheStockBean.execute(suivieditionBean, depositaireBean)}" styleClass="fa fa-download btn btn-lg-primary"> </p:commandButton>
 	 		</h:form>
     	</f:facet>
          <p:columnGroup type="header">

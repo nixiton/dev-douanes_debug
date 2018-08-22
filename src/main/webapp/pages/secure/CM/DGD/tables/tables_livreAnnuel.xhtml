@@ -7,6 +7,13 @@
     xmlns:p="http://primefaces.org/ui"
     >
 
+<style>
+	.fa span{
+		display:inline-block !important;
+		
+	}
+</style>
+
 <div   class="body collapse in table-responsive">
 
 
@@ -52,7 +59,7 @@
        			 			<!-- p:outputLabel for="annee_livre_annuel" value="" />
         					<p:calendar id="annee_livre_annuel" value="#{livreAnnuelBean.d}" locale="fr" navigator="true" pattern="yyyy" required="true"/ -->
      			 			
-    						<h:commandButton value="Exporter" action="#{livreAnnuelBean.execute(suivieditionBean)}"/>
+    						<p:commandButton value="Exporter" action="#{livreAnnuelBean.execute(suivieditionBean)}" styleClass="btn btn-lg-primary fa fa-download"> </p:commandButton>
        			 		</h:form>
        			 </span>
     		</f:facet>
