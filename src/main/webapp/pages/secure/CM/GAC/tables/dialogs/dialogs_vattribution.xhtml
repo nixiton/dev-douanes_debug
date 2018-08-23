@@ -60,19 +60,23 @@
 
 
                     </tr>
-                    <tr>
-                        <p:panel rendered="#{gacBean.opAttrToValidate.state eq 'WAITING' }">
-                        <td></td>
-                        <td>
-                            <h:form class="form-horizontal">
+                         
+            </table>
+            
+        <div class="form-group">
+         	<p:panel rendered="#{gacBean.opAttrToValidate.state eq 'WAITING' }">
+				<div class="row">
+					<div class="col-lg-4 col-lg-offset-1">
+						<br/>
+						<h:form class="form-horizontal">
         
                                 <h:commandButton  action="#{gacBean.validateAttributionDetenteur(gacBean.opAttrToValidate)}" value="Valider"
                                            update="growl"  class="btn btn-lg btn-primary btn-block"/>
-                            </h:form>
-                        </td>
-                        <td>
-
-                            <h:form>
+                        </h:form>
+					</div>
+					<div class="col-lg-4 ">
+	
+						<h:form>
 
                                 <label for="text1" >Motif de refus
                                         </label>
@@ -81,19 +85,19 @@
                                             styleClass="form-control top"></h:inputText>
 
                                 <h:commandButton  action="#{gacBean.refuseAttributionDetenteur(gacBean.opAttrToValidate)}" value="Refuser"
-                                            class="btn btn-lg btn-primary btn-block">
+                                            class="btn btn-lg btn-warning btn-block">
                                     <!--f:param name="operationValide" value="#{gacBean.opAttrToValidate}"/-->
                                 </h:commandButton>
 
                             
-                            </h:form>
-                        </td>
-                        <td>
-                        	
-                        </td>
-                        </p:panel>
-                    </tr>      
-            </table>
+                           </h:form>
+	
+					</div>
+				</div>
+			</p:panel>
+		 </div>
+            
+            
         </div>
 
 

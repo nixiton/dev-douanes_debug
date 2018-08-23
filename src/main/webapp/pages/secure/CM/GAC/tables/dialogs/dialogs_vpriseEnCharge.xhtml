@@ -71,7 +71,7 @@
 
                                 <c:if test="#{gacBean.filedownload ne null}" >
                                     <h:form>
-                                        <p:commandButton id="downloadLink" value="Download" ajax="false" icon="ui-icon-document">
+                                        <p:commandButton id="downloadLink" value="Télécharger" ajax="false" icon="ui-icon-document">
                                             <f:setPropertyActionListener target="#{gacBean.fileZipPath}" value="delete" />
                                             <p:fileDownload value="#{gacBean.filedownload}" />
                                             <!-- i class="fa fa-file-archive-o"></i-->
@@ -160,33 +160,24 @@
             </c:forEach>
 
         </p:tabView>
-        <table>
-        <tr>
-        <td></td>
-        <td></td>
-        
-        <td></td>
-        <td> 
-        
-        </td>
-        </tr>
-        </table>
-        <table class="table responsive-table">
-            <p:panel rendered="#{gacBean.opEntreeToValidate.state eq 'WAITING' }">
-
-                <tr>
-                    <td></td>
-                    <td>
-                        <h:form class="form-horizontal">
+       
+         
+         <div class="form-group">
+         	<p:panel rendered="#{gacBean.opEntreeToValidate.state eq 'WAITING' }">
+				<div class="row">
+					<div class="col-lg-4 col-lg-offset-1">
+						<br/>
+						<h:form class="form-horizontal">
 
                             <h:commandButton  action="#{gacBean.validatePrisEnChargeEntreMat(gacBean.opEntreeToValidate)}" value="Valider"
                                               class="btn btn-lg btn-primary btn-block">
                                 <!--f:param name="operationValide" value="#{gacBean.opEntreeToValidate}"/-->
                             </h:commandButton>
-                        </h:form>
-                    </td>
-                    <td>
-                        <h:form>
+                       	</h:form>
+					</div>
+					<div class="col-lg-4 ">
+	
+						<h:form>
 
                             <label for="text1" >Motif de refus
                             </label>
@@ -195,21 +186,19 @@
                                          styleClass="form-control top"></h:inputText>
 
                             <h:commandButton  action="#{gacBean.refusePrisEnChargeEntreMat(gacBean.opEntreeToValidate)}" value="Refuser"
-                                              class="btn btn-lg btn-primary btn-block">
+                                              class="btn btn-lg btn-warning btn-block">
                                 <!--f:param name="operationValide" value="#{gacBean.opEntreeToValidate}"/-->
                             </h:commandButton>
 
 
                         </h:form>
-                    </td>
-                   
-                    <td>
+	
+					</div>
+				</div>
+			</p:panel>
+		 </div>
+            
                     
-                    </td> 
-                </tr>
-
-            </p:panel>
-        </table>
     </div>
 
 

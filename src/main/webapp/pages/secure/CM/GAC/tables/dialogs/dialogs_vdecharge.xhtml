@@ -51,41 +51,45 @@
                         <td></td>
                         <td></td>
                     </tr>
-                    <tr>
-                        <p:panel rendered="#{gacBean.curentopSortieForValidation.state eq 'WAITING' }">
-                        <td></td>
-                        <td>
-                            <h:form class="form-horizontal">
+                      
+            </table>
+            
+          <div class="form-group">
+        	<p:panel rendered="#{gacBean.curentopSortieForValidation.state eq 'WAITING' }">
+				<div class="row">
+					<div class="col-lg-4 col-lg-offset-1">
+						<br/>
+						 <h:form class="form-horizontal">
         
                                 <h:commandButton  action="#{gacBean.validateDechargeSortie(gacBean.curentopSortieForValidation)}" value="Valider"
                                             class="btn btn-lg btn-primary btn-block"/>
-                            </h:form>
-                        </td>
-                        <td>
-                            <h:form>
+                          </h:form>
+					</div>
+					<div class="col-lg-4 ">
+	
+						<h:form>
 
-                                    <label for="text1" >Motif de refus
-                                            </label>
+                           <label for="text1" >Motif de refus
+                                   </label>
 
-                                    <h:inputText value="#{gacBean.motif}" 
-                                                styleClass="form-control top"></h:inputText>
+                           <h:inputText value="#{gacBean.motif}" 
+                                       styleClass="form-control top"></h:inputText>
 
-                                    <h:commandButton  action="#{gacBean.refuseDechargeSortie(gacBean.curentopSortieForValidation)}" value="Refuser"
-                                                class="btn btn-lg btn-primary btn-block">
-                                        <!--f:param name="operationValide" value="#{gacBean.curentopSortieForValidation}"/-->
-                                    </h:commandButton>
+                           <h:commandButton  action="#{gacBean.refuseDechargeSortie(gacBean.curentopSortieForValidation)}" value="Refuser"
+                                       class="btn btn-lg btn-warning btn-block">
+                               <!--f:param name="operationValide" value="#{gacBean.curentopSortieForValidation}"/-->
+                           </h:commandButton>
 
                                 
-                                </h:form>
-
-                          </td>
-                          <td>
-                                	
-
-                        </td>
-                    </p:panel>
-                    </tr>  
-            </table>
+                         </h:form>
+	
+					</div>
+				</div>
+			</p:panel>
+		 </div>	
+            	
+            
+            
         </div>
 
 

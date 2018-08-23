@@ -57,7 +57,7 @@
                         <td>
                             <c:if test="#{depositaireBean.filedownload ne null}" >
                                 <h:form>
-                                    <p:commandButton id="downloadLink" value="Download" ajax="false" icon="ui-icon-document">
+                                    <p:commandButton id="downloadLink" value="Télécharger" ajax="false" icon="ui-icon-document">
                                         <f:setPropertyActionListener target="#{depositaireBean.fileZipPath}" value="delete" />
                                         <p:fileDownload value="#{depositaireBean.filedownload}"/>
                                        

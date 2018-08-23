@@ -53,15 +53,12 @@
 
 
 <h:body styleClass="login">
-	
-
-
-
-
+	<div class="background_rc">
+	</div>
 
 	<div class="form-signin">
 		<div class="text-center">
-			<h:graphicImage value="/pages/unsecure/assets/images/logo.jpeg" />
+			<h:graphicImage styleClass="login_img"  value="/pages/unsecure/assets/images/sigma_logo.png" />
 		</div>
 		<br ></br >
 		<div class="tab-content">
@@ -69,12 +66,12 @@
 				<h:form id="loginFormId" prependId="false" >
 					<p:messages Style="font:1em" id="messages"  autoUpdate="false" showSummary="true" showDetails="false" />
 
-					<h:outputLabel id="outTxtUserNameId" value="Immatriculation: " name="outTxtUserNameNm" styleClass="text-muted text-center"></h:outputLabel>
+					<h:outputLabel id="outTxtUserNameId" value="Immatriculation: " name="outTxtUserNameNm" styleClass="text-muted text-center log_color"></h:outputLabel>
 					<p:inputText id="immatriculation" required="true" value="#{loginMgmtBean.immatriculation}" requiredMessage="Entrez une immatriculation" placeholder="Immatriculation"
 						styleClass="form-control top"></p:inputText>
 					<br ></br >
 					
-					<h:outputLabel id="outTxtUserPasswordId" value="Mot de passe: " name="outTxtUserNameNm" styleClass="text-muted text-center"></h:outputLabel>
+					<h:outputLabel id="outTxtUserPasswordId" value="Mot de passe: " name="outTxtUserNameNm" styleClass="text-muted text-center log_color"></h:outputLabel>
 					
 					
 					<p:password id="password"  required="true" value="#{loginMgmtBean.password}" requiredMessage="Erreur Mot de Passe" placeholder="Mot de passe" styleClass="form-control bottom" ></p:password>
@@ -83,7 +80,7 @@
 					
 					<p:commandButton action="#{loginMgmtBean.login}" value="Se connecter"  
 					update="messages"
-					styleClass="btn btn-lg btn-block fa fa-sign-in">
+					styleClass="btn btn-lg btn-block fa fa-sign-in log_color">
 					
 					</p:commandButton>
 					<br></br>
