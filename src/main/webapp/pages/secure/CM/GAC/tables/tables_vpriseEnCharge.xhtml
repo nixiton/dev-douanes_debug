@@ -17,14 +17,14 @@
                  paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}  "
                  paginator="true" rows="10" style="margin-bottom:20px" emptyMessage="Aucun résultat">
         
-        <p:column sortBy="#{c.id}" style="text-align: center; word-wrap: break-word;">
+        <p:column styleClass="#{c.state}" sortBy="#{c.id}" style="text-align: center; word-wrap: break-word;">
             <f:facet name="header">
                 <h:outputText value="ID" />
             </f:facet>
             <h:outputText value="#{c.id}" />
         </p:column>
  
-        <p:column sortBy="#{c.date}" style="text-align: center; word-wrap: break-word;">
+        <p:column styleClass="#{c.state}" sortBy="#{c.date}" style="text-align: center; word-wrap: break-word;">
             <f:facet name="header">
                 <h:outputText value="Date"/>
             </f:facet>    
@@ -33,7 +33,7 @@
             </h:outputText>
         </p:column>
  
-        <p:column sortBy="#{c.time}" style="text-align: center; word-wrap: break-word;">
+        <p:column styleClass="#{c.state}" sortBy="#{c.time}" style="text-align: center; word-wrap: break-word;">
             <f:facet name="header">
                 <h:outputText value="Heure" />
             </f:facet>
@@ -42,25 +42,25 @@
             </h:outputText>
         </p:column>
  
-        <p:column sortBy="#{c.poste}" style="text-align: center; word-wrap: break-word;">
+        <p:column styleClass="#{c.state}" sortBy="#{c.poste}" style="text-align: center; word-wrap: break-word;">
             <f:facet name="header">
                 <h:outputText value="Poste" />
             </f:facet>
             <h:outputText value="#{c.poste}" />
         </p:column>
-        <p:column sortBy="#{c.operateur.im}" style="text-align: center; word-wrap: break-word;">
+        <p:column styleClass="#{c.state}" sortBy="#{c.operateur.im}" style="text-align: center; word-wrap: break-word;">
             <f:facet name="header">
                 <h:outputText value="Opérateur" />
             </f:facet>
             <h:outputText value="#{c.operateur.im}" />
         </p:column>
-        <p:column style="text-align: center; word-wrap: break-word;">
+        <p:column styleClass="#{c.state}" style="text-align: center; word-wrap: break-word;">
             <f:facet name="header" >
                 <h:outputText value="Etat" />
             </f:facet>
-            <h:outputText value="#{c.state}" />
+            <h:outputText value="#{dtFilterView.getOperationStateDes(c.state)}" />
         </p:column>
-        <p:column style="text-align: center; word-wrap: break-word;">
+        <p:column styleClass="#{c.state}" style="text-align: center; word-wrap: break-word;">
             
             <f:facet name="header">
                 <h:outputText value="Validation" />
@@ -71,7 +71,7 @@
             <p:commandButton action="#{gacBean.setOpEntreeToValidate(c)}" update=":detail"
             oncomplete="PF('detail').show(); PF('detail').content.scrollTop('0')" icon="ui-icon-zoomin"/>
         </p:column>
-        <p:column style="text-align: center; word-wrap: break-word;">
+        <p:column styleClass="#{c.state}" style="text-align: center; word-wrap: break-word;">
         <f:facet name="header">
                 <h:outputText value="Ordre d'entrée" />
             </f:facet>

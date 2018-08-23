@@ -116,7 +116,7 @@ public class DtFilterView implements Serializable{
 		}else if(op==OpAttribution.class) {
 			return "Opération attribution";
 		}else if(op==OpDettachement.class) {
-			return "Opération Déttachement";
+			return "Opération Détachement";
 		}
 		else if(op==OpEntreeArticle.class) {
 			return "Opération Entrée Article";
@@ -195,5 +195,25 @@ public class DtFilterView implements Serializable{
         //pdf.add(cell);
         pdf.add(imageCenter);
     }
+	
+	public String getOperationStateDes(EtatOperation e) {
+		if(e==null) {
+			return  "";
+		}
+		switch (e) {
+		case REFUSED:
+			return "REFUSEE";
+			//break;
+		case ACCEPTED:
+			return "ACCEPTEE";
+		case WAITING:
+			return "EN ATTENTE";
+
+		default:
+			return "";
+			//break;
+		}
+	}
+		
 
 }

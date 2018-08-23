@@ -50,7 +50,7 @@
                     <f:selectItems value="#{dtFilterView.etats}" />
                 </p:selectOneMenu>
             </f:facet>
-            <h:outputText value="#{c.state}" />
+            <h:outputText value="#{dtFilterView.getOperationStateDes(c.state)}" />
         </p:column>
 
 

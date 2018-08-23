@@ -32,7 +32,7 @@
             </h:commandLink>
         </f:facet-->
 
-		<p:column headerText="Date" style="text-align: center; word-wrap: break-word;">
+		<p:column styleClass="#{c.state}" headerText="Date" style="text-align: center; word-wrap: break-word;">
             <h:outputText value="#{c.date}" >
             	<f:convertDateTime pattern="dd MMMM yyyy " timeZone="GMT+3"/>
             </h:outputText>
@@ -42,25 +42,25 @@
             </h:outputText>
         </p:column>
 
-		<p:column style="text-align: center; word-wrap: break-word;">
+		<p:column styleClass="#{c.state}" style="text-align: center; word-wrap: break-word;">
 			<f:facet name="header">
 				<h:outputText value="Poste" />
 			</f:facet>
 			<h:outputText value="#{c.poste}" />
 		</p:column>
 		
-		<p:column filterBy="#{c.state}" headerText="Etat"  filterMatchMode="exact" style="text-align: center; word-wrap: break-word;">
+		<p:column styleClass="#{c.state}" filterBy="#{c.state}" headerText="Etat"  filterMatchMode="exact" style="text-align: center; word-wrap: break-word;">
 			<f:facet name="filter">
                 <p:selectOneMenu onchange="PF('operationsTable').filter()" >
                     <f:selectItem itemLabel="Selectionner" itemValue="#{null}" noSelectionOption="true" />
                     <f:selectItems value="#{dtFilterView.etats}" />
                 </p:selectOneMenu>
             </f:facet>
-            <h:outputText value="#{c.state}" />
+           <h:outputText value="#{dtFilterView.getOperationStateDes(c.state)}" />
         </p:column>
 
 
-       <p:column filterBy="#{c['class']}" headerText="Type d'Opération"  filterMatchMode="exact" style="text-align: center; word-wrap: break-word;">
+       <p:column styleClass="#{c.state}" filterBy="#{c['class']}" headerText="Type d'Opération"  filterMatchMode="exact" style="text-align: center; word-wrap: break-word;">
 			<f:facet name="filter">
                 <p:selectOneMenu onchange="PF('operationsTable').filter()" >
                     <f:selectItem itemLabel="Selectionner" itemValue="#{null}" noSelectionOption="true" />
@@ -79,12 +79,11 @@
             </h:outputLink>
 			<p:tooltip id="idpopup" for="popuit" value="Identifiant: #{c.id}" trackMouse="true" />
         </p:column>
-         <p:column style="text-align: center; word-wrap: break-word;">
+         <p:column  styleClass="#{c.state}" style="text-align: center; word-wrap: break-word;">
                 <f:facet name="header">
                     <h:outputText value="Pièces justificatives" />
                 </f:facet>  
-               				
-                <h:commandLink  rendered="#{c['class'].simpleName eq 'OpAttribution' }" action="#{docbean.generateDetenteur(c)}" target="_blank">
+             <h:commandLink  rendered="#{c['class'].simpleName eq 'OpAttribution' }" action="#{docbean.generateDetenteur(c)}" target="_blank">
                     <i class="fa fa-file-archive-o"></i>
                 </h:commandLink>
                          
@@ -98,7 +97,6 @@
                 </h:commandLink> 
 
             </p:column>
-
 	</p:dataTable>
 
 
