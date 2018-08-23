@@ -73,7 +73,9 @@
        <p:column style="width:3%; text-align: center; word-wrap: break-word;">
        		<p:commandButton  action="#{siseBean.deleteRow(nomenclature)}"
        icon="ui-icon-close" update=":formCodi:msgtableCodi"
-       oncomplete="PF('CodiTable').filter()"/>
+       oncomplete="PF('codiTable').filter()">
+       <p:confirm header="Confirmation" message="Etes-vous sure?" icon="ui-icon-alert" />
+       </p:commandButton>
        </p:column>
        </c:if>
 	</p:dataTable>

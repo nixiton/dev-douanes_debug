@@ -63,7 +63,10 @@
        <p:column style=" width:3%; text-align: center; word-wrap: break-word;">
        		<p:commandButton  action="#{siseBean.deleteRow(typemateriel)}"
        icon="ui-icon-close" update=":formTypArt:msgtableTypeArt"
-       oncomplete="PF('ArtTable').filter()"/>
+       oncomplete="PF('ArtTable').filter()">
+       <p:confirm header="Confirmation" message="Etes-vous sure?" icon="ui-icon-alert" />
+       </p:commandButton>
+       
        </p:column>
        </c:if>
 		
