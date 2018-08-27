@@ -7,6 +7,13 @@
     >
     
 <h:head></h:head>
+
+<style>
+	
+	.fa span{
+	  display: inline-block !important;
+	}
+</style>
 	<ui:include src="/pages/unsecure/components/header.xhtml"></ui:include>
 	<div class="col-md-1"></div>
 	<h:form><div class="col-md-10" style="font-size: 18px!important;color: #5f5f5f;">
@@ -87,11 +94,11 @@
  		
  		<div class="col-md-3">
  		<p>Arrété le présent journal <p:inputText value="#{JasperTableExampleBean.journal.arrete}"></p:inputText> </p>
- 			<br/><p:commandButton action="#{JasperTableExampleBean.journalReport(JournalABean.dateD, JournalABean.dateF, JournalABean.liste)}" type="submit" value="Exporter en PDF" ajax="false" >
+ 			<br/><p:commandButton styleClass="ui-priority-primary fa fa-file"  style="width:200px; height:50px; " action="#{JasperTableExampleBean.journalReport(JournalABean.dateD, JournalABean.dateF, JournalABean.liste)}" type="submit" value="Exporter en PDF" ajax="false" >
 	 			<f:setPropertyActionListener target="#{JasperTableExampleBean.journal.lieu}" value="#{JournalABean.trois}" />
 	 			<f:setPropertyActionListener target="#{JasperTableExampleBean.journal.num4}" value="#{JournalABean.quatre}" />
  			</p:commandButton>
- 			<br/><p:commandButton action="#{JasperTableExampleBean.journalDoc(JournalABean.dateD, JournalABean.dateF, JournalABean.liste)}" type="submit" value="Exporter en Word" ajax="false" >
+ 			<br/><p:commandButton styleClass="ui-priority-primary fa fa-file-word-o"  style="width:200px;  height:50px; " action="#{JasperTableExampleBean.journalDoc(JournalABean.dateD, JournalABean.dateF, JournalABean.liste)}" type="submit" value="Exporter en Word" ajax="false" >
 	 			<f:setPropertyActionListener target="#{JasperTableExampleBean.journal.lieu}" value="#{JournalABean.trois}" />
 	 			<f:setPropertyActionListener target="#{JasperTableExampleBean.journal.num4}" value="#{JournalABean.quatre}" />
  			</p:commandButton>
