@@ -1195,8 +1195,8 @@ public class SuiviEditionBean {
 			Calendar calendar = new GregorianCalendar();
 			calendar.setTime(date);
 			//int year = calendar.get(Calendar.YEAR);
-			Date sdate = new GregorianCalendar(year - 2, Calendar.JANUARY, 1).getTime();
-			Date edate = new GregorianCalendar(year + 1, Calendar.DECEMBER, 30).getTime();
+			Date sdate = new GregorianCalendar(year , Calendar.JANUARY, 1).getTime();
+			Date edate = new GregorianCalendar(year , Calendar.DECEMBER, 31).getTime();
 			List<OperationES> listop = usermetierimpl.getListOpESForJournal(cur.getDirection(), sdate, edate);
 			List<Object[]> listobjectForLivre = new ArrayList<Object[]>();
 			for (OperationES op : listop) {
