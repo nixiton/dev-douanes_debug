@@ -88,7 +88,10 @@
 
 				<ul class="nav navbar-nav" >
 
-					<c:if test="#{topMenuMB.curentAgent.roleAgent.role eq 'ROLE_ADMIN'}">
+					<c:if test="#{topMenuMB.curentAgent.roleAgent.role eq 'ROLE_ADMIN'
+					or topMenuMB.curentAgent.roleAgent.role eq 'ROLE_DRF'
+					or topMenuMB.curentAgent.roleAgent.role eq 'ROLE_DG'
+					}">
 						<li class="active" ><h:commandLink
 								action="#{topMenuMB.goToDashboard}" immediate="true" style="color:#CCC">
 								Tableau de bord
