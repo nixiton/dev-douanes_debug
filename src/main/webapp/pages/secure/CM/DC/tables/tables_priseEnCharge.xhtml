@@ -8,6 +8,29 @@
 
 <h:head></h:head>
 
+<div id="content">
+
+    <div>
+        <div class="box dark">
+            <header>
+            <div class="icons">
+                <i class="fa fa-edit"></i>
+            </div>
+            <h5>Prise en charge ACCEPTEE</h5>
+            <!-- .toolbar -->
+            <div class="toolbar">
+                <nav style="padding: 8px;"> <a href="javascript:;"
+                    class="btn btn-default btn-xs collapse-box"> <i
+                    class="fa fa-minus"></i>
+                </a> <a href="javascript:;" class="btn btn-default btn-xs full-box">
+                    <i class="fa fa-expand"></i>
+                </a> <!--a href="javascript:;" class="btn btn-danger btn-xs close-box">
+                                        <i class="fa fa-times"></i>
+                                    </a--> </nav>
+            </div>
+            <!-- /.toolbar --> </header>
+
+
 <div   class="body collapse in table-responsive">
 	<c:if test="#{topMenuMB.curentAgent.roleAgent.role eq 'ROLE_ADMIN' 
             or topMenuMB.curentAgent.roleAgent.role eq 'ROLE_DC'
@@ -139,8 +162,50 @@
     </p:dataTable>
     
     </h:form>
-    
-    
+</div> 
+</div>
+</div>
+</div>
+
+<div id="content">
+
+            
+        
+            <div>
+                <div class="box dark">
+                    <header>
+                    <div class="icons">
+                        <i class="fa fa-edit"></i>
+                    </div>
+                    <h5>Prise en charge NON ACCEPTEE</h5>
+                    <!-- .toolbar -->
+                    <div class="toolbar">
+                        <nav style="padding: 8px;"> <a href="javascript:;"
+                            class="btn btn-default btn-xs collapse-box"> <i
+                            class="fa fa-minus"></i>
+                        </a> <a href="javascript:;" class="btn btn-default btn-xs full-box">
+                            <i class="fa fa-expand"></i>
+                        </a> <!--a href="javascript:;" class="btn btn-danger btn-xs close-box">
+                                                <i class="fa fa-times"></i>
+                                            </a--> </nav>
+                    </div>
+                    <!-- /.toolbar --> </header>
+  
+<div   class="body collapse in table-responsive">
+	<c:if test="#{topMenuMB.curentAgent.roleAgent.role eq 'ROLE_ADMIN' 
+            or topMenuMB.curentAgent.roleAgent.role eq 'ROLE_DC'
+            }">
+    <div class="row">
+		<div class="col-lg-2">
+	        <h:link value="" outcome="add_PriseEnCharge"
+	            class="btn btn-lg btn-primary btn-block " immediate="true" >
+          	 <i class="fa fa-plus-circle">  </i>   Ajouter 
+          	 </h:link>
+        </div>   
+        <hr></hr>
+		<br/>
+    </div>    
+    </c:if>   
     
     <h:form>
 
@@ -234,6 +299,9 @@
     </p:dataTable>
     
     </h:form>
+</div>
+</div>
+</div>
 </div>
 
 <ui:include src="/pages/secure/CM/DC/tables/dialogs/dialogs_priseEnCharge.xhtml"></ui:include>
