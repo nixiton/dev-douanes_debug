@@ -17,6 +17,24 @@
 	  right: 24px;
 	  height: 70px;
 	}
+	.ui-selectonemenu-item-group.ui-corner-all{
+		white-space: nowrap !important;
+		overflow: hidden !important;
+    	text-overflow: ellipsis !important;
+    	max-width: 30ch !important;
+	}
+	.ui-selectonemenu-item.ui-selectonemenu-list-item.ui-corner-all{
+	  text-overflow: ellipsis !important;
+	  overflow: hidden !important;
+	  max-width: 30ch !important;
+	}
+	*[data-label=" + Ajouter"]{
+	  background-color: #dedede; !important;
+	  position:absolute !important;
+	  width: 89% !important;
+	  bottom:0 !important;
+	}
+	
 </style>
 
 <h:body>
@@ -131,8 +149,8 @@
             </div>
            	<hr />
 				<div class="row">
-					<div class="col-lg-4 col-lg-offset-1">
-                    	<label for="text1" class="control-label col-lg-4">Type de Matériel *
+					<div class="col-lg-6 ">
+                    	<label for="text1" class="control-label ">Type de Matériel *
                     	</label>
 					</div>
                    <div class="col-lg-6">
@@ -151,8 +169,8 @@
                     
 
 				<div class="row">
-					<div class="col-lg-4 col-lg-offset-1">
-                    	<label for="text1" class="control-label col-lg-4">Nomenclature
+					<div class="col-lg-6 ">
+                    	<label for="text1" class="control-label ">Nomenclature
                     	</label>
 					</div>
                     <div class="col-lg-6">
@@ -163,9 +181,9 @@
 				</div>
 				<hr />
 
-                 <div class="row">
-					<div class="col-lg-4 col-lg-offset-1">   
-                    	<label for="text1" class="control-label col-lg-4">Marque *
+                 <div class="row" >
+					<div class="col-lg-6">   
+                    	<label for="text1" class="control-label ">Marque *
                     	</label>
 					</div>
                     <div class="col-lg-6">
@@ -179,17 +197,18 @@
 	                            <h:outputText value="#{t.designation}" />
 	                        </p:column> -->
 	                        
-	                        <f:selectItem itemValue="#{siseBean.nouvmark}" itemLabel=" + Ajouter" />
+	                        <f:selectItem itemValue="#{siseBean.nouvmark}" itemLabel=" + Ajouter"/>
                 			<p:ajax listener="#{siseBean.addNewMarque}" />
 	                        
-	
+							
 	                    </p:selectOneMenu>
+	                   
                     </div>
                 </div>
                  <hr></hr>
                 <div class="row">
-					<div class="col-lg-4 col-lg-offset-1">   
-	                    <label for="text1" class="control-label col-lg-4">Prix unitaire *
+					<div class="col-lg-6">   
+	                    <label for="text1" class="control-label ">Prix unitaire *
 	                    </label>
 					</div>
                     <div class="col-lg-6">
@@ -207,8 +226,8 @@
 				 <hr></hr>
 				 
 				 <div class="row">
-					<div class="col-lg-4 col-lg-offset-1">
-                    	<label for="text1" class="control-label col-lg-4">Caractéristiques
+					<div class="col-lg-6">
+                    	<label for="text1" class="control-label ">Caractéristiques
                    		 </label>
 					</div>
                     <div class="col-lg-6">
@@ -226,8 +245,8 @@
                 <hr/>
                                    
 				<div class="row">
-					<div class="col-lg-4 col-lg-offset-1">
-	                    <label for="text1" class="control-label col-lg-4">Autre
+					<div class="col-lg-6">
+	                    <label for="text1" class="control-label ">Autre
 	                    </label>
 					</div>
                     <div class="col-lg-6">
@@ -241,9 +260,9 @@
 				</div>
 				<hr/>
 				<div class="row">
-					<div class="col-lg-4 col-lg-offset-1">
+					<div class="col-lg-6">
 				
-	                    <label for="text1" class="control-label col-lg-4">Année d'acquisition *
+	                    <label for="text1" class="control-label ">Année d'acquisition *
 	                    </label>
 					</div>
                     <div class="col-lg-6">
@@ -259,8 +278,8 @@
 				<hr />
 				
 				<div class="row">
-					<div class="col-lg-4 col-lg-offset-1">
-	                    <label for="text1" class="control-label col-lg-4">Origine *
+					<div class="col-lg-6">
+	                    <label for="text1" class="control-label ">Origine *
 	                    </label>
 					</div>
                     <div class="col-lg-6">
@@ -276,8 +295,8 @@
 				<hr/>
 				
 				<div class="row">
-					<div class="col-lg-4 col-lg-offset-1">
-	                    <label for="text1" class="control-label col-lg-4">Espèce des unités *
+					<div class="col-lg-6">
+	                    <label for="text1" class="control-label ">Espèce des unités *
 	                    </label>
 					</div>
                     <div class="col-lg-6">
@@ -293,8 +312,8 @@
 				<hr/>
 
 				<div class="row">
-					<div class="col-lg-4 col-lg-offset-1">
-	                    <label for="text1" class="control-label col-lg-4">Etat *
+					<div class="col-lg-6">
+	                    <label for="text1" class="control-label ">Etat *
 	                	</label>
 					</div>
                 	<div class="col-lg-6">
@@ -415,4 +434,5 @@
 
 <div class="col-md-4"></div>
 </h:body>
+
 </html>

@@ -11,7 +11,7 @@
 -- Data for Name: useri; Type: TABLE DATA; Schema: public; Owner: -
 --
 
-INSERT INTO useri VALUES (1, 'Administrateur', 'ROLE_ADMIN');
+--INSERT INTO useri VALUES (1, 'Administrateur', 'ROLE_ADMIN');
 
 --
 -- TOC entry 2164 (class 0 OID 324008)
