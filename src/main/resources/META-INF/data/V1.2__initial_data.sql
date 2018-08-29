@@ -74,7 +74,7 @@ CREATE SEQUENCE ag_seq
 --
 
 CREATE TABLE agent (
-    idagent bigint NOT NULL,
+    idagent bigint primary key,
     active boolean NOT NULL,
     im bigint,
     nomagent character varying(255),
@@ -661,19 +661,6 @@ CREATE TABLE typeobjet (
     caracteristique character varying(255)
 );
 
-
---
--- TOC entry 212 (class 1259 OID 322032)
--- Name: useri; Type: TABLE; Schema: public; Owner: -; Tablespace: 
---
-
-CREATE TABLE useri (
-    iduser integer NOT NULL,
-    designation character varying(255),
-    role character varying(255)
-);
-
-
 --
 -- TOC entry 213 (class 1259 OID 322038)
 -- Name: useri_iduser_seq; Type: SEQUENCE; Schema: public; Owner: -
@@ -686,6 +673,20 @@ CREATE SEQUENCE useri_iduser_seq
     NO MAXVALUE
     CACHE 1;
 
+--
+-- TOC entry 212 (class 1259 OID 322032)
+-- Name: useri; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE TABLE useri (
+    iduser integer primary key,
+    designation character varying(255),
+    role character varying(255)
+);
+
+
+
+
 
 --
 -- TOC entry 2362 (class 0 OID 0)
@@ -693,7 +694,7 @@ CREATE SEQUENCE useri_iduser_seq
 -- Name: useri_iduser_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
-ALTER SEQUENCE useri_iduser_seq OWNED BY useri.iduser;
+--ALTER SEQUENCE useri_iduser_seq OWNED BY useri.iduser;
 
 
 --
@@ -711,3 +712,47 @@ ALTER TABLE ONLY fournisseurdetail ALTER COLUMN idfourn SET DEFAULT nextval('fou
 
 ALTER TABLE ONLY useri ALTER COLUMN iduser SET DEFAULT nextval('useri_iduser_seq'::regclass);
 
+
+--
+--TRIGER TO INCREMENT SEQUENCE AUTO
+--
+--
+-- TOC entry 2206 (class 0 OID 0)
+-- Dependencies: 172
+-- Name: account_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
+--
+
+SELECT pg_catalog.setval('account_id_seq', 1, false);
+
+
+--
+-- TOC entry 2207 (class 0 OID 0)
+-- Dependencies: 173
+-- Name: account_idart_seq; Type: SEQUENCE SET; Schema: public; Owner: -
+--
+
+SELECT pg_catalog.setval('account_idart_seq', 1, false);
+
+
+--
+-- TOC entry 2155 (class 0 OID 323971)
+-- Dependencies: 174
+-- Data for Name: adresse; Type: TABLE DATA; Schema: public; Owner: -
+--
+
+
+
+--
+-- TOC entry 2208 (class 0 OID 0)
+-- Dependencies: 175
+-- Name: ag_seq; Type: SEQUENCE SET; Schema: public; Owner: -
+--
+
+SELECT pg_catalog.setval('ag_seq', 1, false);
+--
+-- TOC entry 2209 (class 0 OID 0)
+-- Dependencies: 182
+-- Name: designation_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
+--
+
+SELECT pg_catalog.setval('designation_id_seq', 1, false);
