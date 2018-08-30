@@ -126,7 +126,7 @@ body {
 }
 #top .topnav {
   margin: 10px 0;
-  text-align: right;
+  text-align: right !important;
 }
 @media (min-width: 768px) {
   #top .topnav {
