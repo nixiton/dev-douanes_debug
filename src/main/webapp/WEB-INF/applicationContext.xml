@@ -91,114 +91,78 @@
         <property name="minPoolSize" value="5" />
     </bean>
 
-	<!-- Flyway 4 configuration -->
-	<bean id="flyway" class="com.myzilla.migration.MyZillaMigration"
-		  init-method="repairAndMigrate">
-		<property name="locations">
-			<list>
-				<value>classpath:META-INF/migration</value>
-				<value>classpath:META-INF/data</value>
-			</list>
-		</property>
-		<property name="dataSource" ref="DataSource" />
-		<property name="validateOnMigrate" value="true" />
-	</bean>
-	
-	<!-- Flyway configuration 
+    <!--bean id="persistenceUnitManager" class="org.springframework.orm.jpa.persistenceunit.DefaultPersistenceUnitManager"> 
+        <property name="persistenceXmlLocations"> <list> <value>classpath*:WEB-INF/persistence.xml 
+        </value> </list> </property> <property name="defaultDataSource" ref="DataSource"> 
+        </property> </bean -->
 
-	<bean id="flyway" class="com.myzilla.migration.MyZillaMigration" init-method="repairAndMigrate">
+    <!-- Bean FlyWay for DataBase Migration USING MyZillaMigration--> 
+    <!--bean id="flyway" class="com.myzilla.migration.MyZillaMigration"
+        init-method="repairAndMigrate">
+        <property name="locations"> 
+            <list>
+            <value>classpath:META-INF/migration</value>
+            <value>classpath:META-INF/data</value>
+            </list>
+        </property>
+        <property name="dataSource" ref="DataSource" />
+        <property name="validateOnMigrate" value="true" />
+    </bean-->
+    
+    <!-- Bean FlyWay for DataBase Migration Simple  
+    <bean id="flyway" class="org.flywaydb.core.Flyway" init-method="migrate">
+        <property name="baselineOnMigrate" value="true" />
+        <property name="locations"> 
+            <list>
+            <value>classpath:META-INF/migration</value>
+            <value>classpath:META-INF/data</value>
+            </list>
+        </property>
+        <property name="dataSource" ref="DataSource" />
+    </bean>
+    -->
 
-	    <property name="validateOnMigrate" value="false" />
-
-	    <property name="locations" value="classpath:/META-INF/migration"/>
-
-	    <property name="dataSource" ref="DataSource" />
-
-	</bean>-->
-
-	<bean id="emf" depends-on="flyway"
-		  class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
-		<property name="dataSource" ref="DataSource"></property>
-		<property name="jpaVendorAdapter">
-			<bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter" />
-		</property>
-		<property name="jpaProperties">
-			<props>
-				<prop key="hibernate.hbm2ddl.auto">none</prop>
-				<!--  prop key="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</prop-->
-				<prop key="hibernate.dialect"> org.hibernate.dialect.PostgreSQLDialect</prop>
-				<prop key="hibernate.show_sql">true</prop>
-				<prop key="hibernate.useUnicode">true</prop>
-        		<prop key="hibernate.characterEncoding">utf8</prop>
-        		<prop key="hibernate.CharSet">utf8</prop>
-				
-			</props>
-		</property>
-	</bean>
-
-
-
-
-	<!--bean id="persistenceUnitManager" class="org.springframework.orm.jpa.persistenceunit.DefaultPersistenceUnitManager">
-		<property name="persistenceXmlLocations"> <list> <value>classpath*:WEB-INF/persistence.xml
-		</value> </list> </property> <property name="defaultDataSource" ref="DataSource">
-		</property> </bean -->
-
-	<!-- Bean FlyWay for DataBase Migration USING MyZillaMigration-->
-	<!--bean id="flyway" class="com.myzilla.migration.MyZillaMigration"
-		init-method="repairAndMigrate">
-		<property name="locations">
-			<list>
-			<value>classpath:META-INF/migration</value>
-			<value>classpath:META-INF/data</value>
-			</list>
-		</property>
-		<property name="dataSource" ref="DataSource" />
-		<property name="validateOnMigrate" value="true" />
-	</bean-->
-
-	<!-- Bean FlyWay for DataBase Migration Simple
-	<bean id="flyway" class="org.flywaydb.core.Flyway" init-method="migrate">
-		<property name="baselineOnMigrate" value="true" />
-		<property name="locations">
-			<list>
-			<value>classpath:META-INF/migration</value>
-			<value>classpath:META-INF/data</value>
-			</list>
-		</property>
-		<property name="dataSource" ref="DataSource" />
-	</bean>
-	-->
+    <bean id="emf"
+        class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+        <property name="dataSource" ref="DataSource"></property>
+        <property name="jpaVendorAdapter">
+            <bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter" />
+        </property>
+        <property name="jpaProperties">
+            <props>
+                <prop key="hibernate.hbm2ddl.auto">update</prop>
+                <prop key="hibernate.dialect"> org.hibernate.dialect.PostgreSQLDialect</prop>
+            </props>
+        </property>
+    </bean>
+    <!-- bean id="emf" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean"> 
+        <property name="persistenceUnitManager" ref="persistenceUnitManager"> </property> 
+        <property name="persistenceUnitName" value="mypu"></property> </bean -->
 
 
-	<!-- bean id="emf" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
-		<property name="persistenceUnitManager" ref="persistenceUnitManager"> </property>
-		<property name="persistenceUnitName" value="mypu"></property> </bean -->
+    <!-- Session Factory Declaration <bean id="SessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean"> 
+        <property name="dataSource" ref="DataSource" /> <property name="annotatedClasses"> 
+        <list> <value>com.douane.model.User</value> </list> </property> <property 
+        name="hibernateProperties"> <props> <prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop> 
+        <prop key="hibernate.show_sql">true</prop> <prop key="hibernate.hbm2ddl.auto">update</prop> 
+        </props> </property> </bean> -->
+
+    <bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+        <property name="entityManagerFactory" ref="emf" />
+    </bean>
 
 
-	<!-- Session Factory Declaration <bean id="SessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
-		<property name="dataSource" ref="DataSource" /> <property name="annotatedClasses">
-		<list> <value>com.douane.model.User</value> </list> </property> <property
-		name="hibernateProperties"> <props> <prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
-		<prop key="hibernate.show_sql">true</prop> <prop key="hibernate.hbm2ddl.auto">update</prop>
-		</props> </property> </bean> -->
+    <!-- Enable the configuration of transactional behavior based on annotations -->
+    <tx:annotation-driven transaction-manager="transactionManager" />
 
-	<bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
-		<property name="entityManagerFactory" ref="emf" />
-	</bean>
+    <!-- Transaction Manager is defined -->
+    <!-- >bean id="txManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager"> 
+        <property name="sessionFactory" ref="SessionFactory"/> </bean -->
 
+    <import resource="security-context.xml" />
 
-	<!-- Enable the configuration of transactional behavior based on annotations -->
-	<tx:annotation-driven transaction-manager="transactionManager" />
-
-	<!-- Transaction Manager is defined -->
-	<!-- >bean id="txManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager">
-		<property name="sessionFactory" ref="SessionFactory"/> </bean -->
-
-	<import resource="security-context.xml" />
-
-	<jpa:repositories base-package="com.douane.repository"
-		transaction-manager-ref="transactionManager"
-		entity-manager-factory-ref="emf" />
+    <jpa:repositories base-package="com.douane.repository"
+        transaction-manager-ref="transactionManager"
+        entity-manager-factory-ref="emf" />
 
 </beans>
