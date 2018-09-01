@@ -185,7 +185,9 @@ INSERT INTO typemateriel VALUES (72, 'Tenue de cérémonie', 'TEN2', 52);
 
 INSERT INTO useri VALUES (2, 'Dépositaire Comptable', 'ROLE_DC');
 
-INSERT INTO agent VALUES (1, true, 999999, 'Administrateur', '$2a$10$nVMDUP0w6Wji4FakfFNiBe2feKLK/oo4b9iFcKjXtqysCAAxN2/Py', NULL, NULL, NULL, NULL, 1, NULL);
+INSERT INTO useri VALUES (1, 'Administrateur', 'ROLE_ADMIN');
+
+INSERT INTO agent VALUES (1, true, 999999, 'Administrateur', '$2a$10$nVMDUP0w6Wji4FakfFNiBe2feKLK/oo4b9iFcKjXtqysCAAxN2/Py', NULL, NULL, NULL, 1);
 
 --
 -- TOC entry 2213 (class 0 OID 0)

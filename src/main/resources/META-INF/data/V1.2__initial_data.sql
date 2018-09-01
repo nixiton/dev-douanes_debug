@@ -50,7 +50,7 @@ SET default_with_oids = false;
 --
 
 CREATE TABLE adresse (
-    id bigint NOT NULL,
+    id bigint NOT NULL primary key,
     designation character varying(255)
 );
 
@@ -76,15 +76,13 @@ CREATE SEQUENCE ag_seq
 CREATE TABLE agent (
     idagent bigint primary key,
     active boolean NOT NULL,
-    im bigint,
+    im bigint NOT NULL UNIQUE,
     nomagent character varying(255),
     password character varying(255) NOT NULL,
     prenomagent character varying(255),
-    idbureau bigint,
     iddirection bigint,
     idposteny bigint,
-    idrole integer,
-    idservice bigint
+    idrole integer
 );
 
 
@@ -95,7 +93,7 @@ CREATE TABLE agent (
 
 CREATE TABLE article (
     typeart integer NOT NULL,
-    idarticle bigint NOT NULL,
+    idarticle bigint NOT NULL primary key,
     caracteristiquearticle character varying(255),
     especeunit character varying(255),
     nombre bigint,
@@ -114,17 +112,6 @@ CREATE TABLE article (
 );
 
 
---
--- TOC entry 178 (class 1259 OID 321886)
--- Name: bureau; Type: TABLE; Schema: public; Owner: -; Tablespace: 
---
-
-CREATE TABLE bureau (
-    id bigint NOT NULL,
-    designation character varying(255),
-    codebureau character varying(255)
-);
-
 
 --
 -- TOC entry 179 (class 1259 OID 321892)
@@ -132,7 +119,7 @@ CREATE TABLE bureau (
 --
 
 CREATE TABLE categoriemat (
-    id bigint NOT NULL,
+    id bigint NOT NULL primary key,
     designation character varying(255)
 );
 
@@ -143,7 +130,7 @@ CREATE TABLE categoriemat (
 --
 
 CREATE TABLE codearticle (
-    id bigint NOT NULL,
+    id bigint NOT NULL primary key,
     designation character varying(255),
     idtypeobj bigint
 );
@@ -155,7 +142,7 @@ CREATE TABLE codearticle (
 --
 
 CREATE TABLE designation (
-    iddesignation bigint NOT NULL,
+    iddesignation bigint NOT NULL primary key,
     anneeacquisition character varying(255),
     autre character varying(255),
     documentpath character varying(255),
@@ -206,10 +193,10 @@ CREATE TABLE devise (
 --
 
 CREATE TABLE direction (
-    id bigint NOT NULL,
+    id bigint NOT NULL primary key,
     designation character varying(255),
     budget character varying(255),
-    codedirection character varying(255),
+    codedirection character varying(255) UNIQUE,
     quatre character varying(255),
     trois character varying(255)
 );
@@ -232,7 +219,7 @@ CREATE TABLE directionhistor (
 --
 
 CREATE TABLE directiontitlehist (
-    idtitle bigint NOT NULL,
+    idtitle bigint NOT NULL primary key,
     date date,
     title character varying(255),
     iddirection bigint
@@ -245,7 +232,7 @@ CREATE TABLE directiontitlehist (
 --
 
 CREATE TABLE etatmateriel (
-    id bigint NOT NULL,
+    id bigint NOT NULL primary key,
     designation character varying(255)
 );
 
@@ -256,7 +243,7 @@ CREATE TABLE etatmateriel (
 --
 
 CREATE TABLE financement (
-    id bigint NOT NULL,
+    id bigint NOT NULL primary key,
     designation character varying(255)
 );
 
@@ -267,7 +254,7 @@ CREATE TABLE financement (
 --
 
 CREATE TABLE fournisseur (
-    id bigint NOT NULL,
+    id bigint NOT NULL primary key,
     designation character varying(255)
 );
 
@@ -278,7 +265,7 @@ CREATE TABLE fournisseur (
 --
 
 CREATE TABLE fournisseurdetail (
-    idfourn bigint NOT NULL,
+    idfourn bigint NOT NULL primary key,
     adresse character varying(255),
     contact character varying(255),
     nif character varying(255),
@@ -327,7 +314,7 @@ CREATE TABLE hibernate_sequences (
 --
 
 CREATE TABLE localite (
-    id bigint NOT NULL,
+    id bigint NOT NULL primary key,
     designation character varying(255)
 );
 
@@ -338,7 +325,7 @@ CREATE TABLE localite (
 --
 
 CREATE TABLE ma (
-    id bigint NOT NULL,
+    id bigint NOT NULL primary key,
     designation character varying(255)
 );
 
@@ -349,7 +336,7 @@ CREATE TABLE ma (
 --
 
 CREATE TABLE marque (
-    id bigint NOT NULL,
+    id bigint NOT NULL primary key,
     designation character varying(255)
 );
 
@@ -361,7 +348,7 @@ CREATE TABLE marque (
 
 CREATE TABLE materiel (
     typemateriels integer NOT NULL,
-    idmateriel bigint NOT NULL,
+    idmateriel bigint NOT NULL primary key,
     anneeacquisition character varying(255),
     autre character varying(255),
     code character varying(255),
@@ -404,7 +391,7 @@ CREATE TABLE materiel (
 --
 
 CREATE TABLE motifdecharge (
-    id bigint NOT NULL,
+    id bigint NOT NULL primary key,
     designation character varying(255)
 );
 
@@ -415,7 +402,7 @@ CREATE TABLE motifdecharge (
 --
 
 CREATE TABLE motifsortie (
-    id bigint NOT NULL,
+    id bigint NOT NULL primary key,
     designation character varying(255)
 );
 
@@ -426,9 +413,9 @@ CREATE TABLE motifsortie (
 --
 
 CREATE TABLE nomenclature (
-    id bigint NOT NULL,
+    id bigint NOT NULL primary key,
     designation character varying(255),
-    nomenclature character varying(255)
+    nomenclature character varying(255) UNIQUE
 );
 
 
@@ -451,7 +438,7 @@ CREATE SEQUENCE op_seq
 --
 
 CREATE TABLE opattribution (
-    id bigint NOT NULL,
+    id bigint NOT NULL primary key,
     date date,
     motifretour character varying(255),
     poste character varying(255),
@@ -472,7 +459,7 @@ CREATE TABLE opattribution (
 --
 
 CREATE TABLE opdettachement (
-    id bigint NOT NULL,
+    id bigint NOT NULL primary key,
     date date,
     motifretour character varying(255),
     poste character varying(255),
@@ -492,7 +479,7 @@ CREATE TABLE opdettachement (
 --
 
 CREATE TABLE opentreearticle (
-    id bigint NOT NULL,
+    id bigint NOT NULL primary key,
     date date,
     motifretour character varying(255),
     poste character varying(255),
@@ -521,7 +508,7 @@ CREATE TABLE opentreemateriel (
 --
 
 CREATE TABLE operationentree (
-    id bigint NOT NULL,
+    id bigint NOT NULL primary key,
     date date,
     motifretour character varying(255),
     poste character varying(255),
@@ -542,7 +529,7 @@ CREATE TABLE operationentree (
 --
 
 CREATE TABLE opsaisie (
-    id bigint NOT NULL,
+    id bigint NOT NULL primary key,
     date date,
     motifretour character varying(255),
     poste character varying(255),
@@ -561,7 +548,7 @@ CREATE TABLE opsaisie (
 --
 
 CREATE TABLE opsortie (
-    id bigint NOT NULL,
+    id bigint NOT NULL primary key,
     date date,
     motifretour character varying(255),
     poste character varying(255),
@@ -585,7 +572,7 @@ CREATE TABLE opsortie (
 --
 
 CREATE TABLE opsortiearticle (
-    id bigint NOT NULL,
+    id bigint NOT NULL primary key,
     date date,
     motifretour character varying(255),
     poste character varying(255),
@@ -606,7 +593,7 @@ CREATE TABLE opsortiearticle (
 --
 
 CREATE TABLE poste (
-    id bigint NOT NULL,
+    id bigint NOT NULL primary key,
     designation character varying(255)
 );
 
@@ -624,28 +611,15 @@ CREATE SEQUENCE ref_seq
     CACHE 1;
 
 
-
---
--- TOC entry 209 (class 1259 OID 322014)
--- Name: service; Type: TABLE; Schema: public; Owner: -; Tablespace: 
---
-
-CREATE TABLE service (
-    id bigint NOT NULL,
-    designation character varying(255),
-    codeservice character varying(255)
-);
-
-
 --
 -- TOC entry 210 (class 1259 OID 322020)
 -- Name: typemateriel; Type: TABLE; Schema: public; Owner: -; Tablespace: 
 --
 
 CREATE TABLE typemateriel (
-    id bigint NOT NULL,
+    id bigint NOT NULL primary key,
     designation character varying(255),
-    codetypemate character varying(255),
+    codetypemate character varying(255) UNIQUE,
     idnomenclature bigint
 );
 
@@ -656,7 +630,7 @@ CREATE TABLE typemateriel (
 --
 
 CREATE TABLE typeobjet (
-    id bigint NOT NULL,
+    id bigint NOT NULL primary key,
     designation character varying(255),
     caracteristique character varying(255)
 );
