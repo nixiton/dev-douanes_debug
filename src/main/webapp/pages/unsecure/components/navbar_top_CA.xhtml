@@ -28,45 +28,40 @@
 
 
 		<div class="topnav">
-
 			<div class="btn-group">
-
-				<!-- h:link data-toggle="modal" data-original-title="Help"
-					data-placement="bottom" class="btn btn-default btn-sm"
-					outcome="#helpModal">
-					<i class="fa fa-question"></i>
-				</h:link-->
-			</div>
-			<div class="btn-group">
-
+			
 				<h:form>
-					<div  style=" display:inline-block">
-					<h:commandLink action="#{loginMgmtBean.logout}"
-						data-toggle="tooltip" data-original-title="Logout"
-						data-placement="bottom" class="btn btn-metis-1" id="logout">
-						<i class="fa fa-power-off"></i>
-					</h:commandLink>
-					<p:tooltip id="toolTipFade" for="logout" value="Se déconnecter" position="bottom"/>
-					</div>
-					<div  style="background-color:#f8f7a3; display:inline-block; border-radius:5px; width:38px" >
-					<p:commandButton id="perso"
-            		oncomplete="PF('detail3').show()" icon="ui-icon-person" style="width:38px;height:28px"/>
-            		
-            		</div>
-            		<p:tooltip id="toolTip" for="perso" value="A propos" position="bottom"/>
+						<ul class="nav navbar-nav" >
+						
+							<li class="dropdown">
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color:#CCC">
+									<i class="fa fa-user-circle-o"> </i>  <h:outputText value=" #{depositaireBean.currentAgent.nomAgent}" styleClass="nameLogin" />
+								</a>
+								<ul class="dropdown-menu">
+									<li>
+										
+										<h:commandLink id="perso"
+						            		 value=""  styleClass="ui ui-icon-person">
+						            		<i class="fa fa-address-card "></i> Mon compte	<f:ajax onevent="oneventFunction" />		           	
+						    			</h:commandLink>
+									
+									</li>
+									<li>
+										<h:commandLink action="#{loginMgmtBean.logout}"
+												data-toggle="tooltip" data-original-title="logout"
+												data-placement="bottom" id="logout">
+												<i class="fa fa-power-off"></i> Se deconnecter
+										</h:commandLink>
+										<!-- <p:tooltip id="toolTipFade" for="logout" value="Se déconnecter" position="bottom"/> -->
+									</li>
+		
+								</ul>
+							</li>
+							
+							
+		           		</ul>
 				</h:form>
 			</div>
-
-				
-			<!--div class="btn-group">
-
-				<h:link data-placement="bottom"
-					data-original-title="Show / Hide Left" data-toggle="tooltip"
-					class="btn btn-primary btn-sm toggle-left" id="menu-toggle">
-					<i class="fa fa-bars"></i>
-				</h:link>
-
-			</div-->
 		</div>
 
 
@@ -192,7 +187,7 @@
 
 
 
-	<p:dialog id="detail3" widgetVar="detail3" header="Information de l'utilisateur" showEffect="explode" hideEffect="explode" width="400" height="300" minWidth="400" minHeight="250">
+	<p:dialog id="detail3" widgetVar="detail3" header="Information de l'utilisateur" showEffect="explode" hideEffect="explode" width="450" height="350" minWidth="400" minHeight="250">
 
 		<br/>
         <table class="table responsive-table">
@@ -236,4 +231,15 @@
 	</p:dialog>
 
 	<!-- /.container-fluid -->
+	<script>
+		$(function(){
+			var name = $('.nameLogin').text().substring(0,20) + '...';
+			$('.nameLogin').text(name);
+		});
+		function oneventFunction(data) {
+		    if (data.status === "success") {
+		    	PF('detail3').show();
+		    }
+		}
+	</script>
 </nav>

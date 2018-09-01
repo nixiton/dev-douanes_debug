@@ -125,9 +125,17 @@ body {
   padding: 0;
 }
 #top .topnav {
-  margin: 10px 0;
-  text-align: right !important;
+  margin: 0px 0;
+  width: 20% !important;
+  text-align: center !important;
+  
 }
+
+.nameLogin{
+  width:10px;
+}
+
+
 @media (min-width: 768px) {
   #top .topnav {
     float: right;
