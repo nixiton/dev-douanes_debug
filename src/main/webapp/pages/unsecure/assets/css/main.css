@@ -126,7 +126,7 @@ body {
 }
 #top .topnav {
   margin: 0px 0;
-  width: 15% !important;
+  width: 12% !important;
   text-align: center !important;
   
 }
@@ -2731,5 +2731,5 @@ border-collapse: collapse;
 	height:100% !important;
 }
 .position_login{
-	margin-right:-15% !important;
+	margin-right:-5% !important;
 }

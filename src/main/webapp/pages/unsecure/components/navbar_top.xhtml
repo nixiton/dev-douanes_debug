@@ -78,38 +78,43 @@
 
 				<ul class="nav navbar-nav" >
 					
-					<li class="dropdown"><a href="#" class="dropdown-toggle"
-						data-toggle="dropdown" style="color:#CCC"> Tableau de bord <b class="caret"></b>
-						</a>
-						<ul class="dropdown-menu">
-						<c:if test="#{topMenuMB.curentAgent.roleAgent.role eq 'ROLE_ADMIN'
-						or topMenuMB.curentAgent.roleAgent.role eq 'ROLE_DRF'
+					<c:if test="#{topMenuMB.curentAgent.roleAgent.role eq 'ROLE_ADMIN'}">
+						<li class="" ><h:commandLink
+									action="#{topMenuMB.goToDashboard}" immediate="true" style="color:#CCC">
+									Tableau de bord 
+								</h:commandLink></li>
+						
+					</c:if>
+					<c:if test="#{topMenuMB.curentAgent.roleAgent.role eq 'ROLE_DRF'
 						or topMenuMB.curentAgent.roleAgent.role eq 'ROLE_DG'
 						}">
-							<li class="" ><h:commandLink
-									action="#{topMenuMB.goToDashboard}" immediate="true" style="color:#CCC">
-									Tableau de bord local
-								</h:commandLink></li>
-						</c:if>
-						
-						
-						<c:if test="#{topMenuMB.curentAgent.roleAgent.role eq 'ROLE_DG' or topMenuMB.curentAgent.roleAgent.role eq 'ROLE_DRF'}">
-							<li class="" ><h:commandLink
-									action="#{topMenuMB.goToDashboardGeneral}" immediate="true" style="color:#CCC">
-									Tableau de bord général
-								</h:commandLink></li>
-						</c:if>
-						
-						<c:if test="#{topMenuMB.curentAgent.roleAgent.role eq 'ROLE_GAC' or 
+						<li class="dropdown"><a href="#" class="dropdown-toggle"
+							data-toggle="dropdown" style="color:#CCC"> Tableau de bord <b class="caret"></b>
+							</a>
+							<ul class="dropdown-menu">
+							
+								<li class="" ><h:commandLink
+										action="#{topMenuMB.goToDashboard}" immediate="true" style="color:#CCC">
+										Tableau de bord local
+									</h:commandLink></li>
+								<li class="" ><h:commandLink
+										action="#{topMenuMB.goToDashboardGeneral}" immediate="true" style="color:#CCC">
+										Tableau de bord général
+									</h:commandLink></li>
+							</ul>
+						</li>
+					</c:if>
+					
+					<c:if test="#{topMenuMB.curentAgent.roleAgent.role eq 'ROLE_GAC' or 
 						topMenuMB.curentAgent.roleAgent.role eq 'ROLE_SISE' or
-					topMenuMB.curentAgent.roleAgent.role eq 'ROLE_DC'}">
+						topMenuMB.curentAgent.roleAgent.role eq 'ROLE_DC'}">
 							<li class=""><h:commandLink
 									action="#{topMenuMB.goToDashboardCM}" immediate="true" style="color:#CCC">
 									Tableau de bord
 								</h:commandLink></li>
-						</c:if>
-						</ul>
-					</li>
+					</c:if>
+				 
+				
 					
 					
 					<c:if test="#{topMenuMB.curentAgent.roleAgent.role eq 'ROLE_ADMIN' 
