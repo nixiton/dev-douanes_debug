@@ -18,7 +18,7 @@
 					class="icon-bar" style="background-color:#f8f7a3"></span>
 			</button>
 
-			<h:link>
+			<h:link outcome="retour_choix_compta" immediate="true">
 
 				<h:graphicImage height="50px"
 					value="/pages/unsecure/assets/images/logo.jpeg" />
@@ -48,10 +48,10 @@
 									
 									</li>
 									<li>			
-										<h:commandLink id="info_appli" outcome="doc" immediate="true" target="_blank"
+										<h:link id="info_appli" outcome="docu" immediate="true" target="_blank"
 						            		 value=""  styleClass="">
 						            		<i class="fa fa-question-circle"></i>  Guide utilisateur	           	
-						    			</h:commandLink>
+						    			</h:link>
 									
 									</li>
 									<li>

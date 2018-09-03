@@ -4,20 +4,25 @@
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee      http://java.sun.com/xml/ns/javaee/web-facesconfig_2_1.xsd">
  <!-- navigation-rule for login.xhtml -->
  <navigation-rule>
-  <from-view-id>/pages/*</from-view-id>
+  <from-view-id>*</from-view-id>
   <!-- navigation-case for method login() navigation case for method logout() -->
   <navigation-case>
    <from-outcome>doc</from-outcome>
    <to-view-id>/pages/unsecure/documentation/index.xhtml</to-view-id>
    <redirect/>
   </navigation-case>
+  <navigation-case>
+   <from-outcome>retour_choix_compta</from-outcome>
+   <to-view-id>/pages/secure/choice.xhtml</to-view-id>
+   <redirect/>
+  </navigation-case>
  </navigation-rule>
  
  <navigation-rule>
-  <from-view-id>/pages/secure/*</from-view-id>
+  <from-view-id>*</from-view-id>
   <!-- navigation-case for method login() navigation case for method logout() -->
   <navigation-case>
-   <from-outcome>doc</from-outcome>
+   <from-outcome>docu</from-outcome>
    <to-view-id>/pages/unsecure/documentation/index.xhtml</to-view-id>
    <redirect/>
   </navigation-case>
