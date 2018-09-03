@@ -91,10 +91,18 @@
         <property name="minPoolSize" value="5" />
     </bean>
 
-    <!--bean id="persistenceUnitManager" class="org.springframework.orm.jpa.persistenceunit.DefaultPersistenceUnitManager"> 
-        <property name="persistenceXmlLocations"> <list> <value>classpath*:WEB-INF/persistence.xml 
-        </value> </list> </property> <property name="defaultDataSource" ref="DataSource"> 
-        </property> </bean -->
+    <!-- Flyway 4 configuration -->
+	<bean id="flyway" class="com.myzilla.migration.MyZillaMigration"
+		  init-method="repairAndMigrate">
+		<property name="locations">
+			<list>
+				<value>classpath:META-INF/migration</value>
+				<value>classpath:META-INF/data</value>
+			</list>
+		</property>
+		<property name="dataSource" ref="DataSource" />
+		<property name="validateOnMigrate" value="true" />
+	</bean>
 
     <!-- Bean FlyWay for DataBase Migration USING MyZillaMigration--> 
     <!--bean id="flyway" class="com.myzilla.migration.MyZillaMigration"
@@ -122,7 +130,7 @@
     </bean>
     -->
 
-    <bean id="emf"
+    <bean id="emf" depends-on="flyway"
         class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
         <property name="dataSource" ref="DataSource"></property>
         <property name="jpaVendorAdapter">
