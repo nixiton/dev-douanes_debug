@@ -35,9 +35,10 @@
 						<ul class="nav navbar-nav" >
 						
 							<li class="dropdown">
-								<a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color:#CCC">
-									<i class="fa fa-user-circle-o"> </i> <h:outputText value=" #{depositaireBean.currentAgent.nomAgent}" styleClass="nameLogin" />
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown"  style="color:#CCC">
+									<i class="fa fa-user-circle-o"> </i> <h:outputText id="logName" value=" #{depositaireBean.currentAgent.nomAgent}" styleClass="nameLogin" />
 								</a>
+								<p:tooltip id="toolTipFade" for="logName" value="#{depositaireBean.currentAgent.nomAgent}" showEffect="explode" hideEffect="explode" position="bottom"/>
 								<ul class="dropdown-menu">
 									<li>
 										
