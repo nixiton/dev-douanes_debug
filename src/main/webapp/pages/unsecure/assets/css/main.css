@@ -2733,3 +2733,19 @@ border-collapse: collapse;
 .position_login{
 	margin-right:-5% !important;
 }
+.card_info_user{
+	position: absolute;
+	top: 100%;
+	right:0 !important;
+	z-index: 1000;
+	left: initial !important;
+}
+.loader_dialog{
+	 background-image: initial !important;
+	 background-color: rgba(0,0,0,0) !important;
+	 box-shadow: initial !important;
+	 left: initial !important;
+	 top: initial !important;
+	 right: 0 !important;
+	 bottom : 100px !important;
+}

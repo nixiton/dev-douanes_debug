@@ -123,10 +123,10 @@
 
     <p:ajaxStatus onstart="PF('statusDialog').show()" onsuccess="PF('statusDialog').hide()" />
 
-	<p:dialog widgetVar="statusDialog" modal="true" draggable="false" closable="false" resizable="false" header="Attendez s'il vous plaît  ...">
-		<div align="center">
-		<p:graphicImage value="/pages/unsecure/assets/images/45.gif" /> 
-				</div>
+	<p:dialog styleClass="loader_dialog" widgetVar="statusDialog" modal="true" draggable="false" closable="false" resizable="false" header="">
+		<div align="center" class="">
+			<p:graphicImage style="width:35% !important; height:35% !important;" value="/pages/unsecure/assets/images/loading_small.gif" /> 
+		</div>
 	</p:dialog>
     
 
