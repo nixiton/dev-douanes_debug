@@ -126,7 +126,7 @@ body {
 }
 #top .topnav {
   margin: 0px 0;
-  width: 20% !important;
+  width: 15% !important;
   text-align: center !important;
   
 }
@@ -2729,4 +2729,7 @@ border-collapse: collapse;
 .login_img{
 	width:100% !important;
 	height:100% !important;
+}
+.position_login{
+	margin-right:-15% !important;
 }
