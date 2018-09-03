@@ -14,6 +14,16 @@
  </navigation-rule>
  
  <navigation-rule>
+  <from-view-id>/pages/secure/*</from-view-id>
+  <!-- navigation-case for method login() navigation case for method logout() -->
+  <navigation-case>
+   <from-outcome>doc</from-outcome>
+   <to-view-id>/pages/unsecure/documentation/index.xhtml</to-view-id>
+   <redirect/>
+  </navigation-case>
+ </navigation-rule>
+ 
+ <navigation-rule>
   <from-view-id>/pages/unsecure/login.xhtml</from-view-id>
   <!-- navigation-case for method login() -->
   <navigation-case>
