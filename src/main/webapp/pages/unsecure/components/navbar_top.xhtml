@@ -40,11 +40,17 @@
 								</a>
 								<p:tooltip id="toolTipFade" for="logName" value="#{depositaireBean.currentAgent.nomAgent}" showEffect="explode" hideEffect="explode" position="bottom"/>
 								<ul class="dropdown-menu card_info_user" >
-									<li>
-										
+									<li>			
 										<h:commandLink id="perso"
 						            		 value=""  styleClass="ui ui-icon-person">
 						            		<i class="fa fa-address-card"></i> Mon compte	<f:ajax onevent="oneventFunction" />		           	
+						    			</h:commandLink>
+									
+									</li>
+									<li>			
+										<h:commandLink id="info_appli"
+						            		 value=""  styleClass="">
+						            		<i class="fa fa-question-circle"></i>  Guide utilisateur	           	
 						    			</h:commandLink>
 									
 									</li>
