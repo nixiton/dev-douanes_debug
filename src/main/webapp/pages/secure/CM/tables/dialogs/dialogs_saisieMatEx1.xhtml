@@ -96,21 +96,21 @@
                                 <th>NOMBRE</th>
                                 <th>VALEUR TOTALE</th>
                             </tr>
-                            <tr>
-                                <td>#{docbean.curentOperationAttrToPdf.mat.design.nomenMat.designation} -
+                            <tr >
+                                <td align="left">#{docbean.curentOperationAttrToPdf.mat.design.nomenMat.designation} -
                                 #{docbean.curentOperationAttrToPdf.mat.design.nomenMat.nomenclature} - 
                                 #{docbean.curentOperationAttrToPdf.mat.design.marque.designation} - 
                                 #{docbean.curentOperationAttrToPdf.mat.design.renseignement} - 
                                 #{docbean.curentOperationAttrToPdf.mat.reference}
                                  </td>
-                                <td>#{docbean.curentOperationAttrToPdf.mat.design.especeUnite}</td>
-                                <td>
+                                <td align="left">#{docbean.curentOperationAttrToPdf.mat.design.especeUnite}</td>
+                                <td align="left">
                                 	<h:outputText value="#{docbean.curentOperationAttrToPdf.mat.design.pu}" >
                                 		<f:convertNumber pattern="¤#,##0" currencySymbol=""></f:convertNumber>
                                 	</h:outputText>
                                 </td>
-                                <td>1</td>
-                                <td>
+                                <td align="left">1</td>
+                                <td align="left">
                                 	<h:outputText value="#{docbean.curentOperationAttrToPdf.mat.design.pu*1}" >
                                 		<f:convertNumber pattern="¤#,##0" currencySymbol=""></f:convertNumber>
                                 	</h:outputText>

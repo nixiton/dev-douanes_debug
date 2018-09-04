@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with Jaspersoft Studio version 6.5.1.final using JasperReports Library version 6.5.1  -->
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="EtatAppreciatif" pageWidth="595" pageHeight="842" whenNoDataType="NoPages" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="004a50a4-968e-45dd-9c6d-04487dd3ae86">
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="EtatAppreciatif" pageWidth="595" pageHeight="842" whenNoDataType="NoPages" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" whenResourceMissingType="Empty" uuid="004a50a4-968e-45dd-9c6d-04487dd3ae86">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="593"/>
@@ -316,7 +316,7 @@
 				<textElement>
 					<font size="12"/>
 				</textElement>
-				<text><![CDATA[Modèle no 9]]></text>
+				<text><![CDATA[Modéle no 9]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="454" y="20" width="100" height="47" uuid="e8ce49cf-0080-45b3-b650-76042aa4dfc1"/>
@@ -474,7 +474,7 @@
 							<staticText>
 								<reportElement x="0" y="0" width="80" height="30" uuid="250a5e35-5873-43fc-a22f-11910bdbf315"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle"/>
-								<text><![CDATA[Pièces justificatives]]></text>
+								<text><![CDATA[Piéces justificatives]]></text>
 							</staticText>
 						</jr:tableHeader>
 						<jr:column width="40" uuid="9eff0a20-e33f-4b78-92ef-01f2fcf47d4b">
@@ -802,7 +802,7 @@
 				<text><![CDATA[RECAPITULATION]]></text>
 			</staticText>
 			<componentElement>
-				<reportElement key="table 2" style="table 2" x="-1" y="43" width="555" height="206" uuid="3895e029-e15f-4654-a06f-c8f298cb7624"/>
+				<reportElement key="table 2" style="table 2" x="-1" y="43" width="555" height="206" isRemoveLineWhenBlank="true" uuid="3895e029-e15f-4654-a06f-c8f298cb7624"/>
 				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" whenNoDataType="Blank">
 					<datasetRun subDataset="Table Dataset 3" uuid="9045da4d-6da2-41ce-8fb7-2daaa197e3c2">
 						<datasetParameter name="in1">
@@ -899,12 +899,12 @@
 						</jr:columnHeader>
 						<jr:detailCell style="table 2_TD" height="152" rowSpan="1">
 							<textField pattern="#,##0">
-								<reportElement x="0" y="0" width="93" height="32" uuid="d29b1414-4a71-4f34-b854-9d28bbd96ff7"/>
+								<reportElement x="0" y="0" width="93" height="32" isRemoveLineWhenBlank="true" uuid="d29b1414-4a71-4f34-b854-9d28bbd96ff7"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle"/>
 								<textFieldExpression><![CDATA[$P{existant1}]]></textFieldExpression>
 							</textField>
 							<textField pattern="#,##0">
-								<reportElement x="0" y="32" width="93" height="30" uuid="83b832f4-57d1-46f0-9f1e-55e41e1bd7dc"/>
+								<reportElement x="0" y="32" width="93" height="30" isRemoveLineWhenBlank="true" uuid="83b832f4-57d1-46f0-9f1e-55e41e1bd7dc"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle"/>
 								<textFieldExpression><![CDATA[$P{existant2}]]></textFieldExpression>
 							</textField>
@@ -914,12 +914,12 @@
 								<textFieldExpression><![CDATA[$P{existant3}]]></textFieldExpression>
 							</textField>
 							<textField pattern="#,##0">
-								<reportElement x="0" y="92" width="93" height="30" uuid="d884afc4-f07d-433c-91cb-0a6b46d7e89d"/>
+								<reportElement x="0" y="92" width="93" height="30" isRemoveLineWhenBlank="true" uuid="d884afc4-f07d-433c-91cb-0a6b46d7e89d"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle"/>
 								<textFieldExpression><![CDATA[$P{existant5}]]></textFieldExpression>
 							</textField>
 							<textField pattern="#,##0">
-								<reportElement key="" x="0" y="122" width="93" height="30" uuid="996e8254-ed69-491c-96fe-48f27d64b0f2"/>
+								<reportElement key="" x="0" y="122" width="93" height="30" isRemoveLineWhenBlank="true" uuid="996e8254-ed69-491c-96fe-48f27d64b0f2"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle"/>
 								<textFieldExpression><![CDATA[$P{existant10}]]></textFieldExpression>
 							</textField>
@@ -938,29 +938,29 @@
 						</jr:columnHeader>
 						<jr:detailCell style="table 2_TD" height="152" rowSpan="1">
 							<textField pattern="#,##0">
-								<reportElement x="0" y="0" width="92" height="32" uuid="d21e9282-801e-4e66-988c-2f36a8ceb156"/>
+								<reportElement x="0" y="0" width="92" height="32" isRemoveLineWhenBlank="true" uuid="d21e9282-801e-4e66-988c-2f36a8ceb156"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle"/>
-								<textFieldExpression><![CDATA[$P{in1}]]></textFieldExpression>
+								<textFieldExpression><![CDATA[$P{in1}==null?0:$P{in1}]]></textFieldExpression>
 							</textField>
 							<textField pattern="#,##0">
-								<reportElement x="0" y="32" width="92" height="30" uuid="8ed2c719-0151-469b-9318-1630bfbe6135"/>
+								<reportElement x="0" y="32" width="92" height="30" isRemoveLineWhenBlank="true" uuid="8ed2c719-0151-469b-9318-1630bfbe6135"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle"/>
-								<textFieldExpression><![CDATA[$P{in2}]]></textFieldExpression>
+								<textFieldExpression><![CDATA[$P{in2}==null?0:$P{in2}]]></textFieldExpression>
 							</textField>
 							<textField pattern="#,##0">
-								<reportElement x="0" y="62" width="92" height="30" uuid="efd3d80b-b598-4723-ba24-50ce815f640d"/>
+								<reportElement x="0" y="62" width="92" height="30" isRemoveLineWhenBlank="true" uuid="efd3d80b-b598-4723-ba24-50ce815f640d"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle"/>
-								<textFieldExpression><![CDATA[$P{in3}]]></textFieldExpression>
+								<textFieldExpression><![CDATA[$P{in3}==null?0:$P{in3}]]></textFieldExpression>
 							</textField>
 							<textField pattern="#,##0">
-								<reportElement x="0" y="92" width="92" height="30" uuid="8ea4329f-f46a-49df-b2be-ddfa220e3984"/>
+								<reportElement x="0" y="92" width="92" height="30" isRemoveLineWhenBlank="true" uuid="8ea4329f-f46a-49df-b2be-ddfa220e3984"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle"/>
-								<textFieldExpression><![CDATA[$P{in5}]]></textFieldExpression>
+								<textFieldExpression><![CDATA[$P{in5}==null?0:$P{in5}]]></textFieldExpression>
 							</textField>
 							<textField pattern="#,##0">
-								<reportElement x="0" y="122" width="92" height="30" uuid="33bbd206-9c6d-4fec-a83f-1f1a34bfa52f"/>
+								<reportElement x="0" y="122" width="92" height="30" isRemoveLineWhenBlank="true" uuid="33bbd206-9c6d-4fec-a83f-1f1a34bfa52f"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle"/>
-								<textFieldExpression><![CDATA[$P{in10}]]></textFieldExpression>
+								<textFieldExpression><![CDATA[$P{in10}==null?0:$P{in10}]]></textFieldExpression>
 							</textField>
 						</jr:detailCell>
 					</jr:column>
@@ -977,29 +977,29 @@
 						</jr:columnHeader>
 						<jr:detailCell style="table 2_TD" height="152" rowSpan="1">
 							<textField pattern="#,##0">
-								<reportElement x="0" y="0" width="93" height="32" uuid="7aed0a5b-62c4-42eb-94de-396ad1d20933"/>
+								<reportElement x="0" y="0" width="93" height="32" isRemoveLineWhenBlank="true" uuid="7aed0a5b-62c4-42eb-94de-396ad1d20933"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle"/>
-								<textFieldExpression><![CDATA[$P{in1} + $P{existant1}]]></textFieldExpression>
+								<textFieldExpression><![CDATA[$P{in1}==null?0:$P{in1} + $P{existant1}]]></textFieldExpression>
 							</textField>
 							<textField pattern="#,##0">
-								<reportElement x="0" y="32" width="93" height="30" uuid="0ff94ac5-6465-43ac-a240-e2d2c0cd7079"/>
+								<reportElement x="0" y="32" width="93" height="30" isRemoveLineWhenBlank="true" uuid="0ff94ac5-6465-43ac-a240-e2d2c0cd7079"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle"/>
-								<textFieldExpression><![CDATA[$P{existant2} + $P{in2}]]></textFieldExpression>
+								<textFieldExpression><![CDATA[$P{in2}==null?0:$P{existant2} + $P{in2}]]></textFieldExpression>
 							</textField>
 							<textField pattern="#,##0">
-								<reportElement x="0" y="62" width="93" height="30" uuid="beb6ff2a-6849-4168-86a5-7caf4c098d3b"/>
+								<reportElement x="0" y="62" width="93" height="30" isRemoveLineWhenBlank="true" uuid="beb6ff2a-6849-4168-86a5-7caf4c098d3b"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle"/>
-								<textFieldExpression><![CDATA[$P{existant3} + $P{in3}]]></textFieldExpression>
+								<textFieldExpression><![CDATA[$P{in3}==null?0:$P{existant3} + $P{in3}]]></textFieldExpression>
 							</textField>
 							<textField pattern="#,##0">
-								<reportElement x="0" y="92" width="93" height="30" uuid="95d1a622-4e80-4773-86c7-e28a65dd9306"/>
+								<reportElement x="0" y="92" width="93" height="30" isRemoveLineWhenBlank="true" uuid="95d1a622-4e80-4773-86c7-e28a65dd9306"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle"/>
-								<textFieldExpression><![CDATA[$P{existant5} + $P{in5}]]></textFieldExpression>
+								<textFieldExpression><![CDATA[$P{in5}==null?0:$P{existant5} + $P{in5}]]></textFieldExpression>
 							</textField>
 							<textField pattern="#,##0">
-								<reportElement x="0" y="122" width="93" height="30" uuid="6609e5c9-30f2-4292-a95d-44bb7c0f0edb"/>
+								<reportElement x="0" y="122" width="93" height="30" isRemoveLineWhenBlank="true" uuid="6609e5c9-30f2-4292-a95d-44bb7c0f0edb"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle"/>
-								<textFieldExpression><![CDATA[$P{existant10} + $P{in10}]]></textFieldExpression>
+								<textFieldExpression><![CDATA[$P{in10}==null?0:$P{existant10} + $P{in10}]]></textFieldExpression>
 							</textField>
 						</jr:detailCell>
 					</jr:column>
@@ -1016,29 +1016,29 @@
 						</jr:columnHeader>
 						<jr:detailCell style="table 2_TD" height="152" rowSpan="1">
 							<textField pattern="#,##0">
-								<reportElement x="0" y="0" width="92" height="32" uuid="b8404e3c-a65a-4238-ac70-1537baf34a9b"/>
+								<reportElement x="0" y="0" width="92" height="32" isRemoveLineWhenBlank="true" uuid="b8404e3c-a65a-4238-ac70-1537baf34a9b"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle"/>
-								<textFieldExpression><![CDATA[$P{out1}]]></textFieldExpression>
+								<textFieldExpression><![CDATA[$P{out1}==null?0:$P{out1}]]></textFieldExpression>
 							</textField>
 							<textField pattern="#,##0">
-								<reportElement x="0" y="32" width="92" height="30" uuid="960f6497-4064-403e-bac7-26d79bce7699"/>
+								<reportElement x="0" y="32" width="92" height="30" isRemoveLineWhenBlank="true" uuid="960f6497-4064-403e-bac7-26d79bce7699"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle"/>
-								<textFieldExpression><![CDATA[$P{ou2}]]></textFieldExpression>
+								<textFieldExpression><![CDATA[$P{ou2}==null?0:$P{ou2}]]></textFieldExpression>
 							</textField>
 							<textField pattern="#,##0">
-								<reportElement x="0" y="62" width="92" height="30" uuid="8e02f081-80b9-49c2-9050-a00f57ac308c"/>
+								<reportElement x="0" y="62" width="92" height="30" isRemoveLineWhenBlank="true" uuid="8e02f081-80b9-49c2-9050-a00f57ac308c"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle"/>
-								<textFieldExpression><![CDATA[$P{out3}]]></textFieldExpression>
+								<textFieldExpression><![CDATA[$P{out3}==null?0:$P{out3}]]></textFieldExpression>
 							</textField>
 							<textField pattern="#,##0">
-								<reportElement x="0" y="92" width="92" height="30" uuid="8ce33ea2-2cec-433c-9be3-2568e0ab26d8"/>
+								<reportElement x="0" y="92" width="92" height="30" isRemoveLineWhenBlank="true" uuid="8ce33ea2-2cec-433c-9be3-2568e0ab26d8"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle"/>
-								<textFieldExpression><![CDATA[$P{out5}]]></textFieldExpression>
+								<textFieldExpression><![CDATA[$P{out5}==null?0:$P{out5}]]></textFieldExpression>
 							</textField>
 							<textField pattern="#,##0">
-								<reportElement x="0" y="122" width="92" height="30" uuid="b3a01bf5-60ec-4b94-bee1-86483f41d795"/>
+								<reportElement x="0" y="122" width="92" height="30" isRemoveLineWhenBlank="true" uuid="b3a01bf5-60ec-4b94-bee1-86483f41d795"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle"/>
-								<textFieldExpression><![CDATA[$P{ou10}]]></textFieldExpression>
+								<textFieldExpression><![CDATA[$P{ou10}==null?0:$P{ou10}]]></textFieldExpression>
 							</textField>
 						</jr:detailCell>
 					</jr:column>
@@ -1056,29 +1056,29 @@
 						<jr:detailCell style="table 2_TD" height="152" rowSpan="1">
 							<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.FreeLayout"/>
 							<textField pattern="#,##0">
-								<reportElement x="0" y="30" width="92" height="32" uuid="b26fa7a2-fa34-4622-b962-d3d738c47539"/>
+								<reportElement x="0" y="30" width="92" height="32" isRemoveLineWhenBlank="true" uuid="b26fa7a2-fa34-4622-b962-d3d738c47539"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle"/>
-								<textFieldExpression><![CDATA[$P{existant2} + $P{in2} - $P{ou2}]]></textFieldExpression>
+								<textFieldExpression><![CDATA[$P{in2}==null?0:$P{existant2} + $P{in2} - $P{ou2}]]></textFieldExpression>
 							</textField>
 							<textField pattern="#,##0">
-								<reportElement x="0" y="62" width="92" height="30" uuid="0271be16-179f-476b-9f88-f663a4e4ea26"/>
+								<reportElement x="0" y="62" width="92" height="30" isRemoveLineWhenBlank="true" uuid="0271be16-179f-476b-9f88-f663a4e4ea26"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle"/>
-								<textFieldExpression><![CDATA[$P{existant3} + $P{in3} - $P{out3}]]></textFieldExpression>
+								<textFieldExpression><![CDATA[$P{in3}==null?0:$P{existant3} + $P{in3} - $P{out3}]]></textFieldExpression>
 							</textField>
 							<textField pattern="#,##0">
-								<reportElement x="0" y="92" width="92" height="30" uuid="dcf91ab9-ef32-4a6e-8f7b-16ec799e73dc"/>
+								<reportElement x="0" y="92" width="92" height="30" isRemoveLineWhenBlank="true" uuid="dcf91ab9-ef32-4a6e-8f7b-16ec799e73dc"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle"/>
-								<textFieldExpression><![CDATA[$P{existant5} + $P{in5} - $P{out5}]]></textFieldExpression>
+								<textFieldExpression><![CDATA[$P{in5}==null?0:$P{existant5} + $P{in5} - $P{out5}]]></textFieldExpression>
 							</textField>
 							<textField pattern="#,##0">
-								<reportElement x="0" y="0" width="92" height="30" uuid="74fd5661-9eb0-4136-831b-c1566cf74f94"/>
+								<reportElement x="0" y="0" width="92" height="30" isRemoveLineWhenBlank="true" uuid="74fd5661-9eb0-4136-831b-c1566cf74f94"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle"/>
-								<textFieldExpression><![CDATA[$P{in1} + $P{existant1} - $P{out1}]]></textFieldExpression>
+								<textFieldExpression><![CDATA[$P{in1}==null?0:$P{in1} + $P{existant1} - $P{out1}]]></textFieldExpression>
 							</textField>
 							<textField pattern="#,##0">
-								<reportElement x="0" y="122" width="92" height="30" uuid="b6950f18-ce0e-4b54-b39e-b1ccefbfb911"/>
+								<reportElement x="0" y="122" width="92" height="30" isRemoveLineWhenBlank="true" uuid="b6950f18-ce0e-4b54-b39e-b1ccefbfb911"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle"/>
-								<textFieldExpression><![CDATA[$P{existant10} + $P{in10} - $P{ou10}]]></textFieldExpression>
+								<textFieldExpression><![CDATA[$P{in10}==null?0:$P{existant10} + $P{in10} - $P{ou10}]]></textFieldExpression>
 							</textField>
 						</jr:detailCell>
 					</jr:column>
@@ -1091,7 +1091,7 @@
 				<textElement textAlignment="Left" verticalAlignment="Middle">
 					<font size="12"/>
 				</textElement>
-				<textFieldExpression><![CDATA["Arrêté a la somme de " + $P{somme} + " en ce qui concerne les entrées"]]></textFieldExpression>
+				<textFieldExpression><![CDATA["Arrété a la somme de " + $P{somme} + " en ce qui concerne les entrées"]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="0" y="29" width="554" height="25" uuid="a637efea-2b04-4091-a382-8376ee513e02"/>

@@ -12,6 +12,7 @@ import com.douane.managed.bean.SuiviEditionBean;
 @SessionScoped
 @ManagedBean(name="EtatAppreciatifBean")
 public class EtatAppreciatifBean {
+	private int actualyear;
 	private int annee;
 	private String service;
 	private Date date;
@@ -23,6 +24,7 @@ public class EtatAppreciatifBean {
 		Calendar calendar = new GregorianCalendar();
 		calendar.setTime(this.date);
 		this.annee  = calendar.get(Calendar.YEAR);
+		this.actualyear  = calendar.get(Calendar.YEAR);
 	}
 	public String execute(SuiviEditionBean s) {
 		if (s != null) {
@@ -31,10 +33,13 @@ public class EtatAppreciatifBean {
 			this.trois = s.getDirection().getTrois();
 			this.quatre = s.getDirection().getQuatre();
 			this.service = s.getDirection().getDesignation();
-			//System.out.println("etat Appreciatif null");
+			System.out.println("suivi in etat appreciatif non null");
+			return "dialogEtatAppreciatif";
+		}else {
+			System.out.println("no suivi in etat appreciatif");
+			return null;
 		}
 		//this.liste = l;
-		return "dialogEtatAppreciatif";
 	}
 	public Date getDate() {
 		return date;
@@ -71,6 +76,12 @@ public class EtatAppreciatifBean {
 	}
 	public void setAnnee(int annee) {
 		this.annee = annee;
+	}
+	public int getActualyear() {
+		return actualyear;
+	}
+	public void setActualyear(int actualyear) {
+		this.actualyear = actualyear;
 	}
 
 }
