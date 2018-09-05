@@ -9,6 +9,16 @@
     <ui:param name="title" value="Prise en charge" />
 </ui:include>
 
+<style>
+	.zoom {
+	  position: fixed;
+	  bottom: 60px;
+	  right: 24px;
+	  height: 40px;
+	  width: 150px;
+	}
+</style>
+
 <h:body class="  ">
     <div class="bg-dark dk" id="wrap">
         <div id="top">
@@ -36,6 +46,14 @@
 
                     </div>
       <!-- 3 balise </div> --> 
+      				<!-- <div class="row zoom">
+						<div class="col-lg-2">  -->
+					        <h:link value="" outcome="add_PriseEnCharge"
+					            class="btn btn-lg btn-primary btn-block zoom" immediate="true" >
+				          	 	<i class="fa fa-plus-circle">  </i>   Ajouter 
+				          	 </h:link>
+				       <!-- </div>  
+			    	</div>   -->  
 
     </div>
 

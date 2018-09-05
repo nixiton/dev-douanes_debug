@@ -35,7 +35,7 @@
 	<c:if test="#{topMenuMB.curentAgent.roleAgent.role eq 'ROLE_ADMIN' 
             or topMenuMB.curentAgent.roleAgent.role eq 'ROLE_DC'
             }">
-    <div class="row">
+    <!--  <div class="row">
 		<div class="col-lg-2">
 	        <h:link value="" outcome="add_PriseEnCharge"
 	            class="btn btn-lg btn-primary btn-block " immediate="true" >
@@ -44,7 +44,7 @@
         </div>   
         <hr></hr>
 		<br/>
-    </div>    
+    </div>  -->   
     </c:if>
 	<h:form>
 
@@ -195,16 +195,17 @@
 	<c:if test="#{topMenuMB.curentAgent.roleAgent.role eq 'ROLE_ADMIN' 
             or topMenuMB.curentAgent.roleAgent.role eq 'ROLE_DC'
             }">
-    <div class="row">
+    <!--<div class="row">
 		<div class="col-lg-2">
+		  
 	        <h:link value="" outcome="add_PriseEnCharge"
 	            class="btn btn-lg btn-primary btn-block " immediate="true" >
           	 <i class="fa fa-plus-circle">  </i>   Ajouter 
           	 </h:link>
-        </div>   
+        </div>     
         <hr></hr>
-		<br/>
-    </div>    
+		<br/> 
+    </div>    -->
     </c:if>   
     
     <h:form>
