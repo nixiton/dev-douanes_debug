@@ -2752,3 +2752,8 @@ border-collapse: collapse;
 .ui-widget-header a {
     color: #2e6e9e !important;
 }
+div[aria-hidden="true"]{
+	display: initial !important;
+	display:none !important;
+	visibility:hidden !important;
+}
