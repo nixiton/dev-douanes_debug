@@ -23,8 +23,8 @@
     		currentPageReportTemplate="({currentPage} sur {totalPages})"
 			paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {Exporters}	"
 			paginator="true" style="margin-bottom:20px" emptyMessage="Aucun résultat"
-			widgetVar="InventaireTable1#{dir.designation}"
-			id="inventaireTable1#{dir.designation}"
+			widgetVar="InventaireTable1#{dir.id}"
+			id="inventaireTable1#{dir.id}"
 			sortBy="#{m[0]}"
 			>
 			
@@ -35,12 +35,12 @@
 			<f:facet name="{Exporters}">
             <h:commandLink>
                 <i class="fa fa-table">  </i> Excel
-                <p:dataExporter type="xls" target="inventaireTable1#{dir.designation}" fileName="inventaire1_#{dir.designation}" />
+                <p:dataExporter type="xls" target="inventaireTable1#{dir.id}" fileName="inventaire1_#{dir.codeDirection}" />
             </h:commandLink>
  			<span>   </span>
             <h:commandLink>
             	<i class="fa fa-file">  </i> PDF
-                <p:dataExporter type="pdf" target="inventaireTable1#{dir.designation}" fileName="inventaire1_#{dir.designation}"/>
+                <p:dataExporter type="pdf" target="inventaireTable1#{dir.id}" fileName="inventaire1_#{dir.codeDirection}"/>
             </h:commandLink>
         </f:facet>
 			<p:columnGroup type="header">

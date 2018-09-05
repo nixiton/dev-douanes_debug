@@ -22,8 +22,8 @@
 				paginatorTemplate="{CurrentPageReport}  {PreviousPageLink} {PageLinks} {NextPageLink} {Exporters}"
 				paginator="true"  style="margin-bottom:20px"
 				sortBy="#{c[12]}"
-				widgetVar="JournalTable#{dir.designation}" emptyMessage="Aucun résultat"
-				id="journaltable#{dir.designation}"
+				widgetVar="JournalTable#{dir.id}" emptyMessage="Aucun résultat"
+				id="journaltable#{dir.id}"
 			>
 			
     		<f:facet name="header">
@@ -33,12 +33,12 @@
     		<f:facet name="{Exporters}">
             <h:commandLink>
                 <i class="fa fa-table">  </i> Excel
-                <p:dataExporter type="xls" target="journaltable#{dir.designation}" fileName="journaloperation_#{dir.designation}" />
+                <p:dataExporter type="xls" target="journaltable#{dir.id}" fileName="journaloperation_#{dir.codeDirection}" />
             </h:commandLink>
  			<span>   </span>
             <h:commandLink>
             	<i class="fa fa-file">  </i> PDF
-                <p:dataExporter type="pdf" target="journaltable#{dir.designation}" fileName="journaloperation_#{dir.designation}"/>
+                <p:dataExporter type="pdf" target="journaltable#{dir.id}" fileName="journaloperation_#{dir.codeDirection}"/>
             </h:commandLink>
         </f:facet>
 			<p:columnGroup type="header">
