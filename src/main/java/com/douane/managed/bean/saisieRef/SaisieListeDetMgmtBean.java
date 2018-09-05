@@ -16,7 +16,6 @@ import org.springframework.dao.DataAccessException;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.douane.entite.Agent;
-import com.douane.entite.Bureau;
 import com.douane.entite.Materiel;
 import com.douane.entite.Nomenclature;
 import com.douane.entite.Referentiel;

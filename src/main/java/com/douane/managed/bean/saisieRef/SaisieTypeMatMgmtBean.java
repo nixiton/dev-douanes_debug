@@ -11,7 +11,7 @@ import javax.faces.bean.RequestScoped;
 import org.springframework.dao.DataAccessException;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.douane.entite.Bureau;
+
 import com.douane.entite.Nomenclature;
 import com.douane.entite.Referentiel;
 import com.douane.entite.TypeMateriel;
