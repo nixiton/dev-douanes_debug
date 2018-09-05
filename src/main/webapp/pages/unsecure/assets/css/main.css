@@ -2749,3 +2749,6 @@ border-collapse: collapse;
 	 right: 0 !important;
 	 bottom : 100px !important;
 }
+.ui-widget-header a {
+    color: #2e6e9e !important;
+}
