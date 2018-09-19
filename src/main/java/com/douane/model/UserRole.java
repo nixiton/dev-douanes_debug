@@ -24,7 +24,8 @@ public class UserRole
     }
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @SequenceGenerator (name = "generator_userrole", sequenceName = "USERROLE_SEQ", allocationSize = 1) 
+	@GeneratedValue (strategy = GenerationType.SEQUENCE, generator = "generator_userrole")
     @Column(name = "user_role_id",
             unique = true, nullable = false)
     public Integer getUserRoleId() {

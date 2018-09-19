@@ -4,12 +4,14 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Transient;
 
 @Entity
 public class FournisseurDetail {
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@SequenceGenerator (name = "generator_four", sequenceName = "FOUR_SEQ", allocationSize = 1) 
+	@GeneratedValue (strategy = GenerationType.SEQUENCE, generator = "generator_four")
 	private Long idFourn;
 	
 	private String nomFourn;

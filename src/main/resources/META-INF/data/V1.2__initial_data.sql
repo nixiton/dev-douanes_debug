@@ -220,7 +220,7 @@ CREATE TABLE directionhistor (
 
 CREATE TABLE directiontitlehist (
     idtitle bigint NOT NULL primary key,
-    date date,
+    datehist date,
     title character varying(255),
     iddirection bigint
 );
@@ -439,11 +439,11 @@ CREATE SEQUENCE op_seq
 
 CREATE TABLE opattribution (
     id bigint NOT NULL primary key,
-    date date,
+    dateop date,
     motifretour character varying(255),
     poste character varying(255),
     state character varying(255),
-    "time" time without time zone,
+    "timeop" time without time zone,
     iddirection bigint,
     idoperateur bigint,
     detenteureffectif character varying(255),
@@ -460,11 +460,11 @@ CREATE TABLE opattribution (
 
 CREATE TABLE opdettachement (
     id bigint NOT NULL primary key,
-    date date,
+    dateop date,
     motifretour character varying(255),
     poste character varying(255),
     state character varying(255),
-    "time" time without time zone,
+    "timeop" time without time zone,
     iddirection bigint,
     idoperateur bigint,
     iddetenteur bigint,
@@ -480,11 +480,11 @@ CREATE TABLE opdettachement (
 
 CREATE TABLE opentreearticle (
     id bigint NOT NULL primary key,
-    date date,
+    dateop date,
     motifretour character varying(255),
     poste character varying(255),
     state character varying(255),
-    "time" time without time zone,
+    "timeop" time without time zone,
     iddirection bigint,
     idoperateur bigint,
     idart bigint
@@ -509,11 +509,11 @@ CREATE TABLE opentreemateriel (
 
 CREATE TABLE operationentree (
     id bigint NOT NULL primary key,
-    date date,
+    dateop date,
     motifretour character varying(255),
     poste character varying(255),
     state character varying(255),
-    "time" time without time zone,
+    "timeop" time without time zone,
     iddirection bigint,
     idoperateur bigint,
     numoperation character varying(255),
@@ -530,11 +530,11 @@ CREATE TABLE operationentree (
 
 CREATE TABLE opsaisie (
     id bigint NOT NULL primary key,
-    date date,
+    dateop date,
     motifretour character varying(255),
     poste character varying(255),
     state character varying(255),
-    "time" time without time zone,
+    "timeop" time without time zone,
     iddirection bigint,
     idoperateur bigint,
     designationref character varying(255),
@@ -549,11 +549,11 @@ CREATE TABLE opsaisie (
 
 CREATE TABLE opsortie (
     id bigint NOT NULL primary key,
-    date date,
+    dateop date,
     motifretour character varying(255),
     poste character varying(255),
     state character varying(255),
-    "time" time without time zone,
+    "timeop" time without time zone,
     iddirection bigint,
     idoperateur bigint,
     numoperation character varying(255),
@@ -573,11 +573,11 @@ CREATE TABLE opsortie (
 
 CREATE TABLE opsortiearticle (
     id bigint NOT NULL primary key,
-    date date,
+    dateop date,
     motifretour character varying(255),
     poste character varying(255),
     state character varying(255),
-    "time" time without time zone,
+    "timeop" time without time zone,
     iddirection bigint,
     idoperateur bigint,
     decision character varying(255),

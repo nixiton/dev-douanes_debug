@@ -3,16 +3,16 @@ package com.douane.entite;
 import javax.persistence.Entity;
 
 @Entity
-public class Adresse extends Referentiel {
+public class Adiresy extends Referentiel {
 
-	public Adresse() {
+	public Adiresy() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public Adresse(String designation) {
+	public Adiresy(String designation) {
 		super(designation);
-		this.setLeref("Adresse");
+		this.setLeref("Adiresy");
 		// TODO Auto-generated constructor stub
 	}
 	

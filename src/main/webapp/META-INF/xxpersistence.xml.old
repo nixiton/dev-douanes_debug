@@ -12,7 +12,7 @@
      </properties>
    </persistence-unit>
  
-</persistence-->
+</persistence
 
 <persistence xmlns="http://java.sun.com/xml/ns/persistence"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -28,4 +28,4 @@
                 </properties>
         </persistence-unit>
 
-</persistence>
+</persistence>-->

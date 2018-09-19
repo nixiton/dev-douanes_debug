@@ -18,6 +18,16 @@
 				<enabled>true</enabled>
 			</snapshots>
 		</repository>
+		
+		
+		
+		<!-- Repository for ORACLE ojdbc6.
+    <repository>
+        <id>codelds</id>
+        <url>https://code.lds.org/nexus/content/groups/main-repo</url>
+    </repository>
+ -->
+		
 		<repository>
 			<id>central2</id>
      		 <name>Central Repository 2</name>
@@ -205,6 +215,8 @@
 			<artifactId>qrgen</artifactId>
 			<version>1.4</version>
 		</dependency>
+		
+		<!-- hibernate -->
 		<dependency>
 			<groupId>org.hibernate.javax.persistence</groupId>
 			<artifactId>hibernate-jpa-2.0-api</artifactId>
@@ -212,15 +224,16 @@
 		</dependency>
 
 		<dependency>
-			<groupId>org.hibernate</groupId>
-			<artifactId>hibernate-entitymanager</artifactId>
-			<version>${hibernate.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.hibernate</groupId>
-			<artifactId>hibernate-validator</artifactId>
-			<version>${hibernate-validator.version}</version>
-		</dependency>
+   <groupId>org.hibernate</groupId>
+   <artifactId>hibernate-core</artifactId>
+   <version>4.2.7.Final</version>
+</dependency>
+<!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-entitymanager -->
+<dependency>
+    <groupId>org.hibernate</groupId>
+    <artifactId>hibernate-entitymanager</artifactId>
+    <version>4.2.7.Final</version>
+</dependency>
 
 		<!-- Jax RS cannot -->
 		<dependency>
@@ -228,7 +241,7 @@
 			<artifactId>resteasy-jaxrs</artifactId>
 			<version>2.2.1.GA</version>
 		</dependency>
-
+		
 		<dependency>
 			<groupId>com.google.code.gson</groupId>
 			<artifactId>gson</artifactId>
@@ -454,8 +467,13 @@
 	    <groupId>org.primefaces.themes</groupId>
 	    <artifactId>all-themes</artifactId>
 	    <version>1.0.10</version>
-</dependency>
-
+	</dependency>
+<!-- ORACLE -->
+    <dependency>
+        <groupId>com.oracle</groupId>
+        <artifactId>ojdbc6</artifactId>
+        <version>11.2.0</version>
+    </dependency>
 	</dependencies>
 
 	<profiles>
@@ -518,7 +536,16 @@
 					</execution>
 				</executions>
 			</plugin>
+			
 		</plugins>
+		<resources>
+					<resource>
+						<directory>src/main/resources</directory>
+					</resource>
+					<resource>
+						<directory>src/main/java/com/douane/managed/jasperReport</directory>
+					</resource>
+				</resources>
 	</build>
 
 </project>

@@ -26,7 +26,7 @@ public interface MaterielRepository extends CrudRepository<Materiel, Long>{
 	public List<Materiel> findByValidationAndDetenteurAndDirec(boolean val, Agent detenteur, Direction direction);
 	public Long countByDesignAndDirec(Designation des, Direction dir);
 	
-	@Query("select d, count(d) from Materiel m join m.design d where m.myoperationEntree=:curentop group by d")
+	@Query("SELECT d.idDesignation, count(d) FROM Materiel m JOIN m.design d WHERE m.myoperationEntree=:curentop GROUP BY d")
 	List<Object[]> getDesignationByOpEntree(@Param("curentop")OpEntree open);
 	public Long countByTypematerieladdAndDirecAndValidation(TypeMateriel typemat, Direction dir, boolean validation);
 	

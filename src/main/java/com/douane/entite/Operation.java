@@ -3,6 +3,7 @@ package com.douane.entite;
 import java.io.Serializable;
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -30,8 +31,10 @@ public abstract class Operation implements Serializable{
 	protected Long id;
 	
 	@Temporal(TemporalType.DATE)
+	@Column(name="dateop")
 	protected Date date;
 	@Temporal(TemporalType.TIME)
+	@Column(name="timeop")
 	protected Date time;
 	
 	protected String poste;

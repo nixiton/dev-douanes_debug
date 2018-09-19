@@ -6,7 +6,7 @@
          xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
          metadata-complete="false">
 
-    <display-name>OTV_JSF_PrimeFaces_Spring_Hibernate</display-name>
+    <display-name>Douane-equipment</display-name>
 
     <!-- REST -->
 
@@ -55,13 +55,13 @@
         <param-value>redmond</param-value>
     </context-param>
    	
-    <!-- Rest Listener -->
+    <!-- Rest Listener 
     <listener>
         <listener-class>
             org.jboss.resteasy.plugins.server.servlet.ResteasyBootstrap
         </listener-class>
     </listener>
-
+	-->
     <!-- The Bootstrap listener to start up and shut down Spring's root WebApplicationContext. It is registered to Servlet Container -->
     <listener>
         <listener-class>
@@ -147,6 +147,10 @@
         <servlet-name>Faces Servlet</servlet-name>
         <url-pattern>*.xhtml</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+    	<servlet-name>Faces Servlet</servlet-name>
+    	<url-pattern>/javax.faces.resources/*</url-pattern>
+</servlet-mapping>
     <error-page>
         <error-code>404</error-code>
         <!-- location>/AppExceptionHandler</location-->

@@ -27,13 +27,13 @@
     </div>
     </c:if>
     <h:form>
-    <p:dataTable   var="materiel" value="#{depositaireBean.listMaterielexistant}"
+    <p:dataTable   var="materiel" value="#{suivieditionBean.listMaterielexistant}"
                  widgetVar="MaterielTable"
                  id="MaterielTable" 
                  currentPageReportTemplate="({currentPage} sur {totalPages})"
                  paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}  "
                  paginator="true" rows="10" style="margin-bottom:20px"
-                 emptyMessage="Aucun resultat" filteredValue="#{depositaireBean.listMaterielexistant}"
+                 emptyMessage="Aucun resultat" filteredValue="#{suivieditionBean.listMaterielexistant}"
                  >
  
         <p:column filterBy="#{materiel.idMateriel}" filterMatchMode="contains" style="width: 7%; text-align: center; word-wrap: break-word;">
@@ -138,6 +138,14 @@
             </c:if>
         </p:column>
     </p:dataTable>
+    
+    <p:ajaxStatus onstart="PF('statusDialog').show()" onsuccess="PF('statusDialog').hide()" />
+
+	<p:dialog styleClass="loader_dialog" widgetVar="statusDialog" modal="true" draggable="false" closable="false" resizable="false" header="">
+		<div align="center" class="">
+			<p:graphicImage style="width:35% !important; height:35% !important;" value="/pages/unsecure/assets/images/loading_small.gif" /> 
+		</div>
+	</p:dialog>
     </h:form>
 </div>
 

@@ -11,9 +11,13 @@ public class MessageRestBean {
 	@Path("/{param}")
 	public Response printMessage(@PathParam("param") String msg) {
  
-		String result = "Restful example : " + msg;
+		try {
+			String result = "Restful example : " + msg;
  
-		return Response.status(200).entity(result).build();
+			return Response.status(200).entity(result).build();
+		}catch(Exception e) {
+			return null;
+		}
  
 	}
 }

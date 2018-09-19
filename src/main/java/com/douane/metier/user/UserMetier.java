@@ -1318,6 +1318,10 @@ public class UserMetier implements IUserMetier {
 			return null;
 		}
 		List<Object[]> a =  matrepos.getDesignationByOpEntree(operationentree);
+		for(Object[] o:a) {
+			Long id = (Long)o[0];
+			o[0]= desrepos.findOne(id);
+		}
 		
 		return a;
 	}

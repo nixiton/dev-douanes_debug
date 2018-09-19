@@ -49,12 +49,12 @@
 	<h:form>
 
 
-    <p:dataTable   var="materiel" value="#{depositaireBean.listMaterielNouveauValide}"
+    <p:dataTable   var="materiel" value="#{suivieditionBean.listMaterielNouveauValide}"
                  widgetVar="MaterielTable"
                  currentPageReportTemplate="({currentPage} sur {totalPages})"
                  paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}  "
                  paginator="true" rows="10" style="margin-bottom:20px"
-                 emptyMessage="Aucun resultat" filteredValue="#{depositaireBean.listMaterielNouveauValide}"
+                 emptyMessage="Aucun resultat" filteredValue="#{suivieditionBean.listMaterielNouveauValide}"
                  >
  
  		<f:facet name="header">
@@ -211,12 +211,12 @@
     <h:form>
 
 
-    <p:dataTable   var="materiel" value="#{depositaireBean.listMaterielNouveauNonValide}"
+    <p:dataTable   var="materiel" value="#{suivieditionBean.listMaterielNouveauNonValide}"
                  widgetVar="MaterielTablenon"
                  currentPageReportTemplate="({currentPage} sur {totalPages})"
                  paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}  "
                  paginator="true" rows="10" style="margin-bottom:20px"
-                 emptyMessage="Aucun resultat" filteredValue="#{depositaireBean.listMaterielNouveauNonValide}"
+                 emptyMessage="Aucun resultat" filteredValue="#{suivieditionBean.listMaterielNouveauNonValide}"
                  >
  		<f:facet name="header">
         Prise en charge non acceptée
@@ -300,6 +300,11 @@
     </p:dataTable>
     
     </h:form>
+    <p:dialog styleClass="loader_dialog" widgetVar="statusDialog" modal="true" draggable="false" closable="false" resizable="false" header="">
+		<div align="center" class="">
+			<p:graphicImage style="width:35% !important; height:35% !important;" value="/pages/unsecure/assets/images/loading_small.gif" /> 
+		</div>
+	</p:dialog>
 </div>
 </div>
 </div>

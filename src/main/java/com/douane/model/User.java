@@ -32,6 +32,8 @@ public class User {
 	}
 
 	@Id
+	@SequenceGenerator (name = "generator_user", sequenceName = "USER_SEQ", allocationSize = 1) 
+	@GeneratedValue (strategy = GenerationType.SEQUENCE, generator = "generator_user")
 	@Column(name = "username", unique = true,
 			nullable = false, length = 45)
 	public String getUsername() {
