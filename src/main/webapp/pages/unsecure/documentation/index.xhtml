@@ -49,6 +49,7 @@
 <div class="big-title text-center">
                             
 <h2 class="application-title application-title-2">APPLICATION DE GESTION AUTOMATISEE DES MATERIELS ET EQUIPEMENTS</h2>
+<p class="nomenacommm">Design titre</p>
                             
 <h2 class="application-title application-title-3">Documentation</h2>
                             
@@ -65,6 +66,7 @@
             <!-- end section -->
             
 <div class="row">
+<p class="nomenacommm"> AJOUTER LE FLUX METIER DANS CETTE SECTION</p>
                 
 <div class="col-md-3">
                     <nav class="docs-sidebar" data-spy="affix" data-offset-top="300" data-offset-bottom="200" role="navigation">
@@ -199,7 +201,7 @@
 <div class="col-md-12">
                                 	
                                 	
-<p><strong><u>N.B :</u></strong> Si vous n'arrivez pas à vous inscrire, utilisez la combinaison Immatriculation/mot de passe suivante <strong><u>"12345/1"</u></strong></p>
+<p><strong><u>N.B :</u></strong> Si vous n'arrivez pas à vous authentifier, contactez votre <strong>administrateur</strong></p>
                                 </div>
                                 
                             </div>
@@ -294,7 +296,8 @@
 			                        
 <p><strong><u>N.B :</u></strong> La disponibilité de ces menus dépend de la fonction de l'utilisateur courant.
 			                        </p>
-			                        Ci-dessous on a le tableau des menus disponibles pour chaque fonction :<br />
+			                        Ci-dessous on a le tableau des menus disponibles pour chaque fonction :<br /> 
+		<p class="nomenacommm">Ajouter DRF/DG - tableau de bord generale + Suivi et éditions des états régelementaires générale </p>
 			                        
 <div class="table-responsive">
 				                        
@@ -408,7 +411,7 @@
 			                        </div>
 			                    
 <p />
-			                    	
+<p class="nomenacommm"> METTRE CETTE PARTIE DANS UTILISATION GENERALE AVEC LOGIN</p>			                    	
 <p>Pour tout utilisateur, les icones suivantes disponibles: </p>
 <p>Pour tout utilisateur, le menu  <img src="Image_Douane/Matricule_nav_bar.png" alt="Icon view" class="" />  en haut à gauche de l'écran affiche l'immatriculation de l'utilisateur connecté <br></br>
  Cette menu contient les sous menu suivantes :<br></br></p>
@@ -445,6 +448,8 @@
 <p>
    <img src="images/vers_compta_admin.png" alt="Icon view" class="" /> : Pour changer la comptabilité en comptabilité administrative
 </p>
+<p class="nomenacommm"> Ajouter aussi les bouttons pour modification et suppression</p>
+<p class="nomenacommm"> FIN AJOUT DANS CONFIGURATION GENERAL</p>
 			                </div>
                     </div>
                     <section id="sec_admin_dashboard_matiere" class="section">
@@ -526,9 +531,9 @@
                                     </li></ul>
                                     
 <p>Des filtres sur l'état et le type d'opération sont disponibles, mais également un filtre pour les recherches globales.</p>
-                                    
+<p class="nomenacommm">DEPLACER CETTE SECTION VERS SUIVIE ET EDITION + AJOUTER LIEN VOIR CETTE SECTION POUR REMPLIR LE FORMULAIRE </p>                                    
 <p>
-										Les types d'opérations : Entrée matériel, Attribution et détachement possède des pièces justificatives.<br />
+										Les types d'opérations : Entrée matériel, Attribution et détachement possèdent des pièces justificatives.<br />
 										Ci-dessous les formulaires à remplir pour ces  pièces justificatives :<br />
 										</p>
 <ul class="type-etat-user">
@@ -568,6 +573,7 @@
                                         </ul>
                                     
 <p />
+<p class="nomenacommm">FIN SECTION A DEPLACER VER SUIVI ET EDITIONS</p>
                                     
                                 </div>
                                 
@@ -610,7 +616,7 @@
 <div class="col-md-12">
                                     
 <p>Chaque tableau de référentiels contient un bouton <img src="Image_Douane\CM\Saisie_referentiel\btn_ajouter_saise_referentiel.png" alt="Icon view" class="" />  avec lequel l'utilisateur peut accéder à l'interface d'ajout de nouvelle type de référentiel. <br />Chaque tableau contient également la liste de référentiels d'une type de référentiels choisi (ex:  liste de nomenclature ou liste de type de matériels).<br /> 
-									Dans chaque tableau, l'utilsateur courant peut modifier ou supprimer des référentiels.
+									Dans chaque tableau, l'utilisateur courant peut modifier ou supprimer des référentiels.
                                     </p>
                                      
 <p>Un filtre est également disponible en cliquent sur le bouton  <img src="Image_Douane\CM\Saisie_referentiel\btn_filtre_saise_referentiel.png" alt="Filtre" /> cela facilite à l'utilisateur, la recherche de référentiel </p>
@@ -631,11 +637,11 @@
                                             
 <ul class="type-saisie-sub-ref">
                                             	
-<p>Cette interface est utilisé pour ajouter une nouvelle nomenclature, 2 champs sont à remplir : </p>
+<p>Cette interface est utilisée pour ajouter une nouvelle nomenclature, 2 champs sont à remplir : </p>
                                                 
-<li><strong><u>Désignation : </u></strong> texte définissant la nomenclature</li>
+<li><strong><u>Désignation : </u></strong> texte définissant la nomenclature <span class="ex">ex: Combustibles et Luminaires</span></li>
                                                 
-<li><strong><u>Nomenclature : </u></strong> code unique (selon la nomenclature officielle)</li>
+<li><strong><u>Nomenclature : </u></strong> code unique selon la nomenclature officielle <span class="ex">ex:1</span></li>
                                             </ul>
                                             
 <p>Tous ces champs sont obigatoires, une message d'erreur apparaît dans le cas contraire</p>
@@ -649,9 +655,9 @@
                                             	
 <p>Cette interface est utilisé pour ajouter un nouveau type de materiel, 3 champs sont à remplir : </p>
                                                 
-<li><strong><u>Désignation :</u></strong> texte définissant le type de matériel</li>
+<li><strong><u>Désignation :</u></strong> texte définissant le type de matériel ex:Lampe tube fluorescent </li>
                                                 
-<li><strong><u>Code type matériel :</u></strong> code (unique et de préférence 3 lettres capitales)</li>
+<li><strong><u>Code type matériel :</u></strong> code unique et de  3 lettres capitales et une chiffre dont les 3 premières lettres sont les 3 premières de la designation et le chiffre incrémenter pour les matériles ayant le même type. ex: LAM1</li>
                                                 
 <li><strong><u>Catégorie :</u></strong> Catégorie de la nomenclature associé</li>
                                             </ul>
@@ -712,7 +718,8 @@
                                             
 <p>Ce champ est obligatoire, une message d'erreur apparaît dans le cas contraire</p>
                                         
-                                        
+<p class="nomenacommm">SUPPRIMER CETTE SECTION FONCTION</p> 
+                                       
 <li><strong>Fonction</strong></li>
                                             
 <p><img src="Image_Douane\CM\Saisie_referentiel\Fonction\fonction.png" alt="Fonction page" class="image-admin-dashboard" /></p>
@@ -821,9 +828,9 @@
                                                 
 <li><strong><u>Localité :</u></strong> Localisation de la direction</li>
                                                 
-<li><strong><u>Budget :</u></strong> Budget correspondant à la direction - utilisée dans les états réglementaires</li>
+<li><strong><u>Budget :</u></strong> Budget correspondant à la direction - utilisée dans les états réglementaires <span class="nomenacommm">Ajouter lien vers cette section </span></li>
                                                 
-<li><strong><u>Subdivision du chapitre :</u></strong>Subdivision du chapitre correspondant à la direction - utilisée dans les états réglementaires</li>
+<li><strong><u>Subdivision du chapitre :</u></strong>Subdivision du chapitre correspondant à la direction - utilisée dans les états réglementaires <span class="nomenacommm">Ajouter lien vers cette section </span></li>
                                             </ul>
                                              
 <p>Tous ces champs sont obigatoires, une message d'erreur apparaît dans le cas contraire</p>
@@ -928,7 +935,7 @@
 <li><strong><u>Marque</u> </strong> Marque du matériel</li>
 <li>
                                         </li>
-<li><strong><u>Dépositaire</u> Nom du dépositaire</strong> </li>
+<li><strong><u>Dépositaire</u> </strong>  Nom du dépositaire</li>
 <li>
                                         </li>
 <li><strong><u>Code</u> </strong> Code associé au matériel</li>
@@ -944,12 +951,13 @@
 <p><img src="Image_Douane/icon_view.PNG" alt="Icon view" class="image-icon-view" /> : permet de voir les détails du matériel concerné et avoir l'interface ci-dessous <br /></p>
 <p> <img src="Image_Douane\CM\Saisie_materiel\Saisie_materiel_existant\pop-up_visualisation_materiel_existant.png" alt="pop-up_visualisation_materiel_existant view" class="image-admin-dashboard" /></p>
 <p />
-                                    
-<p><img src="Image_Douane/icon_edit.PNG" alt="Icon view" class="image-icon-view" /> : permet d'avoir le pop-up permettant de modifier des informations sur le matériel concerné. <br /></p>
+<p class="nomenacommm">Le QR CODE Change lors que des modifications ont été efféctuées</p>                                    
+<p><img src="Image_Douane/icon_edit.png" alt="Icon view" class="image-icon-view" /> : permet d'avoir le pop-up permettant de modifier des informations sur le matériel concerné. <br /></p>
 <p> <img src="Image_Douane\CM\Saisie_materiel\Saisie_materiel_existant\pop-up_modification_materiel_existant.png" alt="pop-up_modification_materiel_existant view" class="image-admin-dashboard" /></p>
 <p />
                                     
-<p><img src="Image_Douane/icon_add.PNG" alt="Icon view" class="icon-view" /> : permet d'afficher le formulaire d'ajout de matériel. <br /></p>
+<p><img src="Image_Douane/icon_add.png" alt="Icon view" class="icon-view" /> : permet d'afficher le formulaire d'ajout de matériel. <br /></p>
+<p class="nomenacommm"> IMAGE FLOU</p>
 <p> <img src="Image_Douane\CM\Saisie_materiel\Saisie_materiel_existant\ajout_materiel_existant_all.png" alt="ajout_materiel_existant_all view" class="image-admin-dashboard" /></p>
 <p />
                                    	
@@ -998,9 +1006,10 @@
 <p><strong><u>Etat :</u></strong>  Liste déroulante des différentes états de matériels </p>
                                    
                                     
-<p><strong><u>Référence :</u></strong> Texte décrivant la référence du matériel </p>
+<p><strong><u>Référence :</u></strong> Texte décrivant la référence du matériel <span class="nomenacommm"> est une reférence utilisée les matériels de même type par exemple pour une table de même type numeros 9 on va mettre table9</span></p> 
                                     
-<p><strong><u>Numéro de série :</u></strong> Texte décrivant le numéro de série du matériel </p>
+<p><strong><u>Numéro de série :</u></strong> Texte décrivant le numéro de série du matériel <span class="nomenacommm">equivalent à referece si n'existe pas</span></p>
+<p class="nomenacommm"> OBLIGATOIRE POUR AJOUTER LE MATERIEL MAIS PAS un NB</p>
                                    	
 <p><strong><u>N.B :</u></strong>  Il est possible d'ajouter les références et numéros de série en cliquant sur le bouton ajouter nombre par type en fonction du nombre de matériels de ce type.
                                     
@@ -1031,7 +1040,7 @@
                             
 <div class="col-md-12">
                             	
-<p>Cette menu est uniquement destinées au <strong>Dépositaire Comptable (DC) </strong> pour pouvoir visualiser ou modifier les matériels prise en charge dans une facture. L'utilisateur peut également ajouter les nouveaux matériaux à prendre en charges.</p>
+<p>Cette menu est uniquement destinées au <strong>Dépositaire Comptable (DC) </strong> pour pouvoir visualiser ou modifier les matériels prise en charge dans une facture. L'utilisateur peut également ajouter les nouveaux matériaux à prendre en charges à partir de la facture reçue. Cette prise en charge devra être validée par le GAC</p>
                                 
 <p>Seuls les utilisateurs <strong>Service Equipement (SE) </strong>,<strong>Service Informatique (SI)</strong> ont accés à ce menu pour  <strong>la modification</strong> des données des matériels qui ont été déjà validés par le GAC de la direction</p>
                         	</div>
@@ -1891,6 +1900,7 @@
 			                </div>
                     </div>
                     <section id="sec_admin_dashboard_admin" class="section">
+ <p class="nomenacommm"> Ajouter ici aussi les fonctions valables</p>
                         
 <div class="row">
                             
