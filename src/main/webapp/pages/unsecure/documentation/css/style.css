@@ -206,11 +206,15 @@ strong {
 
 .big-title h1 {
     font-size: 48px;
-    font-weight: 300;
+    font-weight: 50;
     margin-bottom: 0;
     text-transform: capitalize;
     padding-bottom: 0;
 }
+.big-title{
+    background-color : #0471A6;
+    vertical-align: center !important;
+} 
 
 .dark-text {
     font-size: 3.125rem;
@@ -376,10 +380,16 @@ a:hover {
 
 .application-title {
     text-align: center;
+    font-family: Verdana, sans-serif;
 }
 
 .application-title-2 {
-    font-size: 35px;
+    font-size: 28px;
+    color: white !important;
+    padding-top: 28px !important;
+    padding-bottom: 28px !important;
+    padding-left: 16px !important;
+    padding-right: 16px !important;
 }
 
 .application-title-3 {

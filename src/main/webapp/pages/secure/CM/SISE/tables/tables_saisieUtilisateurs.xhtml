@@ -34,15 +34,15 @@
                  widgetVar="UserTable"
                  rowStyleClass="#{f.active eq false ? 'bg-dark' : 'bg-dark'}"
                  >
-		<p:column style="width: 5%; text-align: center; word-wrap: break-word;">
+		<p:column styleClass="state-#{f.active}" style="width: 5%; text-align: center; word-wrap: break-word;">
 			<f:facet name="header">Immatriculation</f:facet>
 			#{f.im}
 		</p:column>
-		<p:column filterBy="#{f.nomAgent}" filterMatchMode="contains" style="width: 5%; text-align: center; word-wrap: break-word;">
+		<p:column styleClass="state-#{f.active}" filterBy="#{f.nomAgent}" filterMatchMode="contains" style="width: 5%; text-align: center; word-wrap: break-word;">
 			<f:facet name="header">Nom</f:facet>
 			#{f.nomAgent} #{f.prenomAgent}
 		</p:column>
-		<p:column filterBy="#{f.roleAgent.designation}" filterMatchMode="contains" style="width: 5%; text-align: center; word-wrap: break-word;">
+		<p:column styleClass="state-#{f.active}" filterBy="#{f.roleAgent.designation}" filterMatchMode="contains" style="width: 5%; text-align: center; word-wrap: break-word;">
 			<f:facet name="header">Fonction</f:facet>
 			#{f.roleAgent.designation}
 		</p:column>
@@ -50,7 +50,7 @@
 			<f:facet name="header">Rôle</f:facet>
 			:#{f.roleAgent.role}
 		</p:column> -->
-		<p:column filterBy="#{f.direction.designation}" filterMatchMode="contains" style="width: 10%; text-align: center; word-wrap: break-word;">
+		<p:column styleClass="state-#{f.active}" filterBy="#{f.direction.designation}" filterMatchMode="contains" style="width: 10%; text-align: center; word-wrap: break-word;">
 			<f:facet name="header">Direction</f:facet>
 			#{f.direction.designation}
 		</p:column>
@@ -58,14 +58,14 @@
 			<f:facet name="header">Service</f:facet>
 			#{f.service.designation}
 		</p:column-->
-		<p:column filterBy="#{f.posteny.designation}" filterMatchMode="contains" style="width: 5%; text-align: center; word-wrap: break-word;">
+		<p:column styleClass="state-#{f.active}" filterBy="#{f.posteny.designation}" filterMatchMode="contains" style="width: 5%; text-align: center; word-wrap: break-word;">
 			<f:facet name="header">Poste</f:facet>
 			#{f.posteny.designation}
 		</p:column>
 		<c:if test="#{topMenuMB.curentAgent.roleAgent.role eq 'ROLE_ADMIN' 
             or topMenuMB.curentAgent.roleAgent.role eq 'ROLE_SISE'
             }">
-		<p:column style="width: 3%; text-align: center; word-wrap: break-word;">
+		<p:column styleClass="state-#{f.active}" style="width: 3%; text-align: center; word-wrap: break-word;">
           <p:commandButton   action="#{userMB.setCurrentAgenttomodify(f)}" update=":detailuser"
             oncomplete="PF('detailuser').show()" icon="ui-icon-zoomin"/>
           <div style=" display:inline-block">
