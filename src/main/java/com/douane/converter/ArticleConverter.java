@@ -24,10 +24,10 @@ public class ArticleConverter implements Converter {
         if(value != null && value.trim().length() > 0)
         {
             try {
-                System.out.println("***************************article BEGIN********************************");
+                System.out.println("***************************ARTICLE CONV BEGIN********************************");
                 return this.userMetier.getArticleById(Long.parseLong(value));
             } catch(Exception e) {
-                System.out.println("***************************article CONV EXCEPTION********************************");
+                System.out.println("***************************ARTICLE CONV EXCEPTION********************************");
                 e.printStackTrace();
                 throw new ConverterException(new FacesMessage(FacesMessage.SEVERITY_ERROR, "Erreur Article", "Article non valide"));
             }

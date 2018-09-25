@@ -17,7 +17,10 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Transient;
 
 import javax.persistence.FetchType;
-
+/*
+ * Entity utilisé pour les utilisateurs et les agents détenteurs
+ * 
+ */
 @Entity
 public class Agent implements Serializable {
 
@@ -36,7 +39,7 @@ public class Agent implements Serializable {
 	@Column(name="PASSWORD", nullable = false)
 	private String password;
 	
-	//@Column(name="roleAgent")
+	//role agent pour definir la fonction de l'agent donc les menus et fonctions dispo
 	@ManyToOne
 	@JoinColumn(name="idrole")
 	private Useri roleAgent;
@@ -45,7 +48,8 @@ public class Agent implements Serializable {
 	@JoinColumn(name="idposteny")
 	private Poste posteny;
 
-	//ADD OR NOT Getters and Setters//
+	//Liste des matériels détenus par l'agent
+	//EAGER pour faciliter les requêtes dans db
 	@OneToMany(mappedBy="detenteur", fetch = FetchType.EAGER)
 	private List<Materiel> matdetenu = new ArrayList<Materiel>();
 	
@@ -54,6 +58,8 @@ public class Agent implements Serializable {
 	@JoinColumn(name="idDirection")
 	private Direction direction;
 	
+	// Pour activation du compte
+	private boolean active;
 	
 	@Transient
 	private String ip;
@@ -193,8 +199,6 @@ public class Agent implements Serializable {
 	public Long getIdAgent() {
 		return idAgent;
 	}
-	
-	private boolean active;
 	
 	public boolean isActive() {
 		return active;

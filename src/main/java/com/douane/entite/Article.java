@@ -16,46 +16,49 @@ import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 
 @Entity
-@Inheritance(strategy=InheritanceType.SINGLE_TABLE)
-@DiscriminatorColumn(name="typeArt", discriminatorType=DiscriminatorType.INTEGER)
-public class Article  implements Serializable{
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name = "typeArt", discriminatorType = DiscriminatorType.INTEGER)
+public class Article implements Serializable {
 
 	@Id
-	@SequenceGenerator(allocationSize=1, initialValue=1, sequenceName="account_idart_seq", name="account_idart_seq")
-	@GeneratedValue(generator="account_idart_seq", strategy=GenerationType.SEQUENCE)
+	@SequenceGenerator(allocationSize = 1, initialValue = 1, sequenceName = "account_idart_seq", name = "account_idart_seq")
+	@GeneratedValue(generator = "account_idart_seq", strategy = GenerationType.SEQUENCE)
 	private Long idArticle;
 
-    public void setIdArticle(Long idArticle) {
+	public void setIdArticle(Long idArticle) {
 		this.idArticle = idArticle;
 	}
 
 	@ManyToOne
-    @JoinColumn(name="idcode")
-    private CodeArticle codeArticle;
+	@JoinColumn(name = "idcode")
+	private CodeArticle codeArticle;
 
-    private Long nombre;
+	// Nombre total de l'article en entrée
+	private Long nombre;
 
-    private boolean validation;
-    
-    @ManyToOne
-	@JoinColumn(name="idMarqueArt")
-    private Marque marqueArticle;
-    
-    private String caracteristiqueArticle;
+	private boolean validation;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name="imBeneficiaire")
-    private Agent beneficiaire;
+	@ManyToOne
+	@JoinColumn(name = "idMarqueArt")
+	private Marque marqueArticle;
 
-    @ManyToOne
-    @JoinColumn(name="imDepositaire")
-    private Agent dc;
+	private String caracteristiqueArticle;
 
-    @ManyToOne
-	@JoinColumn(name="idDirectionArt")
+	// Agent beneficiaire de l'article
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "imBeneficiaire")
+	private Agent beneficiaire;
+
+	@ManyToOne
+	@JoinColumn(name = "imDepositaire")
+	private Agent dc;
+
+	// Direction à laquelle appartient l'article
+	@ManyToOne
+	@JoinColumn(name = "idDirectionArt")
 	private Direction direcArt;
-    
-    public Direction getDirecArt() {
+
+	public Direction getDirecArt() {
 		return direcArt;
 	}
 
@@ -64,49 +67,48 @@ public class Article  implements Serializable{
 	}
 
 	public Agent getDc() {
-        return dc;
-    }
+		return dc;
+	}
 
-    public void setDc(Agent dc) {
-        this.dc = dc;
-    }
+	public void setDc(Agent dc) {
+		this.dc = dc;
+	}
 
-    public CodeArticle getCodeArticle() {
-        return codeArticle;
-    }
+	public CodeArticle getCodeArticle() {
+		return codeArticle;
+	}
 
-    public void setCodeArticle(CodeArticle codeArticle) {
-        this.codeArticle = codeArticle;
-    }
+	public void setCodeArticle(CodeArticle codeArticle) {
+		this.codeArticle = codeArticle;
+	}
 
-    public Long getNombre() {
-        return nombre;
-    }
+	public Long getNombre() {
+		return nombre;
+	}
 
-    public void setNombre(Long nombre) {
-        this.nombre = nombre;
-    }
+	public void setNombre(Long nombre) {
+		this.nombre = nombre;
+	}
 
-    public Long getIdArticle() {
-        return idArticle;
-    }
+	public Long getIdArticle() {
+		return idArticle;
+	}
 
-    public boolean isValidation() {
-        return validation;
-    }
+	public boolean isValidation() {
+		return validation;
+	}
 
-    public void setValidation(boolean validation) {
-        this.validation = validation;
-    }
+	public void setValidation(boolean validation) {
+		this.validation = validation;
+	}
 
+	public Agent getBeneficiaire() {
+		return beneficiaire;
+	}
 
-    public Agent getBeneficiaire() {
-        return beneficiaire;
-    }
-
-    public void setBeneficiaire(Agent beneficiaire) {
-        this.beneficiaire = beneficiaire;
-    }
+	public void setBeneficiaire(Agent beneficiaire) {
+		this.beneficiaire = beneficiaire;
+	}
 
 	public Marque getMarqueArticle() {
 		return marqueArticle;
@@ -127,25 +129,27 @@ public class Article  implements Serializable{
 	@Override
 	public boolean equals(Object o) {
 
-		if (this.getIdArticle().equals(((Article)o).getIdArticle()))
+		if (this.getIdArticle().equals(((Article) o).getIdArticle()))
 			return true;
 		return false;
 
 	}
+
+	public Float getPrix() {
+		return prix;
+	}
+
+	public void setPrix(Float prix) {
+		this.prix = prix;
+	}
 	
-	 public Float getPrix() {
-	        return prix;
-	    }
-
-	    public void setPrix(Float prix) {
-	        this.prix = prix;
-	    }
-
-	 protected Float prix;
-	 
-	 protected String origine;
-	 protected String reference;
-	 protected String especeunit;
+	/*
+	 * Champs additionels utiles dans les etats réglementaires
+	 */
+	protected Float prix;
+	protected String origine;
+	protected String reference;
+	protected String especeunit;
 
 	public String getOrigine() {
 		return origine;
@@ -170,7 +174,5 @@ public class Article  implements Serializable{
 	public void setEspeceunit(String especeunit) {
 		this.especeunit = especeunit;
 	}
-	 
-	 
 
 }

@@ -39,7 +39,7 @@ public class RefConverter implements Converter {
         if(value != null && value.trim().length() > 0) {
             try {
                 //refmetierimpl
-            	System.out.println("REFERENTIEL CONVERTER BEGIN ********** "+value);
+            	System.out.println("**************** REFERENTIEL CONVERTER BEGIN ********** "+value);
             	if(value.equals("null")) {
             		return new Marque();
             	}
@@ -93,6 +93,7 @@ public class RefConverter implements Converter {
                 	return (CodeArticle)ref;
                 }
             } catch(NumberFormatException e) {
+            	System.out.println("************* REF CONV EXCEPTION ***********");
                 throw new ConverterException(new FacesMessage(FacesMessage.SEVERITY_ERROR, " Erreur Referentiel", "Referentiel non valide"));
             }
         }

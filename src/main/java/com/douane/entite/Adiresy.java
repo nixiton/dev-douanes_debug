@@ -1,7 +1,10 @@
 package com.douane.entite;
 
 import javax.persistence.Entity;
-
+/*
+ * Entity Test pour Adresse 
+ * N'est pas utilisé pour le moment
+ */
 @Entity
 public class Adiresy extends Referentiel {
 

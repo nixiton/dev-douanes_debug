@@ -20,7 +20,7 @@ public class CodeArtConverter implements Converter {
     IRefMetier refmetierimpl;
 
     public Object getAsObject(FacesContext fc, UIComponent uic, String value) {
-    	System.out.println("Vao iditra");
+    	System.out.println("************* CODE ARTICLE CONV BEGIN ***********");
     	
     	if(value==null) {
     		return null;
@@ -40,6 +40,7 @@ public class CodeArtConverter implements Converter {
                 	return (CodeArticle)ref;
                 }
             } catch(NumberFormatException e) {
+            	System.out.println("************* CODE ARTICLE CONV EXCEPTION ***********");
                 throw new ConverterException(new FacesMessage(FacesMessage.SEVERITY_ERROR, " Erreur Code Article", "Referentiel non valide"));
             }
         }

@@ -33,11 +33,13 @@ public class UseriConverter implements Converter {
         if(value != null && value.trim().length() > 0)
         {
             try {
+            	System.out.println("************* USERI CONV BEGIN ***********");
             	System.out.println("USER I CONVERTER CONVERTER ID");
             	Useri role = this.utilisateurmetierimpl.findById(Integer.parseInt(value));
             	System.out.println("Useri ; "+role.getDesignation());
                 return role;
             } catch(NumberFormatException e) {
+            	System.out.println("************* USERI CONV EXCEPTION ***********");
                 throw new ConverterException(new FacesMessage(FacesMessage.SEVERITY_ERROR, "Erreur Fonction", "Fonction non valide."));
             }
         }

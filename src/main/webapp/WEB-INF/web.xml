@@ -179,7 +179,7 @@
     </error-page-->
     <error-page>
         <exception-type>java.lang.Throwable</exception-type>
-        <location>/WEB-INF/error.xhtml</location>
+        <location>/pages/unsecure/error_400.xhtml</location>
     </error-page>
     <!-- welcome-file-list>
         <welcome-file>index.xhtml</welcome-file>
