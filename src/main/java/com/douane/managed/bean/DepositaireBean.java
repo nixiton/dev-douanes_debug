@@ -3025,5 +3025,19 @@ public class DepositaireBean {
 	public void setListMaterielNouveauNonValide(List<MaterielNouv> listMaterielNouveauNonValide) {
 		this.listMaterielNouveauNonValide = listMaterielNouveauNonValide;
 	}
+	
+	private List<Operation> mesOperations;
+	
+	public List<Operation> getMesOperations() {
+		if(this.mesOperations == null) {
+			Agent agent = (Agent)RequestFilter.getSession().getAttribute("agent");
+			this.setMesOperations(usermetierimpl.getListOpByOperator(agent));
+		}
+		return mesOperations;
+	}
+
+	public void setMesOperations(List<Operation> mesOperations) {
+		this.mesOperations = mesOperations;
+	}
 
 }

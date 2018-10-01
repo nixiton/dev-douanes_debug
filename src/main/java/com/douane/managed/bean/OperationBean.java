@@ -50,8 +50,10 @@ public class OperationBean {
 	}
 
 	public List<Operation> getMesOperations() {
-		Agent agent = (Agent)RequestFilter.getSession().getAttribute("agent");
-		this.setMesOperations(usermetierimpl.getListOpByOperator(agent));
+		if(this.mesOperations == null) {
+			Agent agent = (Agent)RequestFilter.getSession().getAttribute("agent");
+			this.setMesOperations(usermetierimpl.getListOpByOperator(agent));
+		}
 		return mesOperations;
 	}
 
