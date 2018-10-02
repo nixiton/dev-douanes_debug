@@ -20,19 +20,19 @@
             <f:facet name="header">ID</f:facet>
             #{d.id}
         </p:column>
-        <p:column>
+        <p:column styleClass="#{a.state}">
             <f:facet name="header">Motif de sortie</f:facet>
             #{d.motifsortie.designation}
         </p:column>
-         <p:column>
+         <p:column styleClass="#{a.state}">
             <f:facet name="header">ID Materiel</f:facet>
             #{d.mat.idMateriel}
         </p:column>
-        <p:column>
+        <p:column styleClass="#{a.state}">
             <f:facet name="header">N° Série Matériel</f:facet>
             #{d.mat.numSerie}
         </p:column>
-         <p:column>
+         <p:column styleClass="#{a.state}">
             <f:facet name="header">Code Direction Destination</f:facet>
             #{d.direc.codeDirection}
         </p:column>
@@ -40,9 +40,9 @@
             <f:facet name="header" >
                 <h:outputText value="Etat" />
             </f:facet>
-            <h:outputText value="#{d.state}" />
+            <h:outputText value="#{dtFilterView.getOperationStateDes(d.state)}" />
         </p:column>
-        <p:column >
+        <p:column styleClass="#{a.state}">
             
             <f:facet name="header">
                 <h:outputText value="Validation" />

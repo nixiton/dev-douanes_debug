@@ -208,6 +208,8 @@ public class DtFilterView implements Serializable{
 			return "ACCEPTEE";
 		case WAITING:
 			return "EN ATTENTE";
+		case MODIF:
+			return "A MODIFIER";
 
 		default:
 			return "";

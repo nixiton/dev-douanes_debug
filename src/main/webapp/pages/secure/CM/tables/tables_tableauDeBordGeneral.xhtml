@@ -53,7 +53,7 @@
 			<f:facet name="filter">
                 <p:selectOneMenu onchange="PF('operationsTableG').filter()" panelStyle="width:250px;">
                     <f:selectItem itemLabel="Selectionner" itemValue="#{null}" noSelectionOption="true" />
-                    <f:selectItems value="#{dtFilterView.etats}" />
+                    <f:selectItems value="#{dtFilterView.etats}" var="stat" itemLabel="#{dtFilterView.getOperationStateDes(stat)}" />
                 </p:selectOneMenu>
             </f:facet>
             <h:outputText value="#{dtFilterView.getOperationStateDes(c.state)}" />
