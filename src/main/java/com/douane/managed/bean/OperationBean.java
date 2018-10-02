@@ -102,5 +102,6 @@ public class OperationBean {
 	public void setListAllOperations(List<Operation> listAllOperations) {
 		this.listAllOperations = listAllOperations;
 	}
+	
 
 }

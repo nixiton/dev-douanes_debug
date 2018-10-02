@@ -19,7 +19,7 @@
     			 currentPageReportTemplate="({currentPage} sur {totalPages})"
                  paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}  "
                  paginator="true" rows="30" style="margin-bottom:20px"
-                 emptyMessage="Aucun resultat" filteredValue="#{depositaireBean.listOperations}" 
+                 emptyMessage="Aucun resultat" filteredValue="#{operationBean.listOperations}" 
                  rowKey="#{c.id}">
                  
                  
@@ -82,7 +82,7 @@
 				<h:outputText  rendered="#{c['class'].simpleName eq 'OpSaisie' }" value="Saisie réferentiel" />
 				<h:outputText  rendered="#{c['class'].simpleName eq 'OpAttribution' }" value="Attribution" />
 				<h:outputText  rendered="#{c['class'].simpleName eq 'OpDettachement' }" value="Détachement" />
-				<h:outputText  rendered="#{c['class'].simpleName eq 'OpSortie'}" value="Détachement" />
+				<h:outputText  rendered="#{c['class'].simpleName eq 'OpSortie'}" value="Décharge" />
 				<h:outputText  rendered="#{c['class'].simpleName eq 'OpSortieArticle' }" value=" Sortie article" />
 				<h:outputText  rendered="#{c['class'].simpleName eq 'OpEntreeArticle' }" value=" Saisie  artcile" />
 			
