@@ -2961,8 +2961,8 @@ public class DepositaireBean {
 	private List<Operation> listOperatoinByDirection;
 	public List<Operation> getListOperatoinByDirection() {
 		if(listOperatoinByDirection == null) {
-		Agent agent = (Agent) RequestFilter.getSession().getAttribute("agent");
-		listOperatoinByDirection= usermetierimpl.getListOpByDirection(agent.getDirection());
+			Agent agent = (Agent) RequestFilter.getSession().getAttribute("agent");
+			listOperatoinByDirection= usermetierimpl.getListOpByDirection(agent.getDirection());
 		}
 		return listOperatoinByDirection;
 	}
@@ -3038,6 +3038,15 @@ public class DepositaireBean {
 
 	public void setMesOperations(List<Operation> mesOperations) {
 		this.mesOperations = mesOperations;
+	}
+	
+	private List<Operation> listOperatoinByDirectionFiltered;
+	public List<Operation> getListOperatoinByDirectionFiltered() {
+		return listOperatoinByDirectionFiltered;
+	}
+
+	public void setListOperatoinByDirectionFiltered(List<Operation> listOperatoinByDirectionFiltered) {
+		this.listOperatoinByDirectionFiltered = listOperatoinByDirectionFiltered;
 	}
 
 }

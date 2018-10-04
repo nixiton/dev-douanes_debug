@@ -6,7 +6,9 @@ import com.douane.metier.user.IUserMetier;
 import com.douane.model.EtatOperation;
 import come.douane.dao.operation.IOperationDAO;
 
+import org.apache.poi.util.SystemOutLogger;
 import org.hamcrest.core.IsInstanceOf;
+import org.primefaces.context.RequestContext;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.faces.bean.ManagedBean;
@@ -15,6 +17,7 @@ import javax.faces.bean.RequestScoped;
 import javax.faces.bean.ViewScoped;
 import javax.faces.bean.SessionScoped;
 
+import java.io.Serializable;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.*;
@@ -29,7 +32,7 @@ import com.douane.requesthttp.RequestFilter;
 
 @ManagedBean(name = "suivieditionBean")
 @ViewScoped
-public class SuiviEditionBean {
+public class SuiviEditionBean implements Serializable{
 
 	@ManagedProperty(value = "#{usermetier}")
 	IUserMetier usermetierimpl;
@@ -1326,8 +1329,12 @@ public class SuiviEditionBean {
 				// Numéros du folio du grand livre
 				row[1] = mat.getIdMateriel();
 				// Désignation du matériel
+				String marque = "Inconnue";
+				if(mat.getDesign().getMarque()!=null) {
+					marque = mat.getDesign().getMarque().getDesignation();
+				}
 				row[2] = mat.getDesign().getTypematerieladd().getDesignation() + " - "
-						+ mat.getDesign().getMarque().getDesignation() + " - " + mat.getDesign().getRenseignement()
+						+ marque + " - " + mat.getDesign().getRenseignement()
 						+ " - "
 				// + mat.getNumSerie()
 				;
@@ -1764,8 +1771,12 @@ public class SuiviEditionBean {
 			// Numéros du folio du grand livre
 			row[1] = mat.getIdMateriel();
 			// Désignation du matériel
+			String marque = "Inconnue";
+			if(mat.getDesign().getMarque()!=null) {
+				marque = mat.getDesign().getMarque().getDesignation();
+			}
 			row[2] = mat.getDesign().getTypematerieladd().getDesignation() + " - "
-					+ mat.getDesign().getMarque().getDesignation() + " - " + mat.getDesign().getRenseignement() + " - "
+					+ marque + " - " + mat.getDesign().getRenseignement() + " - "
 			// + mat.getNumSerie()
 			;
 			// Espèce des unités
@@ -2905,5 +2916,62 @@ public class SuiviEditionBean {
 	public void setListMaterielNouveauValide(List<MaterielNouv> listMaterielNouveauValide) {
 		this.listMaterielNouveauValide = listMaterielNouveauValide;
 	}
+	
+	public OpEntree getCurrentOpEntree() {
+		return currentOpEntree;
+	}
+
+	public void setCurrentOpEntree(OpEntree currentOpEntree) {
+		if(currentOpEntree == null) {
+			System.out.println("FA AHOANA");
+		}else {
+			System.out.println("cur :"+ currentOpEntree.getId());
+		}
+		this.currentOpEntree = currentOpEntree;
+	}
+
+	public OpSortie getCurrentOpSortie() {
+		return currentOpSortie;
+	}
+
+	public void setCurrentOpSortie(OpSortie currentOpSortie) {
+		this.currentOpSortie = currentOpSortie;
+	}
+
+	public OpAttribution getCurrentOpAttribution() {
+		return currentOpAttribution;
+	}
+
+	public void setCurrentOpAttribution(OpAttribution currentOpAttribution) {
+		this.currentOpAttribution = currentOpAttribution;
+	}
+
+	public OpDettachement getCurrentOpDettachement() {
+		return currentOpDettachement;
+	}
+
+	public void setCurrentOpDettachement(OpDettachement currentOpDettachement) {
+		this.currentOpDettachement = currentOpDettachement;
+	}
+
+	private OpEntree currentOpEntree;
+
+	private OpSortie currentOpSortie;
+
+	private OpAttribution currentOpAttribution;
+
+	private OpDettachement currentOpDettachement;
+	
+	
+	private List<Operation> listOperatoinByDirectionFiltered;
+	public List<Operation> getListOperatoinByDirectionFiltered() {
+		return listOperatoinByDirectionFiltered;
+	}
+
+	public void setListOperatoinByDirectionFiltered(List<Operation> listOperatoinByDirectionFiltered) {
+		this.listOperatoinByDirectionFiltered = listOperatoinByDirectionFiltered;
+	}
+
+	
 
 }

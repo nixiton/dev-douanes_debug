@@ -19,7 +19,8 @@
     			 currentPageReportTemplate="({currentPage} sur {totalPages})"
                  paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {Exporters}"
                  paginator="true" rows="20" style="margin-bottom:20px"
-                 emptyMessage="Aucun resultat" filteredValue="#{depositaireBean.listHistoriqueMatDirection}"
+                 emptyMessage="Aucun resultat" 
+                 
                  rowKey="#{materiel.idMateriel}"
                  
                  >
@@ -136,6 +137,13 @@
 
 </h:form>
 
+<p:ajaxStatus onstart="PF('statusDialog').show()" onsuccess="PF('statusDialog').hide()" />
+
+	<p:dialog styleClass="loader_dialog" widgetVar="statusDialog" modal="true" draggable="false" closable="false" resizable="false" header="">
+		<div align="center" class="">
+			<p:graphicImage style="width:35% !important; height:35% !important;" value="/pages/unsecure/assets/images/loading_small.gif" /> 
+		</div>
+	</p:dialog>
 
 <ui:include src="/pages/secure/CM/DGD/tables/dialogs/dialogs_listeMatStatHisto.xhtml"></ui:include>
 

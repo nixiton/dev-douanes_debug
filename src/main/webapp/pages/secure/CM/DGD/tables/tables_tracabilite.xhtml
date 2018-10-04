@@ -8,19 +8,22 @@
 
 <h:head></h:head>
 
-
 <div   class="body collapse in table-responsive">
 
  
-<h:form>
+<h:form id="formtrac">
     <p:dataTable var="c" value="#{suivieditionBean.listOperatoinByDirection}" 
     			 widgetVar="operationsTable"
     			 currentPageReportTemplate="({currentPage} sur {totalPages})"
-                 paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}  "
+                 paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}"
                  paginator="true" rows="30" style="margin-bottom:20px"
-                 emptyMessage="Aucun resultat" filteredValue="#{depositaireBean.listOperatoinByDirection}"
+                 emptyMessage="Aucun resultat" 
+                 
                  rowKey="#{c.id}"
+                 id="tracabilite"
+                 
                  >
+       
 		<f:facet name="header">
             <p:outputPanel>
                 <h:outputText value="Rechercher:" />
@@ -34,7 +37,7 @@
                 <p:dataExporter type="pdf" target="tbl" fileName="mesOperations"/>
             </h:commandLink>
         </f:facet-->
-         <p:column headerText="Date" style=" text-align: center; word-wrap: break-word;">
+         <p:column headerText="Date" filterBy="#{c.date}" filterMatchMode="contains" style=" text-align: center; word-wrap: break-word;">
            
             <h:outputText value="#{c.date}" >
             	<f:convertDateTime pattern="dd MMMM yyyy " timeZone="GMT+3"/>
@@ -115,8 +118,10 @@
                 <h:outputText value="Détail" />
             </f:facet>
             <p:panel rendered="#{c['class'].simpleName eq 'OpEntree' }">
-                <p:commandButton action="#{gacBean.setCurrentOpEntree(c)}" update=":detail"
-            oncomplete="PF('detail').show()" icon="ui-icon-zoomin"/>
+                <p:commandButton update=":detail"
+            oncomplete="PF('detail').show()" icon="ui-icon-zoomin">
+            	<f:setPropertyActionListener value="#{c}" target="#{suivieditionBean.currentOpEntree}"></f:setPropertyActionListener>
+            	</p:commandButton>
             </p:panel>
             <p:panel rendered="#{c['class'].simpleName eq 'OpSaisie' }">
                 
@@ -145,6 +150,7 @@
 			<p:graphicImage style="width:35% !important; height:35% !important;" value="/pages/unsecure/assets/images/loading_small.gif" /> 
 		</div>
 	</p:dialog>
+	
 
 </h:form>
 

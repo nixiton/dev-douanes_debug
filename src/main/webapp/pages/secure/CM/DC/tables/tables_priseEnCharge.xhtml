@@ -300,15 +300,18 @@
     </p:dataTable>
     
     </h:form>
-    <p:dialog styleClass="loader_dialog" widgetVar="statusDialog" modal="true" draggable="false" closable="false" resizable="false" header="">
+    
+</div>
+</div>
+</div>
+</div>
+<p:ajaxStatus onstart="PF('statusDialog').show()" onsuccess="PF('statusDialog').hide()" />
+
+	<p:dialog styleClass="loader_dialog" widgetVar="statusDialog" modal="true" draggable="false" closable="false" resizable="false" header="">
 		<div align="center" class="">
 			<p:graphicImage style="width:35% !important; height:35% !important;" value="/pages/unsecure/assets/images/loading_small.gif" /> 
 		</div>
 	</p:dialog>
-</div>
-</div>
-</div>
-</div>
 
 <ui:include src="/pages/secure/CM/DC/tables/dialogs/dialogs_priseEnCharge.xhtml"></ui:include>
 <ui:include src="/pages/secure/CM/DC/tables/dialogs/dialogs_modifSaisieMatNouv.xhtml"></ui:include>

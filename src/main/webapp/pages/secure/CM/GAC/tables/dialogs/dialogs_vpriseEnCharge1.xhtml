@@ -9,7 +9,7 @@
 <h:head></h:head>
 <p:growl id="growl" for="myerror" showDetail="true" sticky="true" redisplay="false" />
 
-<p:dialog id="detail" widgetVar="detail" closable="false" header="Détails Traçabilité prise en charge" showEffect="explode" hideEffect="explode"  width="1250" height="400">
+<p:dialog id="detail" widgetVar="detail" closable="true" header="Détails Traçabilité prise en charge" showEffect="explode" hideEffect="explode"  width="1250" height="400">
 
     <h:form class="form-horizontal">
         <h:form class="form-horizontal">
@@ -23,7 +23,7 @@
         <p:tabView>
 
 
-            <c:forEach var="mat" items="#{gacBean.currentOpEntree.listMat}">
+            <c:forEach var="mat" items="#{suivieditionBean.currentOpEntree.listMat}">
 
                 <p:tab title="#{mat.design.typematerieladd.designation}">
 
