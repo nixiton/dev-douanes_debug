@@ -71,7 +71,7 @@
                         <p:selectOneMenu id="zone"  styleClass="form-control top" 
                         converter="#{codeArtConverter}" value="#{depositaireBean.articleExToAdd.codeArticle}"
                         filter="true" filterMatchMode="contains" panelStyle="width:250px;">
-                            <f:selectItem itemValue="#{null}" itemLabel="Selectionner"/> 
+                            <f:selectItem itemValue="#{null}" itemLabel="Sélectionner"/> 
                             <!-- f:selectItems value="#{siseBean.listCodeArticle}" var="type" itemLabel="#{type.designation}"/-->
                             <f:selectItems value="#{siseBean.groupeListArticle}" />
                             <f:selectItem itemValue="#{siseBean.nouvarticle}" itemLabel=" + Ajouter" />
@@ -140,8 +140,8 @@
 	
 	                    <p:inputText required="true"
 	                        value="#{depositaireBean.articleExToAdd.especeunit}"
-	                        requiredMessage="Espece unité obligatoire"
-	                        placeholder="Espece unité" styleClass="form-control top"></p:inputText>
+	                        requiredMessage="Espèce unité obligatoire"
+	                        placeholder="Espèce des unités" styleClass="form-control top"></p:inputText>
 	
 	                </div>
                </div>

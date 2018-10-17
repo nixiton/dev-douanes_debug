@@ -70,7 +70,8 @@
             <f:facet name="filter">
                 <p:selectOneMenu onchange="PF('MaterielTable').filter()" panelStyle="width:250px;">
                     <f:selectItem itemLabel="Selectionner" itemValue="#{null}" noSelectionOption="true" />
-                    <f:selectItems value="#{siseBean.listNomenclature}" />
+                    <f:selectItems value="#{siseBean.listNomenclature}" var="type"
+								itemLabel="N#{type.nomenclature} - #{type.designation}"/>
                 </p:selectOneMenu>
             </f:facet>
             <f:facet name="header">

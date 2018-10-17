@@ -52,7 +52,7 @@
 
                         <p:selectOneMenu id="zone"  styleClass="form-control top" converter="#{refConverter}" 
                         value="#{siseBean.typeObjet}" required="true" requiredMessage="Type d'objet obligatoire" panelStyle="width:250px;">
-                            <f:selectItem itemValue="#{null}" itemLabel="Selectionner" /> 
+                            <f:selectItem itemValue="#{null}" itemLabel="Sélectionner" /> 
                             <f:selectItems value="#{siseBean.listTypeObjet}" var="type" itemLabel="#{type.designation}"/>
                         </p:selectOneMenu>
 

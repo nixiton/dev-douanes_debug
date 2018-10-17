@@ -65,7 +65,7 @@
 
                     <p:selectOneMenu value="#{depositaireBean.articleToModifyNouv.marqueArticle}" converter="#{refConverter}"
                          effect="fade" filter="true" filterMatchMode="startsWith" panelStyle="width:250px;">
-                        <f:selectItem itemValue="#{null}" itemLabel="Selectionner" /> 
+                        <f:selectItem itemValue="#{null}" itemLabel="Sélectionner" /> 
                             <f:selectItems value="#{siseBean.listMarque}" var="theme" itemLabel="#{theme.designation}" itemValue="#{theme}" />
                         <!-- <p:column>
                             <h:outputText value="#{t.designation}" />
@@ -136,8 +136,8 @@
 	
 	                    <p:inputText required="true"
 	                        value="#{depositaireBean.articleToModifyNouv.especeunit}"
-	                        requiredMessage="Espece unité obligatoire"
-	                        placeholder="Nombre" styleClass="form-control top"></p:inputText>
+	                        requiredMessage="Espèce unité obligatoire"
+	                        placeholder="Espèce des unités" styleClass="form-control top"></p:inputText>
 	
 	                </div>
                </div>
@@ -146,14 +146,14 @@
                 
                 <div class="row">
             		<div class="col-lg-5">
-	                    <label for="text1" class="control-label ">Mode d'aquisition *
+	                    <label for="text1" class="control-label ">Mode d'acquisition *
 	                	</label>
 					</div>
 	                <div class="col-lg-6">
 	
 	                     <p:selectOneMenu value="#{depositaireBean.articleToModifyNouv.modAcqArt}" converter="#{refConverter}" 
 	                         effect="fade" filter="true" filterMatchMode="startsWith" panelStyle="width:250px;">
-	                        <f:selectItem itemValue="#{null}" itemLabel="Selectionner" /> 
+	                        <f:selectItem itemValue="#{null}" itemLabel="Sélectionner" /> 
 	                            <f:selectItems value="#{siseBean.listModeAcquisition}" var="theme" itemLabel="#{theme.designation}" itemValue="#{theme}" />
 	                        <!-- <p:column>
 	                            <h:outputText value="#{t.designation}" />
@@ -175,7 +175,7 @@
 	
 	                    <p:selectOneMenu value="#{depositaireBean.articleToModifyNouv.financementArt}" converter="#{refConverter}" 
 	                         effect="fade" filter="true" filterMatchMode="startsWith" panelStyle="width:250px;">
-	                        <f:selectItem itemValue="#{null}" itemLabel="Selectionner" /> 
+	                        <f:selectItem itemValue="#{null}" itemLabel="Sélectionner" /> 
 	                            <f:selectItems value="#{siseBean.listFinancement}" var="theme" itemLabel="#{theme.designation}" itemValue="#{theme}" />
 	                        <!-- <p:column>
 	                            <h:outputText value="#{t.designation}" />

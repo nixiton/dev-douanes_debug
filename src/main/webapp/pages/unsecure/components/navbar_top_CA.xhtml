@@ -58,7 +58,7 @@
 										<h:commandLink action="#{loginMgmtBean.logout}"
 												data-toggle="tooltip" data-original-title="logout"
 												data-placement="bottom" id="logout">
-												<i class="fa fa-power-off"></i> Se deconnecter
+												<i class="fa fa-power-off"></i> Se déconnecter
 										</h:commandLink>
 										<!-- <p:tooltip id="toolTipFade" for="logout" value="Se déconnecter" position="bottom"/> -->
 									</li>
@@ -143,7 +143,7 @@
 					<c:if test="#{topMenuMB.curentAgent.roleAgent.role eq 'ROLE_ADMIN'
 					or topMenuMB.curentAgent.roleAgent.role eq 'ROLE_DC'
 					}">
-							<li><h:link value="Sortie articles" outcome="sortie_article" immediate="true" /></li>
+							<li><h:link value="Sortie des articles" outcome="sortie_article" immediate="true" /></li>
 					</c:if>
 						</ul></li>
 
@@ -176,8 +176,8 @@
 						data-toggle="dropdown" style="color:#CCC"> Validations <b class="caret"></b>
 					</a>
 						<ul class="dropdown-menu">
-							<li><h:link value="Entrée nouveaux articles" outcome="v_prise_en_chargeCA" immediate="true"/></li>
-							<li><h:link value="Sortie articles" outcome="v_detenteurCA" immediate="true"/></li>
+							<li><h:link value="Entrée des nouveaux articles" outcome="v_prise_en_chargeCA" immediate="true"/></li>
+							<li><h:link value="Sortie des articles" outcome="v_detenteurCA" immediate="true"/></li>
 						</ul></li>
 
 					</c:if>

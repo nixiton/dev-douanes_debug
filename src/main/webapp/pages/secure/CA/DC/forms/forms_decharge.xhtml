@@ -42,10 +42,10 @@
 	                    effect="fade" var="t" filter="true" filterMatchMode="startsWith" panelStyle="width:250px;"
 	                    required="true" requiredMessage="Bénéficiaire obligatoire"
 	                    >
-	                            <f:selectItem itemValue="#{null}" itemLabel="Selectionner" /> 
+	                            <f:selectItem itemValue="#{null}" itemLabel="Sélectionner" /> 
 	                            <f:selectItems value="#{userMB.userListByDirection}" var="type" itemLabel="#{type.im}" itemValue="#{type}"/>
 	                            <p:column>
-	                            <h:outputText value="#{t != null ? t.im : 'Selectionner'}" />
+	                            <h:outputText value="#{t != null ? t.im : 'Sélectionner'}" />
 	                        </p:column>
 	                        <p:ajax event="change" update="nom"/>
 	                        </p:selectOneMenu>
@@ -56,7 +56,7 @@
                 
                 <div class="row">
 					<div class="col-lg-4 col-lg-offset-1"> 
-		                <label for="text1" class="control-label ">Nom Beneficiaire
+		                <label for="text1" class="control-label ">Nom Bénéficiaire
 		                </label>
 					</div>
 	                <div class="col-lg-6">
@@ -78,7 +78,7 @@
 	                         effect="fade" var="t" filter="true" filterMatchMode="startsWith" panelStyle="width:250px;"
 	                         required="true" requiredMessage="Code article obligatoire"
 	                         >
-	                        <f:selectItem itemValue="#{null}" itemLabel="Selectionner" /> 
+	                        <f:selectItem itemValue="#{null}" itemLabel="Sélectionner" /> 
 	                            <f:selectItems value="#{depositaireBean.listArticleValideByDirec}" var="theme" itemLabel="#{theme.codeArticle.typeObjet.designation}  ( #{theme.codeArticle.designation} )" itemValue="#{theme}" />
 	                        <p:column>
 	                            <h:outputText value="#{t != null ? t.codeArticle.typeObjet.designation : 'Selectionner'}   #{t.codeArticle.designation} #{t.idArticle}" />
