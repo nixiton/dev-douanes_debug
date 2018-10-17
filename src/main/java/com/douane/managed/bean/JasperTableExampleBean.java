@@ -128,8 +128,8 @@ public class JasperTableExampleBean implements Serializable{
     	if(op.getOperateur().getPosteny() != null) {
     		fDepo = op.getOperateur().getPosteny().getDesignation();
     	}
-    	if(op.getDetenteur().getPosteny() != null) {
-    		fDetent = op.getOperateur().getPosteny().getDesignation();
+    	if(op.getDetenteur().getPosteny() != null) { //docbean.curentOperationAttrToPdf.detenteur.posteny.designation
+    		fDetent = op.getDetenteur().getPosteny().getDesignation();
     	}
     	FacesContext facescontext = FacesContext.getCurrentInstance();
 		ExternalContext external = facescontext.getExternalContext();
@@ -191,7 +191,7 @@ public class JasperTableExampleBean implements Serializable{
     		fDepo = op.getOperateur().getPosteny().getDesignation();
     	}
     	if(op.getDetenteur().getPosteny() != null) {
-    		fDetent = op.getOperateur().getPosteny().getDesignation();
+    		fDetent = op.getDetenteur().getPosteny().getDesignation();
     	}
     	FacesContext facescontext = FacesContext.getCurrentInstance();
 		ExternalContext external = facescontext.getExternalContext();
