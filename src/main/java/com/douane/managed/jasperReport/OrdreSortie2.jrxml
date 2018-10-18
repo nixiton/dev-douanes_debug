@@ -512,18 +512,18 @@ $P{materiel}.getDesign().getRenseignement()]]></textFieldExpression>
 		</band>
 		<band height="334">
 			<staticText>
-				<reportElement x="414" y="60" width="21" height="20" uuid="bb98f783-c630-4be4-a94b-d4304c389289"/>
+				<reportElement x="414" y="60" width="141" height="20" uuid="bb98f783-c630-4be4-a94b-d4304c389289"/>
 				<textElement>
 					<font size="12"/>
 				</textElement>
-				<text><![CDATA[, le]]></text>
+				<text><![CDATA[, le ...............................]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="283" y="60" width="17" height="20" uuid="a2a91d22-0790-4a9b-9d2c-810ec329e020"/>
+				<reportElement x="283" y="60" width="131" height="20" uuid="a2a91d22-0790-4a9b-9d2c-810ec329e020"/>
 				<textElement>
 					<font size="12"/>
 				</textElement>
-				<text><![CDATA[A]]></text>
+				<text><![CDATA[A ................................]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="0" y="110" width="18" height="20" uuid="2d62cf14-8967-4bd6-93ee-21475578d648"/>
@@ -533,11 +533,11 @@ $P{materiel}.getDesign().getRenseignement()]]></textFieldExpression>
 				<text><![CDATA[A.]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="284" y="80" width="96" height="25" uuid="59d94348-28ba-4e4e-bd73-bae3ce4b670b"/>
+				<reportElement x="284" y="80" width="272" height="25" uuid="59d94348-28ba-4e4e-bd73-bae3ce4b670b"/>
 				<textElement>
 					<font size="12"/>
 				</textElement>
-				<text><![CDATA[Le comptable(2)]]></text>
+				<text><![CDATA[Le comptable(2)......................................................]]></text>
 			</staticText>
 			<textField>
 				<reportElement x="0" y="1" width="263" height="49" uuid="6de5e2ca-53c0-4f30-b258-48062c46d5b8"/>
@@ -554,11 +554,11 @@ $P{materiel}.getDesign().getRenseignement()]]></textFieldExpression>
 				<textFieldExpression><![CDATA[", le " + $P{date1}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="406" y="301" width="42" height="20" uuid="91c1227a-f047-49f6-b319-a6f913876f1c"/>
+				<reportElement x="406" y="301" width="149" height="20" uuid="91c1227a-f047-49f6-b319-a6f913876f1c"/>
 				<textElement verticalAlignment="Top">
 					<font size="12"/>
 				</textElement>
-				<text><![CDATA[, le (5) ....................................]]></text>
+				<text><![CDATA[, le (5) ............................]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="282" y="229" width="274" height="20" uuid="0436b508-2e28-48c8-b504-32ad7f01c57b"/>
@@ -568,19 +568,19 @@ $P{materiel}.getDesign().getRenseignement()]]></textFieldExpression>
 				<text><![CDATA[RECEPISSE (5)]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="284" y="301" width="16" height="20" uuid="1b01b3f2-1166-468e-a810-415e04a743e0"/>
+				<reportElement x="284" y="301" width="122" height="20" uuid="1b01b3f2-1166-468e-a810-415e04a743e0"/>
 				<textElement verticalAlignment="Top">
 					<font size="12"/>
 				</textElement>
-				<text><![CDATA[A]]></text>
+				<text><![CDATA[A ..........................]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="282" y="250" width="275" height="51" uuid="7da51220-5a01-4122-8e86-813728b29d11"/>
 				<textElement>
 					<font size="12"/>
 				</textElement>
-				<text><![CDATA[Je soussigné (6)
-avoir reçu les (7)
+				<text><![CDATA[Je soussigné (6) ..........................................
+avoir reçu les (7) ..........................................
 portés au présent ordre.]]></text>
 			</staticText>
 			<textField>

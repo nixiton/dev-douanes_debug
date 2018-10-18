@@ -589,7 +589,7 @@
 				<textElement textAlignment="Left">
 					<font size="11" isBold="false"/>
 				</textElement>
-				<textFieldExpression><![CDATA["Le comptable(2) "]]></textFieldExpression>
+				<textFieldExpression><![CDATA["Le comptable(2) " + $P{comptable1}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="2" y="3" width="260" height="117" uuid="7a2dab12-c7ef-4040-8586-f72f18b1306f"/>
@@ -624,28 +624,44 @@
 (5)La date de déclaration de prise en charge doit concorder avec de l'ordre de donné par le chef de service ou son délégué.]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="283" y="228" width="272" height="20" uuid="f81f0ee1-7c83-437b-beea-9d27ae7b5963"/>
+				<reportElement x="283" y="228" width="272" height="26" uuid="f81f0ee1-7c83-437b-beea-9d27ae7b5963"/>
 				<textElement textAlignment="Left">
 					<font size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA["Le comptable (2) "]]></textFieldExpression>
+				<textFieldExpression><![CDATA["Le comptable (2) " + $P{comptable1}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="288" y="3" width="8" height="20" uuid="edbb35bb-4b64-4104-b5e6-40f88cc31007"/>
 				<text><![CDATA[A]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="380" y="3" width="22" height="20" uuid="869d8a5c-e557-453b-b0ba-fbd927af7758"/>
+				<reportElement x="421" y="3" width="22" height="20" uuid="869d8a5c-e557-453b-b0ba-fbd927af7758"/>
 				<text><![CDATA[, le]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="380" y="208" width="22" height="20" uuid="bf12ed8e-d1d2-463a-b97f-5351e0c918eb"/>
+				<reportElement x="421" y="208" width="22" height="20" uuid="bf12ed8e-d1d2-463a-b97f-5351e0c918eb"/>
 				<text><![CDATA[, le]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="285" y="208" width="8" height="20" uuid="2cb64894-5e32-4371-b9a4-325f714150d7"/>
 				<text><![CDATA[A]]></text>
 			</staticText>
+			<textField>
+				<reportElement x="296" y="3" width="125" height="20" uuid="271bdccf-9c03-4fb7-8b76-f6e5a1ef3d8e"/>
+				<textFieldExpression><![CDATA[$P{lieu}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="443" y="3" width="108" height="20" uuid="fa924b03-d0bb-4f1d-8307-fe8f9cb6af5a"/>
+				<textFieldExpression><![CDATA[$P{date}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="293" y="208" width="128" height="20" uuid="33272178-642f-4f28-88df-6d09185db9ec"/>
+				<textFieldExpression><![CDATA[$P{lieu}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="443" y="208" width="111" height="20" uuid="5f15caf5-4a84-4b20-abb3-5c3c0248ca0c"/>
+				<textFieldExpression><![CDATA[$P{date}]]></textFieldExpression>
+			</textField>
 		</band>
 	</detail>
 	<pageFooter>
