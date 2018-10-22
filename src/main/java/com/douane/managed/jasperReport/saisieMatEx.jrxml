@@ -23,6 +23,7 @@
 	<parameter name="date" class="java.util.Date"/>
 	<parameter name="filamatra" class="java.lang.String"/>
 	<parameter name="lieu" class="java.lang.String"/>
+	<parameter name="numero" class="java.lang.String"/>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
@@ -86,16 +87,16 @@ DIRECTION GENERALE DES DOUANES
 				<reportElement x="428" y="23" width="125" height="20" uuid="f1536dbb-a29a-4647-80f2-030e98268d60"/>
 				<textFieldExpression><![CDATA[$P{fonctionDepositaire}]]></textFieldExpression>
 			</textField>
-			<staticText>
-				<reportElement x="210" y="0" width="164" height="25" isPrintInFirstWholeBand="true" uuid="0c716668-4384-416b-b871-2c1491845fe3"/>
-				<textElement>
-					<font isBold="true"/>
-				</textElement>
-				<text><![CDATA[ETAT DE DETENTEUR EFFECTIF]]></text>
-			</staticText>
 			<textField>
-				<reportElement x="428" y="43" width="125" height="17" uuid="3e4ec87a-c573-4dd5-bcc4-289cef56e79c"/>
+				<reportElement x="428" y="43" width="125" height="24" uuid="3e4ec87a-c573-4dd5-bcc4-289cef56e79c"/>
 				<textFieldExpression><![CDATA[$P{fonctionDetenteur}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="109" y="0" width="331" height="20" uuid="0eb735d3-c34f-4fae-a71b-e060519a2d99"/>
+				<textElement textAlignment="Center">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["ETAT DE DETENTEUR EFFECTIF " + $P{numero}]]></textFieldExpression>
 			</textField>
 		</band>
 	</pageHeader>

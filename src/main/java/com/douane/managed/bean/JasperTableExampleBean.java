@@ -163,6 +163,7 @@ public class JasperTableExampleBean implements Serializable{
             parameters.put("nbr", 1);
             parameters.put("valeurtotal", op.getMat().getDesign().getPu());
             parameters.put("lieu", op.getDirection().getTrois());
+            parameters.put("numero", op.getNumerodet());
             
             JasperPrint jasperPrint = JasperFillManager.fillReport(url.getPath(), parameters, new JREmptyDataSource());
             response.reset();
@@ -225,6 +226,8 @@ public class JasperTableExampleBean implements Serializable{
             parameters.put("nbr", 1);
             parameters.put("valeurtotal", op.getMat().getDesign().getPu());
             parameters.put("lieu", op.getDirection().getTrois());
+            parameters.put("numero", op.getNumerodet());
+            
             JasperPrint jasperPrint = JasperFillManager.fillReport(url.getPath(), parameters, new JREmptyDataSource());
             //EXPORT THROUGH STREAM
             response.reset();

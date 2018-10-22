@@ -60,15 +60,16 @@
             <f:view contentType="text/html"><p:selectOneMenu id="directionint" value="#{JasperTableExampleBean.pdfForm.num3}" appendTo="@this" style="width: 40% !important">
                <f:selectItems value="#{siseBean.mapDirection(suivieditionBean.direction, docbean.curentOperationAttrToPdf.date)}"/>
            </p:selectOneMenu></f:view><br></br>
-            ------------------
+            ------------------<br></br>
+            <strong>ETAT DE DETENTEUR EFFECTIF #{docbean.curentOperationAttrToPdf.numerodet}</strong>
 
         </div>
-
+		
         <table class="table responsive-table" id="deteff">
 
                     <tr>
                         <td></td>
-                        <td><strong>ETAT DE DETENTEUR EFFECTIF</strong></td>
+                        <td></td>
                         <td></td>
                     </tr>
 

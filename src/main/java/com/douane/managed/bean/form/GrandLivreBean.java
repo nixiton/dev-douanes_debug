@@ -6,12 +6,18 @@ import java.util.Map;
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 
+import com.douane.entite.Agent;
 import com.douane.entite.Devise;
 import com.douane.managed.bean.SISEformBean;
+import com.douane.requesthttp.RequestFilter;
 
 @ManagedBean(name="GrandLivre")
 
 public class GrandLivreBean {
+	public GrandLivreBean() {
+		Agent cur = (Agent) RequestFilter.getSession().getAttribute("agent");
+		this.budget = cur.getDirection().getBudget();
+	}
 	private String budget;
 	private String chap;
 	private String article;

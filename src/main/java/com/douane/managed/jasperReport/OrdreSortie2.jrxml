@@ -199,18 +199,18 @@
 				<textFieldExpression><![CDATA[$P{matiere}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="422" y="185" width="130" height="30" uuid="40db1074-eb36-40a2-af8a-7a52f16e3344"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
+				<reportElement x="280" y="184" width="130" height="30" uuid="40db1074-eb36-40a2-af8a-7a52f16e3344"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
 					<font size="12"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$P{numSortie}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[" " + $P{numSortie}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="180" y="185" width="200" height="30" uuid="4f211f2a-1e9c-4c66-baaf-113ab955a572"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
+				<reportElement x="130" y="184" width="150" height="30" uuid="4f211f2a-1e9c-4c66-baaf-113ab955a572"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
 					<font size="16" isBold="true"/>
 				</textElement>
-				<text><![CDATA[ORDRE DE SORTIE]]></text>
+				<text><![CDATA[ORDRE DE SORTIE ]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="190" y="0" width="253" height="20" uuid="dc746bdd-52d6-48c6-9631-8a39d3c126eb"/>
