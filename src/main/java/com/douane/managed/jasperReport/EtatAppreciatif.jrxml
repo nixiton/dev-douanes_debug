@@ -382,20 +382,6 @@
 				<text><![CDATA[Ci-joint(6)]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="0" y="315" width="100" height="20" uuid="35d7a367-3323-42eb-8d24-89c18b594922"/>
-				<textElement>
-					<font size="12"/>
-				</textElement>
-				<text><![CDATA[Gestion de M.(7)]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="0" y="335" width="40" height="20" uuid="2815e636-99b5-41e3-b032-fd2dc06918ed"/>
-				<textElement>
-					<font size="12"/>
-				</textElement>
-				<text><![CDATA[Du (8)]]></text>
-			</staticText>
-			<staticText>
 				<reportElement x="250" y="290" width="305" height="20" uuid="64ef5278-0739-446a-afd2-550fcce323c0"/>
 				<textElement>
 					<font size="12"/>
@@ -410,32 +396,18 @@
 				<textFieldExpression><![CDATA[$P{num6}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="100" y="315" width="377" height="19" uuid="1c902937-3f0a-40a2-a549-34d114d6977e"/>
-				<textElement textAlignment="Center">
+				<reportElement x="0" y="315" width="477" height="19" uuid="1c902937-3f0a-40a2-a549-34d114d6977e"/>
+				<textElement textAlignment="Left">
 					<font size="12"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$P{num7}]]></textFieldExpression>
+				<textFieldExpression><![CDATA["Gestion de M.(7) " + $P{num7}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="40" y="335" width="140" height="20" uuid="a201a372-502e-4e6d-9daf-051dae9f18a5"/>
-				<textElement textAlignment="Center">
+				<reportElement x="0" y="335" width="477" height="20" uuid="a201a372-502e-4e6d-9daf-051dae9f18a5"/>
+				<textElement textAlignment="Left">
 					<font size="12"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$P{num8}]]></textFieldExpression>
-			</textField>
-			<staticText>
-				<reportElement x="180" y="335" width="49" height="20" uuid="d9642a32-895b-4382-b0ff-41f06ab32ae7"/>
-				<textElement>
-					<font size="12"/>
-				</textElement>
-				<text><![CDATA[au (8)]]></text>
-			</staticText>
-			<textField>
-				<reportElement x="229" y="335" width="195" height="20" uuid="29f4c54f-ecef-4754-833e-24b8ac569c3f"/>
-				<textElement textAlignment="Center">
-					<font size="12"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$P{numO8}]]></textFieldExpression>
+				<textFieldExpression><![CDATA["Du (8) " + $P{num8} + " au (8) " + $P{numO8}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="193" y="20" width="217" height="17" uuid="52039cb7-2933-445c-993e-546f1fc04515"/>

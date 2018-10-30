@@ -561,56 +561,35 @@
 				<textFieldExpression><![CDATA[", le " + $P{date}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="12" y="95" width="133" height="20" uuid="0195bf97-249d-460c-b753-49d900eccbd0"/>
+				<reportElement x="12" y="95" width="133" height="24" uuid="0195bf97-249d-460c-b753-49d900eccbd0"/>
 				<textElement>
 					<font size="12"/>
 				</textElement>
 				<text><![CDATA[Vu et reconnu exact:]]></text>
 			</staticText>
-			<staticText>
-				<reportElement x="133" y="119" width="35" height="20" uuid="e8930cb4-7659-4f0c-8434-24a59ef08dd4"/>
-				<textElement verticalAlignment="Top">
-					<font size="12"/>
-				</textElement>
-				<text><![CDATA[, le]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="12" y="119" width="16" height="20" uuid="13d175e4-f1ef-4049-8424-f01999c78e19"/>
-				<textElement verticalAlignment="Top">
-					<font size="12"/>
-				</textElement>
-				<text><![CDATA[A]]></text>
-			</staticText>
 			<textField>
-				<reportElement x="28" y="119" width="105" height="20" uuid="305357c7-e248-4ced-b897-78bf04dff0fe"/>
+				<reportElement x="12" y="119" width="266" height="21" uuid="305357c7-e248-4ced-b897-78bf04dff0fe"/>
 				<textElement>
 					<font size="12"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$P{lieu1}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="168" y="119" width="112" height="20" uuid="20118ac7-dd4e-437c-99eb-8ec57482e52c"/>
-				<textElement>
-					<font size="12"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$P{date}]]></textFieldExpression>
+				<textFieldExpression><![CDATA["A " + $P{lieu1} + "  ,le"  + $P{date}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="17" y="148" width="33" height="20" uuid="c5d50a7d-103d-40fc-b7fa-ef25014437d3"/>
+				<reportElement x="13" y="143" width="33" height="20" uuid="c5d50a7d-103d-40fc-b7fa-ef25014437d3"/>
 				<textElement>
 					<font size="12"/>
 				</textElement>
 				<text><![CDATA[Le(1)]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="17" y="168" width="118" height="20" uuid="48c4a12b-b6bc-412d-baf5-585a75745861"/>
+				<reportElement x="13" y="163" width="118" height="20" uuid="48c4a12b-b6bc-412d-baf5-585a75745861"/>
 				<textElement>
 					<font size="12"/>
 				</textElement>
 				<text><![CDATA[détenteur effectif,]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="50" y="148" width="230" height="20" uuid="60c170a3-a245-4053-8456-48aa2071a79b"/>
+				<reportElement x="46" y="143" width="230" height="20" uuid="60c170a3-a245-4053-8456-48aa2071a79b"/>
 				<textElement>
 					<font size="12"/>
 				</textElement>

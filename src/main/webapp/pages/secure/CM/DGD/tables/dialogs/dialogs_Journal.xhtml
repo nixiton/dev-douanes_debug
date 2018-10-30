@@ -43,7 +43,7 @@
                        <f:selectItems value="#{siseBean.mapDirection(suivieditionBean.direction, JournalBean.datF)}" />
                  </p:selectOneMenu></f:view>
  				<!-- h:outputText value="#{JournalBean.direction}" /--><br></br> 
- 				(4) <h:outputText value="#{JournalBean.quatre}" /><br></br>
+ 				(4) <p:inputText  value ="#{JournalBean.quatre}" style="text-align: center;width: 70%"></p:inputText><br></br>
  				(5) <p:inputText  value ="#{JasperTableExampleBean.journal.num5}" style="text-align: center;width: 70%"></p:inputText><br></br>
  			</div>
  		</div>
@@ -194,5 +194,7 @@
  			</p:commandButton>
  			</c:if>
 </h:form>
-<script src='http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.5/jquery-ui.min.js'></script>
+<script
+        src="#{request.contextPath}/pages/unsecure/assets/lib/jquery_ui/js/jquery-ui.js"></script>
+
 </html>

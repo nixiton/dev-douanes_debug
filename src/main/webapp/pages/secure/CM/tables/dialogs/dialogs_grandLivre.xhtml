@@ -52,7 +52,7 @@
                         <f:selectItems value="#{siseBean.mapDirection(suivieditionBean.direction, livreAnnuelBean.d)}" />
                  </p:selectOneMenu></f:view>
  				<!-- #{livreAnnuelBean.service}--><br></br>
- 				(4) #{livreAnnuelBean.quatre}<br></br>
+ 				(4) <p:inputText  value ="#{livreAnnuelBean.quatre}" style="text-align: center;width: 70%"></p:inputText><br></br>
  				(5) <p:inputText  value ="#{JasperTableExampleBean.livre.indication}" style="text-align: center;width: 70%"></p:inputText><br></br>
  			</div>
         </div>
@@ -170,5 +170,6 @@
 	</c:if>
 	</h:form>
 </h:body>
-	<script src='http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.5/jquery-ui.min.js'></script>
+	<script
+        src="#{request.contextPath}/pages/unsecure/assets/lib/jquery_ui/js/jquery-ui.js"></script>
 </html>
