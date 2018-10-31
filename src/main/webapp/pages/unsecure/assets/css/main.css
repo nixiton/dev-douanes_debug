@@ -2763,3 +2763,6 @@ li[aria-selected="true"] a{
 .state-false{
 	background-color:#ffebee !important;
 }
+.fa{
+	margin-bottom:0px !important;
+}
