@@ -724,7 +724,11 @@ public class SuiviEditionBean implements Serializable{
 					}
 					// designation
 					Materiel mat = op.getMat();
-					row[4] = mat.getDesign().getTypematerieladd().getDesignation() + " - " + mat.getDesign().getMarque()
+					String marquemat = "Inconnue";
+					if(mat.getDesign().getMarque() !=null) {
+						marquemat = mat.getDesign().getMarque().getDesignation();
+					}
+					row[4] = mat.getDesign().getTypematerieladd().getDesignation() + " - " + marquemat
 							+ " - " + mat.getDesign().getRenseignement() + " - " + mat.getNumSerie();
 					// espece unite
 					row[5] = mat.getDesign().getEspeceUnite();
@@ -849,7 +853,11 @@ public class SuiviEditionBean implements Serializable{
 				}
 				// designation
 				Materiel mat = op.getMat();
-				row[4] = mat.getDesign().getTypematerieladd().getDesignation() + " - " + mat.getDesign().getMarque()
+				String marqueMat = "Inconnue";
+				if(mat.getDesign().getMarque()!=null) {
+					marqueMat = mat.getDesign().getMarque().getDesignation();
+				}
+				row[4] = mat.getDesign().getTypematerieladd().getDesignation() + " - " + marqueMat
 						+ " - " + mat.getDesign().getRenseignement() + " - " + mat.getNumSerie();
 				// espece unite
 				row[5] = mat.getDesign().getEspeceUnite();
@@ -962,7 +970,11 @@ public class SuiviEditionBean implements Serializable{
 				row[3] = ((OpSortie) op).getMotifsortie().getDesignation();
 				// designation
 				Materiel mat = op.getMat();
-				row[4] = mat.getDesign().getTypematerieladd().getDesignation() + " - " + mat.getDesign().getMarque()
+				String marqueMat = "Inconnue";
+				if(mat.getDesign().getMarque()!=null) {
+					marqueMat = mat.getDesign().getMarque().getDesignation();
+				}
+				row[4] = mat.getDesign().getTypematerieladd().getDesignation() + " - " + marqueMat
 						+ " - " + mat.getDesign().getRenseignement() + " - " + mat.getNumSerie();
 				// espece unite
 				row[5] = mat.getDesign().getEspeceUnite();
@@ -1944,8 +1956,12 @@ public class SuiviEditionBean implements Serializable{
 			// Numéros du folio du grand livre
 			row[1] = mat.getIdMateriel();
 			// Désignation du matériel
+			String marqueMat ="Inconnue";
+			if(mat.getDesign().getMarque() != null) {
+				marqueMat = mat.getDesign().getMarque().getDesignation();
+			}
 			row[2] = mat.getDesign().getTypematerieladd().getDesignation() + " - "
-					+ mat.getDesign().getMarque().getDesignation() + " - " + mat.getDesign().getRenseignement() + " - "
+					+ marqueMat + " - " + mat.getDesign().getRenseignement() + " - "
 			// + mat.getNumSerie()
 			;
 			// Espèce des unités
@@ -2209,8 +2225,12 @@ public class SuiviEditionBean implements Serializable{
 				row[0] = row[0] + "/E";
 				row[3] = "a ajouter origine";
 				Article a = ((OpEntreeArticle) o).getArticle();
+				String marqueArt = "";
+				if(a.getMarqueArticle() != null) {
+					marqueArt = a.getMarqueArticle().getDesignation();
+				}
 				row[4] = a.getCodeArticle().getTypeObjet().getDesignation() + " (" + a.getCodeArticle().getDesignation()
-						+ " ) " + a.getMarqueArticle();
+						+ " ) " + marqueArt;
 				row[5] = a.getNombre();
 				row[6] = a.getPrix();
 				row[7] = (Long) row[5] * (Float) row[6];
@@ -2298,8 +2318,12 @@ public class SuiviEditionBean implements Serializable{
 				row[0] = row[0] + "/E";
 				row[3] = "a ajouter origine";
 				Article a = ((OpEntreeArticle) o).getArticle();
+				String marqueArt ="";
+				if(a.getMarqueArticle() != null) {
+					marqueArt = a.getMarqueArticle().getDesignation();
+				}
 				row[4] = a.getCodeArticle().getTypeObjet().getDesignation() + " (" + a.getCodeArticle().getDesignation()
-						+ " ) " + a.getMarqueArticle();
+						+ " ) " + marqueArt;
 				row[5] = a.getNombre();
 				row[6] = a.getPrix();
 				row[7] = (Long) row[5] * (Float) row[6];
@@ -2379,8 +2403,12 @@ public class SuiviEditionBean implements Serializable{
 				row[0] = row[0] + "/S";
 				row[3] = (((OpSortieArticle) o).getBeneficiaire()).getNomAgent();
 				Article a = ((OpSortieArticle) o).getArticle();
+				String marqueArt = "";
+				if(a.getMarqueArticle() !=null) {
+					marqueArt = a.getMarqueArticle().getDesignation();
+				}
 				row[4] = a.getCodeArticle().getTypeObjet().getDesignation() + " (" + a.getCodeArticle().getDesignation()
-						+ " ) " + a.getMarqueArticle();
+						+ " ) " + marqueArt;
 				row[5] = a.getNombre();
 				row[6] = a.getPrix();
 				row[7] = (Long) row[5] * (Float) row[6];
@@ -2680,7 +2708,11 @@ public class SuiviEditionBean implements Serializable{
 				}
 				// designation
 				Materiel mat = op.getMat();
-				row[4] = mat.getDesign().getTypematerieladd().getDesignation() + " - " + mat.getDesign().getMarque()
+				String marqueMat = "";
+				if(mat.getDesign().getMarque() !=null) {
+					marqueMat = mat.getDesign().getMarque().getDesignation();
+				}
+				row[4] = mat.getDesign().getTypematerieladd().getDesignation() + " - " + marqueMat
 						+ " - " + mat.getDesign().getRenseignement() + " - " + mat.getNumSerie();
 				// espece unite
 				row[5] = mat.getDesign().getEspeceUnite();
@@ -2740,8 +2772,12 @@ public class SuiviEditionBean implements Serializable{
 			// Numéros du folio du grand livre
 			row[1] = mat.getIdMateriel();
 			// Désignation du matériel
+			String marqueMat = "Inconnue";
+			if(mat.getDesign().getMarque() != null) {
+				marqueMat = mat.getDesign().getMarque().getDesignation();
+			}
 			row[2] = mat.getDesign().getTypematerieladd().getDesignation() + " - "
-					+ mat.getDesign().getMarque().getDesignation() + " - " + mat.getDesign().getRenseignement() + " - "
+					+ marqueMat + " - " + mat.getDesign().getRenseignement() + " - "
 			// + mat.getNumSerie()
 			;
 			// Espèce des unités

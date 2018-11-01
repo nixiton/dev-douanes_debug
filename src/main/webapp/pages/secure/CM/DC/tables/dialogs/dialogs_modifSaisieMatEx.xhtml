@@ -53,6 +53,7 @@
 				</div>
 	            <div class="box dark col-md-5">
 	            		<br/>
+	            		<c:if test="#{depositaireBean.curentMaterielEx.code == null}">
 						<div class = "row">
 							<div class="col-lg-4">
 								<label for="text1" class="control-label">Type de matériel *
@@ -63,14 +64,13 @@
 		                        <p:selectOneMenu id="zone"  styleClass="form-control top" converter="#{refConverter}"
 		                         value="#{depositaireBean.curentMaterielEx.design.typematerieladd}" panelStyle="width:250px;" >
 		                            <f:selectItem itemValue="#{null}" itemLabel="Selectionner" /> 
-		                            <f:selectItems value="#{siseBean.listTypeMateriel}" var="type" itemLabel="#{type.designation} - #{type.nomenclaureParent.designation}"/>
-		                         
+		                            <f:selectItems value="#{siseBean.groupeListTypeMateriel}" />
 		                        </p:selectOneMenu>
 		                    </div>
 						</div>
 	                    
 	                    <hr></hr>
-	                   
+	                   </c:if>
 						<div class = "row">
 							<div class="col-lg-4">
 	
@@ -263,7 +263,7 @@
 									   styleClass="btn btn-lg btn-primary btn-block"
 									   actionListener="#{depositaireBean.updateMaterielExistant(depositaireBean.curentMaterielEx)}"
 					   					oncomplete="if (!args.validationFailed) PF('modifMatex').hide();" 
-					   					update="@([id$=fileUpoadForm], [id$=MaterielTable])" icon="ui-icon-refresh"/>
+					   					update=":formmodifmatex:materielTable" icon="ui-icon-refresh"/>
 	                			</div>
 	                		</div>
 		                    

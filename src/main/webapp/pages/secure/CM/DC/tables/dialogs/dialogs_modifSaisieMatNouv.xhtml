@@ -57,6 +57,7 @@
 			</div>
             <div class="box dark col-md-5">
             	<br/>
+            	<c:if test="#{depositaireBean.curentMaterielNouv.code == null}">
 				<div class = "row">
 					<div class="col-lg-4">
 
@@ -68,14 +69,13 @@
                         <p:selectOneMenu id="zone"  styleClass="form-control top" converter="#{refConverter}" 
                         value="#{depositaireBean.curentMaterielNouv.design.typematerieladd}" panelStyle="width:250px;" >
                             <f:selectItem itemValue="#{null}" itemLabel="Selectionnner" /> 
-                            <f:selectItems value="#{siseBean.listTypeMateriel}" var="type" itemLabel="#{type.designation} - #{type.nomenclaureParent.designation}"/>
-                         
+                            <f:selectItems value="#{siseBean.groupeListTypeMateriel}" />
                         </p:selectOneMenu>
                     </div>
                 </div>
                 
                 <hr></hr>
-              
+              	</c:if>
 				<div class = "row">
 					<div class="col-lg-4">
 
@@ -314,7 +314,7 @@
 								   styleClass="btn btn-lg btn-primary btn-block"
 								   actionListener="#{depositaireBean.updateMaterielNouv(depositaireBean.curentMaterielNouv)}"
 				   					oncomplete="if (!args.validationFailed) PF('modifMatNouv').hide();" 
-				   					update="@([id$=fileUpoadForm], [id$=MaterielTable])" icon="ui-icon-refresh"/> 
+				   					update="@([id$=fileUpoadForm], [id$=MaterielTableoui], [id$=MaterielTablenon] )" icon="ui-icon-refresh"/> 
 			   					</div>
 		   					</div>
 		   				</div>

@@ -50,11 +50,13 @@
 
 
     <p:dataTable   var="materiel" value="#{suivieditionBean.listMaterielNouveauValide}"
-                 widgetVar="MaterielTable"
+                 widgetVar="MaterielTableoui"
+                 id = "MaterielTableoui"
                  currentPageReportTemplate="({currentPage} sur {totalPages})"
                  paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}  "
                  paginator="true" rows="10" style="margin-bottom:20px"
-                 emptyMessage="Aucun resultat" filteredValue="#{suivieditionBean.listMaterielNouveauValide}"
+                 emptyMessage="Aucun resultat" 
+                 
                  >
  
  		<f:facet name="header">
@@ -68,7 +70,7 @@
         </p:column> 
         <p:column filterBy="#{materiel.design.nomenMat}" headerText="Nomenclature"  filterMatchMode="exact" style="width:23%; text-align: center; word-wrap: break-word;">
             <f:facet name="filter">
-                <p:selectOneMenu onchange="PF('MaterielTable').filter()" panelStyle="width:250px;" >
+                <p:selectOneMenu onchange="PF('MaterielTableoui').filter()" panelStyle="width:250px;" >
                     <f:selectItem itemLabel="Selectionner" itemValue="#{null}" noSelectionOption="true" />
                     <f:selectItems value="#{siseBean.listNomenclature}" />
                 </p:selectOneMenu>
@@ -213,21 +215,22 @@
 
     <p:dataTable   var="materiel" value="#{suivieditionBean.listMaterielNouveauNonValide}"
                  widgetVar="MaterielTablenon"
+                 id ="MaterielTablenon"
                  currentPageReportTemplate="({currentPage} sur {totalPages})"
                  paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}  "
                  paginator="true" rows="10" style="margin-bottom:20px"
-                 emptyMessage="Aucun resultat" filteredValue="#{suivieditionBean.listMaterielNouveauNonValide}"
+                 emptyMessage="Aucun resultat"
                  >
  		<f:facet name="header">
         Prise en charge non acceptée
    		 </f:facet>
-        <p:column filterBy="#{materiel.idMateriel}" filterMatchMode="contains" style="width:7%; text-align: center; word-wrap: break-word;">
+        <p:column styleClass="#{materiel.myoperationEntree.state}" filterBy="#{materiel.idMateriel}" filterMatchMode="contains" style="width:7%; text-align: center; word-wrap: break-word;">
             <f:facet name="header">
                 <h:outputText value="ID" />
             </f:facet>
             <h:outputText value="#{materiel.idMateriel}" />
         </p:column> 
-        <p:column filterBy="#{materiel.design.nomenMat}" headerText="Nomenclature"  filterMatchMode="exact" style="width:23%; text-align: center; word-wrap: break-word;">
+        <p:column styleClass="#{materiel.myoperationEntree.state}" filterBy="#{materiel.design.nomenMat}" headerText="Nomenclature"  filterMatchMode="exact" style="width:23%; text-align: center; word-wrap: break-word;">
             <f:facet name="filter">
                 <p:selectOneMenu onchange="PF('MaterielTablenon').filter()" panelStyle="width:250px;">
                     <f:selectItem itemLabel="Selectionner" itemValue="#{null}" noSelectionOption="true" />
@@ -239,25 +242,25 @@
             </f:facet>
             <h:outputText value="#{materiel.design.nomenMat.designation}" />
         </p:column>
-        <p:column style="width:10%; text-align: center; word-wrap: break-word;">
+        <p:column styleClass="#{materiel.myoperationEntree.state}" style="width:10%; text-align: center; word-wrap: break-word;">
             <f:facet name="header">
                 <h:outputText value="Nomenclature" />
             </f:facet>
             <h:outputText value="#{materiel.design.nomenMat.nomenclature}" />
         </p:column>
-        <p:column style="width:10%; text-align: center; word-wrap: break-word;">
+        <p:column styleClass="#{materiel.myoperationEntree.state}" style="width:10%; text-align: center; word-wrap: break-word;">
             <f:facet name="header">
                 <h:outputText value="Marque" />
             </f:facet>
             <h:outputText value="#{materiel.design.marque.designation}" />
         </p:column>
-        <p:column  filterBy="#{materiel.reference}" filterMatchMode="contains" style="width:10%; text-align: center; word-wrap: break-word;">
+        <p:column  styleClass="#{materiel.myoperationEntree.state}" filterBy="#{materiel.reference}" filterMatchMode="contains" style="width:10%; text-align: center; word-wrap: break-word;">
             <f:facet name="header">
                 <h:outputText value="Référence" />
             </f:facet>
            <h:outputText value=" #{materiel.reference}" />
         </p:column>
-        <p:column filterBy="#{materiel.numSerie}" filterMatchMode="contains" style="width:10%; text-align: center; word-wrap: break-word;">
+        <p:column styleClass="#{materiel.myoperationEntree.state}" filterBy="#{materiel.numSerie}" filterMatchMode="contains" style="width:10%; text-align: center; word-wrap: break-word;">
             <f:facet name="header">
                 <h:outputText value="Numéro de série" />
             </f:facet>
@@ -269,20 +272,28 @@
             </f:facet>
             <h:outputText value="#{materiel.caract}" />
         </p:column-->
-        <p:column style="width:10%; text-align: center; word-wrap: break-word;">
+        <p:column styleClass="#{materiel.myoperationEntree.state}" style="width:10%; text-align: center; word-wrap: break-word;">
             <f:facet name="header">
                 <h:outputText value="Mode d'acquisition" />
             </f:facet>
             <h:outputText value="#{materiel.design.modAcq.designation}" />
         </p:column>
         
-		<p:column filterBy="#{materiel.code}" filterMatchMode="contains" style="width:8%; text-align: center; word-wrap: break-word;">
+		<p:column styleClass="#{materiel.myoperationEntree.state}" filterBy="#{materiel.code}" filterMatchMode="contains" style="width:8%; text-align: center; word-wrap: break-word;">
             <f:facet name="header" >
                 <h:outputText value="Code" />
             </f:facet>
             <h:outputText value="#{materiel.code}" />
         </p:column>
-        <p:column style="width:7%; text-align: center; word-wrap: break-word;">
+        <p:column styleClass="#{materiel.myoperationEntree.state}">
+        	<f:facet name="header" >
+                <h:outputText value="Validation GAC" />
+            </f:facet>
+            <h:outputText value="#{materiel.myoperationEntree.state == 'WAITING' ? 'En attente' : 'Déjà Refusée'}" />
+        </p:column>
+        
+        
+        <p:column styleClass="#{materiel.myoperationEntree.state}" style="width:7%; text-align: center; word-wrap: break-word;">
 
             <f:facet name="header">
                 <h:outputText value="Détail" />
@@ -293,7 +304,7 @@
             or topMenuMB.curentAgent.roleAgent.role eq 'ROLE_SISE'
             or topMenuMB.curentAgent.roleAgent.role eq 'ROLE_DC'
             }">
-             <p:commandButton  action="#{depositaireBean.setCurentMaterielNouv(materiel)}" update=":modifMatNouv"
+             <p:commandButton  rendered="#{materiel.myoperationEntree.state=='WAITING'}" action="#{depositaireBean.setCurentMaterielNouv(materiel)}" update=":modifMatNouv"
             oncomplete="PF('modifMatNouv').show()" icon="ui-icon-pencil"/>
             </c:if>
         </p:column>

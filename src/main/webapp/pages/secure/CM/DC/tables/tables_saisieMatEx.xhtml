@@ -26,14 +26,15 @@
 		<br/>
     </div>
     </c:if>
-    <h:form>
+    <h:form id="formmodifmatex">
     <p:dataTable   var="materiel" value="#{suivieditionBean.listMaterielexistant}"
                  widgetVar="MaterielTable"
-                 id="MaterielTable" 
+                 id="materielTable" 
                  currentPageReportTemplate="({currentPage} sur {totalPages})"
                  paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}  "
                  paginator="true" rows="10" style="margin-bottom:20px"
-                 emptyMessage="Aucun resultat" filteredValue="#{suivieditionBean.listMaterielexistant}"
+                 emptyMessage="Aucun resultat" 
+                 
                  >
  
         <p:column filterBy="#{materiel.idMateriel}" filterMatchMode="contains" style="width: 7%; text-align: center; word-wrap: break-word;">
