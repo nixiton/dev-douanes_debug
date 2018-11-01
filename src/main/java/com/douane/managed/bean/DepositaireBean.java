@@ -2689,6 +2689,7 @@ public class DepositaireBean {
 
 		}
 		try {
+			matex.getDesign().setNomenMat(matex.getDesign().getTypematerieladd().getNomenclaureParent());
 			usermetierimpl.updateMateriel(matex);
 
 		} catch (Exception e) {
@@ -2709,6 +2710,7 @@ public class DepositaireBean {
 
 		}
 		try {
+			matNouv.getDesign().setNomenMat(matNouv.getDesign().getTypematerieladd().getNomenclaureParent());
 			usermetierimpl.updateMateriel(matNouv);
 
 		} catch (Exception e) {
