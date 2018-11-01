@@ -71,7 +71,7 @@ public class CustomAuthenticationProvider implements AuthenticationProvider {
                 HttpServletRequest request = (HttpServletRequest) FacesContext.getCurrentInstance().getExternalContext().getRequest();
                 String ipAddress = request.getHeader("X-FORWARDED-FOR");
                 if (ipAddress == null) {
-                    ipAddress = request.getRemoteAddr();
+                    ipAddress = ip.getHostAddress();
                 }
                 System.out.println("ipAddress:" + ipAddress);
                 

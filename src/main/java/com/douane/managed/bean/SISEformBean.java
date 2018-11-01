@@ -9,6 +9,7 @@ import com.douane.metier.utilisateur.IUtilisateurMetier;
 import com.douane.model.EtatOperation;
 import com.douane.requesthttp.RequestFilter;
 
+import org.apache.commons.lang.builder.CompareToBuilder;
 import org.hibernate.exception.ConstraintViolationException;
 import org.primefaces.component.datatable.DataTable;
 import org.primefaces.context.RequestContext;
@@ -255,6 +256,16 @@ public class SISEformBean {
 					ds.add((TypeMateriel) d);
 				}
 			}
+			//sort ds by nomenclature and then by alpha designation
+			Collections.sort(ds, new Comparator<TypeMateriel>() {  
+			    @Override  
+			    public int compare(TypeMateriel tm1, TypeMateriel tm2) {  
+			        
+			        return new CompareToBuilder().append(tm1.getNomenclaureParent().getNomenclature(), tm2.getNomenclaureParent().getNomenclature()).
+			        		append(tm1.getDesignation(), tm2.getDesignation()).toComparison();
+			    	  
+			    }  
+			});
 			listTypeMateriel = ds;
 		}
 		return listTypeMateriel;
@@ -578,6 +589,14 @@ public class SISEformBean {
 					ds.add((Nomenclature) d);
 				}
 			}
+			//reorder ds by alph
+			Collections.sort(ds, new Comparator<Nomenclature>() {
+			    @Override
+			    public int compare(Nomenclature n1, Nomenclature n2) {
+			        return n1.getNomenclature().compareToIgnoreCase(n2.getNomenclature());
+			    }
+			});
+			
 			listNomenclature = ds;
 		}
 		return listNomenclature;
@@ -592,6 +611,15 @@ public class SISEformBean {
 				ds.add((TypeObjet) d);
 			}
 		}
+		
+		//reorder ds by designation
+		Collections.sort(ds, new Comparator<TypeObjet>() {
+		    @Override
+		    public int compare(TypeObjet t1, TypeObjet t2) {
+		        return t1.getDesignation().compareTo(t2.getDesignation());
+		    }
+		});
+		
 		listTypeObjet= ds;
 		}
 		return this.listTypeObjet;
