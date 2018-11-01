@@ -7,7 +7,7 @@
 	xmlns:c="http://java.sun.com/jsp/jstl/core"
 	>
 
-
+ <h:head> </h:head>
 <ui:include src="/pages/unsecure/components/header.xhtml">
 	<ui:param name="title" value="Choisir le type de tableau de bord" />
 </ui:include>
@@ -52,7 +52,7 @@
 						</c:if>
 					</h:selectOneMenu>
                		 <hr></hr>
-					<p:commandButton  id="btnChoiceId"  action="#{choiceMB.choisir}" value="Tableau de bord"
+					<p:commandButton  id="btnChoiceId"  action="#{choiceMB.choisir}" value="Connexion"
 						styleClass="btn btn-lg btn-primary  btn-block fa fa-area-chart tableau" >
 					</p:commandButton>
 

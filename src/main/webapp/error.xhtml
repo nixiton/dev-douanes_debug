@@ -81,6 +81,9 @@
 	</h3>
     <h4>Erreur interne de l'application</h4>
     #{requestScope['error-message']}
+    <p>
+				<strong>Veuillez recharger la page désirée.</strong>
+				</p>
 	<p>
 		Veuillez contacter l'<strong>administrateur</strong> si le problème persiste.
 	</p>
@@ -89,6 +92,12 @@
         <ui:repeat value="#{requestScope['error-stack']}" var="stack">
             <!-- li>#{stack.className} - #{stack.methodName} - #{stack.fileName} - #{stack} (#{stack.lineNumber})</li-->
         	<li>#{stack}</li>
+        </ui:repeat>
+    </ul>
+    <h4>Cause: Debug Information</h4>
+    <ul>
+        <ui:repeat value="#{requestScope['error-cause']}" var="cause">
+            <li>#{cause}</li>
         </ui:repeat>
     </ul>
 

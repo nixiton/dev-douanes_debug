@@ -55,6 +55,9 @@ public class CustomExceptionHandler extends ExceptionHandlerWrapper {
 
                 requestMap.put("error-message", throwable.getMessage());
                 requestMap.put("error-stack", throwable.getStackTrace());
+                requestMap.put("error-cause", throwable.getCause());
+                
+                
                 nav.handleNavigation(context2, null, "/error");
 
                 context2.renderResponse();
