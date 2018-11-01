@@ -105,6 +105,9 @@ public interface IUserMetier {
 	public List<OpAttribution> getListOpAttrByOperator(Agent operator);
 	public List<OpDettachement> getListOpDettByOperatort(Agent operator);
 	public List<OpAttribution> getListOpAttrByDirection(Direction direction, Date sdate, Date edate);
+	public List<OpAttribution> getListOpAttrByValideByDirection(Direction direction, Date sdate, Date edate,EtatOperation e);
+	
+	
 	List<OpDettachement> getListOpDettByDirection(Direction direction, Date sdate, Date edate);
 
 

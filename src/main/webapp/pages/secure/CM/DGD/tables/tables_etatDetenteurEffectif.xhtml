@@ -9,7 +9,7 @@
 <div   class="body collapse in table-responsive">
 
 
-    <p:dataTable   var="o" value="#{suivieditionBean.listOperationAttribution}"
+    <p:dataTable   var="o" value="#{suivieditionBean.getListOperationAttributionValidateByDirection(null)}"
     			currentPageReportTemplate="({currentPage} sur {totalPages})" 
                  paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}  "
                  paginator="true" rows="10" style="margin-bottom:20px" emptyMessage="Aucun résultat">

@@ -62,12 +62,11 @@ public class OperationDAOImpl implements IOperationDAO {
 		if (m == null) {
 			throw new Exception("Pas de materiel de avec cette Identifiant");
 		}
-		System.out.println("*************************************AFAKA***************1");
 		if (m.getDetenteur() != null) {
 			throw new Exception("Materiel encore détenu par " + m.getDetenteur().getIm());
 		}
 		// m.setCodification("codified"+new Date());
-		m.generateCode(m.getNumeroType());
+		m.generateCode(m.getNumeroType()+1);
 		System.out.println(m.getCode() + " : code generated ok");
 		// m.setDetenteur(attr.getDetenteur());
 		// matrepos.save(m);
@@ -75,24 +74,19 @@ public class OperationDAOImpl implements IOperationDAO {
 		// em.merge(m);
 		Agent detent = attr.getDetenteur();
 		System.out.println(
-				"*************************************AFAKA***************2 " + attr.getDetenteur().getIm() + "**");
+				"*************************************AFAKA*************** " + attr.getDetenteur().getIm() + "**");
 		m.setDetenteur(detent);
-		System.out.println("*************************************AFAKA***************3");
 		detent.getMatdetenu().add(m);
-		System.out.println("*************************************AFAKA***************4");
 		// agentrepos.save(detent);
 		em.merge(m);
-		System.out.println("*************************************AFAKA***************5");
 		em.merge(detent);
-		System.out.println("*************************************AFAKA***************6");
 		attr.valider();
-		System.out.println("*************************************AFAKA***************7");
 		// oprepos.save(attr);
 		// set etat detenteur numero
-		attr.generateNumDet(this.countOpAttrByYearByDirection(new Date(), attr.getDirection()));
+		attr.generateNumDet(this.countOpAttrByYearByDirection(new Date(), attr.getDirection())+1);
 
 		em.merge(attr);
-		System.out.println("*************************************AFAKA***************8");
+		System.out.println("*************************************AFAKA***************FIN");
 		return m;
 	}
 

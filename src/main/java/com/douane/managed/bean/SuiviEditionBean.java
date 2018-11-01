@@ -3007,6 +3007,20 @@ public class SuiviEditionBean implements Serializable{
 	public void setListOperatoinByDirectionFiltered(List<Operation> listOperatoinByDirectionFiltered) {
 		this.listOperatoinByDirectionFiltered = listOperatoinByDirectionFiltered;
 	}
+	
+	public List<OpAttribution> getListOperationAttributionValidateByDirection(Direction d){
+		if(d== null) {
+			Agent curentAg = (Agent) RequestFilter.getSession().getAttribute("agent");
+			d = curentAg.getDirection();
+		}
+		Date date = new Date();
+		Calendar calendar = new GregorianCalendar();
+		calendar.setTime(date);
+		int year = calendar.get(Calendar.YEAR);
+		Date sdate = new GregorianCalendar(year - 2, Calendar.JANUARY, 1).getTime();
+		Date edate = new GregorianCalendar(year + 1, Calendar.DECEMBER, 30).getTime();
+		return usermetierimpl.getListOpAttrByValideByDirection(d ,sdate, edate,EtatOperation.ACCEPTED);
+	}
 
 	
 

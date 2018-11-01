@@ -16,5 +16,7 @@ public interface OpAttrRepository extends CrudRepository<OpAttribution, Long>{
 	public List<OpAttribution> findByDirectionOrderByDateDesc(Direction direction);
 	public List<OpAttribution> findByDirectionOrderByIdDesc(Direction direction);
 	public List<OpAttribution> findByDirectionAndDateBetweenOrderByIdDesc(Direction direction, Date sdate, Date edate);
+	public List<OpAttribution> findByDirectionAndStateAndDateBetweenOrderByIdDesc(Direction direction, EtatOperation e,
+			Date sdate, Date edate);
 
 }

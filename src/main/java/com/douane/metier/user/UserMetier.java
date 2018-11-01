@@ -344,7 +344,7 @@ public class UserMetier implements IUserMetier {
 			matrepos.save(m);
 		}
 		op.valider();
-		op.generateNumEntree(operationdao.countOpEntreeByYearByDirection(new Date(), op.getDirection()));
+		op.generateNumEntree(operationdao.countOpEntreeByYearByDirection(new Date(), op.getDirection())+1);
 		oprepos.save(op);
 		return null;
 	}
@@ -366,7 +366,7 @@ public class UserMetier implements IUserMetier {
 		matrepos.save(m);
 
 		sortie.valider();
-		sortie.generateNumSortie(operationdao.countOpSortieByYearByDirection(new Date(), sortie.getDirection()));
+		sortie.generateNumSortie(operationdao.countOpSortieByYearByDirection(new Date(), sortie.getDirection())+1);
 		oprepos.save(sortie);
 		return m;
 	}
@@ -823,6 +823,14 @@ public class UserMetier implements IUserMetier {
 		// TODO Auto-generated method stub
 		return opattrrepos.findByDirectionAndDateBetweenOrderByIdDesc(direction,sdate,edate);
 	}
+	
+	@Override
+	public List<OpAttribution> getListOpAttrByValideByDirection(Direction direction, Date sdate, Date edate,
+			EtatOperation e) {
+		// TODO Auto-generated method stub
+		return opattrrepos.findByDirectionAndStateAndDateBetweenOrderByIdDesc(direction,e,sdate,edate);
+	}
+	
 
 	@Override
 	public List<OpDettachement> getListOpDettByDirection(Direction direction,Date sdate, Date edate) {
