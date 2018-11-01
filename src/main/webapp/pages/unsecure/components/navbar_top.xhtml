@@ -140,9 +140,6 @@
 
 					<c:if test="#{topMenuMB.curentAgent.roleAgent.role eq 'ROLE_ADMIN' 
 					or topMenuMB.curentAgent.roleAgent.role eq 'ROLE_DC'
-					or topMenuMB.curentAgent.roleAgent.role eq 'ROLE_SISE'
-					or topMenuMB.curentAgent.roleAgent.role eq 'ROLE_DG'
-					or topMenuMB.curentAgent.roleAgent.role eq 'ROLE_DRF'
 					}">
 
 					<li class="dropdown"><a href="#" class="dropdown-toggle"
@@ -157,9 +154,7 @@
 
 						</ul></li>
 
-					
-
-					
+					<!-- DETENTION -->
 			         <c:if test="#{topMenuMB.curentAgent.roleAgent.role eq 'ROLE_ADMIN' 
 					or topMenuMB.curentAgent.roleAgent.role eq 'ROLE_DC'}">   
 			        
@@ -175,6 +170,28 @@
 					<li><h:link value="Décharge" outcome="decharge" immediate="true" style="color:#CCC"/></li>
 					</c:if>
 				</c:if>
+				
+				<!-- SAISIE DES MATERIELS EN GENERAL -->
+				<c:if test="#{topMenuMB.curentAgent.roleAgent.role eq 'ROLE_ADMIN'
+					or topMenuMB.curentAgent.roleAgent.role eq 'ROLE_SISE'
+					or topMenuMB.curentAgent.roleAgent.role eq 'ROLE_DG'
+					or topMenuMB.curentAgent.roleAgent.role eq 'ROLE_DRF'
+					}">
+					
+					<li class="dropdown"><a href="#" class="dropdown-toggle"
+						data-toggle="dropdown" style="color:#CCC"> Saisie des matériels général <b class="caret"></b>
+					</a>
+						<ul class="dropdown-menu">
+							
+							<li><h:link value="Saisie
+						des matériels existants"
+									outcome="saisie_mat_exg" immediate="true" /></li>
+							<li><h:link value="Prise en charge" outcome="prise_en_chargeg" immediate="true" /></li>
+
+						</ul></li>
+				
+				</c:if>
+				
 					<!-- SUIVI DIRECTION -->
 					<c:if test="#{topMenuMB.curentAgent.roleAgent.role eq 'ROLE_ADMIN' 
 					or topMenuMB.curentAgent.roleAgent.role eq 'ROLE_DC' 
@@ -324,11 +341,11 @@
 											outcome="edition_etatsG" immediate="true" >
 												<f:param name="table" value="inventaire" /></h:link>
 									</li>
-									<!-- li><h:link
+									<li><h:link
 											value="Etat détenteur effectif"
 											outcome="edition_etatsG" immediate="true" >
 												<f:param name="table" value="etatDetenteurEffectif" /></h:link>
-									</li-->
+									</li>
 									
 								</ul>
 							</li>

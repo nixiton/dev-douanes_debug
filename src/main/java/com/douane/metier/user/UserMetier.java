@@ -1087,11 +1087,11 @@ public class UserMetier implements IUserMetier {
 	}
 
 	@Override
-	public List<MaterielNouv> getListMaterielNouvValide() {
+	public List<MaterielNouv> getListMaterielNouvValide(Direction d) {
 		// TODO Auto-generated method stub
 		// return materielNouvRepository.findByValidation(true);
-		Agent agent = (Agent) RequestFilter.getSession().getAttribute("agent");
-		return materielNouvRepository.findByValidationAndDirecOrderByIdMaterielDesc(true, agent.getDirection());
+		
+		return materielNouvRepository.findByValidationAndDirecOrderByIdMaterielDesc(true, d);
 		// return materielNouvRepository.findByValidationAndAModifier(true, true);
 	}
 

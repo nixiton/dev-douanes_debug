@@ -1883,7 +1883,8 @@ public class DepositaireBean {
 
 	public List<MaterielNouv> getListMaterielNouveauValide() {
 		if(listMaterielNouveauValide==null) {
-			listMaterielNouveauValide = usermetierimpl.getListMaterielNouvValide();
+			Agent agent = (Agent) RequestFilter.getSession().getAttribute("agent");
+			listMaterielNouveauValide = usermetierimpl.getListMaterielNouvValide(agent.getDirection());
 		}
 		return listMaterielNouveauValide;
 	}

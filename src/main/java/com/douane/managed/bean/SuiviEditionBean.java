@@ -2944,7 +2944,8 @@ public class SuiviEditionBean implements Serializable{
 
 	public List<MaterielNouv> getListMaterielNouveauValide() {
 		if(listMaterielNouveauValide==null) {
-			listMaterielNouveauValide = usermetierimpl.getListMaterielNouvValide();
+			Agent agent = (Agent) RequestFilter.getSession().getAttribute("agent");
+			listMaterielNouveauValide = usermetierimpl.getListMaterielNouvValide(agent.getDirection());
 		}
 		return listMaterielNouveauValide;
 	}
@@ -3021,6 +3022,16 @@ public class SuiviEditionBean implements Serializable{
 		Date edate = new GregorianCalendar(year + 1, Calendar.DECEMBER, 30).getTime();
 		return usermetierimpl.getListOpAttrByValideByDirection(d ,sdate, edate,EtatOperation.ACCEPTED);
 	}
+	
+	public List<MaterielNouv> getListMaterielNouveauValideFor(Direction d) {
+			if(d ==null) {
+				Agent agent = (Agent) RequestFilter.getSession().getAttribute("agent");
+				d= agent.getDirection();
+			}
+			
+		return usermetierimpl.getListMaterielNouvValide(d);
+	}
+	
 
 	
 

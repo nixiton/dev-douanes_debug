@@ -74,7 +74,7 @@ public interface IUserMetier {
 	public List<Materiel> getListMatByDirection(Direction direction);
 	public List<Materiel> getMatByDetenteurAndValidation(Agent detenteur,boolean validation);
 	public List<Materiel> getMatByDetenteurAndDirection(Agent detenteur,Direction direction);
-	public List<MaterielNouv> getListMaterielNouvValide();
+	public List<MaterielNouv> getListMaterielNouvValide(Direction d);
 	
 	public List<MaterielNouv> getListMaterielNouvNonValide();
 	

@@ -48,13 +48,7 @@
 	                	<i class="fa fa-file-archive-o"></i>
 	            		</h:commandLink>
        					</span>
-	        			<span style = "margin-left: 20%;">
-	        			<p:commandButton styleClass="button-color" id="downloadLink" value="Télecharger" ajax="false" icon=" ui-icon-arrowthick-1-s" >
-                     	<f:setPropertyActionListener target="#{depositaireBean.fileZipPath}" value="delete" />
-                     	<p:fileDownload value="#{depositaireBean.filedownload}" />
-                     
-                 		</p:commandButton>
-	        			</span>
+	        			
              		</h:form>
         		</p:column>
         
