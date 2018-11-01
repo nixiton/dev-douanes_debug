@@ -119,11 +119,15 @@
                     <tr>
                     	<td><strong>QRCODE</strong></td>
                         <td>
-            				<p:barcode value="${depositaireBean.curentMaterielNouv.direc.designation}-
-            				${depositaireBean.curentMaterielNouv.design.typematerieladd.designation  } -
-            				${depositaireBean.curentMaterielNouv.numSerie  } -
-            				${depositaireBean.curentMaterielNouv.design.anneeAcquisition}" type="qr"/>
-           				</td>
+            				<p:barcode value="${depositaireBean.curentMaterielNouv.direc.designation} /
+            				${depositaireBean.curentMaterielNouv.dc.im} - ${depositaireBean.curentMaterielNouv.dc.nomAgent} /
+            				${depositaireBean.curentMaterielNouv.design.typematerieladd.designation  } /
+            				${depositaireBean.curentMaterielNouv.design.pu} /
+            				${depositaireBean.curentMaterielNouv.numSerie} /
+            				${depositaireBean.curentMaterielNouv.design.anneeAcquisition}" type="qr"
+            				height="200px" width="200px"
+            				/>
+            			</td>
            				<td></td>
            				<td><strong>Numéro de série</strong></td>
                         <td>#{depositaireBean.curentMaterielNouv.numSerie}</td>           

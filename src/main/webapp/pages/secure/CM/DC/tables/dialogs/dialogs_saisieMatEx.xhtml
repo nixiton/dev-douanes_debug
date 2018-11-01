@@ -98,10 +98,14 @@
                     <tr>
                     	<td><strong>QRCODE</strong></td>
                         <td>           					
-            				<p:barcode value="${depositaireBean.curentMaterielEx.direc.designation} - 
-            				${depositaireBean.curentMaterielEx.design.typematerieladd.designation  } -
-            				${depositaireBean.curentMaterielEx.numSerie  } -
-            				${depositaireBean.curentMaterielEx.design.anneeAcquisition}" type="qr"/>
+            				<p:barcode value="${depositaireBean.curentMaterielEx.direc.designation} /
+            				${depositaireBean.curentMaterielEx.dc.im} - ${depositaireBean.curentMaterielEx.dc.nomAgent} /
+            				${depositaireBean.curentMaterielEx.design.typematerieladd.designation  } /
+            				${depositaireBean.curentMaterielEx.design.pu} /
+            				${depositaireBean.curentMaterielEx.numSerie} /
+            				${depositaireBean.curentMaterielEx.design.anneeAcquisition}" type="qr"
+            				height="200px" width="200px"
+            				/>
            				</td>
            				<td></td>
            				<td><strong>Image</strong></td>

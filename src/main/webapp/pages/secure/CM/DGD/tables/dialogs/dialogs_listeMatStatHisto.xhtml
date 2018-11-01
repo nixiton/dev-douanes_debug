@@ -164,10 +164,14 @@
 						</td>
 						<td><strong>QRCODE</strong></td>
 						<td>           					
-							<p:barcode value="${suivieditionBean.materiel.direc.designation} - 
-							${suivieditionBean.materiel.design.typematerieladd.designation  } -
-							${suivieditionBean.materiel.numSerie  } -
-							${suivieditionBean.materiel.design.anneeAcquisition}" type="qr"/>
+							<p:barcode value="${suivieditionBean.materiel.direc.designation} /
+            				${suivieditionBean.materiel.dc.im} - ${suivieditionBean.materiel.dc.nomAgent} /
+            				${suivieditionBean.materiel.design.typematerieladd.designation  } /
+            				${suivieditionBean.materiel.design.pu} /
+            				${suivieditionBean.materiel.numSerie} /
+            				${suivieditionBean.materiel.design.anneeAcquisition}" type="qr"
+            				height="200px" width="200px"
+            				/>
 						</td>
                     </tr>
                     
