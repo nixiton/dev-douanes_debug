@@ -2931,7 +2931,8 @@ public class SuiviEditionBean implements Serializable{
 
 	public List<MaterielNouv> getListMaterielNouveauNonValide() {
 		if(listMaterielNouveauNonValide==null) {
-			listMaterielNouveauNonValide = usermetierimpl.getListMaterielNouvNonValide();
+			Agent agent = (Agent) RequestFilter.getSession().getAttribute("agent");
+			listMaterielNouveauNonValide = usermetierimpl.getListMaterielNouvNonValide(agent.getDirection());
 		}
 		return listMaterielNouveauNonValide;
 	}
@@ -3032,6 +3033,13 @@ public class SuiviEditionBean implements Serializable{
 		return usermetierimpl.getListMaterielNouvValide(d);
 	}
 	
+	public List<MaterielNouv> getListMaterielNouveauNonValideFor(Direction d) {
+		if(d==null) {
+			Agent agent = (Agent) RequestFilter.getSession().getAttribute("agent");
+			d= agent.getDirection();
+		}
+		return usermetierimpl.getListMaterielNouvNonValide(d);
+	}
 
 	
 

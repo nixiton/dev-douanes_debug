@@ -3020,7 +3020,8 @@ public class DepositaireBean {
 
 	public List<MaterielNouv> getListMaterielNouveauNonValide() {
 		if(listMaterielNouveauNonValide==null) {
-			listMaterielNouveauNonValide = usermetierimpl.getListMaterielNouvNonValide();
+			Agent agent = (Agent) RequestFilter.getSession().getAttribute("agent");
+			listMaterielNouveauNonValide = usermetierimpl.getListMaterielNouvNonValide(agent.getDirection());
 		}
 		return listMaterielNouveauNonValide;
 	}

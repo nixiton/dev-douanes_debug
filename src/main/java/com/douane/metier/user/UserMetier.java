@@ -1401,10 +1401,14 @@ public class UserMetier implements IUserMetier {
 	}
 
 	@Override
-	public List<MaterielNouv> getListMaterielNouvNonValide() {
+	public List<MaterielNouv> getListMaterielNouvNonValide(Direction d) {
 		// TODO Auto-generated method stub
-		Agent agent = (Agent) RequestFilter.getSession().getAttribute("agent");
-		return materielNouvRepository.findByValidationAndDirecOrderByIdMaterielDesc(false, agent.getDirection());
+		if(d==null) {
+			Agent agent = (Agent) RequestFilter.getSession().getAttribute("agent");
+			d= agent.getDirection();
+		}
+		
+		return materielNouvRepository.findByValidationAndDirecOrderByIdMaterielDesc(false, d);
 	}
 
 	

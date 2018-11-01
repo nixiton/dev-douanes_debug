@@ -62,7 +62,7 @@
                  >
  
  		<f:facet name="header">
-        Prise en charge acceptée par direction
+        Prise en charge acceptée
    		 </f:facet>
         <p:column filterBy="#{materiel.idMateriel}" filterMatchMode="contains" style="width:7%; text-align: center; word-wrap: break-word;">
             <f:facet name="header">
@@ -217,10 +217,13 @@
     
     <h:form>
 
-
-    <p:dataTable   var="materiel" value="#{suivieditionBean.listMaterielNouveauNonValide}"
-                 widgetVar="MaterielTablenon"
-                 id ="MaterielTablenon"
+	<p:tabView scrollable="true" id="allTableN">
+		<c:forEach var="dir" items="${siseBean.listDirection}" varStatus="status">
+		<p:tab title="${dir.codeDirection}">
+		
+    <p:dataTable   var="materiel" value="#{suivieditionBean.getListMaterielNouveauNonValideFor(dir)}"
+                 widgetVar="MaterielTablenon#{dir.id}"
+                 id ="MaterielTablenon#{dir.id}"
                  currentPageReportTemplate="({currentPage} sur {totalPages})"
                  paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}  "
                  paginator="true" rows="10" style="margin-bottom:20px"
@@ -237,7 +240,7 @@
         </p:column> 
         <p:column styleClass="#{materiel.myoperationEntree.state}" filterBy="#{materiel.design.nomenMat}" headerText="Nomenclature"  filterMatchMode="exact" style="width:23%; text-align: center; word-wrap: break-word;">
             <f:facet name="filter">
-                <p:selectOneMenu onchange="PF('MaterielTablenon').filter()" panelStyle="width:250px;">
+                <p:selectOneMenu onchange="PF('MaterielTablenon#{dir.id}').filter()" panelStyle="width:250px;">
                     <f:selectItem itemLabel="Selectionner" itemValue="#{null}" noSelectionOption="true" />
                     <f:selectItems value="#{siseBean.listNomenclature}" />
                 </p:selectOneMenu>
@@ -314,6 +317,10 @@
             </c:if>
         </p:column>
     </p:dataTable>
+    </p:tab>
+	</c:forEach >
+        
+     </p:tabView>
     
     </h:form>
     

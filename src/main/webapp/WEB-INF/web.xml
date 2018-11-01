@@ -195,7 +195,7 @@
     
     <error-page>
         <exception-type>javax.faces.application.ViewExpiredException</exception-type>
-        <location>/pages/unsecure/login.xhtml</location>
+        <location>/pages/unsecure/login.xhtml?redirect=true</location>
     </error-page>
     
 
