@@ -114,9 +114,7 @@
             </p:commandButton>
         </p:column>
         
-         <p:column headerText="Direction" style="width: 8%; text-align: center; word-wrap: break-word;">
-            <h:outputText value="#{materiel.direc.designation !=null ? materiel.direc.designation :'Non disponible'}" />
-        </p:column>
+         
         <p:column filterBy="#{materiel.validation}" headerText="Statut" filterMatchMode="equals" style="width: 6%; text-align: center; word-wrap: break-word;">
             <f:facet name="filter">
                 <p:selectOneButton onchange="PF('MaterielTable').filter()">

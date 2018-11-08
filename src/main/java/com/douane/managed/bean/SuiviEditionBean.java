@@ -2469,7 +2469,7 @@ public class SuiviEditionBean implements Serializable{
 			// Date operation
 			row[0] = null;
 			// reference entrée
-			row[1] = new Long(0);// "";
+			row[1] = "";// "";
 			// quantite entrée
 			row[2] = new Long(0);
 			// quantite entrée cumulée
@@ -2477,7 +2477,7 @@ public class SuiviEditionBean implements Serializable{
 			// reference sortie
 			row[4] = new Long(0);// "";
 			// quantite sortie
-			row[5] = new Long(0);
+			row[5] = "";
 			// quantite de depart à reporter
 			row[6] = new Long(0);
 
@@ -2488,13 +2488,15 @@ public class SuiviEditionBean implements Serializable{
 
 			// entree
 			if (o instanceof OpEntreeArticle) {
-				row[1] = o.getId(); // need to add this attribut for operation reference
+				//row[1] = o.getId(); // need to add this attribut for operation reference
+				row[1] =((OpEntreeArticle) o).getArticle().getReference();
 				row[2] = (Long) (((OpEntreeArticle) o).getArticle().getNombre());
 				row[3] = (Long) row[2] + 0; // need to set previous nombre
 			}
 			// sortie
 			else if (o instanceof OpSortieArticle) {
-				row[4] = o.getId();
+				//row[4] = o.getId();
+				row[4] = ((OpSortieArticle)o).getDecision();
 				row[5] = (Long) (((OpSortieArticle) o).getNombreToS());
 
 			}
@@ -2533,13 +2535,13 @@ public class SuiviEditionBean implements Serializable{
 			// Date operation
 			row[0] = null;
 			// reference entrée
-			row[1] = new Long(0);// "";
+			row[1] = "";// "";
 			// quantite entrée
 			row[2] = new Long(0);
 			// quantite entrée cumulée
 			row[3] = new Long(0);
 			// reference sortie
-			row[4] = new Long(0);// "";
+			row[4] = "";// "";
 			// quantite sortie
 			row[5] = new Long(0);
 			// quantite de depart à reporter
@@ -2554,14 +2556,16 @@ public class SuiviEditionBean implements Serializable{
 
 			// entree
 			if (o instanceof OpEntreeArticle) {
-				row[1] = o.getId(); // need to add this attribut for operation reference
+				//row[1] = o.getId(); // need to add this attribut for operation reference
+				row[1] =((OpEntreeArticle) o).getArticle().getReference();  
 				row[2] = (Long) (((OpEntreeArticle) o).getArticle().getNombre());
 				row[3] = (Long) row[2] + 0; // need to set previous nombre
 				row[8] = ((OpEntreeArticle) o).getArticle().getEspeceunit();
 			}
 			// sortie
 			else if (o instanceof OpSortieArticle) {
-				row[4] = o.getId();
+				row[4] = ((OpSortieArticle)o).getDecision();
+				//row[4] = o.getId();
 				row[5] = (Long) (((OpSortieArticle) o).getNombreToS());
 				row[8] = ((OpSortieArticle) o).getArticle().getEspeceunit();
 

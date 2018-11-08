@@ -24,19 +24,19 @@ public class FicheStockData {
 	
 	public class FicheStock{
 		private Date row0;
-		private Long row1;
+		private String row1;
 		private Long row2;
 		private Long row3;
-		private Long row4;
+		private String row4;
 		private Long row5;
 		private Long row6;
 		
 		public FicheStock(Object[] i) {
 			this.row0= (Date)i[0];
-			this.row1= (Long)i[1];
+			this.row1= (String)i[1];
 			this.row2= (Long)i[2];
 			this.row3= (Long)i[3];
-			this.row4= (Long)i[4];
+			this.row4= (String)i[4];
 			this.row5= (Long) i[5];
 			//this.row6= (Long)i[6];
 		}
@@ -49,11 +49,11 @@ public class FicheStockData {
 			this.row0 = row0;
 		}
 
-		public Long getRow1() {
+		public String getRow1() {
 			return row1;
 		}
 
-		public void setRow1(Long row1) {
+		public void setRow1(String row1) {
 			this.row1 = row1;
 		}
 
@@ -73,11 +73,11 @@ public class FicheStockData {
 			this.row3 = row3;
 		}
 
-		public Long getRow4() {
+		public String getRow4() {
 			return row4;
 		}
 
-		public void setRow4(Long row4) {
+		public void setRow4(String row4) {
 			this.row4 = row4;
 		}
 

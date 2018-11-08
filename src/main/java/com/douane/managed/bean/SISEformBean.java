@@ -831,7 +831,16 @@ public class SISEformBean {
 
 	public List<CodeArticle> getListCodeArticle() {
 		if(this.listCodeArticle==null) {
-			this.listCodeArticle = usermetierimpl.listCodeArticle();
+			
+			List<CodeArticle> lc= usermetierimpl.listCodeArticle();
+			Collections.sort(lc, new Comparator<CodeArticle>() {
+				public int compare(CodeArticle c1, CodeArticle c2) {
+					
+			        return c1.getDesignation().compareToIgnoreCase(c2.getDesignation());
+				}
+			});
+			this.listCodeArticle = lc;
+			
 		}
 		return this.listCodeArticle;
 	}

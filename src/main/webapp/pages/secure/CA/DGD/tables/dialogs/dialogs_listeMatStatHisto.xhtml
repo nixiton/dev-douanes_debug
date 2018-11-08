@@ -72,7 +72,10 @@
             </p:row>
         </p:columnGroup>
         <p:column style=" text-align: center; word-wrap: break-word;">
-        	<h:outputText value="#{row[0]}(#{row[6]})" />
+        	
+        	<h:outputText value="#{row[0]}">
+			            <f:convertDateTime pattern="dd MMMM yyyy" locale="fr" />
+	            	</h:outputText>
         </p:column>
         <p:column style=" text-align: center; word-wrap: break-word;">
 			<h:outputText value="#{row[1]}" />
@@ -94,7 +97,7 @@
 					<h:outputText value="#{'signature'}" />
         </p:column>
         <p:column style=" text-align: center; word-wrap: break-word;">
-        	<h:outputText value="#{row[3]-row[5]}" />
+        	<h:outputText value="#calul automatique}" />
         </p:column>
     </p:dataTable>
 

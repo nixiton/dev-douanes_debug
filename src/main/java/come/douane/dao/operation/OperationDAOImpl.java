@@ -2,6 +2,8 @@ package come.douane.dao.operation;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
 
@@ -677,6 +679,12 @@ public class OperationDAOImpl implements IOperationDAO {
 		List<Operation> operations = new ArrayList<Operation>();
 		operations.addAll(operationsE);
 		operations.addAll(operationsS);
+		Collections.sort(operations, new Comparator<Operation>() {
+			public int compare(Operation o1, Operation o2) {
+				
+				return o1.getId().compareTo(o2.getId());
+			}
+		});
 
 		System.out.println("LISTE DES ARTICLES**" + operations.size());
 		return operations;
