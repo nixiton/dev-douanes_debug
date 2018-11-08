@@ -49,6 +49,36 @@
             </f:facet>
             <h:outputText value="#{materiel.pu}" />
         </p:column-->
+        <p:column filterBy="#{materiel.design.nomenMat}" headerText="Nomenclature"  filterMatchMode="exact" style="width: 20%; text-align: center; word-wrap: break-word;">
+            <f:facet name="filter">
+                <p:selectOneMenu onchange="PF('MaterielTable').filter()" panelStyle="width:250px;">
+                    <f:selectItem itemLabel="Selectionner" itemValue="#{null}" noSelectionOption="true" />
+                    <f:selectItems value="#{siseBean.listNomenclature}" var="type"
+								itemLabel="N#{type.nomenclature} - #{type.designation}"/>
+                </p:selectOneMenu>
+            </f:facet>
+            <f:facet name="header">
+                <h:outputText value="Nomenclature" />
+            </f:facet> 
+            <h:outputText value="#{materiel.design.nomenMat.nomenclature}" />
+        </p:column>
+        <p:column filterBy="#{materiel.design.typematerieladd}" headerText="Type de matériel"  filterMatchMode="exact" style="width:23%; text-align: center; word-wrap: break-word;">
+            <f:facet name="filter">
+                <p:selectOneMenu onchange="PF('MaterielTable').filter()" panelStyle="width:250px;" filter="true" filterMatchMode="contains">
+                    <f:selectItem itemLabel="Selectionner" itemValue="#{null}" noSelectionOption="true" />
+                    <f:selectItems value="#{siseBean.listTypeMateriel}" />
+                </p:selectOneMenu>
+            </f:facet>
+            <f:facet name="header">
+                <h:outputText value="Type de matériel" />
+            </f:facet>
+            <h:outputText value="#{materiel.design.typematerieladd.designation}" />
+        </p:column>
+        
+        
+        
+        
+        
         <p:column filterBy="#{materiel.reference}" filterMatchMode="contains" style="width: 10%; text-align: center; word-wrap: break-word;">
             <f:facet name="header" >
                 <h:outputText value="Référence" />
@@ -67,19 +97,15 @@
             </f:facet>
            <h:outputText value=" #{materiel.autre}" />
         </p:column-->
-        <p:column filterBy="#{materiel.design.nomenMat}" headerText="Nomenclature"  filterMatchMode="exact" style="width: 20%; text-align: center; word-wrap: break-word;">
-            <f:facet name="filter">
-                <p:selectOneMenu onchange="PF('MaterielTable').filter()" panelStyle="width:250px;">
-                    <f:selectItem itemLabel="Selectionner" itemValue="#{null}" noSelectionOption="true" />
-                    <f:selectItems value="#{siseBean.listNomenclature}" var="type"
-								itemLabel="N#{type.nomenclature} - #{type.designation}"/>
-                </p:selectOneMenu>
-            </f:facet>
-            <f:facet name="header">
-                <h:outputText value="Nomenclature" />
+        
+        <p:column style="width:23%; text-align: center; word-wrap: break-word;">
+        	<f:facet name="header">
+                <h:outputText value="Caractéristiques" />
             </f:facet> 
-            <h:outputText value="#{materiel.design.nomenMat.designation}" />
+            <h:outputText value="#{materiel.design.renseignement}" />
         </p:column>
+        
+        
         <p:column style="width: 7%; text-align: center; word-wrap: break-word;">
             <f:facet name="header">
                 <h:outputText value="Etat" />

@@ -721,6 +721,9 @@ public class SuiviEditionBean implements Serializable{
 					// origine
 					if (((OpSortie) op).getMotifsortie() != null) {
 						row[3] = ((OpSortie) op).getMotifsortie().getDesignation();
+						if(((OpSortie) op).getMotifsortie().getDesignation().equalsIgnoreCase("Affectation")) {
+							row[3] = row[3] + " vers " + ((OpSortie) op).getDirec().getDesignation();
+						}
 					}
 					// designation
 					Materiel mat = op.getMat();
@@ -850,6 +853,9 @@ public class SuiviEditionBean implements Serializable{
 				// origine
 				if (((OpSortie) op).getMotifsortie() != null) {
 					row[3] = ((OpSortie) op).getMotifsortie().getDesignation();
+					if(((OpSortie) op).getMotifsortie().getDesignation().equalsIgnoreCase("Affectation")) {
+						row[3] = row[3] + " vers "  + ((OpSortie) op).getDirec().getDesignation();
+					}
 				}
 				// designation
 				Materiel mat = op.getMat();
@@ -968,6 +974,9 @@ public class SuiviEditionBean implements Serializable{
 				row[2] = op.getDate();
 				// origine
 				row[3] = ((OpSortie) op).getMotifsortie().getDesignation();
+				if(((OpSortie) op).getMotifsortie().getDesignation().equalsIgnoreCase("Affectation")) {
+					row[3] = row[3] + " vers "  + ((OpSortie) op).getDirec().getDesignation();
+				}
 				// designation
 				Materiel mat = op.getMat();
 				String marqueMat = "Inconnue";
@@ -1426,7 +1435,7 @@ public class SuiviEditionBean implements Serializable{
 				;
 				String series = "";
 				for (Object[] o : infos) {
-					series = series + ((Materiel) (o[12])).getNumSerie();
+					series = series + " / " +((Materiel) (o[12])).getNumSerie();
 				}
 				row[2] = row[2] + series;
 				// Prix de l’unité
@@ -1620,7 +1629,7 @@ public class SuiviEditionBean implements Serializable{
 				;
 				String series = "";
 				for (Object[] o : infos) {
-					series = series + ((Materiel) (o[12])).getNumSerie();
+					series = series + " / " +((Materiel) (o[12])).getNumSerie();
 				}
 				row[2] = row[2] + series;
 				// Prix de l’unité
@@ -1865,7 +1874,7 @@ public class SuiviEditionBean implements Serializable{
 			;
 			String series = "";
 			for (Object[] o : infos) {
-				series = series + ((Materiel) (o[12])).getNumSerie();
+				series = series + " / " +((Materiel) (o[12])).getNumSerie();
 			}
 			row[2] = row[2] + series;
 			// Espèce des unités
@@ -2038,7 +2047,7 @@ public class SuiviEditionBean implements Serializable{
 			;
 			String series = "";
 			for (Object[] o : infos) {
-				series = series + ((Materiel) (o[12])).getNumSerie();
+				series = series + " / " + ((Materiel) (o[12])).getNumSerie();
 			}
 			row[2] = row[2] + series;
 			// Espèce des unités
@@ -2196,6 +2205,13 @@ public class SuiviEditionBean implements Serializable{
 				return id1.compareTo(id2);
 			}
 		});
+		/*for(Operation o:lesoperations) {
+			if(o instanceof OpEntreeArticle) {
+				if(((OpEntreeArticle)o).getArticle() instanceof ArticleEx) {
+					lesoperations.remove(o);
+				}
+			}
+		}*/
 		// structure de données
 		List<Object[]> resulttable = new ArrayList<Object[]>();
 		Long i = 1L;
@@ -2222,6 +2238,9 @@ public class SuiviEditionBean implements Serializable{
 
 			// processing
 			if (o instanceof OpEntreeArticle) {
+				if(((OpEntreeArticle)o).getArticle() instanceof ArticleEx) {
+					continue;
+				}
 				row[0] = row[0] + "/E";
 				row[3] = "a ajouter origine";
 				Article a = ((OpEntreeArticle) o).getArticle();
@@ -2315,6 +2334,9 @@ public class SuiviEditionBean implements Serializable{
 
 			// processing
 			if (o instanceof OpEntreeArticle) {
+				if(((OpEntreeArticle)o).getArticle() instanceof ArticleEx) {
+					continue;
+				}
 				row[0] = row[0] + "/E";
 				row[3] = "a ajouter origine";
 				Article a = ((OpEntreeArticle) o).getArticle();
@@ -2383,6 +2405,7 @@ public class SuiviEditionBean implements Serializable{
 
 			// processing
 			if (o instanceof OpEntreeArticle) {
+				
 				row[0] = row[0] + "/E";
 				row[3] = "a ajouter origine";
 				Article a = ((OpEntreeArticle) o).getArticle();
@@ -2705,6 +2728,9 @@ public class SuiviEditionBean implements Serializable{
 				// origine
 				if (((OpSortie) op).getMotifsortie() != null) {
 					row[3] = ((OpSortie) op).getMotifsortie().getDesignation();
+					if(((OpSortie) op).getMotifsortie().getDesignation().equalsIgnoreCase("Affectation")) {
+						row[3] = row[3] + " vers "  + ((OpSortie) op).getDirec().getDesignation();
+					}
 				}
 				// designation
 				Materiel mat = op.getMat();
@@ -2854,7 +2880,7 @@ public class SuiviEditionBean implements Serializable{
 			;
 			String series = "";
 			for (Object[] o : infos) {
-				series = series + ((Materiel) (o[12])).getNumSerie();
+				series = series + " / " +((Materiel) (o[12])).getNumSerie();
 			}
 			row[2] = row[2] + series;
 			// Espèce des unités

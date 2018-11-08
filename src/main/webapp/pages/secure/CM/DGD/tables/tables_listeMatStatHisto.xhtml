@@ -47,6 +47,19 @@
            <h:outputText value="#{materiel.idMateriel}" />
             
         </p:column>
+        <p:column filterBy="#{materiel.design.nomenMat}" headerText="Nomenclature"  filterMatchMode="exact" style="width: 20%; text-align: center; word-wrap: break-word;">
+            <f:facet name="filter">
+                <p:selectOneMenu onchange="PF('MaterielTable').filter()" panelStyle="width:250px;">
+                    <f:selectItem itemLabel="Selectionner" itemValue="#{null}" noSelectionOption="true" />
+                    <f:selectItems value="#{siseBean.listNomenclature}" var="type"
+								itemLabel="N#{type.nomenclature} - #{type.designation}"/>
+                </p:selectOneMenu>
+            </f:facet>
+            <f:facet name="header">
+                <h:outputText value="Nomenclature" />
+            </f:facet> 
+            <h:outputText value="#{materiel.design.nomenMat.nomenclature}" />
+        </p:column>
         <p:column headerText="Numéro Série" filterBy="#{materiel.numSerie}" filterMatchMode="contains" style="width: 7%; text-align: center; word-wrap: break-word;">
              <h:outputText value="#{materiel.numSerie}" />
             
@@ -59,15 +72,7 @@
             <h:outputText value="#{materiel.code}" />
             
         </p:column>
-        <p:column filterBy="#{materiel.design.nomenMat}" headerText="Nomenclature"  filterMatchMode="exact" style="width: 15%; text-align: center; word-wrap: break-word;">
-           <f:facet name="filter">
-                <p:selectOneMenu onchange="PF('MaterielTable').filter()" panelStyle="width:250px;">
-                    <f:selectItem itemLabel="Selectionner" itemValue="#{null}" noSelectionOption="true" />
-                    <f:selectItems value="#{siseBean.listNomenclature}" />
-                </p:selectOneMenu>
-            </f:facet>
-            <h:outputText value="#{materiel.design.nomenMat.designation}" />
-        </p:column>
+        
         <p:column filterBy="#{materiel.etat}" headerText="Etat"  filterMatchMode="exact" style="width: 7%; text-align: center; word-wrap: break-word;">
            <f:facet name="filter">
                 <p:selectOneMenu onchange="PF('MaterielTable').filter()" panelStyle="width:250px;">

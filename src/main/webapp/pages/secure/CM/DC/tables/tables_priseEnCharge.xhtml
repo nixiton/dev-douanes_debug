@@ -68,23 +68,39 @@
             </f:facet>
             <h:outputText value="#{materiel.idMateriel}" />
         </p:column> 
+        
         <p:column filterBy="#{materiel.design.nomenMat}" headerText="Nomenclature"  filterMatchMode="exact" style="width:23%; text-align: center; word-wrap: break-word;">
             <f:facet name="filter">
                 <p:selectOneMenu onchange="PF('MaterielTableoui').filter()" panelStyle="width:250px;" >
                     <f:selectItem itemLabel="Selectionner" itemValue="#{null}" noSelectionOption="true" />
-                    <f:selectItems value="#{siseBean.listNomenclature}" />
+                    <f:selectItems value="#{siseBean.listNomenclature}" var="type"
+								itemLabel="N#{type.nomenclature} - #{type.designation}"/>
+                </p:selectOneMenu>
+            </f:facet>
+            <f:facet name="header">
+                <h:outputText value="Nomenclature" />
+            </f:facet>
+            <h:outputText value="#{materiel.design.nomenMat.nomenclature}" />
+        </p:column>
+        
+        <p:column filterBy="#{materiel.design.typematerieladd}" headerText="Type de matériel"  filterMatchMode="exact" style="width:23%; text-align: center; word-wrap: break-word;">
+            <f:facet name="filter">
+                <p:selectOneMenu onchange="PF('MaterielTableoui').filter()" panelStyle="width:250px;" filter="true" filterMatchMode="contains">
+                    <f:selectItem itemLabel="Selectionner" itemValue="#{null}" noSelectionOption="true" />
+                    <f:selectItems value="#{siseBean.listTypeMateriel}" />
                 </p:selectOneMenu>
             </f:facet>
             <f:facet name="header">
                 <h:outputText value="Type de matériel" />
             </f:facet>
-            <h:outputText value="#{materiel.design.nomenMat.designation}" />
+            <h:outputText value="#{materiel.design.typematerieladd.designation}" />
         </p:column>
-        <p:column style="width:10%; text-align: center; word-wrap: break-word;">
-            <f:facet name="header">
-                <h:outputText value="Nomenclature" />
-            </f:facet>
-            <h:outputText value="#{materiel.design.nomenMat.nomenclature}" />
+        
+        <p:column headerText="Caractéristiques" style="width:23%; text-align: center; word-wrap: break-word;" >
+        	<f:facet name="header">
+                <h:outputText value="Caractéristiques" />
+            </f:facet> 
+            <h:outputText value="#{materiel.design.renseignement}" />
         </p:column>
         <p:column style="width:10%; text-align: center; word-wrap: break-word;">
             <f:facet name="header">
@@ -232,28 +248,31 @@
         </p:column> 
         <p:column styleClass="#{materiel.myoperationEntree.state}" filterBy="#{materiel.design.nomenMat}" headerText="Nomenclature"  filterMatchMode="exact" style="width:23%; text-align: center; word-wrap: break-word;">
             <f:facet name="filter">
-                <p:selectOneMenu onchange="PF('MaterielTablenon').filter()" panelStyle="width:250px;">
+                <p:selectOneMenu onchange="PF('MaterielTablenon').filter()" panelStyle="width:250px;" >
                     <f:selectItem itemLabel="Selectionner" itemValue="#{null}" noSelectionOption="true" />
-                    <f:selectItems value="#{siseBean.listNomenclature}" />
+                    <f:selectItems value="#{siseBean.listNomenclature}" var="type"
+								itemLabel="N#{type.nomenclature} - #{type.designation}"/>
                 </p:selectOneMenu>
             </f:facet>
-            <f:facet name="header">
-                <h:outputText value="Type de matériel" />
-            </f:facet>
-            <h:outputText value="#{materiel.design.nomenMat.designation}" />
-        </p:column>
-        <p:column styleClass="#{materiel.myoperationEntree.state}" style="width:10%; text-align: center; word-wrap: break-word;">
             <f:facet name="header">
                 <h:outputText value="Nomenclature" />
             </f:facet>
             <h:outputText value="#{materiel.design.nomenMat.nomenclature}" />
         </p:column>
-        <p:column styleClass="#{materiel.myoperationEntree.state}" style="width:10%; text-align: center; word-wrap: break-word;">
-            <f:facet name="header">
-                <h:outputText value="Marque" />
+        
+        <p:column styleClass="#{materiel.myoperationEntree.state}" filterBy="#{materiel.design.typematerieladd}" headerText="Type de matériel"  filterMatchMode="exact" style="width:23%; text-align: center; word-wrap: break-word;">
+            <f:facet name="filter">
+                <p:selectOneMenu onchange="PF('MaterielTablenon').filter()" panelStyle="width:250px;" filter="true" filterMatchMode="contains">
+                    <f:selectItem itemLabel="Selectionner" itemValue="#{null}" noSelectionOption="true" />
+                    <f:selectItems value="#{siseBean.listTypeMateriel}" />
+                </p:selectOneMenu>
             </f:facet>
-            <h:outputText value="#{materiel.design.marque.designation}" />
+            <f:facet name="header">
+                <h:outputText value="Type de matériel" />
+            </f:facet>
+            <h:outputText value="#{materiel.design.typematerieladd.designation}" />
         </p:column>
+        
         <p:column  styleClass="#{materiel.myoperationEntree.state}" filterBy="#{materiel.reference}" filterMatchMode="contains" style="width:10%; text-align: center; word-wrap: break-word;">
             <f:facet name="header">
                 <h:outputText value="Référence" />
@@ -265,6 +284,18 @@
                 <h:outputText value="Numéro de série" />
             </f:facet>
             <h:outputText value="#{materiel.numSerie}" />
+        </p:column>
+        <p:column styleClass="#{materiel.myoperationEntree.state}" style="width:10%; text-align: center; word-wrap: break-word;">
+            <f:facet name="header">
+                <h:outputText value="Marque" />
+            </f:facet>
+            <h:outputText value="#{materiel.design.marque.designation}" />
+        </p:column>
+        <p:column styleClass="#{materiel.myoperationEntree.state}" headerText="Caractéristiques" style="width:23%; text-align: center; word-wrap: break-word;" >
+        	<f:facet name="header">
+                <h:outputText value="Caractéristiques" />
+            </f:facet> 
+            <h:outputText value="#{materiel.design.renseignement}" />
         </p:column>
         <!--p:column>
             <f:facet name="header">
