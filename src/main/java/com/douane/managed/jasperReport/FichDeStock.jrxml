@@ -35,10 +35,10 @@
 			<![CDATA[]]>
 		</queryString>
 		<field name="row0" class="java.util.Date"/>
-		<field name="row1" class="java.lang.Long"/>
+		<field name="row1" class="java.lang.String"/>
 		<field name="row2" class="java.lang.Long"/>
 		<field name="row3" class="java.lang.Long"/>
-		<field name="row4" class="java.lang.Long"/>
+		<field name="row4" class="java.lang.String"/>
 		<field name="row5" class="java.lang.Long"/>
 		<field name="row6" class="java.lang.Long"/>
 		<sortField name="row0"/>
