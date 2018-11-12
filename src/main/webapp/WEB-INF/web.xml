@@ -190,7 +190,7 @@
     
     <error-page>
         <error-code>500</error-code>
-        <location>/pages/unsecure/error_400.xhtml</location>
+        <location>/pages/unsecure/login.xhtml?redirect=true</location>
     </error-page>
     
     <error-page>

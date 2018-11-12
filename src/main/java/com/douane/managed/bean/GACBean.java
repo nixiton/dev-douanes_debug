@@ -1044,6 +1044,10 @@ public class GACBean {
 	public void setListeInventaire(List<Object[]> listeInventaire) {
 		this.listeInventaire = listeInventaire;
 	}
+	
+	public int getCurrentYear() {
+		return Calendar.getInstance().get(Calendar.YEAR);
+	}
 
 }
 // r

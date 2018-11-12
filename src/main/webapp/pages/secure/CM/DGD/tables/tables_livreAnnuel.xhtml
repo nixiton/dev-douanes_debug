@@ -53,7 +53,7 @@
 			id="livreannuel"
 			>
 			<f:facet name="header">
-       			 <span>GRAND LIVRE DES MOUVEMENTS D’ENTREE ET DE SORTIE POUR CETTE 	ANNEE</span> 
+       			 <span>GRAND LIVRE DES MOUVEMENTS D’ENTREE ET DE SORTIE #{gacBean.getCurrentYear()}</span> 
        			 <span>
        			 		<h:form >
        			 			<!-- p:outputLabel for="annee_livre_annuel" value="" />
@@ -80,9 +80,9 @@
                 <p:column rowspan="3" headerText="Espèces des unités" style=" text-align: center; word-wrap: break-word;"/>
                 <p:column rowspan="3" headerText="Désignation des objets (1)" sortBy="#{c[0].design.typematerieladd.designation}" style=" text-align: center; word-wrap: break-word;"></p:column>
                 <p:column rowspan="3" headerText="Prix de l’unité (en Ariary)" style=" text-align: center; word-wrap: break-word;"></p:column>
-                <p:column colspan="2" headerText="Existant au 1er janvier X" style=" text-align: center; word-wrap: break-word;"></p:column>
+                <p:column colspan="2" headerText="Existant au 1er janvier #{gacBean.getCurrentYear()}" style=" text-align: center; word-wrap: break-word;"></p:column>
                 <p:column rowspan="3" headerText="Mouvements  effectués (2)" style=" text-align: center; word-wrap: break-word;"></p:column>
-                <p:column colspan="9" headerText="ANNEE X" style=" text-align: center; word-wrap: break-word;"></p:column>
+                <p:column colspan="9" headerText="ANNEE #{gacBean.getCurrentYear()}" style=" text-align: center; word-wrap: break-word;"></p:column>
                 
 			</p:row>
 			<p:row>
@@ -93,7 +93,7 @@
 				<p:column rowspan="2" headerText="Origine des entrées et désignation des sorties" style=" text-align: center; word-wrap: break-word;"/>
 				<p:column colspan="2" headerText="Entrées" style=" text-align: center; word-wrap: break-word;"/>
 				<p:column colspan="2" headerText="Sorties" style=" text-align: center; word-wrap: break-word;"/>
-				<p:column colspan="2" headerText="Reste au 31 décembre X " style=" text-align: center; word-wrap: break-word;"/>
+				<p:column colspan="2" headerText="Reste au 31 décembre #{gacBean.getCurrentYear()} " style=" text-align: center; word-wrap: break-word;"/>
 			</p:row>
 			<p:row>
 				<p:column headerText="Quantité" style=" text-align: center; word-wrap: break-word;"/>

@@ -2398,24 +2398,25 @@ public class DepositaireBean {
 			listMaterielForOpEntree = null;
 			return ERROR;
 		} catch (IOException e) {
-			FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Error file not found",
-					"Facture's file not found ");
-			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Facture's file not found "));
+			FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Erreur Fichier inconnue",
+					"Erreur lors de l'upload des fichiers.  ");
+			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Erreur lors de l'upload des fichiers "));
 			listMaterielForOpEntree = null;
 			FacesContext.getCurrentInstance().addMessage(null, message);
+			e.printStackTrace();
 			return null;
 		} catch (NullPointerException e) {
-			FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Error validating materiel",
-					"Error operation");
-			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Error operation valeur null"));
+			FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Erreur sur la validation des matériels",
+					"Verfier que les champs sont remplies correctement.");
+			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Erreur sur la validation des matériels"));
 			listMaterielForOpEntree = null;
 			FacesContext.getCurrentInstance().addMessage(null, message);
 			return null;
 		} catch (Exception e) {
-			FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Error validating materiel",
-					"Error operation");
+			FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Erreur sur la validation des matériels",
+					"Verfier que les champs sont remplies correctement.");
 			FacesContext.getCurrentInstance().addMessage(null,
-					new FacesMessage("Error operation exception :" + e.getMessage()));
+					new FacesMessage("Verfier que les champs sont remplies correctement."));
 			listMaterielForOpEntree = null;
 			FacesContext.getCurrentInstance().addMessage(null, message);
 			return null;
