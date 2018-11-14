@@ -18,7 +18,7 @@
     			 currentPageReportTemplate="({currentPage} sur {totalPages})"
                  paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}  "
                  paginator="true" rows="30" style="margin-bottom:20px"
-                 emptyMessage="Aucun resultat" filteredValue="#{depositaireBean.listAllOperations}"
+                 emptyMessage="Aucun resultat"
                  rowKey="#{c.id}"
                  >
 		<f:facet name="header">
@@ -99,7 +99,7 @@
             Décharge
             </p:panel>
             <p:panel rendered="#{c['class'].simpleName eq 'OpEntreeArticle' }">
-            Saisie  artcile
+            Saisie  article
             </p:panel>
             <p:panel rendered="#{c['class'].simpleName eq 'OpSortieArticle' }">
             Sortie article
@@ -114,8 +114,12 @@
                 <h:outputText value="Détail" />
             </f:facet>
             <p:panel rendered="#{c['class'].simpleName eq 'OpEntree' }">
-                <p:commandButton action="#{gacBean.setCurrentOpEntree(c)}" update=":detail"
-            oncomplete="PF('detail').show()" icon="ui-icon-zoomin"/>
+                <p:commandButton update=":detail"
+            oncomplete="PF('detail').show()" icon="ui-icon-zoomin">
+            	<f:setPropertyActionListener value="#{c}" target="#{suivieditionBean.currentOpEntree}"></f:setPropertyActionListener>
+            	</p:commandButton>
+            	
+            
             </p:panel>
             <p:panel rendered="#{c['class'].simpleName eq 'OpSaisie' }">
                 

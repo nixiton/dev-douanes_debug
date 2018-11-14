@@ -23,7 +23,11 @@
 <div class="body collapse in table-responsive">
 <c:if test= "${table == 'ficheStock' || table == 'tous' || empty table }">
 <h:form>
+	<p:tabView scrollable="true">
+	<c:forEach var="dir" items="${siseBean.listDirection}" varStatus="status">
+	<p:tab title="${dir.codeDirection}">
 	<div  class="body collapse in table-responsive">
+	
  
     <p:dataTable   var="ax" value="#{siseBean.listCodeArticle}"
     			currentPageReportTemplate="({currentPage} sur {totalPages})" emptyMessage="Aucun resultat" 
@@ -33,7 +37,7 @@
                  >
        
       <f:facet name="header">
-        	FICHE DE STOCK
+        	FICHE DE STOCK - ${dir.designation}
        </f:facet>  
          <p:column style="width:20%; text-align: center; word-wrap: break-word;">
             <f:facet name="header">
@@ -51,56 +55,35 @@
             <f:facet name="header">
                 <h:outputText value="Détail" />
             </f:facet>
-            <p:commandButton  actionListener="#{depositaireBean.setArticleToFiche(ax,null)}"
+            <p:commandButton  actionListener="#{depositaireBean.setArticleToFiche(ax,dir)}"
             oncomplete="PF('historique').show()" icon="ui-icon-zoomin" update=":historique"/>
             </p:column>
     </p:dataTable>
+    
   </div>
-  <p:ajaxStatus onstart="PF('statusDialog').show()" onsuccess="PF('statusDialog').hide()" />
-
-	<p:dialog styleClass="loader_dialog" widgetVar="statusDialog" modal="true" draggable="false" closable="false" resizable="false" header="">
-		<div align="center" class="">
-			<p:graphicImage style="width:35% !important; height:35% !important;" value="/pages/unsecure/assets/images/loading_small.gif" /> 
-		</div>
-	</p:dialog>
+  </p:tab>
+		</c:forEach>
+		</p:tabView>
  </h:form>
   </c:if>
   
   
  <c:if test= "${table == 'journal_admin' || table == 'tous' || empty table }">
+ 
+ <p:tabView scrollable="true">
+	<c:forEach var="dir" items="${siseBean.listDirection}" varStatus="status">
+	<p:tab title="${dir.codeDirection}">
   <div   class="body collapse in table-responsive">
     
-    <p:dataTable   var="row" value="#{suivieditionBean.getListForJournalStockByDir(null,null)}"
+    <p:dataTable   var="row" value="#{suivieditionBean.getListForJournalStockByDir(dir,null)}"
     			currentPageReportTemplate="({currentPage} sur {totalPages})" emptyMessage="Aucun resultat" 
                  paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}  "
                  paginator="true" rows="100" style="margin-bottom:20px"
                  sortBy="#{row[1]}"
                  >
          <f:facet name="header">
-        	JOURNAL DE LA COMPTABILITE ADMINISTRATIVE<br/>
-        	<h:form >
-		 			<p:outputLabel for="annee_journal_debut" value="Exporter de "/>
-					<p:calendar id="annee_journal_debut" value="#{JournalABean.date}" locale="fr" navigator="true" pattern="dd MMMM yyyy" required="true"/>
-				<p:dialog modal="true" resizable="false" header="Values" widgetVar="dlg" showEffect="fold">
-					<p:panelGrid id="display_livre_" columns="3" columnClasses="label,value">
-						<h:outputText value="" />
-				        <h:outputText value="#{JournalABean.date}">
-			            <f:convertDateTime pattern="dd MMMM yyyy" />
-	            	</h:outputText>
-	 				</p:panelGrid>
-				</p:dialog>
-				<p:outputLabel for="annee_journal_fin" value=" à "/>
-					<p:calendar id="annee_journal_fin" value="#{JournalABean.datF}" locale="fr" navigator="true" pattern="dd MMMM yyyy" required="true"/>
-				<p:dialog modal="true" resizable="false" header="Values" widgetVar="dlg" showEffect="fold">
-					<p:panelGrid id="display_livre_annuel" columns="3" columnClasses="label,value">
-						<h:outputText value="" />
-				        <h:outputText value="#{JournalABean.datF}">
-			            <f:convertDateTime pattern="dd MMMM yyyy" />
-	            	</h:outputText>
-	 				</p:panelGrid>
-				</p:dialog>
-			<p:commandButton value="Exporter" action="#{JournalABean.execute(suivieditionBean)}" styleClass="fa fa-download btn btn-lg-primary "> </p:commandButton>
-	 		</h:form>
+        	JOURNAL DE LA COMPTABILITE ADMINISTRATIVE - ${dir.designation} <br/>
+        	#{gacBean.getCurrentYear()}
     	</f:facet>
     	
     	<p:column headerText="ID" style=" text-align: center; word-wrap: break-word;">
@@ -135,6 +118,9 @@
     </p:dataTable>
 
 	</div>
+	</p:tab>
+		</c:forEach>
+		</p:tabView>
 </c:if>
 <ui:include src="/pages/secure/CA/DGD/tables/dialogs/dialogs_listeMatStatHisto.xhtml"></ui:include>
 </div>

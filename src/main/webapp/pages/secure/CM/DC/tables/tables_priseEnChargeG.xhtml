@@ -62,7 +62,7 @@
                  >
  
  		<f:facet name="header">
-        Prise en charge acceptée
+        Prise en charge acceptée - #{dir.designation}
    		 </f:facet>
         <p:column filterBy="#{materiel.idMateriel}" filterMatchMode="contains" style="width:7%; text-align: center; word-wrap: break-word;">
             <f:facet name="header">
@@ -246,7 +246,7 @@
                  emptyMessage="Aucun resultat"
                  >
  		<f:facet name="header">
-        Prise en charge non acceptée
+        Prise en charge non acceptée - #{dir.designation}
    		 </f:facet>
         <p:column styleClass="#{materiel.myoperationEntree.state}" filterBy="#{materiel.idMateriel}" filterMatchMode="contains" style="width:7%; text-align: center; word-wrap: break-word;">
             <f:facet name="header">
@@ -323,7 +323,7 @@
             </f:facet>
             <h:outputText value="#{materiel.code}" />
         </p:column>
-        <p:column styleClass="#{materiel.myoperationEntree.state}">
+        <p:column styleClass="#{materiel.myoperationEntree.state}" style="width:9%; text-align: center; word-wrap: break-word;">
         	<f:facet name="header" >
                 <h:outputText value="Validation GAC" />
             </f:facet>

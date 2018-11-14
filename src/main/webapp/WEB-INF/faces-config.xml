@@ -348,6 +348,11 @@
    <redirect/>
   </navigation-case>
   <navigation-case>
+   <from-outcome>liste_matCAG</from-outcome>
+   <to-view-id>/pages/secure/CA/DGD/listeMatStatHistoG.xhtml</to-view-id>
+   <redirect/>
+  </navigation-case>
+  <navigation-case>
    <from-outcome>v_prise_en_charge</from-outcome>
    <to-view-id>/pages/secure/CM/GAC/validation/priseEnCharge.xhtml</to-view-id>
    <redirect/>

@@ -34,7 +34,7 @@ public class FicheStockBean {
 	public String execute(SuiviEditionBean s,DepositaireBean d) {
 		//suivieditionBean.getListForJournalStockByCod(depositaireBean.articleToFiche)
 		if (d != null && s != null) {
-			this.liste = s.getListForJournalStockByCod(d.getArticleToFiche(),this.date,this.dateF);
+			this.liste = s.getListForJournalStockByCod(d.getDirectionToFiche(),d.getArticleToFiche(),this.date,this.dateF);
 			//#{depositaireBean.articleToFiche.typeObjet.designation} (#{depositaireBean.articleToFiche.designation}
 			//this.folio = d.getArticle().getReference();
 			this.designation = d.getArticleToFiche().getTypeObjet().getDesignation() + "(" + d.getArticleToFiche().getDesignation() +")";

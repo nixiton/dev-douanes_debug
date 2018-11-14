@@ -18,7 +18,7 @@
 <p:dialog id="historique" widgetVar="historique">
 <h:form>
 
-<p:dataTable   var="row" value="#{suivieditionBean.getListForJournalStockByCod(depositaireBean.articleToFiche)}" 
+<p:dataTable   var="row" value="#{suivieditionBean.getListForJournalStockByCod(depositaireBean.directionToFiche,depositaireBean.articleToFiche)}" 
 				currentPageReportTemplate="({currentPage} sur {totalPages})" emptyMessage="Aucun resultat" 
                  paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}  "
                  paginator="true" rows="100" style="margin-bottom:20px">
@@ -97,7 +97,7 @@
 					<h:outputText value="#{'signature'}" />
         </p:column>
         <p:column style=" text-align: center; word-wrap: break-word;">
-        	<h:outputText value="#calul automatique}" />
+        	<h:outputText value="calul automatique" />
         </p:column>
     </p:dataTable>
 
@@ -106,6 +106,13 @@
 	
    
 </p:dialog>
+<p:ajaxStatus onstart="PF('statusDialog').show()" onsuccess="PF('statusDialog').hide()" />
+
+	<p:dialog styleClass="loader_dialog" widgetVar="statusDialog" modal="true" draggable="false" closable="false" resizable="false" header="">
+		<div align="center" class="">
+			<p:graphicImage style="width:35% !important; height:35% !important;" value="/pages/unsecure/assets/images/loading_small.gif" /> 
+		</div>
+	</p:dialog>
 
 <script type="text/javascript">
 PrimeFaces.locales ['fr'] = { closeText: 'Fermer', prevText: 'Précédent', nextText: 'Suivant', monthNames: ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre' ], monthNamesShort: ['Jan', 'Fév', 'Mar', 'Avr', 'Mai', 'Jun', 'Jul', 'Aoû', 'Sep', 'Oct', 'Nov', 'Déc' ], dayNames: ['Dimanche', 'Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi'], dayNamesShort: ['Dim', 'Lun', 'Mar', 'Mer', 'Jeu', 'Ven', 'Sam'], dayNamesMin: ['D', 'L', 'M', 'M', 'J', 'V', 'S'], weekHeader: 'Semaine', firstDay: 1, isRTL: false, showMonthAfterYear: false, yearSuffix:'', timeOnlyTitle: 'Choisir l\'heure', timeText: 'Heure', hourText: 'Heures', minuteText: 'Minutes', secondText: 'Secondes', currentText: 'Maintenant', ampm: false, month: 'Mois', week: 'Semaine', day: 'Jour', allDayText: 'Toute la journée' };

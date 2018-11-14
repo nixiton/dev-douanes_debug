@@ -172,8 +172,8 @@
 				</c:if>
 				
 				<!-- SAISIE DES MATERIELS EN GENERAL -->
-				<c:if test="#{topMenuMB.curentAgent.roleAgent.role eq 'ROLE_ADMIN'
-					or topMenuMB.curentAgent.roleAgent.role eq 'ROLE_SISE'
+				<c:if test="#{
+					 topMenuMB.curentAgent.roleAgent.role eq 'ROLE_SISE'
 					or topMenuMB.curentAgent.roleAgent.role eq 'ROLE_DG'
 					or topMenuMB.curentAgent.roleAgent.role eq 'ROLE_DRF'
 					}">
@@ -195,11 +195,7 @@
 					<!-- SUIVI DIRECTION -->
 					<c:if test="#{topMenuMB.curentAgent.roleAgent.role eq 'ROLE_ADMIN' 
 					or topMenuMB.curentAgent.roleAgent.role eq 'ROLE_DC' 
-					or topMenuMB.curentAgent.roleAgent.role eq 'ROLE_GAC' 
-					or topMenuMB.curentAgent.roleAgent.role eq 'ROLE_SE'
-					or topMenuMB.curentAgent.roleAgent.role eq 'ROLE_DG'
-					or topMenuMB.curentAgent.roleAgent.role eq 'ROLE_DRF'
-					or topMenuMB.curentAgent.roleAgent.role eq 'ROLE_SISE'
+					or topMenuMB.curentAgent.roleAgent.role eq 'ROLE_GAC'
 					}">
 
 					<li class='dropdown '><a href="#" class="dropdown-toggle"

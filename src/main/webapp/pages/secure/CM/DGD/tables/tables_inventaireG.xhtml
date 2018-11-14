@@ -18,7 +18,7 @@
     <h:form>
     <p:tabView scrollable="true">
 	<c:forEach var="dir" items="${siseBean.listDirection}" varStatus="status">
-	<p:tab title="${dir.designation}">
+	<p:tab title="${dir.codeDirection}">
     <p:dataTable var="m" value="#{suivieditionBean.getListobjectForInvetaireByDir(dir)}"
     		currentPageReportTemplate="({currentPage} sur {totalPages})"
 			paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {Exporters}	"

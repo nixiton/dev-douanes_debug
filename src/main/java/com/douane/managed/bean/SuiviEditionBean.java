@@ -613,10 +613,14 @@ public class SuiviEditionBean implements Serializable{
 
 	private List<Operation> listOpESArtByDirection;
 
-	public List<Operation> getListOpESArtByDirection(Date sdate, Date edate) {
-		Agent cur = (Agent) RequestFilter.getSession().getAttribute("agent");
+	public List<Operation> getListOpESArtByDirection(Direction d, Date sdate, Date edate) {
+		if(d==null) {
+			Agent cur = (Agent) RequestFilter.getSession().getAttribute("agent");
+			d = cur.getDirection();
+		}
+		
 
-		return usermetierimpl.getListOpESArtValideByDirection(cur.getDirection(), sdate, edate);
+		return usermetierimpl.getListOpESArtValideByDirection(d, sdate, edate);
 	}
 
 	public void setListOpESArtByDirection(List<Operation> listOpESArtByDirection) {
@@ -2116,7 +2120,7 @@ public class SuiviEditionBean implements Serializable{
 		int year = calendar.get(Calendar.YEAR);
 		Date sdate = new GregorianCalendar(year - 2, Calendar.JANUARY, 1).getTime();
 		Date edate = new GregorianCalendar(year + 1, Calendar.DECEMBER, 30).getTime();
-		List<Operation> lesoperations = getListOpESArtByDirection(sdate, edate);
+		List<Operation> lesoperations = getListOpESArtByDirection(null,sdate, edate);
 		Collections.sort(lesoperations, new Comparator<Operation>() {
 			public int compare(Operation o1, Operation o2) {
 				Long id1 = o1.getId();
@@ -2181,7 +2185,7 @@ public class SuiviEditionBean implements Serializable{
 	}
 
 	// list objet format pour journal
-	public List<Object[]> getListForJournalStock(Date fdate) {
+	public List<Object[]> getListForJournalStockByDir(Direction d,Date fdate) {
 		// if date not set
 		Date date = new Date();
 		if (fdate != null) {
@@ -2196,7 +2200,7 @@ public class SuiviEditionBean implements Serializable{
 		Date sdate = new GregorianCalendar(year, Calendar.JANUARY, 1).getTime();
 		Date edate = new GregorianCalendar(year, Calendar.DECEMBER, 31).getTime();
 		// end date set
-		List<Operation> lesoperations = getListOpESArtByDirection(sdate, edate);
+		List<Operation> lesoperations = getListOpESArtByDirection(d, sdate, edate);
 		Collections.sort(lesoperations, new Comparator<Operation>() {
 			public int compare(Operation o1, Operation o2) {
 				Long id1 = o1.getId();
@@ -2299,7 +2303,7 @@ public class SuiviEditionBean implements Serializable{
 		Date sdate = new GregorianCalendar(year, Calendar.JANUARY, 1).getTime();
 		Date edate = new GregorianCalendar(year, Calendar.DECEMBER, 31).getTime();
 		// end date set
-		List<Operation> lesoperations = getListOpESArtByDirection(sdate, edate);
+		List<Operation> lesoperations = getListOpESArtByDirection(null, sdate, edate);
 		Collections.sort(lesoperations, new Comparator<Operation>() {
 			public int compare(Operation o1, Operation o2) {
 				Long id1 = o1.getId();
@@ -2380,7 +2384,7 @@ public class SuiviEditionBean implements Serializable{
 	}
 
 	public List<Object[]> getListForJournalStock(Date s, Date f) {
-		List<Operation> lesoperations = getListOpESArtByDirection(s, f);
+		List<Operation> lesoperations = getListOpESArtByDirection(null, s, f);
 		// structure de données
 		List<Object[]> resulttable = new ArrayList<Object[]>();
 		Object[] row = new Object[8];
@@ -2448,20 +2452,24 @@ public class SuiviEditionBean implements Serializable{
 		return resulttable;
 	}
 
-	public List<Operation> getListOpESArtByDirectionByCod(CodeArticle codeart) {
-		Agent cur = (Agent) RequestFilter.getSession().getAttribute("agent");
+	public List<Operation> getListOpESArtByDirectionByCod(Direction d, CodeArticle codeart) {
+		if(d==null) {
+			Agent cur = (Agent) RequestFilter.getSession().getAttribute("agent");
+			d = cur.getDirection();
+		}
+		
 		Date date = new Date();
 		Calendar calendar = new GregorianCalendar();
 		calendar.setTime(date);
 		int year = calendar.get(Calendar.YEAR);
 		Date sdate = new GregorianCalendar(year, Calendar.JANUARY, 1).getTime();
 		Date edate = new GregorianCalendar(year, Calendar.DECEMBER, 30).getTime();
-		return usermetierimpl.getListOpESArtValideByDirectionByCod(codeart, cur.getDirection(), sdate, edate);
+		return usermetierimpl.getListOpESArtValideByDirectionByCod(codeart, d, sdate, edate);
 	}
 
 	// list objet format pour journal By codification
-	public List<Object[]> getListForJournalStockByCod(CodeArticle code) {
-		List<Operation> lesoperations = getListOpESArtByDirectionByCod(code);
+	public List<Object[]> getListForJournalStockByCod(Direction d, CodeArticle code) {
+		List<Operation> lesoperations = getListOpESArtByDirectionByCod(d,code);
 		// structure de données
 		List<Object[]> resulttable = new ArrayList<Object[]>();
 		Object[] row = new Object[9];
@@ -2519,15 +2527,19 @@ public class SuiviEditionBean implements Serializable{
 		return resulttable;
 	}
 
-	public List<Operation> getListOpESArtByDirectionByCod(CodeArticle codeart, Date s, Date f) {
-		Agent cur = (Agent) RequestFilter.getSession().getAttribute("agent");
+	public List<Operation> getListOpESArtByDirectionByCod(Direction d,CodeArticle codeart, Date s, Date f) {
+		if(d == null) {
+			Agent cur = (Agent) RequestFilter.getSession().getAttribute("agent");
+			d = cur.getDirection();
+		}
+		
 		Date sdate = s;
 		Date edate = f;
-		return usermetierimpl.getListOpESArtValideByDirectionByCod(codeart, cur.getDirection(), sdate, edate);
+		return usermetierimpl.getListOpESArtValideByDirectionByCod(codeart, d, sdate, edate);
 	}
 
-	public List<Object[]> getListForJournalStockByCod(CodeArticle code, Date s, Date f) {
-		List<Operation> lesoperations = getListOpESArtByDirectionByCod(code, s, f);
+	public List<Object[]> getListForJournalStockByCod(Direction d, CodeArticle code, Date s, Date f) {
+		List<Operation> lesoperations = getListOpESArtByDirectionByCod(d,code, s, f);
 		// structure de données
 		List<Object[]> resulttable = new ArrayList<Object[]>();
 		Object[] row = new Object[10];
@@ -2949,7 +2961,8 @@ public class SuiviEditionBean implements Serializable{
 	private List<MaterielEx> listMaterielexistant;
 	public List<MaterielEx> getListMaterielexistant() {
 		if(listMaterielexistant==null) {
-			listMaterielexistant = usermetierimpl.getListMatEx();
+			Agent agent = (Agent) RequestFilter.getSession().getAttribute("agent");
+			listMaterielexistant = usermetierimpl.getListMatEx(agent.getDirection());
 		}
 		return listMaterielexistant;
 	}
@@ -3069,6 +3082,13 @@ public class SuiviEditionBean implements Serializable{
 			d= agent.getDirection();
 		}
 		return usermetierimpl.getListMaterielNouvNonValide(d);
+	}
+	public List<MaterielEx> getListMaterielExistantFor(Direction d){
+		if(d==null) {
+			Agent agent = (Agent) RequestFilter.getSession().getAttribute("agent");
+			d= agent.getDirection();
+		}
+		return usermetierimpl.getListMatEx(d);
 	}
 
 	

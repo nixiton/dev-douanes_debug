@@ -13,7 +13,7 @@
 
 	<p:tabView scrollable="true">
 	<c:forEach var="d" items="${siseBean.listDirection}" varStatus="status">
-		<p:tab title="${d.designation}">
+		<p:tab title="${d.codeDirection}">
 			<p:dataTable   var="os" value="#{suivieditionBean.getListSortieValideByDir(d)}" 
     			currentPageReportTemplate="({currentPage} sur {totalPages})"
                  paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}  "

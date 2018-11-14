@@ -1,6 +1,8 @@
 package com.douane.metier.user;
 
 import java.util.Calendar;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.HashMap;
@@ -14,6 +16,8 @@ import javax.faces.context.FacesContext;
 
 import com.douane.entite.*;
 import com.douane.model.EtatOperation;
+
+import org.apache.commons.lang.builder.CompareToBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
@@ -757,11 +761,11 @@ public class UserMetier implements IUserMetier {
 	}
 
 	@Override
-	public List<MaterielEx> getListMatEx() {
+	public List<MaterielEx> getListMatEx(Direction d) {
 		// return (List<MaterielEx>) materielExRepository.findAll();
-		Agent agent = (Agent) RequestFilter.getSession().getAttribute("agent");
+		
 		System.out.println("gegt list materiel by direction");
-		return (List<MaterielEx>) materielExRepository.findByDirecOrderByIdMaterielDesc(agent.getDirection());
+		return (List<MaterielEx>) materielExRepository.findByDirecOrderByIdMaterielDesc(d);
 	}
 
 	@Override
@@ -1157,7 +1161,17 @@ public class UserMetier implements IUserMetier {
 	@Override
 	public List<Article> getListArticleByValidationByDirection(boolean valide, Direction d) {
 		// TODO Auto-generated method stub
-		return artreops.findByValidationAndDirecArt(valide, d);
+		List<Article> lesart = artreops.findByValidationAndDirecArt(valide, d);
+		Collections.sort(lesart, new Comparator<Article>() {  
+		    @Override  
+		    public int compare(Article a1, Article a2) {  
+		        
+		        return new CompareToBuilder().append(a1.getCodeArticle().getTypeObjet().getDesignation(), a2.getCodeArticle().getTypeObjet().getDesignation()).
+		        		append(a1.getCodeArticle().getDesignation(), a2.getCodeArticle().getDesignation()).append(a1.getIdArticle(), a2.getIdArticle()).toComparison();
+		    	  
+		    }  
+		});
+		return lesart;
 	}
 
 	@Override

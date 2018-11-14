@@ -1064,7 +1064,8 @@ public class DepositaireBean {
 
 	public List<MaterielEx> getListMaterielexistant() {
 		if(listMaterielexistant==null) {
-			listMaterielexistant = usermetierimpl.getListMatEx();
+			Agent agent = (Agent) RequestFilter.getSession().getAttribute("agent");
+			listMaterielexistant = usermetierimpl.getListMatEx(agent.getDirection());
 		}
 		return listMaterielexistant;
 	}
@@ -2875,6 +2876,7 @@ public class DepositaireBean {
 	
 	
 	private CodeArticle articleToFiche;
+	private Direction directionToFiche;
 	
 	public CodeArticle getArticleToFiche() {
 		return articleToFiche;
@@ -2882,6 +2884,14 @@ public class DepositaireBean {
 
 	public void setArticleToFiche(CodeArticle articleToFiche) {
 		this.articleToFiche = articleToFiche;
+	}
+	
+	public void setArticleToFiche(CodeArticle articleToFiche, Direction d) {
+		this.articleToFiche = articleToFiche;
+		this.directionToFiche = d;
+	}
+	public Direction getDirectionToFiche() {
+		return this.directionToFiche;
 	}
 	
 	

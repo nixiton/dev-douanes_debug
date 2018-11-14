@@ -81,7 +81,7 @@ public interface IUserMetier {
 
 	
 	public List<Materiel> getListMat();//pour test
-	public List<MaterielEx> getListMatEx();//pour test
+	public List<MaterielEx> getListMatEx(Direction d);//pour test
 	public List<MaterielNouv> getListMatNouv();//POut test seulement
 	public List<Materiel> getMatByValidation(boolean validation);//pour test
 	

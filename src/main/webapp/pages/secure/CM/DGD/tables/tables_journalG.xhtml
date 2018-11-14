@@ -16,7 +16,7 @@
 <h:form>
 		<p:tabView scrollable="true">
 	<c:forEach var="dir" items="${siseBean.listDirection}" varStatus="status">
-		<p:tab title="${dir.designation}">
+		<p:tab title="${dir.codeDirection}">
 			<p:dataTable var="c" value="#{suivieditionBean.getListESForJournalByDir(dir,null)}"
 				currentPageReportTemplate="({currentPage} sur {totalPages})"
 				paginatorTemplate="{CurrentPageReport}  {PreviousPageLink} {PageLinks} {NextPageLink} {Exporters}"
@@ -27,7 +27,7 @@
 			>
 			
     		<f:facet name="header">
-       			 <span>JOURNAL DES MOUVEMENTS D’ENTREE ET DE SORTIE POUR CETTE ANNEE : #{dir.designation}</span> <br/>
+       			 <span>JOURNAL DES MOUVEMENTS D’ENTREE ET DE SORTIE #{gacBean.getCurrentYear()} : #{dir.designation}</span> <br/>
        			 
     		</f:facet>
     		<f:facet name="{Exporters}">
