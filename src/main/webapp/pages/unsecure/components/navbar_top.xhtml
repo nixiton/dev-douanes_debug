@@ -91,7 +91,8 @@
 								</h:commandLink></li>
 						
 					</c:if>
-					<c:if test="#{topMenuMB.curentAgent.roleAgent.role eq 'ROLE_DRF'
+					<c:if test="#{topMenuMB.curentAgent.roleAgent.role eq 'ROLE_SISE'
+					or topMenuMB.curentAgent.roleAgent.role eq 'ROLE_DRF'
 						or topMenuMB.curentAgent.roleAgent.role eq 'ROLE_DG'
 						}">
 						<li class="dropdown"><a href="#" class="dropdown-toggle"
@@ -111,8 +112,7 @@
 						</li>
 					</c:if>
 					
-					<c:if test="#{topMenuMB.curentAgent.roleAgent.role eq 'ROLE_GAC' or 
-						topMenuMB.curentAgent.roleAgent.role eq 'ROLE_SISE' or
+					<c:if test="#{topMenuMB.curentAgent.roleAgent.role eq 'ROLE_GAC'  or
 						topMenuMB.curentAgent.roleAgent.role eq 'ROLE_DC'}">
 							<li class=""><h:commandLink
 									action="#{topMenuMB.goToDashboardCM}" immediate="true" style="color:#CCC">

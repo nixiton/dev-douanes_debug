@@ -36,7 +36,20 @@
 		<sec:intercept-url pattern=" /pages/secure/admin/adminCA.xhtml"
 						   access="hasAnyRole('ROLE_ADMIN','ROLE_CONS', 'ROLE_SISE','ROLE_DG','ROLE_DRF')" />
 						   
-						  
+		<!-- CONSULTATION GENERALE -->
+		<sec:intercept-url pattern="/pages/secure/CM/DC/saisieMatExG.xhtml"
+						   access="hasAnyRole('ROLE_CONS','ROLE_ADMIN','ROLE_SISE','ROLE_DG','ROLE_DRF')" />
+		<sec:intercept-url pattern="/pages/secure/CM/DC/priseEnChargeG.xhtml"
+						   access="hasAnyRole('ROLE_CONS','ROLE_ADMIN','ROLE_SISE','ROLE_DG','ROLE_DRF')" />
+		<sec:intercept-url pattern="/pages/secure/CM/DGD/tracabiliteG.xhtml"
+						   access="hasAnyRole('ROLE_CONS','ROLE_ADMIN','ROLE_SISE','ROLE_DG','ROLE_DRF')" />
+		<sec:intercept-url pattern="/pages/secure/CM/DGD/listeMatStatGeneral.xhtml"
+						   access="hasAnyRole('ROLE_CONS','ROLE_ADMIN','ROLE_SISE','ROLE_DG','ROLE_DRF')" />
+		<sec:intercept-url pattern="/pages/secure/CM/DGD/editionEtatsG.xhtml"
+						   access="hasAnyRole('ROLE_CONS','ROLE_ADMIN','ROLE_SISE','ROLE_DG','ROLE_DRF')" />
+		<sec:intercept-url pattern="/pages/secure/CA/DGD/listeMatStatHistoG.xhtml"
+						   access="hasAnyRole('ROLE_CONS','ROLE_ADMIN','ROLE_SISE','ROLE_DG','ROLE_DRF')" /> 
+						   			  
 
 		<!-- SAISIE DES REFERENCES -->
 		<sec:intercept-url pattern="/pages/secure/CM/SISE/saisieRef.xhtml"
@@ -68,6 +81,7 @@
 		<sec:intercept-url pattern="/pages/secure/CM/DGD/tables/dialogs/**"
 						   access="hasAnyRole('ROLE_DC','ROLE_CONS','ROLE_ADMIN','ROLE_SISE','ROLE_GAC','ROLE_DG','ROLE_DRF')" />
 
+		
 		<!-- CONSULTATION-->
 		<sec:intercept-url pattern="/pages/secure/CM/DGD/listeMatStatHisto.xhtml"
 						   access="hasAnyRole('ROLE_DC','ROLE_CONS','ROLE_ADMIN','ROLE_SISE','ROLE_GAC','ROLE_DG','ROLE_DRF')" />
@@ -85,7 +99,7 @@
 		<sec:intercept-url pattern="/pages/secure/CA/DGD/**"
 						   access="hasAnyRole('ROLE_DC','ROLE_ADMIN','ROLE_SISE','ROLE_GAC','ROLE_DG','ROLE_DRF','ROLE_DRF')" />
 		
-
+		
 		<!-- GAC-->
 		<sec:intercept-url pattern="/pages/secure/CM/GAC/**"
 						   access="hasAnyRole('ROLE_GAC','ROLE_ADMIN')" />

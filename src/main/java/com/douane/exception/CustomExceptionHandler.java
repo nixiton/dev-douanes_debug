@@ -58,7 +58,7 @@ public class CustomExceptionHandler extends ExceptionHandlerWrapper {
                 requestMap.put("error-cause", throwable.getCause());
                 
                 
-                nav.handleNavigation(context2, null, "/pages/unsecure/error_400.xhtml");//change to login?redirect=true and send error mess if possible
+                nav.handleNavigation(context2, null, "/pages/unsecure/login.xhtml?redirect=true");//change to login?redirect=true and send error mess if possible
 
                 context2.renderResponse();
 

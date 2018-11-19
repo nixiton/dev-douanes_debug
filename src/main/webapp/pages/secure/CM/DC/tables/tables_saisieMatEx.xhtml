@@ -11,7 +11,7 @@
 <h:head></h:head>
 
 <div   class="body collapse in table-responsive">
-	
+	<p:growl id="growl" for="errorupload" showDetail="true" sticky="true" redisplay="false"/>
 	<c:if test="#{topMenuMB.curentAgent.roleAgent.role eq 'ROLE_ADMIN' 
             or topMenuMB.curentAgent.roleAgent.role eq 'ROLE_DC'
             }">

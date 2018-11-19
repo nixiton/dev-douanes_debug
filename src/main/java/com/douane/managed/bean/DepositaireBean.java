@@ -59,11 +59,9 @@ public class DepositaireBean {
 	private static final String SUCCESS = "success";
 	private static final String ERROR = "error";
 
-	
 	@ManagedProperty(value = "#{usermetier}")
 	IUserMetier usermetierimpl;
 
-	
 	@ManagedProperty(value = "#{refmetier}")
 	IRefMetier refmetierimpl;
 
@@ -110,7 +108,6 @@ public class DepositaireBean {
 	private EtatMateriel etat;
 	private String etatMatPresent;
 
-	
 	private Direction direction;// direction des materiels
 
 	/* acces sur les listes */
@@ -136,18 +133,16 @@ public class DepositaireBean {
 	private String prenom;
 
 	// Sortie Materiel
-	
+
 	private Direction destinationDirec; // direction de sortie lors de l'affectation
-	
+
 	private MotifSortie motifSortie;
 	private MotifDecharge motifDettachement;
 	private Agent detenteur;
 	private Materiel materiel;
 
-	
-	private List<Materiel> currentListMateriel=new ArrayList<Materiel>();
-	
-	
+	private List<Materiel> currentListMateriel = new ArrayList<Materiel>();
+
 	// Current Agent
 	private Agent currentAgent;
 	private Materiel curentMateriel;
@@ -157,15 +152,15 @@ public class DepositaireBean {
 	// Methode on Change
 	public void onDetenteurChange() {
 
-		
 		if (getDetenteur() == null) {
 			this.setNom(null);
 			this.setPrenom(null);
 		}
 
-		/*this.setNom(getDetenteur().getNomAgent());
-		this.setPrenom(getDetenteur().getPrenomAgent());
-		return null;*/
+		/*
+		 * this.setNom(getDetenteur().getNomAgent());
+		 * this.setPrenom(getDetenteur().getPrenomAgent()); return null;
+		 */
 	}
 
 	public void onDetenteurDetChange() {
@@ -186,9 +181,9 @@ public class DepositaireBean {
 	public void onTypeMaterielChange() {
 
 		// this.setNomencl(getTypemateriel().getNomenclature());
-		if(getTypematerielToAdd()!=null) {
+		if (getTypematerielToAdd() != null) {
 			this.setNomencl(getTypematerielToAdd().getNomenclaureParent().getNomenclature());
-		}else {
+		} else {
 			this.setNomencl("");
 		}
 
@@ -226,7 +221,7 @@ public class DepositaireBean {
 		this.setMontantFac(null);
 		this.setRefFacture(null);
 		this.setFournisseur(null);
-		
+
 		this.setDetenteurDett(null);
 		this.setMaterielSeclectedDett(null);
 
@@ -295,11 +290,9 @@ public class DepositaireBean {
 		this.motifSortie = null;
 
 		this.materiel = null;
-		
 
 		this.setDetenteurDett(null);
 		this.setMaterielSeclectedDett(null);
-
 
 	}
 
@@ -406,7 +399,7 @@ public class DepositaireBean {
 	}
 
 	public List<Materiel> getListAllMateriel() {
-		if(listAllMateriel ==null) {
+		if (listAllMateriel == null) {
 			listAllMateriel = usermetierimpl.getListMat();
 		}
 		return listAllMateriel;
@@ -430,6 +423,7 @@ public class DepositaireBean {
 			try {
 				fileZipPath = usermetierimpl.getMatById(getIdMat()).getDesign().getDocumentPath();//
 				// RequestFilter.getSession().setAttribute("fileZipPath",fileZipPath);
+
 				return usermetierimpl.getMatById(getIdMat()).getDesign().getDocumentPath();
 			} catch (Exception e) {
 				return "";
@@ -814,24 +808,36 @@ public class DepositaireBean {
 		return null;
 	}
 
-	public String uploadDoc_Advanced(FileUploadEvent e) throws IOException {
+	public String uploadDoc_Advanced(FileUploadEvent e){
+		try {
+			DocumentModel docObj = (DocumentModel) e.getComponent().getAttributes().get("docObj");
 
-		DocumentModel docObj = (DocumentModel) e.getComponent().getAttributes().get("docObj");
+			if (e.getFile().getContents() != null)
+				docObj.setByteArrayImage(e.getFile().getContents());
 
-		if (e.getFile().getContents() != null)
-			docObj.setByteArrayImage(e.getFile().getContents());
+			document = e.getFile();
 
-		document = e.getFile();
+			docObj.setUploaded(true);
+			String dataPath = "";
+			dataPath = System.getProperty("catalina.base");
+			dataPath = dataPath + File.separator + "data" + File.separator;
+			File dataDir = new File(dataPath);
+			if (!dataDir.exists()) {
+				dataDir.mkdirs();
+			}
+			docObj.setDocumentUploadedPath(dataDir.getAbsolutePath() + File.separator + e.getFile().getFileName());
+			ArrayList<DocumentModel> documentlist = documentList;
+			if (documentlist != null)
+				this.setDocumentList(documentlist);
 
-		docObj.setUploaded(true);
-		docObj.setDocumentUploadedPath("" + e.getFile().getFileName());
-		ArrayList<DocumentModel> documentlist = documentList;
-		if (documentlist != null)
-			this.setDocumentList(documentlist);
-
-		documentList.set(documentList.indexOf(docObj), docObj);
-		// RequestFilter.getSession().setAttribute("documentList", documentList);
-		System.out.println("File Uploaded");
+			documentList.set(documentList.indexOf(docObj), docObj);
+			// RequestFilter.getSession().setAttribute("documentList", documentList);
+			System.out.println("File Uploaded " + docObj.getDocumentUploadedPath());
+		} catch (Exception exc) {
+			FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Erreur de Téléchargement",
+					"le fichier n'a pas pu être téléchargé");
+			FacesContext.getCurrentInstance().addMessage("errorupload", message);
+		}
 
 		return null;
 	}
@@ -935,9 +941,18 @@ public class DepositaireBean {
 		 */
 		ArrayList<String> filesTozip = new ArrayList<String>();
 		ArrayList<DocumentModel> documentlist = this.documentList;
+		String dataPath = "";
+		dataPath = System.getProperty("catalina.base");
+		dataPath = dataPath + File.separator + "data" + File.separator;
+		File dataDir = new File(dataPath);
+		if (!dataDir.exists()) {
+			dataDir.mkdirs();
+		}
+		// docObj.setDocumentUploadedPath(dataDir.getAbsolutePath()+File.separator +
+		// e.getFile().getFileName());
 		if (documentlist != null) {
 			for (DocumentModel d : documentlist) {
-				File file = new File("resources_13_11");
+				File file = new File(dataDir.getAbsolutePath() + File.separator + "resourcesSigma");
 				String absolutePath = file.getAbsolutePath();
 				String filePath = absolutePath;
 				String filePath2 = new File("test").getAbsolutePath();
@@ -970,6 +985,16 @@ public class DepositaireBean {
 		FileOutputStream fos = null;
 		ZipOutputStream zipOut = null;
 		FileInputStream fis = null;
+
+		String dataPath = "";
+		dataPath = System.getProperty("catalina.base");
+		dataPath = dataPath + File.separator + "data" + File.separator;
+		File dataDir = new File(dataPath);
+		if (!dataDir.exists()) {
+			dataDir.mkdirs();
+		}
+		// docObj.setDocumentUploadedPath(dataDir.getAbsolutePath()+File.separator +
+		// e.getFile().getFileName());
 		try {
 			if (files.size() == 0) {
 				RequestFilter.getSession().setAttribute("documentpath", null);
@@ -980,22 +1005,24 @@ public class DepositaireBean {
 				SimpleDateFormat ft = new SimpleDateFormat("yyMMddhhmmssMs");
 				String datetime = ft.format(dNow);
 
-				File file = new File(datetime);
+				File file = new File(dataDir.getAbsolutePath() + File.separator + datetime);
 				String absolutePath = file.getAbsolutePath();
 
 				RequestFilter.getSession().setAttribute("documentpath", absolutePath + ".zip");
 				// eto miset an le documentpath
 				String a = (String) RequestFilter.getSession().getAttribute("documentpath");
 
-				fos = new FileOutputStream(datetime + ".zip");
-				setDocumentPath(datetime + ".zip");
+				fos = new FileOutputStream(dataDir.getAbsolutePath() + File.separator + datetime + ".zip");
+				setDocumentPath(dataDir.getAbsolutePath() + File.separator + datetime + ".zip");
 
 				zipOut = new ZipOutputStream(new BufferedOutputStream(fos));
 				for (String filePath : files) {
 					File input = new File(filePath);
+					System.out.println("Zipping the file with path: " + input.getName());
+
 					fis = new FileInputStream(input);
 					ZipEntry ze = new ZipEntry(input.getName());
-					System.out.println("Zipping the file: " + input.getName());
+
 					zipOut.putNextEntry(ze);
 					byte[] tmp = new byte[4 * 1024];
 					int size = 0;
@@ -1014,9 +1041,16 @@ public class DepositaireBean {
 			// response.setHeader("Refresh", "0; URL=http://your-current-page");
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
+			FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Erreur du Téléchargement",
+					"Fichier introuvalbe");
+			FacesContext.getCurrentInstance().addMessage("errorupload", message);
 			e.printStackTrace();
+			
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
+			FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Erreur du Téléchargement",
+					"Fichier introuvalbe");
+			FacesContext.getCurrentInstance().addMessage("errorupload", message);
 			e.printStackTrace();
 		} finally {
 			try {
@@ -1063,7 +1097,7 @@ public class DepositaireBean {
 	}
 
 	public List<MaterielEx> getListMaterielexistant() {
-		if(listMaterielexistant==null) {
+		if (listMaterielexistant == null) {
 			Agent agent = (Agent) RequestFilter.getSession().getAttribute("agent");
 			listMaterielexistant = usermetierimpl.getListMatEx(agent.getDirection());
 		}
@@ -1161,7 +1195,7 @@ public class DepositaireBean {
 		m.setDocumentPath((String) RequestFilter.getSession().getAttribute("documentpath"));
 		RequestFilter.getSession().removeAttribute("documentpath");
 		m.setAutre(getAutre());
-		
+
 		m.setFournisseur(getFournisseur());
 		m.setEtat(getEtat());
 		m.setMarque(getMarq());
@@ -1171,7 +1205,7 @@ public class DepositaireBean {
 		m.setRenseignement(getRenseignement());
 		m.setTypematerieladd(this.getTypematerielToAdd());
 		m.setNomenMat(this.getTypematerielToAdd().getNomenclaureParent());
-		
+
 		m.setDirec(agent.getDirection());
 		m.setEspeceUnite(getEspeceUnite());
 		m.setOrigine(getOrigine());
@@ -1448,8 +1482,9 @@ public class DepositaireBean {
 		} catch (Exception e) {
 			// TODO: handle exception
 
-			/*e.printStackTrace();
-			System.out.println(e.getMessage());*/
+			/*
+			 * e.printStackTrace(); System.out.println(e.getMessage());
+			 */
 			FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Erreur lors de l'attribution",
 					"Certaines champs ne respectent pas les contraintes");
 			FacesContext.getCurrentInstance().addMessage(null, message);
@@ -1521,7 +1556,6 @@ public class DepositaireBean {
 		this.documentPath = documentPath;
 	}
 
-	
 	// ------------------------------PRIME
 	// FACES---------------------------------------
 	// list service
@@ -1628,7 +1662,7 @@ public class DepositaireBean {
 			setNomenclatureAutom(null);
 			setCodificationAutom(null);
 		}
-		
+
 	}
 
 	public void setListDestinaiton(List<Referentiel> listDestinaiton) {
@@ -1728,77 +1762,58 @@ public class DepositaireBean {
 	}
 
 	public List<Materiel> getCurrentListMateriel() {
-/*
-		// System.out.println("****************************SET LIST
-		// ******************************** " +this.getClass().getName());
-		Long idAg = Long.valueOf(1);
-		ExternalContext ec = FacesContext.getCurrentInstance().getExternalContext();
-		
-		String userId = ec.getRequestParameterMap().get(1);
-		Map<String, String> map = ec.getRequestParameterMap();
-		String input = ":det_input";
-		
-		if(map!=null) {
-		for (Map.Entry<String, String> entry : map.entrySet()) {
-			
-			if (entry.getKey().toLowerCase().contains(input.toLowerCase()))
-				idAg = Long.parseLong(entry.getValue());
-			
-			// System.out.println(entry.getKey() + "/" + entry.getValue());
-		}
-		//System.out.println(FacesContext.getCurrentInstance().toString()+" ITO AZA");
-
-		if (!idAg.equals(Long.valueOf(1))) {
-			System.out.println(
-					"****************************SET LIST ******************************** " + this.getClass().getName());
-			List<Materiel> result ;
-			try {
-				result = (List<Materiel>)usermetierimpl.getMatByDetenteurAndValidation(usermetierimpl.findAgentByIm(idAg),true);
-				if(result==null) {
-					result = new ArrayList<Materiel>();
-				}
-				for(Materiel mat : result) {
-					System.out.println("list a "+mat.getIdMateriel());
-				}
-				System.out.println("tsy error lust");
-			}catch(Exception e) {
-				System.out.println("error lust");
-				result  = new ArrayList<Materiel>();
-			}
-			System.out.println("lasa");
-			return result;
-					
-			
-		}
-		else {
-			System.out.println(
-			"****************************SET LISTA ******************************** " + this.getClass().getName());
-			return new ArrayList<Materiel>();
-		}
-		}
-		else {
-			System.out.println(
-			"****************************SET LISTA ******************************** " + this.getClass().getName());
-			return new ArrayList<Materiel>();
-		}
-		/*if (this.detenteur == null) {
-			System.out.println("****************************SET LISTNULL ******************************** ");
-			this.setCurrentListMateriel(new ArrayList<Materiel>());
-			this.setNom(null);
-			this.setPrenom(null);
-		} else {
-			this.detenteur = this.getDetenteur();
-			this.setNom(detenteur.getNomAgent());
-			this.setPrenom(detenteur.getPrenomAgent());
-			System.out.println("****************************SET LISTA ******************************** "
-					+ this.getDetenteur().getNomAgent());
-			this.setCurrentListMateriel(
-					(List<Materiel>) usermetierimpl.getMatByDetenteurAndValidation(this.getDetenteur(), true));
-			System.out.println("****************************SET LISTA ******************************** "
-					+ this.getDetenteur().getIm());
-		}*/
-		if(this.detenteurDett==null) {
-			currentListMateriel=new ArrayList<Materiel>();
+		/*
+		 * // System.out.println("****************************SET LIST //
+		 * ******************************** " +this.getClass().getName()); Long idAg =
+		 * Long.valueOf(1); ExternalContext ec =
+		 * FacesContext.getCurrentInstance().getExternalContext();
+		 * 
+		 * String userId = ec.getRequestParameterMap().get(1); Map<String, String> map =
+		 * ec.getRequestParameterMap(); String input = ":det_input";
+		 * 
+		 * if(map!=null) { for (Map.Entry<String, String> entry : map.entrySet()) {
+		 * 
+		 * if (entry.getKey().toLowerCase().contains(input.toLowerCase())) idAg =
+		 * Long.parseLong(entry.getValue());
+		 * 
+		 * // System.out.println(entry.getKey() + "/" + entry.getValue()); }
+		 * //System.out.println(FacesContext.getCurrentInstance().toString()+" ITO AZA"
+		 * );
+		 * 
+		 * if (!idAg.equals(Long.valueOf(1))) { System.out.println(
+		 * "****************************SET LIST ******************************** " +
+		 * this.getClass().getName()); List<Materiel> result ; try { result =
+		 * (List<Materiel>)usermetierimpl.getMatByDetenteurAndValidation(usermetierimpl.
+		 * findAgentByIm(idAg),true); if(result==null) { result = new
+		 * ArrayList<Materiel>(); } for(Materiel mat : result) {
+		 * System.out.println("list a "+mat.getIdMateriel()); }
+		 * System.out.println("tsy error lust"); }catch(Exception e) {
+		 * System.out.println("error lust"); result = new ArrayList<Materiel>(); }
+		 * System.out.println("lasa"); return result;
+		 * 
+		 * 
+		 * } else { System.out.println(
+		 * "****************************SET LISTA ******************************** " +
+		 * this.getClass().getName()); return new ArrayList<Materiel>(); } } else {
+		 * System.out.println(
+		 * "****************************SET LISTA ******************************** " +
+		 * this.getClass().getName()); return new ArrayList<Materiel>(); } /*if
+		 * (this.detenteur == null) { System.out.
+		 * println("****************************SET LISTNULL ******************************** "
+		 * ); this.setCurrentListMateriel(new ArrayList<Materiel>()); this.setNom(null);
+		 * this.setPrenom(null); } else { this.detenteur = this.getDetenteur();
+		 * this.setNom(detenteur.getNomAgent());
+		 * this.setPrenom(detenteur.getPrenomAgent()); System.out.
+		 * println("****************************SET LISTA ******************************** "
+		 * + this.getDetenteur().getNomAgent()); this.setCurrentListMateriel(
+		 * (List<Materiel>)
+		 * usermetierimpl.getMatByDetenteurAndValidation(this.getDetenteur(), true));
+		 * System.out.
+		 * println("****************************SET LISTA ******************************** "
+		 * + this.getDetenteur().getIm()); }
+		 */
+		if (this.detenteurDett == null) {
+			currentListMateriel = new ArrayList<Materiel>();
 		}
 
 		return currentListMateriel;
@@ -1809,41 +1824,35 @@ public class DepositaireBean {
 		this.currentListMateriel = currentListMateriel;
 	}
 
-	/*public void mySetCurrentListMateriel1(ValueChangeEvent evt) {
-		System.out.println(
-				"****************************SET LIST ******************************** " + this.getClass().getName());
-		ValueChangeEvent e = evt;
-		this.setDetenteur((Agent) evt.getNewValue());
-		this.setCurrentListMateriel(
-				(List<Materiel>) usermetierimpl.getMatByDetenteurAndValidation(this.getDetenteur(), true));
-	}
-*/
+	/*
+	 * public void mySetCurrentListMateriel1(ValueChangeEvent evt) {
+	 * System.out.println(
+	 * "****************************SET LIST ******************************** " +
+	 * this.getClass().getName()); ValueChangeEvent e = evt;
+	 * this.setDetenteur((Agent) evt.getNewValue()); this.setCurrentListMateriel(
+	 * (List<Materiel>)
+	 * usermetierimpl.getMatByDetenteurAndValidation(this.getDetenteur(), true)); }
+	 */
 	// ActionEvent actionEvent
-	/*public void mySetCurrentListMateriel(ValueChangeEvent evt) {
-		ValueChangeEvent e = evt;
-		if(evt.getNewValue()!=null) {
-			this.setDetenteur((Agent) evt.getNewValue());
-		}
-		
-		if (this.detenteur == null) {
-			this.setCurrentListMateriel(null);
-			this.setNom(null);
-			this.setPrenom(null);
-		} else {
-			this.detenteur = this.getDetenteur();
-			this.setNom(detenteur.getNomAgent());
-			this.setPrenom(detenteur.getPrenomAgent());
-			System.out.println("****************************SET LISTA ******************************** "
-					+ this.getDetenteur().getNomAgent());
-			this.setCurrentListMateriel(
-					(List<Materiel>) usermetierimpl.getMatByDetenteurAndValidation(this.getDetenteur(), true));
-			System.out.println("****************************SET LISTA ******************************** "
-					+ this.getDetenteur().getIm());
-		}
-	}*/
+	/*
+	 * public void mySetCurrentListMateriel(ValueChangeEvent evt) { ValueChangeEvent
+	 * e = evt; if(evt.getNewValue()!=null) { this.setDetenteur((Agent)
+	 * evt.getNewValue()); }
+	 * 
+	 * if (this.detenteur == null) { this.setCurrentListMateriel(null);
+	 * this.setNom(null); this.setPrenom(null); } else { this.detenteur =
+	 * this.getDetenteur(); this.setNom(detenteur.getNomAgent());
+	 * this.setPrenom(detenteur.getPrenomAgent()); System.out.
+	 * println("****************************SET LISTA ******************************** "
+	 * + this.getDetenteur().getNomAgent()); this.setCurrentListMateriel(
+	 * (List<Materiel>)
+	 * usermetierimpl.getMatByDetenteurAndValidation(this.getDetenteur(), true));
+	 * System.out.
+	 * println("****************************SET LISTA ******************************** "
+	 * + this.getDetenteur().getIm()); } }
+	 */
 	public void mySetCurrentListMateriel() {
-		
-		
+
 		if (this.detenteurDett == null) {
 			System.out.println("****************************SET LISTNULLMYSET ******************************** ");
 			this.setCurrentListMateriel(new ArrayList<Materiel>());
@@ -1883,7 +1892,7 @@ public class DepositaireBean {
 	private List<MaterielNouv> listMaterielNouveauValide;
 
 	public List<MaterielNouv> getListMaterielNouveauValide() {
-		if(listMaterielNouveauValide==null) {
+		if (listMaterielNouveauValide == null) {
 			Agent agent = (Agent) RequestFilter.getSession().getAttribute("agent");
 			listMaterielNouveauValide = usermetierimpl.getListMaterielNouvValide(agent.getDirection());
 		}
@@ -1922,16 +1931,17 @@ public class DepositaireBean {
 
 	public InputStream getFileDownloadStream() throws IOException {
 		try {
-		if (RequestFilter.getSession().getAttribute("fileZipPath") == null
-				|| RequestFilter.getSession().getAttribute("fileZipPath") == "")
-			return null;
-		FileInputStream stream = new FileInputStream((String) RequestFilter.getSession().getAttribute("fileZipPath"));
-		if (stream == null)
-			return null;
-		if (stream.getChannel().size() == 0)
-			return null;
-		return stream;
-		}catch(Exception e) {
+			if (RequestFilter.getSession().getAttribute("fileZipPath") == null
+					|| RequestFilter.getSession().getAttribute("fileZipPath") == "")
+				return null;
+			FileInputStream stream = new FileInputStream(
+					(String) RequestFilter.getSession().getAttribute("fileZipPath"));
+			if (stream == null)
+				return null;
+			if (stream.getChannel().size() == 0)
+				return null;
+			return stream;
+		} catch (Exception e) {
 			return null;
 		}
 	}
@@ -1956,12 +1966,14 @@ public class DepositaireBean {
 		if (getFileZipPath() == null || getFileZipPath() == "")
 			return null;
 		try {
+
 			FileInputStream fstream = new FileInputStream(getFileZipPath());
 			if (fstream == null)
 				return null;
-			if (fstream.getChannel().size() == 0)
+			if (fstream.getChannel().size() == 0) {
+				System.out.println("file zip path :" + getFileZipPath());
 				return null;
-
+			}
 			InputStream stream = new FileInputStream(getFileZipPath());
 			fileZipSize = stream.available();
 			filedownload = new DefaultStreamedContent(stream, "application/zip", "doc.zip");
@@ -2041,36 +2053,38 @@ public class DepositaireBean {
 		this.nombre = n;
 	}
 
-//	public String addArticleEx() {
-//		try {
-//			clear();
-//			ArticleEx a = new ArticleEx();
-//
-//			Agent agent = (Agent) RequestFilter.getSession().getAttribute("agent");
-//			a.setCodeArticle(getCodeArticle());
-//			a.setMarqueArticle(getMarq());
-//			a.setCaracteristiqueArticle(getRenseignement());
-//
-//			a.setDirecArt(agent.getDirection());
-//			a.setValidation(true);
-//
-//			a.setNombre(getNombre());
-//
-//			// a.setTypeObjet(getTypeObjet());
-//			OpEntreeArticle oeart = usermetierimpl.reqEntrerArticle(a, agent);
-//			usermetierimpl.entrerArticle(oeart);
-//
-//		} catch (IOException e) {
-//			FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Error file not found",
-//					"Facture's file not found ");
-//			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Facture's file not found "));
-//			listMaterielForOpEntree = null;
-//			FacesContext.getCurrentInstance().addMessage(null, message);
-//			return null;
-//		}
-//
-//		return SUCCESS;
-//	}
+	// public String addArticleEx() {
+	// try {
+	// clear();
+	// ArticleEx a = new ArticleEx();
+	//
+	// Agent agent = (Agent) RequestFilter.getSession().getAttribute("agent");
+	// a.setCodeArticle(getCodeArticle());
+	// a.setMarqueArticle(getMarq());
+	// a.setCaracteristiqueArticle(getRenseignement());
+	//
+	// a.setDirecArt(agent.getDirection());
+	// a.setValidation(true);
+	//
+	// a.setNombre(getNombre());
+	//
+	// // a.setTypeObjet(getTypeObjet());
+	// OpEntreeArticle oeart = usermetierimpl.reqEntrerArticle(a, agent);
+	// usermetierimpl.entrerArticle(oeart);
+	//
+	// } catch (IOException e) {
+	// FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Error
+	// file not found",
+	// "Facture's file not found ");
+	// FacesContext.getCurrentInstance().addMessage(null, new
+	// FacesMessage("Facture's file not found "));
+	// listMaterielForOpEntree = null;
+	// FacesContext.getCurrentInstance().addMessage(null, message);
+	// return null;
+	// }
+	//
+	// return SUCCESS;
+	// }
 
 	public String addArticleNouv() {
 		try {
@@ -2086,16 +2100,13 @@ public class DepositaireBean {
 
 			a.setMarqueArticle(getMarq());
 			a.setCaracteristiqueArticle(getRenseignement());
-			
+
 			a.setOrigine(this.getMyorigine());
 			a.setReference(this.getMyref());
 			a.setEspeceunit(this.getMyesp());
 			// a.setModAcq(getAcquisition());
 
 			a.setNombre(getNombre());
-			
-			
-			
 
 			usermetierimpl.reqEntrerArticle(a, agent);
 			clear();
@@ -2131,16 +2142,16 @@ public class DepositaireBean {
 		return articleNouv;
 	}
 
-	/*public String addRequeteSortieNouv() throws Exception {
-		// ArticleNouv a = new ArticleNouv();
-
-		Agent agent = (Agent) RequestFilter.getSession().getAttribute("agent");
-		// a.setFournisseur(getFournisseur());
-		// a.setPrix(getPrix());
-
-		usermetierimpl.reqSortirArticle(this.getArticle(), agent, getAgentDest());
-		return SUCCESS;
-	}*/
+	/*
+	 * public String addRequeteSortieNouv() throws Exception { // ArticleNouv a =
+	 * new ArticleNouv();
+	 * 
+	 * Agent agent = (Agent) RequestFilter.getSession().getAttribute("agent"); //
+	 * a.setFournisseur(getFournisseur()); // a.setPrix(getPrix());
+	 * 
+	 * usermetierimpl.reqSortirArticle(this.getArticle(), agent, getAgentDest());
+	 * return SUCCESS; }
+	 */
 
 	public List<Materiel> getListAllMaterielValideSansDetenteurByDirection() {
 		Agent agent = (Agent) RequestFilter.getSession().getAttribute("agent");
@@ -2174,8 +2185,6 @@ public class DepositaireBean {
 
 	private Materiel matForEntree;
 
-	
-
 	public void setListDetenteurMatEx(List<Agent> listDetenteurMatEx) {
 		this.listDetenteurMatEx = listDetenteurMatEx;
 
@@ -2189,7 +2198,6 @@ public class DepositaireBean {
 		this.detenteurMatEx = detenteurMatEx;
 	}
 
-	
 	public List<Materiel> getListMaterielForOpEntree() {
 		return listMaterielForOpEntree;
 	}
@@ -2401,21 +2409,23 @@ public class DepositaireBean {
 		} catch (IOException e) {
 			FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Erreur Fichier inconnue",
 					"Erreur lors de l'upload des fichiers.  ");
-			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Erreur lors de l'upload des fichiers "));
+			FacesContext.getCurrentInstance().addMessage(null,
+					new FacesMessage("Erreur lors de l'upload des fichiers "));
 			listMaterielForOpEntree = null;
 			FacesContext.getCurrentInstance().addMessage(null, message);
 			e.printStackTrace();
 			return null;
 		} catch (NullPointerException e) {
-			FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Erreur sur la validation des matériels",
-					"Verfier que les champs sont remplies correctement.");
-			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Erreur sur la validation des matériels"));
+			FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_WARN,
+					"Erreur sur la validation des matériels", "Verfier que les champs sont remplies correctement.");
+			FacesContext.getCurrentInstance().addMessage(null,
+					new FacesMessage("Erreur sur la validation des matériels"));
 			listMaterielForOpEntree = null;
 			FacesContext.getCurrentInstance().addMessage(null, message);
 			return null;
 		} catch (Exception e) {
-			FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Erreur sur la validation des matériels",
-					"Verfier que les champs sont remplies correctement.");
+			FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_WARN,
+					"Erreur sur la validation des matériels", "Verfier que les champs sont remplies correctement.");
 			FacesContext.getCurrentInstance().addMessage(null,
 					new FacesMessage("Verfier que les champs sont remplies correctement."));
 			listMaterielForOpEntree = null;
@@ -2544,7 +2554,7 @@ public class DepositaireBean {
 	public String addNewMaterielNouv() throws IOException {
 		System.out.println("List Materiel Nouveau generation ");
 		ArrayList<Materiel> list = getMaterielspardesignation();
-		if(list == null)
+		if (list == null)
 			list = new ArrayList<Materiel>();
 		list.add(matnouvtoadd);
 		for (Materiel m : list) {
@@ -2706,6 +2716,7 @@ public class DepositaireBean {
 			setAllNull();
 		}
 	}
+
 	public void updateMaterielNouv(MaterielNouv matNouv) {
 		if (matNouv == null) {
 			FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Erreur materiel", "Materiel null");
@@ -2727,7 +2738,7 @@ public class DepositaireBean {
 			setAllNull();
 		}
 	}
-	
+
 	public ArticleEx getArticleExToAdd() {
 		return articleExToAdd;
 	}
@@ -2737,24 +2748,20 @@ public class DepositaireBean {
 	}
 
 	private ArticleEx articleExToAdd = new ArticleEx();
-	
-	//REDEFINE
+
+	// REDEFINE
 	public String addArticleEx() {
 		try {
 			clear();
-			
 
 			Agent agent = (Agent) RequestFilter.getSession().getAttribute("agent");
-			/*a.setCodeArticle(getCodeArticle());
-			a.setMarqueArticle(getMarq());
-			a.setCaracteristiqueArticle(getRenseignement());
-			a.setNombre(getNombre());
-			*/
+			/*
+			 * a.setCodeArticle(getCodeArticle()); a.setMarqueArticle(getMarq());
+			 * a.setCaracteristiqueArticle(getRenseignement()); a.setNombre(getNombre());
+			 */
 
 			articleExToAdd.setDirecArt(agent.getDirection());
 			articleExToAdd.setValidation(true);
-
-			
 
 			// a.setTypeObjet(getTypeObjet());
 			OpEntreeArticle oeart = usermetierimpl.reqEntrerArticle(articleExToAdd, agent);
@@ -2767,14 +2774,13 @@ public class DepositaireBean {
 			listMaterielForOpEntree = null;
 			FacesContext.getCurrentInstance().addMessage(null, message);
 			return null;
-		}
-		finally {
-			articleExToAdd= new ArticleEx();
+		} finally {
+			articleExToAdd = new ArticleEx();
 		}
 
 		return SUCCESS;
 	}
-	
+
 	public Agent getDetenteurDett() {
 		return detenteurDett;
 	}
@@ -2793,7 +2799,7 @@ public class DepositaireBean {
 
 	private Agent detenteurDett;
 	private Materiel materielSeclectedDett;
-	
+
 	public void updateArticleEx(ArticleEx art) {
 		if (art == null) {
 			System.out.println("art null");
@@ -2814,8 +2820,9 @@ public class DepositaireBean {
 			setCurentNull();
 			setAllNull();
 		}
-		
+
 	}
+
 	public void updateArticleNouv(ArticleNouv art) {
 		if (art == null) {
 			FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Erreur article", "Article null");
@@ -2836,6 +2843,7 @@ public class DepositaireBean {
 			setAllNull();
 		}
 	}
+
 	public Long getNombreArticleToDep() {
 		return nombreArticleToDep;
 	}
@@ -2845,7 +2853,7 @@ public class DepositaireBean {
 	}
 
 	private Long nombreArticleToDep;
-	
+
 	public String addRequeteSortieNouv() {
 		// ArticleNouv a = new ArticleNouv();
 
@@ -2854,30 +2862,30 @@ public class DepositaireBean {
 		// a.setPrix(getPrix());
 		System.out.println("request sortie article");
 		try {
-			//setAgentDest(null);
-			//setArticle(null);
-			//setNombreArticleToDep((long) 0);
-			usermetierimpl.reqSortirArticle(this.getArticle(), agent, getAgentDest(), getNombreArticleToDep(), this.getDecision());
+			// setAgentDest(null);
+			// setArticle(null);
+			// setNombreArticleToDep((long) 0);
+			usermetierimpl.reqSortirArticle(this.getArticle(), agent, getAgentDest(), getNombreArticleToDep(),
+					this.getDecision());
 			return SUCCESS;
-		}catch(Exception e) {
-		System.out.println("error sortie article "+ e.getMessage());
+		} catch (Exception e) {
+			System.out.println("error sortie article " + e.getMessage());
 			FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Erreur pour sortie de l'article",
-				"La requête contient des erreurs");
-		
-		FacesContext.getCurrentInstance().addMessage(null, message);
-		return null;
+					"La requête contient des erreurs");
+
+			FacesContext.getCurrentInstance().addMessage(null, message);
+			return null;
 		}
 	}
-	
+
 	public Long calculNombreRestant(Article article) {
-		
+
 		return usermetierimpl.calculArticleRestant(article);
 	}
-	
-	
+
 	private CodeArticle articleToFiche;
 	private Direction directionToFiche;
-	
+
 	public CodeArticle getArticleToFiche() {
 		return articleToFiche;
 	}
@@ -2885,19 +2893,18 @@ public class DepositaireBean {
 	public void setArticleToFiche(CodeArticle articleToFiche) {
 		this.articleToFiche = articleToFiche;
 	}
-	
+
 	public void setArticleToFiche(CodeArticle articleToFiche, Direction d) {
 		this.articleToFiche = articleToFiche;
 		this.directionToFiche = d;
 	}
+
 	public Direction getDirectionToFiche() {
 		return this.directionToFiche;
 	}
-	
-	
 
 	private ArticleEx articleTomodify;
-	
+
 	public ArticleEx getArticleTomodify() {
 		return articleTomodify;
 	}
@@ -2905,11 +2912,9 @@ public class DepositaireBean {
 	public void setArticleTomodify(ArticleEx articleTomodify) {
 		this.articleTomodify = articleTomodify;
 	}
-	
-	
 
 	private ArticleNouv articleToModifyNouv;
-	
+
 	public ArticleNouv getArticleToModifyNouv() {
 		return articleToModifyNouv;
 	}
@@ -2917,7 +2922,7 @@ public class DepositaireBean {
 	public void setArticleToModifyNouv(ArticleNouv articleToModifyNouv) {
 		this.articleToModifyNouv = articleToModifyNouv;
 	}
-	
+
 	private String myorigine;
 	private String myref;
 	private String myesp;
@@ -2945,7 +2950,7 @@ public class DepositaireBean {
 	public void setMyesp(String myesp) {
 		this.myesp = myesp;
 	}
-	
+
 	public String getDecision() {
 		return decision;
 	}
@@ -2955,15 +2960,13 @@ public class DepositaireBean {
 	}
 
 	private String decision;
-	
+
 	private List<Materiel> listHistoriqueMatDirection;
-	
-	
 
 	public List<Materiel> getListHistoriqueMatDirection() {
-		if(listHistoriqueMatDirection == null) {
+		if (listHistoriqueMatDirection == null) {
 			Agent agent = (Agent) RequestFilter.getSession().getAttribute("agent");
-			listHistoriqueMatDirection= usermetierimpl.getListMatByDirection(agent.getDirection());
+			listHistoriqueMatDirection = usermetierimpl.getListMatByDirection(agent.getDirection());
 		}
 		return listHistoriqueMatDirection;
 	}
@@ -2971,12 +2974,13 @@ public class DepositaireBean {
 	public void setListHistoriqueMatDirection(List<Materiel> listHistoriqueMatDirection) {
 		this.listHistoriqueMatDirection = listHistoriqueMatDirection;
 	}
-	
+
 	private List<Operation> listOperatoinByDirection;
+
 	public List<Operation> getListOperatoinByDirection() {
-		if(listOperatoinByDirection == null) {
+		if (listOperatoinByDirection == null) {
 			Agent agent = (Agent) RequestFilter.getSession().getAttribute("agent");
-			listOperatoinByDirection= usermetierimpl.getListOpByDirection(agent.getDirection());
+			listOperatoinByDirection = usermetierimpl.getListOpByDirection(agent.getDirection());
 		}
 		return listOperatoinByDirection;
 	}
@@ -2984,20 +2988,22 @@ public class DepositaireBean {
 	public void setListOperatoinByDirection(List<Operation> l) {
 		this.listOperatoinByDirection = l;
 	}
-	
+
 	private List<Operation> listOperations;
+
 	public List<Operation> getListOperations() {
-		if(listOperations ==null) {
-		//this.setListOperations(usermetierimpl.getListOp());
-		Date date = new Date();
-		Calendar calendar = new GregorianCalendar();
-		calendar.setTime(date);
-		int year = calendar.get(Calendar.YEAR);
-		Date sdate = new GregorianCalendar(year-2, Calendar.JANUARY, 1).getTime();
-        Date edate = new GregorianCalendar(year+1, Calendar.DECEMBER, 30).getTime();
-        Agent agent = (Agent)RequestFilter.getSession().getAttribute("agent");
-		
-		this.setListOperations(usermetierimpl.getListAllOperationByDirectionByYearByDateAsc(agent.getDirection(), sdate, edate));
+		if (listOperations == null) {
+			// this.setListOperations(usermetierimpl.getListOp());
+			Date date = new Date();
+			Calendar calendar = new GregorianCalendar();
+			calendar.setTime(date);
+			int year = calendar.get(Calendar.YEAR);
+			Date sdate = new GregorianCalendar(year - 2, Calendar.JANUARY, 1).getTime();
+			Date edate = new GregorianCalendar(year + 1, Calendar.DECEMBER, 30).getTime();
+			Agent agent = (Agent) RequestFilter.getSession().getAttribute("agent");
+
+			this.setListOperations(
+					usermetierimpl.getListAllOperationByDirectionByYearByDateAsc(agent.getDirection(), sdate, edate));
 		}
 		return listOperations;
 	}
@@ -3005,19 +3011,20 @@ public class DepositaireBean {
 	public void setListOperations(List<Operation> listOperations) {
 		this.listOperations = listOperations;
 	}
-	
+
 	private List<Operation> listAllOperations;
+
 	public List<Operation> getListAllOperations() {
-		if(listAllOperations ==null) {
-		//this.setListOperations(usermetierimpl.getListOp());
-		Date date = new Date();
-		Calendar calendar = new GregorianCalendar();
-		calendar.setTime(date);
-		int year = calendar.get(Calendar.YEAR);
-		Date sdate = new GregorianCalendar(year-2, Calendar.JANUARY, 1).getTime();
-        Date edate = new GregorianCalendar(year+1, Calendar.DECEMBER, 30).getTime();
-		
-		this.setListOperations(usermetierimpl.getListAllOperationByYearByDateAsc( sdate, edate));
+		if (listAllOperations == null) {
+			// this.setListOperations(usermetierimpl.getListOp());
+			Date date = new Date();
+			Calendar calendar = new GregorianCalendar();
+			calendar.setTime(date);
+			int year = calendar.get(Calendar.YEAR);
+			Date sdate = new GregorianCalendar(year - 2, Calendar.JANUARY, 1).getTime();
+			Date edate = new GregorianCalendar(year + 1, Calendar.DECEMBER, 30).getTime();
+
+			this.setListOperations(usermetierimpl.getListAllOperationByYearByDateAsc(sdate, edate));
 		}
 		return listAllOperations;
 	}
@@ -3025,12 +3032,11 @@ public class DepositaireBean {
 	public void setListAllOperations(List<Operation> listOperations) {
 		this.listAllOperations = listOperations;
 	}
-	
-	
+
 	private List<MaterielNouv> listMaterielNouveauNonValide;
 
 	public List<MaterielNouv> getListMaterielNouveauNonValide() {
-		if(listMaterielNouveauNonValide==null) {
+		if (listMaterielNouveauNonValide == null) {
 			Agent agent = (Agent) RequestFilter.getSession().getAttribute("agent");
 			listMaterielNouveauNonValide = usermetierimpl.getListMaterielNouvNonValide(agent.getDirection());
 		}
@@ -3040,12 +3046,12 @@ public class DepositaireBean {
 	public void setListMaterielNouveauNonValide(List<MaterielNouv> listMaterielNouveauNonValide) {
 		this.listMaterielNouveauNonValide = listMaterielNouveauNonValide;
 	}
-	
+
 	private List<Operation> mesOperations;
-	
+
 	public List<Operation> getMesOperations() {
-		if(this.mesOperations == null) {
-			Agent agent = (Agent)RequestFilter.getSession().getAttribute("agent");
+		if (this.mesOperations == null) {
+			Agent agent = (Agent) RequestFilter.getSession().getAttribute("agent");
 			this.setMesOperations(usermetierimpl.getListOpByOperator(agent));
 		}
 		return mesOperations;
@@ -3054,8 +3060,9 @@ public class DepositaireBean {
 	public void setMesOperations(List<Operation> mesOperations) {
 		this.mesOperations = mesOperations;
 	}
-	
+
 	private List<Operation> listOperatoinByDirectionFiltered;
+
 	public List<Operation> getListOperatoinByDirectionFiltered() {
 		return listOperatoinByDirectionFiltered;
 	}
