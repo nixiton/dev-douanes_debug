@@ -1314,7 +1314,7 @@ public class SISEformBean {
 				SelectItem[] lesitems = new SelectItem[entry.getValue().size()];
 				int i =0;
 				for(CodeArticle tm: entry.getValue()) {
-					lesitems[i] = new SelectItem(tm, tm.getTypeObjet().getDesignation()+" ("+tm.getDesignation()+")");
+					lesitems[i] = new SelectItem(tm, tm.getDesignation());
 					i=i+1;
 					
 				}

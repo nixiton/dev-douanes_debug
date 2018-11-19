@@ -155,11 +155,7 @@
  		<f:setPropertyActionListener target="#{JasperTableExampleBean.livre.materiel}" value="#{livreAnnuelBean.quatre}" />
 	</p:commandButton>
 	<br/>
-	<c:if test="#{topMenuMB.curentAgent.roleAgent.role eq 'ROLE_ADMIN' 
-            or topMenuMB.curentAgent.roleAgent.role eq 'ROLE_SISE'
-            or topMenuMB.curentAgent.roleAgent.role eq 'ROLE_DG'
-            or topMenuMB.curentAgent.roleAgent.role eq 'ROLE_DRF'
-            }">
+	
 	<p:commandButton styleClass="ui-priority-primary fa fa-file-word-o"  style="width:200px;  height:50px; " action="#{JasperTableExampleBean.grandLivreDoc(livreAnnuelBean.liste)}" type="submit" value="Exporter en Word" ajax="false" >
 		<!-- f:setPropertyActionListener target="#{JasperTableExampleBean.livre.subd}" value="#{livreAnnuelBean.service}" /-->
 		<f:setPropertyActionListener target="#{JasperTableExampleBean.livre.lieu}" value="#{livreAnnuelBean.trois}" />
@@ -167,7 +163,7 @@
  		<f:setPropertyActionListener target="#{JasperTableExampleBean.livre.ans}" value="#{livreAnnuelBean.anne}" />
  		<f:setPropertyActionListener target="#{JasperTableExampleBean.livre.materiel}" value="#{livreAnnuelBean.quatre}" />
 	</p:commandButton>
-	</c:if>
+	
 	</h:form>
 </h:body>
 	<script

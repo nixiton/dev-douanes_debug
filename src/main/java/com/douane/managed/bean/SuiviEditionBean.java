@@ -2252,8 +2252,7 @@ public class SuiviEditionBean implements Serializable{
 				if(a.getMarqueArticle() != null) {
 					marqueArt = a.getMarqueArticle().getDesignation();
 				}
-				row[4] = a.getCodeArticle().getTypeObjet().getDesignation() + " (" + a.getCodeArticle().getDesignation()
-						+ " ) " + marqueArt;
+				row[4] = a.getCodeArticle().getDesignation() + marqueArt;
 				row[5] = a.getNombre();
 				row[6] = a.getPrix();
 				row[7] = (Long) row[5] * (Float) row[6];
@@ -2269,8 +2268,7 @@ public class SuiviEditionBean implements Serializable{
 				row[0] = row[0] + "/S";
 				row[3] = (((OpSortieArticle) o).getBeneficiaire()).getNomAgent();
 				Article a = ((OpSortieArticle) o).getArticle();
-				row[4] = a.getCodeArticle().getTypeObjet().getDesignation() + " (" + a.getCodeArticle().getDesignation()
-						+ " ) ";
+				row[4] = a.getCodeArticle().getDesignation();
 				row[5] = a.getNombre();
 				row[6] = a.getPrix();
 				row[7] = (Long) row[5] * (Float) row[6];
@@ -2348,8 +2346,7 @@ public class SuiviEditionBean implements Serializable{
 				if(a.getMarqueArticle() != null) {
 					marqueArt = a.getMarqueArticle().getDesignation();
 				}
-				row[4] = a.getCodeArticle().getTypeObjet().getDesignation() + " (" + a.getCodeArticle().getDesignation()
-						+ " ) " + marqueArt;
+				row[4] = a.getCodeArticle().getDesignation()+ marqueArt;
 				row[5] = a.getNombre();
 				row[6] = a.getPrix();
 				row[7] = (Long) row[5] * (Float) row[6];
@@ -2365,8 +2362,7 @@ public class SuiviEditionBean implements Serializable{
 				row[0] = row[0] + "/S";
 				row[3] = (((OpSortieArticle) o).getBeneficiaire()).getNomAgent();
 				Article a = ((OpSortieArticle) o).getArticle();
-				row[4] = a.getCodeArticle().getTypeObjet().getDesignation() + " (" + a.getCodeArticle().getDesignation()
-						+ " ) ";
+				row[4] = a.getCodeArticle().getDesignation();
 				row[5] = a.getNombre();
 				row[6] = a.getPrix();
 				row[7] = (Long) row[5] * (Float) row[6];
@@ -2413,8 +2409,7 @@ public class SuiviEditionBean implements Serializable{
 				row[0] = row[0] + "/E";
 				row[3] = "a ajouter origine";
 				Article a = ((OpEntreeArticle) o).getArticle();
-				row[4] = a.getCodeArticle().getTypeObjet().getDesignation() + " (" + a.getCodeArticle().getDesignation()
-						+ " ) ";
+				row[4] = a.getCodeArticle().getDesignation();
 				row[5] = a.getNombre();
 				row[6] = a.getPrix();
 				row[7] = (Long) row[5] * (Float) row[6];
@@ -2434,8 +2429,7 @@ public class SuiviEditionBean implements Serializable{
 				if(a.getMarqueArticle() !=null) {
 					marqueArt = a.getMarqueArticle().getDesignation();
 				}
-				row[4] = a.getCodeArticle().getTypeObjet().getDesignation() + " (" + a.getCodeArticle().getDesignation()
-						+ " ) " + marqueArt;
+				row[4] = a.getCodeArticle().getDesignation()+ marqueArt;
 				row[5] = a.getNombre();
 				row[6] = a.getPrix();
 				row[7] = (Long) row[5] * (Float) row[6];

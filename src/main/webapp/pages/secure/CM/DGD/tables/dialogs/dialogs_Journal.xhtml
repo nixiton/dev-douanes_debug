@@ -182,17 +182,13 @@
  			<f:setPropertyActionListener target="#{JasperTableExampleBean.journal.num4}" value="#{JournalBean.quatre}" />
  			</p:commandButton>
  			<br/>
- 			<c:if test="#{topMenuMB.curentAgent.roleAgent.role eq 'ROLE_ADMIN' 
-            or topMenuMB.curentAgent.roleAgent.role eq 'ROLE_SISE'
-            or topMenuMB.curentAgent.roleAgent.role eq 'ROLE_DG'
-            or topMenuMB.curentAgent.roleAgent.role eq 'ROLE_DRF'
-            }">
+ 			
  			<p:commandButton styleClass="ui-priority-primary fa fa-file-word-o"  style="width:200px;  height:50px; " action="#{JasperTableExampleBean.journalMatiereDoc(JournalBean.dateD, JournalBean.dateF, JournalBean.li)}" type="submit" value="Exporter en Word" ajax="false" >
  			<!-- f:setPropertyActionListener target="#{JasperTableExampleBean.journal.num3}" value="#{JournalBean.direction}" /-->
  			<f:setPropertyActionListener target="#{JasperTableExampleBean.journal.lieu}" value="#{JournalBean.trois}" />
  			<f:setPropertyActionListener target="#{JasperTableExampleBean.journal.num4}" value="#{JournalBean.quatre}" />
  			</p:commandButton>
- 			</c:if>
+ 			
 </h:form>
 <script
         src="#{request.contextPath}/pages/unsecure/assets/lib/jquery_ui/js/jquery-ui.js"></script>

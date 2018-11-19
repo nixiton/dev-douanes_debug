@@ -37,7 +37,7 @@ public class FicheStockBean {
 			this.liste = s.getListForJournalStockByCod(d.getDirectionToFiche(),d.getArticleToFiche(),this.date,this.dateF);
 			//#{depositaireBean.articleToFiche.typeObjet.designation} (#{depositaireBean.articleToFiche.designation}
 			//this.folio = d.getArticle().getReference();
-			this.designation = d.getArticleToFiche().getTypeObjet().getDesignation() + "(" + d.getArticleToFiche().getDesignation() +")";
+			this.designation = d.getArticleToFiche().getDesignation();
 			if(this.liste.size() > 0)
 				this.espece = (String) ((this.liste.get(0)) [8]);
 			//System.out.println("etat Appreciatif null");
