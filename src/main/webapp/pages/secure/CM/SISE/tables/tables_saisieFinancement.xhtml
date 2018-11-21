@@ -58,7 +58,7 @@
        </p:column>
 		<p:column style="width: 3%; text-align: center; word-wrap: break-word;" value="#{userMB.roleuser}" rendered="#{userMB.getHaveRole('ROLE_ADMIN')}" >
 			<p:commandButton  action="#{siseBean.deleteRow(f)}"
-							  icon="ui-icon-close" update=":formFin:msgtableFin"
+							  icon="fa  fa-remove" update=":formFin:msgtableFin"
 							  oncomplete="PF('FinTable').filter()">
 				<p:confirm header="Confirmation" message="Etes-vous sure?" icon="ui-icon-alert" />
 			</p:commandButton>

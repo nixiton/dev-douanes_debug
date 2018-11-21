@@ -55,15 +55,16 @@
 			
 		</p:column>
 		<c:if test="#{topMenuMB.curentAgent.roleAgent.role eq 'ROLE_ADMIN' 
-            or topMenuMB.curentAgent.roleAgent.role eq 'ROLE_DC'
+            or topMenuMB.curentAgent.roleAgent.role eq 'ROLE_SISE'
             }">
 		<p:column style=" width:2%; text-align: center; word-wrap: break-word;">
            <p:rowEditor />
        </p:column>
        <p:column style=" width:3%; text-align: center; word-wrap: break-word;">
        		<p:commandButton  action="#{siseBean.deleteRow(typemateriel)}"
-       icon="ui-icon-close" update=":formTypArt:msgtableTypeArt"
-       oncomplete="PF('ArtTable').filter()">
+       icon="fa  fa-remove" update=":formTypArt:msgtableTypeArt"
+       oncomplete="PF('ArtTable').filter()" type="button" styleClass="mena">
+       
        <p:confirm header="Confirmation" message="Etes-vous sure?" icon="ui-icon-alert" />
        </p:commandButton>
        

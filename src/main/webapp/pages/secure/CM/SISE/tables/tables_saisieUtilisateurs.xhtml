@@ -70,10 +70,10 @@
             oncomplete="PF('detailuser').show()" icon="ui-icon-pencil"/>
           <div style=" display:inline-block">
           <p:commandButton  action="#{siseBean.deleteUser(f)}"
-       icon="ui-icon-close" update=":formUser:msgtableUser"
+       icon="fa  fa-remove" update=":formUser:msgtableUser"
        oncomplete="PF('UserTable').filter()"
        >
-       <p:confirm header="Desactivation" message="Etes-vous sure?" icon="ui-icon-alert" />
+       <p:confirm header="Désactiver utilisateur" message="Etes-vous sure?" icon="ui-icon-alert" />
        </p:commandButton>
         </div>
        </p:column>

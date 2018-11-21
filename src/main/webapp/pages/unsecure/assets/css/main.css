@@ -2766,3 +2766,8 @@ li[aria-selected="true"] a{
 .fa{
 	margin-bottom:0px !important;
 }
+
+.fa-remove{
+    color:#fc6262 !important;
+}
+
