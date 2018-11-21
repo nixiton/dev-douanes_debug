@@ -34,7 +34,7 @@
                  widgetVar="UserTable"
                  rowStyleClass="#{f.active eq false ? 'bg-dark' : 'bg-dark'}"
                  >
-		<p:column styleClass="state-#{f.active}" style="width: 5%; text-align: center; word-wrap: break-word;">
+		<p:column styleClass="state-#{f.active}" filterBy="#{f.im}" filterMatchMode="contains" style="width: 5%; text-align: center; word-wrap: break-word;">
 			<f:facet name="header">Immatriculation</f:facet>
 			#{f.im}
 		</p:column>

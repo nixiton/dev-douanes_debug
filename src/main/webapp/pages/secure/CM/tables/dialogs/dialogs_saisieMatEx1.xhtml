@@ -4,6 +4,7 @@
     xmlns:f="http://java.sun.com/jsf/core"
     xmlns:h="http://java.sun.com/jsf/html"
     xmlns:p="http://primefaces.org/ui"
+    xmlns:c="http://java.sun.com/jsp/jstl/core"
     >
 <style>
 	div.devise{
@@ -116,7 +117,31 @@
                                 		<f:convertNumber pattern="¤#,##0" currencySymbol=""></f:convertNumber>
                                 	</h:outputText>
                                 </td>
-                            </tr>
+                               </tr> 
+                                <c:forEach var="matdet" items="#{docbean.curentOperationAttrToPdf.detenteur.matdetenu}" varStatus="loop">
+                                <tr >
+                                <td align="left">#{matdet.design.nomenMat.designation} -
+                                #{matdet.design.nomenMat.nomenclature} - 
+                                #{matdet.design.marque.designation} - 
+                                #{matdet.design.renseignement} - 
+                                #{matdet.reference}
+                                 </td>
+                                <td align="left">#{matdet.design.especeUnite}</td>
+                                <td align="left">
+                                	<h:outputText value="#{matdet.design.pu}" >
+                                		<f:convertNumber pattern="¤#,##0" currencySymbol=""></f:convertNumber>
+                                	</h:outputText>
+                                </td>
+                                <td align="left">1</td>
+                                <td align="left">
+                                	<h:outputText value="#{matdet.design.pu*1}" >
+                                		<f:convertNumber pattern="¤#,##0" currencySymbol=""></f:convertNumber>
+                                	</h:outputText>
+                                </td>
+                               </tr>  
+                                </c:forEach>
+                                
+                            
                         </table>
                     </tr>                    
                     

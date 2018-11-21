@@ -1,4 +1,5 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
 	<modelVersion>4.0.0</modelVersion>
@@ -18,20 +19,16 @@
 				<enabled>true</enabled>
 			</snapshots>
 		</repository>
-		
-		
-		
-		<!-- Repository for ORACLE ojdbc6.
-    <repository>
-        <id>codelds</id>
-        <url>https://code.lds.org/nexus/content/groups/main-repo</url>
-    </repository>
- -->
-		
+
+
+
+		<!-- Repository for ORACLE ojdbc6. <repository> <id>codelds</id> <url>https://code.lds.org/nexus/content/groups/main-repo</url> 
+			</repository> -->
+
 		<repository>
 			<id>central2</id>
-     		 <name>Central Repository 2</name>
-     		 <url>https://repo1.maven.org/maven2/</url>
+			<name>Central Repository 2</name>
+			<url>https://repo1.maven.org/maven2/</url>
 			<releases>
 				<enabled>true</enabled>
 			</releases>
@@ -39,20 +36,20 @@
 				<enabled>true</enabled>
 			</snapshots>
 		</repository>
-		
+
 		<!-- Theme repository -->
 		<repository>
 			<id>prime-repo</id>
 			<name>PrimeFaces Maven Repository</name>
 			<url>http://repository.primefaces.org</url>
 			<layout>default</layout>
-</repository>
-		
+		</repository>
+
 		<!--repository> <id>prime-repo</id> <name>PrimeFaces Maven Repository</name> 
 			<url>http://repository.primefaces.org</url> <layout>default</layout> </repository -->
 	</repositories>
-	
-	
+
+
 	<pluginRepositories>
 		<pluginRepository>
 			<id>eap</id>
@@ -215,7 +212,7 @@
 			<artifactId>qrgen</artifactId>
 			<version>1.4</version>
 		</dependency>
-		
+
 		<!-- hibernate -->
 		<dependency>
 			<groupId>org.hibernate.javax.persistence</groupId>
@@ -224,16 +221,16 @@
 		</dependency>
 
 		<dependency>
-   <groupId>org.hibernate</groupId>
-   <artifactId>hibernate-core</artifactId>
-   <version>4.2.7.Final</version>
-</dependency>
-<!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-entitymanager -->
-<dependency>
-    <groupId>org.hibernate</groupId>
-    <artifactId>hibernate-entitymanager</artifactId>
-    <version>4.2.7.Final</version>
-</dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-core</artifactId>
+			<version>4.2.7.Final</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-entitymanager -->
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-entitymanager</artifactId>
+			<version>4.2.7.Final</version>
+		</dependency>
 
 		<!-- Jax RS cannot -->
 		<dependency>
@@ -241,7 +238,7 @@
 			<artifactId>resteasy-jaxrs</artifactId>
 			<version>2.2.1.GA</version>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>com.google.code.gson</groupId>
 			<artifactId>gson</artifactId>
@@ -383,12 +380,9 @@
 			<artifactId>flyway-core</artifactId>
 			<version>4.2.0</version>
 		</dependency>
-		<!-- dependency>
-			<groupId>org.flywaydb</groupId>
-			<artifactId>flyway-core</artifactId>
-			<version>3.0</version>
-		</dependency-->
-	
+		<!-- dependency> <groupId>org.flywaydb</groupId> <artifactId>flyway-core</artifactId> 
+			<version>3.0</version> </dependency -->
+
 
 
 		<!-- https://mvnrepository.com/artifact/org.webjars/jquery-migrate -->
@@ -398,83 +392,92 @@
 			<version>3.0.0</version>
 		</dependency>
 
-		<!-- https://mvnrepository.com/artifact/com.itextpdf/itextpdf 
-		<dependency>
-			<groupId>com.itextpdf</groupId>
-			<artifactId>itextpdf</artifactId>
-			<version>5.0.6</version>
-		</dependency>
-		-->
+		<!-- https://mvnrepository.com/artifact/com.itextpdf/itextpdf <dependency> 
+			<groupId>com.itextpdf</groupId> <artifactId>itextpdf</artifactId> <version>5.0.6</version> 
+			</dependency> -->
 		<!-- https://mvnrepository.com/artifact/net.sf.jasperreports/jasperreports -->
-<dependency>
-   <groupId>net.sf.jasperreports</groupId>
-   <artifactId>jasperreports</artifactId>
-   <version>5.5.1</version>
-</dependency>
-<dependency>
-        <groupId>net.sf.jasperreports</groupId>
-        <artifactId>jasperreports-fonts</artifactId>
-        <version>5.6.1</version>
-    </dependency>
-<dependency>
-  <groupId>com.lowagie</groupId>
-  <artifactId>itext</artifactId>
-  <version>2.1.7</version>
-  <scope>compile</scope>
-</dependency>
-<dependency>
-        <groupId>commons-collections</groupId>
-        <artifactId>commons-collections</artifactId>
-        <version>3.2.2</version>
-    </dependency>
-    <!-- https://mvnrepository.com/artifact/commons-digester/commons-digester -->
-<dependency>
-    <groupId>commons-digester</groupId>
-    <artifactId>commons-digester</artifactId>
-    <version>1.7</version>
-</dependency>
-    
-<!-- https://mvnrepository.com/artifact/bouncycastle/bcprov-jdk14 
-<dependency>
-    <groupId>bouncycastle</groupId>
-    <artifactId>bcprov-jdk14</artifactId>
-    <version>138</version>
-</dependency>		
- 
--->
-		
-		
+		<dependency>
+			<groupId>net.sf.jasperreports</groupId>
+			<artifactId>jasperreports</artifactId>
+			<version>5.5.1</version>
+		</dependency>
+		<dependency>
+			<groupId>net.sf.jasperreports</groupId>
+			<artifactId>jasperreports-fonts</artifactId>
+			<version>5.6.1</version>
+		</dependency>
+		<dependency>
+			<groupId>com.lowagie</groupId>
+			<artifactId>itext</artifactId>
+			<version>2.1.7</version>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>commons-collections</groupId>
+			<artifactId>commons-collections</artifactId>
+			<version>3.2.2</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/commons-digester/commons-digester -->
+		<dependency>
+			<groupId>commons-digester</groupId>
+			<artifactId>commons-digester</artifactId>
+			<version>1.7</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/bouncycastle/bcprov-jdk14 <dependency> 
+			<groupId>bouncycastle</groupId> <artifactId>bcprov-jdk14</artifactId> <version>138</version> 
+			</dependency> -->
+
+
 		<!-- https://mvnrepository.com/artifact/org.apache.poi/poi -->
 		<dependency>
-    		<groupId>org.apache.poi</groupId>
-    		<artifactId>poi</artifactId>
-   			 <version>3.7</version>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi</artifactId>
+			<version>3.7</version>
 		</dependency>
-		 <!--Log4j2 API -->
-    <dependency>
-      <groupId>org.apache.logging.log4j</groupId>
-      <artifactId>log4j-core</artifactId>
-      <version>2.8.2</version>
-    </dependency>
-    <dependency>
-      <groupId>org.apache.logging.log4j</groupId>
-      <artifactId>log4j-api</artifactId>
-      <version>2.8.2</version>
-    </dependency>
+		<!--Log4j2 API -->
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-core</artifactId>
+			<version>2.8.2</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-api</artifactId>
+			<version>2.8.2</version>
+		</dependency>
 
-<!-- THEME -->
-	<dependency>
-	    <groupId>org.primefaces.themes</groupId>
-	    <artifactId>all-themes</artifactId>
-	    <version>1.0.10</version>
-	</dependency>
-<!-- ORACLE 
-    <dependency>
-        <groupId>com.oracle</groupId>
-        <artifactId>ojdbc6</artifactId>
-        <version>11.2.0</version>
-    </dependency>
--->
+		<!-- THEME -->
+		<dependency>
+			<groupId>org.primefaces.themes</groupId>
+			<artifactId>all-themes</artifactId>
+			<version>1.0.10</version>
+		</dependency>
+		<!-- ORACLE -->
+		<dependency>
+			<groupId>com.oracle</groupId>
+			<artifactId>ojdbc6</artifactId>
+			<version>11.2.0</version>
+		</dependency>
+
+		<!-- for JSF 2.x 
+		<dependency>
+			<groupId>org.ocpsoft.rewrite</groupId>
+			<artifactId>rewrite-servlet</artifactId>
+			<version>3.4.1.Final</version>
+		</dependency>
+		<dependency>
+			<groupId>org.ocpsoft.rewrite</groupId>
+			<artifactId>rewrite-config-prettyfaces</artifactId>
+			<version>3.4.1.Final</version>
+		</dependency>-->
+		<!-- for JSF 2.x -->
+		<dependency>
+			<groupId>com.ocpsoft</groupId>
+			<artifactId>prettyfaces-jsf2</artifactId>
+			<version>3.3.0</version>
+		</dependency>
+
 	</dependencies>
 
 	<profiles>
@@ -537,16 +540,16 @@
 					</execution>
 				</executions>
 			</plugin>
-			
+
 		</plugins>
 		<resources>
-					<resource>
-						<directory>src/main/resources</directory>
-					</resource>
-					<resource>
-						<directory>src/main/java/com/douane/managed/jasperReport</directory>
-					</resource>
-				</resources>
+			<resource>
+				<directory>src/main/resources</directory>
+			</resource>
+			<resource>
+				<directory>src/main/java/com/douane/managed/jasperReport</directory>
+			</resource>
+		</resources>
 	</build>
 
 </project>
