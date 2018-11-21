@@ -201,6 +201,64 @@
 		<view-id value="/pages/secure/CA/DC/priseEnCharge.xhtml" />
 	</url-mapping>
 	
+	<!-- FORMULAIRE EXPORT -->
+	<url-mapping id="expfichedestock">
+		<pattern value="/export/comptabilite-admini/formulaire-fichedestock" />
+		<view-id value="/pages/secure/CA/DGD/form/form_ficheDeStock.xhtml" />
+	</url-mapping>
+	
+	<url-mapping id="expjournalca">
+		<pattern value="/export/comptabilite-admini/formulaire-journal" />
+		<view-id value="/pages/secure/CA/DGD/tables/dialogs/dialogs_Journal.xhtml" />
+	</url-mapping>
+	
+	<url-mapping id="expordreentree">
+		<pattern value="/export/comptabilite-matiere/formulaire-ordreentree" />
+		<view-id value="/pages/secure/CM/DGD/tables/dialogs/dialogs_OrdreEntree.xhtml" />
+	</url-mapping>
+	
+	<url-mapping id="expordresortie">
+		<pattern value="/export/comptabilite-matiere/formulaire-ordresortie" />
+		<view-id value="/pages/secure/CM/DGD/tables/dialogs/dialogs_OrdreSortie.xhtml" />
+	</url-mapping>
+	
+	<url-mapping id="expjournal">
+		<pattern value="/export/comptabilite-matiere/formulaire-journal" />
+		<view-id value="/pages/secure/CM/DGD/tables/dialogs/dialogs_Journal.xhtml" />
+	</url-mapping>
+	
+	<url-mapping id="expgrandlivre">
+		<pattern value="/export/comptabilite-matiere/formulaire-grandlivre" />
+		<view-id value="/pages/secure/CM/tables/dialogs/dialogs_grandLivre.xhtml" />
+	</url-mapping>
+	
+	<url-mapping id="expetatappreciatif">
+		<pattern value="/export/comptabilite-matiere/formulaire-etatappreciatif" />
+		<view-id value="/pages/secure/CM/DGD/tables/dialogs/dialogs_EtatAppreciatif.xhtml" />
+	</url-mapping>
+	
+	<url-mapping id="expinventaire">
+		<pattern value="/export/comptabilite-matiere/formulaire-inventaire" />
+		<view-id value="/pages/secure/CM/DGD/tables/dialogs/dialogs_Inventaire.xhtml" />
+	</url-mapping>
+	
+	
+	<url-mapping id="expdetenteureffectif">
+		<pattern value="/export/comptabilite-matiere/formulaire-etatdetenteureffectif" />
+		<view-id value="/pages/secure/CM/tables/dialogs/dialogs_saisieMatEx1.xhtml" />
+	</url-mapping>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	
