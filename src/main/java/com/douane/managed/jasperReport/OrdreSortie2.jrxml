@@ -163,7 +163,7 @@ $P{filamatra}]]></textFieldExpression>
 (76) Subdivision de chapitre]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="450" y="80" width="125" height="160" uuid="b8f3a7ad-8911-46e0-969c-730f2717d896"/>
+				<reportElement x="450" y="69" width="125" height="171" uuid="b8f3a7ad-8911-46e0-969c-730f2717d896"/>
 				<text><![CDATA[(*) rayer avec soin et tres nettement
 "matériel en provisionnement" ou "matériel en service" selon qu'il s'agit de matériel en magasin ou matériel en service
 (**) indiquer avec le plus grand soin et en détail la cause de mouvement et la référence]]></text>

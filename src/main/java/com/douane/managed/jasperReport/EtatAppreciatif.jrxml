@@ -195,7 +195,7 @@
 		<band splitType="Stretch"/>
 	</background>
 	<title>
-		<band height="360" splitType="Stretch">
+		<band height="339" splitType="Stretch">
 			<staticText>
 				<reportElement x="193" y="0" width="217" height="20" uuid="260cd361-2e0d-4ef8-94b5-750af12361b8"/>
 				<textElement textAlignment="Center">
@@ -368,42 +368,42 @@
 				<text><![CDATA[(8) Premier ou deuxième jour du trimestre ou, d'il y a lieu date de la prise de la remise du service]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="112" y="239" width="315" height="22" uuid="d859a3fe-b735-4e58-8aa9-beae87c87c89"/>
+				<reportElement x="112" y="231" width="315" height="22" uuid="d859a3fe-b735-4e58-8aa9-beae87c87c89"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="12" isBold="true"/>
 				</textElement>
 				<text><![CDATA[ETAT APPRECIATIF]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="0" y="290" width="63" height="20" uuid="b67245a0-6a9c-4846-a824-9026ddbd9ce7"/>
+				<reportElement x="0" y="274" width="63" height="20" uuid="b67245a0-6a9c-4846-a824-9026ddbd9ce7"/>
 				<textElement>
 					<font size="12"/>
 				</textElement>
 				<text><![CDATA[Ci-joint(6)]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="250" y="290" width="305" height="20" uuid="64ef5278-0739-446a-afd2-550fcce323c0"/>
+				<reportElement x="250" y="274" width="305" height="20" uuid="64ef5278-0739-446a-afd2-550fcce323c0"/>
 				<textElement>
 					<font size="12"/>
 				</textElement>
 				<text><![CDATA[pièces justificatives.]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="63" y="290" width="187" height="20" uuid="ccb8d8fb-b300-4894-84d3-0f262441cc02"/>
+				<reportElement x="63" y="274" width="187" height="20" uuid="ccb8d8fb-b300-4894-84d3-0f262441cc02"/>
 				<textElement textAlignment="Center">
 					<font size="12"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{num6}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="0" y="315" width="477" height="19" uuid="1c902937-3f0a-40a2-a549-34d114d6977e"/>
+				<reportElement x="0" y="299" width="477" height="19" uuid="1c902937-3f0a-40a2-a549-34d114d6977e"/>
 				<textElement textAlignment="Left">
 					<font size="12"/>
 				</textElement>
 				<textFieldExpression><![CDATA["Gestion de M.(7) " + $P{num7}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="0" y="335" width="477" height="20" uuid="a201a372-502e-4e6d-9daf-051dae9f18a5"/>
+				<reportElement x="0" y="319" width="477" height="20" uuid="a201a372-502e-4e6d-9daf-051dae9f18a5"/>
 				<textElement textAlignment="Left">
 					<font size="12"/>
 				</textElement>
@@ -417,7 +417,7 @@
 				<textFieldExpression><![CDATA[$P{filamatra}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="0" y="261" width="555" height="19" uuid="64c2c179-8bac-4447-90f1-c1eab82ad11e"/>
+				<reportElement x="0" y="253" width="555" height="19" uuid="64c2c179-8bac-4447-90f1-c1eab82ad11e"/>
 				<textFieldExpression><![CDATA["présentant  les mouvements des entrées et des sorties effectuées pendant l'année " + $P{annee}]]></textFieldExpression>
 			</textField>
 		</band>
@@ -425,7 +425,7 @@
 	<detail>
 		<band height="163" splitType="Stretch">
 			<componentElement>
-				<reportElement key="table 1" style="table 1" x="0" y="0" width="555" height="160" isRemoveLineWhenBlank="true" uuid="55477075-d55c-45de-9799-2da7bf43eebc"/>
+				<reportElement key="table 1" style="table 1" x="0" y="2" width="555" height="160" isRemoveLineWhenBlank="true" uuid="55477075-d55c-45de-9799-2da7bf43eebc"/>
 				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" whenNoDataType="Blank">
 					<datasetRun subDataset="Table Dataset 2" uuid="d82a3093-e6fb-4c23-8826-b30bdb66f368">
 						<dataSourceExpression><![CDATA[$P{dataSource}]]></dataSourceExpression>
@@ -767,7 +767,7 @@
 		</band>
 		<band height="249">
 			<staticText>
-				<reportElement x="230" y="10" width="108" height="20" uuid="76f67fc6-7459-4738-ac40-cd05578a840a"/>
+				<reportElement x="233" y="16" width="108" height="20" uuid="76f67fc6-7459-4738-ac40-cd05578a840a"/>
 				<textElement>
 					<font size="12"/>
 				</textElement>
@@ -832,7 +832,7 @@
 								<textElement textAlignment="Center">
 									<font size="11"/>
 								</textElement>
-								<text><![CDATA[No DE LA NOMENCLATURE]]></text>
+								<text><![CDATA[N° DE LA NOMENCLATURE]]></text>
 							</staticText>
 						</jr:columnHeader>
 						<jr:detailCell style="table 2_TD" height="152" rowSpan="1">
@@ -1056,24 +1056,27 @@
 					</jr:column>
 				</jr:table>
 			</componentElement>
+			<break>
+				<reportElement x="0" y="6" width="100" height="1" uuid="73f47cae-d8b0-412a-ac1a-1539d66dd357"/>
+			</break>
 		</band>
 		<band height="151">
 			<textField>
-				<reportElement x="-1" y="0" width="556" height="29" uuid="392deffa-94cb-4920-8200-8567a46d3ee3"/>
+				<reportElement x="-1" y="0" width="556" height="20" uuid="392deffa-94cb-4920-8200-8567a46d3ee3"/>
 				<textElement textAlignment="Left" verticalAlignment="Middle">
 					<font size="12"/>
 				</textElement>
 				<textFieldExpression><![CDATA["Arrété a la somme de " + $P{somme} + " en ce qui concerne les entrées"]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="0" y="29" width="554" height="25" uuid="a637efea-2b04-4091-a382-8376ee513e02"/>
+				<reportElement x="0" y="21" width="554" height="25" uuid="a637efea-2b04-4091-a382-8376ee513e02"/>
 				<textElement textAlignment="Left" verticalAlignment="Middle">
 					<font size="12"/>
 				</textElement>
 				<textFieldExpression><![CDATA["A la somme " + $P{somme1} + " en ce qui concerne les Sorties"]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="-1" y="54" width="556" height="36" uuid="8c327c7e-e7d2-46d0-9291-764d7be89d4a"/>
+				<reportElement x="-1" y="47" width="556" height="36" uuid="8c327c7e-e7d2-46d0-9291-764d7be89d4a"/>
 				<textElement textAlignment="Left">
 					<font size="12"/>
 				</textElement>

@@ -22,11 +22,13 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.transaction.annotation.Transactional;
 
+import com.douane.entite.Materiel;
 import com.douane.entite.OpAttribution;
 import com.douane.entite.OpEntree;
 import com.douane.entite.OpSortie;
 import com.douane.entite.Operation;
 import com.douane.managed.bean.JasperData.FicheStockData;
+import com.douane.managed.bean.JasperData.DetenteurEffectifData;
 import com.douane.managed.bean.JasperData.EtatAppreciatifData;
 import com.douane.managed.bean.JasperData.InventaireData;
 import com.douane.managed.bean.JasperData.JournalAdminData;
@@ -123,6 +125,8 @@ public class JasperTableExampleBean implements Serializable{
        
     }
     public void saisieMatexReport(OpAttribution op) {
+    	List<Materiel> matdetenu = op.getDetenteur().getMatdetenu();
+    	DetenteurEffectifData dataList = new DetenteurEffectifData(matdetenu);
     	String fDepo = "";
     	String fDetent = "";
     	if(op.getOperateur().getPosteny() != null) {
@@ -147,7 +151,7 @@ public class JasperTableExampleBean implements Serializable{
             		+ op.getMat().getDesign().getRenseignement() + " - "
             		+ op.getMat().getReference()
             		;
-            
+            parameters.put("datasource", dataList.getDataSource());
             parameters.put("service", this.pdfForm.getNum3());
             parameters.put("filamatra", this.pdfForm.getFilamatra());
             parameters.put("num1", this.pdfForm.getNum1());
@@ -186,6 +190,8 @@ public class JasperTableExampleBean implements Serializable{
     }
     
     public void saisieMatexDoc(OpAttribution op) {
+    	List<Materiel> matdetenu = op.getDetenteur().getMatdetenu();
+    	DetenteurEffectifData dataList = new DetenteurEffectifData(matdetenu);
     	String fDepo = "";
     	String fDetent = "";
     	if(op.getOperateur().getPosteny() != null) {
@@ -210,7 +216,7 @@ public class JasperTableExampleBean implements Serializable{
             		+ op.getMat().getDesign().getRenseignement() + " - "
             		+ op.getMat().getReference()
             		;
-            
+            parameters.put("datasource", dataList.getDataSource());
             parameters.put("service", this.pdfForm.getNum3());
             parameters.put("filamatra", this.pdfForm.getFilamatra());
             parameters.put("num1", this.pdfForm.getNum1());
