@@ -191,7 +191,7 @@
 "\n(4) " + $P{num4}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="200" y="86" width="146" height="20" uuid="e2c66d32-6a35-4164-877c-79ca521acdd9"/>
+				<reportElement x="210" y="86" width="146" height="20" uuid="e2c66d32-6a35-4164-877c-79ca521acdd9"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="12"/>
 				</textElement>

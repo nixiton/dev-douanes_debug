@@ -154,8 +154,14 @@ public class JasperTableExampleBean implements Serializable{
             parameters.put("datasource", dataList.getDataSource());
             parameters.put("service", this.pdfForm.getNum3());
             parameters.put("filamatra", this.pdfForm.getFilamatra());
-            parameters.put("num1", this.pdfForm.getNum1());
-            parameters.put("num2", this.pdfForm.getNum2());
+            if (this.pdfForm.getNum1() != "") 
+            	parameters.put("num1", this.pdfForm.getNum1());
+            else
+            	parameters.put("num1", "...........");
+            if (this.pdfForm.getNum2() != "") 
+            	parameters.put("num2", this.pdfForm.getNum2());
+            else
+            	parameters.put("num2", "...........");
             parameters.put("nomDepositaire", op.getOperateur().getNomAgent());
             parameters.put("fonctionDepositaire", fDepo);
             parameters.put("nomDetenteur", op.getDetenteur().getNomAgent());
@@ -219,8 +225,14 @@ public class JasperTableExampleBean implements Serializable{
             parameters.put("datasource", dataList.getDataSource());
             parameters.put("service", this.pdfForm.getNum3());
             parameters.put("filamatra", this.pdfForm.getFilamatra());
-            parameters.put("num1", this.pdfForm.getNum1());
-            parameters.put("num2", this.pdfForm.getNum2());
+            if (this.pdfForm.getNum1() != "") 
+            	parameters.put("num1", this.pdfForm.getNum1());
+            else
+            	parameters.put("num1", "...........");
+            if (this.pdfForm.getNum2() != "") 
+            	parameters.put("num2", this.pdfForm.getNum2());
+            else
+            	parameters.put("num2", "...........");
             parameters.put("nomDepositaire", op.getOperateur().getNomAgent());
             parameters.put("fonctionDepositaire", fDepo);
             parameters.put("nomDetenteur", op.getDetenteur().getNomAgent());
@@ -276,28 +288,46 @@ public class JasperTableExampleBean implements Serializable{
             parameters.put ("dataSource" , datalist.getDataAsDataSource());
             parameters.put ("filamatra" , this.ordreEB.getFilamatra());
             parameters.put("numEntre", op.getNumentree());
-            //parameters.put("num3", op.getDirection().getDesignation());
             parameters.put("num3", this.ordreEB.getDirc());
             parameters.put("matieres", op.getListMat().get(0).getDesign().getOrigine());
             parameters.put("num4", op.getDirection().getQuatre());
             parameters.put("budget", this.ordreEB.getBudget());
-            parameters.put("chap", this.ordreEB.getChap());
-            parameters.put("article", this.ordreEB.getArticle());
-            parameters.put("paragraphe", this.ordreEB.getParagraphe());
+            if (this.ordreEB.getChap() != "") 
+            	parameters.put("chap", this.ordreEB.getChap());
+            else
+            	parameters.put("chap", "...........");
+            if (this.ordreEB.getArticle() != "") 
+            	parameters.put("article", this.ordreEB.getArticle());
+            else
+            	parameters.put("article", "...........");
+            if (this.ordreEB.getParagraphe() != "") 
+            	parameters.put("paragraphe", this.ordreEB.getParagraphe());
+            else
+            	parameters.put("paragraphe", "...........");
             parameters.put("noumJour", this.ordreEB.getNoumJour());
             parameters.put("approOuService", this.ordreEB.getApproOuService());
-            //parameters.put("comptable", op.getDirection().getDesignation());
             parameters.put("comptable", this.ordreEB.getDirc());
             parameters.put("comptable1", op.getOperateur().getNomAgent());
             parameters.put("matieres", op.getListMat().get(0).getDesign().getOrigine());
             parameters.put("arrte", this.ordreEB.getOrdre());
-            parameters.put("ordre", this.ordreEB.getOrdre());
-            parameters.put("somme", this.ordreEB.getSomme());
-            parameters.put("concordance", this.ordreEB.getConcordance());
-            //parameters.put("opDate", op.getDate());
+            if (this.ordreEB.getOrdre() != "") 
+            	parameters.put("ordre", this.ordreEB.getOrdre());
+            else
+            	parameters.put("ordre", "...........");
+            if (this.ordreEB.getSomme() != "") 
+            	parameters.put("somme", this.ordreEB.getSomme());
+            else
+            	parameters.put("somme", "...........");
+            if (this.ordreEB.getConcordance() != "")
+            	parameters.put("concordance", this.ordreEB.getConcordance());
+            else
+            	parameters.put("concordance", "...........");
             DateFormat df = new SimpleDateFormat("dd MMMM yyyy", Locale.FRANCE);
             parameters.put("date", df.format(op.getDate()));
-            parameters.put("date2", this.ordreEB.getDate2());
+            if (this.ordreEB.getDate2() != "")
+            	parameters.put("date2", this.ordreEB.getDate2());
+            else
+            	parameters.put("date2", "...........");
             parameters.put("lieu", op.getDirection().getTrois());
             parameters.put("lieu1", this.ordreEB.getLieu1());
             parameters.put("date1", this.ordreEB.getDate1());
@@ -335,26 +365,46 @@ public class JasperTableExampleBean implements Serializable{
             parameters.put ("dataSource" , datalist.getDataAsDataSource());
             parameters.put ("filamatra" , this.ordreEB.getFilamatra());
             parameters.put("numEntre", op.getNumentree());
-            parameters.put("num3", op.getDirection().getDesignation());
-            parameters.put("num4", op.getDirection().getQuatre());
+            parameters.put("num3", this.ordreEB.getDirc());
             parameters.put("matieres", op.getListMat().get(0).getDesign().getOrigine());
+            parameters.put("num4", op.getDirection().getQuatre());
             parameters.put("budget", this.ordreEB.getBudget());
-            parameters.put("chap", this.ordreEB.getChap());
-            parameters.put("article", this.ordreEB.getArticle());
-            parameters.put("paragraphe", this.ordreEB.getParagraphe());
+            if (this.ordreEB.getChap() != "") 
+            	parameters.put("chap", this.ordreEB.getChap());
+            else
+            	parameters.put("chap", "...........");
+            if (this.ordreEB.getArticle() != "") 
+            	parameters.put("article", this.ordreEB.getArticle());
+            else
+            	parameters.put("article", "...........");
+            if (this.ordreEB.getParagraphe() != "") 
+            	parameters.put("paragraphe", this.ordreEB.getParagraphe());
+            else
+            	parameters.put("paragraphe", "...........");
             parameters.put("noumJour", this.ordreEB.getNoumJour());
             parameters.put("approOuService", this.ordreEB.getApproOuService());
-            //parameters.put("comptable", op.getDirection().getDesignation());
             parameters.put("comptable", this.ordreEB.getDirc());
             parameters.put("comptable1", op.getOperateur().getNomAgent());
-            parameters.put("matieres",  op.getListMat().get(0).getDesign().getOrigine());
-            parameters.put("ordre", this.ordreEB.getOrdre());
-            parameters.put("somme", this.ordreEB.getSomme());
-            parameters.put("arret",this.ordreEB.getOrdre());
-            parameters.put("concordance", this.ordreEB.getConcordance());
+            parameters.put("matieres", op.getListMat().get(0).getDesign().getOrigine());
+            parameters.put("arrte", this.ordreEB.getOrdre());
+            if (this.ordreEB.getOrdre() != "") 
+            	parameters.put("ordre", this.ordreEB.getOrdre());
+            else
+            	parameters.put("ordre", "...........");
+            if (this.ordreEB.getSomme() != "") 
+            	parameters.put("somme", this.ordreEB.getSomme());
+            else
+            	parameters.put("somme", "...........");
+            if (this.ordreEB.getConcordance() != "")
+            	parameters.put("concordance", this.ordreEB.getConcordance());
+            else
+            	parameters.put("concordance", "...........");
             DateFormat df = new SimpleDateFormat("dd MMMM yyyy", Locale.FRANCE);
             parameters.put("date", df.format(op.getDate()));
-            parameters.put("date2", this.ordreEB.getDate2());
+            if (this.ordreEB.getDate2() != "")
+            	parameters.put("date2", this.ordreEB.getDate2());
+            else
+            	parameters.put("date2", "...........");
             parameters.put("lieu", op.getDirection().getTrois());
             parameters.put("lieu1", this.ordreEB.getLieu1());
             parameters.put("date1", this.ordreEB.getDate1());
