@@ -449,24 +449,44 @@ public class JasperTableExampleBean implements Serializable{
             parameters.put("num5", this.ordreS.getNum5());
             parameters.put("num6", op.getDirection().getQuatre());
             parameters.put("budget", this.ordreS.getBudget());
-            parameters.put("chap", this.ordreS.getChapitre());
-            parameters.put("article", this.ordreS.getArticle());
-            parameters.put("paragraphe", this.ordreS.getParagraphe());
-            parameters.put("num2", this.ordreS.getNum2());
+            if (this.ordreEB.getChap() != "") 
+            	parameters.put("chap", this.ordreS.getChapitre());
+            else
+            	parameters.put("chap", "...........");
+            if (this.ordreS.getArticle() != "") 
+            	parameters.put("article", this.ordreS.getArticle());
+            else
+            	parameters.put("article", "...........");
+            if (this.ordreS.getParagraphe() != "") 
+            	parameters.put("paragraphe", this.ordreS.getParagraphe());
+            else
+            	parameters.put("paragraphe", "...........");
+            if (this.ordreS.getNum2() != "") 
+            	parameters.put("num2", this.ordreS.getNum2());
+            else
+            	parameters.put("num2", "...........");
+            
             parameters.put("approOuService", this.ordreS.getApproOuService());
             if(op.getDirection().getDesignation() != null)
-            	//parameters.put("comptable", op.getDirection().getDesignation());
             	parameters.put("comptable", this.ordreS.getDirc());
             parameters.put("Comptable", op.getOperateur().getNomAgent());
             parameters.put("matiere",  op.getMat().getDesign().getOrigine());
-            //mila alamina ny jsxml sy ny entree
             parameters.put("ordre", this.ordreS.getOrdre());
-            parameters.put("somme", this.ordreS.getSomme());
+            if (this.ordreS.getSomme() != "") 
+            	parameters.put("somme", this.ordreS.getSomme());
+            else
+            	parameters.put("somme", "...........");
             parameters.put("concordance", this.ordreS.getConformite());
             DateFormat df = new SimpleDateFormat("dd MMMM yyyy", Locale.FRANCE);
             parameters.put("date1", df.format(op.getDate()));
-            parameters.put("date4", this.ordreS.getNum4());
-            parameters.put("arret", this.ordreS.getOrdre());
+            if (this.ordreS.getNum4() != "") 
+            	parameters.put("date4", this.ordreS.getNum4());
+            else
+            	parameters.put("date4", "...........");
+            if (this.ordreS.getOrdre() != "") 
+            	parameters.put("arret", this.ordreS.getOrdre());
+            else
+            	parameters.put("arret", "...........");
             parameters.put("lieu", op.getDirection().getTrois());
             //DateFormat df = new SimpleDateFormat("dd MMMM yyyy", Locale.FRANCE);
             parameters.put("date", df.format(op.getDate()));
@@ -514,28 +534,48 @@ public class JasperTableExampleBean implements Serializable{
             parameters.put("num5", this.ordreS.getNum5());
             parameters.put("num6", op.getDirection().getQuatre());
             parameters.put("budget", this.ordreS.getBudget());
-            parameters.put("chap", this.ordreS.getChapitre());
-            parameters.put("article", this.ordreS.getArticle());
-            parameters.put("paragraphe", this.ordreS.getParagraphe());
-            parameters.put("num2", this.ordreS.getNum2());
+            if (this.ordreEB.getChap() != "") 
+            	parameters.put("chap", this.ordreS.getChapitre());
+            else
+            	parameters.put("chap", "...........");
+            if (this.ordreS.getArticle() != "") 
+            	parameters.put("article", this.ordreS.getArticle());
+            else
+            	parameters.put("article", "...........");
+            if (this.ordreS.getParagraphe() != "") 
+            	parameters.put("paragraphe", this.ordreS.getParagraphe());
+            else
+            	parameters.put("paragraphe", "...........");
+            if (this.ordreS.getNum2() != "") 
+            	parameters.put("num2", this.ordreS.getNum2());
+            else
+            	parameters.put("num2", "...........");
+            
             parameters.put("approOuService", this.ordreS.getApproOuService());
             if(op.getDirection().getDesignation() != null)
-            	//parameters.put("comptable", op.getDirection().getDesignation());
             	parameters.put("comptable", this.ordreS.getDirc());
             parameters.put("Comptable", op.getOperateur().getNomAgent());
             parameters.put("matiere",  op.getMat().getDesign().getOrigine());
-            //mila alamina ny jsxml sy ny entree
             parameters.put("ordre", this.ordreS.getOrdre());
-            parameters.put("arret", this.ordreS.getOrdre());
-            parameters.put("somme", this.ordreS.getSomme());
+            if (this.ordreS.getSomme() != "") 
+            	parameters.put("somme", this.ordreS.getSomme());
+            else
+            	parameters.put("somme", "...........");
             parameters.put("concordance", this.ordreS.getConformite());
             DateFormat df = new SimpleDateFormat("dd MMMM yyyy", Locale.FRANCE);
             parameters.put("date1", df.format(op.getDate()));
-            //parameters.put("date1", op.getDate().toString());
-            parameters.put("date4", this.ordreS.getNum4());
+            if (this.ordreS.getNum4() != "") 
+            	parameters.put("date4", this.ordreS.getNum4());
+            else
+            	parameters.put("date4", "...........");
+            if (this.ordreS.getOrdre() != "") 
+            	parameters.put("arret", this.ordreS.getOrdre());
+            else
+            	parameters.put("arret", "...........");
             parameters.put("lieu", op.getDirection().getTrois());
-            parameters.put("numFolio", this.ordreS.getNumFolio());
+            //DateFormat df = new SimpleDateFormat("dd MMMM yyyy", Locale.FRANCE);
             parameters.put("date", df.format(op.getDate()));
+            parameters.put("numFolio", this.ordreS.getNumFolio());
             parameters.put("comptable2", op.getOperateur().getNomAgent());
             parameters.put("lieu1", this.ordreS.getLieu2());
             parameters.put("date5", this.ordreS.getDate2());

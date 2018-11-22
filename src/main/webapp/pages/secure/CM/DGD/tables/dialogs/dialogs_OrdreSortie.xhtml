@@ -84,7 +84,7 @@
  				
  				CHAPITRE (1) <p:inputText value="#{JasperTableExampleBean.ordreS.chapitre}" style="text-align: center;width: 30%"></p:inputText> ARTICLE <p:inputText value="#{JasperTableExampleBean.ordreS.article}" style="text-align: center;width: 30%"></p:inputText> <br></br>
  				PARAGRAPHE <p:inputText value="#{JasperTableExampleBean.ordreS.paragraphe}" style="text-align: center;width: 30%"></p:inputText><br></br>
-
+				(2) : <p:inputText value="#{JasperTableExampleBean.ordreS.num2}" style="text-align: center;width:30%;"></p:inputText>
  			</div>
 
 
@@ -97,12 +97,9 @@
 
  			<div class="col-md-12">
  				<div class="col-md-3">
- 				Numero d'ordre du journal(2) :
- 				</div>
- 				<div class="col-md-1">
- 				<p:inputText value="#{JasperTableExampleBean.ordreS.num2}" style="text-align: center;width:70%;"></p:inputText>
- 				</div>
- 				 
+ 				Numero d'ordre du journal(2) :<br/>
+ 				 #{docbean.curentOpeationSortieToPdf.numSortie}
+ 				 </div>
 
  			</div>
 
