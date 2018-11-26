@@ -158,7 +158,8 @@
             <br></br><br></br>
  			Ci-joint(6) <p:inputText value="#{JasperTableExampleBean.pdfForm.num6}" style="text-align: center;width: 50%"/> pièces justificatives<br></br><br></br>
             Gestion de M. (7) <p:inputText value="#{JasperTableExampleBean.pdfForm.num7}" style="text-align: center;width: 50%"/> <br></br><br></br>
-            Du (8) <p:inputText value="#{JasperTableExampleBean.pdfForm.num8}" style="text-align: center;width: 25%"/> au (8) <p:inputText value="#{JasperTableExampleBean.pdfForm.num9}" style="text-align: center;width: 25%"/> <br></br><br></br>
+            Du #{EtatAppreciatifBean.sdate} au  #{EtatAppreciatifBean.edate}
+            <!--  <p:inputText value="#{JasperTableExampleBean.pdfForm.num8}" style="text-align: center;width: 25%"/> au (8) <p:inputText value="#{JasperTableExampleBean.pdfForm.num9}" style="text-align: center;width: 25%"/> <br></br><br></br> -->
          </div>
 
 
@@ -365,6 +366,8 @@
     	<f:setPropertyActionListener target="#{JasperTableExampleBean.pdfForm.annee}" value="#{EtatAppreciatifBean.annee}" />
  		<f:setPropertyActionListener target="#{JasperTableExampleBean.pdfForm.lieu}" value="#{EtatAppreciatifBean.trois}" />
  		<f:setPropertyActionListener target="#{JasperTableExampleBean.pdfForm.num4}" value="#{EtatAppreciatifBean.quatre}" />
+ 		<f:setPropertyActionListener target="#{JasperTableExampleBean.pdfForm.num8}" value="#{EtatAppreciatifBean.sdate}" />
+ 		<f:setPropertyActionListener target="#{JasperTableExampleBean.pdfForm.num9}" value="#{EtatAppreciatifBean.edate}" /> 
  			
     </p:commandButton>		
 	<br/>
@@ -372,6 +375,8 @@
 		<f:setPropertyActionListener target="#{JasperTableExampleBean.pdfForm.annee}" value="#{EtatAppreciatifBean.annee}" />
  		<f:setPropertyActionListener target="#{JasperTableExampleBean.pdfForm.lieu}" value="#{EtatAppreciatifBean.trois}" />
  		<f:setPropertyActionListener target="#{JasperTableExampleBean.pdfForm.num4}" value="#{EtatAppreciatifBean.quatre}" />
+ 		<f:setPropertyActionListener target="#{JasperTableExampleBean.pdfForm.num8}" value="#{EtatAppreciatifBean.sdate}" />
+ 		<f:setPropertyActionListener target="#{JasperTableExampleBean.pdfForm.num9}" value="#{EtatAppreciatifBean.edate}" /> 
  		
 	</p:commandButton>
 	

@@ -898,26 +898,62 @@ public class JasperTableExampleBean implements Serializable{
 		URL url =  this.getClass().getResource("../jasperReport/EtatAppreciatif.jasper");
 		try {
             /* Map to hold Jasper report Parameters */
+			
             Map<String, Object> parameters = new HashMap<String, Object>();
             parameters.put("dataSource", data.getDataSource());
             parameters.put ("filamatra" , this.pdfForm.getFilamatra());
-            parameters.put("materiel", this.pdfForm.getNum1());
+            if (this.pdfForm.getNum1() != "") 
+            	parameters.put("materiel", this.pdfForm.getNum1());
+            else
+            	parameters.put("materiel", "...........");
+            
             parameters.put("budget", this.pdfForm.getBudget());
-            parameters.put("chp", this.pdfForm.getChapitre());
-            parameters.put("article", this.pdfForm.getArticle());
-            parameters.put("paragraphe", this.pdfForm.getParagraphe());
+            if (this.pdfForm.getChapitre() != "") 
+            	parameters.put("chp", this.pdfForm.getChapitre());
+            else
+            	parameters.put("chp", "...........");
+            if (this.pdfForm.getArticle() != "") 
+            	parameters.put("article", this.pdfForm.getArticle());
+            else
+            	parameters.put("article", "...........");
+            if (this.pdfForm.getParagraphe() != "") 
+            	parameters.put("paragraphe", this.pdfForm.getParagraphe());
+            else
+            	parameters.put("paragraphe", "...........");
+            
             parameters.put("num3", this.pdfForm.getNum3());
             parameters.put("num4", this.pdfForm.getNum4());
-            parameters.put("num5", this.pdfForm.getNum5());
-            parameters.put("num6", this.pdfForm.getNum6());
-            parameters.put("num7", this.pdfForm.getNum7());
+            if (this.pdfForm.getNum5()!= "") 
+            	parameters.put("num5", this.pdfForm.getNum5());
+            else
+            	parameters.put("num5", "...........");
+            if (this.pdfForm.getNum6() != "") 
+            	parameters.put("num6", this.pdfForm.getNum6());
+            else
+            	parameters.put("num6", "...........");
+            if (this.pdfForm.getNum7() != "") 
+            	parameters.put("num7", this.pdfForm.getNum7());
+            else
+                parameters.put("num7", "...........");
             parameters.put("num8", this.pdfForm.getNum8());
             parameters.put("num07", this.pdfForm.getNum7());
             parameters.put("numO8", this.pdfForm.getNum9());
-            parameters.put("somme", this.pdfForm.getSomme());
-            parameters.put("somme1", this.pdfForm.getSomme1());
-            parameters.put("somme2", this.pdfForm.getSomme2());
-            parameters.put("date1", this.pdfForm.getDate());
+            if (this.pdfForm.getSomme() != "")
+            	parameters.put("somme", this.pdfForm.getSomme());
+            else
+                parameters.put("somme", "...........");
+            if (this.pdfForm.getSomme1() != "") 
+            	parameters.put("somme1", this.pdfForm.getSomme1());
+            else
+                parameters.put("somme1", "...........");
+            if (this.pdfForm.getSomme1() != "") 
+            	parameters.put("somme2", this.pdfForm.getSomme2());
+            else
+                parameters.put("somme2", "...........");
+            if (this.pdfForm.getDate() != "") 
+            	parameters.put("date1", this.pdfForm.getDate());
+            else
+                parameters.put("date1", "...........");
             parameters.put("lieu", this.pdfForm.getLieu());
             parameters.put("annee", Integer.toString(this.pdfForm.getAnnee()));
             
@@ -951,25 +987,61 @@ public class JasperTableExampleBean implements Serializable{
             Map<String, Object> parameters = new HashMap<String, Object>();
             parameters.put("dataSource", data.getDataSource());
             parameters.put ("filamatra" , this.pdfForm.getFilamatra());
-            parameters.put("materiel", this.pdfForm.getNum1());
+            if (this.pdfForm.getNum1() != "") 
+            	parameters.put("materiel", this.pdfForm.getNum1());
+            else
+            	parameters.put("materiel", "...........");
+            
             parameters.put("budget", this.pdfForm.getBudget());
-            parameters.put("chp", this.pdfForm.getChapitre());
-            parameters.put("article", this.pdfForm.getArticle());
-            parameters.put("paragraphe", this.pdfForm.getParagraphe());
+            if (this.pdfForm.getChapitre() != "") 
+            	parameters.put("chp", this.pdfForm.getChapitre());
+            else
+            	parameters.put("chp", "...........");
+            if (this.pdfForm.getArticle() != "") 
+            	parameters.put("article", this.pdfForm.getArticle());
+            else
+            	parameters.put("article", "...........");
+            if (this.pdfForm.getParagraphe() != "") 
+            	parameters.put("paragraphe", this.pdfForm.getParagraphe());
+            else
+            	parameters.put("paragraphe", "...........");
+            
             parameters.put("num3", this.pdfForm.getNum3());
             parameters.put("num4", this.pdfForm.getNum4());
-            parameters.put("num5", this.pdfForm.getNum5());
-            parameters.put("num6", this.pdfForm.getNum6());
-            parameters.put("num7", this.pdfForm.getNum7());
+            if (this.pdfForm.getNum5()!= "") 
+            	parameters.put("num5", this.pdfForm.getNum5());
+            else
+            	parameters.put("num5", "...........");
+            if (this.pdfForm.getNum6() != "") 
+            	parameters.put("num6", this.pdfForm.getNum6());
+            else
+            	parameters.put("num6", "...........");
+            if (this.pdfForm.getNum7() != "") 
+            	parameters.put("num7", this.pdfForm.getNum7());
+            else
+                parameters.put("num7", "...........");
             parameters.put("num8", this.pdfForm.getNum8());
             parameters.put("num07", this.pdfForm.getNum7());
             parameters.put("numO8", this.pdfForm.getNum9());
-            parameters.put("somme", this.pdfForm.getSomme());
-            parameters.put("somme1", this.pdfForm.getSomme1());
-            parameters.put("somme2", this.pdfForm.getSomme2());
-            parameters.put("date1", this.pdfForm.getDate());  
-            parameters.put("lieu", this.pdfForm.getLieu()); 
+            if (this.pdfForm.getSomme() != "")
+            	parameters.put("somme", this.pdfForm.getSomme());
+            else
+                parameters.put("somme", "...........");
+            if (this.pdfForm.getSomme1() != "") 
+            	parameters.put("somme1", this.pdfForm.getSomme1());
+            else
+                parameters.put("somme1", "...........");
+            if (this.pdfForm.getSomme1() != "") 
+            	parameters.put("somme2", this.pdfForm.getSomme2());
+            else
+                parameters.put("somme2", "...........");
+            if (this.pdfForm.getDate() != "") 
+            	parameters.put("date1", this.pdfForm.getDate());
+            else
+                parameters.put("date1", "...........");
+            parameters.put("lieu", this.pdfForm.getLieu());
             parameters.put("annee", Integer.toString(this.pdfForm.getAnnee()));
+            
             JasperPrint jasperPrint = JasperFillManager.fillReport(url.getPath(), parameters, new JREmptyDataSource());
           //EXPORT THROUGH STREAM
             response.reset();

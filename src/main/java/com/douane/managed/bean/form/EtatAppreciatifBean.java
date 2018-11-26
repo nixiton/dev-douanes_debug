@@ -1,9 +1,12 @@
 package com.douane.managed.bean.form;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.List;
+import java.util.Locale;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
@@ -19,6 +22,8 @@ public class EtatAppreciatifBean {
 	private String trois;
 	private String quatre;
 	private List<Object[]> liste;
+	private String sdate;
+	private String edate;
 	public EtatAppreciatifBean() {
 		this.date = new Date();
 		Calendar calendar = new GregorianCalendar();
@@ -28,7 +33,10 @@ public class EtatAppreciatifBean {
 	}
 	public String execute(SuiviEditionBean s) {
 		if (s != null) {
-			
+			Date sd = new GregorianCalendar(this.annee, Calendar.JANUARY, 1).getTime();
+			DateFormat  df = new SimpleDateFormat("dd MMMM yyyy", Locale.FRANCE);
+			this.sdate = df.format(sd);
+			this.edate  = df.format(this.date);
 			this.liste = s.getListInventaire(this.annee);
 			this.trois = s.getDirection().getTrois();
 			this.quatre = s.getDirection().getQuatre();
@@ -82,6 +90,18 @@ public class EtatAppreciatifBean {
 	}
 	public void setActualyear(int actualyear) {
 		this.actualyear = actualyear;
+	}
+	public String getSdate() {
+		return sdate;
+	}
+	public void setSdate(String sdate) {
+		this.sdate = sdate;
+	}
+	public String getEdate() {
+		return edate;
+	}
+	public void setEdate(String edate) {
+		this.edate = edate;
 	}
 
 }
