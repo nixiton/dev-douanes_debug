@@ -84,7 +84,7 @@ DIRECTION GENERALE DES DOUANES
 ----------------------]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="210" y="140" width="140" height="20" uuid="e359ed88-03d9-4896-b939-13918d19b9a7"/>
+				<reportElement x="0" y="140" width="555" height="20" uuid="e359ed88-03d9-4896-b939-13918d19b9a7"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="12"/>
 				</textElement>
@@ -136,7 +136,7 @@ DIRECTION GENERALE DES DOUANES
 				<textFieldExpression><![CDATA[$P{fonctionDetenteur}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="109" y="0" width="331" height="20" uuid="0eb735d3-c34f-4fae-a71b-e060519a2d99"/>
+				<reportElement x="0" y="0" width="555" height="20" uuid="0eb735d3-c34f-4fae-a71b-e060519a2d99"/>
 				<textElement textAlignment="Center">
 					<font size="10" isBold="true"/>
 				</textElement>
