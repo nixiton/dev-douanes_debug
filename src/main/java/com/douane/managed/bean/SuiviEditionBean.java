@@ -679,9 +679,17 @@ public class SuiviEditionBean implements Serializable{
 							// origine
 							row[3] = d.getOrigine();
 							// designation
-							row[4] = d.getTypematerieladd().getDesignation() + " - " + d.getMarque() + " - "
-									+ d.getRenseignement() + " - "
-							// mat.getNumSerie();
+							String mar = "";
+							if( d.getMarque()!=null) {
+								mar =  d.getMarque().getDesignation();
+							}
+							String rens = "";
+							if(d.getRenseignement() != null) {
+								rens = d.getRenseignement();
+							}
+							row[4] = d.getTypematerieladd().getDesignation() + " - " +mar + " - "
+									+ rens
+							//  + " - " + mat.getNumSerie();
 							;
 							// espece unite
 							row[5] = d.getEspeceUnite();
@@ -735,8 +743,12 @@ public class SuiviEditionBean implements Serializable{
 					if(mat.getDesign().getMarque() !=null) {
 						marquemat = mat.getDesign().getMarque().getDesignation();
 					}
+					String rens = "";
+					if(mat.getDesign().getRenseignement() != null) {
+						rens = mat.getDesign().getRenseignement();
+					}
 					row[4] = mat.getDesign().getTypematerieladd().getDesignation() + " - " + marquemat
-							+ " - " + mat.getDesign().getRenseignement() + " - " + mat.getNumSerie();
+							+ " - " + rens + " - " + mat.getNumSerie();
 					// espece unite
 					row[5] = mat.getDesign().getEspeceUnite();
 					// pu
@@ -763,7 +775,7 @@ public class SuiviEditionBean implements Serializable{
 		return listESForJournal;
 	}
 
-	public List<Object[]> ourListESForJournal(Date fdate) {
+	public List<Object[]> ourListESForJournal(Direction dir, Date fdate) {
 		Agent cur = (Agent) RequestFilter.getSession().getAttribute("agent");
 		// this.direction = cur.getDirection();
 		Date date = new Date();
@@ -773,13 +785,16 @@ public class SuiviEditionBean implements Serializable{
 		} else {
 			System.out.println(" fdate  null");
 		}
+		if(dir == null) {
+			dir = cur.getDirection();
+		}
 		Calendar calendar = new GregorianCalendar();
 		calendar.setTime(date);
 		int year = calendar.get(Calendar.YEAR);
 		System.out.println(" my year " + year);
 		Date sdate = new GregorianCalendar(year, Calendar.JANUARY, 1).getTime();
 		Date edate = new GregorianCalendar(year, Calendar.DECEMBER, 30).getTime();
-		List<OperationES> listop = usermetierimpl.getListOpESForJournal(cur.getDirection(), sdate, edate);
+		List<OperationES> listop = usermetierimpl.getListOpESForJournal(dir, sdate, edate);
 		Collections.sort(listop, new Comparator<OperationES>() {
 			public int compare(OperationES o1, OperationES o2) {
 				Long id1 = o1.getId();
@@ -811,9 +826,17 @@ public class SuiviEditionBean implements Serializable{
 						// origine
 						row[3] = d.getOrigine();
 						// designation
-						row[4] = d.getTypematerieladd().getDesignation() + " - " + d.getMarque() + " - "
-								+ d.getRenseignement() + " - "
-						// mat.getNumSerie();
+						String mar = "";
+						if( d.getMarque()!=null) {
+							mar =  d.getMarque().getDesignation();
+						}
+						String rens = "";
+						if(d.getRenseignement() != null) {
+							rens = d.getRenseignement();
+						}
+						row[4] = d.getTypematerieladd().getDesignation() + " - " + mar + " - "
+								+ rens 
+						// + " - " + mat.getNumSerie();
 						;
 						// espece unite
 						row[5] = d.getEspeceUnite();
@@ -867,8 +890,12 @@ public class SuiviEditionBean implements Serializable{
 				if(mat.getDesign().getMarque()!=null) {
 					marqueMat = mat.getDesign().getMarque().getDesignation();
 				}
+				String rens = "";
+				if(mat.getDesign().getRenseignement() != null) {
+					rens = mat.getDesign().getRenseignement();
+				}
 				row[4] = mat.getDesign().getTypematerieladd().getDesignation() + " - " + marqueMat
-						+ " - " + mat.getDesign().getRenseignement() + " - " + mat.getNumSerie();
+						+ " - " + rens + " - " + mat.getNumSerie();
 				// espece unite
 				row[5] = mat.getDesign().getEspeceUnite();
 				// pu
@@ -935,8 +962,16 @@ public class SuiviEditionBean implements Serializable{
 						// origine
 						row[3] = d.getOrigine();
 						// designation
-						row[4] = d.getTypematerieladd().getDesignation() + " - " + d.getMarque() + " - "
-								+ d.getRenseignement() + " - "
+						String mar = "";
+						if( d.getMarque()!=null) {
+							mar =  d.getMarque().getDesignation();
+						}
+						String rens = "";
+						if(d.getRenseignement() != null) {
+							rens = d.getRenseignement();
+						}
+						row[4] = d.getTypematerieladd().getDesignation() + " - " + mar + " - "
+								+ rens
 						// mat.getNumSerie();
 						;
 						// espece unite
@@ -987,8 +1022,12 @@ public class SuiviEditionBean implements Serializable{
 				if(mat.getDesign().getMarque()!=null) {
 					marqueMat = mat.getDesign().getMarque().getDesignation();
 				}
+				String rens = "";
+				if(mat.getDesign().getRenseignement() != null) {
+					rens = mat.getDesign().getRenseignement();
+				}
 				row[4] = mat.getDesign().getTypematerieladd().getDesignation() + " - " + marqueMat
-						+ " - " + mat.getDesign().getRenseignement() + " - " + mat.getNumSerie();
+						+ " - " + rens + " - " + mat.getNumSerie();
 				// espece unite
 				row[5] = mat.getDesign().getEspeceUnite();
 				// pu
@@ -1358,8 +1397,12 @@ public class SuiviEditionBean implements Serializable{
 				if(mat.getDesign().getMarque()!=null) {
 					marque = mat.getDesign().getMarque().getDesignation();
 				}
+				String rens = "";
+				if(mat.getDesign().getRenseignement() != null) {
+					rens = mat.getDesign().getRenseignement();
+				}
 				row[2] = mat.getDesign().getTypematerieladd().getDesignation() + " - "
-						+ marque + " - " + mat.getDesign().getRenseignement()
+						+ marque + " - " + rens
 						+ " - "
 				// + mat.getNumSerie()
 				;
@@ -1552,9 +1595,13 @@ public class SuiviEditionBean implements Serializable{
 				// Numéros du folio du grand livre
 				row[1] = mat.getIdMateriel();
 				// Désignation du matériel
+				String rens = "";
+				if(mat.getDesign().getRenseignement() != null) {
+					rens = mat.getDesign().getRenseignement();
+				}
 				row[2] = mat.getDesign().getTypematerieladd().getDesignation() + " - "
-						+ mat.getDesign().getMarque().getDesignation() + " - " + mat.getDesign().getRenseignement()
-						+ " - "
+						+ mat.getDesign().getMarque().getDesignation() + " - " + rens
+						
 				// + mat.getNumSerie()
 				;
 				// Espèce des unités
@@ -1800,8 +1847,12 @@ public class SuiviEditionBean implements Serializable{
 			if(mat.getDesign().getMarque()!=null) {
 				marque = mat.getDesign().getMarque().getDesignation();
 			}
+			String rens = "";
+			if(mat.getDesign().getRenseignement() != null) {
+				rens = mat.getDesign().getRenseignement();
+			}
 			row[2] = mat.getDesign().getTypematerieladd().getDesignation() + " - "
-					+ marque + " - " + mat.getDesign().getRenseignement() + " - "
+					+ marque + " - " + rens
 			// + mat.getNumSerie()
 			;
 			// Espèce des unités
@@ -1973,8 +2024,12 @@ public class SuiviEditionBean implements Serializable{
 			if(mat.getDesign().getMarque() != null) {
 				marqueMat = mat.getDesign().getMarque().getDesignation();
 			}
+			String rens = "";
+			if(mat.getDesign().getRenseignement() != null) {
+				rens = mat.getDesign().getRenseignement();
+			}
 			row[2] = mat.getDesign().getTypematerieladd().getDesignation() + " - "
-					+ marqueMat + " - " + mat.getDesign().getRenseignement() + " - "
+					+ marqueMat + " - " + rens 
 			// + mat.getNumSerie()
 			;
 			// Espèce des unités
@@ -2652,15 +2707,17 @@ public class SuiviEditionBean implements Serializable{
 		if (fdate != null) {
 			date = fdate;
 		} else {
-			System.out.println(" fdate  null");
+			System.out.println(" fdate getList  null");
 		}
 		Calendar calendar = new GregorianCalendar();
 		calendar.setTime(date);
 		int year = calendar.get(Calendar.YEAR);
-		System.out.println(" my year " + year);
+		System.out.println(" my year getList " + year);
 		Date sdate = new GregorianCalendar(year, Calendar.JANUARY, 1).getTime();
 		Date edate = new GregorianCalendar(year, Calendar.DECEMBER, 30).getTime();
+		System.out.println("ETO");
 		List<OperationES> listop = usermetierimpl.getListOpESForJournal(dir, sdate, edate);
+		System.out.println("SA ETO");
 		Collections.sort(listop, new Comparator<OperationES>() {
 			public int compare(OperationES o1, OperationES o2) {
 				Long id1 = o1.getId();
@@ -2692,8 +2749,16 @@ public class SuiviEditionBean implements Serializable{
 						// origine
 						row[3] = d.getOrigine();
 						// designation
-						row[4] = d.getTypematerieladd().getDesignation() + " - " + d.getMarque() + " - "
-								+ d.getRenseignement() + " - "
+						String mar = "";
+						if( d.getMarque()!=null) {
+							mar =  d.getMarque().getDesignation();
+						}
+						String rens = "";
+						if(d.getRenseignement() != null) {
+							rens = d.getRenseignement();
+						}
+						row[4] = d.getTypematerieladd().getDesignation() + " - " + mar + " - "
+								+ rens 
 						// mat.getNumSerie();
 						;
 						// espece unite
@@ -2748,8 +2813,13 @@ public class SuiviEditionBean implements Serializable{
 				if(mat.getDesign().getMarque() !=null) {
 					marqueMat = mat.getDesign().getMarque().getDesignation();
 				}
+				
+				String rens = "";
+				if(mat.getDesign().getRenseignement() != null) {
+					rens = mat.getDesign().getRenseignement();
+				}
 				row[4] = mat.getDesign().getTypematerieladd().getDesignation() + " - " + marqueMat
-						+ " - " + mat.getDesign().getRenseignement() + " - " + mat.getNumSerie();
+						+ " - " + rens + " - " + mat.getNumSerie();
 				// espece unite
 				row[5] = mat.getDesign().getEspeceUnite();
 				// pu
@@ -2812,8 +2882,12 @@ public class SuiviEditionBean implements Serializable{
 			if(mat.getDesign().getMarque() != null) {
 				marqueMat = mat.getDesign().getMarque().getDesignation();
 			}
+			String rens = "";
+			if(mat.getDesign().getRenseignement() != null) {
+				rens = mat.getDesign().getRenseignement();
+			}
 			row[2] = mat.getDesign().getTypematerieladd().getDesignation() + " - "
-					+ marqueMat + " - " + mat.getDesign().getRenseignement() + " - "
+					+ marqueMat + " - " + rens 
 			// + mat.getNumSerie()
 			;
 			// Espèce des unités

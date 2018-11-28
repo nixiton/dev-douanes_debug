@@ -13,8 +13,34 @@
 
 
 	
-<h:form>
+<h:form id="formjournal">
+<span>
+       			 		
+       			 		
+       			 			<p:outputLabel for="annee_journal" value="Exporter le journal du " />
+        					<p:calendar id="annee_journal" size="20" value="#{JournalBean.dat}" navigator="true" pattern="dd MMMM yyyy" required="true" locale="fr"/>
+     			 			<p:dialog modal="true" resizable="false" header="Values" widgetVar="dlg" showEffect="fold">
+        						<p:panelGrid id="display_journal" columns="2" columnClasses="label,value">
+      			 					 <h:outputText value="" />
+						            <h:outputText value="#{JournalBean.dat}">
+						                <f:convertDateTime pattern="dd MMMM yyyy" locale="Locale.FRANCE"/>
+				                  	</h:outputText>
+       			 				</p:panelGrid>
+    						</p:dialog>
+    						
+    						<p:outputLabel for="annee_fin" value=" au " />
+        					<p:calendar id="annee_fin" size="20" value="#{JournalBean.datF}" navigator="true" pattern="dd MMMM yyyy" required="true" locale="fr"/>
+     			 			<p:dialog modal="true" resizable="false" header="Values" widgetVar="dlg" showEffect="fold">
+        						<p:panelGrid id="display_fin" columns="2" columnClasses="label,value">
+      			 					 <h:outputText value="" />
+						            <h:outputText value="#{JournalBean.datF}">
+						                <f:convertDateTime pattern="dd MMMM yyyy" locale="Locale.FRANCE"/>
+				                  	</h:outputText>
+       			 				</p:panelGrid>
+    						</p:dialog>
+    			</span>
 		<p:tabView scrollable="true">
+		
 	<c:forEach var="dir" items="${siseBean.listDirection}" varStatus="status">
 		<p:tab title="${dir.codeDirection}">
 			<p:dataTable var="c" value="#{suivieditionBean.getListESForJournalByDir(dir,null)}"
@@ -28,6 +54,13 @@
 			
     		<f:facet name="header">
        			 <span>JOURNAL DES MOUVEMENTS D’ENTREE ET DE SORTIE #{gacBean.getCurrentYear()} : #{dir.designation}</span> <br/>
+       			 
+    						
+    						<p:commandButton  process="formjournal:annee_journal, formjournal:annee_fin,@this"
+    						  id ="exp#{dir.codeDirection}" 
+    						 value="Exporter #{dir.codeDirection}" 
+    						 action="#{JournalBean.execute(dir,suivieditionBean)}" styleClass="btn btn-lg-primary"></p:commandButton>       			 		
+       			 
        			 
     		</f:facet>
     		<f:facet name="{Exporters}">

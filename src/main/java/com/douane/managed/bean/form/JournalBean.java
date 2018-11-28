@@ -15,6 +15,7 @@ import javax.faces.bean.SessionScoped;
 import javax.faces.context.ExternalContext;
 
 import com.douane.entite.Agent;
+import com.douane.entite.Direction;
 import com.douane.managed.bean.SuiviEditionBean;
 import com.douane.requesthttp.RequestFilter;
 @SessionScoped
@@ -44,10 +45,12 @@ public class JournalBean {
 	public void setDateF(String dateF) {
 		this.dateF = dateF;
 	}
-	public String execute(SuiviEditionBean s) {
+	public String execute(Direction d, SuiviEditionBean s) {
 		//this.li = s.mygetFListESForJournal(this.dat , this.datF);
 		//this.li = s.getListESForJournal(this.dat);
-		this.li = s.ourListESForJournal(this.dat);
+		System.out.println("Generate Journal");
+		System.out.println("date "+this.datF);
+		this.li = s.ourListESForJournal(d,this.dat);
 		//this.li = s.getFListESForJournal(dat, datF);
 		this.li = this.mygetFListESForJournal(li, dat, datF);
 		//this.li = mygetFListESForJournal(s,this.dat, this.datF);

@@ -75,10 +75,10 @@
                             <p:fileUpload value="#{depositaireBean.document}"
                                           fileUploadListener="#{depositaireBean.uploadDoc_Advanced}"
                                           mode="advanced" dragDropSupport="false" update="@this,docId"
-                                          sizeLimit="1000000"
-                                          allowTypes="/(\.|\/)(gif|jpeg|txt|png|pdf|doc|docx)$/">
+                                          sizeLimit="3000000"
+                                          allowTypes="/(\.|\/)(gif|jpeg|txt|png|pdf|doc|docx|rar)$/">
                                 <f:attribute name="docObj" value="#{row}"></f:attribute>
-                                Document accepté : gif, jpeg, png, txt, pdf, doc, docx
+                                Document accepté : gif, jpeg, png, txt, pdf, doc, docx, rar
                             </p:fileUpload>
                         </p:panel>
                         <p:panel rendered="#{row.uploaded}">

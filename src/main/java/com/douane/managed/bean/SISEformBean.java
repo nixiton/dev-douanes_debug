@@ -130,6 +130,13 @@ public class SISEformBean {
 					System.out.println("NOT INSTANCE");
 				}
 			}
+			Collections.sort(ds, new Comparator<Direction>() {
+			    @Override
+			    public int compare(Direction d1, Direction d2) {
+			        return d1.getCodeDirection().compareTo(d2.getCodeDirection());
+			    }
+			});
+			
 			listDirection = ds;
 		}
 		return listDirection;
