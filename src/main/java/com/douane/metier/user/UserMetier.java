@@ -296,7 +296,7 @@ public class UserMetier implements IUserMetier {
 		// TODO Auto-generated method stub
 		// try {
 		if (m.getDetenteur() != null) {
-			throw new Exception("Materiel deja detenu");
+			throw new Exception("Matériel déjà détenu");
 		}
 		OpSortie sortie = new OpSortie(new Date(), new Date(), oper.getIp(), oper, m, d, motif);
 
@@ -317,7 +317,7 @@ public class UserMetier implements IUserMetier {
 		// TODO Auto-generated method stub
 		// try{
 		if (m.getDetenteur() != null) {
-			throw new Exception("Materiel deja detenu");
+			throw new Exception("Matériel déjà detenu");
 		}
 		OpSortie sortie = new OpSortie(new Date(), new Date(), oper.getIp(), oper, m, motif);
 
@@ -360,11 +360,11 @@ public class UserMetier implements IUserMetier {
 		Materiel m = sortie.getMat();
 		if (m.getDetenteur() != null) {
 			System.out.println("DETENU");
-			throw new Exception("Materiel deja detenu");
+			throw new Exception("Matériel déjà détenu");
 		}
 		if(m.getDirec()==null) {
 			System.out.println("NON VALIDE");
-			throw new Exception("Materiel n'est plus valide");
+			throw new Exception("Matériel n'est plus valide");
 		}
 		m.setDirec(null); //Change: all materiel with no direction are sortie
 		matrepos.save(m);
@@ -454,7 +454,7 @@ public class UserMetier implements IUserMetier {
 			throw new Exception("Détenteur non valide");
 		}
 		if (!m.isValidation()) {
-			throw new Exception("Materiel non validé");
+			throw new Exception("Matériel non validé");
 		}
 		OpAttribution attroper = new OpAttribution(new Date(), new Date(), oper.getIp(), oper, m, detenteur);
 		oprepos.save(attroper);
@@ -466,7 +466,7 @@ public class UserMetier implements IUserMetier {
 		// TODO Auto-generated method stub
 		for (Materiel m : entree.getListMat()) {
 			if (m.isValidation()) {
-				throw new Exception("Materiel deja validé");
+				throw new Exception("Matériel déjà validé");
 			}
 		}
 
@@ -488,7 +488,7 @@ public class UserMetier implements IUserMetier {
 		// try {
 		for (Materiel m : entree.getListMat()) {
 			if (m.isValidation()) {
-				throw new Exception("Materiel deja validé");
+				throw new Exception("Matériel déjà validé");
 			}
 		}
 
@@ -517,7 +517,7 @@ public class UserMetier implements IUserMetier {
 		// TODO Auto-generated method stub
 		// try{
 		if (attr.getMat().getDetenteur() != null) {
-			throw new Exception("Materiel deja detenu");
+			throw new Exception("Matériel déjà détenu");
 		}
 		attr.amodifier(motif);
 		oprepos.save(attr);
@@ -919,7 +919,7 @@ public class UserMetier implements IUserMetier {
 		// TODO Auto-generated method stub
 		// try {
 		if (!article.isValidation()) {
-			throw new Exception("Requete non validée");
+			throw new Exception("Requête non validée");
 		}
 		OpSortieArticle opsortieart = new OpSortieArticle(new Date(), new Date(), op.getIp(), op, article,
 				destinataire);
@@ -943,7 +943,7 @@ public class UserMetier implements IUserMetier {
 		// TODO Auto-generated method stub
 		// try{
 		if (entreeArt.getArticle().isValidation()) {
-			throw new Exception("Requete deja validée");
+			throw new Exception("Requête deja validée");
 		}
 		entreeArt.amodifier(motif);
 		opentreeartrepos.save(entreeArt);
@@ -964,7 +964,7 @@ public class UserMetier implements IUserMetier {
 		// TODO Auto-generated method stub
 		// try {
 		if (sortArt.getArticle().isValidation()) {
-			throw new Exception("dejavalider");
+			throw new Exception("déjà valider");
 		}
 		sortArt.amodifier(motif);
 		opsortieartrepos.save(sortArt);
@@ -984,7 +984,7 @@ public class UserMetier implements IUserMetier {
 		// TODO Auto-generated method stub
 		// try{
 		if (entreeArt.getArticle().isValidation()) {
-			throw new Exception("dejavalider");
+			throw new Exception("déjà valider");
 		}
 		entreeArt.arefuser(motif);
 		opentreeartrepos.save(entreeArt);
@@ -1004,7 +1004,7 @@ public class UserMetier implements IUserMetier {
 		// TODO Auto-generated method stub
 		// try{
 		if (!sortArt.getArticle().isValidation()) {
-			throw new Exception("Requete deja validée");
+			throw new Exception("Requête déjà validée");
 		}
 		sortArt.arefuser(motif);
 		opsortieartrepos.save(sortArt);
