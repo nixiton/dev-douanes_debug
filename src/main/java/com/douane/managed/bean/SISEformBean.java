@@ -1487,11 +1487,13 @@ public class SISEformBean {
 		//Map<String, String> filamatras = new HashMap<String, String>();
 		final Date date = dates;
 		System.out.println(date);
-		Collections.sort(d.getListTitle(), new Comparator<DirectionTitleHist>() {
+		Direction dir =(Direction) refmetierimpl.findById(d.getId());
+		Collections.sort(dir.getListTitle(), new Comparator<DirectionTitleHist>() {
 			public int compare(DirectionTitleHist h1, DirectionTitleHist h2) {
 				Date d1 = h1.getDate();
 				Date d2 = h2.getDate();
-				//System.out.println("date :" + d1);
+				/*System.out.println("date :" + h1);
+				System.out.println("date :" + h2);*/
 				if(d1 ==null || d2 ==null) {
 					return 0;
 				}
@@ -1502,7 +1504,7 @@ public class SISEformBean {
 			}
 		});
 		List<SelectItem> result = new ArrayList<SelectItem>();  
-		for(DirectionTitleHist dh : d.getListTitle()) {
+		for(DirectionTitleHist dh : dir.getListTitle()) {
 			System.out.println(dh.getTitle());
 			result.add(new SelectItem(dh.getTitle(), dh.getTitle()));
 			//filamatras.put(dh.getTitle(), dh.getTitle());
