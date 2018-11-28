@@ -178,7 +178,14 @@ public class JasperTableExampleBean implements Serializable{
             JasperPrint jasperPrint = JasperFillManager.fillReport(url.getPath(), parameters, new JREmptyDataSource());
             response.reset();
             response.setContentType("application/pdf");
-            response.setHeader("Content-Disposition","attachment; filename=\"Detenteur effectif.pdf\"");
+            String ral = "";
+            if(op.getNumerodet()!=null) {
+            	ral = op.getNumerodet();
+            }
+            String namepdf = "DetenteurEffectif"+ral+".pdf";
+            namepdf = namepdf.replaceAll("\\s", "");
+            
+            response.setHeader("Content-Disposition","attachment; filename=\""+namepdf+  "\"");
             ServletOutputStream tmp = response.getOutputStream();
             JasperExportManager.exportReportToPdfStream(jasperPrint, tmp);
             tmp.flush();
@@ -249,8 +256,15 @@ public class JasperTableExampleBean implements Serializable{
             JasperPrint jasperPrint = JasperFillManager.fillReport(url.getPath(), parameters, new JREmptyDataSource());
             //EXPORT THROUGH STREAM
             response.reset();
+            String ral = "";
+            if(op.getNumerodet()!=null) {
+            	ral = op.getNumerodet();
+            }
+            String namefile = "detenteurEffectif"+ral;
+            namefile = namefile.replaceAll("\\s", "");
+            
             response.setContentType("application/msword");
-            response.setHeader("Content-Disposition","attachment; filename=\"Detenteur Effectif.docx\"");
+            response.setHeader("Content-Disposition","attachment; filename=\""+namefile+".docx\"");
             ServletOutputStream tmp = response.getOutputStream();
             JRDocxExporter exporter = new JRDocxExporter();
             exporter.setParameter(JRExporterParameter.JASPER_PRINT, jasperPrint);
@@ -333,8 +347,16 @@ public class JasperTableExampleBean implements Serializable{
             parameters.put("date1", this.ordreEB.getDate1());
             JasperPrint jasperPrint = JasperFillManager.fillReport(url.getPath(), parameters, new JREmptyDataSource());
             response.reset();
+            
+            String ral = "";
+            if(op.getNumentree() !=null) {
+            	ral = op.getNumentree();
+            }
+            String namefile = "ordreEntree"+ral;
+            namefile = namefile.replaceAll("\\s", "");
+            
             response.setContentType("application/pdf");
-            response.setHeader("Content-Disposition","attachment; filename=\"Ordre de entree.pdf\"");
+            response.setHeader("Content-Disposition","attachment; filename=\""+namefile+".pdf\"");
             ServletOutputStream tmp = response.getOutputStream();
             JasperExportManager.exportReportToPdfStream(jasperPrint, tmp);
             tmp.flush();
@@ -411,8 +433,16 @@ public class JasperTableExampleBean implements Serializable{
             JasperPrint jasperPrint = JasperFillManager.fillReport(url.getPath(), parameters, new JREmptyDataSource());
             //EXPORT THROUGH STREAM
             response.reset();
+            
+            String ral = "";
+            if(op.getNumentree() !=null) {
+            	ral = op.getNumentree();
+            }
+            String namefile = "ordreEntree"+ral;
+            namefile = namefile.replaceAll("\\s", "");
+            
             response.setContentType("application/msword");
-            response.setHeader("Content-Disposition","attachment; filename=\"Ordre de entree.docx\"");
+            response.setHeader("Content-Disposition","attachment; filename=\""+namefile+".docx\"");
             ServletOutputStream tmp = response.getOutputStream();
             JRDocxExporter exporter = new JRDocxExporter();
             exporter.setParameter(JRExporterParameter.JASPER_PRINT, jasperPrint);
@@ -498,8 +528,16 @@ public class JasperTableExampleBean implements Serializable{
             /* Using compiled version(.jasper) of Jasper report to generate PDF */
             JasperPrint jasperPrint = JasperFillManager.fillReport(url.getPath(), parameters, new JREmptyDataSource());
             response.reset();
+            
+            String ral = "";
+            if(op.getNumSortie() !=null) {
+            	ral = op.getNumSortie();
+            }
+            String namefile = "ordreSortie"+ral;
+            namefile = namefile.replaceAll("\\s", "");
+            
             response.setContentType("application/pdf");
-            response.setHeader("Content-Disposition","attachment; filename=\"Ordre Sortie.pdf\"");
+            response.setHeader("Content-Disposition","attachment; filename=\""+namefile+".pdf\"");
             ServletOutputStream tmp = response.getOutputStream();
             JasperExportManager.exportReportToPdfStream(jasperPrint, tmp);
             tmp.flush();
@@ -584,8 +622,14 @@ public class JasperTableExampleBean implements Serializable{
             JasperPrint jasperPrint = JasperFillManager.fillReport(url.getPath(), parameters, new JREmptyDataSource());
           //EXPORT THROUGH STREAM
             response.reset();
+            String ral = "";
+            if(op.getNumSortie() !=null) {
+            	ral = op.getNumSortie();
+            }
+            String namefile = "OrdreSortie"+ral;
+            
             response.setContentType("application/msword");
-            response.setHeader("Content-Disposition","attachment; filename=\"Ordre de sortie.docx\"");
+            response.setHeader("Content-Disposition","attachment; filename=\""+namefile+".docx\"");
             ServletOutputStream tmp = response.getOutputStream();
             JRDocxExporter exporter = new JRDocxExporter();
             exporter.setParameter(JRExporterParameter.JASPER_PRINT, jasperPrint);
@@ -635,8 +679,16 @@ public class JasperTableExampleBean implements Serializable{
             
             JasperPrint jasperPrint = JasperFillManager.fillReport(url.getPath(), parameters, new JREmptyDataSource());
             response.reset();
+            
+            String ral = "";
+            if(this.journal.getFinDate() !=null) {
+            	ral = this.journal.getFinDate().toString();
+            }
+            String namefile = "journal"+ral;
+            namefile = namefile.replaceAll("\\s", "");
+            
             response.setContentType("application/pdf");
-            response.setHeader("Content-Disposition","attachment; filename=\"Journal.pdf\"");
+            response.setHeader("Content-Disposition","attachment; filename=\""+namefile+".pdf\"");
             ServletOutputStream tmp = response.getOutputStream();
             JasperExportManager.exportReportToPdfStream(jasperPrint, tmp);
             tmp.flush();
@@ -685,8 +737,16 @@ public class JasperTableExampleBean implements Serializable{
             JasperPrint jasperPrint = JasperFillManager.fillReport(url.getPath(), parameters, new JREmptyDataSource());
             //EXPORT THROUGH STREAM
             response.reset();
+            
+            String ral = "";
+            if(this.journal.getFinDate() !=null) {
+            	ral = this.journal.getFinDate().toString();
+            }
+            String namefile = "journal"+ral;
+            namefile = namefile.replaceAll("\\s", "");
+            
             response.setContentType("application/msword");
-            response.setHeader("Content-Disposition","attachment; filename=\"Journal.docx\"");
+            response.setHeader("Content-Disposition","attachment; filename=\""+namefile+".docx\"");
             ServletOutputStream tmp = response.getOutputStream();
             JRDocxExporter exporter = new JRDocxExporter();
             exporter.setParameter(JRExporterParameter.JASPER_PRINT, jasperPrint);
@@ -737,8 +797,16 @@ public class JasperTableExampleBean implements Serializable{
             
             JasperPrint jasperPrint = JasperFillManager.fillReport(url.getPath(), parameters, new JREmptyDataSource());
             response.reset();
+            
+            String ral = "";
+            if(this.journal.getFinDate() !=null) {
+            	ral = this.journal.getFinDate().toString();
+            }
+            String namefile = "journalMatiere"+ral;
+            namefile = namefile.replaceAll("\\s", "");
+            
             response.setContentType("application/pdf");
-            response.setHeader("Content-Disposition","attachment; filename=\"Journal matiere.pdf\"");
+            response.setHeader("Content-Disposition","attachment; filename=\""+namefile+".pdf\"");
             ServletOutputStream tmp = response.getOutputStream();
             JasperExportManager.exportReportToPdfStream(jasperPrint, tmp);
             tmp.flush();
@@ -787,8 +855,15 @@ public class JasperTableExampleBean implements Serializable{
             JasperPrint jasperPrint = JasperFillManager.fillReport(url.getPath(), parameters, new JREmptyDataSource());
           //EXPORT THROUGH STREAM
             response.reset();
+            String ral = "";
+            if(this.journal.getFinDate() !=null) {
+            	ral = this.journal.getFinDate().toString();
+            }
+            String namefile = "journalMatiere"+ral;
+            namefile = namefile.replaceAll("\\s", "");
+            
             response.setContentType("application/msword");
-            response.setHeader("Content-Disposition","attachment; filename=\"Journal Matiere.docx\"");
+            response.setHeader("Content-Disposition","attachment; filename=\""+namefile+".docx\"");
             ServletOutputStream tmp = response.getOutputStream();
             JRDocxExporter exporter = new JRDocxExporter();
             exporter.setParameter(JRExporterParameter.JASPER_PRINT, jasperPrint);
@@ -830,8 +905,15 @@ public class JasperTableExampleBean implements Serializable{
             
             JasperPrint jasperPrint = JasperFillManager.fillReport(url.getPath(), parameters, new JREmptyDataSource());
             response.reset();
+            
+            String ral = "";
+            if(this.livre.getDate() !=null) {
+            	ral = this.livre.getDate().toString();
+            }
+            String namefile = "grandLivre"+ral;
+            namefile = namefile.replaceAll("\\s", "");
             response.setContentType("application/pdf");
-            response.setHeader("Content-Disposition","attachment; filename=\"Grand livre.pdf\"");
+            response.setHeader("Content-Disposition","attachment; filename=\""+namefile+".pdf\"");
             ServletOutputStream tmp = response.getOutputStream();
             JasperExportManager.exportReportToPdfStream(jasperPrint, tmp);
             tmp.flush();
@@ -871,8 +953,15 @@ public class JasperTableExampleBean implements Serializable{
             JasperPrint jasperPrint = JasperFillManager.fillReport(url.getPath(), parameters, new JREmptyDataSource());
           //EXPORT THROUGH STREAM
             response.reset();
+            String ral = "";
+            if(this.livre.getDate() !=null) {
+            	ral = this.livre.getDate().toString();
+            }
+            String namefile = "grandLivre"+ral;
+            namefile = namefile.replaceAll("\\s", "");
+            
             response.setContentType("application/msword");
-            response.setHeader("Content-Disposition","attachment; filename=\"Grand Livre.docx\"");
+            response.setHeader("Content-Disposition","attachment; filename=\""+namefile+".docx\"");
             ServletOutputStream tmp = response.getOutputStream();
             JRDocxExporter exporter = new JRDocxExporter();
             exporter.setParameter(JRExporterParameter.JASPER_PRINT, jasperPrint);
@@ -959,8 +1048,15 @@ public class JasperTableExampleBean implements Serializable{
             
             JasperPrint jasperPrint = JasperFillManager.fillReport(url.getPath(), parameters, new JREmptyDataSource());
             response.reset();
+            String ral = "";
+            if(this.pdfForm.getDate() !=null) {
+            	ral = this.pdfForm.getDate().toString();
+            }
+            String namefile = "etatAppreciatif"+ral;
+            namefile = namefile.replaceAll("\\s", "");
+            
             response.setContentType("application/pdf");
-            response.setHeader("Content-Disposition","attachment; filename=\"Etat appreciatif.pdf\"");
+            response.setHeader("Content-Disposition","attachment; filename=\""+namefile+".pdf\"");
             ServletOutputStream tmp = response.getOutputStream();
             JasperExportManager.exportReportToPdfStream(jasperPrint, tmp);
             tmp.flush();
@@ -1045,8 +1141,16 @@ public class JasperTableExampleBean implements Serializable{
             JasperPrint jasperPrint = JasperFillManager.fillReport(url.getPath(), parameters, new JREmptyDataSource());
           //EXPORT THROUGH STREAM
             response.reset();
+            
+            String ral = "";
+            if(this.pdfForm.getDate() !=null) {
+            	ral = this.pdfForm.getDate().toString();
+            }
+            String namefile = "etatAppreciatif"+ral;
+            namefile = namefile.replaceAll("\\s", "");
+            
             response.setContentType("application/msword");
-            response.setHeader("Content-Disposition","attachment; filename=\"Etat appreciatif.docx\"");
+            response.setHeader("Content-Disposition","attachment; filename=\""+namefile+".docx\"");
             ServletOutputStream tmp = response.getOutputStream();
             JRDocxExporter exporter = new JRDocxExporter();
             exporter.setParameter(JRExporterParameter.JASPER_PRINT, jasperPrint);
@@ -1098,8 +1202,14 @@ public class JasperTableExampleBean implements Serializable{
             parameters.put("vu2", this.pdfForm.getNum4());
             JasperPrint jasperPrint = JasperFillManager.fillReport(url.getPath(), parameters, new JREmptyDataSource());
             response.reset();
+            String ral = "";
+            if(this.pdfForm.getNum1() !=null) {
+            	ral = this.pdfForm.getNum1().toString();
+            }
+            String namefile = "inventaire"+ral;
+            namefile = namefile.replaceAll("\\s", "");
             response.setContentType("application/pdf");
-            response.setHeader("Content-Disposition","attachment; filename=\"Inventaire.pdf\"");
+            response.setHeader("Content-Disposition","attachment; filename=\""+namefile+".pdf\"");
             ServletOutputStream tmp = response.getOutputStream();
             JasperExportManager.exportReportToPdfStream(jasperPrint, tmp);
             tmp.flush();
@@ -1147,8 +1257,16 @@ public class JasperTableExampleBean implements Serializable{
             JasperPrint jasperPrint = JasperFillManager.fillReport(url.getPath(), parameters, new JREmptyDataSource());
           //EXPORT THROUGH STREAM
             response.reset();
+            
+            String ral = "";
+            if(this.pdfForm.getNum1() !=null) {
+            	ral = this.pdfForm.getNum1().toString();
+            }
+            String namefile = "inventaire"+ral;
+            namefile = namefile.replaceAll("\\s", "");
+            
             response.setContentType("application/msword");
-            response.setHeader("Content-Disposition","attachment; filename=\"Inventaire.docx\"");
+            response.setHeader("Content-Disposition","attachment; filename=\""+namefile+".docx\"");
             ServletOutputStream tmp = response.getOutputStream();
             JRDocxExporter exporter = new JRDocxExporter();
             exporter.setParameter(JRExporterParameter.JASPER_PRINT, jasperPrint);
@@ -1180,8 +1298,16 @@ public class JasperTableExampleBean implements Serializable{
             parameters.put("espace", this.pdfForm.getNum3());
             JasperPrint jasperPrint = JasperFillManager.fillReport(url.getPath(), parameters, new JREmptyDataSource());
             response.reset();
+            
+            String ral = "";
+            if(this.pdfForm.getNum2() !=null) {
+            	ral = this.pdfForm.getNum2().toString();
+            }
+            String namefile = "ficheDeStock"+ral;
+            namefile = namefile.replaceAll("\\s", "");
+            
             response.setContentType("application/pdf");
-            response.setHeader("Content-Disposition","attachment; filename=\"Fiche de stock.pdf\"");
+            response.setHeader("Content-Disposition","attachment; filename=\""+namefile+".pdf\"");
             ServletOutputStream tmp = response.getOutputStream();
             JasperExportManager.exportReportToPdfStream(jasperPrint, tmp);
             tmp.flush();
@@ -1212,8 +1338,16 @@ public class JasperTableExampleBean implements Serializable{
             JasperPrint jasperPrint = JasperFillManager.fillReport(url.getPath(), parameters, new JREmptyDataSource());
           //EXPORT THROUGH STREAM
             response.reset();
+            
+            String ral = "";
+            if(this.pdfForm.getNum2() !=null) {
+            	ral = this.pdfForm.getNum2().toString();
+            }
+            String namefile = "ficheDeStock"+ral;
+            namefile = namefile.replaceAll("\\s", "");
+            
             response.setContentType("application/msword");
-            response.setHeader("Content-Disposition","attachment; filename=\"Fiche de Stock.docx\"");
+            response.setHeader("Content-Disposition","attachment; filename=\""+namefile+".docx\"");
             ServletOutputStream tmp = response.getOutputStream();
             JRDocxExporter exporter = new JRDocxExporter();
             exporter.setParameter(JRExporterParameter.JASPER_PRINT, jasperPrint);
