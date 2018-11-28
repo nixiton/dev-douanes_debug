@@ -11,6 +11,7 @@ import java.util.Locale;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
+import com.douane.entite.Direction;
 import com.douane.managed.bean.SuiviEditionBean;
 @SessionScoped
 @ManagedBean(name="livreAnnuelBean")
@@ -37,14 +38,14 @@ public class livreAnnuelBean {
 		this.service = s.getDirection().getDesignation();
 		return "dialogLivre";
 	}
-	public String executer(SuiviEditionBean s, Integer i) {
+	public String executer(SuiviEditionBean s, Integer i, Direction direc) {
 		DateFormat  df = new SimpleDateFormat("dd MMMM yyyy", Locale.FRANCE);
 		this.anne = i;
 		this.trois  = s.getDirection().getTrois();
 		this.quatre =  s.getDirection().getQuatre();
 		Date sdate = new GregorianCalendar(i, Calendar.JANUARY, 1).getTime();
 		this.d = new GregorianCalendar(i, Calendar.DECEMBER, 31).getTime();
-		this.liste=s.getListESForGrandLivre(sdate,this.d);
+		this.liste=s.getListESForGrandLivre(sdate,this.d,direc);
 		this.service = s.getDirection().getDesignation();
 		this.dateD = df.format(sdate);
 		this.dateF = df.format(this.d);

@@ -734,7 +734,7 @@ public class SuiviEditionBean implements Serializable{
 					if (((OpSortie) op).getMotifsortie() != null) {
 						row[3] = ((OpSortie) op).getMotifsortie().getDesignation();
 						if(((OpSortie) op).getMotifsortie().getDesignation().equalsIgnoreCase("Affectation")) {
-							row[3] = row[3] + " vers " + ((OpSortie) op).getDirec().getDesignation();
+							row[3] = row[3] + " vers " + ((OpSortie) op).getDirec().getCodeDirection();
 						}
 					}
 					// designation
@@ -881,7 +881,7 @@ public class SuiviEditionBean implements Serializable{
 				if (((OpSortie) op).getMotifsortie() != null) {
 					row[3] = ((OpSortie) op).getMotifsortie().getDesignation();
 					if(((OpSortie) op).getMotifsortie().getDesignation().equalsIgnoreCase("Affectation")) {
-						row[3] = row[3] + " vers "  + ((OpSortie) op).getDirec().getDesignation();
+						row[3] = row[3] + " vers "  + ((OpSortie) op).getDirec().getCodeDirection();
 					}
 				}
 				// designation
@@ -1014,7 +1014,7 @@ public class SuiviEditionBean implements Serializable{
 				// origine
 				row[3] = ((OpSortie) op).getMotifsortie().getDesignation();
 				if(((OpSortie) op).getMotifsortie().getDesignation().equalsIgnoreCase("Affectation")) {
-					row[3] = row[3] + " vers "  + ((OpSortie) op).getDirec().getDesignation();
+					row[3] = row[3] + " vers "  + ((OpSortie) op).getDirec().getCodeDirection();
 				}
 				// designation
 				Materiel mat = op.getMat();
@@ -1538,7 +1538,7 @@ public class SuiviEditionBean implements Serializable{
 							sortieMotif = sortieoperation.getMotifsortie().getDesignation();
 						}
 						if (sortieoperation.getDirec() != null) {
-							sortieMotif = sortieMotif + " vers " + sortieoperation.getDirec().getDesignation();
+							sortieMotif = sortieMotif + " vers " + sortieoperation.getDirec().getCodeDirection();
 						}
 						row[17] = row[17] + sortieMotif; // motifs des sorties
 					}
@@ -1570,15 +1570,19 @@ public class SuiviEditionBean implements Serializable{
 		return listESForGrandLivre;
 	}
 
-	public List<Object[]> getListESForGrandLivre(Date start, Date fin) {
+	public List<Object[]> getListESForGrandLivre(Date start, Date fin,Direction dir) {
 
 		if (listESForGrandLivre == null) {
 			DateFormat df = new SimpleDateFormat("dd MMM yyyy", Locale.FRANCE);
-			Agent cur = (Agent) RequestFilter.getSession().getAttribute("agent");
+			if(dir==null) {
+				Agent cur = (Agent) RequestFilter.getSession().getAttribute("agent");
+				dir = cur.getDirection();
+			}
+			
 			Date sdate = start;
 			Date edate = fin;
 			System.out.println("RRRRRRRRRRR Begin:");
-			List<Object[]> r = usermetierimpl.getListObjectForinvetaire(cur.getDirection(), sdate, edate);
+			List<Object[]> r = usermetierimpl.getListObjectForinvetaire(dir, sdate, edate);
 			System.out.println("RRRRRRRRRRR Ending:");
 			/*
 			 * for(Object[] o:r) { System.out.println(String.valueOf(o[0]));
@@ -1599,8 +1603,12 @@ public class SuiviEditionBean implements Serializable{
 				if(mat.getDesign().getRenseignement() != null) {
 					rens = mat.getDesign().getRenseignement();
 				}
+				String mar = "";
+				if(mat.getDesign().getMarque() !=null) {
+					mar = mat.getDesign().getMarque().getDesignation();
+				}
 				row[2] = mat.getDesign().getTypematerieladd().getDesignation() + " - "
-						+ mat.getDesign().getMarque().getDesignation() + " - " + rens
+						+ mar + " - " + rens
 						
 				// + mat.getNumSerie()
 				;
@@ -1734,7 +1742,7 @@ public class SuiviEditionBean implements Serializable{
 						OpSortie sortieoperation = (OpSortie) o[14];
 						sortieMotif = sortieoperation.getMotifsortie().getDesignation();
 						if (sortieoperation.getDirec() != null) {
-							sortieMotif = sortieMotif + " vers " + sortieoperation.getDirec().getDesignation();
+							sortieMotif = sortieMotif + " vers " + sortieoperation.getDirec().getCodeDirection();
 						}
 						row[17] = row[17] + sortieMotif; // motifs des sorties
 					}
@@ -2804,7 +2812,7 @@ public class SuiviEditionBean implements Serializable{
 				if (((OpSortie) op).getMotifsortie() != null) {
 					row[3] = ((OpSortie) op).getMotifsortie().getDesignation();
 					if(((OpSortie) op).getMotifsortie().getDesignation().equalsIgnoreCase("Affectation")) {
-						row[3] = row[3] + " vers "  + ((OpSortie) op).getDirec().getDesignation();
+						row[3] = row[3] + " vers "  + ((OpSortie) op).getDirec().getCodeDirection();
 					}
 				}
 				// designation
