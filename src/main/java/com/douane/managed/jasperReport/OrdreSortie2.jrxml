@@ -70,34 +70,35 @@
 	<parameter name="filamatra" class="java.lang.String"/>
 	<parameter name="numFolio" class="java.lang.String"/>
 	<title>
-		<band height="312" splitType="Stretch">
+		<band height="290" splitType="Stretch">
 			<staticText>
-				<reportElement x="450" y="0" width="125" height="69" uuid="14a21728-ae3a-4e4a-968a-69a87db5d12e"/>
+				<reportElement x="450" y="0" width="125" height="50" uuid="14a21728-ae3a-4e4a-968a-69a87db5d12e"/>
 				<textElement textAlignment="Center">
-					<font size="12"/>
+					<font size="10"/>
 				</textElement>
 				<text><![CDATA[Modèle n°8
 Instruction générale du 22 juillet 1955
 Article 153]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="216" y="49" width="129" height="20" uuid="3481a25c-6bed-4545-8089-351e1b0a4b32"/>
+				<reportElement x="216" y="40" width="129" height="28" uuid="3481a25c-6bed-4545-8089-351e1b0a4b32"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="12"/>
+					<font size="11"/>
 				</textElement>
-				<text><![CDATA[BUDGET GENERAL]]></text>
+				<text><![CDATA[----------------------------
+BUDGET GENERAL]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="211" y="69" width="144" height="20" uuid="9512b768-bc8b-4b7d-98eb-6975c3acd9f6"/>
+				<reportElement x="110" y="69" width="340" height="20" uuid="9512b768-bc8b-4b7d-98eb-6975c3acd9f6"/>
 				<textElement textAlignment="Center">
-					<font size="12"/>
+					<font size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$P{budget}]]></textFieldExpression>
+				<textFieldExpression><![CDATA["SECTION : " + $P{budget}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="110" y="89" width="340" height="51" uuid="1fe107ac-d28a-4568-8bbb-7b5041766384"/>
 				<textElement textAlignment="Center" verticalAlignment="Top">
-					<font size="12"/>
+					<font size="11"/>
 				</textElement>
 				<textFieldExpression><![CDATA["CHAPITRE(1)  " +  $P{chap} + " ARTICLE " +  $P{article} + " PARAGRAPHE " + $P{paragraphe} + 
 "\n----------------------------"]]></textFieldExpression>
@@ -105,73 +106,86 @@ Article 153]]></text>
 			<textField>
 				<reportElement x="201" y="140" width="158" height="40" uuid="c5773bff-e0ab-4817-85c6-130b689b1a32"/>
 				<textElement textAlignment="Center">
-					<font size="12"/>
+					<font size="11"/>
 				</textElement>
 				<textFieldExpression><![CDATA["(2) " + $P{num2} + 
 "\n----------------------------"]]></textFieldExpression>
 			</textField>
 			<textField pattern="$P{approOuService}">
-				<reportElement x="180" y="190" width="200" height="21" uuid="a934823d-e3d0-4b8b-aa91-6be933d38ea5"/>
+				<reportElement x="80" y="190" width="399" height="21" uuid="a934823d-e3d0-4b8b-aa91-6be933d38ea5"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
-					<font size="16" isBold="false"/>
+					<font size="11" isBold="false"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{approOuService}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="0" y="240" width="552" height="70" uuid="e0cf8ced-2eee-421a-bb72-f6ef03ecb3ed"/>
+				<reportElement x="0" y="240" width="552" height="50" uuid="e0cf8ced-2eee-421a-bb72-f6ef03ecb3ed"/>
 				<textElement verticalAlignment="Top">
-					<font size="12"/>
+					<font size="11"/>
 				</textElement>
 				<text><![CDATA[ Seront portés en sortie dans les écritures du comptable Dépositaires les matières et objet ci-aprés
 Désignés provenant de (**) LA DIRECTION GENERALE DES DOUANES
 Distribués à (*) AU SERVICE DU RENSEIGNEMENT DE LA DOCUMENTATION ET DE L'ASSISTANCE ADMINISTRATIVE MUTUELLE INTERNATIONALE]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="0" y="160" width="130" height="20" uuid="40db1074-eb36-40a2-af8a-7a52f16e3344"/>
+				<reportElement x="-1" y="159" width="180" height="31" uuid="40db1074-eb36-40a2-af8a-7a52f16e3344"/>
 				<textElement textAlignment="Left" verticalAlignment="Middle">
-					<font size="12" isBold="true"/>
+					<font size="11" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{numSortie}== null?" Non Validé":" " +  $P{numSortie}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="180" y="211" width="198" height="30" uuid="4f211f2a-1e9c-4c66-baaf-113ab955a572"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="16" isBold="true"/>
+					<font size="14" isBold="true"/>
 				</textElement>
 				<text><![CDATA[ORDRE DE SORTIE ]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="178" y="1" width="200" height="48" uuid="70462524-927a-4d11-b669-37b2cd7977bd"/>
+				<reportElement x="158" y="1" width="247" height="19" uuid="70462524-927a-4d11-b669-37b2cd7977bd"/>
 				<textElement textAlignment="Center">
-					<font size="12"/>
+					<font size="12" isBold="true"/>
 				</textElement>
-				<textFieldExpression><![CDATA["REPUBLIQUE DE MADAGASCAR\n" +
-$P{filamatra}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="0" y="1" width="120" height="68" uuid="fa85e8f7-46ab-46ca-9e6b-98c7f9cdcc07"/>
-				<textElement markup="none">
-					<font size="12" isBold="false"/>
-				</textElement>
-				<textFieldExpression><![CDATA["(3) "+$P{comptable}  + "\n(4) " + $P{num6}]]></textFieldExpression>
+				<textFieldExpression><![CDATA["REPUBLIQUE DE MADAGASCAR"]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="0" y="69" width="110" height="71" uuid="39ed1d3b-e9ff-4cce-acf6-1d00037af9a9"/>
+				<reportElement x="0" y="59" width="110" height="60" uuid="39ed1d3b-e9ff-4cce-acf6-1d00037af9a9"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
 				<text><![CDATA[(73) Numéro de chapitre
 (74) Libellé de chapitre
 (75) Service
 (76) Subdivision de chapitre]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="450" y="69" width="125" height="171" uuid="b8f3a7ad-8911-46e0-969c-730f2717d896"/>
+				<reportElement x="451" y="50" width="125" height="130" uuid="b8f3a7ad-8911-46e0-969c-730f2717d896"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
 				<text><![CDATA[(*) rayer avec soin et tres nettement
 "matériel en provisionnement" ou "matériel en service" selon qu'il s'agit de matériel en magasin ou matériel en service
+
 (**) indiquer avec le plus grand soin et en détail la cause de mouvement et la référence]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="0" y="141" width="130" height="19" uuid="c287dfa6-6cef-4639-95d4-3b4879947642"/>
+				<reportElement x="-1" y="140" width="160" height="19" uuid="c287dfa6-6cef-4639-95d4-3b4879947642"/>
 				<text><![CDATA[Numéro d'ordre du journal :]]></text>
 			</staticText>
+			<staticText>
+				<reportElement x="0" y="5" width="150" height="49" uuid="62e1e699-58f9-4bee-9dc2-a41b10c6ffb5"/>
+				<text><![CDATA[(3)........................................
+
+
+(4)........................................]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="158" y="20" width="247" height="19" uuid="72455773-c613-454a-a81a-5408ef1bce31"/>
+				<textElement textAlignment="Center">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{filamatra}]]></textFieldExpression>
+			</textField>
 		</band>
 	</title>
 	<detail>
@@ -441,7 +455,7 @@ $P{materiel}.getDesign().getRenseignement()]]></textFieldExpression>
 			<textField>
 				<reportElement x="0" y="4" width="550" height="42" uuid="d1f962d5-01c1-4c3c-89fe-1694a93059f0"/>
 				<textElement textAlignment="Left">
-					<font size="12"/>
+					<font size="11"/>
 				</textElement>
 				<textFieldExpression><![CDATA["Arrêté le présent ordre d'entrée à (1) "  + $P{arret} + " article(s) " + "évalués à la somme de (1) "+$P{somme}]]></textFieldExpression>
 			</textField>
@@ -450,70 +464,71 @@ $P{materiel}.getDesign().getRenseignement()]]></textFieldExpression>
 			<staticText>
 				<reportElement x="414" y="60" width="141" height="20" uuid="bb98f783-c630-4be4-a94b-d4304c389289"/>
 				<textElement>
-					<font size="12"/>
+					<font size="11"/>
 				</textElement>
 				<text><![CDATA[, le ...............................]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="283" y="60" width="131" height="20" uuid="a2a91d22-0790-4a9b-9d2c-810ec329e020"/>
 				<textElement>
-					<font size="12"/>
+					<font size="11"/>
 				</textElement>
 				<text><![CDATA[A ................................]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="0" y="110" width="18" height="20" uuid="2d62cf14-8967-4bd6-93ee-21475578d648"/>
 				<textElement textAlignment="Left" verticalAlignment="Top">
-					<font size="12"/>
+					<font size="11"/>
 				</textElement>
 				<text><![CDATA[A.]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="284" y="80" width="272" height="25" uuid="59d94348-28ba-4e4e-bd73-bae3ce4b670b"/>
 				<textElement>
-					<font size="12"/>
+					<font size="11"/>
 				</textElement>
-				<text><![CDATA[Le comptable(2)......................................................]]></text>
+				<text><![CDATA[Le comptable(2)............................................]]></text>
 			</staticText>
 			<textField>
 				<reportElement x="0" y="1" width="263" height="49" uuid="6de5e2ca-53c0-4f30-b258-48062c46d5b8"/>
 				<textElement textAlignment="Justified">
 					<font size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA["(3) Le comptable  " +$P{Comptable} + " délivrera et portera en sortie dans ses écritures les matières et objets désignés ci-dessus, "]]></textFieldExpression>
+				<textFieldExpression><![CDATA["(3) Le comptable  " + "...Dépositaire..." + " délivrera et portera en sortie dans ses écritures les matières et objets désignés ci-dessus, "]]></textFieldExpression>
 			</textField>
 			<textField pattern="dd MMMM yyyy">
 				<reportElement x="140" y="110" width="123" height="19" uuid="93909861-4c41-4c1c-8793-2d4f1eb2cce2"/>
 				<textElement>
-					<font size="12"/>
+					<font size="11"/>
 				</textElement>
 				<textFieldExpression><![CDATA[", le " + $P{date1}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="406" y="301" width="149" height="20" uuid="91c1227a-f047-49f6-b319-a6f913876f1c"/>
+				<reportElement x="406" y="295" width="149" height="20" uuid="91c1227a-f047-49f6-b319-a6f913876f1c"/>
 				<textElement verticalAlignment="Top">
-					<font size="12"/>
+					<font size="11"/>
 				</textElement>
 				<text><![CDATA[, le (5) ............................]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="282" y="229" width="274" height="20" uuid="0436b508-2e28-48c8-b504-32ad7f01c57b"/>
 				<textElement textAlignment="Center">
-					<font size="12"/>
+					<font size="11"/>
 				</textElement>
 				<text><![CDATA[RECEPISSE (5)]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="284" y="301" width="122" height="20" uuid="1b01b3f2-1166-468e-a810-415e04a743e0"/>
+				<reportElement x="284" y="295" width="122" height="20" uuid="1b01b3f2-1166-468e-a810-415e04a743e0"/>
 				<textElement verticalAlignment="Top">
-					<font size="12"/>
+					<font size="11"/>
 				</textElement>
 				<text><![CDATA[A ..........................]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="282" y="250" width="275" height="51" uuid="7da51220-5a01-4122-8e86-813728b29d11"/>
+				<reportElement x="282" y="250" width="275" height="44" uuid="7da51220-5a01-4122-8e86-813728b29d11"/>
 				<textElement>
-					<font size="12"/>
+					<font size="11"/>
+					<paragraph lineSpacingSize="1.0"/>
 				</textElement>
 				<text><![CDATA[Je soussigné (6) ..........................................
 avoir reçu les (7) ..........................................
@@ -522,13 +537,15 @@ portés au présent ordre.]]></text>
 			<textField>
 				<reportElement x="0" y="130" width="263" height="20" uuid="e95b10c7-c12e-42a1-a263-e5e646c1efad"/>
 				<textElement textAlignment="Left" verticalAlignment="Top" markup="none">
-					<font size="12"/>
+					<font size="11"/>
 				</textElement>
 				<textFieldExpression><![CDATA["Le (4) " +$P{date4}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="2" y="167" width="209" height="167" uuid="2bd23a58-dfff-4269-8eb9-5957f466fff4"/>
-				<textElement textAlignment="Justified"/>
+				<reportElement x="2" y="167" width="209" height="134" uuid="2bd23a58-dfff-4269-8eb9-5957f466fff4"/>
+				<textElement textAlignment="Justified">
+					<font size="8"/>
+				</textElement>
 				<text><![CDATA[(1) En toute lettre
 (2) Gestionnaire ou dépositaire
 (3) Rayer, selon le cas la première et seconde formule. La seconde est maintenue dans le cas où la sortie est déjà  effectuée et ou l'ordre de sortie constitue un certificat administratif
@@ -543,7 +560,7 @@ portés au présent ordre.]]></text>
 				<textElement textAlignment="Justified">
 					<font size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA["(3) Le comptable " +$P{Comptable} + " portera en sortie les  matières et objets désignées et objets désignées ci-dessus dont je certifie la conformité avec "]]></textFieldExpression>
+				<textFieldExpression><![CDATA["(3) Le comptable " +"...Dépositaire..." + " portera en sortie les  matières et objets désignées et objets désignées ci-dessus dont je certifie la conformité avec "]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="284" y="1" width="272" height="59" uuid="740a541f-4340-4575-abdc-8ea7700e9eb9"/>
@@ -556,7 +573,7 @@ portés au présent ordre.]]></text>
 			<textField>
 				<reportElement x="18" y="110" width="122" height="19" uuid="d8bb26db-db7f-4bdd-ace2-d536f840b1f7"/>
 				<textElement textAlignment="Left">
-					<font size="12"/>
+					<font size="11"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{lieu}]]></textFieldExpression>
 			</textField>
