@@ -2842,7 +2842,7 @@ public class SuiviEditionBean implements Serializable{
 		return listobjectForJournal;
 	}
 
-	public List<Object[]> getListobjectForInvetaireByDir(Direction direc) {
+	public List<Object[]> getListobjectForInvetaireByDir(Direction direc,Date datdeb, Date datend) {
 		// if (listobjectForInvetaire == null) {
 		if (direc == null) {
 			Agent cur = (Agent) RequestFilter.getSession().getAttribute("agent");
@@ -2855,9 +2855,18 @@ public class SuiviEditionBean implements Serializable{
 		int year = calendar.get(Calendar.YEAR);
 		Date sdate = new GregorianCalendar(year, Calendar.JANUARY, 1).getTime();
 		Date edate = new GregorianCalendar(year, Calendar.DECEMBER, 31).getTime();
+		
+		if(datdeb !=null & datend != null) {
+			sdate = datdeb;
+			edate = datend;
+		}
+		
 		System.out.println("RRRRRRRRRRR Begin:");
 		List<Object[]> r = usermetierimpl.getListObjectForinvetaire(direc, sdate, edate);
 		System.out.println("RRRRRRRRRRR Ending:");
+		
+		
+		
 		/*
 		 * for(Object[] o:r) { System.out.println(String.valueOf(o[0]));
 		 * System.out.println(String.valueOf(o[1])); }

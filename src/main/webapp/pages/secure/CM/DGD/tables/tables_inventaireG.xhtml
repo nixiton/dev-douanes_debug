@@ -15,11 +15,36 @@
   
    
     <!-- -TESTING RESULTS -->
-    <h:form>
+    <h:form id="formInventaire">
+    <span>
+    	<p:outputLabel for="annee_journal" value="Exporter le journal du " />
+        					<p:calendar id="annee_journal" size="20" value="#{InventaireBean.dat}" navigator="true" pattern="dd MMMM yyyy" required="true" locale="fr"/>
+     			 			<p:dialog modal="true" resizable="false" header="Values" widgetVar="dlg" showEffect="fold">
+        						<p:panelGrid id="display_journal" columns="2" columnClasses="label,value">
+      			 					 <h:outputText value="" />
+						            <h:outputText value="#{InventaireBean.dat}">
+						                <f:convertDateTime pattern="dd MMMM yyyy" locale="Locale.FRANCE"/>
+				                  	</h:outputText>
+       			 				</p:panelGrid>
+    						</p:dialog>
+    						
+    						<p:outputLabel for="annee_fin" value=" au " />
+        					<p:calendar id="annee_fin" size="20" value="#{InventaireBean.datF}" navigator="true" pattern="dd MMMM yyyy" required="true" locale="fr"/>
+     			 			<p:dialog modal="true" resizable="false" header="Values" widgetVar="dlg" showEffect="fold">
+        						<p:panelGrid id="display_fin" columns="2" columnClasses="label,value">
+      			 					 <h:outputText value="" />
+						            <h:outputText value="#{InventaireBean.datF}">
+						                <f:convertDateTime pattern="dd MMMM yyyy" locale="Locale.FRANCE"/>
+				                  	</h:outputText>
+       			 				</p:panelGrid>
+    						</p:dialog>
+    						
+    
+    </span>
     <p:tabView scrollable="true">
 	<c:forEach var="dir" items="${siseBean.listDirection}" varStatus="status">
 	<p:tab title="${dir.codeDirection}">
-    <p:dataTable var="m" value="#{suivieditionBean.getListobjectForInvetaireByDir(dir)}"
+    <p:dataTable var="m" value="#{suivieditionBean.getListobjectForInvetaireByDir(dir,null,null)}"
     		currentPageReportTemplate="({currentPage} sur {totalPages})"
 			paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {Exporters}	"
 			paginator="true" style="margin-bottom:20px" emptyMessage="Aucun résultat"
@@ -30,6 +55,12 @@
 			
 			<f:facet name="header">
        			 INVENTAIRE du mobilier et des objets d’ameublement existant: #{dir.designation}<br/>
+       			 <p:commandButton 
+       			 process="formInventaire:annee_journal, formInventaire:annee_fin,@this"
+    			 id ="expa#{dir.codeDirection}" 
+       			 value="Exporter" action="#{InventaireBean.execute(dir,suivieditionBean)}" styleClass="btn btn-lg-primary"> </p:commandButton>   						
+       			 		
+       			 
     		</f:facet>
 			
 			<f:facet name="{Exporters}">

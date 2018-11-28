@@ -14,6 +14,7 @@ import javax.faces.bean.SessionScoped;
 import javax.faces.bean.ViewScoped;
 import javax.faces.context.ExternalContext;
 
+import com.douane.entite.Direction;
 import com.douane.managed.bean.GACBean;
 import com.douane.managed.bean.SuiviEditionBean;
 @SessionScoped
@@ -43,8 +44,10 @@ public class InventaireBean {
 	public void setDateF(String dateF) {
 		this.dateF = dateF;
 	}
-	public String execute(SuiviEditionBean s) {
-		this.li = s.getListobjectForInvetaire(this.dat , this.datF);
+	public String execute(Direction direc, SuiviEditionBean s) {
+		//this.li = s.getListobjectForInvetaire(this.dat , this.datF);
+		this.li = s.getListobjectForInvetaireByDir(direc,this.dat,this.datF);
+		
 		DateFormat  df = new SimpleDateFormat("dd MMMM yyyy", Locale.FRANCE);
 		this.dateD = df.format(this.dat);
 		this.dateF  = df.format(this.datF);
