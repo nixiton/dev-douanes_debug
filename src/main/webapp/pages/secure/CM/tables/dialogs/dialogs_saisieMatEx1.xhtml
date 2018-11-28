@@ -119,28 +119,7 @@
                                 	</h:outputText>
                                 </td>
                                </tr> 
-                                <c:forEach var="matdet" items="#{docbean.curentOperationAttrToPdf.detenteur.matdetenu}" varStatus="loop">
-                                <tr >
-                                <td align="left">#{matdet.design.nomenMat.designation} -
-                                #{matdet.design.nomenMat.nomenclature} - 
-                                #{matdet.design.marque.designation} - 
-                                #{matdet.design.renseignement} - 
-                                #{matdet.reference}
-                                 </td>
-                                <td align="left">#{matdet.design.especeUnite}</td>
-                                <td align="left">
-                                	<h:outputText value="#{matdet.design.pu}" >
-                                		<f:convertNumber pattern="¤#,##0" currencySymbol=""></f:convertNumber>
-                                	</h:outputText>
-                                </td>
-                                <td align="left">1</td>
-                                <td align="left">
-                                	<h:outputText value="#{matdet.design.pu*1}" >
-                                		<f:convertNumber pattern="¤#,##0" currencySymbol=""></f:convertNumber>
-                                	</h:outputText>
-                                </td>
-                               </tr>  
-                                </c:forEach>
+                                
                                 
                             
                         </table>

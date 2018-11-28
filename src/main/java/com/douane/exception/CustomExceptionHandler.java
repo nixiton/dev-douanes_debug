@@ -47,11 +47,11 @@ public class CustomExceptionHandler extends ExceptionHandlerWrapper {
                 Throwable throwable = exceptionQueuedEventContext.getException();
                 System.err.println("Exception: " + throwable.getMessage());
                 
-                if (throwable instanceof ViewExpiredException) {
+               /* if (throwable instanceof ViewExpiredException) {
                 	FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Session expirée",
         					"Pour des raisons de sécurité, la session a été réinitialisée");
         			FacesContext.getCurrentInstance().addMessage(null, message);
-                }
+                }*/
 
                 context2.setViewRoot(context.getViewRoot());
                 context2.getViewRoot().getViewId();

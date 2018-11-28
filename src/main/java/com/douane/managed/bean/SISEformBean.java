@@ -1485,6 +1485,9 @@ public class SISEformBean {
 				Date d1 = h1.getDate();
 				Date d2 = h2.getDate();
 				//System.out.println("date :" + d1);
+				if(d1 ==null || d2 ==null) {
+					return 0;
+				}
 				long diff1 = Math.abs(d1.getTime() - date.getTime());
 		        long diff2 = Math.abs(d2.getTime() - date.getTime());
 		        System.out.println(h1.getTitle()+" : "+ diff1 +" - "+ h2.getTitle()+" : "+diff2 +" = " + (diff1-diff2));

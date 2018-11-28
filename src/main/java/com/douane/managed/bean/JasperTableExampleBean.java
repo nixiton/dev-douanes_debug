@@ -139,7 +139,7 @@ public class JasperTableExampleBean implements Serializable{
 		ExternalContext external = facescontext.getExternalContext();
 		external.getSession(true);
 		HttpServletResponse response = (HttpServletResponse) external.getResponse();
-		URL url =  this.getClass().getResource("../jasperReport/saisieMatEx.jasper");
+		URL url =  this.getClass().getResource("../jasperReport/saisieMatEx2.jasper");
 		//System.out.println(url.getPath());
         try {
             
@@ -210,7 +210,7 @@ public class JasperTableExampleBean implements Serializable{
 		ExternalContext external = facescontext.getExternalContext();
 		external.getSession(true);
 		HttpServletResponse response = (HttpServletResponse) external.getResponse();
-		URL url =  this.getClass().getResource("../jasperReport/saisieMatEx.jasper");
+		URL url =  this.getClass().getResource("../jasperReport/saisieMatEx2.jasper");
 		//System.out.println(url.getPath());
         try {
             
