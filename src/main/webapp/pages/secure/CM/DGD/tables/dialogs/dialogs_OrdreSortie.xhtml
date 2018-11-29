@@ -33,10 +33,13 @@
  			
  			<div class="col-md-3">
  				<br/>
- 				<p:selectOneMenu id="directionint" value="#{JasperTableExampleBean.ordreS.dirc}" style="font-size: 15px;">
+ 				(3) ..................<br/>
+ 				(4) ..................<br/>
+ 				
+ 				<!-- <p:selectOneMenu id="directionint" value="#{JasperTableExampleBean.ordreS.dirc}" style="font-size: 15px;">
                         <f:selectItems value="#{siseBean.mapDirection(docbean.curentOpeationSortieToPdf.direction, docbean.curentOpeationSortieToPdf.date)}" />
                  </p:selectOneMenu>
- 				<h:outputText value="#{docbean.curentOpeationSortieToPdf.direction.quatre}" /> <!--p:inputText value="#{JasperTableExampleBean.ordreS.num6}" style="text-align: center;width: 80%"></p:inputText --><br></br>
+ 				<h:outputText value="#{docbean.curentOpeationSortieToPdf.direction.quatre}" /> --><!--p:inputText value="#{JasperTableExampleBean.ordreS.num6}" style="text-align: center;width: 80%"></p:inputText --><br></br>
  			</div>
  			<div class="col-md-6">
  				
@@ -66,7 +69,8 @@
  			</div>
 
  			<div class="col-md-6" style="text-align: center;">
- 				BUDGET <p:inputText value="#{JasperTableExampleBean.ordreS.budget}" style="text-align: center;width: 80%"></p:inputText>
+ 				BUDGET GENERAL<br/>
+ 				SECTION : <p:inputText value="#{JasperTableExampleBean.ordreS.budget}" style="text-align: center;width: 80%"></p:inputText>
  				
  			</div>
 
@@ -130,7 +134,9 @@
 
  			<div class="col-md-12">
 			<p>
- 			Seront portés en sortie dans les écritures du comptable  #{docbean.curentOpeationSortieToPdf.direction.designation} les matières et objets ci-après désignés provenant de  #{docbean.curentOpeationSortieToPdf.mat.design.origine}
+ 			Seront portés en sortie dans les écritures du comptable ..Dépositaire.. les matières et objets ci-après.<br></br> 
+ 			Désignés provenant de(**)  #{docbean.curentOpeationSortieToPdf.direction.designation} <br/>
+ 			Distribués à (*)  #{docbean.curentOpeationSortieToPdf.mat.design.origine}
 			</p>
  		</div>
 

@@ -282,7 +282,7 @@
 				<textElement textAlignment="Left">
 					<font size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA["Nombre de feuillets : " + $P{nbFeuillets} ]]></textFieldExpression>
+				<textFieldExpression><![CDATA["Nombre de feuillets : " + $P{nbFeuillets}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="660" y="10" width="139" height="49" uuid="a1a9e7c2-8507-44c2-87aa-5ce8eb5e4fd1"/>
@@ -370,7 +370,7 @@ L’Instruction Générale du 22 juillet 1955]]></text>
 				<textElement>
 					<font size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[ " A " + $P{lieu} +  " le " +$P{date}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[" A " + $P{lieu} +  " le " +$P{date}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="161" y="80" width="318" height="19" uuid="25e5f61a-1373-4574-804f-98dd5cdb6cd7"/>
@@ -407,7 +407,7 @@ L’Instruction Générale du 22 juillet 1955]]></text>
 		</band>
 	</title>
 	<detail>
-		<band height="284">
+		<band height="250">
 			<componentElement>
 				<reportElement key="table 1" style="table 1" x="-4" y="0" width="803" height="250" uuid="0b08cece-b1ff-4af3-965d-80a1a3cd04ac"/>
 				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
