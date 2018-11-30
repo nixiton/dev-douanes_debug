@@ -47,7 +47,7 @@
            <h:outputText value="#{materiel.idMateriel}" />
             
         </p:column>
-        <p:column filterBy="#{materiel.design.nomenMat}" headerText="Nomenclature"  filterMatchMode="exact" style="width: 20%; text-align: center; word-wrap: break-word;">
+        <p:column filterBy="#{materiel.design.nomenMat}" headerText="Nomenclature"  filterMatchMode="exact" style="width: 10%; text-align: center; word-wrap: break-word;">
             <f:facet name="filter">
                 <p:selectOneMenu onchange="PF('MaterielTable').filter()" panelStyle="width:250px;">
                     <f:selectItem itemLabel="Selectionner" itemValue="#{null}" noSelectionOption="true" />
@@ -60,11 +60,11 @@
             </f:facet> 
             <h:outputText value="#{materiel.design.nomenMat.nomenclature}" />
         </p:column>
-        <p:column headerText="Numéro Série" filterBy="#{materiel.numSerie}" filterMatchMode="contains" style="width: 7%; text-align: center; word-wrap: break-word;">
+        <p:column headerText="Numéro Série" filterBy="#{materiel.numSerie}" filterMatchMode="contains" style="width: 12%; text-align: center; word-wrap: break-word;">
              <h:outputText value="#{materiel.numSerie}" />
             
         </p:column>
-        <p:column headerText="Type de Matériel" filterBy="#{materiel.design.typematerieladd.designation}" filterMatchMode="contains" style="width: 9%; text-align: center; word-wrap: break-word;">
+        <p:column headerText="Type de Matériel" filterBy="#{materiel.design.typematerieladd.designation}" filterMatchMode="contains" style="width: 10%; text-align: center; word-wrap: break-word;">
              <h:outputText value="#{materiel.design.typematerieladd.designation}" />
             
         </p:column>
@@ -94,13 +94,13 @@
             </f:facet>
             <h:outputText value="#{materiel.dc.nomAgent}" />
         </p:column>
-        <p:column exportable="false" style="width: 4%; text-align: center; word-wrap: break-word;">
+        <p:column exportable="false" style="width: 5%; text-align: center; word-wrap: break-word;">
             <f:facet name="header"><h:outputText value="Détail" /></f:facet>
             
             	<p:commandButton  action="#{suivieditionBean.setMateriel(materiel.idMateriel)}" update=":detail"
             oncomplete="PF('detail').show()" icon="ui-icon-zoomin"/>
         </p:column> 
-        <p:column exportable="false" style="width: 4%; text-align: center; word-wrap: break-word;">
+        <!-- <p:column exportable="false" style="width: 4%; text-align: center; word-wrap: break-word;">
             <f:facet name="header">Statut</f:facet>
             <p:commandButton  action="#{suivieditionBean.setMateriel(materiel.idMateriel)}" 
             oncomplete="PF('statut').show()" icon="ui-icon-info" update=":statut">
@@ -113,7 +113,7 @@
             oncomplete="PF('historique').show()" icon="ui-icon-clipboard" update=":historique">
             </p:commandButton>
         </p:column>
-        
+         -->
          
         <p:column filterBy="#{materiel.validation}" headerText="Statut" filterMatchMode="equals" style="width: 6%; text-align: center; word-wrap: break-word;">
             <f:facet name="filter">
