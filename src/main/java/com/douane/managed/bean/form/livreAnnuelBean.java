@@ -32,7 +32,7 @@ public class livreAnnuelBean {
 		this.setListe(s.getListESForGrandLivre());
 		this.anne = Integer.valueOf(df.format(this.d));
 		this.trois  = s.getDirection().getTrois();
-		this.quatre =  s.getDirection().getQuatre();
+		this.quatre =  "";//s.getDirection().getQuatre();
 		df = new SimpleDateFormat("dd MMMM yyyy", Locale.FRANCE);
 		this.dateF = df.format(this.d);
 		this.service = s.getDirection().getDesignation();
@@ -42,7 +42,7 @@ public class livreAnnuelBean {
 		DateFormat  df = new SimpleDateFormat("dd MMMM yyyy", Locale.FRANCE);
 		this.anne = i;
 		this.trois  = s.getDirection().getTrois();
-		this.quatre =  s.getDirection().getQuatre();
+		this.quatre =  "";//s.getDirection().getQuatre();
 		Date sdate = new GregorianCalendar(i, Calendar.JANUARY, 1).getTime();
 		this.d = new GregorianCalendar(i, Calendar.DECEMBER, 31).getTime();
 		this.liste=s.getListESForGrandLivre(sdate,this.d,direc);

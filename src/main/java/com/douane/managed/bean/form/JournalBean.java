@@ -61,7 +61,7 @@ public class JournalBean {
 		if(s.getDirection() !=null) {
 			this.direction = s.getDirection().getDesignation();
 			this.trois = s.getDirection().getTrois();
-			this.quatre = s.getDirection().getQuatre();
+			this.quatre = "";
 		}else System.out.println("tsy tonga ny journal.Direction");
 		return "dialogJournal";
 	}
