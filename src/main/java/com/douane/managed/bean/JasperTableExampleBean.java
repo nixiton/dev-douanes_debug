@@ -1295,7 +1295,12 @@ public class JasperTableExampleBean implements Serializable{
             /* Map to hold Jasper report Parameters */
             Map<String, Object> parameters = new HashMap<String, Object>();;
             parameters.put("dataSource", m.getDataSource());
-            parameters.put("report", new Long(0));
+            Long l = new Long(0);
+            if(!liste.isEmpty()) {
+            	l = (Long) (liste.get(0))[6];
+            }
+            System.out.println("report = "+l);
+            parameters.put("report", l);
             parameters.put("numfolio", this.pdfForm.getNum1());
             parameters.put("designation", this.pdfForm.getNum2());
             parameters.put("espace", this.pdfForm.getNum3());
@@ -1334,7 +1339,12 @@ public class JasperTableExampleBean implements Serializable{
             /* Map to hold Jasper report Parameters */
             Map<String, Object> parameters = new HashMap<String, Object>();;
             parameters.put("dataSource", m.getDataSource());
-            parameters.put("report", new Long(0));
+            Long l = new Long(0);
+            if(!liste.isEmpty()) {
+            	l = (Long) (liste.get(0))[6];
+            }
+            System.out.println("report = "+l);
+            parameters.put("report", l);
             parameters.put("numfolio", this.pdfForm.getNum1());
             parameters.put("designation", this.pdfForm.getNum2());
             parameters.put("espace", this.pdfForm.getNum3());
@@ -1348,7 +1358,6 @@ public class JasperTableExampleBean implements Serializable{
             }
             String namefile = "ficheDeStock"+ral;
             namefile = namefile.replaceAll("\\s", "");
-            
             response.setContentType("application/msword");
             response.setHeader("Content-Disposition","attachment; filename=\""+namefile+".docx\"");
             ServletOutputStream tmp = response.getOutputStream();

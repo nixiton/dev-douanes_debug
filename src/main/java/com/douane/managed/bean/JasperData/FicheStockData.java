@@ -38,7 +38,7 @@ public class FicheStockData {
 			this.row3= (Long)i[3];
 			this.row4= (String)i[4];
 			this.row5= (Long) i[5];
-			//this.row6= (Long)i[6];
+			this.row6= (Long)i[6];
 		}
 
 		public Date getRow0() {
