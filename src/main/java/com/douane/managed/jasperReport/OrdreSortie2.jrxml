@@ -69,8 +69,9 @@
 	<parameter name="numSortie" class="java.lang.String"/>
 	<parameter name="filamatra" class="java.lang.String"/>
 	<parameter name="numFolio" class="java.lang.String"/>
+	<parameter name="provenantDe" class="java.lang.String"/>
 	<title>
-		<band height="290" splitType="Stretch">
+		<band height="292" splitType="Stretch">
 			<staticText>
 				<reportElement x="450" y="0" width="125" height="50" uuid="14a21728-ae3a-4e4a-968a-69a87db5d12e"/>
 				<textElement textAlignment="Center">
@@ -118,15 +119,6 @@ BUDGET GENERAL]]></text>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{approOuService}]]></textFieldExpression>
 			</textField>
-			<staticText>
-				<reportElement x="0" y="240" width="552" height="50" uuid="e0cf8ced-2eee-421a-bb72-f6ef03ecb3ed"/>
-				<textElement verticalAlignment="Top">
-					<font size="11"/>
-				</textElement>
-				<text><![CDATA[ Seront portés en sortie dans les écritures du comptable Dépositaires les matières et objet ci-aprés
-Désignés provenant de (**) LA DIRECTION GENERALE DES DOUANES
-Distribués à (*) AU SERVICE DU RENSEIGNEMENT DE LA DOCUMENTATION ET DE L'ASSISTANCE ADMINISTRATIVE MUTUELLE INTERNATIONALE]]></text>
-			</staticText>
 			<textField>
 				<reportElement x="-1" y="159" width="180" height="31" uuid="40db1074-eb36-40a2-af8a-7a52f16e3344"/>
 				<textElement textAlignment="Left" verticalAlignment="Middle">
@@ -185,6 +177,12 @@ Distribués à (*) AU SERVICE DU RENSEIGNEMENT DE LA DOCUMENTATION ET DE L'ASSIS
 					<font size="11" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{filamatra}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="2" y="250" width="554" height="40" uuid="db7c4e74-7fe6-4b3d-b312-7efe79e56684"/>
+				<textFieldExpression><![CDATA["Seront portés en sortie dans les écritures du comptable ..Dépositaire.. les matières et objet ci-aprés \n" +
+"Désignés provenant de (**) " + $P{provenantDe} +
+"\nDistribués à (*) " + $P{matiere}]]></textFieldExpression>
 			</textField>
 		</band>
 	</title>
@@ -504,28 +502,28 @@ $P{materiel}.getDesign().getRenseignement()]]></textFieldExpression>
 				<textFieldExpression><![CDATA[", le " + $P{date1}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="406" y="295" width="149" height="20" uuid="91c1227a-f047-49f6-b319-a6f913876f1c"/>
+				<reportElement x="405" y="259" width="149" height="20" uuid="91c1227a-f047-49f6-b319-a6f913876f1c"/>
 				<textElement verticalAlignment="Top">
 					<font size="11"/>
 				</textElement>
 				<text><![CDATA[, le (5) ............................]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="282" y="229" width="274" height="20" uuid="0436b508-2e28-48c8-b504-32ad7f01c57b"/>
+				<reportElement x="281" y="193" width="274" height="20" uuid="0436b508-2e28-48c8-b504-32ad7f01c57b"/>
 				<textElement textAlignment="Center">
 					<font size="11"/>
 				</textElement>
 				<text><![CDATA[RECEPISSE (5)]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="284" y="295" width="122" height="20" uuid="1b01b3f2-1166-468e-a810-415e04a743e0"/>
+				<reportElement x="283" y="258" width="122" height="20" uuid="1b01b3f2-1166-468e-a810-415e04a743e0"/>
 				<textElement verticalAlignment="Top">
 					<font size="11"/>
 				</textElement>
 				<text><![CDATA[A ..........................]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="282" y="250" width="275" height="44" uuid="7da51220-5a01-4122-8e86-813728b29d11"/>
+				<reportElement x="280" y="214" width="275" height="44" uuid="7da51220-5a01-4122-8e86-813728b29d11"/>
 				<textElement>
 					<font size="11"/>
 					<paragraph lineSpacingSize="1.0"/>
@@ -542,7 +540,7 @@ portés au présent ordre.]]></text>
 				<textFieldExpression><![CDATA["Le (4) " +$P{date4}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="2" y="167" width="209" height="134" uuid="2bd23a58-dfff-4269-8eb9-5957f466fff4"/>
+				<reportElement x="2" y="151" width="209" height="134" uuid="2bd23a58-dfff-4269-8eb9-5957f466fff4"/>
 				<textElement textAlignment="Justified">
 					<font size="8"/>
 				</textElement>

@@ -154,14 +154,14 @@
 	<title>
 		<band height="570" splitType="Stretch">
 			<staticText>
-				<reportElement x="460" y="59" width="110" height="215" uuid="2116dc92-e3dd-4388-be90-1fb950bc4d94"/>
+				<reportElement x="460" y="50" width="110" height="147" uuid="2116dc92-e3dd-4388-be90-1fb950bc4d94"/>
 				<box>
 					<leftPen lineWidth="1.0"/>
 					<bottomPen lineWidth="1.0"/>
 					<rightPen lineWidth="1.0"/>
 				</box>
 				<textElement textAlignment="Left">
-					<font size="10"/>
+					<font size="8"/>
 				</textElement>
 				<text><![CDATA[(1) Numéro de chapitre
 (2) Libellé de chapitre
@@ -181,7 +181,7 @@
 				<textElement textAlignment="Center">
 					<font size="12"/>
 				</textElement>
-				<textFieldExpression><![CDATA["BUDGET GENERAL " + $P{budget} + 
+				<textFieldExpression><![CDATA["SECTION  " + $P{budget} + 
 "\n--------------------------"]]></textFieldExpression>
 			</textField>
 			<textField>
@@ -255,51 +255,50 @@
 "\n-----------------------------"]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="2" y="280" width="553" height="33" uuid="bee4d2df-f839-4997-a55f-3879441f50de"/>
+				<reportElement x="1" y="310" width="553" height="23" uuid="bee4d2df-f839-4997-a55f-3879441f50de"/>
 				<textElement textAlignment="Center">
-					<font size="12"/>
+					<font size="14"/>
 				</textElement>
-				<text><![CDATA[JOURNAL
-EN QUANTITES ET EN VALEUR DES ENTREES ET DES SORTIES
+				<text><![CDATA[EN QUANTITES ET EN VALEUR DES ENTREES ET DES SORTIES
 ]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="2" y="313" width="458" height="20" uuid="aa681976-eafc-463e-8526-99d3d8707812"/>
+				<reportElement x="1" y="338" width="127" height="20" uuid="aa681976-eafc-463e-8526-99d3d8707812"/>
 				<textElement>
 					<font size="12"/>
 				</textElement>
 				<text><![CDATA[Nombre de feuillets :......................................................................................................]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="119" y="313" width="341" height="20" uuid="069120b3-0cbc-4c8f-b2ce-5d8752e4af58"/>
-				<textElement textAlignment="Center">
+				<reportElement x="128" y="338" width="424" height="20" uuid="069120b3-0cbc-4c8f-b2ce-5d8752e4af58"/>
+				<textElement textAlignment="Left">
 					<font size="12"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{nbFeuillets}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="200" y="345" width="140" height="20" uuid="2e04c868-a6aa-47a0-8171-acf1bd7907e9"/>
+				<reportElement x="200" y="370" width="140" height="20" uuid="2e04c868-a6aa-47a0-8171-acf1bd7907e9"/>
 				<textElement textAlignment="Right">
 					<font size="12"/>
 				</textElement>
 				<textFieldExpression><![CDATA["A " + $P{lieu} + ", le "]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="13" y="519" width="192" height="21" uuid="bee7457d-bf39-41d9-b94d-c41a997b8fba"/>
+				<reportElement x="1" y="519" width="94" height="21" uuid="bee7457d-bf39-41d9-b94d-c41a997b8fba"/>
 				<textElement>
 					<font size="12"/>
 				</textElement>
 				<text><![CDATA[Commencé le .................................]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="13" y="540" width="195" height="20" uuid="06467f09-3a31-48a1-8163-25214641af05"/>
+				<reportElement x="0" y="540" width="95" height="20" uuid="06467f09-3a31-48a1-8163-25214641af05"/>
 				<textElement>
 					<font size="12"/>
 				</textElement>
 				<text><![CDATA[Terminé le ......................................]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="95" y="519" width="110" height="20" uuid="7a561acd-162e-4d74-87c5-6479ba1ad3a1"/>
+				<reportElement x="95" y="519" width="110" height="21" uuid="7a561acd-162e-4d74-87c5-6479ba1ad3a1"/>
 				<textElement>
 					<font size="12"/>
 				</textElement>
@@ -337,24 +336,26 @@ EN QUANTITES ET EN VALEUR DES ENTREES ET DES SORTIES
 				<textElement textAlignment="Center">
 					<font size="12"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$P{filamatra} + 
+				<textFieldExpression><![CDATA["BUDGET ............." + 
 "\n--------------------------"]]></textFieldExpression>
 			</textField>
 			<textField pattern="dd MMMM yyyy">
-				<reportElement x="340" y="345" width="122" height="20" uuid="c0b04042-3903-4374-9dc9-c59b58c20905"/>
+				<reportElement x="340" y="370" width="122" height="20" uuid="c0b04042-3903-4374-9dc9-c59b58c20905"/>
 				<textElement>
 					<font size="12"/>
 				</textElement>
 				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="460" y="0" width="110" height="59" uuid="c7106551-fa91-4553-b4cf-b7fc7c63873a"/>
+				<reportElement x="460" y="0" width="110" height="50" uuid="c7106551-fa91-4553-b4cf-b7fc7c63873a"/>
 				<box>
 					<topPen lineWidth="1.0"/>
 					<leftPen lineWidth="1.0"/>
 					<rightPen lineWidth="1.0"/>
 				</box>
-				<textElement textAlignment="Center"/>
+				<textElement textAlignment="Center">
+					<font size="8"/>
+				</textElement>
 				<text><![CDATA[Modèle n°02
 Article 33 de
 L'Instruction Générale du 22 juillet 1955]]></text>
@@ -365,6 +366,13 @@ L'Instruction Générale du 22 juillet 1955]]></text>
 			<staticText>
 				<reportElement x="312" y="460" width="150" height="19" uuid="269bd314-29b8-46a1-a4a9-a0e33bac9c78"/>
 				<text><![CDATA[(6).................................................]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="180" y="280" width="201" height="30" uuid="8eca7526-e0d0-45c3-a95f-99073bf6bb1d"/>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font size="15" isBold="true"/>
+				</textElement>
+				<text><![CDATA[JOURNAL]]></text>
 			</staticText>
 		</band>
 	</title>

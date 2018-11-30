@@ -479,7 +479,7 @@ public class JasperTableExampleBean implements Serializable{
             parameters.put("num5", this.ordreS.getNum5());
             parameters.put("num6", op.getDirection().getQuatre());
             parameters.put("budget", this.ordreS.getBudget());
-            if (this.ordreEB.getChap() != "") 
+            if (this.ordreS.getChapitre() != "") 
             	parameters.put("chap", this.ordreS.getChapitre());
             else
             	parameters.put("chap", "...........");
@@ -499,6 +499,7 @@ public class JasperTableExampleBean implements Serializable{
             parameters.put("approOuService", this.ordreS.getApproOuService());
             if(op.getDirection().getDesignation() != null)
             	parameters.put("comptable", this.ordreS.getDirc());
+            parameters.put("provenantDe", op.getDirection().getDesignation());
             parameters.put("Comptable", op.getOperateur().getNomAgent());
             parameters.put("matiere",  op.getMat().getDesign().getOrigine());
             parameters.put("ordre", this.ordreS.getOrdre());
@@ -593,7 +594,10 @@ public class JasperTableExampleBean implements Serializable{
             if(op.getDirection().getDesignation() != null)
             	parameters.put("comptable", this.ordreS.getDirc());
             parameters.put("Comptable", op.getOperateur().getNomAgent());
+            
+            parameters.put("provenantDe", op.getDirection().getDesignation());
             parameters.put("matiere",  op.getMat().getDesign().getOrigine());
+            
             parameters.put("ordre", this.ordreS.getOrdre());
             if (this.ordreS.getSomme() != "") 
             	parameters.put("somme", this.ordreS.getSomme());
@@ -611,7 +615,6 @@ public class JasperTableExampleBean implements Serializable{
             else
             	parameters.put("arret", "...........");
             parameters.put("lieu", op.getDirection().getTrois());
-            //DateFormat df = new SimpleDateFormat("dd MMMM yyyy", Locale.FRANCE);
             parameters.put("date", df.format(op.getDate()));
             parameters.put("numFolio", this.ordreS.getNumFolio());
             parameters.put("comptable2", op.getOperateur().getNomAgent());

@@ -39,7 +39,7 @@ public class EtatAppreciatifBean {
 			this.edate  = df.format(this.date);
 			this.liste = s.getListInventaire(this.annee);
 			this.trois = s.getDirection().getTrois();
-			this.quatre = s.getDirection().getQuatre();
+			this.quatre = "";//s.getDirection().getQuatre();
 			this.service = s.getDirection().getDesignation();
 			System.out.println("suivi in etat appreciatif non null");
 			return "dialogEtatAppreciatif";

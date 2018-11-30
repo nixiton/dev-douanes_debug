@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Created with Jaspersoft Studio version 6.5.1.final using JasperReports Library version 5.5.1  -->
+<!-- Created with Jaspersoft Studio version 6.5.1.final using JasperReports Library version 6.5.1  -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Inventaire" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="35466d3f-a3dc-4dfe-a6e7-236e3e1ab789">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
@@ -91,47 +91,12 @@
 	<title>
 		<band height="241" splitType="Stretch">
 			<staticText>
-				<reportElement x="260" y="-1" width="81" height="18" uuid="e96d1bdf-98e0-487c-bed0-8785d1c51981"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="12"/>
-				</textElement>
-				<text><![CDATA[BUDGET]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="0" y="0" width="210" height="16" uuid="8285272d-a1fd-4604-918e-def1c8e9578e"/>
+				<reportElement x="0" y="0" width="220" height="19" uuid="8285272d-a1fd-4604-918e-def1c8e9578e"/>
 				<textElement textAlignment="Center">
-					<font size="12"/>
+					<font size="12" isBold="true"/>
 				</textElement>
 				<text><![CDATA[REPOBLIKAN’I MADAGASIKARA
 ]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="349" y="110" width="91" height="20" uuid="9ad8cf3a-b1d3-4f35-ad1f-669be78224f8"/>
-				<textElement>
-					<font size="12"/>
-				</textElement>
-				<text><![CDATA[, PARAGRAPHE]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="200" y="110" width="53" height="20" uuid="1fecb48d-32f1-4639-ac14-a0468b28927a"/>
-				<textElement>
-					<font size="12"/>
-				</textElement>
-				<text><![CDATA[ARTICLE]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="0" y="110" width="70" height="20" uuid="fc737ccd-5065-4136-aaba-001f4a2cace8"/>
-				<textElement>
-					<font size="12"/>
-				</textElement>
-				<text><![CDATA[CHAPITRE]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="216" y="60" width="64" height="20" uuid="74b25359-6e4a-4f04-ae5d-2403a5994f6d"/>
-				<textElement>
-					<font size="12"/>
-				</textElement>
-				<text><![CDATA[EXERCICE]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="13" y="140" width="100" height="20" uuid="22229cad-a096-47f6-b83f-2a646308b40b"/>
@@ -148,25 +113,25 @@
 				<text><![CDATA[Hôtel du(2)]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="343" y="-1" width="93" height="17" uuid="1331e938-ee1a-4495-9fdf-1103bd7ef596"/>
-				<textElement>
-					<font size="12"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$P{budget}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="70" y="110" width="130" height="20" uuid="62399302-48e7-48d6-87ac-e4635a0c1a67"/>
+				<reportElement x="152" y="46" width="259" height="17" uuid="1331e938-ee1a-4495-9fdf-1103bd7ef596"/>
 				<textElement textAlignment="Center">
 					<font size="12"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$P{chap}]]></textFieldExpression>
+				<textFieldExpression><![CDATA["SECTION " + $P{budget}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="280" y="60" width="200" height="20" uuid="103b2710-593b-450a-9956-7d8e8c1cc979"/>
+				<reportElement x="1" y="102" width="554" height="20" uuid="62399302-48e7-48d6-87ac-e4635a0c1a67"/>
 				<textElement textAlignment="Center">
 					<font size="12"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$P{exo}]]></textFieldExpression>
+				<textFieldExpression><![CDATA["CHAPITRE "+  "............"  + " ARTICLE " +  "............" +  " , PARAGRAPHE " +  "............"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="180" y="63" width="200" height="20" uuid="103b2710-593b-450a-9956-7d8e8c1cc979"/>
+				<textElement textAlignment="Center">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA["EXERCICE " + $P{exo}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="113" y="140" width="440" height="20" uuid="2b556aee-6560-49f7-b9f9-05e926b93128"/>
@@ -176,20 +141,6 @@
 				<textFieldExpression><![CDATA[$P{service}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="253" y="110" width="96" height="20" uuid="9c2b841f-26c1-4523-94d6-e99af339188d"/>
-				<textElement textAlignment="Center">
-					<font size="12"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$P{article}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="440" y="110" width="113" height="20" uuid="3171a979-c50a-430e-97a3-217aac608d6b"/>
-				<textElement textAlignment="Center" verticalAlignment="Top">
-					<font size="12"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$P{paragraphe}]]></textFieldExpression>
-			</textField>
-			<textField>
 				<reportElement x="115" y="160" width="438" height="20" uuid="1f551865-9018-499c-a7b3-d2ac3e1df084"/>
 				<textElement>
 					<font size="12"/>
@@ -197,12 +148,12 @@
 				<textFieldExpression><![CDATA[$P{hotel}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="0" y="43" width="158" height="32" uuid="41531dec-d0d0-4137-8600-94acda27dc3b"/>
-				<text><![CDATA[(1) Indiquer le service ou la circonscription]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="0" y="75" width="158" height="29" uuid="b1aa1720-7821-4da6-ba8b-cb880b7154fe"/>
-				<text><![CDATA[(2) Chef de service, du district, de la subdivision ou chef de poste]]></text>
+				<reportElement x="0" y="28" width="115" height="61" uuid="41531dec-d0d0-4137-8600-94acda27dc3b"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[(1) Indiquer le service ou la circonscription
+(2) Chef de service, du district, de la subdivision ou chef de poste]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="112" y="180" width="331" height="20" uuid="0a9c4d3a-fe7c-46e8-86b3-d66badc5f744"/>
@@ -213,6 +164,9 @@
 			</staticText>
 			<staticText>
 				<reportElement x="491" y="1" width="62" height="18" uuid="efb35cc9-d1dd-430c-a559-e033a26bfe5a"/>
+				<textElement>
+					<font size="10"/>
+				</textElement>
 				<text><![CDATA[Modèle n° 2]]></text>
 			</staticText>
 			<staticText>
@@ -229,13 +183,13 @@
 				</textElement>
 				<textFieldExpression><![CDATA[$P{date}]]></textFieldExpression>
 			</textField>
-			<textField>
-				<reportElement x="0" y="19" width="210" height="21" uuid="b3dd26cf-e1e8-495c-96b2-57f7afdccea5"/>
+			<staticText>
+				<reportElement x="180" y="30" width="198" height="16" uuid="817d0aaa-8314-4de3-9114-50dd23218890"/>
 				<textElement textAlignment="Center">
 					<font size="12"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$P{filamatra}]]></textFieldExpression>
-			</textField>
+				<text><![CDATA[BUDGET .................]]></text>
+			</staticText>
 		</band>
 	</title>
 	<detail>
@@ -549,14 +503,14 @@
 			<textField>
 				<reportElement x="90" y="52" width="130" height="20" uuid="d56e98ae-5755-4268-b696-e51d720a962f"/>
 				<textElement>
-					<font size="11"/>
+					<font size="12"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{lieu}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="220" y="52" width="227" height="20" uuid="9bd795fb-cd86-45da-b3a3-fa3b2a9a5c0f"/>
 				<textElement>
-					<font size="11"/>
+					<font size="12"/>
 				</textElement>
 				<textFieldExpression><![CDATA[", le " + $P{date}]]></textFieldExpression>
 			</textField>
