@@ -160,7 +160,7 @@
 			<staticText>
 				<reportElement x="163" y="1" width="315" height="37" uuid="0faa547c-29ad-412c-9051-d747dae27d27"/>
 				<textElement textAlignment="Center">
-					<font size="12"/>
+					<font size="14" isBold="true"/>
 				</textElement>
 				<text><![CDATA[REPOBLIKAN’I MADAGASIKARA
 --------------------------
@@ -246,28 +246,28 @@
 				<textElement textAlignment="Center">
 					<font size="12"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$P{libelle}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$P{libelle} == ""?"................................":$P{libelle}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="191" y="177" width="259" height="20" uuid="c1c35f37-3fa3-4a74-9f8a-817d31ad49df"/>
 				<textElement textAlignment="Center">
 					<font size="12"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$P{subd}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$P{subd}== ""?"................................":$P{subd}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="190" y="255" width="260" height="20" uuid="66566c2d-dfaa-4d5c-a75b-d26cdb82c444"/>
 				<textElement textAlignment="Center">
 					<font size="12"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$P{indication}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$P{indication} == ""?"................................":$P{indication}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="191" y="216" width="259" height="20" uuid="b5d9432b-1829-458e-947c-4afe2685426d"/>
 				<textElement textAlignment="Center">
 					<font size="12"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$P{materiel}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$P{materiel} == ""?"................................":$P{materiel}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="151" y="317" width="500" height="24" uuid="5172dc42-c3a4-44d6-abe1-af99d223734e"/>

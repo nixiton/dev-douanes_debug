@@ -154,7 +154,7 @@
 	<title>
 		<band height="570" splitType="Stretch">
 			<staticText>
-				<reportElement x="460" y="50" width="110" height="147" uuid="2116dc92-e3dd-4388-be90-1fb950bc4d94"/>
+				<reportElement x="445" y="50" width="110" height="147" uuid="2116dc92-e3dd-4388-be90-1fb950bc4d94"/>
 				<box>
 					<leftPen lineWidth="1.0"/>
 					<bottomPen lineWidth="1.0"/>
@@ -181,8 +181,7 @@
 				<textElement textAlignment="Center">
 					<font size="12"/>
 				</textElement>
-				<textFieldExpression><![CDATA["SECTION  " + $P{budget} + 
-"\n--------------------------"]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$P{budget} == ""?"SECTION   ................\n--------------------------": "SECTION  " + $P{budget}  + "\n--------------------------"]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="80" y="104" width="301" height="33" uuid="906f3b2e-1a03-4693-9365-934f3e19dfe5"/>
@@ -209,8 +208,7 @@
 				<textElement textAlignment="Center">
 					<font size="12"/>
 				</textElement>
-				<textFieldExpression><![CDATA["(2) " + $P{num2} + 
-"\n-----------------------------"]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$P{num2} == ""?"(2) ................\n-----------------------------": "(2) " + $P{num2} + "\n-----------------------------"]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="80" y="174" width="301" height="33" uuid="cc1b10e0-2824-485c-a96b-dc73ca010cd7"/>
@@ -223,8 +221,7 @@
 				<textElement textAlignment="Center">
 					<font size="12"/>
 				</textElement>
-				<textFieldExpression><![CDATA["(3) " + $P{num3} + 
-"\n-----------------------------"]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$P{num3} == ""?"(3) ................\n-----------------------------": "(3) " + $P{num3} + "\n-----------------------------"]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="80" y="207" width="301" height="33" uuid="7c2e143a-5746-4301-b7be-555acdfaf427"/>
@@ -237,8 +234,7 @@
 				<textElement textAlignment="Center">
 					<font size="12"/>
 				</textElement>
-				<textFieldExpression><![CDATA["(4) " + $P{num4} + 
-"\n-----------------------------"]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$P{num4} == ""?"(4) ................\n-----------------------------": "(4) " + $P{num4} + "\n-----------------------------"]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="80" y="240" width="301" height="34" uuid="53cf71b6-db90-45d5-9951-e5314bc1b2cb"/>
@@ -251,8 +247,7 @@
 				<textElement textAlignment="Center">
 					<font size="12"/>
 				</textElement>
-				<textFieldExpression><![CDATA["(5) " + $P{num5} + 
-"\n-----------------------------"]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$P{num5} == ""?"(5) ................\n-----------------------------": "(5) " + $P{num5} + "\n-----------------------------"]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="1" y="310" width="553" height="23" uuid="bee4d2df-f839-4997-a55f-3879441f50de"/>
@@ -274,11 +269,11 @@
 				<textElement textAlignment="Left">
 					<font size="12"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$P{nbFeuillets}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$P{nbFeuillets}== ""?"............................................":$P{nbFeuillets}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="200" y="370" width="140" height="20" uuid="2e04c868-a6aa-47a0-8171-acf1bd7907e9"/>
-				<textElement textAlignment="Right">
+				<textElement textAlignment="Left">
 					<font size="12"/>
 				</textElement>
 				<textFieldExpression><![CDATA["A " + $P{lieu} + ", le "]]></textFieldExpression>
@@ -320,7 +315,7 @@
 					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
 				</box>
 				<textElement textAlignment="Center">
-					<font size="12"/>
+					<font size="12" isBold="true"/>
 				</textElement>
 				<text><![CDATA[REPOBLIKAN'I MADAGASIKARA
 -----------------------------]]></text>
@@ -347,7 +342,7 @@
 				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="460" y="0" width="110" height="50" uuid="c7106551-fa91-4553-b4cf-b7fc7c63873a"/>
+				<reportElement x="445" y="0" width="110" height="50" uuid="c7106551-fa91-4553-b4cf-b7fc7c63873a"/>
 				<box>
 					<topPen lineWidth="1.0"/>
 					<leftPen lineWidth="1.0"/>
