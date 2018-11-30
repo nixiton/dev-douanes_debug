@@ -3175,6 +3175,235 @@ public class SuiviEditionBean implements Serializable{
 		}
 		return usermetierimpl.getListMatEx(d);
 	}
+	
+	
+	
+	public List<Object[]> getListESExForEtatAppr(Direction dir, Date debut, Date fin) {
+			
+			DateFormat df = new SimpleDateFormat("dd MMM yyyy", Locale.FRANCE);
+			
+			Date date = new Date();
+			Calendar calendar = new GregorianCalendar();
+			calendar.setTime(date);
+			int year = calendar.get(Calendar.YEAR);
+			Date sdate = new GregorianCalendar(year, Calendar.JANUARY, 1).getTime();
+			Date edate = new GregorianCalendar(year + 1, Calendar.DECEMBER, 30).getTime();
+			
+			if(fin !=null && debut !=null) {
+				sdate = debut;
+				edate = fin;
+			}
+			
+			if(dir == null) {
+				Agent cur = (Agent) RequestFilter.getSession().getAttribute("agent");
+				dir = cur.getDirection();
+			}
+			
+			//GET MATERIEL INVENTAIRE AND TRY TO MODEL IT APPRECIATIF
+			System.out.println("RRRRRRRRRRR Begin:");
+			List<Object[]> r = usermetierimpl.getListObjectForinvetaire(dir, sdate, edate);
+			System.out.println("RRRRRRRRRRR Ending:");
+			
+			List<Object[]> resultstable = new ArrayList<Object[]>();
+			for (Object[] m : r) {
+				
+				Materiel mat = (Materiel) m[1];
+				OpSortie o = (OpSortie) m[0];
+				
+				
+				// Nomenclature
+				String nomenclature = mat.getDesign().getNomenMat().getNomenclature();
+				
+				// Désignation du matériel
+				String marque = "Inconnue";
+				if(mat.getDesign().getMarque()!=null) {
+					marque = mat.getDesign().getMarque().getDesignation();
+				}
+				String rens = "";
+				if(mat.getDesign().getRenseignement() != null) {
+					rens = mat.getDesign().getRenseignement();
+				}
+				//Designation Finale
+				String designation = mat.getDesign().getTypematerieladd().getDesignation() + " - "
+						+ marque + " - " + rens
+						+ " - "
+				 + mat.getNumSerie()
+				;
+				// Prix de l’unité
+				Float pu = mat.getDesign().getPu();
+				
+				/*
+				 * Debut initilaisation calcul entree
+				 */
+				// Existantes au 1er Janvier X
+				Long existp = 0L;
+				//Motif entree
+				String motifentre="";
+				// Entrées pendant l’année X
+				if (mat.getMyoperationEntree() == null || mat.getMyoperationEntree().getDate().compareTo(sdate) < 0) {
+					motifentre = "Materiel Existant";
+					existp = 1L;
+					//add row 1
+					Object[] row = new Object[21];
+					// Nomenclature
+					row[0] = nomenclature;
+					// justificatives
+					row[1] = motifentre;
+					// date
+					if(mat.getMyoperationEntree() == null) {
+						row[15] =mat.getDesign().getAnneeAcquisition();
+					}else {
+						row[15] =mat.getMyoperationEntree().getDate().toString();
+					}
+					// Désignation sommaire des opérations
+					row[2] = designation;
+
+					// par nomenclature
+					row[4] = new Float(0);
+					row[6] = new Float(0);
+					
+					row[7] = new Float(0);
+					row[8] = new Float(0);
+					
+					row[9] = new Float(0);
+					row[10] = new Float(0);
+					
+					row[11] = new Float(0);
+					row[12] = new Float(0);
+					
+					row[13] = new Float(0);
+					row[14] = new Float(0);
+					
+					row[16] = new Float(0);
+					row[17] = new Float(0);
+					row[18] = new Float(0);
+					row[19] = new Float(0);
+					row[20] = new Float(0);
+					//add existant for that
+					if (nomenclature.equals("1")) {
+						row[16] = existp*pu;
+					} else if (nomenclature.equals("2")) {
+						row[17] = existp*pu;
+					} else if (nomenclature.equals("3")) {
+						row[18] = existp*pu;
+					} else if (nomenclature.equals("5")) {
+						row[19] = existp*pu;
+					} else if (nomenclature.equals("10")) {
+						row[20] = existp*pu;
+					}
+					resultstable.add(row);
+				} else {
+					motifentre = mat.getMyoperationEntree().getNumoperation();
+					//add row 2
+					Object[] row = new Object[21];
+					// Nomenclature
+					row[0] = nomenclature;
+					// justificatives
+					row[1] = motifentre;
+					// date
+					row[15] =mat.getMyoperationEntree().getDate().toString();
+					// Désignation sommaire des opérations
+					row[2] = designation;
+
+					// par nomenclature
+					row[4] = new Float(0);
+					row[6] = new Float(0);
+					
+					row[7] = new Float(0);
+					row[8] = new Float(0);
+					
+					row[9] = new Float(0);
+					row[10] = new Float(0);
+					
+					row[11] = new Float(0);
+					row[12] = new Float(0);
+					
+					row[13] = new Float(0);
+					row[14] = new Float(0);
+					
+					row[16] = new Float(0);
+					row[17] = new Float(0);
+					row[18] = new Float(0);
+					row[19] = new Float(0);
+					row[20] = new Float(0);
+					//add existant for that
+					if (nomenclature.equals("1")) {
+						row[4] = 1*pu;
+					} else if (nomenclature.equals("2")) {
+						row[7] = 1*pu;
+					} else if (nomenclature.equals("3")) {
+						row[9] = 1*pu;
+					} else if (nomenclature.equals("5")) {
+						row[11] = 1*pu;
+					} else if (nomenclature.equals("10")) {
+						row[13] = 1*pu;
+					}
+					resultstable.add(row);
+				}
+				
+				
+				
+				/*
+				 * Debut initilaisation sortie
+				 */
+				int nbrsortie = 0;
+				// Sortie pendant l’année X
+				if (o == null) {
+					nbrsortie = 0;
+				} else {
+					String motifsortie = o.getNumoperation();
+					//add row 2
+					Object[] row = new Object[21];
+					// Nomenclature
+					row[0] = nomenclature;
+					// justificatives
+					row[1] = motifsortie;
+					// date
+					row[15] =o.getDate().toString();
+					// Désignation sommaire des opérations
+					row[2] = designation;
+
+					// par nomenclature
+					row[4] = new Float(0);
+					row[6] = new Float(0);
+					
+					row[7] = new Float(0);
+					row[8] = new Float(0);
+					
+					row[9] = new Float(0);
+					row[10] = new Float(0);
+					
+					row[11] = new Float(0);
+					row[12] = new Float(0);
+					
+					row[13] = new Float(0);
+					row[14] = new Float(0);
+					
+					row[16] = new Float(0);
+					row[17] = new Float(0);
+					row[18] = new Float(0);
+					row[19] = new Float(0);
+					row[20] = new Float(0);
+					//add existant for that
+					if (nomenclature.equals("1")) {
+						row[6] = 1*pu;
+					} else if (nomenclature.equals("2")) {
+						row[8] = 1*pu;
+					} else if (nomenclature.equals("3")) {
+						row[10] = 1*pu;
+					} else if (nomenclature.equals("5")) {
+						row[12] = 1*pu;
+					} else if (nomenclature.equals("10")) {
+						row[14] = 1*pu;
+					}
+					resultstable.add(row);
+				}
+				
+			}
+
+		return resultstable;
+	}
+
 
 	
 
