@@ -34,10 +34,15 @@ public class EtatAppreciatifBean {
 	public String execute(SuiviEditionBean s) {
 		if (s != null) {
 			Date sd = new GregorianCalendar(this.annee, Calendar.JANUARY, 1).getTime();
+			//Date sd = new GregorianCalendar(this.annee, Calendar.JANUARY, 1).getTime();
+			if (this.annee< this.actualyear) {
+				this.date = new GregorianCalendar(this.annee, Calendar.DECEMBER, 31).getTime();
+			}
 			DateFormat  df = new SimpleDateFormat("dd MMMM yyyy", Locale.FRANCE);
 			this.sdate = df.format(sd);
 			this.edate  = df.format(this.date);
-			this.liste = s.getListInventaire(this.annee);
+			this.liste = s.getListESExForEtatAppr(null,sd,this.date);
+			//this.liste = s.getListInventaire(this.annee);
 			this.trois = s.getDirection().getTrois();
 			this.quatre = "";//s.getDirection().getQuatre();
 			this.service = s.getDirection().getDesignation();

@@ -95,7 +95,12 @@
 		<field name="row12" class="java.lang.Float"/>
 		<field name="row13" class="java.lang.Float"/>
 		<field name="row14" class="java.lang.Float"/>
-		<field name="row15" class="java.util.Date"/>
+		<field name="row15" class="java.lang.String"/>
+		<field name="row16" class="java.lang.Float"/>
+		<field name="row17" class="java.lang.Float"/>
+		<field name="row18" class="java.lang.Float"/>
+		<field name="row19" class="java.lang.Float"/>
+		<field name="row20" class="java.lang.Float"/>
 		<variable name="in1" class="java.lang.Float" calculation="Sum">
 			<variableExpression><![CDATA[$F{row4}]]></variableExpression>
 		</variable>
@@ -125,6 +130,21 @@
 		</variable>
 		<variable name="in10_1" class="java.lang.Float" calculation="Sum">
 			<variableExpression><![CDATA[$F{row14}]]></variableExpression>
+		</variable>
+		<variable name="existant1" class="java.lang.Float" calculation="Sum">
+			<variableExpression><![CDATA[$F{row16}]]></variableExpression>
+		</variable>
+		<variable name="existant5" class="java.lang.Float" calculation="Sum">
+			<variableExpression><![CDATA[$F{row19}]]></variableExpression>
+		</variable>
+		<variable name="existant10" class="java.lang.Float" calculation="Sum">
+			<variableExpression><![CDATA[$F{row20}]]></variableExpression>
+		</variable>
+		<variable name="existant3" class="java.lang.Float" calculation="Sum">
+			<variableExpression><![CDATA[$F{row18}]]></variableExpression>
+		</variable>
+		<variable name="existant2" class="java.lang.Float" calculation="Sum">
+			<variableExpression><![CDATA[$F{row17}]]></variableExpression>
 		</variable>
 	</subDataset>
 	<subDataset name="Table Dataset 3" uuid="9b4fb00c-2e22-44cf-991d-e23e5ba06247">
@@ -192,6 +212,11 @@
 	<variable name="in3_1" class="java.lang.Float"/>
 	<variable name="in5_1" class="java.lang.Float"/>
 	<variable name="in10_1" class="java.lang.Float"/>
+	<variable name="existant1" class="java.lang.Float"/>
+	<variable name="existant2" class="java.lang.Float"/>
+	<variable name="existant3" class="java.lang.Float"/>
+	<variable name="existant5" class="java.lang.Float"/>
+	<variable name="existant10" class="java.lang.Float"/>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
@@ -391,6 +416,11 @@
 						<returnValue fromVariable="in3_1" toVariable="in3_1"/>
 						<returnValue fromVariable="in5_1" toVariable="in5_1"/>
 						<returnValue fromVariable="in10_1" toVariable="in10_1"/>
+						<returnValue fromVariable="existant1" toVariable="existant1"/>
+						<returnValue fromVariable="existant2" toVariable="existant2"/>
+						<returnValue fromVariable="existant3" toVariable="existant3"/>
+						<returnValue fromVariable="existant5" toVariable="existant5"/>
+						<returnValue fromVariable="existant10" toVariable="existant10"/>
 					</datasetRun>
 					<jr:columnGroup width="80" uuid="587631bf-6133-47c0-8e7d-006daadcf8d2">
 						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Colonnes [2]"/>
@@ -728,7 +758,7 @@
 			<componentElement>
 				<reportElement key="table 2" style="table 2" x="-1" y="43" width="555" height="206" isRemoveLineWhenBlank="true" uuid="3895e029-e15f-4654-a06f-c8f298cb7624"/>
 				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" whenNoDataType="Blank">
-					<datasetRun subDataset="Table Dataset 3" uuid="9045da4d-6da2-41ce-8fb7-2daaa197e3c2">
+					<datasetRun subDataset="Table Dataset 3" uuid="bde0163e-94e8-4fd2-bda5-28b863836fa4">
 						<datasetParameter name="in1">
 							<datasetParameterExpression><![CDATA[$V{in1}]]></datasetParameterExpression>
 						</datasetParameter>
@@ -745,19 +775,19 @@
 							<datasetParameterExpression><![CDATA[$V{in10}]]></datasetParameterExpression>
 						</datasetParameter>
 						<datasetParameter name="existant1">
-							<datasetParameterExpression><![CDATA[new Float(0)]]></datasetParameterExpression>
+							<datasetParameterExpression><![CDATA[$V{existant1}]]></datasetParameterExpression>
 						</datasetParameter>
 						<datasetParameter name="existant2">
-							<datasetParameterExpression><![CDATA[new Float(0)]]></datasetParameterExpression>
+							<datasetParameterExpression><![CDATA[$V{existant2}]]></datasetParameterExpression>
 						</datasetParameter>
 						<datasetParameter name="existant3">
-							<datasetParameterExpression><![CDATA[new Float(0)]]></datasetParameterExpression>
+							<datasetParameterExpression><![CDATA[$V{existant3}]]></datasetParameterExpression>
 						</datasetParameter>
 						<datasetParameter name="existant5">
-							<datasetParameterExpression><![CDATA[new Float(0)]]></datasetParameterExpression>
+							<datasetParameterExpression><![CDATA[$V{existant5}]]></datasetParameterExpression>
 						</datasetParameter>
 						<datasetParameter name="existant10">
-							<datasetParameterExpression><![CDATA[new Float(0)]]></datasetParameterExpression>
+							<datasetParameterExpression><![CDATA[$V{existant10}]]></datasetParameterExpression>
 						</datasetParameter>
 						<datasetParameter name="out1">
 							<datasetParameterExpression><![CDATA[$V{in1_1}]]></datasetParameterExpression>

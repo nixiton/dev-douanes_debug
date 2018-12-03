@@ -39,7 +39,12 @@ public class EtatAppreciatifData {
 		private Float row12;
 		private Float row13;
 		private Float row14;///TO-DO
-		private Date row15;
+		private String row15;
+		private Float row16;
+		private Float row17;
+		private Float row18;
+		private Float row19;
+		private Float row20;
 		
 		public EtatAppreciatif(Object[] i) {
 			//this.row0= (Designation)i[0];
@@ -57,7 +62,13 @@ public class EtatAppreciatifData {
 			this.row12= (Float)i[12];
 			this.row13= (Float)i[13];
 			this.row14= (Float) i[14];
-			this.row15 = (Date) i[15];
+			this.row15 = (String) i[15];
+			this.row16 = (Float) i[16];
+			this.row17 = (Float) i[17];
+			this.row18 = (Float) i[18];
+			this.row19 = (Float) i[19];
+			this.row20 = (Float) i[20];
+			
 		}
 
 		public Designation getRow0() {
@@ -180,12 +191,52 @@ public class EtatAppreciatifData {
 			this.row14 = row14;
 		}
 
-		public Date getRow15() {
+		public String getRow15() {
 			return row15;
 		}
 
-		public void setRow15(Date row15) {
+		public void setRow15(String row15) {
 			this.row15 = row15;
+		}
+
+		public Float getRow16() {
+			return row16;
+		}
+
+		public void setRow16(Float row16) {
+			this.row16 = row16;
+		}
+
+		public Float getRow17() {
+			return row17;
+		}
+
+		public void setRow17(Float row17) {
+			this.row17 = row17;
+		}
+
+		public Float getRow18() {
+			return row18;
+		}
+
+		public void setRow18(Float row18) {
+			this.row18 = row18;
+		}
+
+		public Float getRow19() {
+			return row19;
+		}
+
+		public void setRow19(Float row19) {
+			this.row19 = row19;
+		}
+
+		public Float getRow20() {
+			return row20;
+		}
+
+		public void setRow20(Float row20) {
+			this.row20 = row20;
 		}
 		
 	}
