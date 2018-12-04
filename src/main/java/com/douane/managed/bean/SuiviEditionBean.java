@@ -32,7 +32,7 @@ import com.douane.requesthttp.RequestFilter;
 
 @ManagedBean(name = "suivieditionBean")
 @ViewScoped
-public class SuiviEditionBean implements Serializable{
+public class SuiviEditionBean implements Serializable {
 
 	@ManagedProperty(value = "#{usermetier}")
 	IUserMetier usermetierimpl;
@@ -614,11 +614,10 @@ public class SuiviEditionBean implements Serializable{
 	private List<Operation> listOpESArtByDirection;
 
 	public List<Operation> getListOpESArtByDirection(Direction d, Date sdate, Date edate) {
-		if(d==null) {
+		if (d == null) {
 			Agent cur = (Agent) RequestFilter.getSession().getAttribute("agent");
 			d = cur.getDirection();
 		}
-		
 
 		return usermetierimpl.getListOpESArtValideByDirection(d, sdate, edate);
 	}
@@ -680,16 +679,15 @@ public class SuiviEditionBean implements Serializable{
 							row[3] = d.getOrigine();
 							// designation
 							String mar = "";
-							if( d.getMarque()!=null) {
-								mar =  d.getMarque().getDesignation();
+							if (d.getMarque() != null) {
+								mar = d.getMarque().getDesignation();
 							}
 							String rens = "";
-							if(d.getRenseignement() != null) {
+							if (d.getRenseignement() != null) {
 								rens = d.getRenseignement();
 							}
-							row[4] = d.getTypematerieladd().getDesignation() + " - " +mar + " - "
-									+ rens
-							//  + " - " + mat.getNumSerie();
+							row[4] = d.getTypematerieladd().getDesignation() + " - " + mar + " - " + rens
+							// + " - " + mat.getNumSerie();
 							;
 							// espece unite
 							row[5] = d.getEspeceUnite();
@@ -733,22 +731,22 @@ public class SuiviEditionBean implements Serializable{
 					// origine
 					if (((OpSortie) op).getMotifsortie() != null) {
 						row[3] = ((OpSortie) op).getMotifsortie().getDesignation();
-						if(((OpSortie) op).getMotifsortie().getDesignation().equalsIgnoreCase("Affectation")) {
+						if (((OpSortie) op).getMotifsortie().getDesignation().equalsIgnoreCase("Affectation")) {
 							row[3] = row[3] + " vers " + ((OpSortie) op).getDirec().getCodeDirection();
 						}
 					}
 					// designation
 					Materiel mat = op.getMat();
 					String marquemat = "Inconnue";
-					if(mat.getDesign().getMarque() !=null) {
+					if (mat.getDesign().getMarque() != null) {
 						marquemat = mat.getDesign().getMarque().getDesignation();
 					}
 					String rens = "";
-					if(mat.getDesign().getRenseignement() != null) {
+					if (mat.getDesign().getRenseignement() != null) {
 						rens = mat.getDesign().getRenseignement();
 					}
-					row[4] = mat.getDesign().getTypematerieladd().getDesignation() + " - " + marquemat
-							+ " - " + rens + " - " + mat.getNumSerie();
+					row[4] = mat.getDesign().getTypematerieladd().getDesignation() + " - " + marquemat + " - " + rens
+							+ " - " + mat.getNumSerie();
 					// espece unite
 					row[5] = mat.getDesign().getEspeceUnite();
 					// pu
@@ -785,7 +783,7 @@ public class SuiviEditionBean implements Serializable{
 		} else {
 			System.out.println(" fdate  null");
 		}
-		if(dir == null) {
+		if (dir == null) {
 			dir = cur.getDirection();
 		}
 		Calendar calendar = new GregorianCalendar();
@@ -827,15 +825,14 @@ public class SuiviEditionBean implements Serializable{
 						row[3] = d.getOrigine();
 						// designation
 						String mar = "";
-						if( d.getMarque()!=null) {
-							mar =  d.getMarque().getDesignation();
+						if (d.getMarque() != null) {
+							mar = d.getMarque().getDesignation();
 						}
 						String rens = "";
-						if(d.getRenseignement() != null) {
+						if (d.getRenseignement() != null) {
 							rens = d.getRenseignement();
 						}
-						row[4] = d.getTypematerieladd().getDesignation() + " - " + mar + " - "
-								+ rens 
+						row[4] = d.getTypematerieladd().getDesignation() + " - " + mar + " - " + rens
 						// + " - " + mat.getNumSerie();
 						;
 						// espece unite
@@ -880,22 +877,22 @@ public class SuiviEditionBean implements Serializable{
 				// origine
 				if (((OpSortie) op).getMotifsortie() != null) {
 					row[3] = ((OpSortie) op).getMotifsortie().getDesignation();
-					if(((OpSortie) op).getMotifsortie().getDesignation().equalsIgnoreCase("Affectation")) {
-						row[3] = row[3] + " vers "  + ((OpSortie) op).getDirec().getCodeDirection();
+					if (((OpSortie) op).getMotifsortie().getDesignation().equalsIgnoreCase("Affectation")) {
+						row[3] = row[3] + " vers " + ((OpSortie) op).getDirec().getCodeDirection();
 					}
 				}
 				// designation
 				Materiel mat = op.getMat();
 				String marqueMat = "Inconnue";
-				if(mat.getDesign().getMarque()!=null) {
+				if (mat.getDesign().getMarque() != null) {
 					marqueMat = mat.getDesign().getMarque().getDesignation();
 				}
 				String rens = "";
-				if(mat.getDesign().getRenseignement() != null) {
+				if (mat.getDesign().getRenseignement() != null) {
 					rens = mat.getDesign().getRenseignement();
 				}
-				row[4] = mat.getDesign().getTypematerieladd().getDesignation() + " - " + marqueMat
-						+ " - " + rens + " - " + mat.getNumSerie();
+				row[4] = mat.getDesign().getTypematerieladd().getDesignation() + " - " + marqueMat + " - " + rens
+						+ " - " + mat.getNumSerie();
 				// espece unite
 				row[5] = mat.getDesign().getEspeceUnite();
 				// pu
@@ -963,15 +960,14 @@ public class SuiviEditionBean implements Serializable{
 						row[3] = d.getOrigine();
 						// designation
 						String mar = "";
-						if( d.getMarque()!=null) {
-							mar =  d.getMarque().getDesignation();
+						if (d.getMarque() != null) {
+							mar = d.getMarque().getDesignation();
 						}
 						String rens = "";
-						if(d.getRenseignement() != null) {
+						if (d.getRenseignement() != null) {
 							rens = d.getRenseignement();
 						}
-						row[4] = d.getTypematerieladd().getDesignation() + " - " + mar + " - "
-								+ rens
+						row[4] = d.getTypematerieladd().getDesignation() + " - " + mar + " - " + rens
 						// mat.getNumSerie();
 						;
 						// espece unite
@@ -1013,21 +1009,21 @@ public class SuiviEditionBean implements Serializable{
 				row[2] = op.getDate();
 				// origine
 				row[3] = ((OpSortie) op).getMotifsortie().getDesignation();
-				if(((OpSortie) op).getMotifsortie().getDesignation().equalsIgnoreCase("Affectation")) {
-					row[3] = row[3] + " vers "  + ((OpSortie) op).getDirec().getCodeDirection();
+				if (((OpSortie) op).getMotifsortie().getDesignation().equalsIgnoreCase("Affectation")) {
+					row[3] = row[3] + " vers " + ((OpSortie) op).getDirec().getCodeDirection();
 				}
 				// designation
 				Materiel mat = op.getMat();
 				String marqueMat = "Inconnue";
-				if(mat.getDesign().getMarque()!=null) {
+				if (mat.getDesign().getMarque() != null) {
 					marqueMat = mat.getDesign().getMarque().getDesignation();
 				}
 				String rens = "";
-				if(mat.getDesign().getRenseignement() != null) {
+				if (mat.getDesign().getRenseignement() != null) {
 					rens = mat.getDesign().getRenseignement();
 				}
-				row[4] = mat.getDesign().getTypematerieladd().getDesignation() + " - " + marqueMat
-						+ " - " + rens + " - " + mat.getNumSerie();
+				row[4] = mat.getDesign().getTypematerieladd().getDesignation() + " - " + marqueMat + " - " + rens
+						+ " - " + mat.getNumSerie();
 				// espece unite
 				row[5] = mat.getDesign().getEspeceUnite();
 				// pu
@@ -1065,8 +1061,8 @@ public class SuiviEditionBean implements Serializable{
 			Calendar calendar = new GregorianCalendar();
 			calendar.setTime(date);
 			int year = calendar.get(Calendar.YEAR);
-			Date sdate = new GregorianCalendar(year - 2, Calendar.JANUARY, 1).getTime();
-			Date edate = new GregorianCalendar(year + 1, Calendar.DECEMBER, 30).getTime();
+			Date sdate = new GregorianCalendar(year , Calendar.JANUARY, 1).getTime();
+			Date edate = new GregorianCalendar(year , Calendar.DECEMBER, 30).getTime();
 			List<OperationES> listop = usermetierimpl.getListOpESForJournal(cur.getDirection(), sdate, edate);
 			List<Object[]> listobjectForLivre = new ArrayList<Object[]>();
 			for (OperationES op : listop) {
@@ -1373,8 +1369,8 @@ public class SuiviEditionBean implements Serializable{
 			Calendar calendar = new GregorianCalendar();
 			calendar.setTime(date);
 			int year = calendar.get(Calendar.YEAR);
-			Date sdate = new GregorianCalendar(year, Calendar.JANUARY, 1).getTime();
-			Date edate = new GregorianCalendar(year + 1, Calendar.DECEMBER, 30).getTime();
+			Date sdate = new GregorianCalendar(year-1, Calendar.JANUARY, 1).getTime();
+			Date edate = new GregorianCalendar(year-1, Calendar.DECEMBER, 30).getTime();
 			System.out.println("RRRRRRRRRRR Begin:");
 			List<Object[]> r = usermetierimpl.getListObjectForinvetaire(cur.getDirection(), sdate, edate);
 			System.out.println("RRRRRRRRRRR Ending:");
@@ -1394,16 +1390,14 @@ public class SuiviEditionBean implements Serializable{
 				row[1] = mat.getIdMateriel();
 				// Désignation du matériel
 				String marque = "Inconnue";
-				if(mat.getDesign().getMarque()!=null) {
+				if (mat.getDesign().getMarque() != null) {
 					marque = mat.getDesign().getMarque().getDesignation();
 				}
 				String rens = "";
-				if(mat.getDesign().getRenseignement() != null) {
+				if (mat.getDesign().getRenseignement() != null) {
 					rens = mat.getDesign().getRenseignement();
 				}
-				row[2] = mat.getDesign().getTypematerieladd().getDesignation() + " - "
-						+ marque + " - " + rens
-						+ " - "
+				row[2] = mat.getDesign().getTypematerieladd().getDesignation() + " - " + marque + " - " + rens + " - "
 				// + mat.getNumSerie()
 				;
 				// Espèce des unités
@@ -1415,6 +1409,10 @@ public class SuiviEditionBean implements Serializable{
 				// Sortie du matériel
 				row[14] = null;
 				// Entrées pendant l’année X
+				if (mat.getMyoperationEntree() != null && mat.getMyoperationEntree().getDate().compareTo(edate) >= 0) {
+					System.out.println("mat tsy misy" + mat.getReference());
+					continue;
+				}
 				if (mat.getMyoperationEntree() == null || mat.getMyoperationEntree().getDate().compareTo(sdate) < 0) {
 					row[6] = "Materiel Existant";
 					row[5] = 1;
@@ -1482,7 +1480,7 @@ public class SuiviEditionBean implements Serializable{
 				;
 				String series = "";
 				for (Object[] o : infos) {
-					series = series + " / " +((Materiel) (o[12])).getNumSerie();
+					series = series + " / " + ((Materiel) (o[12])).getNumSerie();
 				}
 				row[2] = row[2] + series;
 				// Prix de l’unité
@@ -1570,15 +1568,15 @@ public class SuiviEditionBean implements Serializable{
 		return listESForGrandLivre;
 	}
 
-	public List<Object[]> getListESForGrandLivre(Date start, Date fin,Direction dir) {
+	public List<Object[]> getListESForGrandLivre(Date start, Date fin, Direction dir) {
 
 		if (listESForGrandLivre == null) {
 			DateFormat df = new SimpleDateFormat("dd MMM yyyy", Locale.FRANCE);
-			if(dir==null) {
+			if (dir == null) {
 				Agent cur = (Agent) RequestFilter.getSession().getAttribute("agent");
 				dir = cur.getDirection();
 			}
-			
+
 			Date sdate = start;
 			Date edate = fin;
 			System.out.println("RRRRRRRRRRR Begin:");
@@ -1600,16 +1598,15 @@ public class SuiviEditionBean implements Serializable{
 				row[1] = mat.getIdMateriel();
 				// Désignation du matériel
 				String rens = "";
-				if(mat.getDesign().getRenseignement() != null) {
+				if (mat.getDesign().getRenseignement() != null) {
 					rens = mat.getDesign().getRenseignement();
 				}
 				String mar = "";
-				if(mat.getDesign().getMarque() !=null) {
+				if (mat.getDesign().getMarque() != null) {
 					mar = mat.getDesign().getMarque().getDesignation();
 				}
-				row[2] = mat.getDesign().getTypematerieladd().getDesignation() + " - "
-						+ mar + " - " + rens
-						
+				row[2] = mat.getDesign().getTypematerieladd().getDesignation() + " - " + mar + " - " + rens
+
 				// + mat.getNumSerie()
 				;
 				// Espèce des unités
@@ -1688,7 +1685,7 @@ public class SuiviEditionBean implements Serializable{
 				;
 				String series = "";
 				for (Object[] o : infos) {
-					series = series + " / " +((Materiel) (o[12])).getNumSerie();
+					series = series + " / " + ((Materiel) (o[12])).getNumSerie();
 				}
 				row[2] = row[2] + series;
 				// Prix de l’unité
@@ -1852,15 +1849,14 @@ public class SuiviEditionBean implements Serializable{
 			row[1] = mat.getIdMateriel();
 			// Désignation du matériel
 			String marque = "Inconnue";
-			if(mat.getDesign().getMarque()!=null) {
+			if (mat.getDesign().getMarque() != null) {
 				marque = mat.getDesign().getMarque().getDesignation();
 			}
 			String rens = "";
-			if(mat.getDesign().getRenseignement() != null) {
+			if (mat.getDesign().getRenseignement() != null) {
 				rens = mat.getDesign().getRenseignement();
 			}
-			row[2] = mat.getDesign().getTypematerieladd().getDesignation() + " - "
-					+ marque + " - " + rens
+			row[2] = mat.getDesign().getTypematerieladd().getDesignation() + " - " + marque + " - " + rens
 			// + mat.getNumSerie()
 			;
 			// Espèce des unités
@@ -1937,7 +1933,7 @@ public class SuiviEditionBean implements Serializable{
 			;
 			String series = "";
 			for (Object[] o : infos) {
-				series = series + " / " +((Materiel) (o[12])).getNumSerie();
+				series = series + " / " + ((Materiel) (o[12])).getNumSerie();
 			}
 			row[2] = row[2] + series;
 			// Espèce des unités
@@ -2028,16 +2024,15 @@ public class SuiviEditionBean implements Serializable{
 			// Numéros du folio du grand livre
 			row[1] = mat.getIdMateriel();
 			// Désignation du matériel
-			String marqueMat ="Inconnue";
-			if(mat.getDesign().getMarque() != null) {
+			String marqueMat = "Inconnue";
+			if (mat.getDesign().getMarque() != null) {
 				marqueMat = mat.getDesign().getMarque().getDesignation();
 			}
 			String rens = "";
-			if(mat.getDesign().getRenseignement() != null) {
+			if (mat.getDesign().getRenseignement() != null) {
 				rens = mat.getDesign().getRenseignement();
 			}
-			row[2] = mat.getDesign().getTypematerieladd().getDesignation() + " - "
-					+ marqueMat + " - " + rens 
+			row[2] = mat.getDesign().getTypematerieladd().getDesignation() + " - " + marqueMat + " - " + rens
 			// + mat.getNumSerie()
 			;
 			// Espèce des unités
@@ -2183,7 +2178,7 @@ public class SuiviEditionBean implements Serializable{
 		int year = calendar.get(Calendar.YEAR);
 		Date sdate = new GregorianCalendar(year - 2, Calendar.JANUARY, 1).getTime();
 		Date edate = new GregorianCalendar(year + 1, Calendar.DECEMBER, 30).getTime();
-		List<Operation> lesoperations = getListOpESArtByDirection(null,sdate, edate);
+		List<Operation> lesoperations = getListOpESArtByDirection(null, sdate, edate);
 		Collections.sort(lesoperations, new Comparator<Operation>() {
 			public int compare(Operation o1, Operation o2) {
 				Long id1 = o1.getId();
@@ -2248,7 +2243,7 @@ public class SuiviEditionBean implements Serializable{
 	}
 
 	// list objet format pour journal
-	public List<Object[]> getListForJournalStockByDir(Direction d,Date fdate) {
+	public List<Object[]> getListForJournalStockByDir(Direction d, Date fdate) {
 		// if date not set
 		Date date = new Date();
 		if (fdate != null) {
@@ -2272,13 +2267,11 @@ public class SuiviEditionBean implements Serializable{
 				return id1.compareTo(id2);
 			}
 		});
-		/*for(Operation o:lesoperations) {
-			if(o instanceof OpEntreeArticle) {
-				if(((OpEntreeArticle)o).getArticle() instanceof ArticleEx) {
-					lesoperations.remove(o);
-				}
-			}
-		}*/
+		/*
+		 * for(Operation o:lesoperations) { if(o instanceof OpEntreeArticle) {
+		 * if(((OpEntreeArticle)o).getArticle() instanceof ArticleEx) {
+		 * lesoperations.remove(o); } } }
+		 */
 		// structure de données
 		List<Object[]> resulttable = new ArrayList<Object[]>();
 		Long i = 1L;
@@ -2305,14 +2298,14 @@ public class SuiviEditionBean implements Serializable{
 
 			// processing
 			if (o instanceof OpEntreeArticle) {
-				if(((OpEntreeArticle)o).getArticle() instanceof ArticleEx) {
+				if (((OpEntreeArticle) o).getArticle() instanceof ArticleEx) {
 					continue;
 				}
 				row[0] = row[0] + "/E";
 				row[3] = "a ajouter origine";
 				Article a = ((OpEntreeArticle) o).getArticle();
 				String marqueArt = "";
-				if(a.getMarqueArticle() != null) {
+				if (a.getMarqueArticle() != null) {
 					marqueArt = a.getMarqueArticle().getDesignation();
 				}
 				row[4] = a.getCodeArticle().getDesignation() + marqueArt;
@@ -2399,17 +2392,17 @@ public class SuiviEditionBean implements Serializable{
 
 			// processing
 			if (o instanceof OpEntreeArticle) {
-				if(((OpEntreeArticle)o).getArticle() instanceof ArticleEx) {
+				if (((OpEntreeArticle) o).getArticle() instanceof ArticleEx) {
 					continue;
 				}
 				row[0] = row[0] + "/E";
 				row[3] = "a ajouter origine";
 				Article a = ((OpEntreeArticle) o).getArticle();
-				String marqueArt ="";
-				if(a.getMarqueArticle() != null) {
+				String marqueArt = "";
+				if (a.getMarqueArticle() != null) {
 					marqueArt = a.getMarqueArticle().getDesignation();
 				}
-				row[4] = a.getCodeArticle().getDesignation()+ marqueArt;
+				row[4] = a.getCodeArticle().getDesignation() + marqueArt;
 				row[5] = a.getNombre();
 				row[6] = a.getPrix();
 				row[7] = (Long) row[5] * (Float) row[6];
@@ -2468,7 +2461,7 @@ public class SuiviEditionBean implements Serializable{
 
 			// processing
 			if (o instanceof OpEntreeArticle) {
-				
+
 				row[0] = row[0] + "/E";
 				row[3] = "a ajouter origine";
 				Article a = ((OpEntreeArticle) o).getArticle();
@@ -2489,10 +2482,10 @@ public class SuiviEditionBean implements Serializable{
 				row[3] = (((OpSortieArticle) o).getBeneficiaire()).getNomAgent();
 				Article a = ((OpSortieArticle) o).getArticle();
 				String marqueArt = "";
-				if(a.getMarqueArticle() !=null) {
+				if (a.getMarqueArticle() != null) {
 					marqueArt = a.getMarqueArticle().getDesignation();
 				}
-				row[4] = a.getCodeArticle().getDesignation()+ marqueArt;
+				row[4] = a.getCodeArticle().getDesignation() + marqueArt;
 				row[5] = a.getNombre();
 				row[6] = a.getPrix();
 				row[7] = (Long) row[5] * (Float) row[6];
@@ -2510,11 +2503,11 @@ public class SuiviEditionBean implements Serializable{
 	}
 
 	public List<Operation> getListOpESArtByDirectionByCod(Direction d, CodeArticle codeart) {
-		if(d==null) {
+		if (d == null) {
 			Agent cur = (Agent) RequestFilter.getSession().getAttribute("agent");
 			d = cur.getDirection();
 		}
-		
+
 		Date date = new Date();
 		Calendar calendar = new GregorianCalendar();
 		calendar.setTime(date);
@@ -2526,7 +2519,7 @@ public class SuiviEditionBean implements Serializable{
 
 	// list objet format pour journal By codification
 	public List<Object[]> getListForJournalStockByCod(Direction d, CodeArticle code) {
-		List<Operation> lesoperations = getListOpESArtByDirectionByCod(d,code);
+		List<Operation> lesoperations = getListOpESArtByDirectionByCod(d, code);
 		// structure de données
 		List<Object[]> resulttable = new ArrayList<Object[]>();
 		Object[] row = new Object[9];
@@ -2553,15 +2546,15 @@ public class SuiviEditionBean implements Serializable{
 
 			// entree
 			if (o instanceof OpEntreeArticle) {
-				//row[1] = o.getId(); // need to add this attribut for operation reference
-				row[1] =((OpEntreeArticle) o).getArticle().getReference();
+				// row[1] = o.getId(); // need to add this attribut for operation reference
+				row[1] = ((OpEntreeArticle) o).getArticle().getReference();
 				row[2] = (Long) (((OpEntreeArticle) o).getArticle().getNombre());
 				row[3] = (Long) row[2] + 0; // need to set previous nombre
 			}
 			// sortie
 			else if (o instanceof OpSortieArticle) {
-				//row[4] = o.getId();
-				row[4] = ((OpSortieArticle)o).getDecision();
+				// row[4] = o.getId();
+				row[4] = ((OpSortieArticle) o).getDecision();
 				row[5] = (Long) (((OpSortieArticle) o).getNombreToS());
 
 			}
@@ -2584,19 +2577,19 @@ public class SuiviEditionBean implements Serializable{
 		return resulttable;
 	}
 
-	public List<Operation> getListOpESArtByDirectionByCod(Direction d,CodeArticle codeart, Date s, Date f) {
-		if(d == null) {
+	public List<Operation> getListOpESArtByDirectionByCod(Direction d, CodeArticle codeart, Date s, Date f) {
+		if (d == null) {
 			Agent cur = (Agent) RequestFilter.getSession().getAttribute("agent");
 			d = cur.getDirection();
 		}
-		
+
 		Date sdate = s;
 		Date edate = f;
 		return usermetierimpl.getListOpESArtValideByDirectionByCod(codeart, d, sdate, edate);
 	}
 
 	public List<Object[]> getListForJournalStockByCod(Direction d, CodeArticle code, Date s, Date f) {
-		List<Operation> lesoperations = getListOpESArtByDirectionByCod(d,code, s, f);
+		List<Operation> lesoperations = getListOpESArtByDirectionByCod(d, code, s, f);
 		// structure de données
 		List<Object[]> resulttable = new ArrayList<Object[]>();
 		Object[] row = new Object[10];
@@ -2625,16 +2618,16 @@ public class SuiviEditionBean implements Serializable{
 
 			// entree
 			if (o instanceof OpEntreeArticle) {
-				//row[1] = o.getId(); // need to add this attribut for operation reference
-				row[1] =((OpEntreeArticle) o).getArticle().getReference();  
+				// row[1] = o.getId(); // need to add this attribut for operation reference
+				row[1] = ((OpEntreeArticle) o).getArticle().getReference();
 				row[2] = (Long) (((OpEntreeArticle) o).getArticle().getNombre());
 				row[3] = (Long) row[2] + 0; // need to set previous nombre
 				row[8] = ((OpEntreeArticle) o).getArticle().getEspeceunit();
 			}
 			// sortie
 			else if (o instanceof OpSortieArticle) {
-				row[4] = ((OpSortieArticle)o).getDecision();
-				//row[4] = o.getId();
+				row[4] = ((OpSortieArticle) o).getDecision();
+				// row[4] = o.getId();
 				row[5] = (Long) (((OpSortieArticle) o).getNombreToS());
 				row[8] = ((OpSortieArticle) o).getArticle().getEspeceunit();
 
@@ -2758,15 +2751,14 @@ public class SuiviEditionBean implements Serializable{
 						row[3] = d.getOrigine();
 						// designation
 						String mar = "";
-						if( d.getMarque()!=null) {
-							mar =  d.getMarque().getDesignation();
+						if (d.getMarque() != null) {
+							mar = d.getMarque().getDesignation();
 						}
 						String rens = "";
-						if(d.getRenseignement() != null) {
+						if (d.getRenseignement() != null) {
 							rens = d.getRenseignement();
 						}
-						row[4] = d.getTypematerieladd().getDesignation() + " - " + mar + " - "
-								+ rens 
+						row[4] = d.getTypematerieladd().getDesignation() + " - " + mar + " - " + rens
 						// mat.getNumSerie();
 						;
 						// espece unite
@@ -2811,23 +2803,23 @@ public class SuiviEditionBean implements Serializable{
 				// origine
 				if (((OpSortie) op).getMotifsortie() != null) {
 					row[3] = ((OpSortie) op).getMotifsortie().getDesignation();
-					if(((OpSortie) op).getMotifsortie().getDesignation().equalsIgnoreCase("Affectation")) {
-						row[3] = row[3] + " vers "  + ((OpSortie) op).getDirec().getCodeDirection();
+					if (((OpSortie) op).getMotifsortie().getDesignation().equalsIgnoreCase("Affectation")) {
+						row[3] = row[3] + " vers " + ((OpSortie) op).getDirec().getCodeDirection();
 					}
 				}
 				// designation
 				Materiel mat = op.getMat();
 				String marqueMat = "";
-				if(mat.getDesign().getMarque() !=null) {
+				if (mat.getDesign().getMarque() != null) {
 					marqueMat = mat.getDesign().getMarque().getDesignation();
 				}
-				
+
 				String rens = "";
-				if(mat.getDesign().getRenseignement() != null) {
+				if (mat.getDesign().getRenseignement() != null) {
 					rens = mat.getDesign().getRenseignement();
 				}
-				row[4] = mat.getDesign().getTypematerieladd().getDesignation() + " - " + marqueMat
-						+ " - " + rens + " - " + mat.getNumSerie();
+				row[4] = mat.getDesign().getTypematerieladd().getDesignation() + " - " + marqueMat + " - " + rens
+						+ " - " + mat.getNumSerie();
 				// espece unite
 				row[5] = mat.getDesign().getEspeceUnite();
 				// pu
@@ -2850,7 +2842,7 @@ public class SuiviEditionBean implements Serializable{
 		return listobjectForJournal;
 	}
 
-	public List<Object[]> getListobjectForInvetaireByDir(Direction direc,Date datdeb, Date datend) {
+	public List<Object[]> getListobjectForInvetaireByDir(Direction direc, Date datdeb, Date datend) {
 		// if (listobjectForInvetaire == null) {
 		if (direc == null) {
 			Agent cur = (Agent) RequestFilter.getSession().getAttribute("agent");
@@ -2863,18 +2855,16 @@ public class SuiviEditionBean implements Serializable{
 		int year = calendar.get(Calendar.YEAR);
 		Date sdate = new GregorianCalendar(year, Calendar.JANUARY, 1).getTime();
 		Date edate = new GregorianCalendar(year, Calendar.DECEMBER, 31).getTime();
-		
-		if(datdeb !=null & datend != null) {
+
+		if (datdeb != null & datend != null) {
 			sdate = datdeb;
 			edate = datend;
 		}
-		
+
 		System.out.println("RRRRRRRRRRR Begin:");
 		List<Object[]> r = usermetierimpl.getListObjectForinvetaire(direc, sdate, edate);
 		System.out.println("RRRRRRRRRRR Ending:");
-		
-		
-		
+
 		/*
 		 * for(Object[] o:r) { System.out.println(String.valueOf(o[0]));
 		 * System.out.println(String.valueOf(o[1])); }
@@ -2896,15 +2886,14 @@ public class SuiviEditionBean implements Serializable{
 			row[1] = mat.getIdMateriel();
 			// Désignation du matériel
 			String marqueMat = "Inconnue";
-			if(mat.getDesign().getMarque() != null) {
+			if (mat.getDesign().getMarque() != null) {
 				marqueMat = mat.getDesign().getMarque().getDesignation();
 			}
 			String rens = "";
-			if(mat.getDesign().getRenseignement() != null) {
+			if (mat.getDesign().getRenseignement() != null) {
 				rens = mat.getDesign().getRenseignement();
 			}
-			row[2] = mat.getDesign().getTypematerieladd().getDesignation() + " - "
-					+ marqueMat + " - " + rens 
+			row[2] = mat.getDesign().getTypematerieladd().getDesignation() + " - " + marqueMat + " - " + rens
 			// + mat.getNumSerie()
 			;
 			// Espèce des unités
@@ -2981,7 +2970,7 @@ public class SuiviEditionBean implements Serializable{
 			;
 			String series = "";
 			for (Object[] o : infos) {
-				series = series + " / " +((Materiel) (o[12])).getNumSerie();
+				series = series + " / " + ((Materiel) (o[12])).getNumSerie();
 			}
 			row[2] = row[2] + series;
 			// Espèce des unités
@@ -3043,22 +3032,25 @@ public class SuiviEditionBean implements Serializable{
 
 		return listobjectForInvetaire;
 	}
+
 	private List<MaterielEx> listMaterielexistant;
+
 	public List<MaterielEx> getListMaterielexistant() {
-		if(listMaterielexistant==null) {
+		if (listMaterielexistant == null) {
 			Agent agent = (Agent) RequestFilter.getSession().getAttribute("agent");
 			listMaterielexistant = usermetierimpl.getListMatEx(agent.getDirection());
 		}
 		return listMaterielexistant;
 	}
+
 	public void setListMaterielexistant(List<MaterielEx> listMaterielexistant) {
 		this.listMaterielexistant = listMaterielexistant;
 	}
-	
+
 	private List<MaterielNouv> listMaterielNouveauNonValide;
 
 	public List<MaterielNouv> getListMaterielNouveauNonValide() {
-		if(listMaterielNouveauNonValide==null) {
+		if (listMaterielNouveauNonValide == null) {
 			Agent agent = (Agent) RequestFilter.getSession().getAttribute("agent");
 			listMaterielNouveauNonValide = usermetierimpl.getListMaterielNouvNonValide(agent.getDirection());
 		}
@@ -3068,11 +3060,11 @@ public class SuiviEditionBean implements Serializable{
 	public void setListMaterielNouveauNonValide(List<MaterielNouv> listMaterielNouveauNonValide) {
 		this.listMaterielNouveauNonValide = listMaterielNouveauNonValide;
 	}
-	
+
 	private List<MaterielNouv> listMaterielNouveauValide;
 
 	public List<MaterielNouv> getListMaterielNouveauValide() {
-		if(listMaterielNouveauValide==null) {
+		if (listMaterielNouveauValide == null) {
 			Agent agent = (Agent) RequestFilter.getSession().getAttribute("agent");
 			listMaterielNouveauValide = usermetierimpl.getListMaterielNouvValide(agent.getDirection());
 		}
@@ -3082,16 +3074,16 @@ public class SuiviEditionBean implements Serializable{
 	public void setListMaterielNouveauValide(List<MaterielNouv> listMaterielNouveauValide) {
 		this.listMaterielNouveauValide = listMaterielNouveauValide;
 	}
-	
+
 	public OpEntree getCurrentOpEntree() {
 		return currentOpEntree;
 	}
 
 	public void setCurrentOpEntree(OpEntree currentOpEntree) {
-		if(currentOpEntree == null) {
+		if (currentOpEntree == null) {
 			System.out.println("FA AHOANA");
-		}else {
-			System.out.println("cur :"+ currentOpEntree.getId());
+		} else {
+			System.out.println("cur :" + currentOpEntree.getId());
 		}
 		this.currentOpEntree = currentOpEntree;
 	}
@@ -3127,9 +3119,9 @@ public class SuiviEditionBean implements Serializable{
 	private OpAttribution currentOpAttribution;
 
 	private OpDettachement currentOpDettachement;
-	
-	
+
 	private List<Operation> listOperatoinByDirectionFiltered;
+
 	public List<Operation> getListOperatoinByDirectionFiltered() {
 		return listOperatoinByDirectionFiltered;
 	}
@@ -3137,9 +3129,9 @@ public class SuiviEditionBean implements Serializable{
 	public void setListOperatoinByDirectionFiltered(List<Operation> listOperatoinByDirectionFiltered) {
 		this.listOperatoinByDirectionFiltered = listOperatoinByDirectionFiltered;
 	}
-	
-	public List<OpAttribution> getListOperationAttributionValidateByDirection(Direction d){
-		if(d== null) {
+
+	public List<OpAttribution> getListOperationAttributionValidateByDirection(Direction d) {
+		if (d == null) {
 			Agent curentAg = (Agent) RequestFilter.getSession().getAttribute("agent");
 			d = curentAg.getDirection();
 		}
@@ -3149,262 +3141,506 @@ public class SuiviEditionBean implements Serializable{
 		int year = calendar.get(Calendar.YEAR);
 		Date sdate = new GregorianCalendar(year - 2, Calendar.JANUARY, 1).getTime();
 		Date edate = new GregorianCalendar(year + 1, Calendar.DECEMBER, 30).getTime();
-		return usermetierimpl.getListOpAttrByValideByDirection(d ,sdate, edate,EtatOperation.ACCEPTED);
+		return usermetierimpl.getListOpAttrByValideByDirection(d, sdate, edate, EtatOperation.ACCEPTED);
 	}
-	
+
 	public List<MaterielNouv> getListMaterielNouveauValideFor(Direction d) {
-			if(d ==null) {
-				Agent agent = (Agent) RequestFilter.getSession().getAttribute("agent");
-				d= agent.getDirection();
-			}
-			
+		if (d == null) {
+			Agent agent = (Agent) RequestFilter.getSession().getAttribute("agent");
+			d = agent.getDirection();
+		}
+
 		return usermetierimpl.getListMaterielNouvValide(d);
 	}
-	
+
 	public List<MaterielNouv> getListMaterielNouveauNonValideFor(Direction d) {
-		if(d==null) {
+		if (d == null) {
 			Agent agent = (Agent) RequestFilter.getSession().getAttribute("agent");
-			d= agent.getDirection();
+			d = agent.getDirection();
 		}
 		return usermetierimpl.getListMaterielNouvNonValide(d);
 	}
-	public List<MaterielEx> getListMaterielExistantFor(Direction d){
-		if(d==null) {
+
+	public List<MaterielEx> getListMaterielExistantFor(Direction d) {
+		if (d == null) {
 			Agent agent = (Agent) RequestFilter.getSession().getAttribute("agent");
-			d= agent.getDirection();
+			d = agent.getDirection();
 		}
 		return usermetierimpl.getListMatEx(d);
 	}
-	
-	
-	
+
 	public List<Object[]> getListESExForEtatAppr(Direction dir, Date debut, Date fin) {
-			
-			DateFormat df = new SimpleDateFormat("dd MMM yyyy", Locale.FRANCE);
-			
-			Date date = new Date();
-			Calendar calendar = new GregorianCalendar();
-			calendar.setTime(date);
-			int year = calendar.get(Calendar.YEAR);
-			Date sdate = new GregorianCalendar(year, Calendar.JANUARY, 1).getTime();
-			Date edate = new GregorianCalendar(year + 1, Calendar.DECEMBER, 30).getTime();
-			
-			if(fin !=null && debut !=null) {
-				sdate = debut;
-				edate = fin;
+
+		DateFormat df = new SimpleDateFormat("dd MMM yyyy", Locale.FRANCE);
+
+		Date date = new Date();
+		Calendar calendar = new GregorianCalendar();
+		calendar.setTime(date);
+		int year = calendar.get(Calendar.YEAR);
+		Date sdate = new GregorianCalendar(year-1, Calendar.JANUARY, 1).getTime();
+		Date edate = new GregorianCalendar(year-1, Calendar.DECEMBER, 30).getTime();
+
+		if (fin != null && debut != null) {
+			sdate = debut;
+			edate = fin;
+		}
+
+		if (dir == null) {
+			Agent cur = (Agent) RequestFilter.getSession().getAttribute("agent");
+			dir = cur.getDirection();
+		}
+
+		// GET MATERIEL INVENTAIRE AND TRY TO MODEL IT APPRECIATIF
+		System.out.println("RRRRRRRRRRR Begin:");
+		List<Object[]> r = usermetierimpl.getListObjectForinvetaire(dir, sdate, edate);
+		System.out.println("RRRRRRRRRRR Ending:");
+
+		//
+
+		// group by designation
+		List<Object[]> resultstableGrouped = new ArrayList<Object[]>();
+
+		Map<Designation, List<Object[]>> map = new HashMap<Designation, List<Object[]>>();
+
+		for (Object[] o : r) {
+			Materiel mat = (Materiel) o[1];
+			Designation key = mat.getDesign();
+			if (map.containsKey(key)) {
+				List<Object[]> list = map.get(key);
+				list.add(o);
+
+			} else {
+				List<Object[]> list = new ArrayList<Object[]>();
+				list.add(o);
+				map.put(key, list);
 			}
-			
-			if(dir == null) {
-				Agent cur = (Agent) RequestFilter.getSession().getAttribute("agent");
-				dir = cur.getDirection();
+
+		}
+		for (Map.Entry<Designation, List<Object[]>> entry : map.entrySet()) {
+			// System.out.println(entry.getKey().getIdDesignation() + ":" +
+			// entry.getValue().size());
+
+			Designation des = entry.getKey();
+			List<Object[]> infos = entry.getValue();
+			// materiels
+			List<Materiel> materiels = new ArrayList<Materiel>();
+			List<OpSortie> os = new ArrayList<OpSortie>();
+			for (Object[] o : infos) {
+				materiels.add((Materiel) (o[1]));
+				if(o[0]!=null) {
+					os.add((OpSortie) o[0]);
+				}
 			}
+
+			// Nomenclature
+			String nomenclature = des.getTypematerieladd().getNomenclaureParent().getNomenclature();
+
+			// Désignation du matériel
+			String marque = "Inconnue";
+			if (des.getMarque() != null) {
+				marque = des.getMarque().getDesignation();
+			}
+			String rens = "";
+			if (des.getRenseignement() != null) {
+				rens = des.getRenseignement();
+			}
+			String series = " ";
+			for (Materiel m : materiels) {
+				series = series + " / " + m.getNumSerie();
+			}
+			// Designation Finale
+			String designation = des.getTypematerieladd().getDesignation() + " - " + marque + " - " + rens + series;
+			// Prix de l’unité
+			Float pu = des.getPu();
 			
-			//GET MATERIEL INVENTAIRE AND TRY TO MODEL IT APPRECIATIF
-			System.out.println("RRRRRRRRRRR Begin:");
-			List<Object[]> r = usermetierimpl.getListObjectForinvetaire(dir, sdate, edate);
-			System.out.println("RRRRRRRRRRR Ending:");
-			
-			List<Object[]> resultstable = new ArrayList<Object[]>();
-			for (Object[] m : r) {
-				
-				Materiel mat = (Materiel) m[1];
-				OpSortie o = (OpSortie) m[0];
-				
-				
+			/////////////////////
+			/*
+			 * Debut initilaisation calcul entree
+			 */
+			// Existantes au 1er Janvier X
+			int existp = 0;
+			// Motif entree
+			String motifentre = "";
+			// Entrées pendant l’année X
+			if (materiels.get(0).getMyoperationEntree() != null && materiels.get(0).getMyoperationEntree().getDate().compareTo(edate) >= 0) {
+				System.out.println("mat tsy misy" + materiels.get(0).getReference());
+				continue;
+			}
+			if (materiels.get(0).getMyoperationEntree() == null || materiels.get(0).getMyoperationEntree().getDate().compareTo(sdate) < 0) {
+				motifentre = "Materiel Existant ";
+				existp = materiels.size();
+				//existp = 1;
+				// add row 1
+				Object[] row = new Object[21];
 				// Nomenclature
-				String nomenclature = mat.getDesign().getNomenMat().getNomenclature();
-				
-				// Désignation du matériel
-				String marque = "Inconnue";
-				if(mat.getDesign().getMarque()!=null) {
-					marque = mat.getDesign().getMarque().getDesignation();
-				}
-				String rens = "";
-				if(mat.getDesign().getRenseignement() != null) {
-					rens = mat.getDesign().getRenseignement();
-				}
-				//Designation Finale
-				String designation = mat.getDesign().getTypematerieladd().getDesignation() + " - "
-						+ marque + " - " + rens
-						+ " - "
-				 + mat.getNumSerie()
-				;
-				// Prix de l’unité
-				Float pu = mat.getDesign().getPu();
-				
-				/*
-				 * Debut initilaisation calcul entree
-				 */
-				// Existantes au 1er Janvier X
-				Long existp = 0L;
-				//Motif entree
-				String motifentre="";
-				// Entrées pendant l’année X
-				if (mat.getMyoperationEntree() == null || mat.getMyoperationEntree().getDate().compareTo(sdate) < 0) {
-					motifentre = "Materiel Existant";
-					existp = 1L;
-					//add row 1
-					Object[] row = new Object[21];
-					// Nomenclature
-					row[0] = nomenclature;
-					// justificatives
-					row[1] = motifentre;
-					// date
-					if(mat.getMyoperationEntree() == null) {
-						row[15] =mat.getDesign().getAnneeAcquisition();
+				row[0] = nomenclature;
+				// justificatives
+				row[1] = motifentre;
+				// date
+				if (materiels.get(0).getMyoperationEntree() == null) {
+					if(materiels.get(0).getAnneeAcquisition()!=null) {
+						row[15] = materiels.get(0).getAnneeAcquisition();
 					}else {
-						row[15] =mat.getMyoperationEntree().getDate().toString();
+						row[15] ="";
 					}
-					// Désignation sommaire des opérations
-					row[2] = designation;
-
-					// par nomenclature
-					row[4] = new Float(0);
-					row[6] = new Float(0);
 					
-					row[7] = new Float(0);
-					row[8] = new Float(0);
-					
-					row[9] = new Float(0);
-					row[10] = new Float(0);
-					
-					row[11] = new Float(0);
-					row[12] = new Float(0);
-					
-					row[13] = new Float(0);
-					row[14] = new Float(0);
-					
-					row[16] = new Float(0);
-					row[17] = new Float(0);
-					row[18] = new Float(0);
-					row[19] = new Float(0);
-					row[20] = new Float(0);
-					//add existant for that
-					if (nomenclature.equals("1")) {
-						row[16] = existp*pu;
-					} else if (nomenclature.equals("2")) {
-						row[17] = existp*pu;
-					} else if (nomenclature.equals("3")) {
-						row[18] = existp*pu;
-					} else if (nomenclature.equals("5")) {
-						row[19] = existp*pu;
-					} else if (nomenclature.equals("10")) {
-						row[20] = existp*pu;
-					}
-					resultstable.add(row);
 				} else {
-					motifentre = mat.getMyoperationEntree().getNumoperation();
-					//add row 2
-					Object[] row = new Object[21];
-					// Nomenclature
-					row[0] = nomenclature;
-					// justificatives
-					row[1] = motifentre;
-					// date
-					row[15] =mat.getMyoperationEntree().getDate().toString();
-					// Désignation sommaire des opérations
-					row[2] = designation;
-
-					// par nomenclature
-					row[4] = new Float(0);
-					row[6] = new Float(0);
-					
-					row[7] = new Float(0);
-					row[8] = new Float(0);
-					
-					row[9] = new Float(0);
-					row[10] = new Float(0);
-					
-					row[11] = new Float(0);
-					row[12] = new Float(0);
-					
-					row[13] = new Float(0);
-					row[14] = new Float(0);
-					
-					row[16] = new Float(0);
-					row[17] = new Float(0);
-					row[18] = new Float(0);
-					row[19] = new Float(0);
-					row[20] = new Float(0);
-					//add existant for that
-					if (nomenclature.equals("1")) {
-						row[4] = 1*pu;
-					} else if (nomenclature.equals("2")) {
-						row[7] = 1*pu;
-					} else if (nomenclature.equals("3")) {
-						row[9] = 1*pu;
-					} else if (nomenclature.equals("5")) {
-						row[11] = 1*pu;
-					} else if (nomenclature.equals("10")) {
-						row[13] = 1*pu;
-					}
-					resultstable.add(row);
+					row[15] = materiels.get(0).getMyoperationEntree().getDate().toString();
 				}
+				// Désignation sommaire des opérations
+				row[2] = designation;
+				// Désignation sommaire des opérations
+				row[2] = designation;
+
+				// par nomenclature
+				row[4] = new Float(0);
+				row[6] = new Float(0);
+
+				row[7] = new Float(0);
+				row[8] = new Float(0);
+
+				row[9] = new Float(0);
+				row[10] = new Float(0);
+
+				row[11] = new Float(0);
+				row[12] = new Float(0);
+
+				row[13] = new Float(0);
+				row[14] = new Float(0);
+
+				row[16] = new Float(0);
+				row[17] = new Float(0);
+				row[18] = new Float(0);
+				row[19] = new Float(0);
+				row[20] = new Float(0);
+				// add existant for that
+				if (nomenclature.equals("1")) {
+					row[16] = existp * pu;
+				} else if (nomenclature.equals("2")) {
+					row[17] = existp * pu;
+				} else if (nomenclature.equals("3")) {
+					row[18] = existp * pu;
+				} else if (nomenclature.equals("5")) {
+					row[19] = existp * pu;
+				} else if (nomenclature.equals("10")) {
+					row[20] = existp * pu;
+				}
+				resultstableGrouped.add(row);
+			} else {
+				motifentre = materiels.get(0).getMyoperationEntree().getNumoperation();
+				// add row 2
+				Object[] row = new Object[21];
+				// Nomenclature
+				row[0] = nomenclature;
+				// justificatives
+				row[1] = motifentre;
+				// date
+				row[15] = materiels.get(0).getMyoperationEntree().getDate().toString();
+				// Désignation sommaire des opérations
+				row[2] = designation;
+
+				// par nomenclature
+				row[4] = new Float(0);
+				row[6] = new Float(0);
+
+				row[7] = new Float(0);
+				row[8] = new Float(0);
+
+				row[9] = new Float(0);
+				row[10] = new Float(0);
+
+				row[11] = new Float(0);
+				row[12] = new Float(0);
+
+				row[13] = new Float(0);
+				row[14] = new Float(0);
+
+				row[16] = new Float(0);
+				row[17] = new Float(0);
+				row[18] = new Float(0);
+				row[19] = new Float(0);
+				row[20] = new Float(0);
+				// add existant for that
+				if (nomenclature.equals("1")) {
+					row[4] = materiels.size() * pu;
+				} else if (nomenclature.equals("2")) {
+					row[7] = materiels.size() * pu;
+				} else if (nomenclature.equals("3")) {
+					row[9] = materiels.size() * pu;
+				} else if (nomenclature.equals("5")) {
+					row[11] = materiels.size() * pu;
+				} else if (nomenclature.equals("10")) {
+					row[13] = materiels.size() * pu;
+				}
+				resultstableGrouped.add(row);
+			}
+			
+			/*
+			 * Debut initilaisation sortie
+			 */
+			int nbrsortie = 0;
+			// Sortie pendant l’année X
+			if (os.size() == 0) {
+				nbrsortie = 0;
+			} else {
+				String motifsortie = " ";
+				for(OpSortie o: os) {
+					motifsortie = motifsortie+ o.getNumoperation()+" ";
+				}		
+				// add row 2
+				Object[] row = new Object[21];
+				// Nomenclature
+				row[0] = nomenclature;
+				// justificatives
+				row[1] = motifsortie;
+				// date
+				row[15] = " ";
+				for(OpSortie o: os) {
+					row[15] = row[15] + o.getDate().toString()+ " ";
+				}
+				// Désignation sommaire des opérations
+				row[2] = designation;
+
+				// par nomenclature
+				row[4] = new Float(0);
+				row[6] = new Float(0);
+
+				row[7] = new Float(0);
+				row[8] = new Float(0);
+
+				row[9] = new Float(0);
+				row[10] = new Float(0);
+
+				row[11] = new Float(0);
+				row[12] = new Float(0);
+
+				row[13] = new Float(0);
+				row[14] = new Float(0);
+
+				row[16] = new Float(0);
+				row[17] = new Float(0);
+				row[18] = new Float(0);
+				row[19] = new Float(0);
+				row[20] = new Float(0);
+				// add existant for that
+				if (nomenclature.equals("1")) {
+					row[6] = os.size() * pu;
+				} else if (nomenclature.equals("2")) {
+					row[8] = os.size() * pu;
+				} else if (nomenclature.equals("3")) {
+					row[10] = os.size() * pu;
+				} else if (nomenclature.equals("5")) {
+					row[12] = os.size() * pu;
+				} else if (nomenclature.equals("10")) {
+					row[14] = os.size() * pu;
+				}
+				resultstableGrouped.add(row);
+
+			}	
 				
 				
-				
-				/*
-				 * Debut initilaisation sortie
-				 */
-				int nbrsortie = 0;
-				// Sortie pendant l’année X
-				if (o == null) {
-					nbrsortie = 0;
+		}
+
+		List<Object[]> resultstable = new ArrayList<Object[]>();
+		for (Object[] m : r) {
+
+			Materiel mat = (Materiel) m[1];
+			OpSortie o = (OpSortie) m[0];
+
+			// Nomenclature
+			String nomenclature = mat.getDesign().getNomenMat().getNomenclature();
+			//nomenclature = mat.getDesign().getNomenMat().getNomenclature();
+
+			// Désignation du matériel
+			String marque = "Inconnue";
+			//marque = "Inconnue";
+			if (mat.getDesign().getMarque() != null) {
+				marque = mat.getDesign().getMarque().getDesignation();
+			}
+			String rens = "";
+			//rens = "";
+			if (mat.getDesign().getRenseignement() != null) {
+				rens = mat.getDesign().getRenseignement();
+			}
+			// Designation Finale
+			String designation = "";
+			designation = mat.getDesign().getTypematerieladd().getDesignation() + " - " + marque + " - " + rens
+					+ " - " + mat.getNumSerie();
+			// Prix de l’unité
+			Float pu = 0f; 
+			pu = mat.getDesign().getPu();
+
+			/*
+			 * Debut initilaisation calcul entree
+			 */
+			// Existantes au 1er Janvier X
+			int existp = 0;
+			//existp = 0;
+			// Motif entree
+			String motifentre = "";
+			//motifentre = "";
+			// Entrées pendant l’année X
+			if (mat.getMyoperationEntree() == null || mat.getMyoperationEntree().getDate().compareTo(sdate) < 0) {
+				motifentre = "Materiel Existant";
+				existp = 1;
+				// add row 1
+				Object[] row = new Object[21];
+				// Nomenclature
+				row[0] = nomenclature;
+				// justificatives
+				row[1] = motifentre;
+				// date
+				if (mat.getMyoperationEntree() == null) {
+					row[15] = mat.getDesign().getAnneeAcquisition();
 				} else {
-					String motifsortie = o.getNumoperation();
-					//add row 2
-					Object[] row = new Object[21];
-					// Nomenclature
-					row[0] = nomenclature;
-					// justificatives
-					row[1] = motifsortie;
-					// date
-					row[15] =o.getDate().toString();
-					// Désignation sommaire des opérations
-					row[2] = designation;
-
-					// par nomenclature
-					row[4] = new Float(0);
-					row[6] = new Float(0);
-					
-					row[7] = new Float(0);
-					row[8] = new Float(0);
-					
-					row[9] = new Float(0);
-					row[10] = new Float(0);
-					
-					row[11] = new Float(0);
-					row[12] = new Float(0);
-					
-					row[13] = new Float(0);
-					row[14] = new Float(0);
-					
-					row[16] = new Float(0);
-					row[17] = new Float(0);
-					row[18] = new Float(0);
-					row[19] = new Float(0);
-					row[20] = new Float(0);
-					//add existant for that
-					if (nomenclature.equals("1")) {
-						row[6] = 1*pu;
-					} else if (nomenclature.equals("2")) {
-						row[8] = 1*pu;
-					} else if (nomenclature.equals("3")) {
-						row[10] = 1*pu;
-					} else if (nomenclature.equals("5")) {
-						row[12] = 1*pu;
-					} else if (nomenclature.equals("10")) {
-						row[14] = 1*pu;
-					}
-					resultstable.add(row);
+					row[15] = mat.getMyoperationEntree().getDate().toString();
 				}
-				
+				// Désignation sommaire des opérations
+				row[2] = designation;
+
+				// par nomenclature
+				row[4] = new Float(0);
+				row[6] = new Float(0);
+
+				row[7] = new Float(0);
+				row[8] = new Float(0);
+
+				row[9] = new Float(0);
+				row[10] = new Float(0);
+
+				row[11] = new Float(0);
+				row[12] = new Float(0);
+
+				row[13] = new Float(0);
+				row[14] = new Float(0);
+
+				row[16] = new Float(0);
+				row[17] = new Float(0);
+				row[18] = new Float(0);
+				row[19] = new Float(0);
+				row[20] = new Float(0);
+				// add existant for that
+				if (nomenclature.equals("1")) {
+					row[16] = existp * pu;
+				} else if (nomenclature.equals("2")) {
+					row[17] = existp * pu;
+				} else if (nomenclature.equals("3")) {
+					row[18] = existp * pu;
+				} else if (nomenclature.equals("5")) {
+					row[19] = existp * pu;
+				} else if (nomenclature.equals("10")) {
+					row[20] = existp * pu;
+				}
+				resultstable.add(row);
+			} else {
+				motifentre = mat.getMyoperationEntree().getNumoperation();
+				// add row 2
+				Object[] row = new Object[21];
+				// Nomenclature
+				row[0] = nomenclature;
+				// justificatives
+				row[1] = motifentre;
+				// date
+				row[15] = mat.getMyoperationEntree().getDate().toString();
+				// Désignation sommaire des opérations
+				row[2] = designation;
+
+				// par nomenclature
+				row[4] = new Float(0);
+				row[6] = new Float(0);
+
+				row[7] = new Float(0);
+				row[8] = new Float(0);
+
+				row[9] = new Float(0);
+				row[10] = new Float(0);
+
+				row[11] = new Float(0);
+				row[12] = new Float(0);
+
+				row[13] = new Float(0);
+				row[14] = new Float(0);
+
+				row[16] = new Float(0);
+				row[17] = new Float(0);
+				row[18] = new Float(0);
+				row[19] = new Float(0);
+				row[20] = new Float(0);
+				// add existant for that
+				if (nomenclature.equals("1")) {
+					row[4] = 1 * pu;
+				} else if (nomenclature.equals("2")) {
+					row[7] = 1 * pu;
+				} else if (nomenclature.equals("3")) {
+					row[9] = 1 * pu;
+				} else if (nomenclature.equals("5")) {
+					row[11] = 1 * pu;
+				} else if (nomenclature.equals("10")) {
+					row[13] = 1 * pu;
+				}
+				resultstable.add(row);
 			}
 
-		return resultstable;
+			/*
+			 * Debut initilaisation sortie
+			 */
+			int nbrsortie = 0;
+			//nbrsortie = 0;
+			// Sortie pendant l’année X
+			if (o == null) {
+				nbrsortie = 0;
+			} else {
+				String motifsortie = o.getNumoperation();
+				// add row 2
+				Object[] row = new Object[21];
+				// Nomenclature
+				row[0] = nomenclature;
+				// justificatives
+				row[1] = motifsortie;
+				// date
+				row[15] = o.getDate().toString();
+				// Désignation sommaire des opérations
+				row[2] = designation;
+
+				// par nomenclature
+				row[4] = new Float(0);
+				row[6] = new Float(0);
+
+				row[7] = new Float(0);
+				row[8] = new Float(0);
+
+				row[9] = new Float(0);
+				row[10] = new Float(0);
+
+				row[11] = new Float(0);
+				row[12] = new Float(0);
+
+				row[13] = new Float(0);
+				row[14] = new Float(0);
+
+				row[16] = new Float(0);
+				row[17] = new Float(0);
+				row[18] = new Float(0);
+				row[19] = new Float(0);
+				row[20] = new Float(0);
+				// add existant for that
+				if (nomenclature.equals("1")) {
+					row[6] = 1 * pu;
+				} else if (nomenclature.equals("2")) {
+					row[8] = 1 * pu;
+				} else if (nomenclature.equals("3")) {
+					row[10] = 1 * pu;
+				} else if (nomenclature.equals("5")) {
+					row[12] = 1 * pu;
+				} else if (nomenclature.equals("10")) {
+					row[14] = 1 * pu;
+				}
+				resultstable.add(row);
+			}
+
+		}
+
+		return resultstableGrouped;
 	}
-
-
-	
 
 }

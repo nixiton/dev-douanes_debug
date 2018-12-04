@@ -695,13 +695,13 @@ public class OperationDAOImpl implements IOperationDAO {
 		// TODO Auto-generated method stub
 		Query query1 = em.createQuery("select  opso, m from OpSortie opso , Materiel m    " + "where opso.mat = m "
 				+ "and opso.direction =:direct " + "and opso.state =:etat " + "and opso.date>=:date "
-		// + "and opso.date<=:edate "
+		 + "and opso.date<=:edate "
 		);
 		Query query2 = em
 				.createQuery("select m from Materiel m    " + "where m.validation =:val " + "and m.direc =:direct");
 		query1.setParameter("direct", d);
 		query1.setParameter("date", startDate);
-		// query1.setParameter("edate", endDate);
+		query1.setParameter("edate", endDate);
 		query1.setParameter("etat", EtatOperation.ACCEPTED);
 
 		query2.setParameter("direct", d);

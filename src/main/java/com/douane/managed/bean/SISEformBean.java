@@ -1485,8 +1485,9 @@ public class SISEformBean {
 	
 	public List<SelectItem> mapDirection(Direction d, Date dates){
 		//Map<String, String> filamatras = new HashMap<String, String>();
-		final Date date = dates;
-		System.out.println(date);
+		final Date date = new Date();
+		
+		//System.out.println(date);
 		Direction dir =(Direction) refmetierimpl.findById(d.getId());
 		Collections.sort(dir.getListTitle(), new Comparator<DirectionTitleHist>() {
 			public int compare(DirectionTitleHist h1, DirectionTitleHist h2) {
@@ -1499,13 +1500,13 @@ public class SISEformBean {
 				}
 				long diff1 = Math.abs(d1.getTime() - date.getTime());
 		        long diff2 = Math.abs(d2.getTime() - date.getTime());
-		        System.out.println(h1.getTitle()+" : "+ diff1 +" - "+ h2.getTitle()+" : "+diff2 +" = " + (diff1-diff2));
+		        //System.out.println(h1.getTitle()+" : "+ diff1 +" - "+ h2.getTitle()+" : "+diff2 +" = " + (diff1-diff2));
 		        return Long.compare(diff1, diff2);
 			}
 		});
 		List<SelectItem> result = new ArrayList<SelectItem>();  
 		for(DirectionTitleHist dh : dir.getListTitle()) {
-			System.out.println(dh.getTitle());
+			//System.out.println(dh.getTitle());
 			result.add(new SelectItem(dh.getTitle(), dh.getTitle()));
 			//filamatras.put(dh.getTitle(), dh.getTitle());
 		}
