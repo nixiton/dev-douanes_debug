@@ -62,7 +62,7 @@
 		<variable name="Total" class="java.lang.Float" calculation="Sum">
 			<variableExpression><![CDATA[$F{row9}]]></variableExpression>
 		</variable>
-		<group name="Group by nomenclature">
+		<group name="Group by nomenclature" keepTogether="true">
 			<groupExpression><![CDATA[$F{row0}]]></groupExpression>
 		</group>
 		<group name="Group by designation" keepTogether="true">
@@ -193,9 +193,9 @@
 		</band>
 	</title>
 	<detail>
-		<band height="230" splitType="Stretch">
+		<band height="260" splitType="Stretch">
 			<componentElement>
-				<reportElement key="table" style="table" x="0" y="0" width="560" height="230" uuid="85e11934-488a-4b34-a260-35210950fe35"/>
+				<reportElement key="table" style="table" x="0" y="0" width="560" height="260" uuid="85e11934-488a-4b34-a260-35210950fe35"/>
 				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
 					<datasetRun subDataset="Table Dataset 1" uuid="e03d0ec9-e1f3-4f1e-992d-95e26a22a815">
 						<datasetParameter name="year">
@@ -218,6 +218,13 @@
 								<text><![CDATA[Numéros du folio du grand livre]]></text>
 							</staticText>
 						</jr:columnHeader>
+						<jr:columnFooter height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="40" height="30" uuid="287cdf10-8b3f-40b0-be0b-955729e98909"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle"/>
+								<text><![CDATA[A reporter]]></text>
+							</staticText>
+						</jr:columnFooter>
 						<jr:detailCell style="table_TD" height="62" rowSpan="1">
 							<textField>
 								<reportElement x="0" y="0" width="40" height="62" uuid="29a34349-5dc7-4af7-b692-c39ba50e84ab"/>
@@ -249,6 +256,13 @@
 								<text><![CDATA[Désignation du matériel]]></text>
 							</staticText>
 						</jr:columnHeader>
+						<jr:columnFooter height="30" rowSpan="1">
+							<textField pattern="#,##0">
+								<reportElement x="0" y="0" width="90" height="30" uuid="53dc47fa-9c85-4417-b239-d255c934d1f7"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle"/>
+								<textFieldExpression><![CDATA[$V{Total}]]></textFieldExpression>
+							</textField>
+						</jr:columnFooter>
 						<jr:detailCell style="table_TD" height="62" rowSpan="1">
 							<textField>
 								<reportElement x="0" y="0" width="90" height="62" uuid="f135381f-3720-459d-ba95-13862829076b"/>
@@ -272,6 +286,7 @@
 								<text><![CDATA[Espèce unités]]></text>
 							</staticText>
 						</jr:columnHeader>
+						<jr:columnFooter height="30" rowSpan="1"/>
 						<jr:detailCell style="table_TD" height="62" rowSpan="1">
 							<textField>
 								<reportElement x="0" y="0" width="50" height="62" uuid="f48bdbf7-4c37-41b7-8bd6-90cd9908f377"/>
@@ -295,6 +310,7 @@
 								<text><![CDATA[Prix de l'unité]]></text>
 							</staticText>
 						</jr:columnHeader>
+						<jr:columnFooter height="30" rowSpan="1"/>
 						<jr:detailCell style="table_TD" height="62">
 							<textField>
 								<reportElement x="0" y="0" width="60" height="62" uuid="6c21e556-1d5f-4741-8d12-080648cfeffd"/>
@@ -329,6 +345,7 @@
 									<text><![CDATA[Existantes au 1er janvier]]></text>
 								</staticText>
 							</jr:columnHeader>
+							<jr:columnFooter height="30" rowSpan="1"/>
 							<jr:detailCell style="table_TD" height="62" rowSpan="1">
 								<textField>
 									<reportElement x="0" y="0" width="45" height="62" uuid="ca6c4e26-dcb4-496d-b817-fb05048b762e"/>
@@ -352,6 +369,7 @@
 									<text><![CDATA[Entrées pendant l'année]]></text>
 								</staticText>
 							</jr:columnHeader>
+							<jr:columnFooter height="30" rowSpan="1"/>
 							<jr:detailCell style="table_TD" height="62">
 								<textField>
 									<reportElement x="0" y="0" width="45" height="62" uuid="44aa70d2-3f7a-4fa8-9391-ec91b55dc069"/>
@@ -375,6 +393,7 @@
 									<text><![CDATA[Sortie pendant la période]]></text>
 								</staticText>
 							</jr:columnHeader>
+							<jr:columnFooter height="30" rowSpan="1"/>
 							<jr:detailCell style="table_TD" height="62">
 								<textField>
 									<reportElement x="0" y="0" width="45" height="62" uuid="3fa9e5cc-678a-47e9-9ac0-4269838362c5"/>
@@ -396,6 +415,7 @@
 									<textFieldExpression><![CDATA["Reste au " + $P{year}]]></textFieldExpression>
 								</textField>
 							</jr:columnHeader>
+							<jr:columnFooter height="30" rowSpan="1"/>
 							<jr:detailCell style="table_TD" height="62">
 								<textField>
 									<reportElement x="0" y="0" width="45" height="62" uuid="5ee6794a-f0bc-42d1-b680-b63f797305d4"/>
@@ -426,8 +446,9 @@
 								<text><![CDATA[Décompte]]></text>
 							</staticText>
 						</jr:columnHeader>
+						<jr:columnFooter height="30" rowSpan="1"/>
 						<jr:detailCell style="table_TD" height="62" rowSpan="1">
-							<textField>
+							<textField pattern="#,##0">
 								<reportElement x="0" y="0" width="50" height="62" uuid="d1976804-04b6-4970-8576-a1ef9a7b3b7d"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle"/>
 								<textFieldExpression><![CDATA[$F{row9}]]></textFieldExpression>
@@ -437,7 +458,7 @@
 					<jr:column width="90" uuid="c4351642-2ed6-44fa-afd6-4228339cf116">
 						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Colonne10"/>
 						<jr:tableFooter height="30" rowSpan="1">
-							<textField>
+							<textField pattern="#,##0">
 								<reportElement x="0" y="0" width="90" height="30" uuid="6f260208-fded-42e2-9e0a-4031ba3ed0e7"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle"/>
 								<textFieldExpression><![CDATA[$V{Total}]]></textFieldExpression>
@@ -455,6 +476,7 @@
 								<text><![CDATA[Observation]]></text>
 							</staticText>
 						</jr:columnHeader>
+						<jr:columnFooter height="30" rowSpan="1"/>
 						<jr:detailCell style="table_TD" height="62" rowSpan="1"/>
 					</jr:column>
 				</jr:table>

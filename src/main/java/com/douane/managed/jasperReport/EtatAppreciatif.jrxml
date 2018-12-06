@@ -400,7 +400,7 @@
 		</band>
 	</title>
 	<detail>
-		<band height="163" splitType="Stretch">
+		<band height="162" splitType="Stretch">
 			<componentElement>
 				<reportElement key="table 1" style="table 1" x="0" y="2" width="555" height="160" isRemoveLineWhenBlank="true" uuid="55477075-d55c-45de-9799-2da7bf43eebc"/>
 				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" whenNoDataType="Blank">
@@ -507,7 +507,7 @@
 								<textField pattern="#,##0">
 									<reportElement x="0" y="0" width="44" height="70" uuid="79366d6e-426c-4b06-8ae6-64b8081d44e2"/>
 									<textElement textAlignment="Center" verticalAlignment="Middle"/>
-									<textFieldExpression><![CDATA[$F{row4}]]></textFieldExpression>
+									<textFieldExpression><![CDATA[$F{row4} + $F{row16}]]></textFieldExpression>
 								</textField>
 							</jr:detailCell>
 						</jr:column>
@@ -555,7 +555,7 @@
 								<textField pattern="#,##0">
 									<reportElement x="0" y="0" width="43" height="70" uuid="8bc0596f-c897-4e15-a194-6d544b45d698"/>
 									<textElement textAlignment="Center" verticalAlignment="Middle"/>
-									<textFieldExpression><![CDATA[$F{row7}]]></textFieldExpression>
+									<textFieldExpression><![CDATA[$F{row7} + $F{row17}]]></textFieldExpression>
 								</textField>
 							</jr:detailCell>
 						</jr:column>
@@ -607,7 +607,7 @@
 									<textElement textAlignment="Center" verticalAlignment="Middle">
 										<font size="10"/>
 									</textElement>
-									<textFieldExpression><![CDATA[$F{row9}]]></textFieldExpression>
+									<textFieldExpression><![CDATA[$F{row9} + $F{row18}]]></textFieldExpression>
 								</textField>
 							</jr:detailCell>
 						</jr:column>
@@ -661,7 +661,7 @@
 									<textElement textAlignment="Center" verticalAlignment="Middle">
 										<font size="10"/>
 									</textElement>
-									<textFieldExpression><![CDATA[$F{row11}]]></textFieldExpression>
+									<textFieldExpression><![CDATA[$F{row11} + $F{row19}]]></textFieldExpression>
 								</textField>
 							</jr:detailCell>
 						</jr:column>
@@ -718,7 +718,7 @@
 									<textElement textAlignment="Center" verticalAlignment="Middle">
 										<font size="10"/>
 									</textElement>
-									<textFieldExpression><![CDATA[$F{row13}]]></textFieldExpression>
+									<textFieldExpression><![CDATA[$F{row13} + $F{row20}]]></textFieldExpression>
 								</textField>
 							</jr:detailCell>
 						</jr:column>
@@ -933,27 +933,27 @@
 							<textField pattern="#,##0">
 								<reportElement x="0" y="0" width="93" height="32" isRemoveLineWhenBlank="true" uuid="7aed0a5b-62c4-42eb-94de-396ad1d20933"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle"/>
-								<textFieldExpression><![CDATA[$P{in1}==null?0:$P{in1} + $P{existant1}]]></textFieldExpression>
+								<textFieldExpression><![CDATA[$P{in1}==null?$P{existant1}:$P{in1} + $P{existant1}]]></textFieldExpression>
 							</textField>
 							<textField pattern="#,##0">
 								<reportElement x="0" y="32" width="93" height="30" isRemoveLineWhenBlank="true" uuid="0ff94ac5-6465-43ac-a240-e2d2c0cd7079"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle"/>
-								<textFieldExpression><![CDATA[$P{in2}==null?0:$P{existant2} + $P{in2}]]></textFieldExpression>
+								<textFieldExpression><![CDATA[$P{in2}==null?$P{existant2}:$P{existant2} + $P{in2}]]></textFieldExpression>
 							</textField>
 							<textField pattern="#,##0">
 								<reportElement x="0" y="62" width="93" height="30" isRemoveLineWhenBlank="true" uuid="beb6ff2a-6849-4168-86a5-7caf4c098d3b"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle"/>
-								<textFieldExpression><![CDATA[$P{in3}==null?0:$P{existant3} + $P{in3}]]></textFieldExpression>
+								<textFieldExpression><![CDATA[$P{in3}==null?$P{existant3}:$P{existant3} + $P{in3}]]></textFieldExpression>
 							</textField>
 							<textField pattern="#,##0">
 								<reportElement x="0" y="92" width="93" height="30" isRemoveLineWhenBlank="true" uuid="95d1a622-4e80-4773-86c7-e28a65dd9306"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle"/>
-								<textFieldExpression><![CDATA[$P{in5}==null?0:$P{existant5} + $P{in5}]]></textFieldExpression>
+								<textFieldExpression><![CDATA[$P{in5}==null?$P{existant5} :$P{existant5} + $P{in5}]]></textFieldExpression>
 							</textField>
 							<textField pattern="#,##0">
 								<reportElement x="0" y="122" width="93" height="30" isRemoveLineWhenBlank="true" uuid="6609e5c9-30f2-4292-a95d-44bb7c0f0edb"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle"/>
-								<textFieldExpression><![CDATA[$P{in10}==null?0:$P{existant10} + $P{in10}]]></textFieldExpression>
+								<textFieldExpression><![CDATA[$P{in10}==null?$P{existant10}:$P{existant10} + $P{in10}]]></textFieldExpression>
 							</textField>
 						</jr:detailCell>
 					</jr:column>
@@ -1012,27 +1012,27 @@
 							<textField pattern="#,##0">
 								<reportElement x="0" y="30" width="92" height="32" isRemoveLineWhenBlank="true" uuid="b26fa7a2-fa34-4622-b962-d3d738c47539"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle"/>
-								<textFieldExpression><![CDATA[$P{in2}==null?0:$P{existant2} + $P{in2} - $P{ou2}]]></textFieldExpression>
+								<textFieldExpression><![CDATA[$P{in2}==null?$P{existant2}- $P{ou2}:$P{existant2} + $P{in2} - $P{ou2}]]></textFieldExpression>
 							</textField>
 							<textField pattern="#,##0">
 								<reportElement x="0" y="62" width="92" height="30" isRemoveLineWhenBlank="true" uuid="0271be16-179f-476b-9f88-f663a4e4ea26"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle"/>
-								<textFieldExpression><![CDATA[$P{in3}==null?0:$P{existant3} + $P{in3} - $P{out3}]]></textFieldExpression>
+								<textFieldExpression><![CDATA[$P{in3}==null?$P{existant3} - $P{out3}:$P{existant3} + $P{in3} - $P{out3}]]></textFieldExpression>
 							</textField>
 							<textField pattern="#,##0">
 								<reportElement x="0" y="92" width="92" height="30" isRemoveLineWhenBlank="true" uuid="dcf91ab9-ef32-4a6e-8f7b-16ec799e73dc"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle"/>
-								<textFieldExpression><![CDATA[$P{in5}==null?0:$P{existant5} + $P{in5} - $P{out5}]]></textFieldExpression>
+								<textFieldExpression><![CDATA[$P{in5}==null?$P{existant5} - $P{out5}:$P{existant5} + $P{in5} - $P{out5}]]></textFieldExpression>
 							</textField>
 							<textField pattern="#,##0">
 								<reportElement x="0" y="0" width="92" height="30" isRemoveLineWhenBlank="true" uuid="74fd5661-9eb0-4136-831b-c1566cf74f94"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle"/>
-								<textFieldExpression><![CDATA[$P{in1}==null?0:$P{in1} + $P{existant1} - $P{out1}]]></textFieldExpression>
+								<textFieldExpression><![CDATA[$P{in1}==null?$P{existant1} - $P{out1}:$P{in1} + $P{existant1} - $P{out1}]]></textFieldExpression>
 							</textField>
 							<textField pattern="#,##0">
 								<reportElement x="0" y="122" width="92" height="30" isRemoveLineWhenBlank="true" uuid="b6950f18-ce0e-4b54-b39e-b1ccefbfb911"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle"/>
-								<textFieldExpression><![CDATA[$P{in10}==null?0:$P{existant10} + $P{in10} - $P{ou10}]]></textFieldExpression>
+								<textFieldExpression><![CDATA[$P{in10}==null?$P{existant10} - $P{ou10}:$P{existant10} + $P{in10} - $P{ou10}]]></textFieldExpression>
 							</textField>
 						</jr:detailCell>
 					</jr:column>
