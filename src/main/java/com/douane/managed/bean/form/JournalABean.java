@@ -10,6 +10,7 @@ import java.util.Locale;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
+import com.douane.entite.Direction;
 import com.douane.managed.bean.SuiviEditionBean;
 @SessionScoped
 @ManagedBean(name="JournalABean")
@@ -45,9 +46,10 @@ public class JournalABean {
 		this.date = new Date();
 		this.datF = new Date();
 	}
-	public String execute(SuiviEditionBean s) {
+	public String execute(Direction dir,SuiviEditionBean s) {
 		//this.liste = s.getListForJournalStock(this.date , this.datF);//this.date , this.datF
-		this.liste = s.ourListForJournalStock(date);
+		//this.liste = s.ourListForJournalStock(date);
+		this.liste = s.getListForJournalStockByDir(dir, date);
 		// this myget
 		this.liste = this.mygetFListESAForJournal(liste, date, datF);
 		

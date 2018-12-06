@@ -69,6 +69,28 @@
   
   
  <c:if test= "${table == 'journal_admin' || table == 'tous' || empty table }">
+ <h:form id="formjournalca">
+ <p:outputLabel for="annee_journal_debut" value="Exporter de "/>
+					<p:calendar id="annee_journal_debut" value="#{JournalABean.date}" locale="fr" navigator="true" pattern="dd MMMM yyyy" required="true"/>
+				<p:dialog modal="true" resizable="false" header="Values" widgetVar="dlg" showEffect="fold">
+					<p:panelGrid id="display_livre_" columns="3" columnClasses="label,value">
+						<h:outputText value="" />
+				        <h:outputText value="#{JournalABean.date}">
+			            <f:convertDateTime pattern="dd MMMM yyyy" />
+	            	</h:outputText>
+	 				</p:panelGrid>
+				</p:dialog>
+				<p:outputLabel for="annee_journal_fin" value=" à "/>
+					<p:calendar id="annee_journal_fin" value="#{JournalABean.datF}" locale="fr" navigator="true" pattern="dd MMMM yyyy" required="true"/>
+				<p:dialog modal="true" resizable="false" header="Values" widgetVar="dlg" showEffect="fold">
+					<p:panelGrid id="display_livre_annuel" columns="3" columnClasses="label,value">
+						<h:outputText value="" />
+				        <h:outputText value="#{JournalABean.datF}">
+			            <f:convertDateTime pattern="dd MMMM yyyy" />
+	            	</h:outputText>
+	 				</p:panelGrid>
+				</p:dialog>
+ 
  
  <p:tabView scrollable="true">
 	<c:forEach var="dir" items="${siseBean.listDirection}" varStatus="status">
@@ -83,7 +105,8 @@
                  >
          <f:facet name="header">
         	JOURNAL DE LA COMPTABILITE ADMINISTRATIVE - ${dir.designation} <br/>
-        	#{gacBean.getCurrentYear()}
+        	<p:commandButton value="Exporter" action="#{JournalABean.execute(dir,suivieditionBean)}" styleClass="btn btn-lg-primary "> </p:commandButton>
+	 		
     	</f:facet>
     	
     	<p:column headerText="ID" style=" text-align: center; word-wrap: break-word;">
@@ -121,6 +144,7 @@
 	</p:tab>
 		</c:forEach>
 		</p:tabView>
+</h:form>
 </c:if>
 <ui:include src="/pages/secure/CA/DGD/tables/dialogs/dialogs_listeMatStatHisto.xhtml"></ui:include>
 </div>

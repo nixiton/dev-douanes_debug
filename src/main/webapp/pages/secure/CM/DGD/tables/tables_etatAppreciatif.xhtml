@@ -37,7 +37,7 @@
        			 			<h:outputLabel for="ANNEE" value="ANNEE" style="font-weight:bold"/>
 				            <p:inputText id="ANNEE" size="8" value="#{EtatAppreciatifBean.annee}" label="ANNEE" validatorMessage="L'année doit être entre 1950 et #{EtatAppreciatifBean.annee}">
 				                <f:validateDoubleRange minimum="1950" maximum="#{EtatAppreciatifBean.actualyear}"/>
-				            </p:inputText> <p:commandButton styleClass="btn btn-lg-primary fa fa-download " value="Exporter" action="#{EtatAppreciatifBean.execute(suivieditionBean)}" > </p:commandButton>
+				            </p:inputText> <p:commandButton styleClass="btn btn-lg-primary fa fa-download " value="Exporter" action="#{EtatAppreciatifBean.execute(suivieditionBean,null)}" > </p:commandButton>
 				            <p:message for="ANNEE" /> 
        			 			
     						

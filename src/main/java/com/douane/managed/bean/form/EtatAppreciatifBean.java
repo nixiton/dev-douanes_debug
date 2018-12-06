@@ -11,6 +11,7 @@ import java.util.Locale;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
+import com.douane.entite.Direction;
 import com.douane.managed.bean.SuiviEditionBean;
 @SessionScoped
 @ManagedBean(name="EtatAppreciatifBean")
@@ -31,7 +32,7 @@ public class EtatAppreciatifBean {
 		this.annee  = calendar.get(Calendar.YEAR);
 		this.actualyear  = calendar.get(Calendar.YEAR);
 	}
-	public String execute(SuiviEditionBean s) {
+	public String execute(SuiviEditionBean s,Direction d) {
 		if (s != null) {
 			Date sd = new GregorianCalendar(this.annee, Calendar.JANUARY, 1).getTime();
 			//Date sd = new GregorianCalendar(this.annee, Calendar.JANUARY, 1).getTime();
@@ -41,7 +42,7 @@ public class EtatAppreciatifBean {
 			DateFormat  df = new SimpleDateFormat("dd MMMM yyyy", Locale.FRANCE);
 			this.sdate = df.format(sd);
 			this.edate  = df.format(this.date);
-			this.liste = s.getListESExForEtatAppr(null,sd,this.date);
+			this.liste = s.getListESExForEtatAppr(d,sd,this.date);
 			//this.liste = s.getListInventaire(this.annee);
 			this.trois = s.getDirection().getTrois();
 			this.quatre = "";//s.getDirection().getQuatre();

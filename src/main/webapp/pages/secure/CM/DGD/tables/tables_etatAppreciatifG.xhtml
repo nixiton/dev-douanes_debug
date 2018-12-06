@@ -24,15 +24,14 @@
     
  <h:form id="formEtatDetenteur">
  <span>
-       			 		<h:form >
+       			 		
        			 			<h:outputLabel for="ANNEE" value="ANNEE" style="font-weight:bold"/>
 				            <p:inputText id="ANNEE" size="8" value="#{EtatAppreciatifBean.annee}" label="ANNEE" validatorMessage="L'année doit être entre 1950 et #{EtatAppreciatifBean.annee}">
 				                <f:validateDoubleRange minimum="1950" maximum="#{EtatAppreciatifBean.actualyear}"/>
-				            </p:inputText> <p:commandButton styleClass="btn btn-lg-primary" value="Exporter" action="#{EtatAppreciatifBean.execute(suivieditionBean)}" > </p:commandButton>
-				            <p:message for="ANNEE" /> 
+				            </p:inputText>
        			 			
     						
-       			 		</h:form>
+       			 		
   </span>
  <p:tabView scrollable="true">
 	<c:forEach var="dir" items="${siseBean.listDirection}" varStatus="status">
@@ -46,8 +45,11 @@
 			sortBy="#{c[15]}" emptyMessage="Aucun résultat"
 			>
 			<f:facet name="header">
-       			 <span>ETAT APPRECIATIF #{dir.designation}</span>
-       			 
+       			 <span>ETAT APPRECIATIF #{dir.designation}</span> <br/>
+       			 <span>
+       			 <p:commandButton styleClass="btn btn-lg-primary" value="Exporter" action="#{EtatAppreciatifBean.execute(suivieditionBean,dir)}" > </p:commandButton>
+				             
+       			 </span>
     		</f:facet>
 			<f:facet name="{Exporters}">
             <h:commandLink>
