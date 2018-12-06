@@ -86,6 +86,9 @@
 		<field name="row5" class="java.lang.Long"/>
 		<field name="row6" class="java.lang.Float"/>
 		<field name="row7" class="java.lang.Float"/>
+		<variable name="report" class="java.lang.Float" calculation="Sum">
+			<variableExpression><![CDATA[$F{row7}]]></variableExpression>
+		</variable>
 	</subDataset>
 	<parameter name="budget" class="java.lang.String"/>
 	<parameter name="chapitre" class="java.lang.String"/>
@@ -193,6 +196,7 @@
 								<text><![CDATA[N° d'ordre]]></text>
 							</staticText>
 						</jr:tableHeader>
+						<jr:columnFooter height="30" rowSpan="1"/>
 						<jr:detailCell style="table 2_TD" height="70" rowSpan="1">
 							<textField>
 								<reportElement x="0" y="0" width="50" height="70" uuid="5ea2ad5f-c34a-4524-91ff-4f0c98d0fb2a"/>
@@ -210,6 +214,7 @@
 								<text><![CDATA[Date des opérations]]></text>
 							</staticText>
 						</jr:tableHeader>
+						<jr:columnFooter height="30" rowSpan="1"/>
 						<jr:detailCell style="table 2_TD" height="70" rowSpan="1">
 							<textField pattern="dd MMMM yyyy">
 								<reportElement x="0" y="0" width="60" height="70" uuid="f865bd91-313c-44b9-b80d-6a9c115d5957"/>
@@ -227,6 +232,7 @@
 								<text><![CDATA[Référence facture/décision]]></text>
 							</staticText>
 						</jr:tableHeader>
+						<jr:columnFooter height="30" rowSpan="1"/>
 						<jr:detailCell style="table 2_TD" height="70" rowSpan="1">
 							<textField>
 								<reportElement x="0" y="0" width="80" height="70" uuid="0e027e61-b936-4707-84fe-431ad3f9f76b"/>
@@ -244,6 +250,7 @@
 								<text><![CDATA[Origine/destinataire]]></text>
 							</staticText>
 						</jr:tableHeader>
+						<jr:columnFooter height="30" rowSpan="1"/>
 						<jr:detailCell style="table 2_TD" height="70" rowSpan="1">
 							<textField>
 								<reportElement x="0" y="0" width="80" height="70" uuid="26bae967-6f5b-4925-b86b-b8a714b00c4c"/>
@@ -261,6 +268,7 @@
 								<text><![CDATA[Désignation des articles]]></text>
 							</staticText>
 						</jr:tableHeader>
+						<jr:columnFooter height="30" rowSpan="1"/>
 						<jr:detailCell style="table 2_TD" height="70" rowSpan="1">
 							<textField>
 								<reportElement x="0" y="0" width="105" height="70" uuid="c92c3d5c-315e-4ac9-9223-220798691fbc"/>
@@ -278,6 +286,7 @@
 								<text><![CDATA[Quantité]]></text>
 							</staticText>
 						</jr:tableHeader>
+						<jr:columnFooter height="30" rowSpan="1"/>
 						<jr:detailCell style="table 2_TD" height="70" rowSpan="1">
 							<textField>
 								<reportElement x="0" y="0" width="45" height="70" uuid="2121d4c9-a1ad-4e79-a727-930be5a7cd34"/>
@@ -295,6 +304,13 @@
 								<text><![CDATA[Prix unitaire]]></text>
 							</staticText>
 						</jr:tableHeader>
+						<jr:columnFooter height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="65" height="30" uuid="8834a940-07c1-4246-a7d9-2920079b1a84"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle"/>
+								<text><![CDATA[Report]]></text>
+							</staticText>
+						</jr:columnFooter>
 						<jr:detailCell style="table 2_TD" height="70" rowSpan="1">
 							<textField pattern="#,##0">
 								<reportElement x="0" y="0" width="65" height="70" uuid="22775ced-a40f-4c58-b502-a9b9b39c287d"/>
@@ -312,6 +328,13 @@
 								<text><![CDATA[Montant total]]></text>
 							</staticText>
 						</jr:tableHeader>
+						<jr:columnFooter height="30" rowSpan="1">
+							<textField pattern="#,##0">
+								<reportElement x="0" y="0" width="69" height="30" uuid="888d9413-03e4-4a2e-a22f-0d041346d307"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle"/>
+								<textFieldExpression><![CDATA[$V{report}]]></textFieldExpression>
+							</textField>
+						</jr:columnFooter>
 						<jr:detailCell style="table 2_TD" height="70" rowSpan="1">
 							<textField pattern="#,##0">
 								<reportElement x="0" y="0" width="69" height="70" uuid="da4105ff-28e8-4ac1-8058-c17c9c046ea6"/>
@@ -323,7 +346,7 @@
 				</jr:table>
 			</componentElement>
 		</band>
-		<band height="76">
+		<band height="50">
 			<textField>
 				<reportElement x="0" y="3" width="555" height="25" uuid="fd9a12b3-d468-4548-aff6-a3bea7ca3ca4"/>
 				<textElement textAlignment="Left">

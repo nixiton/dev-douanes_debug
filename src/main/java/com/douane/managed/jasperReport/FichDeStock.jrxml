@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with Jaspersoft Studio version 6.5.1.final using JasperReports Library version 6.5.1  -->
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="FichDeStock" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="ea3c420d-448b-4cf6-bafe-636049856ece">
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="FichDeStock" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" whenResourceMissingType="Empty" uuid="ea3c420d-448b-4cf6-bafe-636049856ece">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="88"/>
 	<property name="ireport.y" value="0"/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
 	<style name="table">
 		<box>
 			<pen lineWidth="1.0" lineColor="#000000"/>
@@ -41,9 +42,6 @@
 		<field name="row4" class="java.lang.String"/>
 		<field name="row5" class="java.lang.Long"/>
 		<field name="row6" class="java.lang.Long"/>
-		<sortField name="row0"/>
-		<sortField name="row1" order="Descending"/>
-		<sortField name="row4"/>
 		<variable name="qte" class="java.lang.Long" calculation="Sum">
 			<variableExpression><![CDATA[$F{row2} - $F{row5}]]></variableExpression>
 			<initialValueExpression><![CDATA[$P{report}]]></initialValueExpression>
@@ -94,10 +92,10 @@
 		</band>
 	</title>
 	<detail>
-		<band height="147" splitType="Stretch">
+		<band height="181" splitType="Stretch">
 			<componentElement>
-				<reportElement key="table" style="table" x="10" y="6" width="534" height="141" uuid="33e1bcdc-5aba-47d4-8a82-b472206dcb61"/>
-				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+				<reportElement key="table" style="table" x="10" y="6" width="534" height="175" uuid="33e1bcdc-5aba-47d4-8a82-b472206dcb61"/>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" whenNoDataType="AllSectionsNoDetail">
 					<datasetRun subDataset="Table Dataset 1" uuid="6d71bad7-d56d-41bd-b605-6000476bd0e5">
 						<datasetParameter name="report">
 							<datasetParameterExpression><![CDATA[$P{report}]]></datasetParameterExpression>
@@ -122,6 +120,7 @@
 								<text><![CDATA[Date des entrées  et des sorties]]></text>
 							</staticText>
 						</jr:tableHeader>
+						<jr:columnFooter height="30" rowSpan="1"/>
 						<jr:detailCell style="table_TD" height="55">
 							<textField pattern="dd MMMM yyyy">
 								<reportElement x="0" y="0" width="80" height="55" uuid="39c6ec55-2a2e-452f-85de-10b2e1e28705"/>
@@ -165,6 +164,7 @@
 									<text><![CDATA[Référence]]></text>
 								</staticText>
 							</jr:tableHeader>
+							<jr:columnFooter height="30" rowSpan="1"/>
 							<jr:detailCell style="table_TD" height="55" rowSpan="1">
 								<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.VerticalRowLayout"/>
 								<textField>
@@ -204,6 +204,7 @@
 									<text><![CDATA[Report]]></text>
 								</staticText>
 							</jr:tableHeader>
+							<jr:columnFooter height="30" rowSpan="1"/>
 							<jr:detailCell style="table_TD" height="55">
 								<textField>
 									<reportElement x="0" y="0" width="60" height="55" uuid="9b4debc2-751e-41e3-93db-0bcd8b276375"/>
@@ -240,6 +241,7 @@
 									<textFieldExpression><![CDATA[$P{report}]]></textFieldExpression>
 								</textField>
 							</jr:tableHeader>
+							<jr:columnFooter height="30" rowSpan="1"/>
 							<jr:detailCell style="table_TD" height="55">
 								<textField>
 									<reportElement x="0" y="0" width="50" height="55" uuid="33225fd5-deae-4e9c-bd2d-1bd6cbe02cb7"/>
@@ -284,6 +286,7 @@
 									<text><![CDATA[Référence]]></text>
 								</staticText>
 							</jr:tableHeader>
+							<jr:columnFooter height="30" rowSpan="1"/>
 							<jr:detailCell style="table_TD" height="55" rowSpan="1">
 								<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.VerticalRowLayout"/>
 								<textField>
@@ -311,6 +314,7 @@
 									<text><![CDATA[Quantité]]></text>
 								</staticText>
 							</jr:tableHeader>
+							<jr:columnFooter height="30" rowSpan="1"/>
 							<jr:detailCell style="table_TD" height="55">
 								<textField>
 									<reportElement x="0" y="0" width="70" height="55" uuid="0c53f651-f318-4dc4-a17b-a9bf47f41360"/>
@@ -337,6 +341,13 @@
 									<text><![CDATA[Signature]]></text>
 								</staticText>
 							</jr:tableHeader>
+							<jr:columnFooter height="30" rowSpan="1">
+								<staticText>
+									<reportElement x="0" y="0" width="78" height="30" uuid="a09e541e-ef1d-49cb-b676-ea1d72f1780f"/>
+									<textElement textAlignment="Center" verticalAlignment="Middle"/>
+									<text><![CDATA[A reporter]]></text>
+								</staticText>
+							</jr:columnFooter>
 							<jr:detailCell style="table_TD" height="55"/>
 						</jr:column>
 					</jr:columnGroup>
@@ -358,6 +369,13 @@
 								<text><![CDATA[Quantité]]></text>
 							</staticText>
 						</jr:tableHeader>
+						<jr:columnFooter height="30" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="92" height="30" uuid="8ef7972c-3e81-4e00-b8bf-6135dae4b7fa"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle"/>
+								<textFieldExpression><![CDATA[$V{qte}]]></textFieldExpression>
+							</textField>
+						</jr:columnFooter>
 						<jr:detailCell style="table_TD" height="55" rowSpan="1">
 							<textField>
 								<reportElement x="0" y="0" width="92" height="55" uuid="745737dc-ac90-4e8a-9527-28de916f5c88"/>
