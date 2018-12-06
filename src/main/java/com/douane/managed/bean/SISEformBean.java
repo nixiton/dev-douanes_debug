@@ -1485,6 +1485,10 @@ public class SISEformBean {
 	
 	public List<SelectItem> mapDirection(Direction d, Date dates){
 		//Map<String, String> filamatras = new HashMap<String, String>();
+		if(d==null) {
+			Agent agent = (Agent) RequestFilter.getSession().getAttribute("agent");
+			d = agent.getDirection(); 
+		}
 		final Date date = new Date();
 		
 		//System.out.println(date);
@@ -1535,5 +1539,12 @@ public class SISEformBean {
 			}
 			
 			return usermetierimpl.getListArticleEx(dir);
+		}
+		public List<ArticleNouv> getListArticleNouvValidebyDir(Direction dir) {
+			if(dir ==null) {
+				Agent agent = (Agent) RequestFilter.getSession().getAttribute("agent");
+				dir = agent.getDirection();
+			}
+			return usermetierimpl.getListArtNouvByValidationByDirection(true, dir);
 		}
 }

@@ -273,6 +273,13 @@
    <redirect/>
   </navigation-case>
   <navigation-case>
+   <from-outcome>saisie_articleG</from-outcome>
+   <to-view-id>/pages/secure/CA/DC/saisieMatExG.xhtml</to-view-id>
+   <redirect/>
+  </navigation-case>
+  
+  
+  <navigation-case>
    <from-outcome>prise_en_charge</from-outcome>
    <to-view-id>/pages/secure/CM/DC/priseEnCharge.xhtml</to-view-id>
    <redirect/>
@@ -285,6 +292,11 @@
   <navigation-case>
    <from-outcome>articles_priseEnCharge</from-outcome>
    <to-view-id>/pages/secure/CA/DC/priseEnCharge.xhtml</to-view-id>
+   <redirect/>
+  </navigation-case>
+  <navigation-case>
+   <from-outcome>articles_priseEnChargeG</from-outcome>
+   <to-view-id>/pages/secure/CA/DC/priseEnChargeG.xhtml</to-view-id>
    <redirect/>
   </navigation-case>
   <navigation-case>

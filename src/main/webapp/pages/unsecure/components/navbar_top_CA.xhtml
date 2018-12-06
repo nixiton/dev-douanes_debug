@@ -125,9 +125,6 @@
 					</c:if>
 
 					<c:if test="#{topMenuMB.curentAgent.roleAgent.role eq 'ROLE_ADMIN'
-					or topMenuMB.curentAgent.roleAgent.role eq 'ROLE_SISE'
-					or topMenuMB.curentAgent.roleAgent.role eq 'ROLE_DRF'
-					or topMenuMB.curentAgent.roleAgent.role eq 'ROLE_DG'
 					or topMenuMB.curentAgent.roleAgent.role eq 'ROLE_GAC'
 					or topMenuMB.curentAgent.roleAgent.role eq 'ROLE_DC'
 					or topMenuMB.curentAgent.roleAgent.role eq 'ROLE_CONS'
@@ -148,6 +145,23 @@
 						</ul></li>
 
 				</c:if>
+				
+					<c:if test="#{topMenuMB.curentAgent.roleAgent.role eq 'ROLE_SISE'
+					or topMenuMB.curentAgent.roleAgent.role eq 'ROLE_DG'
+					or topMenuMB.curentAgent.roleAgent.role eq 'ROLE_DRF'
+					}">
+					<li class="dropdown"><a href="#" class="dropdown-toggle"
+						data-toggle="dropdown" style="color:#CCC"> Saisie des articles <b class="caret"></b>
+					</a>
+						<ul class="dropdown-menu">
+							
+							<li><h:link value="Entrée des articles existants" outcome="saisie_articleG" immediate="true"/></li>
+							<li><h:link value="Entrée des nouveaux articles"
+									outcome="articles_priseEnChargeG" immediate="true"/></li>
+						</ul></li>
+
+					</c:if>
+				
 
 					<c:if test="#{topMenuMB.curentAgent.roleAgent.role eq 'ROLE_ADMIN'
 					or topMenuMB.curentAgent.roleAgent.role eq 'ROLE_GAC'

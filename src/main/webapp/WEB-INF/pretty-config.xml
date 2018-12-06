@@ -134,6 +134,17 @@
 		<view-id value="/pages/secure/CM/DC/priseEnChargeG.xhtml" />
 	</url-mapping>
 	
+	<url-mapping id="artexgeneral">
+		<pattern value="/admin/comptabilite-administrative/article-existant-general" />
+		<view-id value="/pages/secure/CA/DC/saisieMatExG.xhtml" />
+	</url-mapping>
+	
+	<url-mapping id="artnouvgeneral">
+		<pattern value="/admin/comptabilite-administrative/article-existant-general" />
+		<view-id value="/pages/secure/CA/DC/priseEnChargeG.xhtml" />
+	</url-mapping>
+	
+	
 	<url-mapping id="tracabilitegeneral">
 		<pattern value="/admin/comptabilite-matiere/suivi/tracabilite-general" />
 		<view-id value="/pages/secure/CM/DGD/tracabiliteG.xhtml" />
