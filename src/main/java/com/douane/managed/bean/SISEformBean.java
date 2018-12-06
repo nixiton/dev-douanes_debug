@@ -1528,4 +1528,12 @@ public class SISEformBean {
 		public void hidemdp() {
 			this.invismdp = false;
 		}
+		public List<ArticleEx> getListArticleExbyDir(Direction dir) {
+			if(dir ==null) {
+				Agent agent = (Agent) RequestFilter.getSession().getAttribute("agent");
+				dir = agent.getDirection();
+			}
+			
+			return usermetierimpl.getListArticleEx(dir);
+		}
 }

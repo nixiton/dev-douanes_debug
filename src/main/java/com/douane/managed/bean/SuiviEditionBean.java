@@ -2559,7 +2559,7 @@ public class SuiviEditionBean implements Serializable {
 
 			}
 			// report
-			row[6] = areportByCod(code);
+			row[6] = areportByCod(d,code,null);
 			// row[6] = 5;
 			resulttable.add(row);
 			row = new Object[9];
@@ -2633,7 +2633,7 @@ public class SuiviEditionBean implements Serializable {
 
 			}
 			// report
-			row[6] = areportByCod(code);
+			row[6] = areportByCod(d,code,f);
 			// row[6] = 5;
 			resulttable.add(row);
 			row = new Object[9];
@@ -2651,14 +2651,21 @@ public class SuiviEditionBean implements Serializable {
 		return resulttable;
 	}
 
-	public Long areportByCod(CodeArticle code) {
+	public Long areportByCod(Direction dir, CodeArticle code, Date stop) {
 		Date date = new Date();
 		Calendar calendar = new GregorianCalendar();
 		calendar.setTime(date);
 		int year = calendar.get(Calendar.YEAR);
 		Date stopdate = new GregorianCalendar(year, Calendar.MAY, 1).getTime();
-		Agent cur = (Agent) RequestFilter.getSession().getAttribute("agent");
-		Long nombreareporter = usermetierimpl.getAreporter(code, cur.getDirection(), stopdate);
+		if(stop !=null) {
+			stopdate = stop;
+		}
+		if(dir ==null) {
+			Agent cur = (Agent) RequestFilter.getSession().getAttribute("agent");
+			dir = cur.getDirection();
+		}
+		
+		Long nombreareporter = usermetierimpl.getAreporter(code, dir, stopdate);
 		return nombreareporter;
 	}
 
