@@ -18,10 +18,12 @@ public class FicheStockBean {
 	private String folio;
 	private String designation;
 	private String espece;
+	private Long report;
 	public FicheStockBean() {
 		this.date = new Date();
 		this.dateF = new Date();
 		this.liste = new ArrayList<Object[]>();
+		this.report = new Long(0);
 	}
 	public String execute(List<Object[]> l) {
 		if (l != null) {
@@ -35,6 +37,7 @@ public class FicheStockBean {
 		//suivieditionBean.getListForJournalStockByCod(depositaireBean.articleToFiche)
 		if (d != null && s != null) {
 			this.liste = s.getListForJournalStockByCod(d.getDirectionToFiche(),d.getArticleToFiche(),this.date,this.dateF);
+			this.report = s.areportByCod(d.getDirectionToFiche(), d.getArticleToFiche(), this.dateF); 
 			//#{depositaireBean.articleToFiche.typeObjet.designation} (#{depositaireBean.articleToFiche.designation}
 			//this.folio = d.getArticle().getReference();
 			this.designation = d.getArticleToFiche().getDesignation();
@@ -82,6 +85,12 @@ public class FicheStockBean {
 	}
 	public void setDateF(Date dateF) {
 		this.dateF = dateF;
+	}
+	public Long getReport() {
+		return report;
+	}
+	public void setReport(Long report) {
+		this.report = report;
 	}
 
 }

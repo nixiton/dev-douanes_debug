@@ -1283,7 +1283,7 @@ public class JasperTableExampleBean implements Serializable{
             ex.printStackTrace();
         }
 	}
-	public void ficheStockReport(List <Object[]> liste) throws IOException, ParseException {
+	public void ficheStockReport(List <Object[]> liste, Long l) throws IOException, ParseException {
 		FacesContext facescontext = FacesContext.getCurrentInstance();
 		ExternalContext external = facescontext.getExternalContext();
 		external.getSession(true);
@@ -1295,11 +1295,6 @@ public class JasperTableExampleBean implements Serializable{
             /* Map to hold Jasper report Parameters */
             Map<String, Object> parameters = new HashMap<String, Object>();;
             parameters.put("dataSource", m.getDataSource());
-            Long l = new Long(0);
-            if(!liste.isEmpty()) {
-            	l = (Long) (liste.get(0))[6];
-            }
-            System.out.println("report = "+l);
             parameters.put("report", l);
             parameters.put("numfolio", this.pdfForm.getNum1());
             parameters.put("designation", this.pdfForm.getNum2());
@@ -1327,7 +1322,7 @@ public class JasperTableExampleBean implements Serializable{
         }
 	}
 	
-	public void ficheStockDoc(List <Object[]> liste) throws IOException, ParseException {
+	public void ficheStockDoc(List <Object[]> liste, Long l) throws IOException, ParseException {
 		FacesContext facescontext = FacesContext.getCurrentInstance();
 		ExternalContext external = facescontext.getExternalContext();
 		external.getSession(true);
@@ -1339,11 +1334,6 @@ public class JasperTableExampleBean implements Serializable{
             /* Map to hold Jasper report Parameters */
             Map<String, Object> parameters = new HashMap<String, Object>();;
             parameters.put("dataSource", m.getDataSource());
-            Long l = new Long(0);
-            if(!liste.isEmpty()) {
-            	l = (Long) (liste.get(0))[6];
-            }
-            System.out.println("report = "+l);
             parameters.put("report", l);
             parameters.put("numfolio", this.pdfForm.getNum1());
             parameters.put("designation", this.pdfForm.getNum2());
