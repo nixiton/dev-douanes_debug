@@ -36,7 +36,8 @@
  				<br/>
             </div>
              <div class="col-md-12" style="text-align: center;">
- 				BUDGET <br/><p:inputText value ="#{JasperTableExampleBean.journal.budget}" style="text-align: center;width:100%"></p:inputText> <br/>
+ 				BUDGET ..........<br/>
+ 				SECTION <p:inputText value ="#{JournalBean.section}" style="text-align: center;width:70%"></p:inputText> <br/>
  				CHAPITRE(1) <p:inputText value ="#{JasperTableExampleBean.journal.chapitre}" style="text-align: center;width: 25%"></p:inputText>
  				ARTICLE <p:inputText value ="#{JasperTableExampleBean.journal.article}" style="text-align: center;width: 25%"></p:inputText> <br></br>
  				(2) <p:inputText value ="#{JasperTableExampleBean.journal.num2}"  style="text-align: center;width: 70%"></p:inputText><br></br>
@@ -182,6 +183,7 @@
  			<!-- f:setPropertyActionListener target="#{JasperTableExampleBean.journal.num3}" value="#{JournalBean.direction}" /-->
  			<f:setPropertyActionListener target="#{JasperTableExampleBean.journal.lieu}" value="#{JournalBean.trois}" />
  			<f:setPropertyActionListener target="#{JasperTableExampleBean.journal.num4}" value="#{JournalBean.quatre}" />
+ 			<f:setPropertyActionListener target="#{JasperTableExampleBean.journal.budget}" value="#{JournalBean.section}" />
  			</p:commandButton>
  			<br/>
  			
@@ -189,6 +191,7 @@
  			<!-- f:setPropertyActionListener target="#{JasperTableExampleBean.journal.num3}" value="#{JournalBean.direction}" /-->
  			<f:setPropertyActionListener target="#{JasperTableExampleBean.journal.lieu}" value="#{JournalBean.trois}" />
  			<f:setPropertyActionListener target="#{JasperTableExampleBean.journal.num4}" value="#{JournalBean.quatre}" />
+ 			<f:setPropertyActionListener target="#{JasperTableExampleBean.journal.budget}" value="#{JournalBean.section}" />
  			</p:commandButton>
  			
 </h:form>
