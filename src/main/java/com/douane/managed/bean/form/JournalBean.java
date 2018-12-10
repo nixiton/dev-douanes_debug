@@ -30,6 +30,7 @@ public class JournalBean {
 	private Date datF;
 	private List<Object[]> li;
 	private Direction dir;
+	private String  section;
 	public JournalBean() {
 		this.dat = new Date();
 		this.datF = new Date();
@@ -57,12 +58,14 @@ public class JournalBean {
 			this.direction = s.getDirection().getDesignation();
 			this.trois = s.getDirection().getTrois();
 			this.dir = s.getDirection();
+			this.section = this.dir.getBudget();
 		}else {
 			this.li = s.ourListESForJournal(d,this.dat);
 			this.li = this.mygetFListESForJournal(li, dat, datF);
 			this.direction = d.getDesignation();
 			this.trois = d.getTrois();
 			this.dir = d;
+			this.section = this.dir.getBudget();
 		}
 		return "dialogJournal";
 	}
@@ -118,5 +121,11 @@ public class JournalBean {
 	}
 	public void setDir(Direction dir) {
 		this.dir = dir;
+	}
+	public String getSection() {
+		return section;
+	}
+	public void setSection(String section) {
+		this.section = section;
 	}
 }

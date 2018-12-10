@@ -42,7 +42,9 @@ public class JournalABean {
 	private List<Object[]> liste;
 	private String dateF;
 	private String dateD;
-	public JournalABean() {
+	private Direction direc;
+	public JournalABean()
+	{
 		this.date = new Date();
 		this.datF = new Date();
 	}
@@ -58,11 +60,17 @@ public class JournalABean {
 		this.dateD = df.format(this.date);
 		this.dateF  = df.format(this.datF);
 		this.trois = this.quatre ="tsy misy";
-		if(s.getDirection() !=null) {
+		if(dir==null) {
 			this.direction = s.getDirection().getDesignation();
 			this.trois = s.getDirection().getTrois();
 			this.quatre = s.getDirection().getQuatre();
-		}else System.out.println("tsy tonga ny journal.Direction");
+			this.direc = s.getDirection();
+		}else {
+			this.direction = dir.getDesignation();
+			this.trois = dir.getTrois();
+			this.quatre = dir.getQuatre();
+			this.direc = dir;
+		}
 		return "dialogJournalAdmin";
 	}
 	
@@ -104,6 +112,12 @@ public class JournalABean {
 	}
 	public void setDatF(Date datF) {
 		this.datF = datF;
+	}
+	public Direction getDirec() {
+		return direc;
+	}
+	public void setDirec(Direction direc) {
+		this.direc = direc;
 	}
 
 }
