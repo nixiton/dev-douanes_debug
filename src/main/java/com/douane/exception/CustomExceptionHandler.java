@@ -6,6 +6,7 @@ package com.douane.exception;
 import java.util.Iterator;
 import java.util.Map;
 import javax.faces.FacesException;
+import javax.faces.application.ApplicationConfigurationPopulator;
 import javax.faces.application.FacesMessage;
 import javax.faces.application.NavigationHandler;
 import javax.faces.application.ViewExpiredException;
@@ -17,6 +18,7 @@ import javax.faces.context.FacesContext;
 import javax.faces.context.Flash;
 import javax.faces.event.ExceptionQueuedEvent;
 import javax.faces.event.ExceptionQueuedEventContext;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.faces.webflow.JsfUtils;
 
@@ -45,15 +47,23 @@ public class CustomExceptionHandler extends ExceptionHandlerWrapper {
             ExceptionQueuedEvent item = queue.next();
             ExceptionQueuedEventContext exceptionQueuedEventContext = (ExceptionQueuedEventContext)item.getSource();
             FacesContext context2 = FacesContext.getCurrentInstance();
+            String redirectPage = null;
             try {
                 Throwable throwable = exceptionQueuedEventContext.getException();
                 System.err.println("Exception: " + throwable.getMessage());
                 
-               /* if (throwable instanceof ViewExpiredException) {
+               if (throwable instanceof ViewExpiredException) {
                 	FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Session expirée",
         					"Pour des raisons de sécurité, la session a été réinitialisée");
         			FacesContext.getCurrentInstance().addMessage(null, message);
-                }*/
+        			System.out.println(" View "+ ((ViewExpiredException)throwable).getViewId() + " expired ");
+        			HttpSession session = (HttpSession)context2.getExternalContext().getSession(false);
+        			if(session !=null) {
+        				session.invalidate();
+        			}
+        			redirectPage = "/pages/unsecure/login.xhtml";
+                }
+               redirectPage = "/pages/unsecure/login.xhtml";
 
                 context2.setViewRoot(context.getViewRoot());
                 context2.getViewRoot().getViewId();
@@ -68,12 +78,15 @@ public class CustomExceptionHandler extends ExceptionHandlerWrapper {
                 requestMap.put("error-cause", throwable.getCause());
                 
                 
-                nav.handleNavigation(context2, null, "/pages/unsecure/login.xhtml");//change to login?redirect=true and send error mess if possible
-                context2.renderResponse();
+                //nav.handleNavigation(context2, null, "/pages/unsecure/login.xhtml");//change to login?redirect=true and send error mess if possible
+               // context2.renderResponse();
 
             } finally {
                 queue.remove();
             }
+            getWrapped().handle();
+            SecurityPhaseListener spl = new SecurityPhaseListener();
+            spl.doRedirect(context2, redirectPage);
         }
     }
 }
