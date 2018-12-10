@@ -60,7 +60,7 @@
             DIRECTION GENERALE DES DOUANES<br></br>
             -----------------------<br></br>
             <f:view contentType="text/html"><p:selectOneMenu id="directionint" value="#{JasperTableExampleBean.pdfForm.num3}" appendTo="@this" style="width: 40% !important">
-               <f:selectItems value="#{siseBean.mapDirection(suivieditionBean.direction, docbean.curentOperationAttrToPdf.date)}"/>
+               <f:selectItems value="#{siseBean.mapDirection(docbean.curentOperationAttrToPdf.direction, docbean.curentOperationAttrToPdf.date)}"/>
            </p:selectOneMenu></f:view><br></br>
             ------------------<br></br>
             <strong>ETAT DE DETENTEUR EFFECTIF #{docbean.curentOperationAttrToPdf.numerodet}</strong>
@@ -141,7 +141,7 @@
 
 
             <div class="col-md-8"></div><div class="col-md-4"> 
-                #{suivieditionBean.direction.trois}, le 
+                #{docbean.curentOperationAttrToPdf.direction.trois}, le 
                 <h:outputText value="#{docbean.curentOperationAttrToPdf.date}">
                 	<f:convertDateTime pattern="dd MMMM yyyy" locale="fr-Fr" timeZone="GMT+3"/>
              </h:outputText>  <br></br>

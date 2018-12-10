@@ -25,6 +25,8 @@ public class EtatAppreciatifBean {
 	private List<Object[]> liste;
 	private String sdate;
 	private String edate;
+	private Direction dir;
+	private String section;
 	public EtatAppreciatifBean() {
 		this.date = new Date();
 		Calendar calendar = new GregorianCalendar();
@@ -33,27 +35,35 @@ public class EtatAppreciatifBean {
 		this.actualyear  = calendar.get(Calendar.YEAR);
 	}
 	public String execute(SuiviEditionBean s,Direction d) {
-		if (s != null) {
-			Date sd = new GregorianCalendar(this.annee, Calendar.JANUARY, 1).getTime();
-			//Date sd = new GregorianCalendar(this.annee, Calendar.JANUARY, 1).getTime();
-			if (this.annee< this.actualyear) {
-				this.date = new GregorianCalendar(this.annee, Calendar.DECEMBER, 31).getTime();
-			}
-			DateFormat  df = new SimpleDateFormat("dd MMMM yyyy", Locale.FRANCE);
-			this.sdate = df.format(sd);
-			this.edate  = df.format(this.date);
-			this.liste = s.getListESExForEtatAppr(d,sd,this.date);
-			//this.liste = s.getListInventaire(this.annee);
-			this.trois = s.getDirection().getTrois();
-			this.quatre = "";//s.getDirection().getQuatre();
-			this.service = s.getDirection().getDesignation();
-			System.out.println("suivi in etat appreciatif non null");
-			return "dialogEtatAppreciatif";
-		}else {
-			System.out.println("no suivi in etat appreciatif");
-			return null;
+		Date sd = new GregorianCalendar(this.annee, Calendar.JANUARY, 1).getTime();
+		if (this.annee< this.actualyear) {
+			this.date = new GregorianCalendar(this.annee, Calendar.DECEMBER, 31).getTime();
 		}
+		DateFormat  df = new SimpleDateFormat("dd MMMM yyyy", Locale.FRANCE);
+		this.sdate = df.format(sd);
+		this.edate  = df.format(this.date);
+		if (d == null) {
+			this.liste = s.getListESExForEtatAppr(s.getDirection(),sd,this.date);
+			this.trois = s.getDirection().getTrois();
+			this.service = s.getDirection().getDesignation();
+			this.dir = s.getDirection();
+			this.section = s.getDirection().getBudget();
+			
+		}else {
+			this.liste = s.getListESExForEtatAppr(d,sd,this.date);
+			this.trois = d.getTrois();
+			this.service = d.getDesignation();
+			this.dir = d;
+			this.section = d.getBudget();
+		}
+		return "dialogEtatAppreciatif";
 		//this.liste = l;
+	}
+	public Direction getDir() {
+		return dir;
+	}
+	public void setDir(Direction dir) {
+		this.dir = dir;
 	}
 	public Date getDate() {
 		return date;
@@ -108,6 +118,12 @@ public class EtatAppreciatifBean {
 	}
 	public void setEdate(String edate) {
 		this.edate = edate;
+	}
+	public String getSection() {
+		return section;
+	}
+	public void setSection(String section) {
+		this.section = section;
 	}
 
 }

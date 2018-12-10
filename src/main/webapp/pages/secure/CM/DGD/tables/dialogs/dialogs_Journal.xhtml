@@ -42,7 +42,7 @@
  				(2) <p:inputText value ="#{JasperTableExampleBean.journal.num2}"  style="text-align: center;width: 70%"></p:inputText><br></br>
  				(3) <f:view contentType="text/html">
  				<p:selectOneMenu id="directionint" value="#{JasperTableExampleBean.journal.num3}" appendTo="@this">
-                       <f:selectItems value="#{siseBean.mapDirection(suivieditionBean.direction, JournalBean.datF)}" />
+                       <f:selectItems value="#{siseBean.mapDirection(JournalBean.dir, JournalBean.datF)}" />
                  </p:selectOneMenu></f:view>
  				<!-- h:outputText value="#{JournalBean.direction}" /--><br></br> 
  				(4) <p:inputText  value ="#{JournalBean.quatre}" style="text-align: center;width: 70%"></p:inputText><br></br>

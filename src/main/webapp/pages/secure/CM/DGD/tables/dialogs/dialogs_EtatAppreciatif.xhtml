@@ -65,7 +65,7 @@
             
                 
                 BUDGET ..........<br/> 
-                SECTION : <p:inputText value="#{JasperTableExampleBean.pdfForm.budget}" style="text-align: center;width:75%"></p:inputText> <br/>
+                SECTION : <p:inputText value="#{EtatAppreciatifBean.section}" style="text-align: center;width:75%"></p:inputText> <br/>
  					
             
 
@@ -104,7 +104,7 @@
  			<div class="col-md-6">
  			(3) <f:view contentType="text/html">
  				<p:selectOneMenu id="directionint" value="#{JasperTableExampleBean.pdfForm.num3}" appendTo="@this" style="font-size: 15px;width: 80% !important">
-                        <f:selectItems value="#{siseBean.mapDirection(suivieditionBean.direction, docbean.curentOpeationSortieToPdf.date)}" />
+                        <f:selectItems value="#{siseBean.mapDirection(EtatAppreciatifBean.dir, docbean.curentOpeationSortieToPdf.date)}" />
                  </p:selectOneMenu></f:view>
  			<!-- #{EtatAppreciatifBean.service}-->
  		</div>
@@ -369,7 +369,8 @@
  		<f:setPropertyActionListener target="#{JasperTableExampleBean.pdfForm.num4}" value="#{EtatAppreciatifBean.quatre}" />
  		<f:setPropertyActionListener target="#{JasperTableExampleBean.pdfForm.num8}" value="#{EtatAppreciatifBean.sdate}" />
  		<f:setPropertyActionListener target="#{JasperTableExampleBean.pdfForm.num9}" value="#{EtatAppreciatifBean.edate}" /> 
- 			
+ 		<f:setPropertyActionListener target="#{JasperTableExampleBean.pdfForm.budget}" value="#{EtatAppreciatifBean.section}" />
+ 		
     </p:commandButton>		
 	<br/>
 	<p:commandButton styleClass="ui-priority-primary fa fa-file-word-o"  style="width:200px;  height:50px; " action="#{JasperTableExampleBean.etatAppreciatifDoc(EtatAppreciatifBean.liste)}" type="submit" value="Exporter en Word" ajax="false" >
@@ -378,6 +379,7 @@
  		<f:setPropertyActionListener target="#{JasperTableExampleBean.pdfForm.num4}" value="#{EtatAppreciatifBean.quatre}" />
  		<f:setPropertyActionListener target="#{JasperTableExampleBean.pdfForm.num8}" value="#{EtatAppreciatifBean.sdate}" />
  		<f:setPropertyActionListener target="#{JasperTableExampleBean.pdfForm.num9}" value="#{EtatAppreciatifBean.edate}" /> 
+ 		<f:setPropertyActionListener target="#{JasperTableExampleBean.pdfForm.budget}" value="#{EtatAppreciatifBean.section}" />
  		
 	</p:commandButton>
 	

@@ -52,7 +52,7 @@
  				(2) <p:inputText value ="#{JasperTableExampleBean.livre.libelle}"  style="text-align: center;width: 70%"></p:inputText><br></br>
  				(3) <f:view contentType="text/html">
  				<p:selectOneMenu id="directionint" value="#{JasperTableExampleBean.livre.subd}" appendTo="@this">
-                        <f:selectItems value="#{siseBean.mapDirection(suivieditionBean.direction, livreAnnuelBean.d)}" />
+                        <f:selectItems value="#{siseBean.mapDirection(livreAnnuelBean.dir, livreAnnuelBean.d)}" />
                  </p:selectOneMenu></f:view>
  				<!-- #{livreAnnuelBean.service}--><br></br>
  				(4) <p:inputText  value ="#{livreAnnuelBean.quatre}" style="text-align: center;width: 70%"></p:inputText><br></br>

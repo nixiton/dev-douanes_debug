@@ -29,6 +29,7 @@ public class JournalBean {
 	private Date dat;
 	private Date datF;
 	private List<Object[]> li;
+	private Direction dir;
 	public JournalBean() {
 		this.dat = new Date();
 		this.datF = new Date();
@@ -46,23 +47,23 @@ public class JournalBean {
 		this.dateF = dateF;
 	}
 	public String execute(Direction d, SuiviEditionBean s) {
-		//this.li = s.mygetFListESForJournal(this.dat , this.datF);
-		//this.li = s.getListESForJournal(this.dat);
-		System.out.println("Generate Journal");
-		System.out.println("date "+this.datF);
-		this.li = s.ourListESForJournal(d,this.dat);
-		//this.li = s.getFListESForJournal(dat, datF);
-		this.li = this.mygetFListESForJournal(li, dat, datF);
-		//this.li = mygetFListESForJournal(s,this.dat, this.datF);
 		DateFormat  df = new SimpleDateFormat("dd MMMM yyyy", Locale.FRANCE);
 		this.dateD = df.format(this.dat);
 		this.dateF  = df.format(this.datF);
-		this.trois = this.quatre ="tsy misy";
-		if(s.getDirection() !=null) {
+		this.trois = this.quatre ="";
+		if(d == null) {
+			this.li = s.ourListESForJournal(s.getDirection(),this.dat);
+			this.li = this.mygetFListESForJournal(li, dat, datF);
 			this.direction = s.getDirection().getDesignation();
 			this.trois = s.getDirection().getTrois();
-			this.quatre = "";
-		}else System.out.println("tsy tonga ny journal.Direction");
+			this.dir = s.getDirection();
+		}else {
+			this.li = s.ourListESForJournal(d,this.dat);
+			this.li = this.mygetFListESForJournal(li, dat, datF);
+			this.direction = d.getDesignation();
+			this.trois = d.getTrois();
+			this.dir = d;
+		}
 		return "dialogJournal";
 	}
 	
@@ -111,5 +112,11 @@ public class JournalBean {
 	}
 	public void setDirection(String direction) {
 		this.direction = direction;
+	}
+	public Direction getDir() {
+		return dir;
+	}
+	public void setDir(Direction dir) {
+		this.dir = dir;
 	}
 }
