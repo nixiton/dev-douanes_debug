@@ -10,7 +10,7 @@
 <h:head></h:head> 	
 	<p:growl id="growl1" for="myerror" showDetail="true" sticky="true" redisplay="false"/>
 	
-    <p:dialog id="detail1" widgetVar="detail1" closable="false" header="Détails Traçabilité Attribution" showEffect="explode" hideEffect="explode" width="1000" height="350">
+    <p:dialog id="detail1" widgetVar="detail1" position = "center,top" closable="false" header="Détails Traçabilité Attribution" showEffect="explode" hideEffect="explode" width="1000" height="350">
 
     <c:if test="#{gacBean.currentOpAttribution['class'].simpleName eq 'OpAttribution'}">
         	
