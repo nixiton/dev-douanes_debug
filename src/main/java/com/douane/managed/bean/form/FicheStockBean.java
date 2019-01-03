@@ -37,7 +37,7 @@ public class FicheStockBean {
 		//suivieditionBean.getListForJournalStockByCod(depositaireBean.articleToFiche)
 		if (d != null && s != null) {
 			this.liste = s.getListForJournalStockByCod(d.getDirectionToFiche(),d.getArticleToFiche(),this.date,this.dateF);
-			this.report = s.areportByCod(d.getDirectionToFiche(), d.getArticleToFiche(), this.dateF); 
+			this.report = s.areportByCod(d.getDirectionToFiche(), d.getArticleToFiche(), this.date); 
 			//#{depositaireBean.articleToFiche.typeObjet.designation} (#{depositaireBean.articleToFiche.designation}
 			//this.folio = d.getArticle().getReference();
 			this.designation = d.getArticleToFiche().getDesignation();
