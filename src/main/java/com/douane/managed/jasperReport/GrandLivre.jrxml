@@ -206,15 +206,8 @@
 				</textElement>
 				<text><![CDATA[(5)]]></text>
 			</staticText>
-			<staticText>
-				<reportElement x="162" y="59" width="318" height="20" uuid="351196d8-0b90-48d5-9e85-d01e0bdb9df9"/>
-				<textElement textAlignment="Center" verticalAlignment="Top">
-					<font size="11"/>
-				</textElement>
-				<text><![CDATA[BUDGET : ................................]]></text>
-			</staticText>
 			<textField>
-				<reportElement x="147" y="38" width="346" height="20" uuid="10c7961f-62f6-437a-b8f9-bdbc6744aba1"/>
+				<reportElement x="147" y="60" width="346" height="20" uuid="10c7961f-62f6-437a-b8f9-bdbc6744aba1"/>
 				<textElement textAlignment="Center" verticalAlignment="Top">
 					<font size="12"/>
 				</textElement>
@@ -404,6 +397,13 @@ L’Instruction Générale du 22 juillet 1955]]></text>
 				</textElement>
 				<text><![CDATA[DES MOUVEMENTS D’ENTREE ET DE SORTIE]]></text>
 			</staticText>
+			<staticText>
+				<reportElement x="162" y="38" width="318" height="20" uuid="e08f40b3-ee86-4e8f-8c77-896263ee5603"/>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font size="11"/>
+				</textElement>
+				<text><![CDATA[BUDGET : GENERAL]]></text>
+			</staticText>
 		</band>
 	</title>
 	<detail>
@@ -426,7 +426,7 @@ L’Instruction Générale du 22 juillet 1955]]></text>
 							<staticText>
 								<reportElement x="0" y="0" width="30" height="134" uuid="6231279d-fa3a-46e0-8eed-6b04f9bc3027"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle">
-									<font size="11"/>
+									<font size="8"/>
 								</textElement>
 								<text><![CDATA[Numéro de  la nomencloture]]></text>
 							</staticText>
@@ -445,7 +445,7 @@ L’Instruction Générale du 22 juillet 1955]]></text>
 							<staticText>
 								<reportElement x="0" y="0" width="30" height="134" uuid="6c2ce98e-b2c3-4ec9-93f2-df79eeaf182f"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle">
-									<font size="11"/>
+									<font size="9"/>
 								</textElement>
 								<text><![CDATA[Espèces des unités]]></text>
 							</staticText>
