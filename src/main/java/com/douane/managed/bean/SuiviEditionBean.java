@@ -3345,7 +3345,7 @@ public class SuiviEditionBean implements Serializable {
 					}
 					
 				} else {
-					row[15] = materiels.get(0).getMyoperationEntree().getDate().toString();
+					row[15] = df.format(materiels.get(0).getMyoperationEntree().getDate());
 				}
 				// Désignation sommaire des opérations
 				row[2] = designation;
@@ -3395,7 +3395,7 @@ public class SuiviEditionBean implements Serializable {
 				// justificatives
 				row[1] = motifentre;
 				// date
-				row[15] = materiels.get(0).getMyoperationEntree().getDate().toString();
+				row[15] = df.format(materiels.get(0).getMyoperationEntree().getDate());
 				// Désignation sommaire des opérations
 				row[2] = designation;
 
@@ -3456,7 +3456,7 @@ public class SuiviEditionBean implements Serializable {
 				// date
 				row[15] = " ";
 				for(OpSortie o: os) {
-					row[15] = row[15] + o.getDate().toString()+ " ";
+					row[15] = row[15] + df.format(o.getDate()) + " ";
 				}
 				// Désignation sommaire des opérations
 				row[2] = designation;
@@ -3553,7 +3553,7 @@ public class SuiviEditionBean implements Serializable {
 				if (mat.getMyoperationEntree() == null) {
 					row[15] = mat.getDesign().getAnneeAcquisition();
 				} else {
-					row[15] = mat.getMyoperationEntree().getDate().toString();
+					row[15] = df.format(mat.getMyoperationEntree().getDate());
 				}
 				// Désignation sommaire des opérations
 				row[2] = designation;
@@ -3601,7 +3601,7 @@ public class SuiviEditionBean implements Serializable {
 				// justificatives
 				row[1] = motifentre;
 				// date
-				row[15] = mat.getMyoperationEntree().getDate().toString();
+				row[15] = df.format(mat.getMyoperationEntree().getDate());
 				// Désignation sommaire des opérations
 				row[2] = designation;
 
@@ -3658,7 +3658,7 @@ public class SuiviEditionBean implements Serializable {
 				// justificatives
 				row[1] = motifsortie;
 				// date
-				row[15] = o.getDate().toString();
+				row[15] = df.format(o.getDate());
 				// Désignation sommaire des opérations
 				row[2] = designation;
 
