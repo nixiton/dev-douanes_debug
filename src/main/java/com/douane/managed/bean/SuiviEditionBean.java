@@ -21,6 +21,8 @@ import java.io.Serializable;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.*;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 import org.springframework.stereotype.Component;
 
@@ -1369,8 +1371,8 @@ public class SuiviEditionBean implements Serializable {
 			Calendar calendar = new GregorianCalendar();
 			calendar.setTime(date);
 			int year = calendar.get(Calendar.YEAR);
-			Date sdate = new GregorianCalendar(year-1, Calendar.JANUARY, 1).getTime();
-			Date edate = new GregorianCalendar(year-1, Calendar.DECEMBER, 30).getTime();
+			Date sdate = new GregorianCalendar(year, Calendar.JANUARY, 1).getTime();
+			Date edate = new GregorianCalendar(year, Calendar.DECEMBER, 31).getTime();
 			System.out.println("RRRRRRRRRRR Begin:");
 			List<Object[]> r = usermetierimpl.getListObjectForinvetaire(cur.getDirection(), sdate, edate);
 			System.out.println("RRRRRRRRRRR Ending:");
@@ -1618,6 +1620,10 @@ public class SuiviEditionBean implements Serializable {
 				// Sortie du matériel
 				row[14] = null;
 				// Entrées pendant l’année X
+				if (mat.getMyoperationEntree() != null && mat.getMyoperationEntree().getDate().compareTo(edate) >= 0) {
+					System.out.println("mat tsy misy" + mat.getReference());
+					continue;
+				}
 				if (mat.getMyoperationEntree() == null || mat.getMyoperationEntree().getDate().compareTo(sdate) < 0) {
 					row[6] = "Materiel Existant";
 					row[5] = 1;
@@ -1737,7 +1743,9 @@ public class SuiviEditionBean implements Serializable {
 						sortieAx = sortieAx + 1;
 						sortieAnnee = sortieAnnee + " , " + (String) o[13];
 						OpSortie sortieoperation = (OpSortie) o[14];
-						sortieMotif = sortieoperation.getMotifsortie().getDesignation();
+						if (sortieoperation.getMotifsortie() != null) {
+							sortieMotif = sortieoperation.getMotifsortie().getDesignation();
+						}
 						if (sortieoperation.getDirec() != null) {
 							sortieMotif = sortieMotif + " vers " + sortieoperation.getDirec().getCodeDirection();
 						}
@@ -1780,40 +1788,85 @@ public class SuiviEditionBean implements Serializable {
 	}
 
 	public List<Object[]> getDesingationByOpEntree(Operation op) {
+		System.out.println("FIRST CALL");
 		List<Object[]> results = usermetierimpl.listDesignationByOperationEntree((OpEntree) op);
-		HashMap<Nomenclature, Float> bynom = new HashMap<Nomenclature, Float>();
-		for (Object[] o : results) {
+		Map<Nomenclature, Float> bynom = new ConcurrentHashMap<Nomenclature, Float>();
+		Iterator<Map.Entry<Nomenclature, Float>>  it;
+		try {
+		// disable concurrent 
+		//synchronized (bynom) {
+		Iterator<Object[]> resIt = results.iterator();
+		while(resIt.hasNext()){
+
+		//for(int i = 0; i<results.size(); i++) {
+		//for (Object[] o : results) {
+			//Object[] o = results.get(i);
+			Object[] o = resIt.next();
 			Designation a = (Designation) (o[0]);
 			Long nbr = (Long) (o[1]);
 			if (bynom.isEmpty()) {
 				bynom.put(a.getNomenMat(), nbr * a.getPu());
+				System.out.println(a.getNomenMat()+ " initialize "+bynom.get(a.getNomenMat()));
 			} else {
-				for (Map.Entry<Nomenclature, Float> entry : bynom.entrySet()) {
-
-					if (entry.getKey() == a.getNomenMat()) {
-						entry.setValue(entry.getValue() + (nbr * a.getPu()));
+				//it = bynom.entrySet().iterator();
+				//Map.Entry<Nomenclature, Float>  entry;
+				if(bynom.containsKey(a.getNomenMat())) {
+					Float curentvalue = bynom.get(a.getNomenMat())+ (nbr * a.getPu());
+					bynom.replace(a.getNomenMat(), curentvalue);
+					System.out.println(a.getNomenMat()+ " has current value "+bynom.get(a.getNomenMat()));
+				}
+				else {
+					bynom.put(a.getNomenMat(), nbr * a.getPu());
+					System.out.println(a.getNomenMat()+ " as "+bynom.get(a.getNomenMat()));
+				}
+				/*while (it.hasNext())
+				{
+					 entry = it.next();
+					 System.out.println(a.getNomenMat()+ " has  value "+bynom.get(a.getNomenMat()));
+					if (entry.getKey() == a.getNomenMat() && entry.getValue()!=null) {
+						Float curentvalue = entry.getValue()+ (nbr * a.getPu());
+						bynom.replace(a.getNomenMat(), curentvalue);
+						System.out.println(a.getNomenMat()+ " has current value "+bynom.get(a.getNomenMat()));
+						//entry.setValue(curentvalue);
 					} else {
 						bynom.put(a.getNomenMat(), nbr * a.getPu());
+						System.out.println(a.getNomenMat()+ " as "+bynom.get(a.getNomenMat()));
 					}
-				}
+				}*/
 			}
+			
+			
 		}
-		List<Object[]> resultatfinal = new ArrayList<Object[]>();
+		//}
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+		List<Object[]>resultatfinal = new CopyOnWriteArrayList<Object[]>();
+		
+		
 		for (Map.Entry<Nomenclature, Float> entry : bynom.entrySet()) {
+		//while (it.hasNext())
+		//{
+			//entry = it.next();
 			Object[] item = new Object[3];
+			System.out.println(entry.getKey().getNomenclature()+ " has current valuesss "+entry.getValue());
 			item[0] = entry.getKey();
 			item[1] = entry.getValue();
 			List<Object[]> ourlist = new ArrayList<Object[]>();
-			for (Object[] o : results) {
+			for(Object[]o:results) {
 				Designation a = (Designation) o[0];
-				if (a.getNomenMat() == entry.getKey()) {
+				if(a.getNomenMat() == entry.getKey()) {
 					ourlist.add(o);
 				}
+				//System.out.println("Its ok!!");
 			}
 			item[2] = ourlist;
 			resultatfinal.add(item);
 		}
+		// */
 		return resultatfinal;
+		
 	}
 
 	public List<Object[]> getListobjectForInvetaire() {
@@ -3184,8 +3237,8 @@ public class SuiviEditionBean implements Serializable {
 		Calendar calendar = new GregorianCalendar();
 		calendar.setTime(date);
 		int year = calendar.get(Calendar.YEAR);
-		Date sdate = new GregorianCalendar(year-1, Calendar.JANUARY, 1).getTime();
-		Date edate = new GregorianCalendar(year-1, Calendar.DECEMBER, 30).getTime();
+		Date sdate = new GregorianCalendar(year, Calendar.JANUARY, 1).getTime();
+		Date edate = new GregorianCalendar(year, Calendar.DECEMBER, 30).getTime();
 
 		if (fin != null && debut != null) {
 			sdate = debut;
