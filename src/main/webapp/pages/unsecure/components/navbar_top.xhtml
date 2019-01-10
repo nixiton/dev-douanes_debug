@@ -84,7 +84,9 @@
 
 				<ul class="nav navbar-nav" >
 					
-					<c:if test="#{topMenuMB.curentAgent.roleAgent.role eq 'ROLE_ADMIN'}">
+					<c:if test="#{topMenuMB.curentAgent.roleAgent.role eq 'ROLE_ADMIN'
+					or topMenuMB.curentAgent.roleAgent.role eq 'ROLE_CONSLOCAL'
+					}">
 						<li class="" ><h:commandLink
 									action="#{topMenuMB.goToDashboard}" immediate="true" style="color:#CCC">
 									Historique 
@@ -140,6 +142,7 @@
 
 					<c:if test="#{topMenuMB.curentAgent.roleAgent.role eq 'ROLE_ADMIN' 
 					or topMenuMB.curentAgent.roleAgent.role eq 'ROLE_DC'
+					or topMenuMB.curentAgent.roleAgent.role eq 'ROLE_CONSLOCAL'
 					}">
 
 					<li class="dropdown"><a href="#" class="dropdown-toggle"
@@ -196,6 +199,7 @@
 					<c:if test="#{topMenuMB.curentAgent.roleAgent.role eq 'ROLE_ADMIN' 
 					or topMenuMB.curentAgent.roleAgent.role eq 'ROLE_DC' 
 					or topMenuMB.curentAgent.roleAgent.role eq 'ROLE_GAC'
+					or topMenuMB.curentAgent.roleAgent.role eq 'ROLE_CONSLOCAL'
 					}">
 
 					<li class='dropdown '><a href="#" class="dropdown-toggle"
