@@ -24,23 +24,17 @@
 	<parameter name="filamatra" class="java.lang.String"/>
 	<parameter name="lieu" class="java.lang.String"/>
 	<parameter name="numero" class="java.lang.String"/>
+	<parameter name="section" class="java.lang.String"/>
+	<parameter name="chapitre" class="java.lang.String"/>
+	<parameter name="paragraphe" class="java.lang.String"/>
+	<parameter name="article" class="java.lang.String"/>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
 	<title>
 		<band height="167" splitType="Stretch">
-			<staticText>
-				<reportElement x="170" y="60" width="219" height="80" uuid="63e84b14-e4b9-4d99-aa78-23d075a89760"/>
-				<textElement textAlignment="Center"/>
-				<text><![CDATA[MINISTERE DES FINANCES ET DU BUDGET
-----------------------
-SECRETARIAT GENERAL
-----------------------
-DIRECTION GENERALE DES DOUANES
-----------------------]]></text>
-			</staticText>
 			<textField>
-				<reportElement x="0" y="140" width="553" height="20" uuid="e359ed88-03d9-4896-b939-13918d19b9a7"/>
+				<reportElement x="0" y="140" width="555" height="20" uuid="e359ed88-03d9-4896-b939-13918d19b9a7"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="12"/>
 				</textElement>
@@ -49,7 +43,7 @@ DIRECTION GENERALE DES DOUANES
 			<textField>
 				<reportElement x="0" y="22" width="555" height="38" uuid="ffbde8e3-f931-41ce-bd9e-c99053bb5370"/>
 				<textElement textAlignment="Center">
-					<font size="12"/>
+					<font size="11" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{filamatra}+ 
 "\n--------------------------"]]></textFieldExpression>
@@ -57,12 +51,40 @@ DIRECTION GENERALE DES DOUANES
 			<staticText>
 				<reportElement x="0" y="2" width="555" height="20" uuid="df6c90a4-93c2-4db2-8788-3bfc30be5ff8"/>
 				<textElement textAlignment="Center">
-					<font size="12"/>
+					<font size="12" isBold="true"/>
 				</textElement>
 				<text><![CDATA[REPOBLIKAN’I MADAGASIKARA
 
 ]]></text>
 			</staticText>
+			<staticText>
+				<reportElement x="215" y="60" width="124" height="20" uuid="06962e98-418d-4e17-85f3-6613ebf953aa"/>
+				<textElement textAlignment="Center">
+					<font size="11"/>
+				</textElement>
+				<text><![CDATA[BUDGET GENERAL]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="80" y="80" width="400" height="20" uuid="03497acc-6c6a-46b7-8572-a192c3b8788c"/>
+				<textElement textAlignment="Center">
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA["SECTION : "  + $P{section}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="80" y="100" width="400" height="20" uuid="ad797fd0-bbcb-4ff5-8498-3b63286c80bc"/>
+				<textElement textAlignment="Center">
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA["CHAPITRE : " + $P{chapitre} + " ARTICLE " + $P{article}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="80" y="120" width="400" height="20" uuid="5c33c422-70c7-47fd-9709-d67f61fcb9d1"/>
+				<textElement textAlignment="Center">
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA["PARAGRAPHE : "  + $P{paragraphe}]]></textFieldExpression>
+			</textField>
 		</band>
 	</title>
 	<pageHeader>

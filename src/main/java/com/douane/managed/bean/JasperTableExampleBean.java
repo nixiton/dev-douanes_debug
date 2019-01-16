@@ -162,6 +162,25 @@ public class JasperTableExampleBean implements Serializable{
             	parameters.put("num2", this.pdfForm.getNum2());
             else
             	parameters.put("num2", "...........");
+            
+            if (this.pdfForm.getBudget() != "") 
+            	parameters.put("section", this.pdfForm.getBudget());
+            else
+            	parameters.put("section", "...........");
+            if (this.pdfForm.getChapitre() != "") 
+            	parameters.put("chapitre", this.pdfForm.getChapitre());
+            else
+            	parameters.put("chapitre", "...........");
+            if (this.pdfForm.getArticle() != "") 
+            	parameters.put("article", this.pdfForm.getArticle());
+            else
+            	parameters.put("article", "...........");
+            if (this.pdfForm.getParagraphe() != "") 
+            	parameters.put("paragraphe", this.pdfForm.getParagraphe());
+            else
+            	parameters.put("paragraphe", "...........");
+            
+            
             parameters.put("nomDepositaire", op.getOperateur().getNomAgent());
             parameters.put("fonctionDepositaire", fDepo);
             parameters.put("nomDetenteur", op.getDetenteur().getNomAgent());
@@ -240,6 +259,23 @@ public class JasperTableExampleBean implements Serializable{
             	parameters.put("num2", this.pdfForm.getNum2());
             else
             	parameters.put("num2", "...........");
+            if (this.pdfForm.getBudget() != "") 
+            	parameters.put("section", this.pdfForm.getBudget());
+            else
+            	parameters.put("section", "...........");
+            if (this.pdfForm.getChapitre() != "") 
+            	parameters.put("chapitre", this.pdfForm.getChapitre());
+            else
+            	parameters.put("chapitre", "...........");
+            if (this.pdfForm.getArticle() != "") 
+            	parameters.put("article", this.pdfForm.getArticle());
+            else
+            	parameters.put("article", "...........");
+            if (this.pdfForm.getParagraphe() != "") 
+            	parameters.put("paragraphe", this.pdfForm.getParagraphe());
+            else
+            	parameters.put("paragraphe", "...........");
+            
             parameters.put("nomDepositaire", op.getOperateur().getNomAgent());
             parameters.put("fonctionDepositaire", fDepo);
             parameters.put("nomDetenteur", op.getDetenteur().getNomAgent());
