@@ -34,7 +34,8 @@
 			id="journaltable1"
 			>
 			<f:facet name="header">
-       			 <span>JOURNAL DES MOUVEMENTS D’ENTREE ET DE SORTIE ANNEE</span> <br/>
+       			 <span>JOURNAL DES MOUVEMENTS D’ENTREE ET DE SORTIE ANNEE #{JournalBean.actualYear}
+       			 </span> <br/>
        			 <span>
        			 		<h:form >
        			 			<p:outputLabel for="annee_journal" value="Exporter le journal du " />
@@ -42,9 +43,9 @@
      			 			<p:dialog modal="true" resizable="false" header="Values" widgetVar="dlg" showEffect="fold">
         						<p:panelGrid id="display_journal" columns="2" columnClasses="label,value">
       			 					 <h:outputText value="" />
-						            <h:outputText value="#{JournalBean.dat}">
-						                <f:convertDateTime pattern="dd MMMM yyyy" locale="Locale.FRANCE"/>
-				                  	</h:outputText>
+							            <h:outputText value="#{JournalBean.dat}">
+							                <f:convertDateTime pattern="dd MMMM yyyy" locale="Locale.FRANCE"/>
+					                  	</h:outputText>
        			 				</p:panelGrid>
     						</p:dialog>
     						

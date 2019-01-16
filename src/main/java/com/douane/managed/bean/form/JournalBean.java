@@ -28,12 +28,15 @@ public class JournalBean {
 	private String dateF;
 	private Date dat;
 	private Date datF;
+	private String actualYear;
 	private List<Object[]> li;
 	private Direction dir;
 	private String  section;
 	public JournalBean() {
+		DateFormat  df = new SimpleDateFormat("yyyy", Locale.FRANCE);
 		this.dat = new Date();
 		this.datF = new Date();
+		this.actualYear = df.format(this.dat);
 	}
 	public String getDateD() {
 		return dateD;
@@ -128,4 +131,11 @@ public class JournalBean {
 	public void setSection(String section) {
 		this.section = section;
 	}
+	public String getActualYear() {
+		return actualYear;
+	}
+	public void setActualYear(String actualYear) {
+		this.actualYear = actualYear;
+	}
+	
 }
