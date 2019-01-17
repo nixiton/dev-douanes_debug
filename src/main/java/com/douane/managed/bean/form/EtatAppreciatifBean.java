@@ -27,6 +27,8 @@ public class EtatAppreciatifBean {
 	private String edate;
 	private Direction dir;
 	private String section;
+	private Float entrant;
+	private Float sortant;
 	public EtatAppreciatifBean() {
 		this.date = new Date();
 		Calendar calendar = new GregorianCalendar();
@@ -56,6 +58,17 @@ public class EtatAppreciatifBean {
 			this.dir = d;
 			this.section = d.getBudget();
 		}
+		//calcul des entrants
+		this.entrant = new Float(0);
+		//calcul des sortants
+		this.sortant = new Float(0);
+		for(Object[] c :this.liste) {
+			this.entrant = entrant + (Float) c[4]+ (Float) c[7]+ (Float) c[9]+ (Float) c[11]+ (Float) c[13]
+					+ (Float) c[16]+ (Float) c[17]+ (Float) c[18]+ (Float) c[19]+ (Float) c[20];
+			this.sortant = sortant + (Float) c[6]+ (Float) c[8]+ (Float) c[10]+ (Float) c[12] + (Float) c[14];
+		}
+		
+		
 		return "dialogEtatAppreciatif";
 		//this.liste = l;
 	}
@@ -124,6 +137,18 @@ public class EtatAppreciatifBean {
 	}
 	public void setSection(String section) {
 		this.section = section;
+	}
+	public Float getEntrant() {
+		return entrant;
+	}
+	public void setEntrant(Float entrant) {
+		this.entrant = entrant;
+	}
+	public Float getSortant() {
+		return sortant;
+	}
+	public void setSortant(Float sortant) {
+		this.sortant = sortant;
 	}
 
 }

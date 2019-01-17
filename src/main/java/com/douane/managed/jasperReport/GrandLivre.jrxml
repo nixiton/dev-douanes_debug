@@ -151,13 +151,6 @@
 	<title>
 		<band height="519" splitType="Stretch">
 			<staticText>
-				<reportElement x="147" y="99" width="83" height="19" uuid="c6865f87-e1b1-4498-b187-c56370a25385"/>
-				<textElement textAlignment="Justified" verticalAlignment="Top">
-					<font size="12"/>
-				</textElement>
-				<text><![CDATA[CHAPITRE(1)]]></text>
-			</staticText>
-			<staticText>
 				<reportElement x="163" y="1" width="315" height="37" uuid="0faa547c-29ad-412c-9051-d747dae27d27"/>
 				<textElement textAlignment="Center">
 					<font size="14" isBold="true"/>
@@ -213,26 +206,19 @@
 				</textElement>
 				<textFieldExpression><![CDATA["SECTION : " + $P{budget}]]></textFieldExpression>
 			</textField>
-			<staticText>
-				<reportElement x="333" y="99" width="58" height="19" uuid="1e742fee-3c65-47ed-97c7-ac3f3c017c2a"/>
-				<textElement verticalAlignment="Top">
-					<font size="12"/>
-				</textElement>
-				<text><![CDATA[ARTICLE]]></text>
-			</staticText>
 			<textField>
-				<reportElement x="230" y="99" width="103" height="19" uuid="fe43c0cc-298a-4eba-bc9a-4944e376d8e3"/>
+				<reportElement x="164" y="99" width="156" height="19" uuid="fe43c0cc-298a-4eba-bc9a-4944e376d8e3"/>
 				<textElement verticalAlignment="Top">
 					<font size="12"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$P{chap}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$P{chap} == ""?"CHAPITRE(1) ......... ":"CHAPITRE(1) " +  $P{chap}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="391" y="99" width="102" height="19" uuid="966c4088-2530-4079-885a-7ebcdf5ce219"/>
+				<reportElement x="321" y="99" width="156" height="19" uuid="966c4088-2530-4079-885a-7ebcdf5ce219"/>
 				<textElement verticalAlignment="Top">
 					<font size="12"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$P{article}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$P{article} == ""?"ARTICLE ......... ":"ARTICLE " + $P{article}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="191" y="137" width="259" height="20" uuid="7c70c6ce-988e-44d3-af93-547a379b5bb4"/>

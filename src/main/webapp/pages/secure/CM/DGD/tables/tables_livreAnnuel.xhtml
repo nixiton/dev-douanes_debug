@@ -134,7 +134,10 @@
 				<h:outputText value="#{c[6]}, #{c[7]}" />			
 			</p:column>
 			<p:column headerText="Dates des entrées et des sorties" style=" text-align: center; word-wrap: break-word;" > 
-				<h:outputText value="#{c[14]}, #{c[15]}" />			
+				<h:outputText value="#{c[14]}">
+                	<f:convertDateTime pattern="dd MMMM yyyy" locale="fr-Fr" timeZone="GMT+3"/>
+                </h:outputText>, 
+				<h:outputText value="#{c[15]}" />			
 			</p:column>
 			<p:column headerText="Origine des entrées et désignation des sorties" style=" text-align: center; word-wrap: break-word;"> 
 				<h:outputText value="#{c[16]}, #{c[17]}" />			
