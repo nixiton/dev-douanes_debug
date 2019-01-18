@@ -15,9 +15,16 @@
 </style>
 
 <div   class="body collapse in table-responsive">
-
-
-    <p:dataTable   var="d" value="#{gacBean.listAnnee}" 
+	<h:form >
+		
+  			<h:outputLabel for="ANNEE" value="Exporter pour l'annee " style="font-weight:bold"/>
+           <p:inputText id="ANNEE" size="8" value="#{livreAnnuelBean.anne}" label="ANNEE" validatorMessage="L'année doit être entre 1950 et #{EtatAppreciatifBean.annee}">
+               <f:validateDoubleRange minimum="1950" maximum="#{livreAnnuelBean.actualyear}"/>
+           </p:inputText> <p:commandButton styleClass="btn btn-lg-primary fa fa-download " value="Exporter" action="#{livreAnnuelBean.executer(suivieditionBean,0,null)}" > </p:commandButton>
+           <p:message for="ANNEE" /> 
+  	</h:form>
+	
+    <!--  p:dataTable   var="d" value="#{gacBean.listAnnee}" 
     			currentPageReportTemplate="({currentPage} sur {totalPages})"
                  paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}  "
                  paginator="true" rows="10" style="margin-bottom:20px" emptyMessage="Aucun résultat">
@@ -33,7 +40,7 @@
                 </h:commandLink>
             </h:form>
         </p:column>
-    </p:dataTable>
+    </p:dataTable>-->
     
 
 	

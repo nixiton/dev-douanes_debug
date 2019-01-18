@@ -17,8 +17,15 @@
 </style>
 
 <div   class="body collapse in table-responsive">
+<h:form >
+	<h:outputLabel for="ANNEE" value="Exporter pour l'annee " style="font-weight:bold"/>
+    <p:inputText id="ANNEE" size="8" value="#{InventaireBean.year}" label="ANNEE" validatorMessage="L'année doit être entre 1950 et #{EtatAppreciatifBean.annee}">
+        <f:validateDoubleRange minimum="1950" maximum="#{InventaireBean.actualyear}"/>
+    </p:inputText> <p:commandButton styleClass="btn btn-lg-primary fa fa-download " value="Exporter" action="#{InventaireBean.executer(0,suivieditionBean)}" > </p:commandButton>
+    <p:message for="ANNEE" /> 
+</h:form>
   
-   <p:dataTable   var="d" value="#{gacBean.listAnnee}" 
+   <!-- p:dataTable   var="d" value="#{gacBean.listAnnee}" 
    				currentPageReportTemplate="({currentPage} sur {totalPages})"
                  paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}  "
                  paginator="true" rows="10" style="margin-bottom:20px" emptyMessage="Aucun résultat">
@@ -34,7 +41,7 @@
                 </h:commandLink>
             </h:form>
         </p:column>
-    </p:dataTable>
+    </p:dataTable> -->
     <!-- -TESTING RESULTS -->
     <h:form>
     <p:dataTable var="m" value="#{suivieditionBean.listobjectForInvetaire}"

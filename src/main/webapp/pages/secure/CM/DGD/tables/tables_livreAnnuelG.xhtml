@@ -18,7 +18,13 @@
 <div   class="body collapse in table-responsive">
 
 <h:form id="formlivreAnnuel">
-<p:tabView scrollable="true">
+
+<h:outputLabel for="ANNEE" value="Exporter pour l'annee " style="font-weight:bold"/>
+  <p:inputText id="ANNEE" size="8" value="#{livreAnnuelBean.anne}" label="ANNEE" validatorMessage="L'année doit être entre 1950 et #{EtatAppreciatifBean.annee}">
+      <f:validateDoubleRange minimum="1950" maximum="#{livreAnnuelBean.actualyear}"/>
+  </p:inputText> <p:commandButton styleClass="btn btn-lg-primary fa fa-download " value="Exporter" action="#{livreAnnuelBean.executer(suivieditionBean,0,dir)}" > </p:commandButton>
+  <p:message for="ANNEE" /> 
+<!-- p:tabView scrollable="true">
 	<c:forEach var="dir" items="${siseBean.listDirection}" varStatus="status">
 	<p:tab title="${dir.codeDirection}">
     <p:dataTable   var="d" value="#{gacBean.listAnnee}" 
@@ -40,7 +46,7 @@
     </p:dataTable>
 </p:tab>
 	</c:forEach>
-	</p:tabView>    
+	</p:tabView>  -->   
 </h:form>
 </div>
 <script type="text/javascript">

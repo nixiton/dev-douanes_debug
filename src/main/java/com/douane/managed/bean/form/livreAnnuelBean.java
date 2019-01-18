@@ -18,7 +18,13 @@ import com.douane.managed.bean.SuiviEditionBean;
 public class livreAnnuelBean {
 	public livreAnnuelBean() {
 		this.d = new Date();
+		Calendar calendar = new GregorianCalendar();
+		calendar.setTime(this.d);
+		this.anne  = calendar.get(Calendar.YEAR);
+		this.actualyear  = calendar.get(Calendar.YEAR);
 	}
+	private int actualyear;
+	//private int annee;
 	private String service;
 	private Date d;
 	private String trois;
@@ -42,10 +48,11 @@ public class livreAnnuelBean {
 	public String executer(SuiviEditionBean s, Integer i, Direction direc) {
 		
 		DateFormat  df = new SimpleDateFormat("dd MMMM yyyy", Locale.FRANCE);
-		this.anne = i;
+		if(i!=0)
+			this.anne = i;
 		this.quatre =  "";//s.getDirection().getQuatre();
-		Date sdate = new GregorianCalendar(i, Calendar.JANUARY, 1).getTime();
-		this.d = new GregorianCalendar(i, Calendar.DECEMBER, 31).getTime();
+		Date sdate = new GregorianCalendar(this.anne, Calendar.JANUARY, 1).getTime();
+		this.d = new GregorianCalendar(this.anne, Calendar.DECEMBER, 31).getTime();
 		this.service = s.getDirection().getDesignation();
 		this.dateD = df.format(sdate);
 		this.dateF = df.format(this.d);
@@ -112,6 +119,18 @@ public class livreAnnuelBean {
 	}
 	public void setDir(Direction dir) {
 		this.dir = dir;
+	}
+	public int getActualyear() {
+		return actualyear;
+	}
+	public void setActualyear(int actualyear) {
+		this.actualyear = actualyear;
+	}
+	public String getDateD() {
+		return dateD;
+	}
+	public void setDateD(String dateD) {
+		this.dateD = dateD;
 	}
 
 }

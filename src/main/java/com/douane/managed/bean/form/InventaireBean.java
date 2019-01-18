@@ -21,6 +21,7 @@ import com.douane.managed.bean.SuiviEditionBean;
 @ManagedBean(name="InventaireBean")
 public class InventaireBean {
 	private int year;
+	private int actualyear;
 	private String trois;
 	private String quatre;
 	private String dateD;
@@ -33,6 +34,10 @@ public class InventaireBean {
 	public InventaireBean() {
 		this.dat = new Date();
 		this.datF = new Date();
+		Calendar calendar = new GregorianCalendar();
+		calendar.setTime(this.dat);
+		this.year  = calendar.get(Calendar.YEAR);
+		this.actualyear = calendar.get(Calendar.YEAR);
 	}
 	public String getDateD() {
 		return dateD;
@@ -78,10 +83,13 @@ public class InventaireBean {
 	//gacBean.setAnneeInv(d,suivieditionBean.listobjectForInvetaire)
 	public String executer(int d,SuiviEditionBean s) {
 		Date date = new Date();
+		if(d!=0) {
+			this.year = d;
+		}
 		Calendar calendar = new GregorianCalendar();
 		calendar.setTime(date);
-		Date sdate = new GregorianCalendar(d, Calendar.JANUARY, 1).getTime();
-		Date edate = new GregorianCalendar(d, Calendar.DECEMBER, 31).getTime();
+		Date sdate = new GregorianCalendar(this.year, Calendar.JANUARY, 1).getTime();
+		Date edate = new GregorianCalendar(this.year, Calendar.DECEMBER, 31).getTime();
 		this.dat = sdate;
 		this.datF = edate;
 		this.li = s.getListobjectForInvetaire(this.dat , this.datF);
@@ -89,12 +97,10 @@ public class InventaireBean {
 		this.dateD = df.format(this.dat);
 		this.dateF  = df.format(this.datF);
 		this.trois = this.quatre ="tsy misy";
-		
 		if(s.getDirection() !=null) {
 			this.trois = s.getDirection().getTrois();
 			this.quatre = s.getDirection().getQuatre();
 		}else System.out.println("tsy tonga ny journal.Direction");
-		this.year = d;
 		return "anneeInv";
 		 
 	}
@@ -145,5 +151,11 @@ public class InventaireBean {
 	}
 	public void setSection(String section) {
 		this.section = section;
+	}
+	public int getActualyear() {
+		return actualyear;
+	}
+	public void setActualyear(int actualyear) {
+		this.actualyear = actualyear;
 	}
 }
