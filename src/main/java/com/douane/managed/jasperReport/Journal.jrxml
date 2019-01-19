@@ -180,9 +180,9 @@
 		</band>
 	</title>
 	<detail>
-		<band height="112" splitType="Stretch">
+		<band height="161" splitType="Stretch">
 			<componentElement>
-				<reportElement key="table 2" style="table 2" x="0" y="12" width="555" height="100" uuid="e1e007fa-01b8-4145-ba42-865f3afc37e2"/>
+				<reportElement key="table 2" style="table 2" x="0" y="3" width="555" height="158" uuid="e1e007fa-01b8-4145-ba42-865f3afc37e2"/>
 				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
 					<datasetRun subDataset="Table Dataset 3" uuid="7c86b4bb-b22b-4534-a25b-8c28b6b22311">
 						<dataSourceExpression><![CDATA[$P{dataSource}]]></dataSourceExpression>
@@ -196,6 +196,7 @@
 								<text><![CDATA[N° d'ordre]]></text>
 							</staticText>
 						</jr:tableHeader>
+						<jr:columnHeader height="30" rowSpan="1"/>
 						<jr:columnFooter height="30" rowSpan="1"/>
 						<jr:detailCell style="table 2_TD" height="70" rowSpan="1">
 							<textField>
@@ -214,6 +215,15 @@
 								<text><![CDATA[Date des opérations]]></text>
 							</staticText>
 						</jr:tableHeader>
+						<jr:columnHeader height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="60" height="30" uuid="215b4d63-26d1-472f-8044-0ffe35de5905">
+									<printWhenExpression><![CDATA[$V{PAGE_NUMBER}.intValue()>=1]]></printWhenExpression>
+								</reportElement>
+								<textElement textAlignment="Center" verticalAlignment="Middle"/>
+								<text><![CDATA[Report]]></text>
+							</staticText>
+						</jr:columnHeader>
 						<jr:columnFooter height="30" rowSpan="1"/>
 						<jr:detailCell style="table 2_TD" height="70" rowSpan="1">
 							<textField pattern="dd MMMM yyyy">
@@ -232,6 +242,15 @@
 								<text><![CDATA[Référence facture/décision]]></text>
 							</staticText>
 						</jr:tableHeader>
+						<jr:columnHeader height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="80" height="30" uuid="36dd2941-f085-4b47-a773-b1073885081f">
+									<printWhenExpression><![CDATA[$V{PAGE_NUMBER}.intValue()>=1]]></printWhenExpression>
+								</reportElement>
+								<textElement textAlignment="Center" verticalAlignment="Middle"/>
+								<text><![CDATA[....................]]></text>
+							</staticText>
+						</jr:columnHeader>
 						<jr:columnFooter height="30" rowSpan="1"/>
 						<jr:detailCell style="table 2_TD" height="70" rowSpan="1">
 							<textField>
@@ -250,6 +269,7 @@
 								<text><![CDATA[Origine/destinataire]]></text>
 							</staticText>
 						</jr:tableHeader>
+						<jr:columnHeader height="30" rowSpan="1"/>
 						<jr:columnFooter height="30" rowSpan="1"/>
 						<jr:detailCell style="table 2_TD" height="70" rowSpan="1">
 							<textField>
@@ -268,6 +288,7 @@
 								<text><![CDATA[Désignation des articles]]></text>
 							</staticText>
 						</jr:tableHeader>
+						<jr:columnHeader height="30" rowSpan="1"/>
 						<jr:columnFooter height="30" rowSpan="1"/>
 						<jr:detailCell style="table 2_TD" height="70" rowSpan="1">
 							<textField>
@@ -286,6 +307,7 @@
 								<text><![CDATA[Quantité]]></text>
 							</staticText>
 						</jr:tableHeader>
+						<jr:columnHeader height="30" rowSpan="1"/>
 						<jr:columnFooter height="30" rowSpan="1"/>
 						<jr:detailCell style="table 2_TD" height="70" rowSpan="1">
 							<textField>
@@ -304,11 +326,12 @@
 								<text><![CDATA[Prix unitaire]]></text>
 							</staticText>
 						</jr:tableHeader>
+						<jr:columnHeader height="30" rowSpan="1"/>
 						<jr:columnFooter height="30" rowSpan="1">
 							<staticText>
 								<reportElement x="0" y="0" width="65" height="30" uuid="8834a940-07c1-4246-a7d9-2920079b1a84"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle"/>
-								<text><![CDATA[Report]]></text>
+								<text><![CDATA[A reporter]]></text>
 							</staticText>
 						</jr:columnFooter>
 						<jr:detailCell style="table 2_TD" height="70" rowSpan="1">
@@ -328,12 +351,13 @@
 								<text><![CDATA[Montant total]]></text>
 							</staticText>
 						</jr:tableHeader>
+						<jr:columnHeader height="30" rowSpan="1"/>
 						<jr:columnFooter height="30" rowSpan="1">
-							<textField pattern="#,##0">
-								<reportElement x="0" y="0" width="69" height="30" uuid="888d9413-03e4-4a2e-a22f-0d041346d307"/>
+							<staticText>
+								<reportElement x="0" y="0" width="69" height="30" uuid="1eb40508-08de-4011-953e-e98e79a4c499"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle"/>
-								<textFieldExpression><![CDATA[$V{report}]]></textFieldExpression>
-							</textField>
+								<text><![CDATA[....................]]></text>
+							</staticText>
 						</jr:columnFooter>
 						<jr:detailCell style="table 2_TD" height="70" rowSpan="1">
 							<textField pattern="#,##0">
