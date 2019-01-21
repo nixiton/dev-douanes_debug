@@ -145,24 +145,16 @@
 	<parameter name="materiel" class="java.lang.String"/>
 	<parameter name="dataSource" class="net.sf.jasperreports.engine.data.JRBeanCollectionDataSource"/>
 	<parameter name="filamatra" class="java.lang.String"/>
+	<parameter name="paragraphe" class="java.lang.String"/>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
 	<title>
 		<band height="519" splitType="Stretch">
 			<staticText>
-				<reportElement x="163" y="1" width="315" height="37" uuid="0faa547c-29ad-412c-9051-d747dae27d27"/>
-				<textElement textAlignment="Center">
-					<font size="14" isBold="true"/>
-				</textElement>
-				<text><![CDATA[REPOBLIKAN’I MADAGASIKARA
---------------------------
-]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="165" y="137" width="26" height="20" uuid="27b6ad9d-aa7e-4af6-8452-7cb5b94aa1f0"/>
+				<reportElement x="165" y="150" width="26" height="20" uuid="27b6ad9d-aa7e-4af6-8452-7cb5b94aa1f0"/>
 				<textElement verticalAlignment="Top">
-					<font size="12"/>
+					<font size="11"/>
 				</textElement>
 				<text><![CDATA[(2)]]></text>
 			</staticText>
@@ -179,72 +171,72 @@
 (6)signature du chef du service ou de son délégué]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="165" y="177" width="26" height="20" uuid="8bf118fb-e430-4197-8fc6-319239135089"/>
+				<reportElement x="165" y="190" width="26" height="20" uuid="8bf118fb-e430-4197-8fc6-319239135089"/>
 				<textElement verticalAlignment="Top">
-					<font size="12"/>
+					<font size="11"/>
 				</textElement>
 				<text><![CDATA[(3)]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="165" y="216" width="26" height="20" uuid="817a300a-bb9a-4bde-b171-7dde0064a53a"/>
+				<reportElement x="165" y="229" width="26" height="20" uuid="817a300a-bb9a-4bde-b171-7dde0064a53a"/>
 				<textElement verticalAlignment="Top">
-					<font size="12"/>
+					<font size="11"/>
 				</textElement>
 				<text><![CDATA[(4)]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="164" y="255" width="26" height="20" uuid="e98b805f-5547-477d-8a2d-929c46b92be8"/>
+				<reportElement x="164" y="268" width="26" height="20" uuid="e98b805f-5547-477d-8a2d-929c46b92be8"/>
 				<textElement verticalAlignment="Top">
-					<font size="12"/>
+					<font size="11"/>
 				</textElement>
 				<text><![CDATA[(5)]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="147" y="60" width="346" height="20" uuid="10c7961f-62f6-437a-b8f9-bdbc6744aba1"/>
+				<reportElement x="147" y="73" width="346" height="20" uuid="10c7961f-62f6-437a-b8f9-bdbc6744aba1"/>
 				<textElement textAlignment="Center" verticalAlignment="Top">
-					<font size="12"/>
+					<font size="11"/>
 				</textElement>
 				<textFieldExpression><![CDATA["SECTION : " + $P{budget}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="164" y="99" width="156" height="19" uuid="fe43c0cc-298a-4eba-bc9a-4944e376d8e3"/>
-				<textElement verticalAlignment="Top">
-					<font size="12"/>
+				<reportElement x="86" y="112" width="156" height="19" uuid="fe43c0cc-298a-4eba-bc9a-4944e376d8e3"/>
+				<textElement textAlignment="Right" verticalAlignment="Top">
+					<font size="11"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{chap} == ""?"CHAPITRE(1) ......... ":"CHAPITRE(1) " +  $P{chap}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="321" y="99" width="156" height="19" uuid="966c4088-2530-4079-885a-7ebcdf5ce219"/>
-				<textElement verticalAlignment="Top">
-					<font size="12"/>
+				<reportElement x="242" y="112" width="156" height="19" uuid="966c4088-2530-4079-885a-7ebcdf5ce219"/>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$P{article} == ""?"ARTICLE ......... ":"ARTICLE " + $P{article}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$P{article} == ""?" ARTICLE ......... ":" ARTICLE " + $P{article}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="191" y="137" width="259" height="20" uuid="7c70c6ce-988e-44d3-af93-547a379b5bb4"/>
+				<reportElement x="191" y="150" width="259" height="20" uuid="7c70c6ce-988e-44d3-af93-547a379b5bb4"/>
 				<textElement textAlignment="Center">
-					<font size="12"/>
+					<font size="11"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{libelle} == ""?"................................":$P{libelle}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="191" y="177" width="259" height="20" uuid="c1c35f37-3fa3-4a74-9f8a-817d31ad49df"/>
+				<reportElement x="191" y="190" width="259" height="20" uuid="c1c35f37-3fa3-4a74-9f8a-817d31ad49df"/>
 				<textElement textAlignment="Center">
-					<font size="12"/>
+					<font size="11"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{subd}== ""?"................................":$P{subd}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="190" y="255" width="260" height="20" uuid="66566c2d-dfaa-4d5c-a75b-d26cdb82c444"/>
+				<reportElement x="190" y="268" width="260" height="20" uuid="66566c2d-dfaa-4d5c-a75b-d26cdb82c444"/>
 				<textElement textAlignment="Center">
-					<font size="12"/>
+					<font size="11"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{indication} == ""?"................................":$P{indication}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="191" y="216" width="259" height="20" uuid="b5d9432b-1829-458e-947c-4afe2685426d"/>
+				<reportElement x="191" y="229" width="259" height="20" uuid="b5d9432b-1829-458e-947c-4afe2685426d"/>
 				<textElement textAlignment="Center">
-					<font size="12"/>
+					<font size="11"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{materiel} == ""?"................................":$P{materiel}]]></textFieldExpression>
 			</textField>
@@ -352,27 +344,27 @@ L’Instruction Générale du 22 juillet 1955]]></text>
 				<textFieldExpression><![CDATA[" A " + $P{lieu} +  " le " +$P{date}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="161" y="80" width="318" height="19" uuid="25e5f61a-1373-4574-804f-98dd5cdb6cd7"/>
+				<reportElement x="161" y="93" width="318" height="19" uuid="25e5f61a-1373-4574-804f-98dd5cdb6cd7"/>
 				<textElement textAlignment="Center"/>
 				<text><![CDATA[--------------------------]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="161" y="118" width="318" height="19" uuid="a9813d0d-87e8-4bbc-8db2-cbbc8a53f309"/>
+				<reportElement x="161" y="131" width="318" height="19" uuid="a9813d0d-87e8-4bbc-8db2-cbbc8a53f309"/>
 				<textElement textAlignment="Center"/>
 				<text><![CDATA[--------------------------]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="161" y="158" width="318" height="19" uuid="40399abb-ac8a-4301-a6a7-18c429ed8c69"/>
+				<reportElement x="161" y="171" width="318" height="19" uuid="40399abb-ac8a-4301-a6a7-18c429ed8c69"/>
 				<textElement textAlignment="Center"/>
 				<text><![CDATA[--------------------------]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="161" y="197" width="318" height="19" uuid="d973cd80-5864-4926-b5bf-aa75d5ab2edf"/>
+				<reportElement x="161" y="210" width="318" height="19" uuid="d973cd80-5864-4926-b5bf-aa75d5ab2edf"/>
 				<textElement textAlignment="Center"/>
 				<text><![CDATA[--------------------------]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="161" y="236" width="318" height="19" uuid="b431085f-0be8-4d41-bc11-e407d4b5afb2"/>
+				<reportElement x="161" y="249" width="318" height="19" uuid="b431085f-0be8-4d41-bc11-e407d4b5afb2"/>
 				<textElement textAlignment="Center"/>
 				<text><![CDATA[--------------------------]]></text>
 			</staticText>
@@ -384,12 +376,28 @@ L’Instruction Générale du 22 juillet 1955]]></text>
 				<text><![CDATA[DES MOUVEMENTS D’ENTREE ET DE SORTIE]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="162" y="38" width="318" height="20" uuid="e08f40b3-ee86-4e8f-8c77-896263ee5603"/>
+				<reportElement x="162" y="51" width="318" height="20" uuid="e08f40b3-ee86-4e8f-8c77-896263ee5603"/>
 				<textElement textAlignment="Center" verticalAlignment="Top">
 					<font size="11"/>
 				</textElement>
 				<text><![CDATA[BUDGET : GENERAL]]></text>
 			</staticText>
+			<textField>
+				<reportElement x="398" y="112" width="156" height="19" uuid="1e2a9767-30ba-4423-995f-ae457f675c11"/>
+				<textElement verticalAlignment="Top">
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{paragraphe} == ""?"PARAGRAPHE ......... ":"PARAGRAPHE " + $P{paragraphe}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="147" y="0" width="383" height="50" uuid="272f1fc9-1d74-471e-b75b-7ec563c00c9f"/>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["REPOBLIKAN’I MADAGASIKARA\n"
++ $P{filamatra} +
+"\n--------------------------"]]></textFieldExpression>
+			</textField>
 		</band>
 	</title>
 	<detail>

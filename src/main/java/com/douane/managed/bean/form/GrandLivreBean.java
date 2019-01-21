@@ -21,6 +21,7 @@ public class GrandLivreBean {
 	private String budget;
 	private String chap;
 	private String article;
+	private String paragraphe;
 	private String libelle;
 	private String subd;
 	private String materiel;
@@ -126,5 +127,13 @@ public class GrandLivreBean {
 
 	public void setDateD(String dateD) {
 		this.dateD = dateD;
+	}
+
+	public String getParagraphe() {
+		return paragraphe;
+	}
+
+	public void setParagraphe(String paragraphe) {
+		this.paragraphe = paragraphe;
 	}
 }
