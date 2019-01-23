@@ -360,6 +360,8 @@
 </div-->
 
 <c:if test= "${table == 'fonction' || table == 'tous' || empty table }">
+<c:if test="#{topMenuMB.curentAgent.roleAgent.role eq 'ROLE_ADMIN'
+            }">
 <div class="col-lg-6" id="role">
 	<div class="box dark">
 		<header>
@@ -385,6 +387,7 @@
 		</div>
 	</div>
 </div>
+</c:if>
 </c:if>
 
 <c:if test= "${table == 'poste' || table == 'tous' || empty table }">

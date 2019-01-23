@@ -2378,7 +2378,7 @@ public class SuiviEditionBean implements Serializable {
 				row[3] = (((OpSortieArticle) o).getBeneficiaire()).getNomAgent();
 				Article a = ((OpSortieArticle) o).getArticle();
 				row[4] = a.getCodeArticle().getDesignation();
-				row[5] = a.getNombre();
+				row[5] = ((OpSortieArticle) o).getNombreToS();
 				row[6] = a.getPrix();
 				row[7] = (Long) row[5] * (Float) row[6];
 				if (((OpSortieArticle) o).getDecision() != null) {
