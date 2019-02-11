@@ -16,15 +16,19 @@
         
 
     <div   class="body collapse in table-responsive">
+    
+    <br /><br />
 
         <table class="table responsive-table">
-        			<tr>
+        			<!-- <tr>
                         <td><strong>ID</strong></td>
                         <td>#{depositaireBean.curentMaterielNouv.idMateriel}</td>
-                    </tr>
+                    </tr> -->
                     <tr>
-                        <td><strong>Type de matériel</strong></td>
-                        <td>#{depositaireBean.curentMaterielNouv.design.nomenMat.designation}</td>
+                        <!--  <td><strong>Type de matériel</strong></td>
+                        <td>#{depositaireBean.curentMaterielNouv.design.nomenMat.designation}</td> -->
+                        <td><strong>ID</strong></td>
+                        <td>#{depositaireBean.curentMaterielNouv.idMateriel}</td>
                         <td></td>
                         <td><strong>Financement</strong></td>
                         <td>#{depositaireBean.curentMaterielNouv.design.financement.designation}</td>
@@ -77,16 +81,8 @@
                         <td><strong>Autre</strong></td>
                         <td>#{depositaireBean.curentMaterielNouv.design.autre}</td>
                         <td></td>
-                        <td><strong>Image</strong></td>
-                        <td>
-                            <p:panel rendered="#{depositaireBean.curentMaterielNouv.design.image != null}">
-                                <h:graphicImage url="data:image/jpg;base64,#{depositaireBean.curentMaterielNouv.design.image}"
-                                                width="100px" height="75px" library="images" onclick="PF('dlg').show();"></h:graphicImage>
-                                 <p:dialog widgetVar="dlg" resizable="f" height="330px" width="530px" onShow="js">
-								    <h:graphicImage  library="images" url="data:image/jpg;base64,#{depositaireBean.curentMaterielNouv.design.image}" width="500px" height="300px"/>
-								 </p:dialog>
-                            </p:panel>
-                        </td>
+                        <td><strong>Numéro de série</strong></td>
+                        <td>#{depositaireBean.curentMaterielNouv.numSerie}</td>
                     </tr>
                     <tr>
                         <td><strong>Caractéristique</strong></td>
@@ -129,8 +125,17 @@
             				/>
             			</td>
            				<td></td>
-           				<td><strong>Numéro de série</strong></td>
-                        <td>#{depositaireBean.curentMaterielNouv.numSerie}</td>           
+                        <td><strong>Image</strong></td>
+                        <td>
+                            <p:panel rendered="#{depositaireBean.curentMaterielNouv.design.image != null}">
+                                <h:graphicImage url="data:image/jpg;base64,#{depositaireBean.curentMaterielNouv.design.image}"
+                                                width="100px" height="75px" library="images" onclick="PF('dlg').show();">
+                                </h:graphicImage>
+                                 <p:dialog widgetVar="dlg" resizable="f" height="330px" width="530px" >
+								    <h:graphicImage  library="images" url="data:image/jpg;base64,#{depositaireBean.curentMaterielNouv.design.image}" width="500px" height="300px"/>
+								 </p:dialog>
+                            </p:panel>
+                        </td>           
                     </tr>
                          
             </table>
