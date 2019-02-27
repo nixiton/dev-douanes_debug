@@ -83,7 +83,7 @@ public class Designation implements Serializable{
 		try {
 			//BufferedImage imagebuff = ImageIO.read(bais);
 			String encodedImage;
-			BufferedImage resizedImg = resize(ImageIO.read(bais), 275, 75);
+			BufferedImage resizedImg = resize(ImageIO.read(bais), 500, 500);
 			ByteArrayOutputStream os = new ByteArrayOutputStream();
 			if (resizedImg == null) {
 				return null;
