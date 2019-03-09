@@ -131,10 +131,40 @@
 					or topMenuMB.curentAgent.roleAgent.role eq 'ROLE_DG'
 					or topMenuMB.curentAgent.roleAgent.role eq 'ROLE_DRF'
 					}">
-
-					<li><h:link value="Saisie
-								des référentiels"
-									outcome="saisie_ref" immediate="true" style="color:#CCC"/></li>
+					
+					<li class="dropdown"><a href="#" class="dropdown-toggle"
+						data-toggle="dropdown" style="color:#CCC"> Saisie
+										des référentiels <b class="caret"></b>
+					</a>
+						<ul class="dropdown-menu">
+					
+							<li>
+								<h:link value="Matériels"
+											outcome="saisie_ref" immediate="true" style="color:#CCC">
+									<f:param name="table" value="sr_materiels" />
+								</h:link>
+							</li>
+							<li>
+								<h:link value="Utilisateurs"
+											outcome="saisie_ref" immediate="true" style="color:#CCC">
+									<f:param name="table" value="sr_utilisateurs" />
+								</h:link>
+							</li>
+							<li>
+								<h:link value="Motifs"
+											outcome="saisie_ref" immediate="true" style="color:#CCC">
+									<f:param name="table" value="sr_motifs" />
+								</h:link>
+							</li>
+							<li>
+								<h:link value="Autres"
+											outcome="saisie_ref" immediate="true" style="color:#CCC">
+									<f:param name="table" value="sr_autres" />
+								</h:link>
+							</li>
+							
+						</ul>
+					</li>
 
 					</c:if>
 					

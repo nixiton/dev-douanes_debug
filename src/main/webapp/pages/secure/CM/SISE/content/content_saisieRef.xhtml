@@ -9,7 +9,7 @@
 
  <h:head></h:head>
 
-<c:if test= "${table == 'nomenclature' || table == 'tous' || empty table }">
+<c:if test= "${table == 'nomenclature' || table == 'tous' || table == 'sr_materiels' || empty table  }">
 <div class="col-lg-6" id="nom">
 	<div class="box dark">
 		<header>
@@ -39,7 +39,7 @@
 </div>
 </c:if>
 
-<c:if test= "${table == 'type_materiel' || table == 'tous' || empty table }">
+<c:if test= "${table == 'type_materiel' || table == 'tous' || table == 'sr_materiels' || empty table }">
 <div class="col-lg-6" id="type">
 	<div class="box dark">
 		<header>
@@ -69,7 +69,7 @@
 </div>
 </c:if>
 
-<c:if test= "${table == 'etat' || table == 'tous' || empty table }">
+<c:if test= "${table == 'etat' || table == 'tous' || table == 'sr_materiels' || empty table  }">
 <div class="col-lg-6" id="etat">
 	<div class="box dark">
 		<header>
@@ -99,7 +99,7 @@
 </div>
 </c:if>
 
-<c:if test= "${table == 'marques' || table == 'tous' || empty table }">
+<c:if test= "${table == 'marques' || table == 'tous' || table == 'sr_materiels' || empty table }">
 <div class="col-lg-6" id="marque">
 	<div class="box dark">
 		<header>
@@ -156,7 +156,7 @@
 	</div>
 </div-->
 
-<c:if test= "${table == 'utilisateur' || table == 'tous' || empty table }">
+<c:if test= "${table == 'utilisateur' || table == 'tous' || table == 'sr_utilisateurs' || empty table }">
 <div class="col-lg-6" id="user">
 	<div class="box dark">
 		<header>
@@ -209,7 +209,7 @@
 		</div>
 	</div>
 </div-->
-<c:if test= "${table == 'motif_acquisition' || table == 'tous' || empty table }">
+<c:if test= "${table == 'motif_acquisition' || table == 'tous' || table == 'sr_motifs' || empty table }">
 <div class="col-lg-6" id="acq">
 	<div class="box dark">
 		<header>
@@ -239,7 +239,7 @@
 </div>
 </c:if>
 
-<c:if test= "${table == 'motif_detachement' || table == 'tous' || empty table }">
+<c:if test= "${table == 'motif_detachement' || table == 'tous' || table == 'sr_motifs' || empty table }">
 <div class="col-lg-6" id="dec">
 	<div class="box dark">
 		<header>
@@ -269,7 +269,7 @@
 </div>
 </c:if>
 
-<c:if test= "${table == 'financement' || table == 'tous' || empty table }">
+<c:if test= "${table == 'financement' || table == 'tous' || table == 'sr_autres' || empty table  }">
 <div class="col-lg-6" id="fin">
 	<div class="box dark">
 		<header>
@@ -359,7 +359,7 @@
 	</div>
 </div-->
 
-<c:if test= "${table == 'fonction' || table == 'tous' || empty table }">
+<c:if test= "${table == 'fonction' || table == 'tous' || table == 'sr_utilisateurs' || empty table }">
 <c:if test="#{topMenuMB.curentAgent.roleAgent.role eq 'ROLE_ADMIN'
             }">
 <div class="col-lg-6" id="role">
@@ -390,7 +390,37 @@
 </c:if>
 </c:if>
 
-<c:if test= "${table == 'poste' || table == 'tous' || empty table }">
+<c:if test= "${table == 'direction' || table == 'tous' || table == 'sr_utilisateurs' || empty table }">
+<div class="col-lg-6" id="dir">
+	<div class="box dark">
+		<header>
+		<div class="icons">
+			<i class="fa fa-edit"></i>
+		</div>
+		<h5>Direction</h5>
+		<!-- .toolbar -->
+		<div class="toolbar">
+			<nav style="padding: 8px;"> <a href="javascript:;"
+				class="btn btn-default btn-xs collapse-box"> <i
+				class="fa fa-minus"></i>
+			</a> <a href="javascript:;" class="btn btn-default btn-xs full-box">
+				<i class="fa fa-expand"></i>
+			</a> <!--a href="javascript:;" class="btn btn-danger btn-xs close-box">
+                                    <i class="fa fa-times"></i>
+                                </a--> </nav>
+		</div>
+		<!-- /.toolbar --> </header>
+		<div class="body">
+
+			<ui:include src="/pages/secure/CM/SISE/tables/tables_saisieDirection.xhtml"></ui:include>
+
+
+		</div>
+	</div>
+</div>
+</c:if>
+
+<c:if test= "${table == 'poste' || table == 'tous' || table == 'sr_utilisateurs' || empty table  }">
 <div class="col-lg-6" id="poste">
 	<div class="box dark">
 		<header>
@@ -420,7 +450,7 @@
 </div>
 </c:if>
 
-<c:if test= "${table == 'devise' || table == 'tous' || empty table }">
+<c:if test= "${table == 'devise' || table == 'tous' || table == 'sr_autres' || empty table }">
 <div class="col-lg-6" id="devise">
 	<div class="box dark">
 		<header>
@@ -443,36 +473,6 @@
 		<div class="body">
 
 			<ui:include src="/pages/secure/CM/SISE/tables/tables_saisieDevise.xhtml"></ui:include>
-
-
-		</div>
-	</div>
-</div>
-</c:if>
-
-<c:if test= "${table == 'direction' || table == 'tous' || empty table }">
-<div class="col-lg-6" id="dir">
-	<div class="box dark">
-		<header>
-		<div class="icons">
-			<i class="fa fa-edit"></i>
-		</div>
-		<h5>Direction</h5>
-		<!-- .toolbar -->
-		<div class="toolbar">
-			<nav style="padding: 8px;"> <a href="javascript:;"
-				class="btn btn-default btn-xs collapse-box"> <i
-				class="fa fa-minus"></i>
-			</a> <a href="javascript:;" class="btn btn-default btn-xs full-box">
-				<i class="fa fa-expand"></i>
-			</a> <!--a href="javascript:;" class="btn btn-danger btn-xs close-box">
-                                    <i class="fa fa-times"></i>
-                                </a--> </nav>
-		</div>
-		<!-- /.toolbar --> </header>
-		<div class="body">
-
-			<ui:include src="/pages/secure/CM/SISE/tables/tables_saisieDirection.xhtml"></ui:include>
 
 
 		</div>
@@ -510,7 +510,7 @@
 </div-->
 
 
-<c:if test= "${table == 'motif_sortie' || table == 'tous' || empty table }">
+<c:if test= "${table == 'motif_sortie' || table == 'tous' || table == 'sr_motifs' || empty table  }">
 <div class="col-lg-6" id="sortie">
 	<div class="box dark">
 		<header>
