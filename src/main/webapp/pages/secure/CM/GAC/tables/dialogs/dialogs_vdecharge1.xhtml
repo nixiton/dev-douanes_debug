@@ -10,7 +10,7 @@
 <h:head></h:head> 	
 	<p:growl id="growl4" for="myerror" showDetail="true" sticky="true" redisplay="false"/>
 	
-    <p:dialog id="detail4" widgetVar="detail4" closable="false" header="Détails Traçabilité décharge" showEffect="explode" hideEffect="explode" width="1000" height="350">
+    <p:dialog id="detail4" widgetVar="detail4" position = "center,top" closable="false" header="Détails Traçabilité décharge" showEffect="explode" hideEffect="explode" width="1000" height="350">
 
 
     <c:if test="#{gacBean.currentOpSortie['class'].simpleName eq 'OpSortie'}">
@@ -30,7 +30,7 @@
         <table class="table responsive-table">
                     <tr>
                         <td><strong>Type de matériel</strong></td>
-                        <td>#{gacBean.currentOpSortie.mat.design.nomenMat.designation}</td>
+                        <td>#{gacBean.currentOpSortie.mat.design.typematerieladd.designation}</td>
                         <td></td>
                         <td><strong>Numéro de série</strong></td>
                         <td>#{gacBean.currentOpSortie.mat.numSerie}</td>

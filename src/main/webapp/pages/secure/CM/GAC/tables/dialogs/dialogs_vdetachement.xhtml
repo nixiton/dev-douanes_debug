@@ -9,7 +9,7 @@
 <h:head></h:head> 	
 	<p:growl id="growl" for="myerror" showDetail="true" sticky="true" redisplay="false"/>
 	
-    <p:dialog id="detail" widgetVar="detail" closable="false" header="Détails validation détachement" showEffect="explode" hideEffect="explode" width="1250" height="450">
+    <p:dialog id="detail" widgetVar="detail" position = "center,top" closable="false" header="Détails validation détachement" showEffect="explode" hideEffect="explode" width="1250" height="450">
 
     <h:form class="form-horizontal">
             <p:commandButton actionListner="#{gacBean.exit()}" icon="ui-icon-delete"
@@ -26,7 +26,7 @@
             <table class="table responsive-table">
                     <tr>
                         <td><strong>Type de matériel</strong></td>
-                        <td>#{gacBean.opDetToValidate.mat.design.nomenMat.designation}</td>
+                        <td>#{gacBean.opDetToValidate.mat.design.typematerieladd.designation}</td>
                         <td></td>
                         <td><strong>Immatriculation détenteur</strong></td>
                         <td>#{gacBean.opDetToValidate.detenteur.im}</td>

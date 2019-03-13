@@ -43,8 +43,7 @@
 		<field name="row5" class="java.lang.Long"/>
 		<field name="row6" class="java.lang.Long"/>
 		<variable name="qte" class="java.lang.Long" calculation="Sum">
-			<variableExpression><![CDATA[$F{row2} - $F{row5}]]></variableExpression>
-			<initialValueExpression><![CDATA[$P{report}]]></initialValueExpression>
+			<variableExpression><![CDATA[$F{row2} - $F{row5} ]]></variableExpression>
 		</variable>
 		<variable name="ec" class="java.lang.Long" calculation="Sum">
 			<variableExpression><![CDATA[$F{row2}]]></variableExpression>
@@ -373,7 +372,7 @@
 							<textField>
 								<reportElement x="0" y="0" width="92" height="30" uuid="8ef7972c-3e81-4e00-b8bf-6135dae4b7fa"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle"/>
-								<textFieldExpression><![CDATA[$V{qte}]]></textFieldExpression>
+								<textFieldExpression><![CDATA[$V{qte} + $P{report}]]></textFieldExpression>
 							</textField>
 						</jr:columnFooter>
 						<jr:detailCell style="table_TD" height="55" rowSpan="1">

@@ -13,6 +13,8 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import java.text.SimpleDateFormat;
 import java.util.*;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 /*__________itext pdf____________*/
 
@@ -985,27 +987,69 @@ public class GACBean {
 	}
 
 	public List<Object[]> getDesingationByOpEntree(Operation op) {
+		System.out.println("FIRST CALL");
 		List<Object[]> results = usermetierimpl.listDesignationByOperationEntree((OpEntree) op);
-		HashMap<Nomenclature, Float> bynom = new HashMap<Nomenclature, Float>();
-		for (Object[] o : results) {
+		Map<Nomenclature, Float> bynom = new ConcurrentHashMap<Nomenclature, Float>();
+		Iterator<Map.Entry<Nomenclature, Float>>  it;
+		try {
+		// disable concurrent 
+		//synchronized (bynom) {
+		Iterator<Object[]> resIt = results.iterator();
+		while(resIt.hasNext()){
+
+		//for(int i = 0; i<results.size(); i++) {
+		//for (Object[] o : results) {
+			//Object[] o = results.get(i);
+			Object[] o = resIt.next();
 			Designation a = (Designation) (o[0]);
 			Long nbr = (Long) (o[1]);
 			if (bynom.isEmpty()) {
 				bynom.put(a.getNomenMat(), nbr * a.getPu());
+				System.out.println(a.getNomenMat()+ " initialize "+bynom.get(a.getNomenMat()));
 			} else {
-				for (Map.Entry<Nomenclature, Float> entry : bynom.entrySet()) {
-
-					if (entry.getKey() == a.getNomenMat()) {
-						entry.setValue(entry.getValue() + (nbr * a.getPu()));
+				//it = bynom.entrySet().iterator();
+				//Map.Entry<Nomenclature, Float>  entry;
+				if(bynom.containsKey(a.getNomenMat())) {
+					Float curentvalue = bynom.get(a.getNomenMat())+ (nbr * a.getPu());
+					bynom.replace(a.getNomenMat(), curentvalue);
+					System.out.println(a.getNomenMat()+ " has current value "+bynom.get(a.getNomenMat()));
+				}
+				else {
+					bynom.put(a.getNomenMat(), nbr * a.getPu());
+					System.out.println(a.getNomenMat()+ " as "+bynom.get(a.getNomenMat()));
+				}
+				/*while (it.hasNext())
+				{
+					 entry = it.next();
+					 System.out.println(a.getNomenMat()+ " has  value "+bynom.get(a.getNomenMat()));
+					if (entry.getKey() == a.getNomenMat() && entry.getValue()!=null) {
+						Float curentvalue = entry.getValue()+ (nbr * a.getPu());
+						bynom.replace(a.getNomenMat(), curentvalue);
+						System.out.println(a.getNomenMat()+ " has current value "+bynom.get(a.getNomenMat()));
+						//entry.setValue(curentvalue);
 					} else {
 						bynom.put(a.getNomenMat(), nbr * a.getPu());
+						System.out.println(a.getNomenMat()+ " as "+bynom.get(a.getNomenMat()));
 					}
-				}
+				}*/
 			}
+			
+			
 		}
-		List<Object[]>resultatfinal = new ArrayList<Object[]>();
+		//}
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+		List<Object[]>resultatfinal = new CopyOnWriteArrayList<Object[]>();
+		
+		
 		for (Map.Entry<Nomenclature, Float> entry : bynom.entrySet()) {
+		//while (it.hasNext())
+		//{
+			//entry = it.next();
 			Object[] item = new Object[3];
+			System.out.println(entry.getKey().getNomenclature()+ " has current valuesss "+entry.getValue());
 			item[0] = entry.getKey();
 			item[1] = entry.getValue();
 			List<Object[]> ourlist = new ArrayList<Object[]>();
@@ -1014,11 +1058,14 @@ public class GACBean {
 				if(a.getNomenMat() == entry.getKey()) {
 					ourlist.add(o);
 				}
+				//System.out.println("Its ok!!");
 			}
 			item[2] = ourlist;
 			resultatfinal.add(item);
 		}
+		// */
 		return resultatfinal;
+		
 	}
 
 	public Operation getOpSortieArticleToValidate() {

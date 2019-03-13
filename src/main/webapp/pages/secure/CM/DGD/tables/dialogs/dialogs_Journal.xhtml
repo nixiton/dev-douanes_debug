@@ -36,13 +36,14 @@
  				<br/>
             </div>
              <div class="col-md-12" style="text-align: center;">
- 				BUDGET <br/><p:inputText value ="#{JasperTableExampleBean.journal.budget}" style="text-align: center;width:100%"></p:inputText> <br/>
+ 				BUDGET GENERAL<br/>
+ 				SECTION <p:inputText value ="#{JournalBean.section}" style="text-align: center;width:70%"></p:inputText> <br/>
  				CHAPITRE(1) <p:inputText value ="#{JasperTableExampleBean.journal.chapitre}" style="text-align: center;width: 25%"></p:inputText>
  				ARTICLE <p:inputText value ="#{JasperTableExampleBean.journal.article}" style="text-align: center;width: 25%"></p:inputText> <br></br>
  				(2) <p:inputText value ="#{JasperTableExampleBean.journal.num2}"  style="text-align: center;width: 70%"></p:inputText><br></br>
  				(3) <f:view contentType="text/html">
  				<p:selectOneMenu id="directionint" value="#{JasperTableExampleBean.journal.num3}" appendTo="@this">
-                       <f:selectItems value="#{siseBean.mapDirection(suivieditionBean.direction, JournalBean.datF)}" />
+                       <f:selectItems value="#{siseBean.mapDirection(JournalBean.dir, JournalBean.datF)}" />
                  </p:selectOneMenu></f:view>
  				<!-- h:outputText value="#{JournalBean.direction}" /--><br></br> 
  				(4) <p:inputText  value ="#{JournalBean.quatre}" style="text-align: center;width: 70%"></p:inputText><br></br>
@@ -77,7 +78,7 @@
 	 			A <h:outputText value="#{JournalBean.trois}" />, le <p:inputText value ="#{JasperTableExampleBean.journal.date}" style="text-align: center;"></p:inputText><br></br>
 	 		</div><br/>
 	 		<div class="col-md-12">
-	 			(6) <p:inputText value ="#{JasperTableExampleBean.journal.num6}" style="text-align: center;width: 50%"></p:inputText><br></br>
+	 			(6) <p:inputText value ="#{JasperTableExampleBean.journal.num6}" style="text-align: center;width: 50%" disabled="True"></p:inputText><br></br>
         			 Commencé le : <h:outputText value="#{JournalBean.dateD}"/> Terminé le : <h:outputText value="#{JournalBean.dateF}"/>
         				<!--<p:calendar value ="#{JasperTableExampleBean.journal.debutDate}" id="date1" locale="fr" navigator="true" pattern="yyyy-MMM-dd" /><br/>
 		 			   
@@ -182,6 +183,7 @@
  			<!-- f:setPropertyActionListener target="#{JasperTableExampleBean.journal.num3}" value="#{JournalBean.direction}" /-->
  			<f:setPropertyActionListener target="#{JasperTableExampleBean.journal.lieu}" value="#{JournalBean.trois}" />
  			<f:setPropertyActionListener target="#{JasperTableExampleBean.journal.num4}" value="#{JournalBean.quatre}" />
+ 			<f:setPropertyActionListener target="#{JasperTableExampleBean.journal.budget}" value="#{JournalBean.section}" />
  			</p:commandButton>
  			<br/>
  			
@@ -189,6 +191,7 @@
  			<!-- f:setPropertyActionListener target="#{JasperTableExampleBean.journal.num3}" value="#{JournalBean.direction}" /-->
  			<f:setPropertyActionListener target="#{JasperTableExampleBean.journal.lieu}" value="#{JournalBean.trois}" />
  			<f:setPropertyActionListener target="#{JasperTableExampleBean.journal.num4}" value="#{JournalBean.quatre}" />
+ 			<f:setPropertyActionListener target="#{JasperTableExampleBean.journal.budget}" value="#{JournalBean.section}" />
  			</p:commandButton>
  			
 </h:form>

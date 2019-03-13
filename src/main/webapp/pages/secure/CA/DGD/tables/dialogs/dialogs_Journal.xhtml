@@ -40,7 +40,7 @@
              	<div class="col-md-6">Service : 
              	<f:view contentType="text/html">
  				<p:selectOneMenu id="directionint" value="#{JasperTableExampleBean.journal.num3}" appendTo="@this" style="font-size: 15px;">
-                        <f:selectItems value="#{siseBean.mapDirection(suivieditionBean.direction, JournalABean.datF)}" />
+                        <f:selectItems value="#{siseBean.mapDirection(JournalABean.direc, JournalABean.datF)}" />
                  </p:selectOneMenu></f:view>
              	<!-- #{JournalABean.direction}-->
              	</div> 

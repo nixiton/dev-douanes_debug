@@ -119,24 +119,38 @@
 	                            <h:outputText value="#{t.numSerie}" />
 	                        </p:column> -->
 	                        
-	                        <p:ajax event="change" update="marque ref num codification" />
+	                        <p:ajax event="change" update="marque ref num codification carac" />
 	                    </p:selectOneMenu>
 					</div>
                 </div>
                 <hr/>
                 
                 <div class="row">
-					<div class="col-lg-4 col-lg-offset-1">   
-		                <label for="text1" class="control-label ">Nomenclature
-		                </label>
-					</div>
-	                <div class="col-lg-6">
-	
-	                    <h:outputText id="num" value="#{depositaireBean.materielSeclectedDett.design.typematerieladd.nomenclaureParent.designation}" ></h:outputText>
-	
-	                </div>
+				<div class="col-lg-4 col-lg-offset-1">     
+                
+	                <label for="text1" class="control-label ">Type du Matériel
+									</label>
 				</div>
-				<hr/>
+                <div class="col-lg-6">
+
+                    <h:outputText id="num" value="#{depositaireBean.materielSeclectedDett.design.typematerieladd.designation}" ></h:outputText>
+
+                </div>
+			</div>
+			<hr />
+			<div class="row">
+				<div class="col-lg-4 col-lg-offset-1">     
+                
+	                <label for="text12" class="control-label ">Caractéristique
+									</label>
+				</div>
+                <div class="col-lg-6">
+
+                    <h:outputText id="carac" value="#{depositaireBean.materielSeclectedDett.design.renseignement}" ></h:outputText>
+
+                </div>
+			</div>
+			<hr />
 				
 				<div class="row">
 					<div class="col-lg-4 col-lg-offset-1">   

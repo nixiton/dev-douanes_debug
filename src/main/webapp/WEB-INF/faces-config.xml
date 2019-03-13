@@ -17,7 +17,6 @@
    <redirect/>
   </navigation-case>
  </navigation-rule>
- 
  <navigation-rule>
   <from-view-id>*</from-view-id>
   <!-- navigation-case for method login() navigation case for method logout() -->
@@ -27,7 +26,6 @@
    <redirect/>
   </navigation-case>
  </navigation-rule>
- 
  <navigation-rule>
   <from-view-id>/pages/unsecure/login.xhtml</from-view-id>
   <!-- navigation-case for method login() -->
@@ -265,8 +263,6 @@
    <to-view-id>/pages/secure/CM/DC/saisieMatExG.xhtml</to-view-id>
    <redirect/>
   </navigation-case>
-  
-  
   <navigation-case>
    <from-outcome>saisie_article</from-outcome>
    <to-view-id>/pages/secure/CA/DC/saisieMatEx.xhtml</to-view-id>
@@ -277,8 +273,6 @@
    <to-view-id>/pages/secure/CA/DC/saisieMatExG.xhtml</to-view-id>
    <redirect/>
   </navigation-case>
-  
-  
   <navigation-case>
    <from-outcome>prise_en_charge</from-outcome>
    <to-view-id>/pages/secure/CM/DC/priseEnCharge.xhtml</to-view-id>
@@ -635,7 +629,11 @@
    <from-outcome>success</from-outcome>
    <to-view-id>/pages/secure/CM/SISE/saisieRef.xhtml</to-view-id>
    <redirect>
-    <view-param>
+   	<view-param>
+     <name>table</name>
+     <value>sr_materiels</value>
+    </view-param>
+   	<view-param>
      <name>view</name>
      <value>nom</value>
     </view-param>
@@ -690,6 +688,10 @@
    <from-outcome>success</from-outcome>
    <to-view-id>/pages/secure/CM/SISE/saisieRef.xhtml</to-view-id>
    <redirect>
+   	<view-param>
+     <name>table</name>
+     <value>sr_utilisateurs</value>
+    </view-param>
     <view-param>
      <name>view</name>
      <value>user</value>
@@ -712,6 +714,10 @@
    <from-outcome>success</from-outcome>
    <to-view-id>/pages/secure/CM/SISE/saisieRef.xhtml</to-view-id>
    <redirect>
+   	<view-param>
+     <name>table</name>
+     <value>sr_administratifs</value>
+    </view-param>
     <view-param>
      <name>view</name>
      <value>dir</value>
@@ -723,6 +729,10 @@
    <from-outcome>success</from-outcome>
    <to-view-id>/pages/secure/CM/SISE/saisieRef.xhtml</to-view-id>
    <redirect>
+   	<view-param>
+     <name>table</name>
+     <value>sr_materiels</value>
+    </view-param>
     <view-param>
      <name>view</name>
      <value>etat</value>
@@ -734,6 +744,10 @@
    <from-outcome>success</from-outcome>
    <to-view-id>/pages/secure/CM/SISE/saisieRef.xhtml</to-view-id>
    <redirect>
+   	<view-param>
+     <name>table</name>
+     <value>sr_autres</value>
+    </view-param>
     <view-param>
      <name>view</name>
      <value>fin</value>
@@ -789,6 +803,10 @@
    <from-outcome>success</from-outcome>
    <to-view-id>/pages/secure/CM/SISE/saisieRef.xhtml</to-view-id>
    <redirect>
+   	<view-param>
+     <name>table</name>
+     <value>sr_materiels</value>
+    </view-param>
     <view-param>
      <name>view</name>
      <value>marque</value>
@@ -833,6 +851,10 @@
    <from-outcome>success</from-outcome>
    <to-view-id>/pages/secure/CM/SISE/saisieRef.xhtml</to-view-id>
    <redirect>
+   	<view-param>
+     <name>table</name>
+     <value>sr_motifs</value>
+    </view-param>
     <view-param>
      <name>view</name>
      <value>acq</value>
@@ -855,6 +877,10 @@
    <from-outcome>success</from-outcome>
    <to-view-id>/pages/secure/CM/SISE/saisieRef.xhtml</to-view-id>
    <redirect>
+   	<view-param>
+     <name>table</name>
+     <value>sr_motifs</value>
+    </view-param>
     <view-param>
      <name>view</name>
      <value>dec</value>
@@ -866,6 +892,10 @@
    <from-outcome>success</from-outcome>
    <to-view-id>/pages/secure/CM/SISE/saisieRef.xhtml</to-view-id>
    <redirect>
+   	<view-param>
+     <name>table</name>
+     <value>sr_motifs</value>
+    </view-param>
     <view-param>
      <name>view</name>
      <value>sortie</value>
@@ -878,6 +908,10 @@
    <!-- >to-view-id>/pages/secure/CM/SISE/saisieRef.xhtml#poste</to-view-id-->
    <to-view-id>/pages/secure/CM/SISE/saisieRef.xhtml</to-view-id>
    <redirect>
+   <view-param>
+     <name>table</name>
+     <value>sr_administratifs</value>
+    </view-param>
     <view-param>
      <name>view</name>
      <value>poste</value>
@@ -890,6 +924,10 @@
    <!-- >to-view-id>/pages/secure/CM/SISE/saisieRef.xhtml#poste</to-view-id-->
    <to-view-id>/pages/secure/CM/SISE/saisieRef.xhtml</to-view-id>
    <redirect>
+   	<view-param>
+     <name>table</name>
+     <value>sr_autres</value>
+    </view-param>
     <view-param>
      <name>view</name>
      <value>devise</value>
@@ -901,6 +939,10 @@
    <from-outcome>success</from-outcome>
    <to-view-id>/pages/secure/CM/SISE/saisieRef.xhtml</to-view-id>
    <redirect>
+   	<view-param>
+     <name>table</name>
+     <value>sr_administratifs</value>
+    </view-param>
     <view-param>
      <name>view</name>
      <value>role</value>
@@ -934,12 +976,28 @@
    <from-outcome>success</from-outcome>
    <to-view-id>/pages/secure/CM/SISE/saisieRef.xhtml</to-view-id>
    <redirect>
+   	<view-param>
+     <name>table</name>
+     <value>sr_materiels</value>
+    </view-param>
     <view-param>
      <name>view</name>
      <value>type</value>
     </view-param>
    </redirect>
   </navigation-case>
+  
+  <navigation-case>
+   <from-action>#{userMB.exit}</from-action>
+   <to-view-id>/pages/secure/CM/SISE/saisieRef.xhtml</to-view-id>
+   <redirect>
+   	<view-param>
+     <name>table</name>
+     <value>sr_utilisateurs</value>
+    </view-param>
+   </redirect>
+  </navigation-case>
+  
   <navigation-case>
    <from-action>#{depositaireBean.addMaterielExistant}</from-action>
    <from-outcome>success</from-outcome>

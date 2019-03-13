@@ -17,25 +17,25 @@
 		<!-- ADMIN-->
 		<sec:access-denied-handler ref="my403" />
 		<sec:intercept-url pattern="/pages/secure/admin/**"
-						   access="hasAnyRole('ROLE_ADMIN','ROLE_CONS','ROLE_SISE','ROLE_DG', 'ROLE_DRF')" />
+						   access="hasAnyRole('ROLE_ADMIN','ROLE_CONS','ROLE_SISE','ROLE_DG', 'ROLE_DRF','ROLE_CONSLOCAL')" />
 		<sec:intercept-url pattern="/admin/**"
-						   access="hasAnyRole('ROLE_ADMIN','ROLE_CONS','ROLE_SISE','ROLE_DG', 'ROLE_DRF')" />
+						   access="hasAnyRole('ROLE_ADMIN','ROLE_CONS','ROLE_SISE','ROLE_DG', 'ROLE_DRF','ROLE_CONSLOCAL')" />
 
 		<sec:intercept-url pattern="/pages/template/common/**"
-						   access="hasAnyRole('ROLE_ADMIN','ROLE_CONS','ROLE_DC','ROLE_GAC','ROLE_SISE','ROLE_DG','ROLE_DRF')" />
+						   access="hasAnyRole('ROLE_ADMIN','ROLE_CONS','ROLE_DC','ROLE_GAC','ROLE_SISE','ROLE_DG','ROLE_DRF','ROLE_CONSLOCAL')" />
 
 		<sec:intercept-url pattern="/pages/secure/choice.xhtml"
-						   access="hasAnyRole('ROLE_ADMIN','ROLE_CONS','ROLE_DC','ROLE_GAC','ROLE_SISE','ROLE_DG','ROLE_DRF')" />
+						   access="hasAnyRole('ROLE_ADMIN','ROLE_CONS','ROLE_DC','ROLE_GAC','ROLE_SISE','ROLE_DG','ROLE_DRF','ROLE_CONSLOCAL')" />
 		<sec:intercept-url pattern="/user/**"
-						   access="hasAnyRole('ROLE_ADMIN','ROLE_CONS','ROLE_DC','ROLE_GAC','ROLE_SISE','ROLE_DG','ROLE_DRF')" />
+						   access="hasAnyRole('ROLE_ADMIN','ROLE_CONS','ROLE_DC','ROLE_GAC','ROLE_SISE','ROLE_DG','ROLE_DRF','ROLE_CONSLOCAL')" />
 						   
 		<sec:intercept-url pattern="/pages/secure/CM/ComptaMatiere.xhtml"
-						   access="hasAnyRole('ROLE_DC','ROLE_ADMIN','ROLE_CONS', 'ROLE_GAC', 'ROLE_SISE','ROLE_DG','ROLE_DRF')" />
+						   access="hasAnyRole('ROLE_DC','ROLE_ADMIN','ROLE_CONS', 'ROLE_GAC', 'ROLE_SISE','ROLE_DG','ROLE_DRF','ROLE_CONSLOCAL')" />
 
 		<sec:intercept-url pattern="/pages/secure/CA/ComptaAdmin.xhtml"
-						   access="hasAnyRole('ROLE_DC','ROLE_ADMIN','ROLE_CONS', 'ROLE_GAC', 'ROLE_SISE','ROLE_DG','ROLE_DRF')" />
+						   access="hasAnyRole('ROLE_DC','ROLE_ADMIN','ROLE_CONS', 'ROLE_GAC', 'ROLE_SISE','ROLE_DG','ROLE_DRF','ROLE_CONSLOCAL')" />
 		<sec:intercept-url pattern=" /pages/secure/admin/adminCA.xhtml"
-						   access="hasAnyRole('ROLE_ADMIN','ROLE_CONS', 'ROLE_SISE','ROLE_DG','ROLE_DRF')" />
+						   access="hasAnyRole('ROLE_ADMIN','ROLE_CONS', 'ROLE_SISE','ROLE_DG','ROLE_DRF','ROLE_CONSLOCAL')" />
 						   
 		<!-- CONSULTATION GENERALE -->
 		<sec:intercept-url pattern="/pages/secure/CM/DC/saisieMatExG.xhtml"
@@ -72,16 +72,16 @@
 		<!-- DEPOSITAIRE COMPTABLE -->
 		
 		<sec:intercept-url pattern="/dc/**"
-						   access="hasAnyRole('ROLE_DC','ROLE_ADMIN','ROLE_CONS')" />
+						   access="hasAnyRole('ROLE_DC','ROLE_ADMIN','ROLE_CONS','ROLE_CONSLOCAL')" />
 		<sec:intercept-url pattern="/pages/secure/CM/DC/saisieMatEx.xhtml"
-						   access="hasAnyRole('ROLE_DC','ROLE_ADMIN','ROLE_CONS','ROLE_SISE', 'ROLE_DG','ROLE_DRF')" />
+						   access="hasAnyRole('ROLE_DC','ROLE_ADMIN','ROLE_CONS','ROLE_SISE', 'ROLE_DG','ROLE_DRF','ROLE_CONSLOCAL')" />
 		<sec:intercept-url pattern="/pages/secure/CM/DC/priseEnCharge.xhtml"
-						   access="hasAnyRole('ROLE_DC','ROLE_ADMIN','ROLE_CONS','ROLE_SISE', 'ROLE_DG','ROLE_DRF')" />
+						   access="hasAnyRole('ROLE_DC','ROLE_ADMIN','ROLE_CONS','ROLE_SISE', 'ROLE_DG','ROLE_DRF','ROLE_CONSLOCAL')" />
 						   
 		<sec:intercept-url pattern="/pages/secure/CA/DC/saisieMatEx.xhtml"
-						   access="hasAnyRole('ROLE_DC','ROLE_ADMIN','ROLE_CONS','ROLE_SISE', 'ROLE_DG','ROLE_DRF')" />
+						   access="hasAnyRole('ROLE_DC','ROLE_ADMIN','ROLE_CONS','ROLE_SISE', 'ROLE_DG','ROLE_DRF','ROLE_CONSLOCAL')" />
 		<sec:intercept-url pattern="/pages/secure/CA/DC/priseEnCharge.xhtml"
-						   access="hasAnyRole('ROLE_DC','ROLE_ADMIN','ROLE_CONS','ROLE_SISE', 'ROLE_DG','ROLE_DRF')" />
+						   access="hasAnyRole('ROLE_DC','ROLE_ADMIN','ROLE_CONS','ROLE_SISE', 'ROLE_DG','ROLE_DRF','ROLE_CONSLOCAL')" />
 						
 		<sec:intercept-url pattern="/pages/secure/CA/DC/decharge.xhtml"
 						   access="hasAnyRole('ROLE_DC','ROLE_ADMIN')" />
@@ -102,37 +102,37 @@
 		
 		
 		<sec:intercept-url pattern="/operation/**"
-						   access="hasAnyRole('ROLE_DC','ROLE_ADMIN','ROLE_CONS','ROLE_SISE','ROLE_DG','ROLE_DRF')" />				   
+						   access="hasAnyRole('ROLE_DC','ROLE_ADMIN','ROLE_CONS','ROLE_SISE','ROLE_DG','ROLE_DRF','ROLE_CONSLOCAL')" />				   
 		
 						   
 		<!-- EDITION DES DOCUMENTS -->
 		<sec:intercept-url pattern="/pages/secure/CM/DGD/tables/dialogs/**"
-						   access="hasAnyRole('ROLE_DC','ROLE_CONS','ROLE_ADMIN','ROLE_SISE','ROLE_GAC','ROLE_DG','ROLE_DRF')" />
+						   access="hasAnyRole('ROLE_DC','ROLE_CONS','ROLE_ADMIN','ROLE_SISE','ROLE_GAC','ROLE_DG','ROLE_DRF','ROLE_CONSLOCAL')" />
 
 		
 		<!-- CONSULTATION-->
 		
 		<sec:intercept-url pattern="/tracabilite/comptabilite-matiere/suivi/tracabilite"
-						   access="hasAnyRole('ROLE_CONS','ROLE_ADMIN','ROLE_SISE','ROLE_GAC','ROLE_DG','ROLE_DRF')" />
+						   access="hasAnyRole('ROLE_CONS','ROLE_ADMIN','ROLE_SISE','ROLE_GAC','ROLE_DG','ROLE_DRF','ROLE_CONSLOCAL')" />
 		
 		
 		<sec:intercept-url pattern="/pages/secure/CM/DGD/listeMatStatHisto.xhtml"
-						   access="hasAnyRole('ROLE_DC','ROLE_CONS','ROLE_ADMIN','ROLE_SISE','ROLE_GAC','ROLE_DG','ROLE_DRF')" />
+						   access="hasAnyRole('ROLE_DC','ROLE_CONS','ROLE_ADMIN','ROLE_SISE','ROLE_GAC','ROLE_DG','ROLE_DRF','ROLE_CONSLOCAL')" />
 		<sec:intercept-url pattern="/pages/secure/CM/DGD/editionEtats.xhtml"
-						   access="hasAnyRole('ROLE_DC','ROLE_CONS','ROLE_ADMIN','ROLE_SISE','ROLE_GAC','ROLE_DG','ROLE_DRF')" />
+						   access="hasAnyRole('ROLE_DC','ROLE_CONS','ROLE_ADMIN','ROLE_SISE','ROLE_GAC','ROLE_DG','ROLE_DRF','ROLE_CONSLOCAL')" />
 		
 		<sec:intercept-url pattern="/pages/secure/CM/tables/dialogs/dialogs_grandLivre.xhtml"
-						   access="hasAnyRole('ROLE_DC','ROLE_CONS','ROLE_ADMIN','ROLE_SISE','ROLE_GAC','ROLE_DG','ROLE_DRF')" />
+						   access="hasAnyRole('ROLE_DC','ROLE_CONS','ROLE_ADMIN','ROLE_SISE','ROLE_GAC','ROLE_DG','ROLE_DRF','ROLE_CONSLOCAL')" />
 		<sec:intercept-url pattern="/pages/secure/CM/tables/dialogs/dialogs_saisieMatEx1.xhtml"
-						   access="hasAnyRole('ROLE_DC','ROLE_CONS','ROLE_ADMIN','ROLE_SISE','ROLE_GAC','ROLE_DG','ROLE_DRF')" />
+						   access="hasAnyRole('ROLE_DC','ROLE_CONS','ROLE_ADMIN','ROLE_SISE','ROLE_GAC','ROLE_DG','ROLE_DRF','ROLE_CONSLOCAL')" />
 						   				   
 		<sec:intercept-url pattern="/pages/secure/CM/DGD/**"
-						   access="hasAnyRole('ROLE_CONS','ROLE_ADMIN','ROLE_SISE','ROLE_GAC','ROLE_DG','ROLE_DRF')" />
+						   access="hasAnyRole('ROLE_CONS','ROLE_ADMIN','ROLE_SISE','ROLE_GAC','ROLE_DG','ROLE_DRF','ROLE_CONSLOCAL')" />
 						   
 		<sec:intercept-url pattern="/pages/secure/CA/DGD/**"
-						   access="hasAnyRole('ROLE_DC','ROLE_ADMIN','ROLE_SISE','ROLE_GAC','ROLE_DG','ROLE_DRF','ROLE_DRF')" />
+						   access="hasAnyRole('ROLE_DC','ROLE_ADMIN','ROLE_SISE','ROLE_GAC','ROLE_DG','ROLE_DRF','ROLE_DRF','ROLE_CONSLOCAL')" />
 		<sec:intercept-url pattern="/suivis/**"
-						   access="hasAnyRole('ROLE_DC','ROLE_CONS','ROLE_ADMIN','ROLE_SISE','ROLE_GAC','ROLE_DG','ROLE_DRF')" />
+						   access="hasAnyRole('ROLE_DC','ROLE_CONS','ROLE_ADMIN','ROLE_SISE','ROLE_GAC','ROLE_DG','ROLE_DRF','ROLE_CONSLOCAL')" />
 		
 		
 		

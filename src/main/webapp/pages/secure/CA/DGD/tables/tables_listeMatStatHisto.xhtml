@@ -77,7 +77,7 @@
                  sortBy="#{row[1]}"
                  >
          <f:facet name="header">
-        	JOURNAL DE LA COMPTABILITE ADMINISTRATIVE<br/>
+        	JOURNAL DE LA COMPTABILITE ADMINISTRATIVE #{gacBean.getCurrentYear()}<br/>
         	<h:form >
 		 			<p:outputLabel for="annee_journal_debut" value="Exporter de "/>
 					<p:calendar id="annee_journal_debut" value="#{JournalABean.date}" locale="fr" navigator="true" pattern="dd MMMM yyyy" required="true"/>

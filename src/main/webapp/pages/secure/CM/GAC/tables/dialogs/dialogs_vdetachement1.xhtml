@@ -10,7 +10,7 @@
 <h:head></h:head> 	
 	<p:growl id="growl2" for="myerror" showDetail="true" sticky="true" redisplay="false"/>
 	
-    <p:dialog id="detail2" widgetVar="detail2" closable="false" header="Détails Traçabilité détachement" showEffect="explode" hideEffect="explode" width="1000" height="350">
+    <p:dialog id="detail2" widgetVar="detail2" position = "center,top" closable="false" header="Détails Traçabilité détachement" showEffect="explode" hideEffect="explode" width="1000" height="350">
 
     <c:if test="#{gacBean.currentOpDettachement['class'].simpleName eq 'OpDettachement'}">
 
@@ -31,7 +31,7 @@
             <table class="table responsive-table">
                     <tr>
                         <td><strong>Type de matériel</strong></td>
-                        <td>#{gacBean.currentOpDettachement.mat.design.nomenMat.designation}</td>
+                        <td>#{gacBean.currentOpDettachement.mat.design.typematerieladd.designation}</td>
                         <td></td>
                         <td><strong>Immatriculation détenteur</strong></td>
                         <td>#{gacBean.currentOpDettachement.detenteur.im}</td>

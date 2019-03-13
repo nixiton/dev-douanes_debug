@@ -54,12 +54,13 @@
                 <br></br><br></br>
             
                 
-                BUDGET <p:inputText value="#{JasperTableExampleBean.pdfForm.budget}" style="text-align: center;width:70%"/>
+                <div style="text-align: center;">BUDGET GENERAL <br/><br/></div>
+                SECTION <p:inputText value="#{InventaireBean.section}" style="text-align: center;width:70%"/>
  				
             
 
 
-            <br></br><br></br><br></br>
+            <br></br><br></br>
 
 
                 EXERCICE <p:inputText value="#{JasperTableExampleBean.pdfForm.num9}" style="text-align: center;width:70%"/>
@@ -84,7 +85,7 @@
  		</div>
 
 
-        <div class="col-md-12">
+        <div class="col-md-12" style="text-align: center;">
             CHAPITRE(2) <p:inputText value="#{JasperTableExampleBean.pdfForm.chapitre}" style="text-align: center;width:20%"/> 
             ARTICLE <p:inputText value="#{JasperTableExampleBean.pdfForm.article}" style="text-align: center;width:20%"/>
             PARAGRAPHE <p:inputText value="#{JasperTableExampleBean.pdfForm.paragraphe}" style="text-align: center;width:20%"/>
@@ -95,9 +96,9 @@
         <div class="col-md-12">
 
             (1) <p:selectOneMenu id="directionint" value="#{JasperTableExampleBean.pdfForm.num1}" style="font-size: 15px;width: 25% !important">
-                        <f:selectItems value="#{siseBean.mapDirection(suivieditionBean.direction,InventaireBean.datF)}" />
+                        <f:selectItems value="#{siseBean.mapDirection(InventaireBean.dir,InventaireBean.datF)}" />
                     </p:selectOneMenu>
-            <!-- #{suivieditionBean.direction.designation}--> <br></br>
+            <!-- #{InventaireBean.dir.designation}--> <br></br>
             <br></br><br></br>
         </div>
         <br></br><br></br>
@@ -195,7 +196,7 @@
 				</h:outputText>
 			</p:column>
 			<p:column headerText="Observation" style=" text-align: center; word-wrap: break-word;">
-				<h:outputText value="à remplir par l'utilisateur" />
+				<h:outputText value="" />
 			</p:column>
 			
 			
@@ -220,8 +221,8 @@
         
         Vu et reconnu exact : <br></br>
 
-        A #{suivieditionBean.direction.trois} le <p:inputText  style="text-align: center;width:10%"/> <br></br>
-        Le (1) #{suivieditionBean.direction.designation} <br/>
+        A #{InventaireBean.trois} le <p:inputText  style="text-align: center;width:10%"/> <br></br>
+        Le (1) #{InventaireBean.dir.designation} <br/>
         <p:inputText value="#{JasperTableExampleBean.pdfForm.num3}" style="text-align: center;width:20%"/> détenteur effectif,
         
     </div>
@@ -235,14 +236,16 @@
     </div>
 	<p:commandButton  styleClass="ui-priority-primary fa fa-file"  style="width:200px; height:50px;" action="#{JasperTableExampleBean.inventaireReport(InventaireBean.li, InventaireBean.dateD, InventaireBean.dateF)}" type="submit" value="Exporter en PDF" ajax="false" >
 		
- 		<f:setPropertyActionListener target="#{JasperTableExampleBean.pdfForm.lieu}" value="#{suivieditionBean.direction.trois}" />
+ 		<f:setPropertyActionListener target="#{JasperTableExampleBean.pdfForm.lieu}" value="#{InventaireBean.trois}" />
+ 		<f:setPropertyActionListener target="#{JasperTableExampleBean.pdfForm.budget}" value="#{InventaireBean.section}" />
  		
 	</p:commandButton>
     <br/>
     
     <p:commandButton styleClass="ui-priority-primary fa fa-file-word-o"  style="width:200px;  height:50px;" action="#{JasperTableExampleBean.inventaireDoc(InventaireBean.li,InventaireBean.dateD,InventaireBean.dateF)}" type="submit" value="Exporter en Word" ajax="false" >
     	
- 		<f:setPropertyActionListener target="#{JasperTableExampleBean.pdfForm.lieu}" value="#{suivieditionBean.direction.trois}" />
+ 		<f:setPropertyActionListener target="#{JasperTableExampleBean.pdfForm.lieu}" value="#{InventaireBean.trois}" />
+ 		<f:setPropertyActionListener target="#{JasperTableExampleBean.pdfForm.budget}" value="#{InventaireBean.section}" />
  		
     </p:commandButton>
     </h:form>

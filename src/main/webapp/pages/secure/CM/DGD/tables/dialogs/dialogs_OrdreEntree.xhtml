@@ -75,7 +75,7 @@
  			</div>
 
  			<div class="col-md-6" style="text-align: center;">
- 			BUDGET ..................<br/>
+ 			BUDGET GENERAL<br/>
  				SECTION <p:inputText value="#{JasperTableExampleBean.ordreEB.budget}" style="text-align: center;width: 50%">
  				</p:inputText>
  				
@@ -93,9 +93,9 @@
 
  			<div class="col-md-10" style="text-align: center;">
  				
- 				CHAPITRE(1) <p:inputText value="#{JasperTableExampleBean.ordreEB.chap}" style="text-align: center;width: 50%"></p:inputText> 
- 				<br/>ARTICLE <p:inputText value="#{JasperTableExampleBean.ordreEB.article}" style="text-align: center;width: 50%"></p:inputText> <br></br>
- 				PARAGRAPHE <p:inputText value="#{JasperTableExampleBean.ordreEB.paragraphe}" style="text-align: center;width: 50%"></p:inputText><br></br>
+ 				CHAPITRE(1) <p:inputText value="#{JasperTableExampleBean.ordreEB.chap}" style="text-align: center;width: 30%"></p:inputText> 
+ 				ARTICLE <p:inputText value="#{JasperTableExampleBean.ordreEB.article}" style="text-align: center;width: 30%"></p:inputText> <br></br>
+ 				PARAGRAPHE <p:inputText value="#{JasperTableExampleBean.ordreEB.paragraphe}" style="text-align: center;width: 30%"></p:inputText><br></br>
  			</div>
 
 
@@ -144,7 +144,7 @@
 
  			<div class="col-md-12">
 			
- 			Seront portés en entrée dans les écritures du comptable #{gacBean.curentOperation1.direction.designation} les matières et objets ci-après désignés provenant de #{gacBean.curentOperation1.listMat[0].design.origine}.
+ 			Seront portés en entrée dans les écritures du comptable ..Dépositaire.. <!-- #{gacBean.curentOperation1.direction.designation}  -->les matières et objets ci-après désignés provenant de #{gacBean.curentOperation1.listMat[0].design.origine}.
 			<!--  <p:inputText id="comptable1" value="#{JasperTableExampleBean.ordreEB.comptable}"  />
 			<p:watermark for="comptable1" value="#{gacBean.curentOperation1.direction.designation}" />
 			<p:inputText id="matiere" value="#{JasperTableExampleBean.ordreEB.matieres}"  /> 
@@ -208,12 +208,13 @@
 							<f:convertNumber pattern="¤#,##0" currencySymbol=""></f:convertNumber>		
 						</h:outputText>
  					</td>
+ 					<!-- Partielle -->
                     <td style="text-align:center">
                     	<h:outputText value="#{desu[1]*desu[0].pu}" >
 							<f:convertNumber pattern="¤#,##0" currencySymbol=""></f:convertNumber>		
 						</h:outputText>
                     </td>
-                   
+                   <!-- Nomenclature sommaire -->
                     <c:if test="${loop.index eq 0}">
                     <td rowspan= "#{des[2].size()}" style="text-align:center"> 
                     	<h:outputText value="#{des[1]}" >
@@ -235,7 +236,7 @@
  			Arrêté le présent ordre d'entrée à (1) <p:inputText value="#{JasperTableExampleBean.ordreEB.ordre}" style="text-align: center;"></p:inputText> article(s) évalué(s) à la somme de (1)
          <p:inputText value="#{JasperTableExampleBean.ordreEB.somme}" style="text-align: center;"></p:inputText><br></br><br></br><br></br>
 
- 			<div class="col-md-6">Le comptable #{gacBean.curentOperation1.operateur.nomAgent} présent en charge des matières désignées et objets désignés ci-dessus dont j'ai vérifié la concordance avec le (3) <p:inputText value="#{JasperTableExampleBean.ordreEB.concordance}" style="text-align: center;width: 30%;"></p:inputText>
+ 			<div class="col-md-6">Le comptable ..Dépositaire..<!-- #{gacBean.curentOperation1.operateur.nomAgent}  -->présent en charge des matières désignées et objets désignés ci-dessus dont j'ai vérifié la concordance avec le (3) <p:inputText value="#{JasperTableExampleBean.ordreEB.concordance}" style="text-align: center;width: 30%;"></p:inputText>
  			, le 
  				<h:outputText value="#{gacBean.curentOperation1.date}">
                 	<f:convertDateTime pattern="dd MMMM yyyy" locale="fr-Fr" timeZone="GMT+3"/>
@@ -262,7 +263,7 @@
 	                	<f:convertDateTime pattern="dd MMMM yyyy" locale="fr-Fr" timeZone="GMT+3"/>
 	                </h:outputText>
  				<br></br>
- 				Le comptable (2)  #{gacBean.curentOperation1.operateur.nomAgent}.<br/><br/><br/>
+ 				Le comptable (2) ..Dépositaire.. <!-- #{gacBean.curentOperation1.operateur.nomAgent} --><br/><br/><br/>
  				<p align="center">Déclaration de prise en charge</p>
  				Le comptable déclare avoir reçu et pris en charge les matières et objets mentionnés dans le tableau ci-dessus.<br></br>
 
@@ -273,7 +274,7 @@
 	                </h:outputText>
  				<br></br>
 
- 				Le comptable (2) #{gacBean.curentOperation1.operateur.nomAgent}  <br></br><br></br><br></br><br></br><br></br>
+ 				Le comptable (2) ..Dépositaire.. <!-- #{gacBean.curentOperation1.operateur.nomAgent}  --> <br></br><br></br><br></br><br></br><br></br>
 
  			</div>
 

@@ -168,7 +168,6 @@ BUDGET GENERAL]]></text>
 				<reportElement x="0" y="5" width="150" height="49" uuid="62e1e699-58f9-4bee-9dc2-a41b10c6ffb5"/>
 				<text><![CDATA[(3)........................................
 
-
 (4)........................................]]></text>
 			</staticText>
 			<textField>

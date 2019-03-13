@@ -1,6 +1,7 @@
 package com.douane.managed.bean.form;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -33,11 +34,19 @@ public class FicheStockBean {
 		//this.liste = l;
 		return "dialogFicheStock";
 	}
+	public Date addDays(Date date, int days)
+    {
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(date);
+        cal.add(Calendar.DATE, days); //minus number would decrement the days
+        return cal.getTime();
+    }
 	public String execute(SuiviEditionBean s,DepositaireBean d) {
 		//suivieditionBean.getListForJournalStockByCod(depositaireBean.articleToFiche)
 		if (d != null && s != null) {
 			this.liste = s.getListForJournalStockByCod(d.getDirectionToFiche(),d.getArticleToFiche(),this.date,this.dateF);
-			this.report = s.areportByCod(d.getDirectionToFiche(), d.getArticleToFiche(), this.dateF); 
+			
+			this.report = s.areportByCod(d.getDirectionToFiche(), d.getArticleToFiche(), this.addDays(this.date,-1)); 
 			//#{depositaireBean.articleToFiche.typeObjet.designation} (#{depositaireBean.articleToFiche.designation}
 			//this.folio = d.getArticle().getReference();
 			this.designation = d.getArticleToFiche().getDesignation();

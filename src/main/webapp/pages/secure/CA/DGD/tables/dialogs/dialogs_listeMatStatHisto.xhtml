@@ -15,7 +15,7 @@
 </style>
 
 
-<p:dialog id="historique" widgetVar="historique">
+<p:dialog id="historique"  position = "center,top" widgetVar="historique" width="1000" height="500">
 <h:form>
 
 <p:dataTable   var="row" value="#{suivieditionBean.getListForJournalStockByCod(depositaireBean.directionToFiche,depositaireBean.articleToFiche)}" 
@@ -23,7 +23,7 @@
                  paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}  "
                  paginator="true" rows="100" style="margin-bottom:20px">
          <f:facet name="header">
-        	FICHE DE STOCK de #{depositaireBean.articleToFiche.designation}
+        	FICHE DE STOCK de #{depositaireBean.articleToFiche.designation} #{gacBean.getCurrentYear()}
             <br/><h:form >
 		 			<p:outputLabel for="stock_debut" value="Exporter de "/>
 					<p:calendar id="stock_debut" value="#{FicheStockBean.date}" locale="fr" navigator="true" pattern="dd MMMM yyyy" required="true"/>
@@ -84,7 +84,7 @@
 			<h:outputText value="#{row[2]}" />
         </p:column>
         <p:column style=" text-align: center; word-wrap: break-word;">
-			<h:outputText value="#{row[3]}" />
+			<h:outputText value="" />
         </p:column>
         <p:column style=" text-align: center; word-wrap: break-word;">
 			<h:outputText value="#{row[4]}" />
@@ -94,10 +94,10 @@
         </p:column>
         
         <p:column style=" text-align: center; word-wrap: break-word;">
-					<h:outputText value="#{'signature'}" />
+					<h:outputText value="" />
         </p:column>
         <p:column style=" text-align: center; word-wrap: break-word;">
-        	<h:outputText value="calul automatique" />
+        	<h:outputText value="" />
         </p:column>
     </p:dataTable>
 

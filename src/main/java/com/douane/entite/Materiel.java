@@ -55,7 +55,7 @@ public class Materiel implements Serializable{
 			
 			String encodedImage;
 			
-			BufferedImage resizedImg = resize(ImageIO.read(bais), 275, 75);
+			BufferedImage resizedImg = resize(ImageIO.read(bais), 500, 500);
 			
 			ByteArrayOutputStream os = new ByteArrayOutputStream();
 			
@@ -305,9 +305,9 @@ public class Materiel implements Serializable{
 		}
 		this.code = ""+
 				""+codeDirection+ "/" +
-				""+codeNomenclature+ "/" +
 				""+codeTypeMateriel+ "/" +
 				""+numerotype+ "/" +
+				""+codeNomenclature+ "/" +
 				""+anneeacquisition;
 	}
 

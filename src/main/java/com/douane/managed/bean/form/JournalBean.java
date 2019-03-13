@@ -28,10 +28,15 @@ public class JournalBean {
 	private String dateF;
 	private Date dat;
 	private Date datF;
+	private String actualYear;
 	private List<Object[]> li;
+	private Direction dir;
+	private String  section;
 	public JournalBean() {
+		DateFormat  df = new SimpleDateFormat("yyyy", Locale.FRANCE);
 		this.dat = new Date();
 		this.datF = new Date();
+		this.actualYear = df.format(this.dat);
 	}
 	public String getDateD() {
 		return dateD;
@@ -46,23 +51,25 @@ public class JournalBean {
 		this.dateF = dateF;
 	}
 	public String execute(Direction d, SuiviEditionBean s) {
-		//this.li = s.mygetFListESForJournal(this.dat , this.datF);
-		//this.li = s.getListESForJournal(this.dat);
-		System.out.println("Generate Journal");
-		System.out.println("date "+this.datF);
-		this.li = s.ourListESForJournal(d,this.dat);
-		//this.li = s.getFListESForJournal(dat, datF);
-		this.li = this.mygetFListESForJournal(li, dat, datF);
-		//this.li = mygetFListESForJournal(s,this.dat, this.datF);
 		DateFormat  df = new SimpleDateFormat("dd MMMM yyyy", Locale.FRANCE);
 		this.dateD = df.format(this.dat);
 		this.dateF  = df.format(this.datF);
-		this.trois = this.quatre ="tsy misy";
-		if(s.getDirection() !=null) {
+		this.trois = this.quatre ="";
+		if(d == null) {
+			this.li = s.ourListESForJournal(s.getDirection(),this.dat);
+			this.li = this.mygetFListESForJournal(li, dat, datF);
 			this.direction = s.getDirection().getDesignation();
 			this.trois = s.getDirection().getTrois();
-			this.quatre = "";
-		}else System.out.println("tsy tonga ny journal.Direction");
+			this.dir = s.getDirection();
+			this.section = this.dir.getBudget();
+		}else {
+			this.li = s.ourListESForJournal(d,this.dat);
+			this.li = this.mygetFListESForJournal(li, dat, datF);
+			this.direction = d.getDesignation();
+			this.trois = d.getTrois();
+			this.dir = d;
+			this.section = this.dir.getBudget();
+		}
 		return "dialogJournal";
 	}
 	
@@ -112,4 +119,23 @@ public class JournalBean {
 	public void setDirection(String direction) {
 		this.direction = direction;
 	}
+	public Direction getDir() {
+		return dir;
+	}
+	public void setDir(Direction dir) {
+		this.dir = dir;
+	}
+	public String getSection() {
+		return section;
+	}
+	public void setSection(String section) {
+		this.section = section;
+	}
+	public String getActualYear() {
+		return actualYear;
+	}
+	public void setActualYear(String actualYear) {
+		this.actualYear = actualYear;
+	}
+	
 }

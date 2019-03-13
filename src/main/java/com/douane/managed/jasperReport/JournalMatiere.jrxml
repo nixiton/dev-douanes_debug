@@ -275,11 +275,11 @@
 				<textFieldExpression><![CDATA[$P{nbFeuillets}== ""?"............................................":$P{nbFeuillets}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="200" y="370" width="140" height="20" uuid="2e04c868-a6aa-47a0-8171-acf1bd7907e9"/>
+				<reportElement x="200" y="370" width="280" height="20" uuid="2e04c868-a6aa-47a0-8171-acf1bd7907e9"/>
 				<textElement textAlignment="Left">
 					<font size="12"/>
 				</textElement>
-				<textFieldExpression><![CDATA["A " + $P{lieu} + ", le "]]></textFieldExpression>
+				<textFieldExpression><![CDATA["A " + $P{lieu} + ", le " +  $P{date}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="1" y="519" width="94" height="21" uuid="bee7457d-bf39-41d9-b94d-c41a997b8fba"/>
@@ -334,15 +334,8 @@
 				<textElement textAlignment="Center">
 					<font size="12"/>
 				</textElement>
-				<textFieldExpression><![CDATA["BUDGET ............." + 
+				<textFieldExpression><![CDATA["BUDGET GENERAL" + 
 "\n--------------------------"]]></textFieldExpression>
-			</textField>
-			<textField pattern="dd MMMM yyyy">
-				<reportElement x="340" y="370" width="122" height="20" uuid="c0b04042-3903-4374-9dc9-c59b58c20905"/>
-				<textElement>
-					<font size="12"/>
-				</textElement>
-				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="445" y="0" width="110" height="50" uuid="c7106551-fa91-4553-b4cf-b7fc7c63873a"/>
@@ -718,19 +711,12 @@ des matières et objets
 				</textElement>
 				<textFieldExpression><![CDATA[$P{arrete} + " Ariary"]]></textFieldExpression>
 			</textField>
-			<textField pattern="dd MMMM yyyy">
-				<reportElement x="181" y="25" width="122" height="20" uuid="6d43ad62-e7f7-4b38-aca4-59c6ffeb6289"/>
-				<textElement>
-					<font size="12"/>
-				</textElement>
-				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
-			</textField>
 			<textField>
-				<reportElement x="80" y="25" width="100" height="20" uuid="dd8e5c1d-6578-4fa9-aa4c-f22e4d567a69"/>
-				<textElement textAlignment="Right">
+				<reportElement x="128" y="25" width="192" height="20" uuid="dd8e5c1d-6578-4fa9-aa4c-f22e4d567a69"/>
+				<textElement textAlignment="Left">
 					<font size="12"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$P{lieu} + " , le "]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$P{lieu} + " , le " + $P{date}]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>

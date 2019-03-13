@@ -27,7 +27,7 @@
 
 
         <div class="col-md-3">
-        			Logo 1
+        			<!-- Logo 1 -->
         </div>
 
 
@@ -48,19 +48,24 @@
         
 		</div>
 		<div class="col-md-3" style="text-align: right;">
-        			Logo 2
+        			<!-- Logo 2 -->
         </div>
 <div class="row">
 	 <div class="col-md-10 col-md-offset-1" style="text-align: center;">
         <div class="col-md-8 col-md-offset-2" style="text-align: center;">
-            MINISTERE DES FINANCES ET DU BUDGET<br></br>
-            ----------------------<br></br>
-            SECRETARIAT GENERAL<br></br>
-            ----------------------<br></br>
-            DIRECTION GENERALE DES DOUANES<br></br>
-            -----------------------<br></br>
+        	BUDGET GENERAL<br/>
+			SECTION : <p:inputText value="#{JasperTableExampleBean.pdfForm.budget}" style="text-align: center;width: 80%"></p:inputText> <br/>
+			CHAPITRE (1) <p:inputText value="#{JasperTableExampleBean.pdfForm.chapitre}" style="text-align: center;width: 30%"></p:inputText> ARTICLE <p:inputText value="#{JasperTableExampleBean.pdfForm.article}" style="text-align: center;width: 30%"></p:inputText> <br></br>
+			PARAGRAPHE <p:inputText value="#{JasperTableExampleBean.pdfForm.paragraphe}" style="text-align: center;width: 30%"></p:inputText><br></br>
+			-----------------------<br></br>
+            <!-- MINISTERE DES FINANCES ET DU BUDGET<br></br> -->
+            
+             <!-- SECRETARIAT GENERAL<br></br> -->
+            
+             <!-- DIRECTION GENERALE DES DOUANES<br></br> -->
+            
             <f:view contentType="text/html"><p:selectOneMenu id="directionint" value="#{JasperTableExampleBean.pdfForm.num3}" appendTo="@this" style="width: 40% !important">
-               <f:selectItems value="#{siseBean.mapDirection(suivieditionBean.direction, docbean.curentOperationAttrToPdf.date)}"/>
+               <f:selectItems value="#{siseBean.mapDirection(docbean.curentOperationAttrToPdf.direction, docbean.curentOperationAttrToPdf.date)}"/>
            </p:selectOneMenu></f:view><br></br>
             ------------------<br></br>
             <strong>ETAT DE DETENTEUR EFFECTIF #{docbean.curentOperationAttrToPdf.numerodet}</strong>
@@ -133,7 +138,7 @@
 
             <div class="col-md-10">Arrêté le présent état de détenteur effectif au nombre de 
             <p:inputText value ="#{JasperTableExampleBean.pdfForm.num1}"  style="text-align: center;"></p:inputText>
-            articles à une valeur de <p:inputText value="#{JasperTableExampleBean.pdfForm.num2}" style="text-align: center;"></p:inputText> Ariary.</div>
+            article(s) à une valeur de <p:inputText value="#{JasperTableExampleBean.pdfForm.num2}" style="text-align: center;"></p:inputText> Ariary.</div>
 
             <div class="col-md-1"></div>
 
@@ -141,7 +146,7 @@
 
 
             <div class="col-md-8"></div><div class="col-md-4"> 
-                #{suivieditionBean.direction.trois}, le 
+                #{docbean.curentOperationAttrToPdf.direction.trois}, le 
                 <h:outputText value="#{docbean.curentOperationAttrToPdf.date}">
                 	<f:convertDateTime pattern="dd MMMM yyyy" locale="fr-Fr" timeZone="GMT+3"/>
              </h:outputText>  <br></br>

@@ -18,7 +18,13 @@ import com.douane.managed.bean.SuiviEditionBean;
 public class livreAnnuelBean {
 	public livreAnnuelBean() {
 		this.d = new Date();
+		Calendar calendar = new GregorianCalendar();
+		calendar.setTime(this.d);
+		this.anne  = calendar.get(Calendar.YEAR);
+		this.actualyear  = calendar.get(Calendar.YEAR);
 	}
+	private int actualyear;
+	//private int annee;
 	private String service;
 	private Date d;
 	private String trois;
@@ -27,6 +33,7 @@ public class livreAnnuelBean {
 	private String dateF;
 	private Integer anne;
 	private List<Object[]> liste;
+	private Direction dir;
 	public String execute(SuiviEditionBean s) {
 		DateFormat df =  new SimpleDateFormat("yyyy", Locale.FRANCE);
 		this.setListe(s.getListESForGrandLivre());
@@ -39,16 +46,30 @@ public class livreAnnuelBean {
 		return "dialogLivre";
 	}
 	public String executer(SuiviEditionBean s, Integer i, Direction direc) {
+		
 		DateFormat  df = new SimpleDateFormat("dd MMMM yyyy", Locale.FRANCE);
-		this.anne = i;
-		this.trois  = s.getDirection().getTrois();
+		if(i!=0)
+			this.anne = i;
 		this.quatre =  "";//s.getDirection().getQuatre();
-		Date sdate = new GregorianCalendar(i, Calendar.JANUARY, 1).getTime();
-		this.d = new GregorianCalendar(i, Calendar.DECEMBER, 31).getTime();
-		this.liste=s.getListESForGrandLivre(sdate,this.d,direc);
+		Date sdate = new GregorianCalendar(this.anne, Calendar.JANUARY, 1).getTime();
+		this.d = new GregorianCalendar(this.anne, Calendar.DECEMBER, 31).getTime();
 		this.service = s.getDirection().getDesignation();
 		this.dateD = df.format(sdate);
 		this.dateF = df.format(this.d);
+		
+		if(direc == null) {
+			this.trois  = s.getDirection().getTrois();
+			this.liste=s.getListESForGrandLivre(sdate,this.d,s.getDirection());
+			this.service = s.getDirection().getDesignation();
+			this.dir = s.getDirection();
+			
+			
+		}else {
+			this.trois  = direc.getTrois();
+			this.liste=s.getListESForGrandLivre(sdate,this.d,direc);
+			this.service = direc.getDesignation();
+			this.dir = direc;
+		}
 		return "dialogLivre"; 
 	}
 	public List<Object[]> getListe() {
@@ -92,6 +113,24 @@ public class livreAnnuelBean {
 	}
 	public void setD(Date d) {
 		this.d = d;
+	}
+	public Direction getDir() {
+		return dir;
+	}
+	public void setDir(Direction dir) {
+		this.dir = dir;
+	}
+	public int getActualyear() {
+		return actualyear;
+	}
+	public void setActualyear(int actualyear) {
+		this.actualyear = actualyear;
+	}
+	public String getDateD() {
+		return dateD;
+	}
+	public void setDateD(String dateD) {
+		this.dateD = dateD;
 	}
 
 }
