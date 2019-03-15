@@ -70,7 +70,7 @@
 
  			<div class="col-md-6" style="text-align: center;">
  				BUDGET GENERAL<br/>
- 				SECTION : <p:inputText value="#{JasperTableExampleBean.ordreS.budget}" style="text-align: center;width: 80%"></p:inputText>
+ 				SECTION : <p:inputText value="#{docbean.curentOpeationSortieToPdf.direction.budget}" style="text-align: center;width: 80%"></p:inputText>
  				
  			</div>
 
@@ -286,8 +286,12 @@
  			</div>
 				
  	</div>
- 	<p:commandButton styleClass="ui-priority-primary fa fa-file"  style="width:200px; height:50px; " type="submit" value="Exporter en PDF" ajax="false" action="#{JasperTableExampleBean.ordreSortieReport(docbean.curentOpeationSortieToPdf)}"></p:commandButton><br/>
-	<p:commandButton styleClass="ui-priority-primary fa fa-file-word-o"  style="width:200px;  height:50px; " type="submit" value="Exporter en Word" ajax="false" action="#{JasperTableExampleBean.ordreSortieDoc(docbean.curentOpeationSortieToPdf)}"> </p:commandButton>
+ 	<p:commandButton styleClass="ui-priority-primary fa fa-file"  style="width:200px; height:50px; " type="submit" value="Exporter en PDF" ajax="false" action="#{JasperTableExampleBean.ordreSortieReport(docbean.curentOpeationSortieToPdf)}">
+ 		<f:setPropertyActionListener target="#{JasperTableExampleBean.ordreS.budget}" value="#{docbean.curentOpeationSortieToPdf.direction.budget}" />
+ 	</p:commandButton><br/>
+	<p:commandButton styleClass="ui-priority-primary fa fa-file-word-o"  style="width:200px;  height:50px; " type="submit" value="Exporter en Word" ajax="false" action="#{JasperTableExampleBean.ordreSortieDoc(docbean.curentOpeationSortieToPdf)}">
+		<f:setPropertyActionListener target="#{JasperTableExampleBean.ordreS.budget}" value="#{docbean.curentOpeationSortieToPdf.direction.budget}" />
+	</p:commandButton>
 </h:form>
 #{gacBean.exity()}
 

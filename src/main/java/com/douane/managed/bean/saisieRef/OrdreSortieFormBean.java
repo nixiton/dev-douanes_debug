@@ -8,8 +8,20 @@ import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 
 import com.douane.entite.Devise;
+import com.douane.managed.bean.DocumentsBean;
 import com.douane.managed.bean.SISEformBean;
+import java.util.Map;
+import java.util.StringJoiner;
+
+import javax.annotation.PostConstruct;
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
+import javax.faces.context.FacesContext;
+
+import com.douane.entite.Devise;
+@SessionScoped
 @ManagedBean(name="ordreSortie")
+
 public class OrdreSortieFormBean {
 		private String numFolio;
 		private String num5;
@@ -54,6 +66,10 @@ public class OrdreSortieFormBean {
 			for(Devise d : s.getListDevise()) {
 				filamatras.put(d.getDesignation(), d.getDesignation());
 			}
+			/*FacesContext facesContext = FacesContext.getCurrentInstance();
+			DocumentsBean doc = (DocumentsBean) facesContext.getApplication().evaluateExpressionGet(facesContext, '#{docbean}', DocumentsBean.class);
+			this.budget = doc.getCurentOpeationSortieToPdf().getDirection().getBudget();
+			System.out.println("code SOA :" this.budget);*/
 	    }
 		
 		public Map<String, String> getFilamatras() {

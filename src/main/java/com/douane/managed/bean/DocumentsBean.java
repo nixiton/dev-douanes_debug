@@ -1,11 +1,13 @@
 package com.douane.managed.bean;
 
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
 
 import com.douane.entite.OpAttribution;
 import com.douane.entite.OpSortie;
 import com.douane.entite.Operation;
+import com.douane.managed.bean.saisieRef.OrdreSortieFormBean;
 
 @ManagedBean(name = "docbean")
 @SessionScoped
@@ -22,6 +24,7 @@ public class DocumentsBean {
     }
 	public String generateSortie(Operation operation) {
 		setCurentOpeationSortieToPdf((OpSortie)operation);
+		//this.ordreSortie.setBudget(operation.getDirection().getBudget());
 		return "ordreSortie";
 	}
 

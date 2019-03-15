@@ -6,8 +6,10 @@ import java.util.StringJoiner;
 
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
 
 import com.douane.entite.Devise;
+@SessionScoped
 @ManagedBean(name="ordreEntree")
 public class ordreEntreeBean {
 	private String filamatra;

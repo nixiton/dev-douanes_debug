@@ -38,9 +38,20 @@ import org.primefaces.model.StreamedContent;
 public class GACBean {
 	@ManagedProperty(value = "#{usermetier}")
 	IUserMetier usermetierimpl;
+	
+	@ManagedProperty(value="#{ordreEntree}")
+    ordreEntreeBean ordreEntreeBean;
 
 	// @ManagedProperty(value="#{suivieditionBean}")
 	// private SuiviEditionBean suivibean;
+
+	public ordreEntreeBean getOrdreEntreeBean() {
+		return ordreEntreeBean;
+	}
+
+	public void setOrdreEntreeBean(ordreEntreeBean ordreEntreeBean) {
+		this.ordreEntreeBean = ordreEntreeBean;
+	}
 
 	private List<Agent> listAgent;
 
@@ -448,7 +459,10 @@ public class GACBean {
 	}
 
 	public String setCurentOperationOrdre(Operation operation) {
+		System.out.println(" code SOA : " + operation.getDirection().getBudget());
+		this.ordreEntreeBean.setBudget(operation.getDirection().getBudget());
 		setCurentOperation1(operation);
+		
 		return "ordre";
 	}
 

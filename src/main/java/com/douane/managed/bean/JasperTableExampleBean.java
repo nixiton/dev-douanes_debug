@@ -20,6 +20,7 @@ import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.flywaydb.core.internal.util.scanner.classpath.ClassPathResource;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.douane.entite.Materiel;
@@ -139,7 +140,8 @@ public class JasperTableExampleBean implements Serializable{
 		ExternalContext external = facescontext.getExternalContext();
 		external.getSession(true);
 		HttpServletResponse response = (HttpServletResponse) external.getResponse();
-		URL url =  this.getClass().getResource("../jasperReport/saisieMatEx2.jasper");
+		//URL url =  this.getClass().getResource("../jasperReport/saisieMatEx2.jasper");
+		URL url = this.getClass().getClassLoader().getResource("jasperReport/saisieMatEx2.jasper");
 		//System.out.println(url.getPath());
         try {
             
@@ -236,7 +238,7 @@ public class JasperTableExampleBean implements Serializable{
 		ExternalContext external = facescontext.getExternalContext();
 		external.getSession(true);
 		HttpServletResponse response = (HttpServletResponse) external.getResponse();
-		URL url =  this.getClass().getResource("../jasperReport/saisieMatEx2.jasper");
+		URL url = this.getClass().getClassLoader().getResource("jasperReport/saisieMatEx2.jasper");
 		//System.out.println(url.getPath());
         try {
             
@@ -328,7 +330,7 @@ public class JasperTableExampleBean implements Serializable{
 		ExternalContext external = facescontext.getExternalContext();
 		HttpServletResponse response = (HttpServletResponse) external.getResponse();
 		//ServletOutputStream tmp = response.getOutputStream();
-		URL url =  this.getClass().getResource("../jasperReport/OrdreEntre.jasper");
+		URL url = this.getClass().getClassLoader().getResource("jasperReport/OrdreEntre.jasper");
 		//System.out.println("designation  = "+op.getMat().getOrigine());
 		System.out.println("url antsiika :" + url.getPath());
         try {
@@ -413,7 +415,7 @@ public class JasperTableExampleBean implements Serializable{
 		external.getSession(true);
 		HttpServletResponse response = (HttpServletResponse) external.getResponse();
 		//ServletOutputStream tmp = response.getOutputStream();
-		URL url =  this.getClass().getResource("../jasperReport/OrdreEntre.jasper");
+		URL url = this.getClass().getClassLoader().getResource("jasperReport/OrdreEntre.jasper");
 		//System.out.println("designation  = "+op.getMat().getOrigine());
 		System.out.println("url antsiika :" + url.getPath());
         try {
@@ -503,7 +505,7 @@ public class JasperTableExampleBean implements Serializable{
 		external.getSession(true);
 		HttpServletResponse response = (HttpServletResponse) external.getResponse();
 		//ServletOutputStream tmp = response.getOutputStream();
-		URL url =  this.getClass().getResource("../jasperReport/OrdreSortie2.jasper");
+		URL url = this.getClass().getClassLoader().getResource("jasperReport/OrdreSortie2.jasper");
 		//System.out.println("designation  = "+op.getMat().getOrigine());
         try {
             
@@ -597,7 +599,7 @@ public class JasperTableExampleBean implements Serializable{
 		external.getSession(true);
 		HttpServletResponse response = (HttpServletResponse) external.getResponse();
 		//ServletOutputStream tmp = response.getOutputStream();
-		URL url =  this.getClass().getResource("../jasperReport/OrdreSortie2.jasper");
+		URL url = this.getClass().getClassLoader().getResource("jasperReport/OrdreSortie2.jasper");
 		//System.out.println("designation  = "+op.getMat().getOrigine());
         try {
             
@@ -691,7 +693,7 @@ public class JasperTableExampleBean implements Serializable{
 		external.getSession(true);
 		HttpServletResponse response = (HttpServletResponse) external.getResponse();
 		//ServletOutputStream tmp = response.getOutputStream();
-		URL url =  this.getClass().getResource("../jasperReport/Journal.jasper");
+		URL url = this.getClass().getClassLoader().getResource("jasperReport/Journal.jasper");
 		JournalAdminData data = new JournalAdminData(li);
 		try {
             /* Map to hold Jasper report Parameters */
@@ -748,7 +750,7 @@ public class JasperTableExampleBean implements Serializable{
 		external.getSession(true);
 		HttpServletResponse response = (HttpServletResponse) external.getResponse();
 		//ServletOutputStream tmp = response.getOutputStream();
-		URL url =  this.getClass().getResource("../jasperReport/Journal.jasper");
+		URL url = this.getClass().getClassLoader().getResource("jasperReport/Journal.jasper");
 		JournalAdminData data = new JournalAdminData(li);
 		try {
             /* Map to hold Jasper report Parameters */
@@ -809,7 +811,7 @@ public class JasperTableExampleBean implements Serializable{
 		external.getSession(true);
 		HttpServletResponse response = (HttpServletResponse) external.getResponse();
 		//ServletOutputStream tmp = response.getOutputStream();
-		URL url =  this.getClass().getResource("../jasperReport/JournalMatiere.jasper");
+		URL url = this.getClass().getClassLoader().getResource("jasperReport/JournalMatiere.jasper");
 		JournalMatiereData data = new JournalMatiereData(l);
 		try {
             /* Map to hold Jasper report Parameters */
@@ -866,7 +868,7 @@ public class JasperTableExampleBean implements Serializable{
 		external.getSession(true);
 		HttpServletResponse response = (HttpServletResponse) external.getResponse();
 		//ServletOutputStream tmp = response.getOutputStream();
-		URL url =  this.getClass().getResource("../jasperReport/JournalMatiere.jasper");
+		URL url = this.getClass().getClassLoader().getResource("jasperReport/JournalMatiere.jasper");
 		JournalMatiereData data = new JournalMatiereData(l);
 		try {
             /* Map to hold Jasper report Parameters */
@@ -923,7 +925,7 @@ public class JasperTableExampleBean implements Serializable{
 		external.getSession(true);
 		HttpServletResponse response = (HttpServletResponse) external.getResponse();
 		//ServletOutputStream tmp = response.getOutputStream();
-		URL url =  this.getClass().getResource("../jasperReport/GrandLivre.jasper");
+		URL url = this.getClass().getClassLoader().getResource("jasperReport/GrandLivre.jasper");
 		LivreAnnuelData laData = new LivreAnnuelData(liste);
 		try {
             /* Map to hold Jasper report Parameters */
@@ -971,7 +973,7 @@ public class JasperTableExampleBean implements Serializable{
 		external.getSession(true);
 		HttpServletResponse response = (HttpServletResponse) external.getResponse();
 		//ServletOutputStream tmp = response.getOutputStream();
-		URL url =  this.getClass().getResource("../jasperReport/GrandLivre.jasper");
+		URL url = this.getClass().getClassLoader().getResource("jasperReport/GrandLivre.jasper");
 		LivreAnnuelData laData = new LivreAnnuelData(liste);
 		try {
             /* Map to hold Jasper report Parameters */
@@ -1025,7 +1027,7 @@ public class JasperTableExampleBean implements Serializable{
 		external.getSession(true);
 		HttpServletResponse response = (HttpServletResponse) external.getResponse();
 		//ServletOutputStream tmp = response.getOutputStream();
-		URL url =  this.getClass().getResource("../jasperReport/EtatAppreciatif.jasper");
+		URL url = this.getClass().getClassLoader().getResource("jasperReport/EtatAppreciatif.jasper");
 		try {
             /* Map to hold Jasper report Parameters */
 			
@@ -1118,7 +1120,7 @@ public class JasperTableExampleBean implements Serializable{
 		external.getSession(true);
 		HttpServletResponse response = (HttpServletResponse) external.getResponse();
 		//ServletOutputStream tmp = response.getOutputStream();
-		URL url =  this.getClass().getResource("../jasperReport/EtatAppreciatif.jasper");
+		URL url = this.getClass().getClassLoader().getResource("jasperReport/EtatAppreciatif.jasper");
 		try {
             /* Map to hold Jasper report Parameters */
             Map<String, Object> parameters = new HashMap<String, Object>();
@@ -1218,7 +1220,7 @@ public class JasperTableExampleBean implements Serializable{
 		external.getSession(true);
 		HttpServletResponse response = (HttpServletResponse) external.getResponse();
 		//ServletOutputStream tmp = response.getOutputStream();
-		URL url =  this.getClass().getResource("../jasperReport/Inventaire.jasper");
+		URL url = this.getClass().getClassLoader().getResource("jasperReport/Inventaire.jasper");
 		try { 
             /* Map to hold Jasper report Parameters */
             Map<String, Object> parameters = new HashMap<String, Object>();
@@ -1272,7 +1274,7 @@ public class JasperTableExampleBean implements Serializable{
 		external.getSession(true);
 		HttpServletResponse response = (HttpServletResponse) external.getResponse();
 		//ServletOutputStream tmp = response.getOutputStream();
-		URL url =  this.getClass().getResource("../jasperReport/Inventaire.jasper");
+		URL url = this.getClass().getClassLoader().getResource("jasperReport/Inventaire.jasper");
 		try { 
             /* Map to hold Jasper report Parameters */
             Map<String, Object> parameters = new HashMap<String, Object>();
@@ -1327,7 +1329,7 @@ public class JasperTableExampleBean implements Serializable{
 		external.getSession(true);
 		HttpServletResponse response = (HttpServletResponse) external.getResponse();
 		//ServletOutputStream tmp = response.getOutputStream();
-		URL url =  this.getClass().getResource("../jasperReport/FichDeStock.jasper");
+		URL url = this.getClass().getClassLoader().getResource("jasperReport/FichDeStock.jasper");
 		FicheStockData m = new FicheStockData(liste);
 		try {
             /* Map to hold Jasper report Parameters */
@@ -1366,7 +1368,7 @@ public class JasperTableExampleBean implements Serializable{
 		external.getSession(true);
 		HttpServletResponse response = (HttpServletResponse) external.getResponse();
 		//ServletOutputStream tmp = response.getOutputStream();
-		URL url =  this.getClass().getResource("../jasperReport/FichDeStock.jasper");
+		URL url = this.getClass().getClassLoader().getResource("jasperReport/FichDeStock.jasper");
 		FicheStockData m = new FicheStockData(liste);
 		try {
             /* Map to hold Jasper report Parameters */
