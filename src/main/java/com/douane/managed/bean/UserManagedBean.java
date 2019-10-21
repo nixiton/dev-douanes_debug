@@ -676,7 +676,7 @@ public class UserManagedBean implements Serializable {
 		FacesContext.getCurrentInstance().addMessage(null, messagea);
 		//sessionMapObj.remove("editAgent");
 		
-		return null;
+		return SUCCESS;
 	}
 	
 

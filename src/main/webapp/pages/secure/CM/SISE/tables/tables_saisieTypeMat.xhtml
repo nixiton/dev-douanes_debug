@@ -32,6 +32,7 @@
                  editable="true"
                  id="tableTypeMat"
                  widgetVar="typeTable"
+                 filterEvent="enter"
                  >
         <p:ajax event="rowEdit" listener="#{siseBean.onRowEdit}" update=":formType:msgtableType" oncomplete="PF('typeTable').filter()"/>
 		

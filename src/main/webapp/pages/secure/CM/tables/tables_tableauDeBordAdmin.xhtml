@@ -20,6 +20,7 @@
                  paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}  "
                  paginator="true" rows="30" style="margin-bottom:20px"
                  emptyMessage="Aucun resultat" 
+                 filterEvent="enter"
                  rowKey="#{c.id}">
                  
                  
@@ -79,7 +80,8 @@
             <h:outputLink id="popuit" value="#">
 			
 				<h:outputText  rendered="#{c['class'].simpleName eq 'OpEntree'}" value="Saisie materiel" />
-				<h:outputText  rendered="#{c['class'].simpleName eq 'OpSaisie' }" value="Saisie réferentiel" />
+				<h:outputText  rendered="#{c['class'].simpleName eq 'OpSaisie' and c.designationref eq 'Matex' }" value="Saisie matériel existant" />
+				<h:outputText  rendered="#{c['class'].simpleName eq 'OpSaisie' and c.designationref ne 'Matex' }" value="Saisie référentiel" />
 				<h:outputText  rendered="#{c['class'].simpleName eq 'OpAttribution' }" value="Attribution" />
 				<h:outputText  rendered="#{c['class'].simpleName eq 'OpDettachement' }" value="Détachement" />
 				<h:outputText  rendered="#{c['class'].simpleName eq 'OpSortie'}" value="Décharge" />

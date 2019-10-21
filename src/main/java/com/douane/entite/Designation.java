@@ -141,7 +141,7 @@ public class Designation implements Serializable{
 		return renseignement;
 	}
 	public void setRenseignement(String renseignement) {
-		this.renseignement = renseignement;
+		this.renseignement = renseignement.substring(0,1).toUpperCase() + renseignement.substring(1).toLowerCase();
 	}
 
 
@@ -159,7 +159,7 @@ public class Designation implements Serializable{
 		return especeUnite;
 	}
 	public void setEspeceUnite(String especeUnite) {
-		this.especeUnite = especeUnite;
+		this.especeUnite = especeUnite.toUpperCase();
 	}
 	/*public List<Materiel> getMateriels() {
 		return materiels;
@@ -233,7 +233,7 @@ public class Designation implements Serializable{
 		return origine;
 	}
 	public void setOrigine(String origine) {
-		this.origine = origine;
+		this.origine = origine.toUpperCase();
 	}
 
 }

@@ -292,22 +292,25 @@ public class Materiel implements Serializable{
 		String codeDirection = "xxx";
 		String codeTypeMateriel = "xxx";
 		String anneeacquisition = "xxx";
-		String codeNomenclature = "xxx";
+		String immatriculedete = "xxx";
 		if(this.getDirec()!=null) {
 			codeDirection = this.direc.getCodeDirection();
 		}
 		if(this.getDesign().getTypematerieladd()!=null) {
 			codeTypeMateriel = this.getTypematerieladd().getCodeTypeMate();
-			codeNomenclature = this.getTypematerieladd().getNomenclaureParent().getNomenclature();
+			//codeNomenclature = this.getTypematerieladd().getNomenclaureParent().getNomenclature();
 		}
 		if(this.getDesign().getAnneeAcquisition()!=null) {
 			anneeacquisition = this.getDesign().getAnneeAcquisition();
+		}
+		if(this.getDetenteur()!=null) {
+			immatriculedete = this.getDetenteur().getIm().toString();
 		}
 		this.code = ""+
 				""+codeDirection+ "/" +
 				""+codeTypeMateriel+ "/" +
 				""+numerotype+ "/" +
-				""+codeNomenclature+ "/" +
+				""+immatriculedete+ "/" +
 				""+anneeacquisition;
 	}
 
@@ -352,7 +355,7 @@ public class Materiel implements Serializable{
 	}
 
 	public void setEspeceUnite(String especeUnite) {
-		this.especeUnite = especeUnite;
+		this.especeUnite = especeUnite.toUpperCase();
 	}
 
 
@@ -362,7 +365,7 @@ public class Materiel implements Serializable{
 	}
 
 	public void setOrigine(String origine) {
-		this.origine = origine;
+		this.origine = origine.toUpperCase();
 	}
 
 

@@ -34,6 +34,7 @@
                  editable="true"
                  id="tableCodi"
                  widgetVar="codiTable"
+                 filterEvent="enter"
                  >
         <p:ajax event="rowEdit" listener="#{siseBean.onRowEdit}" update=":formCodi:msgtableCodi" oncomplete="PF('codiTable').filter()"/>
        

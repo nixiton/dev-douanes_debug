@@ -1263,6 +1263,9 @@ public class UserMetier implements IUserMetier {
 			matrepos.save(matex);
 			
 		}
+		OpSaisie saisirefmatex = new OpSaisie(new Date(), new Date(), dc.getIp(), dc, "Matex",matexs.get(0).getIdMateriel());
+		saisirefmatex.valider();
+		oprepos.save(saisirefmatex);
 		
 	}
 	

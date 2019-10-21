@@ -172,7 +172,7 @@
                             <f:selectItem itemValue="#{null}" itemLabel="Selectionner" /> 
                             <!-- f:selectItems value="#{siseBean.listTypeMateriel}" var="type" itemLabel="#{type.designation}"/ -->
                             <f:selectItems value="#{siseBean.groupeListTypeMateriel}" />
-                            <p:ajax event="change" update="data" listener="#{depositaireBean.onTypeMaterielChange}" />
+                            <p:ajax event="change" update="data,codetype" listener="#{depositaireBean.onTypeMaterielChange}" />
                         </p:selectOneMenu>
                     </div>
                 </div>
@@ -187,6 +187,21 @@
                     <div class="col-lg-6">
 
                         <h:outputText id="data" value="#{depositaireBean.nomencl}" ></h:outputText>
+
+                    </div>
+				</div>
+				<hr />
+				
+                    
+
+				<div class="row">
+					<div class="col-lg-6 ">
+                    	<label for="text1" class="control-label ">Code Type Matériel
+                    	</label>
+					</div>
+                    <div class="col-lg-6">
+
+                        <h:outputText id="codetype" value="#{depositaireBean.typematerielToAdd.codeTypeMate}" ></h:outputText>
 
                     </div>
 				</div>

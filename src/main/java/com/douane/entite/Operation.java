@@ -95,6 +95,7 @@ public abstract class Operation implements Serializable{
 		this.operateur = operateur;
 		this.state = EtatOperation.WAITING;
 		this.direction = operateur.getDirection();
+		this.poste = poste + " - "+ operateur.getIm();
 	}
 	public void valider() {
 		this.state = EtatOperation.ACCEPTED;

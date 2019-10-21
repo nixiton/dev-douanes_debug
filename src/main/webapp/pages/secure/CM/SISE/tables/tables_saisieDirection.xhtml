@@ -33,6 +33,7 @@
                  editable="true"
                  id="tableDirecMat"
                  widgetVar="DirecTable"
+                 filterEvent="enter"
                  >
         <p:ajax event="rowEdit" listener="#{siseBean.onRowEdit}" update=":formDirec:msgtableDirec" oncomplete="PF('DirecTable').filter()"/>
 		

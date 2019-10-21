@@ -68,7 +68,7 @@ public class OperationDAOImpl implements IOperationDAO {
 			throw new Exception("Materiel encore détenu par " + m.getDetenteur().getIm());
 		}
 		// m.setCodification("codified"+new Date());
-		m.generateCode(m.getNumeroType()+1);
+		
 		System.out.println(m.getCode() + " : code generated ok");
 		// m.setDetenteur(attr.getDetenteur());
 		// matrepos.save(m);
@@ -78,7 +78,10 @@ public class OperationDAOImpl implements IOperationDAO {
 		System.out.println(
 				"*************************************AFAKA*************** " + attr.getDetenteur().getIm() + "**");
 		m.setDetenteur(detent);
+		
 		detent.getMatdetenu().add(m);
+		
+		m.generateCode(m.getNumeroType()+1);
 		// agentrepos.save(detent);
 		em.merge(m);
 		em.merge(detent);

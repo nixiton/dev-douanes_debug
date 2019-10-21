@@ -205,20 +205,20 @@
  					<td style="text-align:center">#{desu[1]}</td>
  					<td style="text-align:center">
  						<h:outputText value="#{desu[0].pu}" >
-							<f:convertNumber pattern="¤#,##0" currencySymbol=""></f:convertNumber>		
+							<f:convertNumber pattern="### ###.###" currencySymbol=""></f:convertNumber>		
 						</h:outputText>
  					</td>
  					<!-- Partielle -->
                     <td style="text-align:center">
                     	<h:outputText value="#{desu[1]*desu[0].pu}" >
-							<f:convertNumber pattern="¤#,##0" currencySymbol=""></f:convertNumber>		
+							<f:convertNumber pattern="### ###.###" currencySymbol=""></f:convertNumber>		
 						</h:outputText>
                     </td>
                    <!-- Nomenclature sommaire -->
                     <c:if test="${loop.index eq 0}">
                     <td rowspan= "#{des[2].size()}" style="text-align:center"> 
                     	<h:outputText value="#{des[1]}" >
-							<f:convertNumber pattern="¤#,##0" currencySymbol=""></f:convertNumber>		
+							<f:convertNumber pattern="### ###.###" currencySymbol=""></f:convertNumber>		
 						</h:outputText>
                     </td>
  					</c:if>

@@ -384,14 +384,14 @@ public class SISEformBean {
 	}
 
 	public String addMarque() {
-		marque = new Marque(getDesignation());
+		marque = new Marque(getDesignation().toUpperCase());
 		Agent agent = (Agent) RequestFilter.getSession().getAttribute("agent");
 		refmetierimpl.addRef(marque, agent);
 		return SUCCESS;
 	}
 
 	public String addMarqueCA() {
-		marque = new Marque(getDesignation());
+		marque = new Marque(getDesignation().toUpperCase());
 		Agent agent = (Agent) RequestFilter.getSession().getAttribute("agent");
 		refmetierimpl.addRef(marque, agent);
 		return SUCCESS;
@@ -1211,6 +1211,7 @@ public class SISEformBean {
 	}
 	public void saveNewMark() {
 		Agent agent = (Agent) RequestFilter.getSession().getAttribute("agent");
+		nouvmark.setDesignation(nouvmark.getDesignation().toUpperCase());
 		refmetierimpl.addRef(nouvmark, agent);
 		nouvmark = new Marque();
 

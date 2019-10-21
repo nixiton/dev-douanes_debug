@@ -32,7 +32,8 @@
                  paginator="true" rows="10" style="margin-bottom:20px" emptyMessage="Aucun résultat"
                  editable="true"
                  id="tableFinMat"
-                 widgetVar="FinTable"     
+                 widgetVar="FinTable"
+                 filterEvent="enter"     
                  >
         <p:ajax event="rowEdit" listener="#{siseBean.onRowEdit}" update=":formFin:msgtableFin" oncomplete="PF('FinTable').filter()"/>
 

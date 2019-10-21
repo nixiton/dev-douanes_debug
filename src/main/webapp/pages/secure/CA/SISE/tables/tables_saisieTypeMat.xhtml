@@ -32,6 +32,7 @@
                  editable="true"
                  id="tableTypeArti"
                  widgetVar="ArtTable"
+                 filterEvent="enter"
                  >
         <p:ajax event="rowEdit" listener="#{siseBean.onRowEdit}" update=":formTypArt:msgtableTypeArt" oncomplete="PF('ArtTable').filter()"/>
 		<p:column style=" width:5%; text-align: center; word-wrap: break-word;">

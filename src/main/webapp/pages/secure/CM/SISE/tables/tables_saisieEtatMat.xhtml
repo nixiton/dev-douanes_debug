@@ -33,6 +33,7 @@
                  editable="true"
                  id="tableEtatMat"
                  widgetVar="EtatTable"
+                 filterEvent="enter"
                  >
         <p:ajax event="rowEdit" listener="#{siseBean.onRowEdit}" update=":formEtat:msgtableEtat" oncomplete="PF('EtatTable').filter()"/>
 		

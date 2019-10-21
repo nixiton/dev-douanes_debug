@@ -3070,5 +3070,19 @@ public class DepositaireBean {
 	public void setListOperatoinByDirectionFiltered(List<Operation> listOperatoinByDirectionFiltered) {
 		this.listOperatoinByDirectionFiltered = listOperatoinByDirectionFiltered;
 	}
+	
+	public void deleteMaterielEx(Materiel m) {
+		try {
+			System.out.println("deleting "+ m.getReference());
+			usermetierimpl.delMat(m);
+			FacesMessage msg = new FacesMessage("Matériel ", m.getReference() + " supprimé");
+			FacesContext.getCurrentInstance().addMessage("deleteMateriel", msg);
+		} catch (Exception ex) {
+			FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_FATAL, "Matériel non supprimé ",
+					m.getReference() + " ne peut pas être supprimé car en cours d'utilisation ");
+			FacesContext.getCurrentInstance().addMessage("deleteMateriel", message);
+		}
+
+	}
 
 }

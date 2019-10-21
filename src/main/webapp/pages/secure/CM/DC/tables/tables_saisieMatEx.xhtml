@@ -27,13 +27,15 @@
     </div>
     </c:if>
     <h:form id="formmodifmatex">
+    <p:growl for="deleteMateriel" id="msgtableDeleteMateriel" showDetail="true" sticky="true" redisplay="false"/>
     <p:dataTable   var="materiel" value="#{suivieditionBean.listMaterielexistant}"
                  widgetVar="MaterielTable"
                  id="materielTable" 
                  currentPageReportTemplate="({currentPage} sur {totalPages})"
                  paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}  "
                  paginator="true" rows="10" style="margin-bottom:20px"
-                 emptyMessage="Aucun resultat" 
+                 emptyMessage="Aucun resultat"
+                 filterEvent="enter"
                  
                  >
  
@@ -164,6 +166,18 @@
             <p:commandButton  action="#{depositaireBean.setCurentMaterielEx(materiel)}" update=":modifMatex"
             oncomplete="PF('modifMatex').show()" icon="ui-icon-pencil"/>
             </c:if>
+            <c:if test="#{topMenuMB.curentAgent.roleAgent.role eq 'ROLE_ADMIN' 
+            or topMenuMB.curentAgent.roleAgent.role eq 'ROLE_SISE'
+            or (topMenuMB.curentAgent.roleAgent.role eq 'ROLE_DC' and materiel.isValidation)
+            }">
+            <p:commandButton  action="#{depositaireBean.deleteMaterielEx(materiel)}"
+             icon="fa  fa-remove"
+            update=":formmodifmatex:msgtableDeleteMateriel"
+       		oncomplete="PF('MaterielTable').filter()"
+            >
+            <p:confirm header="Confirmation" message="Etes-vous sure?" icon="ui-icon-alert" />
+       		</p:commandButton>
+            </c:if>
         </p:column>
     </p:dataTable>
     
@@ -174,6 +188,10 @@
 			<p:graphicImage style="width:35% !important; height:35% !important;" value="/pages/unsecure/assets/images/loading_small.gif" /> 
 		</div>
 	</p:dialog>
+	<p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
+        <p:commandButton value="Oui" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
+        <p:commandButton value="Non" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
+	</p:confirmDialog>
     </h:form>
 </div>
 
