@@ -190,6 +190,7 @@
                 </tr>
 
         <!-- c:forEach var="mat" items="#{gacBean.curentOperation1.listMat}"-->
+        <c:set var="somme" value="${0}" />
         <c:forEach var="des" items="#{gacBean.getDesingationByOpEntree(gacBean.curentOperation1)}">
  
  				<c:forEach var="desu" items="#{des[2]}" varStatus="loop">
@@ -221,14 +222,34 @@
 							<f:convertNumber pattern="### ###.###" currencySymbol=""></f:convertNumber>		
 						</h:outputText>
                     </td>
+                    <c:set var="somme" value="${somme+des[1]}" />
  					</c:if>
  					<td style="text-align:center">#{desu[0].refFacture}</td>
  				</tr>
+ 				
+ 				
  				</c:forEach>
  				
 
         </c:forEach>
-
+			<tr class="entreeo">
+ 					
+ 					<td style="text-align:center" colspan="6"> </td>
+ 					
+ 					<!-- Partielle -->
+                    <td style="text-align:center">
+                    	TOTAL
+                    </td>
+                   <!-- Nomenclature sommaire -->
+                    
+                    <td style="text-align:center">
+                    <h:outputText value="${somme}" >
+							<f:convertNumber  locale="fr_BE" currencySymbol=""></f:convertNumber>		
+						</h:outputText> 
+                    	 
+                    </td>
+ 					<td ></td>
+ 				</tr>
  			</table>
 
  			<br></br><br></br><br></br><br></br>

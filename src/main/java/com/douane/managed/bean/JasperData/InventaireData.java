@@ -26,7 +26,7 @@ public class InventaireData {
 	}
 	
 	public class Inventaire{
-		private String row0;
+		private Integer row0;
 		private Long row1;
 		private String row2;
 		private String row3;
@@ -40,7 +40,9 @@ public class InventaireData {
 		private Designation row11;
 		
 		public Inventaire(Object[] i) {
-			this.row0= (String)i[0];
+			String nm = (String)i[0];
+			this.row0= Integer.valueOf(nm);
+			//this.row0= (String)i[0];
 			this.row1= (Long)i[1];
 			this.row2= (String)i[2];
 			this.row3= (String)i[3];
@@ -54,11 +56,11 @@ public class InventaireData {
 			this.row11= (Designation)i[11];
 		}
 
-		public String getRow0() {
+		public Integer getRow0() {
 			return row0;
 		}
 
-		public void setRow0(String row0) {
+		public void setRow0(Integer row0) {
 			this.row0 = row0;
 		}
 

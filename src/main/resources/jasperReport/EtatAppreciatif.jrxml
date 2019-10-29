@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Created with Jaspersoft Studio version 6.5.1.final using JasperReports Library version 6.5.1  -->
+<!-- Created with Jaspersoft Studio version 6.10.0.final using JasperReports Library version 6.10.0-unknown  -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="EtatAppreciatif" pageWidth="595" pageHeight="842" whenNoDataType="NoPages" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" whenResourceMissingType="Empty" uuid="004a50a4-968e-45dd-9c6d-04487dd3ae86">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
@@ -101,6 +101,8 @@
 		<field name="row18" class="java.lang.Float"/>
 		<field name="row19" class="java.lang.Float"/>
 		<field name="row20" class="java.lang.Float"/>
+		<sortField name="row15"/>
+		<sortField name="row2"/>
 		<variable name="in1" class="java.lang.Float" calculation="Sum">
 			<variableExpression><![CDATA[$F{row4}]]></variableExpression>
 		</variable>

@@ -115,15 +115,24 @@
             </p:commandButton>
         </p:column>
         -->
-         <p:column filterBy="#{materiel.direc}" headerText="Direction"  filterMatchMode="contains" style="width: 8%; text-align: center; word-wrap: break-word;">
-            <f:facet name="filter">
-                <p:selectOneMenu onchange="PF('MaterielTable').filter()" >
+        <p:column filterBy="#{materiel.direc}" headerText="Direction"  filterMatchMode="exact" style="width: 8%; text-align: center; word-wrap: break-word;">
+           <f:facet name="filter">
+                <p:selectOneMenu filter="true" filterMatchMode="startsWith" onchange="PF('MaterielTable').filter()" panelStyle="width:250px;">
                     <f:selectItem itemLabel="Selectionner" itemValue="#{null}" noSelectionOption="true" />
-                    <f:selectItems value="#{siseBean.listDirection}" var="dir" itemLabel="#{dir.codeDirection}" />
+                    <f:selectItems value="#{siseBean.listDirection}" var="type" itemLabel="#{type.codeDirection}" itemValue="#{type}" />
                 </p:selectOneMenu>
             </f:facet>
             <h:outputText value="#{materiel.direc.designation !=null ? materiel.direc.designation :'Non disponible'}" />
         </p:column>
+         <!-- p:column filterBy="#{materiel.direc}" headerText="Direction"  filterMatchMode="exact" style="width: 8%; text-align: center; word-wrap: break-word;">
+            <f:facet name="filter">
+                <p:selectOneMenu filter="true" filterMatchMode="startsWith" onchange="PF('MaterielTable').filter()" >
+                    <f:selectItem itemLabel="Selectionner" itemValue="#{null}" noSelectionOption="true" />
+                    <f:selectItems value="#{siseBean.listDirection}" var="dir" itemValue="dir" itemLabel="#{dir.codeDirection}" />
+                </p:selectOneMenu>
+            </f:facet>
+            <h:outputText value="#{materiel.direc.designation !=null ? materiel.direc.designation :'Non disponible'}" />
+        </p:column-->
         
         <p:column filterBy="#{materiel.validation}" headerText="Statut" filterMatchMode="equals" style="width: 6%; text-align: center; word-wrap: break-word;">
             <f:facet name="filter">
@@ -148,9 +157,9 @@
         </p:column>
         <p:column filterBy="#{materiel.detenteur}" headerText="Immatricule Détenteur"  filterMatchMode="exact" style="width: 7%; text-align: center; word-wrap: break-word;">
            <f:facet name="filter">
-                <p:selectOneMenu onchange="PF('MaterielTable').filter()" panelStyle="width:250px;">
+                <p:selectOneMenu filter="true" filterMatchMode="startsWith" onchange="PF('MaterielTable').filter()" panelStyle="width:250px;">
                     <f:selectItem itemLabel="Selectionner" itemValue="#{null}" noSelectionOption="true" />
-                    <f:selectItems value="#{userMB.userListByDirection}" var="type" itemLabel="#{type.im}" itemValue="#{type}" />
+                    <f:selectItems value="#{userMB.userList}" var="type" itemLabel="#{type.im}" itemValue="#{type}" />
                 </p:selectOneMenu>
             </f:facet>
             <h:outputText value="#{materiel.detenteur.im}" />

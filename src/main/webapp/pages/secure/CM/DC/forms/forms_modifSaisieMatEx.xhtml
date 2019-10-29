@@ -166,7 +166,9 @@
                         value="#{depositaireBean.unitPrice}"
             			required="true"
                         requiredMessage="Prix unitaire obligatoire"
-                        placeholder="Prix unitaire" styleClass="form-control top"></p:inputText>
+                        placeholder="Prix unitaire" styleClass="form-control top">
+                        <f:convertNumber pattern="#,##0.###" currencySymbol=""></f:convertNumber>
+                        </p:inputText>
 
                     <hr></hr>
 

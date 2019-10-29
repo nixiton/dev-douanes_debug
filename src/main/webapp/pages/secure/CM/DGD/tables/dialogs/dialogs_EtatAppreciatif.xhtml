@@ -167,11 +167,10 @@
 			<p:dataTable var="c" value="#{EtatAppreciatifBean.liste}"
     		currentPageReportTemplate="({currentPage} sur {totalPages})"
 			paginatorTemplate="{CurrentPageReport}  {PreviousPageLink} {PageLinks} {NextPageLink}"
-			paginator="true" style="margin-bottom:20px"
+			paginator="true" style="margin-bottom:20px;font-size:10px"
 			widgetVar="EtatAppreciatif"
 			id="etatAppreciatif"
-			sortBy="#{c[15]}" emptyMessage="Aucun résultat"
-			>
+			sortBy="#{c[15]}" emptyMessage="Aucun résultat"			>
 			<f:facet name="header">
        			 <span>ETAT APPRECIATIF </span>
        			 

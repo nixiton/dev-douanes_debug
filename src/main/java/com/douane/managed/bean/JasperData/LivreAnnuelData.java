@@ -28,17 +28,17 @@ public class LivreAnnuelData {
 	}
 	
 	public class LivreAnnuel{
-		private String nomenclature;
+		private Integer nomenclature;
 		private String row1;
 		private String row2;
 		private Float row3;
 		private Float row4;
 		private int row5;
-		public String getNomenclature() {
+		public Integer getNomenclature() {
 			return nomenclature;
 		}
 
-		public void setNomenclature(String nomenclature) {
+		public void setNomenclature(Integer nomenclature) {
 			this.nomenclature = nomenclature;
 		}
 
@@ -183,7 +183,8 @@ public class LivreAnnuelData {
 		private String row16;
 		public LivreAnnuel(Object[] i) {
 			DateFormat  df = new SimpleDateFormat("dd MMM yyyy", Locale.FRANCE);
-			this.nomenclature= (String)i[0];
+			String nm = (String)i[0];
+			this.nomenclature= Integer.valueOf(nm);
 			this.row1= (String)i[1];
 			this.row2= (String)i[2];
 			this.row3= (Float)i[3];

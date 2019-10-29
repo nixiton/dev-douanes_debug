@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Created with Jaspersoft Studio version 6.5.1.final using JasperReports Library version 6.5.1  -->
+<!-- Created with Jaspersoft Studio version 6.10.0.final using JasperReports Library version 6.10.0-unknown  -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="GrandLivre" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="7ca0b6f0-1870-49e5-aee0-021b5df8efea">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
@@ -103,7 +103,7 @@
 		<parameter name="_THIS" class="java.lang.Object[]"/>
 		<parameter name="date" class="java.lang.String"/>
 		<parameter name="annee" class="java.lang.String"/>
-		<field name="nomenclature" class="java.lang.String"/>
+		<field name="nomenclature" class="java.lang.Integer"/>
 		<field name="row1" class="java.lang.String"/>
 		<field name="row2" class="java.lang.String"/>
 		<field name="row3" class="java.lang.Float"/>
@@ -121,6 +121,7 @@
 		<field name="row15" class="java.lang.String"/>
 		<field name="row16" class="java.lang.String"/>
 		<sortField name="nomenclature"/>
+		<sortField name="Group by designation_COUNT" type="Variable"/>
 		<sortField name="row2"/>
 		<group name="Group by designation" keepTogether="true">
 			<groupExpression><![CDATA[$F{row2}]]></groupExpression>

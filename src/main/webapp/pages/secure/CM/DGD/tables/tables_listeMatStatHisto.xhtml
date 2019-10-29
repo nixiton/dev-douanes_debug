@@ -138,7 +138,7 @@
         </p:column>
         <p:column filterBy="#{materiel.detenteur}" headerText="Immatricule Détenteur"  filterMatchMode="exact" style="width: 7%; text-align: center; word-wrap: break-word;">
            <f:facet name="filter">
-                <p:selectOneMenu onchange="PF('MaterielTable').filter()" panelStyle="width:250px;">
+                <p:selectOneMenu filter="true" filterMatchMode="startsWith" onchange="PF('MaterielTable').filter()" panelStyle="width:250px;">
                     <f:selectItem itemLabel="Selectionner" itemValue="#{null}" noSelectionOption="true" />
                     <f:selectItems value="#{userMB.userListByDirection}" var="type" itemLabel="#{type.im}" itemValue="#{type}" />
                 </p:selectOneMenu>

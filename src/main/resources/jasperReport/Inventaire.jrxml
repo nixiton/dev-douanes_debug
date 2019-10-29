@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Created with Jaspersoft Studio version 6.5.1.final using JasperReports Library version 6.5.1  -->
+<!-- Created with Jaspersoft Studio version 6.10.0.final using JasperReports Library version 6.10.0-unknown  -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Inventaire" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="35466d3f-a3dc-4dfe-a6e7-236e3e1ab789">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
@@ -48,7 +48,7 @@
 	</style>
 	<subDataset name="Table Dataset 1" uuid="a02b6442-a325-4e0a-873f-026c668510f1">
 		<parameter name="year" class="java.lang.String"/>
-		<field name="row0" class="java.lang.String"/>
+		<field name="row0" class="java.lang.Integer"/>
 		<field name="row1" class="java.lang.Long"/>
 		<field name="row2" class="java.lang.String"/>
 		<field name="row3" class="java.lang.String"/>
@@ -60,6 +60,8 @@
 		<field name="row9" class="java.lang.Float"/>
 		<field name="row10" class="com.douane.entite.TypeMateriel"/>
 		<field name="row11" class="com.douane.entite.Designation"/>
+		<sortField name="row0"/>
+		<sortField name="row2"/>
 		<variable name="Total" class="java.lang.Float" calculation="Sum">
 			<variableExpression><![CDATA[$F{row9}]]></variableExpression>
 			<initialValueExpression><![CDATA[new Float(0)]]></initialValueExpression>
