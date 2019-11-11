@@ -110,7 +110,7 @@
 		                    <tr>
 		                        <td><b>Prix unitaire</b></td>
 		                        <td align="left">
-				                   <h:outputText value="#{suivieditionBean.materiel.design.pu}" ><f:convertNumber pattern="### ###.###" currencySymbol="Ar "></f:convertNumber></h:outputText>
+				                   <h:outputText value="#{suivieditionBean.materiel.design.pu}" ><f:convertNumber locale="fr_BE" currencySymbol="Ar "></f:convertNumber></h:outputText>
 				                </td>
 				                <td><b>Financement</b></td>
 		                        <td align="left">#{suivieditionBean.materiel.design.financement.designation}</td>

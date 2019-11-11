@@ -50,7 +50,6 @@
 			paginator="true" style="margin-bottom:20px" emptyMessage="Aucun résultat"
 			widgetVar="InventaireTable11"
 			id="inventaireTable11"
-			sortBy="#{m[0]}"
 			>
 			
 			<f:facet name="header">
@@ -146,8 +145,14 @@
 			</p:column>
 			<p:column headerText="Décompte" style=" text-align: center; word-wrap: break-word;">
 				<h:outputText value="#{m[9]}" >
-					<f:convertNumber pattern="¤#,##0.00" currencySymbol=""></f:convertNumber>
+					<f:convertNumber locale="fr_BE" currencySymbol=""></f:convertNumber>
 				</h:outputText>
+				<f:facet name="footer">
+					<h:outputText value="#{suivieditionBean.getTotalInventaire(suivieditionBean.listobjectForInvetaire)}" >
+					<f:convertNumber locale="fr_BE" currencySymbol="Total : "></f:convertNumber>
+				</h:outputText>
+            		
+        		</f:facet>
 			</p:column>
 			<p:column headerText="Observation" style=" text-align: center; word-wrap: break-word;">
 				<h:outputText value="" />

@@ -50,7 +50,7 @@
                             <tr>
                                 <td><strong>Prix unitaire </strong></td>
                                 <td>
-		                        	<h:outputText value="#{mat.design.pu}" ><f:convertNumber pattern="### ###.###" currencySymbol="Ar "></f:convertNumber></h:outputText>
+		                        	<h:outputText value="#{mat.design.pu}" ><f:convertNumber locale="fr_BE" currencySymbol="Ar "></f:convertNumber></h:outputText>
 		                     	</td>
                                 <td><strong>Financement</strong></td>
                                 <td>#{mat.design.financement.designation}</td>

@@ -37,7 +37,7 @@
                     <tr>
 						<td><strong>Montant</strong></td>
                         <td>
-                        	<h:outputText value="#{gacBean.opSortieArticleToValidate.article.prix}" ><f:convertNumber pattern="### ###.###" currencySymbol=""></f:convertNumber></h:outputText>
+                        	<h:outputText value="#{gacBean.opSortieArticleToValidate.article.prix}" ><f:convertNumber locale="fr_BE" currencySymbol=""></f:convertNumber></h:outputText>
                      	</td>
                         <td><strong>Nombre restants en ce moment</strong></td>
                         <td>#{depositaireBean.calculNombreRestant(gacBean.opSortieArticleToValidate.article)}</td>

@@ -29,7 +29,7 @@
                     <tr>
                         <td><strong>Montant</strong></td>
                         <td>
-                        	<h:outputText value="#{gacBean.opEntreeArticleToValidate.article.prix}" ><f:convertNumber pattern="### ###.###" currencySymbol=""></f:convertNumber></h:outputText>
+                        	<h:outputText value="#{gacBean.opEntreeArticleToValidate.article.prix}" ><f:convertNumber locale="fr_BE" currencySymbol=""></f:convertNumber></h:outputText>
                      	</td>
                         <td><strong>Nombre</strong></td>
                         <td>#{gacBean.opEntreeArticleToValidate.article.nombre}</td>
@@ -63,7 +63,7 @@
                         
                         <td><strong>Montant</strong></td>
                         <td>
-                        	<h:outputText value="#{gacBean.opEntreeArticleToValidate.article.prix}" ><f:convertNumber pattern="### ###.###" currencySymbol=""></f:convertNumber></h:outputText>
+                        	<h:outputText value="#{gacBean.opEntreeArticleToValidate.article.prix}" ><f:convertNumber locale="fr_BE" currencySymbol=""></f:convertNumber></h:outputText>
                      	</td>
                         <td><strong>Nombre</strong></td>
                         <td>#{gacBean.opEntreeArticleToValidate.article.nombre}</td>

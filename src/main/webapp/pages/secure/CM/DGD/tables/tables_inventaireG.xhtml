@@ -121,11 +121,20 @@
 			</p:column>
 			<p:column headerText="Reste au 31 déc. #{gacBean.getCurrentYear()} " style=" text-align: center; word-wrap: break-word;">
 				<h:outputText value="#{m[8]}" />
+				<f:facet name="footer">
+				<h:outputText value="#{'Total'}"></h:outputText>
+				</f:facet>
 			</p:column>
 			<p:column headerText="Décompte" style=" text-align: center; word-wrap: break-word;">
 				<h:outputText value="#{m[9]}" >
-					<f:convertNumber pattern="¤#,##0.00" currencySymbol=""></f:convertNumber>
+					<f:convertNumber locale="fr_BE" currencySymbol=""></f:convertNumber>
 				</h:outputText>
+				<f:facet name="footer">
+			<c:set var="somme" value="${suivieditionBean.getTotalInventaire(suivieditionBean.getListobjectForInvetaireByDir(dir,null,null))}" />
+				<h:outputText value="${somme}" >
+					<f:convertNumber locale="fr_BE" currencySymbol=""></f:convertNumber>
+				</h:outputText>
+				</f:facet>
 			</p:column>
 			<p:column headerText="Observation" style=" text-align: center; word-wrap: break-word;">
 				<h:outputText value="" />

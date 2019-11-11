@@ -36,7 +36,7 @@
                     <tr>
                         <td><strong>Montant</strong></td>
                         <td>
-                        	<h:outputText value="#{depositaireBean.curentArticle.prix}" ><f:convertNumber pattern="### ###.###" currencySymbol="Ar "></f:convertNumber></h:outputText>
+                        	<h:outputText value="#{depositaireBean.curentArticle.prix}" ><f:convertNumber locale="fr_BE" currencySymbol="Ar "></f:convertNumber></h:outputText>
                      	</td>	
                         <td><strong>Nombre</strong></td>
                         <td>#{depositaireBean.curentArticle.nombre}</td>
