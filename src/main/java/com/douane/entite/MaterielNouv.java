@@ -20,7 +20,7 @@ public class MaterielNouv extends Materiel{
 	private Fournisseur fournisseur;
 	
 	
-	private Float montant_facture;
+	private Double montant_facture;
 	private String refFacture;
 	
 	/* MANAGED LATER
@@ -56,11 +56,11 @@ public class MaterielNouv extends Materiel{
 		this.fournisseur = fournisseur;
 	}
 
-	public Float getMontant_facture() {
+	public Double getMontant_facture() {
 		return montant_facture;
 	}
 
-	public void setMontant_facture(Float montant_facture) {
+	public void setMontant_facture(Double montant_facture) {
 		this.montant_facture = montant_facture;
 	}
 
@@ -71,9 +71,9 @@ public class MaterielNouv extends Materiel{
 	public void setRefFacture(String refFacture) {
 		this.refFacture = refFacture;
 	}
-	public MaterielNouv(Float pu, String reference, String numSerie, String autre, Nomenclature nomenMat,
+	public MaterielNouv(Double pu, String reference, String numSerie, String autre, Nomenclature nomenMat,
 			EtatMateriel etat, TypeMateriel caract, Agent dc, ModeAcquisition modAcq,
-			Financement financement, Fournisseur fournisseur, Float montant_facture, String refFacture,
+			Financement financement, Fournisseur fournisseur, Double montant_facture, String refFacture,
 			String codif, Marque m) {
 		super(pu, reference, numSerie, autre,codif, nomenMat, etat, caract, dc, m);
 		this.modAcq = modAcq;

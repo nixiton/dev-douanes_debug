@@ -29,7 +29,7 @@ public class Designation implements Serializable{
 	@GeneratedValue(generator="designation_id_seq", strategy=GenerationType.SEQUENCE)
 	private Long idDesignation;
 	
-	private Float pu;
+	private Double pu;
 	private String autre;
 	private String renseignement;
 	private byte[] image;
@@ -119,10 +119,10 @@ public class Designation implements Serializable{
 
 
 
-	public Float getPu() {
+	public Double getPu() {
 		return pu;
 	}
-	public void setPu(Float pu) {
+	public void setPu(Double pu) {
 		this.pu = pu;
 	}
 

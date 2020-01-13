@@ -27,8 +27,8 @@ public class EtatAppreciatifBean {
 	private String edate;
 	private Direction dir;
 	private String section;
-	private Float entrant;
-	private Float sortant;
+	private Double entrant;
+	private Double sortant;
 	public EtatAppreciatifBean() {
 		this.date = new Date();
 		Calendar calendar = new GregorianCalendar();
@@ -59,13 +59,13 @@ public class EtatAppreciatifBean {
 			this.section = d.getBudget();
 		}
 		//calcul des entrants
-		this.entrant = new Float(0);
+		this.entrant = new Double(0);
 		//calcul des sortants
-		this.sortant = new Float(0);
+		this.sortant = new Double(0);
 		for(Object[] c :this.liste) {
-			this.entrant = entrant + (Float) c[4]+ (Float) c[7]+ (Float) c[9]+ (Float) c[11]+ (Float) c[13]
-					+ (Float) c[16]+ (Float) c[17]+ (Float) c[18]+ (Float) c[19]+ (Float) c[20];
-			this.sortant = sortant + (Float) c[6]+ (Float) c[8]+ (Float) c[10]+ (Float) c[12] + (Float) c[14];
+			this.entrant = entrant + (Double) c[4]+ (Double) c[7]+ (Double) c[9]+ (Double) c[11]+ (Double) c[13]
+					+ (Double) c[16]+ (Double) c[17]+ (Double) c[18]+ (Double) c[19]+ (Double) c[20];
+			this.sortant = sortant + (Double) c[6]+ (Double) c[8]+ (Double) c[10]+ (Double) c[12] + (Double) c[14];
 		}
 		
 		
@@ -138,16 +138,16 @@ public class EtatAppreciatifBean {
 	public void setSection(String section) {
 		this.section = section;
 	}
-	public Float getEntrant() {
+	public Double getEntrant() {
 		return entrant;
 	}
-	public void setEntrant(Float entrant) {
+	public void setEntrant(Double entrant) {
 		this.entrant = entrant;
 	}
-	public Float getSortant() {
+	public Double getSortant() {
 		return sortant;
 	}
-	public void setSortant(Float sortant) {
+	public void setSortant(Double sortant) {
 		this.sortant = sortant;
 	}
 

@@ -49,20 +49,20 @@
 	<subDataset name="Table Dataset 1" uuid="a02b6442-a325-4e0a-873f-026c668510f1">
 		<parameter name="year" class="java.lang.String"/>
 		<field name="row0" class="java.lang.Integer"/>
-		<field name="row1" class="java.lang.Long"/>
+		<field name="row1" class="java.lang.Double"/>
 		<field name="row2" class="java.lang.String"/>
 		<field name="row3" class="java.lang.String"/>
-		<field name="row4" class="java.lang.Float"/>
+		<field name="row4" class="java.lang.Double"/>
 		<field name="row5" class="java.lang.Integer"/>
 		<field name="row6" class="java.lang.Integer"/>
 		<field name="row7" class="java.lang.Integer"/>
 		<field name="row8" class="java.lang.Integer"/>
-		<field name="row9" class="java.lang.Float"/>
+		<field name="row9" class="java.lang.Double"/>
 		<field name="row10" class="com.douane.entite.TypeMateriel"/>
 		<field name="row11" class="com.douane.entite.Designation"/>
 		<sortField name="row0"/>
 		<sortField name="row2"/>
-		<variable name="Total" class="java.lang.Float" calculation="Sum">
+		<variable name="Total" class="java.lang.Double" calculation="Sum">
 			<variableExpression><![CDATA[$F{row9}]]></variableExpression>
 			<initialValueExpression><![CDATA[new Float(0)]]></initialValueExpression>
 		</variable>
@@ -230,13 +230,7 @@
 						</jr:groupHeader>
 						<jr:columnHeader style="table_CH" height="42" rowSpan="2"/>
 						<jr:columnFooter height="30" rowSpan="1"/>
-						<jr:detailCell style="table_TD" height="62" rowSpan="1">
-							<textField>
-								<reportElement x="0" y="0" width="40" height="62" uuid="29a34349-5dc7-4af7-b692-c39ba50e84ab"/>
-								<textElement textAlignment="Center" verticalAlignment="Middle"/>
-								<textFieldExpression><![CDATA[$F{row1}]]></textFieldExpression>
-							</textField>
-						</jr:detailCell>
+						<jr:detailCell style="table_TD" height="62" rowSpan="1"/>
 					</jr:column>
 					<jr:column width="90" uuid="1302fb70-1631-4757-905c-c5c810ca7ec1">
 						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Colonne2"/>

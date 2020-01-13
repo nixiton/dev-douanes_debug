@@ -48,7 +48,7 @@ public class ArticleNouv extends Article{
 
    
 
-    public ArticleNouv(Fournisseur fournisseur, Float prix) {
+    public ArticleNouv(Fournisseur fournisseur, Double prix) {
         super();
         this.fournisseur = fournisseur;
         this.prix = prix;

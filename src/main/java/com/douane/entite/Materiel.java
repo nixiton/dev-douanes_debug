@@ -25,7 +25,7 @@ public class Materiel implements Serializable{
 	@GeneratedValue(generator="account_id_seq", strategy=GenerationType.SEQUENCE)
 	private Long idMateriel;
 
-	private Float pu;
+	private Double pu;
 	private String reference;
 	private String numSerie;
 	private String autre;
@@ -150,10 +150,10 @@ public class Materiel implements Serializable{
 		return this.idMateriel;
 	}
 	public void setidMateriel(Long idMateriel){ this.idMateriel = idMateriel;}
-	public Float getPu() {
+	public Double getPu() {
 		return pu;
 	}
-	public void setPu(Float pu) {
+	public void setPu(Double pu) {
 		this.pu = pu;
 	}
 	public String getReference() {
@@ -243,7 +243,7 @@ public class Materiel implements Serializable{
 	}
 
 
-	public Materiel(Float pu, String reference, String numSerie, String autre, String codification,
+	public Materiel(Double pu, String reference, String numSerie, String autre, String codification,
 					Nomenclature nomenMat, EtatMateriel etat, TypeMateriel caract, Agent dc, Marque m) {
 		super();
 		this.pu = pu;

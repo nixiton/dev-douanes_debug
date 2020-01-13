@@ -84,87 +84,87 @@
 		<field name="row1" class="java.lang.String"/>
 		<field name="row2" class="java.lang.String"/>
 		<field name="row3" class="java.lang.String"/>
-		<field name="row4" class="java.lang.Float"/>
-		<field name="row5" class="java.lang.Float"/>
-		<field name="row6" class="java.lang.Float"/>
-		<field name="row7" class="java.lang.Float"/>
-		<field name="row8" class="java.lang.Float"/>
-		<field name="row9" class="java.lang.Float"/>
-		<field name="row10" class="java.lang.Float"/>
-		<field name="row11" class="java.lang.Float"/>
-		<field name="row12" class="java.lang.Float"/>
-		<field name="row13" class="java.lang.Float"/>
-		<field name="row14" class="java.lang.Float"/>
+		<field name="row4" class="java.lang.Double"/>
+		<field name="row5" class="java.lang.Double"/>
+		<field name="row6" class="java.lang.Double"/>
+		<field name="row7" class="java.lang.Double"/>
+		<field name="row8" class="java.lang.Double"/>
+		<field name="row9" class="java.lang.Double"/>
+		<field name="row10" class="java.lang.Double"/>
+		<field name="row11" class="java.lang.Double"/>
+		<field name="row12" class="java.lang.Double"/>
+		<field name="row13" class="java.lang.Double"/>
+		<field name="row14" class="java.lang.Double"/>
 		<field name="row15" class="java.lang.String"/>
-		<field name="row16" class="java.lang.Float"/>
-		<field name="row17" class="java.lang.Float"/>
-		<field name="row18" class="java.lang.Float"/>
-		<field name="row19" class="java.lang.Float"/>
-		<field name="row20" class="java.lang.Float"/>
+		<field name="row16" class="java.lang.Double"/>
+		<field name="row17" class="java.lang.Double"/>
+		<field name="row18" class="java.lang.Double"/>
+		<field name="row19" class="java.lang.Double"/>
+		<field name="row20" class="java.lang.Double"/>
 		<sortField name="row15"/>
 		<sortField name="row2"/>
-		<variable name="in1" class="java.lang.Float" calculation="Sum">
+		<variable name="in1" class="java.lang.Double" calculation="Sum">
 			<variableExpression><![CDATA[$F{row4}]]></variableExpression>
 		</variable>
-		<variable name="in2" class="java.lang.Float" calculation="Sum">
+		<variable name="in2" class="java.lang.Double" calculation="Sum">
 			<variableExpression><![CDATA[$F{row7}]]></variableExpression>
 		</variable>
-		<variable name="in3" class="java.lang.Float" calculation="Sum">
+		<variable name="in3" class="java.lang.Double" calculation="Sum">
 			<variableExpression><![CDATA[$F{row9}]]></variableExpression>
 		</variable>
-		<variable name="in5" class="java.lang.Float" calculation="Sum">
+		<variable name="in5" class="java.lang.Double" calculation="Sum">
 			<variableExpression><![CDATA[$F{row11}]]></variableExpression>
 		</variable>
-		<variable name="in10" class="java.lang.Float" calculation="Sum">
+		<variable name="in10" class="java.lang.Double" calculation="Sum">
 			<variableExpression><![CDATA[$F{row13}]]></variableExpression>
 		</variable>
-		<variable name="in1_1" class="java.lang.Float" calculation="Sum">
+		<variable name="in1_1" class="java.lang.Double" calculation="Sum">
 			<variableExpression><![CDATA[$F{row6}]]></variableExpression>
 		</variable>
-		<variable name="in2_1" class="java.lang.Float" calculation="Sum">
+		<variable name="in2_1" class="java.lang.Double" calculation="Sum">
 			<variableExpression><![CDATA[$F{row8}]]></variableExpression>
 		</variable>
-		<variable name="in3_1" class="java.lang.Float" calculation="Sum">
+		<variable name="in3_1" class="java.lang.Double" calculation="Sum">
 			<variableExpression><![CDATA[$F{row10}]]></variableExpression>
 		</variable>
-		<variable name="in5_1" class="java.lang.Float" calculation="Sum">
+		<variable name="in5_1" class="java.lang.Double" calculation="Sum">
 			<variableExpression><![CDATA[$F{row12}]]></variableExpression>
 		</variable>
-		<variable name="in10_1" class="java.lang.Float" calculation="Sum">
+		<variable name="in10_1" class="java.lang.Double" calculation="Sum">
 			<variableExpression><![CDATA[$F{row14}]]></variableExpression>
 		</variable>
-		<variable name="existant1" class="java.lang.Float" calculation="Sum">
+		<variable name="existant1" class="java.lang.Double" calculation="Sum">
 			<variableExpression><![CDATA[$F{row16}]]></variableExpression>
 		</variable>
-		<variable name="existant5" class="java.lang.Float" calculation="Sum">
+		<variable name="existant5" class="java.lang.Double" calculation="Sum">
 			<variableExpression><![CDATA[$F{row19}]]></variableExpression>
 		</variable>
-		<variable name="existant10" class="java.lang.Float" calculation="Sum">
+		<variable name="existant10" class="java.lang.Double" calculation="Sum">
 			<variableExpression><![CDATA[$F{row20}]]></variableExpression>
 		</variable>
-		<variable name="existant3" class="java.lang.Float" calculation="Sum">
+		<variable name="existant3" class="java.lang.Double" calculation="Sum">
 			<variableExpression><![CDATA[$F{row18}]]></variableExpression>
 		</variable>
-		<variable name="existant2" class="java.lang.Float" calculation="Sum">
+		<variable name="existant2" class="java.lang.Double" calculation="Sum">
 			<variableExpression><![CDATA[$F{row17}]]></variableExpression>
 		</variable>
 	</subDataset>
 	<subDataset name="Table Dataset 3" uuid="9b4fb00c-2e22-44cf-991d-e23e5ba06247">
-		<parameter name="existant1" class="java.lang.Float"/>
-		<parameter name="existant2" class="java.lang.Float"/>
-		<parameter name="existant3" class="java.lang.Float"/>
-		<parameter name="existant5" class="java.lang.Float"/>
-		<parameter name="existant10" class="java.lang.Float"/>
-		<parameter name="in1" class="java.lang.Float"/>
-		<parameter name="in2" class="java.lang.Float"/>
-		<parameter name="in3" class="java.lang.Float"/>
-		<parameter name="in5" class="java.lang.Float"/>
-		<parameter name="in10" class="java.lang.Float"/>
-		<parameter name="out1" class="java.lang.Float"/>
-		<parameter name="ou2" class="java.lang.Float"/>
-		<parameter name="out3" class="java.lang.Float"/>
-		<parameter name="out5" class="java.lang.Float"/>
-		<parameter name="ou10" class="java.lang.Float"/>
+		<parameter name="existant1" class="java.lang.Double"/>
+		<parameter name="existant2" class="java.lang.Double"/>
+		<parameter name="existant3" class="java.lang.Double"/>
+		<parameter name="existant5" class="java.lang.Double"/>
+		<parameter name="existant10" class="java.lang.Double"/>
+		<parameter name="in1" class="java.lang.Double"/>
+		<parameter name="in2" class="java.lang.Double"/>
+		<parameter name="in3" class="java.lang.Double"/>
+		<parameter name="in5" class="java.lang.Double"/>
+		<parameter name="in10" class="java.lang.Double"/>
+		<parameter name="out1" class="java.lang.Double"/>
+		<parameter name="ou2" class="java.lang.Double"/>
+		<parameter name="out3" class="java.lang.Double"/>
+		<parameter name="out5" class="java.lang.Double"/>
+		<parameter name="ou10" class="java.lang.Double"/>
 	</subDataset>
 	<parameter name="num" class="java.lang.String"/>
 	<parameter name="date" class="java.lang.String"/>
@@ -204,21 +204,21 @@
 	<parameter name="lieu" class="java.lang.String"/>
 	<parameter name="annee" class="java.lang.String"/>
 	<variable name="var1" class="java.lang.String"/>
-	<variable name="in1" class="java.lang.Float"/>
-	<variable name="in2" class="java.lang.Float"/>
-	<variable name="in3" class="java.lang.Float"/>
-	<variable name="in5" class="java.lang.Float"/>
-	<variable name="in10" class="java.lang.Float"/>
-	<variable name="in1_1" class="java.lang.Float"/>
-	<variable name="in2_1" class="java.lang.Float"/>
-	<variable name="in3_1" class="java.lang.Float"/>
-	<variable name="in5_1" class="java.lang.Float"/>
-	<variable name="in10_1" class="java.lang.Float"/>
-	<variable name="existant1" class="java.lang.Float"/>
-	<variable name="existant2" class="java.lang.Float"/>
-	<variable name="existant3" class="java.lang.Float"/>
-	<variable name="existant5" class="java.lang.Float"/>
-	<variable name="existant10" class="java.lang.Float"/>
+	<variable name="in1" class="java.lang.Double"/>
+	<variable name="in2" class="java.lang.Double"/>
+	<variable name="in3" class="java.lang.Double"/>
+	<variable name="in5" class="java.lang.Double"/>
+	<variable name="in10" class="java.lang.Double"/>
+	<variable name="in1_1" class="java.lang.Double"/>
+	<variable name="in2_1" class="java.lang.Double"/>
+	<variable name="in3_1" class="java.lang.Double"/>
+	<variable name="in5_1" class="java.lang.Double"/>
+	<variable name="in10_1" class="java.lang.Double"/>
+	<variable name="existant1" class="java.lang.Double"/>
+	<variable name="existant2" class="java.lang.Double"/>
+	<variable name="existant3" class="java.lang.Double"/>
+	<variable name="existant5" class="java.lang.Double"/>
+	<variable name="existant10" class="java.lang.Double"/>
 	<background>
 		<band splitType="Stretch"/>
 	</background>

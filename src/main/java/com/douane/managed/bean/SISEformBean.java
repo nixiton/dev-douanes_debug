@@ -733,7 +733,7 @@ public class SISEformBean {
 	private TypeObjet typeObjet;
 	private List<CodeArticle> listCodeArticle;
 	private List<CodeArticle> listCodeArticleByTypeObject;
-	private Float prix;
+	private Double prix;
 	private Agent agentDest;
 
 	private CodeArticle codeArticle;
@@ -880,11 +880,11 @@ public class SISEformBean {
 		this.fournisseur = fournisseur;
 	}
 
-	public Float getPrix() {
+	public Double getPrix() {
 		return prix;
 	}
 
-	public void setPrix(Float prix) {
+	public void setPrix(Double prix) {
 		this.prix = prix;
 	}
 

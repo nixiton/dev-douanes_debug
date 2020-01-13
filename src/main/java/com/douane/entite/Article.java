@@ -135,18 +135,18 @@ public class Article implements Serializable {
 
 	}
 
-	public Float getPrix() {
+	public Double getPrix() {
 		return prix;
 	}
 
-	public void setPrix(Float prix) {
+	public void setPrix(Double prix) {
 		this.prix = prix;
 	}
 	
 	/*
 	 * Champs additionels utiles dans les etats réglementaires
 	 */
-	protected Float prix;
+	protected Double prix;
 	protected String origine;
 	protected String reference;
 	protected String especeunit;
@@ -156,7 +156,7 @@ public class Article implements Serializable {
 	}
 
 	public void setOrigine(String origine) {
-		this.origine = origine;
+		this.origine = origine.toUpperCase();
 	}
 
 	public String getReference() {
@@ -164,7 +164,7 @@ public class Article implements Serializable {
 	}
 
 	public void setReference(String reference) {
-		this.reference = reference;
+		this.reference = reference.toUpperCase();
 	}
 
 	public String getEspeceunit() {
@@ -172,7 +172,7 @@ public class Article implements Serializable {
 	}
 
 	public void setEspeceunit(String especeunit) {
-		this.especeunit = especeunit;
+		this.especeunit = especeunit.toUpperCase();
 	}
 
 }

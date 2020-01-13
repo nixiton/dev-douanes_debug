@@ -26,7 +26,7 @@
 <p:growl for="myerrorReferentiel" id="msgtableType" showDetail="true" sticky="true" redisplay="false"/>
 	<p:dataTable   var="typemateriel" value="#{siseBean.listTypeMateriel}"
 				currentPageReportTemplate="({currentPage} sur {totalPages})" 
-                 paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}  "
+                 paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {Exporters} "
                  paginatorPosition="bottom"
                  paginator="true" rows="10" style="margin-bottom:20px" emptyMessage="Aucun résultat"
                  editable="true"
@@ -34,6 +34,23 @@
                  widgetVar="typeTable"
                  filterEvent="enter"
                  >
+        <f:facet name="{Exporters}">
+            <h:commandLink>
+                <i class="fa fa-table">  </i> Excel
+                <p:dataExporter type="xls" target="tableTypeMat" fileName="typeMateriel" />
+            </h:commandLink>
+ 			<span>   </span>
+            <h:commandLink>
+            	<i class="fa fa-file">  </i> PDF
+            	
+                <p:dataExporter encoding="ISO-8859-1" type="pdf" target="tableTypeMat" facetFontStyle="BOLD" 
+                fileName="typeMateriel"
+                cellFontStyle="NORMAL"
+                tableTitle="Liste des types de matériel"
+                preProcessor="#{dtFilterView.preProcessPDF}"
+                datasetPadding="4"/>
+            </h:commandLink>
+        </f:facet>
         <p:ajax event="rowEdit" listener="#{siseBean.onRowEdit}" update=":formType:msgtableType" oncomplete="PF('typeTable').filter()"/>
 		
 		<p:column style="width: 5%; text-align: center; word-break: break-all;">

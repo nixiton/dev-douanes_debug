@@ -30,12 +30,12 @@ public class InventaireData {
 		private Long row1;
 		private String row2;
 		private String row3;
-		private Float row4;
+		private Double row4;
 		private int row5;
 		private Integer row6;
 		private Integer row7;
 		private Integer row8;
-		private Float row9;
+		private Double row9;
 		private TypeMateriel row10;
 		private Designation row11;
 		
@@ -46,12 +46,12 @@ public class InventaireData {
 			this.row1= (Long)i[1];
 			this.row2= (String)i[2];
 			this.row3= (String)i[3];
-			this.row4= (Float)i[4];
+			this.row4= (Double)i[4];
 			this.row5= (Integer) i[5];
 			this.row6= (Integer)i[6];
 			this.row7= (Integer)i[7];
 			this.row8= (Integer)i[8];
-			this.row9= (Float)i[9];
+			this.row9= (Double)i[9];
 			this.row10= (TypeMateriel)i[10];
 			this.row11= (Designation)i[11];
 		}
@@ -88,11 +88,11 @@ public class InventaireData {
 			this.row3 = row3;
 		}
 
-		public Float getRow4() {
+		public Double getRow4() {
 			return row4;
 		}
 
-		public void setRow4(Float row4) {
+		public void setRow4(Double row4) {
 			this.row4 = row4;
 		}
 
@@ -128,11 +128,11 @@ public class InventaireData {
 			this.row8 = row8;
 		}
 
-		public Float getRow9() {
+		public Double getRow9() {
 			return row9;
 		}
 
-		public void setRow9(Float row9) {
+		public void setRow9(Double row9) {
 			this.row9 = row9;
 		}
 

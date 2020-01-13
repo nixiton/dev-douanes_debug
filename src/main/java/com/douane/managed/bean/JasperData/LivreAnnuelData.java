@@ -31,8 +31,8 @@ public class LivreAnnuelData {
 		private Integer nomenclature;
 		private String row1;
 		private String row2;
-		private Float row3;
-		private Float row4;
+		private Double row3;
+		private Double row4;
 		private int row5;
 		public Integer getNomenclature() {
 			return nomenclature;
@@ -58,19 +58,19 @@ public class LivreAnnuelData {
 			this.row2 = row2;
 		}
 
-		public Float getRow3() {
+		public Double getRow3() {
 			return row3;
 		}
 
-		public void setRow3(Float row3) {
+		public void setRow3(Double row3) {
 			this.row3 = row3;
 		}
 
-		public Float getRow4() {
+		public Double getRow4() {
 			return row4;
 		}
 
-		public void setRow4(Float row4) {
+		public void setRow4(Double row4) {
 			this.row4 = row4;
 		}
 
@@ -106,11 +106,11 @@ public class LivreAnnuelData {
 			this.row8 = row8;
 		}
 
-		public Float getRow9() {
+		public Double getRow9() {
 			return row9;
 		}
 
-		public void setRow9(Float row9) {
+		public void setRow9(Double row9) {
 			this.row9 = row9;
 		}
 
@@ -173,7 +173,7 @@ public class LivreAnnuelData {
 		private String row6;
 		private String row7;
 		private Integer row8;
-		private Float row9;
+		private Double row9;
 		private TypeMateriel row10;
 		private Designation row11;
 		private Integer row12;
@@ -187,13 +187,13 @@ public class LivreAnnuelData {
 			this.nomenclature= Integer.valueOf(nm);
 			this.row1= (String)i[1];
 			this.row2= (String)i[2];
-			this.row3= (Float)i[3];
-			this.row4= (Float)i[4];
+			this.row3= (Double)i[3];
+			this.row4= (Double)i[4];
 			this.row5= (Integer) i[5];
 			this.row6= (String)i[6];
 			this.row7= (String)i[7];
 			this.row8= (Integer)i[8];
-			this.row9= (Float)i[9];
+			this.row9= (Double)i[9];
 			this.row10= (TypeMateriel)i[10];
 			this.row11= (Designation)i[11];
 			this.row12= (Integer)i[12];

@@ -283,9 +283,15 @@
     <br/><br/>
 	<div class="col-md-12">
 	<p>
-	Arrêté à la somme de ( #{EtatAppreciatifBean.entrant} ) <p:inputText value="#{JasperTableExampleBean.pdfForm.somme}" style="text-align: center;width: 25%"/> en ce qui concerne les Entrées<br/>
-	A la somme de ( #{EtatAppreciatifBean.sortant} )<p:inputText value="#{JasperTableExampleBean.pdfForm.somme1}" style="text-align: center;width: 25%"/> en ce qui concerne les Sorties<br/>
-	Et à la somme de ( #{EtatAppreciatifBean.entrant - EtatAppreciatifBean.sortant} ) <p:inputText value="#{JasperTableExampleBean.pdfForm.somme2}" style="text-align: center;width: 25%"/> Valeur restant au dernier jour de l’année<br/>
+	Arrêté à la somme de ( <h:outputText value="#{EtatAppreciatifBean.entrant}" >
+					<f:convertNumber locale="fr_BE" currencySymbol=""></f:convertNumber>
+				</h:outputText>	 ) <p:inputText value="#{JasperTableExampleBean.pdfForm.somme}" style="text-align: center;width: 25%"/> en ce qui concerne les Entrées<br/>
+	A la somme de ( <h:outputText value="#{EtatAppreciatifBean.sortant}" >
+					<f:convertNumber locale="fr_BE" currencySymbol=""></f:convertNumber>
+				</h:outputText>	  )<p:inputText value="#{JasperTableExampleBean.pdfForm.somme1}" style="text-align: center;width: 25%"/> en ce qui concerne les Sorties<br/>
+	Et à la somme de (<h:outputText value="#{EtatAppreciatifBean.entrant - EtatAppreciatifBean.sortant}" >
+					<f:convertNumber locale="fr_BE" currencySymbol=""></f:convertNumber>
+				</h:outputText>	  ) <p:inputText value="#{JasperTableExampleBean.pdfForm.somme2}" style="text-align: center;width: 25%"/> Valeur restant au dernier jour de l’année<br/>
 	</p> <br/>
 	A #{EtatAppreciatifBean.trois}, le <p:inputText value="#{JasperTableExampleBean.pdfForm.date}" style="text-align: center;width: 25%"/> <br/> <br/>
 	<div class="col-md-9">LE GAC</div> <div class="col-md-3" style="text-align: center;">LE DEPOSITAIRE COMPTABLE</div>

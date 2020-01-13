@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Created with Jaspersoft Studio version 6.5.1.final using JasperReports Library version 6.5.1  -->
+<!-- Created with Jaspersoft Studio version 6.10.0.final using JasperReports Library version 6.10.0-unknown  -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Journal" pageWidth="595" pageHeight="842" whenNoDataType="NoPages" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="e53f56c0-d2d2-41ee-a57b-598abaa7405e">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
@@ -122,12 +122,12 @@
 		<field name="nbrDes" class="java.lang.String"/>
 		<field name="designations" class="java.lang.String"/>
 		<field name="especeU" class="java.lang.String"/>
-		<field name="pu" class="java.lang.Float"/>
+		<field name="pu" class="java.lang.Double"/>
 		<field name="e_qt" class="java.lang.Long"/>
-		<field name="e_v" class="java.lang.Float"/>
+		<field name="e_v" class="java.lang.Double"/>
 		<field name="s_qt" class="java.lang.Long"/>
-		<field name="s_v" class="java.lang.Float"/>
-		<variable name="report" class="java.lang.Float" calculation="Sum">
+		<field name="s_v" class="java.lang.Double"/>
+		<variable name="report" class="java.lang.Double" calculation="Sum">
 			<variableExpression><![CDATA[$F{e_v} - $F{s_v}]]></variableExpression>
 		</variable>
 	</subDataset>
@@ -654,7 +654,7 @@ des matières et objets
 							</staticText>
 						</jr:tableHeader>
 						<jr:columnFooter height="30" rowSpan="1">
-							<textField pattern="#,##0">
+							<textField pattern="#,##0.###">
 								<reportElement x="0" y="0" width="94" height="30" uuid="9d5a5a29-351a-4279-bdbd-13e6bdc91757"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle"/>
 								<textFieldExpression><![CDATA[$V{report}]]></textFieldExpression>

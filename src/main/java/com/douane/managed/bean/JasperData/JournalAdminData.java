@@ -30,8 +30,8 @@ public class JournalAdminData {
 		private String row3;
 		private String row4;
 		private Long row5;
-		private Float row6;
-		private Float row7;
+		private Double row6;
+		private Double row7;
 		
 		public JournalAdmin(Object[] i) {
 			this.row0= (String)i[0];
@@ -40,8 +40,8 @@ public class JournalAdminData {
 			this.row3= (String)i[3];
 			this.row4= (String)i[4];
 			this.row5= (Long) i[5];
-			this.row6= (Float)i[6];
-			this.row7= (Float)i[7];
+			this.row6= (Double)i[6];
+			this.row7= (Double)i[7];
 		}
 
 		public String getRow0() {
@@ -92,19 +92,19 @@ public class JournalAdminData {
 			this.row5 = row5;
 		}
 
-		public Float getRow6() {
+		public Double getRow6() {
 			return row6;
 		}
 
-		public void setRow6(Float row6) {
+		public void setRow6(Double row6) {
 			this.row6 = row6;
 		}
 
-		public Float getRow7() {
+		public Double getRow7() {
 			return row7;
 		}
 
-		public void setRow7(Float row7) {
+		public void setRow7(Double row7) {
 			this.row7 = row7;
 		}
 		

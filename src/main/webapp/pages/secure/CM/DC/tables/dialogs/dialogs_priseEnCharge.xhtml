@@ -39,7 +39,9 @@
                         <td></td>
                         <td><strong>Prix unitaire</strong></td>
                         <td>
-                            <h:outputText value="#{depositaireBean.curentMaterielNouv.design.pu}" ></h:outputText>
+                            <h:outputText value="#{depositaireBean.curentMaterielNouv.design.pu}" >
+                            <f:convertNumber locale="fr_BE"></f:convertNumber>
+                            </h:outputText>
                         </td>
                     </tr>
                     <tr>

@@ -175,8 +175,8 @@ public interface IUserMetier {
 
 	
 
-	public ArticleNouv addArticleNouv(CodeArticle cde, Agent ben, Agent depo, Fournisseur fourn, Float prix, Long nombre, Marque marqueArt,String caraArt);
-	public ArticleEx addArticleEx(CodeArticle cde, Agent ben, Agent depo, Float prix, Long nombre, Marque marqueArt,String caraArt);
+	public ArticleNouv addArticleNouv(CodeArticle cde, Agent ben, Agent depo, Fournisseur fourn, Double prix, Long nombre, Marque marqueArt,String caraArt);
+	public ArticleEx addArticleEx(CodeArticle cde, Agent ben, Agent depo, Double prix, Long nombre, Marque marqueArt,String caraArt);
 	
 	
 	public OpSortie reqSortirMateriel(Materiel m, MotifSortie motif, Direction d, Agent oper)throws Exception;;

@@ -106,13 +106,13 @@
 		<field name="nomenclature" class="java.lang.Integer"/>
 		<field name="row1" class="java.lang.String"/>
 		<field name="row2" class="java.lang.String"/>
-		<field name="row3" class="java.lang.Float"/>
-		<field name="row4" class="java.lang.Float"/>
+		<field name="row3" class="java.lang.Double"/>
+		<field name="row4" class="java.lang.Double"/>
 		<field name="row5" class="java.lang.Integer"/>
 		<field name="row6" class="java.lang.String"/>
 		<field name="row7" class="java.lang.String"/>
 		<field name="row8" class="java.lang.Integer"/>
-		<field name="row9" class="java.lang.Float"/>
+		<field name="row9" class="java.lang.Double"/>
 		<field name="row10" class="com.douane.entite.TypeMateriel"/>
 		<field name="row11" class="com.douane.entite.Designation"/>
 		<field name="row12" class="java.lang.Integer"/>

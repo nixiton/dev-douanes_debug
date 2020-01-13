@@ -25,9 +25,9 @@ public class DetenteurEffectifData {
 	public class DetenteurEffectif{
 		private String row0;
 		private String row1;
-		private Float row2;
-		private Float row3;
-		private Float row4;
+		private Double row2;
+		private Double row3;
+		private Double row4;
 		
 		public DetenteurEffectif(Materiel i) {
 			this.row0= i.getDesign().getNomenMat().getNomenclature() + " - "
@@ -37,7 +37,7 @@ public class DetenteurEffectifData {
 			
 			this.row1= i.getDesign().getEspeceUnite();//matdet.design.especeUnite
 			this.row2= i.getDesign().getPu();//matdet.design.pu
-			this.row3= new Float(1); // 1
+			this.row3= new Double(1); // 1
 			this.row4= i.getDesign().getPu();//matdet.design.pu*1
 		}
 
@@ -57,27 +57,27 @@ public class DetenteurEffectifData {
 			this.row1 = row1;
 		}
 
-		public Float getRow2() {
+		public Double getRow2() {
 			return row2;
 		}
 
-		public void setRow2(Float row2) {
+		public void setRow2(Double row2) {
 			this.row2 = row2;
 		}
 
-		public Float getRow3() {
+		public Double getRow3() {
 			return row3;
 		}
 
-		public void setRow3(Float row3) {
+		public void setRow3(Double row3) {
 			this.row3 = row3;
 		}
 
-		public Float getRow4() {
+		public Double getRow4() {
 			return row4;
 		}
 
-		public void setRow4(Float row4) {
+		public void setRow4(Double row4) {
 			this.row4 = row4;
 		}
 	}

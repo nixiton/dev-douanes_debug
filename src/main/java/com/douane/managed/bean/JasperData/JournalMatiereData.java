@@ -33,11 +33,11 @@ public class JournalMatiereData {
 		private String nbrDes;
 		private String designations;
 		private String especeU;
-		private Float pu;
+		private Double pu;
 		private Long e_qt;
-		private Float e_v;
+		private Double e_v;
 		private Long s_qt;
-		private Float s_v;
+		private Double s_v;
 		public JournalMatiere(Object i, Object i2, Object i3,Object i4, Object i5, Object i6, Object i7,Object i8, Object i9, Object i10, Object i11, Object i12){
 			this.id = (Long) i;
 			this.numerotation = (String) i2;
@@ -45,12 +45,12 @@ public class JournalMatiereData {
 			this.setOrigine((String) i4);
 			this.designations = (String) i5;//((Designation) i12).getNomenMat().getNomenclature();
 			this.especeU = (String) i6;
-			this.pu = (Float) i7;
+			this.pu = (Double) i7;
 			this.nomenclature = " ";
 			this.e_qt = (Long) i8;
-			this.e_v = (Float) i9;
+			this.e_v = (Double) i9;
 			this.s_qt = (Long) i10;
-			this.s_v = (Float) i11;
+			this.s_v = (Double) i11;
 			this.nbrDes =  ((Designation) i12).getNomenMat().getNomenclature();
 		}
 		public Long getId() {
@@ -89,10 +89,10 @@ public class JournalMatiereData {
 		public void setEspeceU(String especeU) {
 			this.especeU = especeU;
 		}
-		public Float getPu() {
+		public Double getPu() {
 			return pu;
 		}
-		public void setPu(Float pu) {
+		public void setPu(Double pu) {
 			this.pu = pu;
 		}
 		public String getNbrDes() {
@@ -107,10 +107,10 @@ public class JournalMatiereData {
 		public void setE_qt(Long e_qt) {
 			this.e_qt = e_qt;
 		}
-		public Float getE_v() {
+		public Double getE_v() {
 			return e_v;
 		}
-		public void setE_v(Float e_v) {
+		public void setE_v(Double e_v) {
 			this.e_v = e_v;
 		}
 		public Long getS_qt() {
@@ -119,10 +119,10 @@ public class JournalMatiereData {
 		public void setS_qt(Long s_qt) {
 			this.s_qt = s_qt;
 		}
-		public Float getS_v() {
+		public Double getS_v() {
 			return s_v;
 		}
-		public void setS_v(Float s_v) {
+		public void setS_v(Double s_v) {
 			this.s_v = s_v;
 		}
 		public String getOrigine() {

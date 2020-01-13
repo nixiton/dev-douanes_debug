@@ -416,7 +416,7 @@ public class UserMetier implements IUserMetier {
 		ModeAcquisition ma = null;
 		Financement fi = null;
 		Fournisseur f = null;
-		Float mont = 0f;
+		Double mont = 0d;
 		String refFact = null;
 
 		if (m instanceof MaterielNouv) {
@@ -1064,7 +1064,7 @@ public class UserMetier implements IUserMetier {
 	}
 
 	@Override
-	public ArticleNouv addArticleNouv(CodeArticle cde, Agent ben, Agent depo, Fournisseur fourn, Float prix,
+	public ArticleNouv addArticleNouv(CodeArticle cde, Agent ben, Agent depo, Fournisseur fourn, Double prix,
 			Long nombre, Marque marqueArt, String caraArt) {
 		ArticleNouv a = new ArticleNouv(fourn, prix);
 		a.setCodeArticle(cde);
@@ -1079,7 +1079,7 @@ public class UserMetier implements IUserMetier {
 	}
 
 	@Override
-	public ArticleEx addArticleEx(CodeArticle cde, Agent ben, Agent depo, Float prix, Long nombre, Marque marqueArt,
+	public ArticleEx addArticleEx(CodeArticle cde, Agent ben, Agent depo, Double prix, Long nombre, Marque marqueArt,
 			String caraArt) {
 		ArticleEx a = new ArticleEx();
 		a.setCodeArticle(cde);

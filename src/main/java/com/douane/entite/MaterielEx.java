@@ -12,7 +12,7 @@ public class MaterielEx extends Materiel {
 		this.setLeref("Matériel Existant");
 	}
 
-	public MaterielEx(Float pu, String reference, String numSerie, String autre, String codification,
+	public MaterielEx(Double pu, String reference, String numSerie, String autre, String codification,
 			Nomenclature nomenMat, EtatMateriel etat, TypeMateriel caract, Agent detenteur, Agent dc, Marque m) {
 		super(pu, reference, numSerie, autre, codification, nomenMat, etat, caract, dc, m);
 		this.setDetenteur(detenteur);

@@ -121,7 +121,7 @@ public class SuiviEditionBean implements Serializable {
 
 	private List<Materiel> listMaterielByDet;
 
-	private Float total;
+	private Double total;
 
 	public void setAnnee(int t) {
 		this.annee = t;
@@ -136,11 +136,11 @@ public class SuiviEditionBean implements Serializable {
 		return "annee";
 	}
 
-	public void setTotal(Float t) {
+	public void setTotal(Double t) {
 		this.total = t;
 	}
 
-	public Float getTotal() {
+	public Double getTotal() {
 		return this.total;
 	}
 
@@ -465,9 +465,9 @@ public class SuiviEditionBean implements Serializable {
 
 			ListIterator<Materiel> it = this.getListMaterielByDet().listIterator();
 			if (it != null) {
-				this.setTotal(Float.parseFloat("0"));
+				this.setTotal(Double.parseDouble("0"));
 				while (it.hasNext()) {
-					setTotal(this.total + (Float) (it.next().getPu()));
+					setTotal(this.total + (Double) (it.next().getPu()));
 				}
 			}
 		} else {
@@ -702,7 +702,7 @@ public class SuiviEditionBean implements Serializable {
 							// nombre par desingation sortie
 							row[9] = new Long(0);
 							// total sortie
-							row[10] = new Float(0);
+							row[10] = new Double(0);
 							row[11] = d;
 							listobjectForJournal.add(row);
 							row = new Object[13];
@@ -756,7 +756,7 @@ public class SuiviEditionBean implements Serializable {
 					// nombre par desingation entree
 					row[7] = new Long(0);
 					// total entree
-					row[8] = new Float(0);
+					row[8] = new Double(0);
 					// nombre par desingation sortie
 					row[9] = 1L;
 					// total sortie
@@ -848,7 +848,7 @@ public class SuiviEditionBean implements Serializable {
 						// nombre par desingation sortie
 						row[9] = new Long(0);
 						// total sortie
-						row[10] = new Float(0);
+						row[10] = new Double(0);
 						row[11] = d;
 						listobjectForJournal.add(row);
 						row = new Object[13];
@@ -902,7 +902,7 @@ public class SuiviEditionBean implements Serializable {
 				// nombre par desingation entree
 				row[7] = new Long(0);
 				// total entree
-				row[8] = new Float(0);
+				row[8] = new Double(0);
 				// nombre par desingation sortie
 				row[9] = 1L;
 				// total sortie
@@ -983,7 +983,7 @@ public class SuiviEditionBean implements Serializable {
 						// nombre par desingation sortie
 						row[9] = new Long(0);
 						// total sortie
-						row[10] = new Float(0);
+						row[10] = new Double(0);
 						row[11] = d;
 						listobjectForJournal.add(row);
 						row = new Object[12];
@@ -1033,7 +1033,7 @@ public class SuiviEditionBean implements Serializable {
 				// nombre par desingation entree
 				row[7] = new Long(0);
 				// total entree
-				row[8] = new Float(0);
+				row[8] = new Double(0);
 				// nombre par desingation sortie
 				row[9] = 1L;
 				// total sortie
@@ -1081,16 +1081,16 @@ public class SuiviEditionBean implements Serializable {
 					row[2] = "";
 
 					// par nomenclature
-					row[4] = new Float(0);
-					row[6] = new Float(0);
-					row[7] = new Float(0);
-					row[8] = new Float(0);
-					row[9] = new Float(0);
-					row[10] = new Float(0);
-					row[11] = new Float(0);
-					row[12] = new Float(0);
-					row[13] = new Float(0);
-					row[14] = new Float(0);
+					row[4] = new Double(0);
+					row[6] = new Double(0);
+					row[7] = new Double(0);
+					row[8] = new Double(0);
+					row[9] = new Double(0);
+					row[10] = new Double(0);
+					row[11] = new Double(0);
+					row[12] = new Double(0);
+					row[13] = new Double(0);
+					row[14] = new Double(0);
 
 					for (Object[] nom : bydesignation1) {
 						List<Object[]> liste = (List<Object[]>) nom[2];
@@ -1133,7 +1133,7 @@ public class SuiviEditionBean implements Serializable {
 						 * //existant X-1 row[7] = 0L; //valeur X-1 row[8] = (Long)row[7] * d.getPu();
 						 * 
 						 * //restant X row[9] = (Long)row[3] + (Long)row[7]; //valeur restant X
-						 * //row[10] = (Float)row[8] + d.getPu()*(Long)row[9]; row[10] =
+						 * //row[10] = (Double)row[8] + d.getPu()*(Long)row[9]; row[10] =
 						 * d.getPu()*(Long)row[9];
 						 * 
 						 * 
@@ -1159,16 +1159,16 @@ public class SuiviEditionBean implements Serializable {
 					}
 
 					// par nomenclature
-					row[4] = new Float(0);
-					row[6] = new Float(0);
-					row[7] = new Float(0);
-					row[8] = new Float(0);
-					row[9] = new Float(0);
-					row[10] = new Float(0);
-					row[11] = new Float(0);
-					row[12] = new Float(0);
-					row[13] = new Float(0);
-					row[14] = new Float(0);
+					row[4] = new Double(0);
+					row[6] = new Double(0);
+					row[7] = new Double(0);
+					row[8] = new Double(0);
+					row[9] = new Double(0);
+					row[10] = new Double(0);
+					row[11] = new Double(0);
+					row[12] = new Double(0);
+					row[13] = new Double(0);
+					row[14] = new Double(0);
 
 					// total sortie
 					Nomenclature nomenclcurrent = mat.getDesign().getNomenMat();
@@ -1281,16 +1281,16 @@ public class SuiviEditionBean implements Serializable {
 				row[2] = "";
 
 				// par nomenclature
-				row[4] = new Float(0);
-				row[6] = new Float(0);
-				row[7] = new Float(0);
-				row[8] = new Float(0);
-				row[9] = new Float(0);
-				row[10] = new Float(0);
-				row[11] = new Float(0);
-				row[12] = new Float(0);
-				row[13] = new Float(0);
-				row[14] = new Float(0);
+				row[4] = new Double(0);
+				row[6] = new Double(0);
+				row[7] = new Double(0);
+				row[8] = new Double(0);
+				row[9] = new Double(0);
+				row[10] = new Double(0);
+				row[11] = new Double(0);
+				row[12] = new Double(0);
+				row[13] = new Double(0);
+				row[14] = new Double(0);
 
 				for (Object[] nom : bydesignation1) {
 					List<Object[]> liste = (List<Object[]>) nom[2];
@@ -1330,16 +1330,16 @@ public class SuiviEditionBean implements Serializable {
 				row[2] = ((OpSortie) op).getMotifsortie().getDesignation();
 
 				// par nomenclature
-				row[4] = new Float(0);
-				row[6] = new Float(0);
-				row[7] = new Float(0);
-				row[8] = new Float(0);
-				row[9] = new Float(0);
-				row[10] = new Float(0);
-				row[11] = new Float(0);
-				row[12] = new Float(0);
-				row[13] = new Float(0);
-				row[14] = new Float(0);
+				row[4] = new Double(0);
+				row[6] = new Double(0);
+				row[7] = new Double(0);
+				row[8] = new Double(0);
+				row[9] = new Double(0);
+				row[10] = new Double(0);
+				row[11] = new Double(0);
+				row[12] = new Double(0);
+				row[13] = new Double(0);
+				row[14] = new Double(0);
 
 				// total sortie
 				Nomenclature nomenclcurrent = mat.getDesign().getNomenMat();
@@ -1416,7 +1416,7 @@ public class SuiviEditionBean implements Serializable {
 					continue;
 				}
 				if (mat.getMyoperationEntree() == null || mat.getMyoperationEntree().getDate().compareTo(sdate) < 0) {
-					row[6] = "Materiel Existant";
+					row[6] = "Matériel Existant";
 					row[5] = 1;
 				} else {
 					row[6] = mat.getMyoperationEntree().getNumoperation();
@@ -1509,7 +1509,7 @@ public class SuiviEditionBean implements Serializable {
 							&& materiels.get(0).getMyoperationEntree().getDate().compareTo(sdate) < 0) {
 						es = "du " + df.format(materiels.get(0).getMyoperationEntree().getDate());
 					}
-					row[6] = "Materiel Existant  " + es;
+					row[6] = "Matériel Existant  " + es;
 					row[5] = materiels.size();
 					entreeAx = 0;
 					// set origine des entrées pour le premier matériel
@@ -1625,7 +1625,7 @@ public class SuiviEditionBean implements Serializable {
 					continue;
 				}
 				if (mat.getMyoperationEntree() == null || mat.getMyoperationEntree().getDate().compareTo(sdate) < 0) {
-					row[6] = "Materiel Existant";
+					row[6] = "Matériel Existant";
 					row[5] = 1;
 				} else {
 					row[6] = mat.getMyoperationEntree().getNumoperation();
@@ -1718,7 +1718,7 @@ public class SuiviEditionBean implements Serializable {
 							&& materiels.get(0).getMyoperationEntree().getDate().compareTo(sdate) < 0) {
 						es = "du " + df.format(materiels.get(0).getMyoperationEntree().getDate());
 					}
-					row[6] = "Materiel Existant  " + es;
+					row[6] = "Matériel Existant  " + es;
 					row[5] = materiels.size();
 					entreeAx = 0;
 					// set origine des entrées pour le premier matériel
@@ -1790,8 +1790,8 @@ public class SuiviEditionBean implements Serializable {
 	public List<Object[]> getDesingationByOpEntree(Operation op) {
 		System.out.println("FIRST CALL");
 		List<Object[]> results = usermetierimpl.listDesignationByOperationEntree((OpEntree) op);
-		Map<Nomenclature, Float> bynom = new ConcurrentHashMap<Nomenclature, Float>();
-		Iterator<Map.Entry<Nomenclature, Float>>  it;
+		Map<Nomenclature, Double> bynom = new ConcurrentHashMap<Nomenclature, Double>();
+		Iterator<Map.Entry<Nomenclature, Double>>  it;
 		try {
 		// disable concurrent 
 		//synchronized (bynom) {
@@ -1809,9 +1809,9 @@ public class SuiviEditionBean implements Serializable {
 				System.out.println(a.getNomenMat()+ " initialize "+bynom.get(a.getNomenMat()));
 			} else {
 				//it = bynom.entrySet().iterator();
-				//Map.Entry<Nomenclature, Float>  entry;
+				//Map.Entry<Nomenclature, Double>  entry;
 				if(bynom.containsKey(a.getNomenMat())) {
-					Float curentvalue = bynom.get(a.getNomenMat())+ (nbr * a.getPu());
+					Double curentvalue = bynom.get(a.getNomenMat())+ (nbr * a.getPu());
 					bynom.replace(a.getNomenMat(), curentvalue);
 					System.out.println(a.getNomenMat()+ " has current value "+bynom.get(a.getNomenMat()));
 				}
@@ -1824,7 +1824,7 @@ public class SuiviEditionBean implements Serializable {
 					 entry = it.next();
 					 System.out.println(a.getNomenMat()+ " has  value "+bynom.get(a.getNomenMat()));
 					if (entry.getKey() == a.getNomenMat() && entry.getValue()!=null) {
-						Float curentvalue = entry.getValue()+ (nbr * a.getPu());
+						Double curentvalue = entry.getValue()+ (nbr * a.getPu());
 						bynom.replace(a.getNomenMat(), curentvalue);
 						System.out.println(a.getNomenMat()+ " has current value "+bynom.get(a.getNomenMat()));
 						//entry.setValue(curentvalue);
@@ -1845,7 +1845,7 @@ public class SuiviEditionBean implements Serializable {
 		List<Object[]>resultatfinal = new CopyOnWriteArrayList<Object[]>();
 		
 		
-		for (Map.Entry<Nomenclature, Float> entry : bynom.entrySet()) {
+		for (Map.Entry<Nomenclature, Double> entry : bynom.entrySet()) {
 		//while (it.hasNext())
 		//{
 			//entry = it.next();
@@ -1920,7 +1920,7 @@ public class SuiviEditionBean implements Serializable {
 			row[5] = 0;
 			// Entrées pendant l’année X
 			if (mat.getMyoperationEntree() == null || mat.getMyoperationEntree().getDate().compareTo(sdate) <= 0) {
-				row[6] = "Materiel Existant";
+				row[6] = "Matériel Existant";
 				row[5] = 1;
 			} else {
 				row[6] = mat.getMyoperationEntree().getNumoperation();
@@ -2005,7 +2005,7 @@ public class SuiviEditionBean implements Serializable {
 					es = materiels.get(0).getMyoperationEntree().getDate().toString();
 				}
 
-				row[6] = "Materiel Existant " + es;
+				row[6] = "Matériel Existant " + es;
 				row[5] = materiels.size();
 				entreeAx = 0;
 
@@ -2096,7 +2096,7 @@ public class SuiviEditionBean implements Serializable {
 			row[5] = 0;
 			// Entrées pendant l’année X
 			if (mat.getMyoperationEntree() == null || mat.getMyoperationEntree().getDate().compareTo(sdate) <= 0) {
-				row[6] = "Materiel Existant";
+				row[6] = "Matériel Existant";
 				row[5] = 1;
 			} else {
 				row[6] = mat.getMyoperationEntree().getNumoperation();
@@ -2181,7 +2181,7 @@ public class SuiviEditionBean implements Serializable {
 					es = materiels.get(0).getMyoperationEntree().getDate().toString();
 				}
 
-				row[6] = "Materiel Existant " + es;
+				row[6] = "Matériel Existant " + es;
 				row[5] = materiels.size();
 				entreeAx = 0;
 
@@ -2345,9 +2345,9 @@ public class SuiviEditionBean implements Serializable {
 			// quantite
 			row[5] = new Long(0);
 			// prix unitaire
-			row[6] = new Float(0);
+			row[6] = new Double(0);
 			// Montant total
-			row[7] = new Float(0);
+			row[7] = new Double(0);
 
 			// processing
 			if (o instanceof OpEntreeArticle) {
@@ -2364,7 +2364,7 @@ public class SuiviEditionBean implements Serializable {
 				row[4] = a.getCodeArticle().getDesignation() + marqueArt;
 				row[5] = a.getNombre();
 				row[6] = a.getPrix();
-				row[7] = (Long) row[5] * (Float) row[6];
+				row[7] = (Long) row[5] * (Double) row[6];
 				// set reference entree
 				if (a.getReference() != null) {
 					row[2] = a.getReference();
@@ -2380,7 +2380,7 @@ public class SuiviEditionBean implements Serializable {
 				row[4] = a.getCodeArticle().getDesignation();
 				row[5] = ((OpSortieArticle) o).getNombreToS();
 				row[6] = a.getPrix();
-				row[7] = (Long) row[5] * (Float) row[6];
+				row[7] = (Long) row[5] * (Double) row[6];
 				if (((OpSortieArticle) o).getDecision() != null) {
 					row[2] = ((OpSortieArticle) o).getDecision();
 				}
@@ -2439,9 +2439,9 @@ public class SuiviEditionBean implements Serializable {
 			// quantite
 			row[5] = new Long(0);
 			// prix unitaire
-			row[6] = new Float(0);
+			row[6] = new Double(0);
 			// Montant total
-			row[7] = new Float(0);
+			row[7] = new Double(0);
 
 			// processing
 			if (o instanceof OpEntreeArticle) {
@@ -2458,7 +2458,7 @@ public class SuiviEditionBean implements Serializable {
 				row[4] = a.getCodeArticle().getDesignation() + marqueArt;
 				row[5] = a.getNombre();
 				row[6] = a.getPrix();
-				row[7] = (Long) row[5] * (Float) row[6];
+				row[7] = (Long) row[5] * (Double) row[6];
 				// set reference entree
 				if (a.getReference() != null) {
 					row[2] = a.getReference();
@@ -2474,7 +2474,7 @@ public class SuiviEditionBean implements Serializable {
 				row[4] = a.getCodeArticle().getDesignation();
 				row[5] = a.getNombre();
 				row[6] = a.getPrix();
-				row[7] = (Long) row[5] * (Float) row[6];
+				row[7] = (Long) row[5] * (Double) row[6];
 				if (((OpSortieArticle) o).getDecision() != null) {
 					row[2] = ((OpSortieArticle) o).getDecision();
 				}
@@ -2508,9 +2508,9 @@ public class SuiviEditionBean implements Serializable {
 			// quantite
 			row[5] = new Long(0);
 			// prix unitaire
-			row[6] = new Float(0);
+			row[6] = new Double(0);
 			// Montant total
-			row[7] = new Float(0);
+			row[7] = new Double(0);
 
 			// processing
 			if (o instanceof OpEntreeArticle) {
@@ -2521,7 +2521,7 @@ public class SuiviEditionBean implements Serializable {
 				row[4] = a.getCodeArticle().getDesignation();
 				row[5] = a.getNombre();
 				row[6] = a.getPrix();
-				row[7] = (Long) row[5] * (Float) row[6];
+				row[7] = (Long) row[5] * (Double) row[6];
 				// set reference entree
 				if (a.getReference() != null) {
 					row[2] = a.getReference();
@@ -2541,7 +2541,7 @@ public class SuiviEditionBean implements Serializable {
 				row[4] = a.getCodeArticle().getDesignation() + marqueArt;
 				row[5] = a.getNombre();
 				row[6] = a.getPrix();
-				row[7] = (Long) row[5] * (Float) row[6];
+				row[7] = (Long) row[5] * (Double) row[6];
 				if (((OpSortieArticle) o).getDecision() != null) {
 					row[2] = ((OpSortieArticle) o).getDecision();
 				}
@@ -2832,7 +2832,7 @@ public class SuiviEditionBean implements Serializable {
 						// nombre par desingation sortie
 						row[9] = new Long(0);
 						// total sortie
-						row[10] = new Float(0);
+						row[10] = new Double(0);
 						row[11] = d;
 						listobjectForJournal.add(row);
 						row = new Object[13];
@@ -2887,7 +2887,7 @@ public class SuiviEditionBean implements Serializable {
 				// nombre par desingation entree
 				row[7] = new Long(0);
 				// total entree
-				row[8] = new Float(0);
+				row[8] = new Double(0);
 				// nombre par desingation sortie
 				row[9] = 1L;
 				// total sortie
@@ -2964,7 +2964,7 @@ public class SuiviEditionBean implements Serializable {
 			row[5] = 0;
 			// Entrées pendant l’année X
 			if (mat.getMyoperationEntree() == null || mat.getMyoperationEntree().getDate().compareTo(sdate) <= 0) {
-				row[6] = "Materiel Existant";
+				row[6] = "Matériel Existant";
 				row[5] = 1;
 			} else {
 				row[6] = mat.getMyoperationEntree().getNumoperation();
@@ -3049,7 +3049,7 @@ public class SuiviEditionBean implements Serializable {
 					es = materiels.get(0).getMyoperationEntree().getDate().toString();
 				}
 
-				row[6] = "Materiel Existant " + es;
+				row[6] = "Matériel Existant " + es;
 				row[5] = materiels.size();
 				entreeAx = 0;
 
@@ -3311,7 +3311,7 @@ public class SuiviEditionBean implements Serializable {
 			// Designation Finale
 			String designation = des.getTypematerieladd().getDesignation() + " - " + marque + " - " + rens + series;
 			// Prix de l’unité
-			Float pu = des.getPu();
+			Double pu = des.getPu();
 			
 			/////////////////////
 			/*
@@ -3327,7 +3327,7 @@ public class SuiviEditionBean implements Serializable {
 				continue;
 			}
 			if (materiels.get(0).getMyoperationEntree() == null || materiels.get(0).getMyoperationEntree().getDate().compareTo(sdate) < 0) {
-				motifentre = "Materiel Existant ";
+				motifentre = "Matériel Existant ";
 				existp = materiels.size();
 				//existp = 1;
 				// add row 1
@@ -3353,26 +3353,26 @@ public class SuiviEditionBean implements Serializable {
 				row[2] = designation;
 
 				// par nomenclature
-				row[4] = new Float(0);
-				row[6] = new Float(0);
+				row[4] = new Double(0);
+				row[6] = new Double(0);
 
-				row[7] = new Float(0);
-				row[8] = new Float(0);
+				row[7] = new Double(0);
+				row[8] = new Double(0);
 
-				row[9] = new Float(0);
-				row[10] = new Float(0);
+				row[9] = new Double(0);
+				row[10] = new Double(0);
 
-				row[11] = new Float(0);
-				row[12] = new Float(0);
+				row[11] = new Double(0);
+				row[12] = new Double(0);
 
-				row[13] = new Float(0);
-				row[14] = new Float(0);
+				row[13] = new Double(0);
+				row[14] = new Double(0);
 
-				row[16] = new Float(0);
-				row[17] = new Float(0);
-				row[18] = new Float(0);
-				row[19] = new Float(0);
-				row[20] = new Float(0);
+				row[16] = new Double(0);
+				row[17] = new Double(0);
+				row[18] = new Double(0);
+				row[19] = new Double(0);
+				row[20] = new Double(0);
 				// add existant for that
 				if (nomenclature.equals("1")) {
 					row[16] = existp * pu;
@@ -3400,26 +3400,26 @@ public class SuiviEditionBean implements Serializable {
 				row[2] = designation;
 
 				// par nomenclature
-				row[4] = new Float(0);
-				row[6] = new Float(0);
+				row[4] = new Double(0);
+				row[6] = new Double(0);
 
-				row[7] = new Float(0);
-				row[8] = new Float(0);
+				row[7] = new Double(0);
+				row[8] = new Double(0);
 
-				row[9] = new Float(0);
-				row[10] = new Float(0);
+				row[9] = new Double(0);
+				row[10] = new Double(0);
 
-				row[11] = new Float(0);
-				row[12] = new Float(0);
+				row[11] = new Double(0);
+				row[12] = new Double(0);
 
-				row[13] = new Float(0);
-				row[14] = new Float(0);
+				row[13] = new Double(0);
+				row[14] = new Double(0);
 
-				row[16] = new Float(0);
-				row[17] = new Float(0);
-				row[18] = new Float(0);
-				row[19] = new Float(0);
-				row[20] = new Float(0);
+				row[16] = new Double(0);
+				row[17] = new Double(0);
+				row[18] = new Double(0);
+				row[19] = new Double(0);
+				row[20] = new Double(0);
 				// add existant for that
 				if (nomenclature.equals("1")) {
 					row[4] = materiels.size() * pu;
@@ -3462,26 +3462,26 @@ public class SuiviEditionBean implements Serializable {
 				row[2] = designation;
 
 				// par nomenclature
-				row[4] = new Float(0);
-				row[6] = new Float(0);
+				row[4] = new Double(0);
+				row[6] = new Double(0);
 
-				row[7] = new Float(0);
-				row[8] = new Float(0);
+				row[7] = new Double(0);
+				row[8] = new Double(0);
 
-				row[9] = new Float(0);
-				row[10] = new Float(0);
+				row[9] = new Double(0);
+				row[10] = new Double(0);
 
-				row[11] = new Float(0);
-				row[12] = new Float(0);
+				row[11] = new Double(0);
+				row[12] = new Double(0);
 
-				row[13] = new Float(0);
-				row[14] = new Float(0);
+				row[13] = new Double(0);
+				row[14] = new Double(0);
 
-				row[16] = new Float(0);
-				row[17] = new Float(0);
-				row[18] = new Float(0);
-				row[19] = new Float(0);
-				row[20] = new Float(0);
+				row[16] = new Double(0);
+				row[17] = new Double(0);
+				row[18] = new Double(0);
+				row[19] = new Double(0);
+				row[20] = new Double(0);
 				// add existant for that
 				if (nomenclature.equals("1")) {
 					row[6] = os.size() * pu;
@@ -3527,7 +3527,7 @@ public class SuiviEditionBean implements Serializable {
 			designation = mat.getDesign().getTypematerieladd().getDesignation() + " - " + marque + " - " + rens
 					+ " - " + mat.getNumSerie();
 			// Prix de l’unité
-			Float pu = 0f; 
+			Double pu = 0d; 
 			pu = mat.getDesign().getPu();
 
 			/*
@@ -3541,7 +3541,7 @@ public class SuiviEditionBean implements Serializable {
 			//motifentre = "";
 			// Entrées pendant l’année X
 			if (mat.getMyoperationEntree() == null || mat.getMyoperationEntree().getDate().compareTo(sdate) < 0) {
-				motifentre = "Materiel Existant";
+				motifentre = "Matériel Existant";
 				existp = 1;
 				// add row 1
 				Object[] row = new Object[21];
@@ -3559,26 +3559,26 @@ public class SuiviEditionBean implements Serializable {
 				row[2] = designation;
 
 				// par nomenclature
-				row[4] = new Float(0);
-				row[6] = new Float(0);
+				row[4] = new Double(0);
+				row[6] = new Double(0);
 
-				row[7] = new Float(0);
-				row[8] = new Float(0);
+				row[7] = new Double(0);
+				row[8] = new Double(0);
 
-				row[9] = new Float(0);
-				row[10] = new Float(0);
+				row[9] = new Double(0);
+				row[10] = new Double(0);
 
-				row[11] = new Float(0);
-				row[12] = new Float(0);
+				row[11] = new Double(0);
+				row[12] = new Double(0);
 
-				row[13] = new Float(0);
-				row[14] = new Float(0);
+				row[13] = new Double(0);
+				row[14] = new Double(0);
 
-				row[16] = new Float(0);
-				row[17] = new Float(0);
-				row[18] = new Float(0);
-				row[19] = new Float(0);
-				row[20] = new Float(0);
+				row[16] = new Double(0);
+				row[17] = new Double(0);
+				row[18] = new Double(0);
+				row[19] = new Double(0);
+				row[20] = new Double(0);
 				// add existant for that
 				if (nomenclature.equals("1")) {
 					row[16] = existp * pu;
@@ -3606,26 +3606,26 @@ public class SuiviEditionBean implements Serializable {
 				row[2] = designation;
 
 				// par nomenclature
-				row[4] = new Float(0);
-				row[6] = new Float(0);
+				row[4] = new Double(0);
+				row[6] = new Double(0);
 
-				row[7] = new Float(0);
-				row[8] = new Float(0);
+				row[7] = new Double(0);
+				row[8] = new Double(0);
 
-				row[9] = new Float(0);
-				row[10] = new Float(0);
+				row[9] = new Double(0);
+				row[10] = new Double(0);
 
-				row[11] = new Float(0);
-				row[12] = new Float(0);
+				row[11] = new Double(0);
+				row[12] = new Double(0);
 
-				row[13] = new Float(0);
-				row[14] = new Float(0);
+				row[13] = new Double(0);
+				row[14] = new Double(0);
 
-				row[16] = new Float(0);
-				row[17] = new Float(0);
-				row[18] = new Float(0);
-				row[19] = new Float(0);
-				row[20] = new Float(0);
+				row[16] = new Double(0);
+				row[17] = new Double(0);
+				row[18] = new Double(0);
+				row[19] = new Double(0);
+				row[20] = new Double(0);
 				// add existant for that
 				if (nomenclature.equals("1")) {
 					row[4] = 1 * pu;
@@ -3663,26 +3663,26 @@ public class SuiviEditionBean implements Serializable {
 				row[2] = designation;
 
 				// par nomenclature
-				row[4] = new Float(0);
-				row[6] = new Float(0);
+				row[4] = new Double(0);
+				row[6] = new Double(0);
 
-				row[7] = new Float(0);
-				row[8] = new Float(0);
+				row[7] = new Double(0);
+				row[8] = new Double(0);
 
-				row[9] = new Float(0);
-				row[10] = new Float(0);
+				row[9] = new Double(0);
+				row[10] = new Double(0);
 
-				row[11] = new Float(0);
-				row[12] = new Float(0);
+				row[11] = new Double(0);
+				row[12] = new Double(0);
 
-				row[13] = new Float(0);
-				row[14] = new Float(0);
+				row[13] = new Double(0);
+				row[14] = new Double(0);
 
-				row[16] = new Float(0);
-				row[17] = new Float(0);
-				row[18] = new Float(0);
-				row[19] = new Float(0);
-				row[20] = new Float(0);
+				row[16] = new Double(0);
+				row[17] = new Double(0);
+				row[18] = new Double(0);
+				row[19] = new Double(0);
+				row[20] = new Double(0);
 				// add existant for that
 				if (nomenclature.equals("1")) {
 					row[6] = 1 * pu;
@@ -3774,7 +3774,7 @@ public class SuiviEditionBean implements Serializable {
 					row[5] = 0;
 					// Entrées pendant l’année X
 					if (mat.getMyoperationEntree() == null || mat.getMyoperationEntree().getDate().compareTo(sdate) <= 0) {
-						row[6] = "Materiel Existant";
+						row[6] = "Matériel Existant";
 						row[5] = 1;
 					} else {
 						row[6] = mat.getMyoperationEntree().getNumoperation();
@@ -3861,7 +3861,7 @@ public class SuiviEditionBean implements Serializable {
 							es = materiels.get(0).getMyoperationEntree().getDate().toString();
 						}
 
-						row[6] = "Materiel Existant " + es;
+						row[6] = "Matériel Existant " + es;
 						row[5] = materiels.size();
 						entreeAx = 0;
 
@@ -3908,21 +3908,21 @@ public class SuiviEditionBean implements Serializable {
 		this.listobjectForInvetaireBytypemat = listobjectForInvetaireBytypemat;
 	}
 	
-	public Float getTotalInventaire(List<Object[]> listobjectForInvetaireset) {
-		Float total =0F;
+	public Double getTotalInventaire(List<Object[]> listobjectForInvetaireset) {
+		Double total =0d;
 			for(Object[] m: listobjectForInvetaireset) {
-				total+=(Float)m[9];
+				total+=(Double)m[9];
 			}
 		return total;
 	}
 	
-	public Float getTotalJournal(List<Object[]> listobjectForJournal) {
-		Float total =0F;
-		Float entree = 0F;
-		Float sortie = 0F;
+	public Double getTotalJournal(List<Object[]> listobjectForJournal) {
+		Double total =0d;
+		Double entree = 0d;
+		Double sortie = 0d;
 		for(Object[] c: listobjectForJournal) {
-			entree+=(Float)c[8];
-			sortie+=(Float)c[10];
+			entree+=(Double)c[8];
+			sortie+=(Double)c[10];
 		}
 		total =entree -sortie;
 		return total;

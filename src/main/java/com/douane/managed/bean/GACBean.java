@@ -74,7 +74,7 @@ public class GACBean {
 
 	private String motif;
 
-	private Float total;
+	private Double total;
 
 
 	private List<Operation> listOperationByDirectionByYearByDateAsc;
@@ -117,11 +117,11 @@ public class GACBean {
 
 	}
 
-	public void setTotal(Float t) {
+	public void setTotal(Double t) {
 		this.total = t;
 	}
 
-	public Float getTotal() {
+	public Double getTotal() {
 		return this.total;
 	}
 
@@ -448,8 +448,8 @@ public class GACBean {
 					usermetierimpl.getListMatByDet(((OpAttribution) getCurentOperation()).getDetenteur()));
 			/*
 			 * ListIterator<Materiel> it = this.getListMaterielByDet().listIterator(); if
-			 * (it!=null) { this.setTotal(Float.parseFloat("0")); while(it.hasNext()){
-			 * setTotal(this.total+(Float)(it.next().getPu())); } }
+			 * (it!=null) { this.setTotal(Double.parseDouble("0")); while(it.hasNext()){
+			 * setTotal(this.total+(Double)(it.next().getPu())); } }
 			 */
 			return "dialog";
 		}
@@ -526,15 +526,15 @@ public class GACBean {
 		this.fournisseur = fournisseur;
 	}
 
-	public Float getPrix() {
+	public Double getPrix() {
 		return prix;
 	}
 
-	public void setPrix(Float prix) {
+	public void setPrix(Double prix) {
 		this.prix = prix;
 	}
 
-	Float prix;
+	Double prix;
 
 	public OpEntreeArticle getOpEntreeArticle() {
 		return opEntreeArticle;
@@ -1003,8 +1003,8 @@ public class GACBean {
 	public List<Object[]> getDesingationByOpEntree(Operation op) {
 		System.out.println("FIRST CALL");
 		List<Object[]> results = usermetierimpl.listDesignationByOperationEntree((OpEntree) op);
-		Map<Nomenclature, Float> bynom = new ConcurrentHashMap<Nomenclature, Float>();
-		Iterator<Map.Entry<Nomenclature, Float>>  it;
+		Map<Nomenclature, Double> bynom = new ConcurrentHashMap<Nomenclature, Double>();
+		Iterator<Map.Entry<Nomenclature, Double>>  it;
 		try {
 		// disable concurrent 
 		//synchronized (bynom) {
@@ -1022,9 +1022,9 @@ public class GACBean {
 				System.out.println(a.getNomenMat()+ " initialize "+bynom.get(a.getNomenMat()));
 			} else {
 				//it = bynom.entrySet().iterator();
-				//Map.Entry<Nomenclature, Float>  entry;
+				//Map.Entry<Nomenclature, Double>  entry;
 				if(bynom.containsKey(a.getNomenMat())) {
-					Float curentvalue = bynom.get(a.getNomenMat())+ (nbr * a.getPu());
+					Double curentvalue = bynom.get(a.getNomenMat())+ (nbr * a.getPu());
 					bynom.replace(a.getNomenMat(), curentvalue);
 					System.out.println(a.getNomenMat()+ " has current value "+bynom.get(a.getNomenMat()));
 				}
@@ -1037,7 +1037,7 @@ public class GACBean {
 					 entry = it.next();
 					 System.out.println(a.getNomenMat()+ " has  value "+bynom.get(a.getNomenMat()));
 					if (entry.getKey() == a.getNomenMat() && entry.getValue()!=null) {
-						Float curentvalue = entry.getValue()+ (nbr * a.getPu());
+						Double curentvalue = entry.getValue()+ (nbr * a.getPu());
 						bynom.replace(a.getNomenMat(), curentvalue);
 						System.out.println(a.getNomenMat()+ " has current value "+bynom.get(a.getNomenMat()));
 						//entry.setValue(curentvalue);
@@ -1058,7 +1058,7 @@ public class GACBean {
 		List<Object[]>resultatfinal = new CopyOnWriteArrayList<Object[]>();
 		
 		
-		for (Map.Entry<Nomenclature, Float> entry : bynom.entrySet()) {
+		for (Map.Entry<Nomenclature, Double> entry : bynom.entrySet()) {
 		//while (it.hasNext())
 		//{
 			//entry = it.next();

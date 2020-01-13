@@ -86,7 +86,7 @@ public class DepositaireBean {
 	private String fileZipPath;
 
 	/* attribute for designation */
-	private Float unitPrice;
+	private Double unitPrice;
 	private String reference;
 	private String numSerie;
 	private String carac;
@@ -97,7 +97,7 @@ public class DepositaireBean {
 	private ModeAcquisition acquisition;
 	private Financement financement;
 	private Fournisseur fournisseur;
-	private Float montantFac;// Tokony mitovy @ unitPrice ihany
+	private Double montantFac;// Tokony mitovy @ unitPrice ihany
 	private String refFacture;
 	private String nombPerType;
 	private String autre;
@@ -450,12 +450,12 @@ public class DepositaireBean {
 		return usermetierimpl.findAllAgents();
 	}
 
-	public Float getUnitPrice() {
+	public Double getUnitPrice() {
 		return this.unitPrice;
-		// return (Float) RequestFilter.getSession().getAttribute("unitPrice");
+		// return (Double) RequestFilter.getSession().getAttribute("unitPrice");
 	}
 
-	public void setUnitPrice(Float unitPrice) {
+	public void setUnitPrice(Double unitPrice) {
 		// RequestFilter.getSession().setAttribute("unitPrice", unitPrice);
 		this.unitPrice = unitPrice;
 	}
@@ -581,12 +581,12 @@ public class DepositaireBean {
 		this.fournisseur = fournisseur;
 	}
 
-	public Float getMontantFac() {
+	public Double getMontantFac() {
 		return this.montantFac;
-		// return (Float) RequestFilter.getSession().getAttribute("montantFac");
+		// return (Double) RequestFilter.getSession().getAttribute("montantFac");
 	}
 
-	public void setMontantFac(Float montantFac) {
+	public void setMontantFac(Double montantFac) {
 		// RequestFilter.getSession().setAttribute("montantFac", montantFac);
 		this.montantFac = montantFac;
 	}
@@ -950,7 +950,7 @@ public class DepositaireBean {
 		}
 		// docObj.setDocumentUploadedPath(dataDir.getAbsolutePath()+File.separator +
 		// e.getFile().getFileName());
-		if (documentlist != null) {
+		if (documentlist != null) { // set test for document changed
 			for (DocumentModel d : documentlist) {
 				File file = new File(dataDir.getAbsolutePath() + File.separator + "resourcesSigma");
 				String absolutePath = file.getAbsolutePath();
@@ -1996,11 +1996,11 @@ public class DepositaireBean {
 
 	/*
 	 * public ArticleNouv addArticleNouv(CodeArticle cde, Agent ben, Agent depo,
-	 * Fournisseur fourn, Float prix, Long nombre) { ArticleNouv an =
+	 * Fournisseur fourn, Double prix, Long nombre) { ArticleNouv an =
 	 * usermetierimpl.addArticleNouv( cde, ben, depo, fourn, prix, nombre); return
 	 * an; }
 	 * 
-	 * public ArticleEx ticleEx(CodeArticle cde, Agent ben, Agent depo, Float prix,
+	 * public ArticleEx ticleEx(CodeArticle cde, Agent ben, Agent depo, Double prix,
 	 * Long nombre) { ArticleEx ae = usermetierimpl.addArticleEx( cde, ben, depo,
 	 * prix, nombre); return ae; }
 	 */
@@ -2033,13 +2033,13 @@ public class DepositaireBean {
 	}
 
 	// -----------------GRAND II-----------------------------
-	Float prix;
+	Double prix;
 
-	public Float getPrix() {
+	public Double getPrix() {
 		return prix;
 	}
 
-	public void setPrix(Float prix) {
+	public void setPrix(Double prix) {
 		this.prix = prix;
 	}
 
@@ -2504,7 +2504,7 @@ public class DepositaireBean {
 			clear();
 			documentList = initialize();
 			imageList = initializeImageFile();
-			materielspardesignation = null;
+			materielspardesignation = new ArrayList<Materiel>();
 			setAllNull();
 			mappingdeslistmat = new HashMap<Designation, List<MaterielNouv>>();// reset the hasmap
 
@@ -2725,6 +2725,27 @@ public class DepositaireBean {
 		}
 		try {
 			matNouv.getDesign().setNomenMat(matNouv.getDesign().getTypematerieladd().getNomenclaureParent());
+			
+			//plus add document if changed
+			
+			/*uploadFilesDocument();
+			Agent agent = (Agent) RequestFilter.getSession().getAttribute("agent");
+			// agent.setIp()
+			ArrayList<DocumentModel> imagelist = this.imageList;
+
+			// LAst Desigation
+			Designation des = new Designation();
+
+			if (imagelist != null) {
+				des.setImage(imagelist.get(0).getByteArrayImage());
+			} else {
+				des.setImage(null);
+			}
+
+			des.setDocumentPath((String) RequestFilter.getSession().getAttribute("documentpath"));
+			RequestFilter.getSession().removeAttribute("documentpath");
+			*/
+			
 			usermetierimpl.updateMateriel(matNouv);
 
 		} catch (Exception e) {
