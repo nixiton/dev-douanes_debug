@@ -118,7 +118,9 @@
                     	<td><strong>QRCODE</strong></td>
                         <td>
             				<p:barcode value="${depositaireBean.curentMaterielNouv.direc.designation} /
-            				${depositaireBean.curentMaterielNouv.dc.im} - ${depositaireBean.curentMaterielNouv.dc.nomAgent} /
+                            ${depositaireBean.curentMaterielNouv.detenteur != null ? depositaireBean.curentMaterielNouv.detenteur.im : 'Aucun'}
+                            - ${depositaireBean.curentMaterielNouv.detenteur != null ? depositaireBean.curentMaterielNouv.detenteur.nomAgent : 'Aucun'}
+                            /
             				${depositaireBean.curentMaterielNouv.design.typematerieladd.designation  } /
             				${depositaireBean.curentMaterielNouv.design.pu} /
             				${depositaireBean.curentMaterielNouv.numSerie} /
@@ -131,9 +133,9 @@
                         <td>
                             <p:panel rendered="#{depositaireBean.curentMaterielNouv.design.image != null}">
                                 <h:graphicImage url="data:image/jpg;base64,#{depositaireBean.curentMaterielNouv.design.image}"
-                                                width="100px" height="75px" library="images" onclick="PF('dlg').show();">
+                                                width="75px" height="75px" library="images" onclick="PF('dlg').show();">
                                 </h:graphicImage>
-                                 <p:dialog widgetVar="dlg" resizable="f" height="330px" width="530px" >
+                                 <p:dialog widgetVar="dlg" resizable="f" height="530px" width="530px" >
 								    <h:graphicImage  library="images" url="data:image/jpg;base64,#{depositaireBean.curentMaterielNouv.design.image}" width="500px" height="300px"/>
 								 </p:dialog>
                             </p:panel>

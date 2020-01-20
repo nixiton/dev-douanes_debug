@@ -55,7 +55,7 @@
 		
 		<p:column style="width: 5%; text-align: center; word-break: break-all;">
 			<f:facet name="header">ID</f:facet>
-			#{typemateriel.id}
+			<h:outputText value="#{typemateriel.id}"></h:outputText>
 		</p:column>
 		<p:column filterBy="#{typemateriel.designation}" filterMatchMode="contains" style="width: 9%; text-align: center;  word-wrap: break-word;">
 			<f:facet name="header">Désignation</f:facet>
@@ -88,11 +88,11 @@
 		<c:if test="#{topMenuMB.curentAgent.roleAgent.role eq 'ROLE_ADMIN' 
             or topMenuMB.curentAgent.roleAgent.role eq 'ROLE_SISE'
             }">
-		<p:column style="width: 2%; text-align: center;">
+		<p:column exportable="false" style="width: 2%; text-align: center;">
            <p:rowEditor />
              
        </p:column>
-       <p:column style="width: 3%; text-align: center;">
+       <p:column exportable="false" style="width: 3%; text-align: center;">
        		<p:commandButton  action="#{siseBean.deleteRow(typemateriel)}"
        icon="fa  fa-remove" update=":formType:msgtableType"
        oncomplete="PF('typeTable').filter()">

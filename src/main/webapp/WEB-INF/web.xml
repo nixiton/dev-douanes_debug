@@ -90,6 +90,8 @@
     <filter-mapping>
         <filter-name>RequestFilter</filter-name>
         <url-pattern>/*</url-pattern>
+        <dispatcher>REQUEST</dispatcher>
+        <dispatcher>FORWARD</dispatcher>
     </filter-mapping>
 
     <!-- Spring Security -->
@@ -113,7 +115,9 @@
 </filter> 
 <filter-mapping> 
   <filter-name>CharacterEncodingFilter</filter-name> 
-  <url-pattern>/*</url-pattern> 
+  <url-pattern>/*</url-pattern>
+  <dispatcher>REQUEST</dispatcher>
+  <dispatcher>FORWARD</dispatcher> 
 </filter-mapping> 
     
     <!-- Pretty faces -->
@@ -124,6 +128,9 @@
     <filter-mapping>
         <filter-name>Pretty Filter</filter-name>
         <url-pattern>/*</url-pattern>
+        <dispatcher>FORWARD</dispatcher>
+		<dispatcher>REQUEST</dispatcher>
+		<dispatcher>ERROR</dispatcher>
     </filter-mapping>
     
     
@@ -228,5 +235,26 @@
     <!-- welcome-file-list>
         <welcome-file>index.xhtml</welcome-file>
     </welcome-file-list-->
+    
+    <!-- FILE UPLOAD CONFIGURATION -->
+    <context-param>
+        <param-name>primefaces.UPLOADER</param-name>
+        <param-value>auto</param-value>
+    </context-param>
+    <filter>
+        <filter-name>PrimeFaces FileUpload Filter</filter-name>
+        <filter-class>org.primefaces.webapp.filter.FileUploadFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>PrimeFaces FileUpload Filter</filter-name>
+        <servlet-name>Faces Servlet</servlet-name>
+        <dispatcher>REQUEST</dispatcher>
+        <dispatcher>FORWARD</dispatcher>
+    </filter-mapping>
+    <session-config>
+        <session-timeout>15</session-timeout>
+    </session-config>
+    
+    
 </web-app>
 

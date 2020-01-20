@@ -352,6 +352,11 @@ public class UserMetier implements IUserMetier {
 		oprepos.save(op);
 		return null;
 	}
+	
+	public Materiel MajMateriel(Materiel m) {
+		m = matrepos.save(m);
+		return m;
+	}
 
 	@Override
 	public Materiel sortirMateriel(OpSortie sortie) throws Exception {

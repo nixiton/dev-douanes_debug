@@ -26,7 +26,7 @@
 
     <p:dataTable   var="b" value="#{siseBean.listPoste}"
     			currentPageReportTemplate="({currentPage} sur {totalPages})" 
-                 paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}  "
+                 paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {Exporters} "
                  paginatorPosition="bottom"
                  paginator="true" rows="10" style="margin-bottom:20px" emptyMessage="Aucun résultat"
                  editable="true"
@@ -34,11 +34,29 @@
                  widgetVar="PosteTable"
                  filterEvent="enter"
                  >
+                 
+                 <f:facet name="{Exporters}">
+            <h:commandLink>
+                <i class="fa fa-table">  </i> Excel
+                <p:dataExporter type="xls" target="tablePosteMat" fileName="postes" />
+            </h:commandLink>
+ 			<span>   </span>
+            <h:commandLink>
+            	<i class="fa fa-file">  </i> PDF
+            	
+                <p:dataExporter encoding="ISO-8859-1" type="pdf" target="tablePosteMat" facetFontStyle="BOLD" 
+                fileName="postes"
+                cellFontStyle="NORMAL"
+                tableTitle="Liste des postes"
+                preProcessor="#{dtFilterView.preProcessPDF}"
+                datasetPadding="4"/>
+            </h:commandLink>
+        </f:facet>
         <p:ajax event="rowEdit" listener="#{siseBean.onRowEdit}" update=":formPoste:msgtablePoste" oncomplete="PF('PosteTable').filter()"/>
 		
         <p:column style="width: 5%; text-align: center; word-wrap: break-word;">
             <f:facet name="header">ID</f:facet>
-            #{b.id}
+            <h:outputText value="#{b.id}"></h:outputText>
         </p:column>
         <p:column filterBy="#{b.designation}" filterMatchMode="contains" style="width: 15%; text-align: center; word-wrap: break-word;">
             <f:facet name="header">Désignation</f:facet>
@@ -53,7 +71,7 @@
             or topMenuMB.curentAgent.roleAgent.role eq 'ROLE_SISE'
             }">
         
-        <p:column style="width: 2%; text-align: center; word-wrap: break-word;">
+        <p:column exportable ="false" style="width: 2%; text-align: center; word-wrap: break-word;">
            <p:rowEditor />
 
        </p:column>

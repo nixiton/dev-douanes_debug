@@ -15,7 +15,7 @@
 	<c:if test="#{topMenuMB.curentAgent.roleAgent.role eq 'ROLE_ADMIN' 
             or topMenuMB.curentAgent.roleAgent.role eq 'ROLE_DC'
             }">
-    <div class="row">
+    <!-- div class="row">
 		<div class="col-lg-2">
 	        <h:link value="" outcome="add_Mat_Ex"
 	            class="btn btn-lg btn-primary btn-block " immediate="true" >
@@ -24,7 +24,7 @@
         </div>
         <hr></hr>
 		<br/>
-    </div>
+    </div-->
     </c:if>
     <h:form id="formmodifmatex">
     <p:growl for="deleteMateriel" id="msgtableDeleteMateriel" showDetail="true" sticky="true" redisplay="false"/>

@@ -46,8 +46,8 @@
 		<br/>
     </div>  -->   
     </c:if>
-	<h:form>
-
+	<h:form id="formmodifmatnouv">
+	<p:growl for="deleteMaterielnouv" id="msgtableDeleteMaterielnouv" showDetail="true" sticky="true" redisplay="false"/>
 
     <p:dataTable   var="materiel" value="#{suivieditionBean.listMaterielNouveauValide}"
                  widgetVar="MaterielTableoui"
@@ -176,6 +176,18 @@
             }">
              <p:commandButton  action="#{depositaireBean.setCurentMaterielNouv(materiel)}" update=":modifMatNouv"
             oncomplete="PF('modifMatNouv').show()" icon="ui-icon-pencil"/>
+            </c:if>
+            <c:if test="#{topMenuMB.curentAgent.roleAgent.role eq 'ROLE_ADMIN' 
+            or topMenuMB.curentAgent.roleAgent.role eq 'ROLE_SISE'
+            or (topMenuMB.curentAgent.roleAgent.role eq 'ROLE_DC' and materiel.isValidation)
+            }">
+            <p:commandButton  action="#{depositaireBean.deleteMaterielNouv(materiel)}"
+             icon="fa  fa-remove"
+            update=":formmodifmatnouv:msgtableDeleteMaterielnouv"
+       		oncomplete="PF('MaterielTableoui').filter()"
+            >
+            <p:confirm header="Confirmation" message="Etes-vous sure?" icon="ui-icon-alert" />
+       		</p:commandButton>
             </c:if>
         </p:column>
     </p:dataTable>
@@ -340,6 +352,18 @@
              <p:commandButton  rendered="#{materiel.myoperationEntree.state=='WAITING'}" action="#{depositaireBean.setCurentMaterielNouv(materiel)}" update=":modifMatNouv"
             oncomplete="PF('modifMatNouv').show()" icon="ui-icon-pencil"/>
             </c:if>
+            <c:if test="#{topMenuMB.curentAgent.roleAgent.role eq 'ROLE_ADMIN' 
+            or topMenuMB.curentAgent.roleAgent.role eq 'ROLE_SISE'
+            or (topMenuMB.curentAgent.roleAgent.role eq 'ROLE_DC' and materiel.isValidation)
+            }">
+            <p:commandButton  action="#{depositaireBean.deleteMaterielNouv(materiel)}"
+             icon="fa  fa-remove"
+            update=":formmodifmatnouv:msgtableDeleteMaterielnouv"
+       		oncomplete="PF('MaterielTablenon').filter()"
+            >
+            <p:confirm header="Confirmation" message="Etes-vous sure?" icon="ui-icon-alert" />
+       		</p:commandButton>
+            </c:if>
         </p:column>
     </p:dataTable>
     
@@ -356,6 +380,10 @@
 			<p:graphicImage style="width:35% !important; height:35% !important;" value="/pages/unsecure/assets/images/loading_small.gif" /> 
 		</div>
 	</p:dialog>
+	<p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
+        <p:commandButton value="Oui" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
+        <p:commandButton value="Non" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
+	</p:confirmDialog>
 
 <ui:include src="/pages/secure/CM/DC/tables/dialogs/dialogs_priseEnCharge.xhtml"></ui:include>
 <ui:include src="/pages/secure/CM/DC/tables/dialogs/dialogs_modifSaisieMatNouv.xhtml"></ui:include>

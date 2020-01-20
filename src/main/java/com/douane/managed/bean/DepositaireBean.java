@@ -753,7 +753,7 @@ public class DepositaireBean {
 		return null;
 	}
 
-	public String removeDoc(DocumentModel row) {
+	public void removeDoc(DocumentModel row) {
 
 		System.out.println("filename to be removed " + row.getDocumentUploadedPath());
 		// You can write logic to remove uploaded file from the device. not written
@@ -762,7 +762,7 @@ public class DepositaireBean {
 		row.setDocumentUploadedPath("");
 		row.setUploaded(false);
 
-		return null;
+		//return null;
 	}
 
 	public String removeDocFac(DocumentModel row) {
@@ -781,6 +781,7 @@ public class DepositaireBean {
 	}
 
 	public String uploadIm_Advanced(FileUploadEvent e) throws IOException {
+		System.out.println("begin upload image");
 		this.setByteDoc(e.getFile().getContents());
 
 		DocumentModel docObj = (DocumentModel) e.getComponent().getAttributes().get("docObj");
@@ -804,11 +805,12 @@ public class DepositaireBean {
 		imageList.set(imageList.indexOf(docObj), docObj);
 		// RequestFilter.getSession().setAttribute("imageList", imagelist);
 		System.out.println("File Uploaded");
+		// this.setByteDoc(null);
 
 		return null;
 	}
 
-	public String uploadDoc_Advanced(FileUploadEvent e){
+	public String uploadDoc_Advanced(FileUploadEvent e) {
 		try {
 			DocumentModel docObj = (DocumentModel) e.getComponent().getAttributes().get("docObj");
 
@@ -1045,7 +1047,7 @@ public class DepositaireBean {
 					"Fichier introuvalbe");
 			FacesContext.getCurrentInstance().addMessage("errorupload", message);
 			e.printStackTrace();
-			
+
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Erreur du Téléchargement",
@@ -1312,12 +1314,15 @@ public class DepositaireBean {
 
 			// -----------DESTROY ALL SESSION------------------
 			RequestFilter.getSession().setAttribute("documentpath", null);
-			RequestFilter.getSession().setAttribute("documentList", null);
-			RequestFilter.getSession().setAttribute("imageList", null);
+			// RequestFilter.getSession().setAttribute("documentList", null);
+			// RequestFilter.getSession().setAttribute("imageList", null);
+
 			listMaterielForOpEntree = null;
 			this.documentList = initialize();
 			this.imageList = initializeImageFile();
 			this.documentFacList = initializeFacFile();
+			RequestFilter.getSession().setAttribute("imageList", imageList);
+			RequestFilter.getSession().setAttribute("documentList", documentList);
 
 			setAllNull();
 
@@ -2725,27 +2730,24 @@ public class DepositaireBean {
 		}
 		try {
 			matNouv.getDesign().setNomenMat(matNouv.getDesign().getTypematerieladd().getNomenclaureParent());
-			
-			//plus add document if changed
-			
-			/*uploadFilesDocument();
-			Agent agent = (Agent) RequestFilter.getSession().getAttribute("agent");
-			// agent.setIp()
-			ArrayList<DocumentModel> imagelist = this.imageList;
 
-			// LAst Desigation
-			Designation des = new Designation();
+			// plus add document if changed
 
-			if (imagelist != null) {
-				des.setImage(imagelist.get(0).getByteArrayImage());
-			} else {
-				des.setImage(null);
-			}
+			/*
+			 * uploadFilesDocument(); Agent agent = (Agent)
+			 * RequestFilter.getSession().getAttribute("agent"); // agent.setIp()
+			 * ArrayList<DocumentModel> imagelist = this.imageList;
+			 * 
+			 * // LAst Desigation Designation des = new Designation();
+			 * 
+			 * if (imagelist != null) { des.setImage(imagelist.get(0).getByteArrayImage());
+			 * } else { des.setImage(null); }
+			 * 
+			 * des.setDocumentPath((String)
+			 * RequestFilter.getSession().getAttribute("documentpath"));
+			 * RequestFilter.getSession().removeAttribute("documentpath");
+			 */
 
-			des.setDocumentPath((String) RequestFilter.getSession().getAttribute("documentpath"));
-			RequestFilter.getSession().removeAttribute("documentpath");
-			*/
-			
 			usermetierimpl.updateMateriel(matNouv);
 
 		} catch (Exception e) {
@@ -3091,10 +3093,10 @@ public class DepositaireBean {
 	public void setListOperatoinByDirectionFiltered(List<Operation> listOperatoinByDirectionFiltered) {
 		this.listOperatoinByDirectionFiltered = listOperatoinByDirectionFiltered;
 	}
-	
+
 	public void deleteMaterielEx(Materiel m) {
 		try {
-			System.out.println("deleting "+ m.getReference());
+			System.out.println("deleting " + m.getReference());
 			usermetierimpl.delMat(m);
 			FacesMessage msg = new FacesMessage("Matériel ", m.getReference() + " supprimé");
 			FacesContext.getCurrentInstance().addMessage("deleteMateriel", msg);
@@ -3104,6 +3106,134 @@ public class DepositaireBean {
 			FacesContext.getCurrentInstance().addMessage("deleteMateriel", message);
 		}
 
+	}
+
+	public void deleteMaterielNouv(Materiel m) {
+		/*
+		 * try { System.out.println("deleting "+ m.getReference());
+		 * usermetierimpl.delMat(m); FacesMessage msg = new FacesMessage("Matériel ",
+		 * m.getReference() + " supprimé");
+		 * FacesContext.getCurrentInstance().addMessage("deleteMaterielnouv", msg); }
+		 * catch (Exception ex) {
+		 */
+		System.out.println("Failed deleting " + m.getReference());
+		FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_FATAL, "Matériel non supprimé ",
+				m.getReference() + " ne peut pas être supprimé car en cours d'utilisation ");
+		FacesContext.getCurrentInstance().addMessage("deleteMaterielnouv", message);
+		// }
+
+	}
+
+	public void upateMaterielImage(Materiel m) {
+		ArrayList<DocumentModel> imagelist = this.imageList;
+
+		// LAst Desigation
+		// Designation des = new Designation();
+		try {
+			if (imagelist != null) {
+				m.getDesign().setImage(imagelist.get(0).getByteArrayImage());
+				usermetierimpl.updateMateriel(m);
+			} else {
+				FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_FATAL, "Aucune image",
+						"Aucune image a été téléchargée");
+				FacesContext.getCurrentInstance().addMessage("imageuploaderror", message);
+			}
+			clear();
+
+			// -----------DESTROY ALL SESSION------------------
+			RequestFilter.getSession().setAttribute("documentpath", null);
+			RequestFilter.getSession().setAttribute("documentList", null);
+			RequestFilter.getSession().setAttribute("imageList", null);
+			listMaterielForOpEntree = null;
+			materielspardesignation = new ArrayList<Materiel>();
+			this.documentList = initialize();
+			this.imageList = initializeImageFile();
+			this.documentFacList = initializeFacFile();
+		} catch (JDBCException jdbce) {
+			jdbce.getSQLException().getNextException().printStackTrace();
+			listMaterielForOpEntree = null;
+			
+		} catch (IOException e) {
+			FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Erreur Fichier inconnue",
+					"Erreur lors de l'upload des fichiers.  ");
+			FacesContext.getCurrentInstance().addMessage(null,
+					new FacesMessage("Erreur lors de l'upload des fichiers "));
+			listMaterielForOpEntree = null;
+			FacesContext.getCurrentInstance().addMessage(null, message);
+			e.printStackTrace();
+			
+		} catch (NullPointerException e) {
+			FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_WARN,
+					"Erreur sur la validation des matériels", "Verfier que les champs sont remplies correctement.");
+			FacesContext.getCurrentInstance().addMessage(null,
+					new FacesMessage("Erreur sur la validation des matériels"));
+			listMaterielForOpEntree = null;
+			FacesContext.getCurrentInstance().addMessage(null, message);
+			
+		} catch (Exception e) {
+			FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_WARN,
+					"Erreur sur la validation des matériels", "Verfier que les champs sont remplies correctement.");
+			FacesContext.getCurrentInstance().addMessage(null,
+					new FacesMessage("Verfier que les champs sont remplies correctement."));
+			listMaterielForOpEntree = null;
+			FacesContext.getCurrentInstance().addMessage(null, message);
+			
+		}
+
+		setAllNull();
+	}
+	
+	public void upateMaterielDoc(Materiel m) {
+
+		try {
+			uploadFilesDocument();
+			m.getDesign().setDocumentPath((String) RequestFilter.getSession().getAttribute("documentpath"));
+			RequestFilter.getSession().removeAttribute("documentpath");
+			usermetierimpl.updateMateriel(m);
+			
+			clear();
+
+			// -----------DESTROY ALL SESSION------------------
+			RequestFilter.getSession().setAttribute("documentpath", null);
+			RequestFilter.getSession().setAttribute("documentList", null);
+			RequestFilter.getSession().setAttribute("imageList", null);
+			listMaterielForOpEntree = null;
+			materielspardesignation = new ArrayList<Materiel>();
+			this.documentList = initialize();
+			this.imageList = initializeImageFile();
+			this.documentFacList = initializeFacFile();
+		} catch (JDBCException jdbce) {
+			jdbce.getSQLException().getNextException().printStackTrace();
+			listMaterielForOpEntree = null;
+			
+		} catch (IOException e) {
+			FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Erreur Fichier inconnue",
+					"Erreur lors de l'upload des fichiers.  ");
+			FacesContext.getCurrentInstance().addMessage(null,
+					new FacesMessage("Erreur lors de l'upload des fichiers "));
+			listMaterielForOpEntree = null;
+			FacesContext.getCurrentInstance().addMessage(null, message);
+			e.printStackTrace();
+			
+		} catch (NullPointerException e) {
+			FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_WARN,
+					"Erreur sur la validation des matériels", "Verfier que les champs sont remplies correctement.");
+			FacesContext.getCurrentInstance().addMessage(null,
+					new FacesMessage("Erreur sur la validation des matériels"));
+			listMaterielForOpEntree = null;
+			FacesContext.getCurrentInstance().addMessage(null, message);
+			
+		} catch (Exception e) {
+			FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_WARN,
+					"Erreur sur la validation des matériels", "Verfier que les champs sont remplies correctement.");
+			FacesContext.getCurrentInstance().addMessage(null,
+					new FacesMessage("Verfier que les champs sont remplies correctement."));
+			listMaterielForOpEntree = null;
+			FacesContext.getCurrentInstance().addMessage(null, message);
+			
+		}
+
+		setAllNull();
 	}
 
 }

@@ -124,10 +124,10 @@
 	
 		
 		<!-- Consultation g/al -->
-	<url-mapping id="matexgeneral">
+	<!-- url-mapping id="matexgeneral">
 		<pattern value="/admin/comptabilite-matiere/materiel-existant-general" />
 		<view-id value="/pages/secure/CM/DC/saisieMatExG.xhtml" />
-	</url-mapping>
+	</url-mapping-->
 	
 	<url-mapping id="priseenchargegeneral">
 		<pattern value="/admin/comptabilite-matiere/prise-en-charge-general" />
@@ -192,15 +192,23 @@
 	</url-mapping>
 	
 	<!-- DC and SISE/DG/DRF -->
-	<url-mapping id="matex">
+	<!-- url-mapping id="matex">
 		<pattern value="/operation/comptabilite-matiere/materiel-existant" />
 		<view-id value="/pages/secure/CM/DC/saisieMatEx.xhtml" />
-	</url-mapping>
+	</url-mapping-->
+	<!-- url-mapping id="formmatex">
+		<pattern value="/formulaire/comptabilite-matiere/materiel-existant" />
+		<view-id value="/pages/secure/CM/DC/content_forms/content_forms_saisieMatEx.xhtml" />
+	</url-mapping-->
 	
-	<url-mapping id="priseencharge">
+	<!-- url-mapping id="priseencharge">
 		<pattern value="/operation/comptabilite-matiere/prise-en-charge" />
 		<view-id value="/pages/secure/CM/DC/priseEnCharge.xhtml" />
-	</url-mapping>
+	</url-mapping-->
+	<!-- url-mapping id="formpriseencharge">
+		<pattern value="/formulaire/comptabilite-matiere/prise-en-charge" />
+		<view-id value="/pages/secure/CM/DC/content_forms/content_forms_priseEnCharge.xhtml" />
+	</url-mapping-->
 	
 	<url-mapping id="artex">
 		<pattern value="/operation/comptabilite-admini/article-existant" />

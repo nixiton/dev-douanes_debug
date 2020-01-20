@@ -64,7 +64,6 @@
 		<sortField name="row2"/>
 		<variable name="Total" class="java.lang.Double" calculation="Sum">
 			<variableExpression><![CDATA[$F{row9}]]></variableExpression>
-			<initialValueExpression><![CDATA[new Float(0)]]></initialValueExpression>
 		</variable>
 		<group name="Group by nomenclature" keepTogether="true">
 			<groupExpression><![CDATA[$F{row0}]]></groupExpression>

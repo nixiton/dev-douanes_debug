@@ -168,7 +168,9 @@
 								<td><strong>QRCODE</strong></td>
 								<td>           					
 									<p:barcode value="${suivieditionBean.materiel.direc.designation} /
-		            				${suivieditionBean.materiel.dc.im} - ${suivieditionBean.materiel.dc.nomAgent} /
+									${suivieditionBean.materiel.detenteur != null ? suivieditionBean.materiel.detenteur.im : 'Aucun'}
+            						- ${suivieditionBean.materiel.detenteur != null ? suivieditionBean.materiel.detenteur.nomAgent : 'Aucun'}
+            						/
 		            				${suivieditionBean.materiel.design.typematerieladd.designation  } /
 		            				${suivieditionBean.materiel.design.pu} /
 		            				${suivieditionBean.materiel.numSerie} /

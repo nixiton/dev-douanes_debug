@@ -11,40 +11,40 @@
 </h:head>
 
 <style>
-	.info {
-	  position: fixed;
-	  bottom: 60px;
-	  right: 24px;
-	  height: 70px;
-	}
-	.ui-selectonemenu-item-group.ui-corner-all{
-		white-space: nowrap !important;
-		overflow: hidden !important;
-    	text-overflow: ellipsis !important;
-    	max-width: 30ch !important;
-	}
-	.ui-selectonemenu-item.ui-selectonemenu-list-item.ui-corner-all{
-	  text-overflow: ellipsis !important;
-	  overflow: hidden !important;
-	  max-width: 30ch !important;
-	}
-	*[data-label=" + Ajouter"]{
-	  background-color: #dedede; !important;
-	  position:absolute !important;
-	  width: 95% !important;
-	  bottom:0 !important;
-	}
-	
-	.ui-selectonemenu-items.ui-selectonemenu-list.ui-widget-content.ui-widget.ui-corner-all.ui-helper-reset{
-		margin-bottom:22px !important;
-	}
-	  /* background-color: #dedede; !important;
-	  position:absolute !important;
-	  width: 100% !important;
-	  bottom:0 !important;
-	  margin-bottom:-11% !important;
-	  margin-left:-2% !important;*/
-	
+  .info {
+    position: fixed;
+    bottom: 60px;
+    right: 24px;
+    height: 70px;
+  }
+  .ui-selectonemenu-item-group.ui-corner-all{
+    white-space: nowrap !important;
+    overflow: hidden !important;
+      text-overflow: ellipsis !important;
+      max-width: 30ch !important;
+  }
+  .ui-selectonemenu-item.ui-selectonemenu-list-item.ui-corner-all{
+    text-overflow: ellipsis !important;
+    overflow: hidden !important;
+    max-width: 30ch !important;
+  }
+  *[data-label=" + Ajouter"]{
+    background-color: #dedede; !important;
+    position:absolute !important;
+    width: 95% !important;
+    bottom:0 !important;
+  }
+  
+  .ui-selectonemenu-items.ui-selectonemenu-list.ui-widget-content.ui-widget.ui-corner-all.ui-helper-reset{
+    margin-bottom:22px !important;
+  }
+    /* background-color: #dedede; !important;
+    position:absolute !important;
+    width: 100% !important;
+    bottom:0 !important;
+    margin-bottom:-11% !important;
+    margin-left:-2% !important;*/
+  
 </style>
 
 <h:body>
@@ -57,23 +57,23 @@
                 enctype="multipart/form-data">
 
             <p:messages id="messages" showDetail="true" autoUpdate="true" />
-            <p:growl id="growl" for="errorupload" showDetail="true" sticky="true" redisplay="false"/>
+            <p:growl id="growl" for="errorupload" showDetail="true" sticky="true" redisplay="true"/>
 
             <div class="form-group">
-				
-				
+        
+        
                 <!-- *********************************FILE UPLOAD ****************************************************-->
-			
+      
             <p:outputPanel id="testContainer">
-				
-				 
+        
+         
                 <p:dataTable id="docId" var="row"
                              value="#{depositaireBean.documentList}" editable="true"
                              editMode="cell" widgetVar="documentTable">
 
 
 
-                    <p:column headerText="Enregistrement de Document(s)">
+                    <p:column headerText="Changer les Document(s)">
                         <p:panel rendered="#{!row.uploaded}">
                             <p:fileUpload value="#{depositaireBean.document}"
                                           fileUploadListener="#{depositaireBean.uploadDoc_Advanced}"
@@ -144,10 +144,10 @@
             
             <br />
             <div class="row">
-					<div class="col-lg-6 col-lg-offset-3">
-			            <p:commandButton value="Ajouter d'autres documents" process="@this"
-			                             update="docId" actionListener="#{depositaireBean.addNewDoc}"
-			                             ajax="true" />
+          <div class="col-lg-6 col-lg-offset-3">
+                  <p:commandButton value="Ajouter d'autres documents" process="@this"
+                                   update="docId" actionListener="#{depositaireBean.addNewDoc}"
+                                   ajax="true" />
                      </div>
              </div>
             <!-- *********************************FILE UPLOAD ****************************************************-->
@@ -155,15 +155,15 @@
 
 
 
-           	<div class="col-lg-3"></div>
+            <div class="col-lg-3"></div>
 
             </div>
-           	<hr />
-				<div class="row">
-					<div class="col-lg-6 ">
-                    	<label for="text1" class="control-label ">Type de matériel *
-                    	</label>
-					</div>
+            <hr />
+        <div class="row">
+          <div class="col-lg-6 ">
+                      <label for="text1" class="control-label ">Type de matériel *
+                      </label>
+          </div>
                    <div class="col-lg-6">
 
                         <p:selectOneMenu id="zone"  styleClass=" form-control top" 
@@ -179,71 +179,71 @@
                 <hr></hr>
                     
 
-				<div class="row">
-					<div class="col-lg-6 ">
-                    	<label for="text1" class="control-label ">Nomenclature
-                    	</label>
-					</div>
+        <div class="row">
+          <div class="col-lg-6 ">
+                      <label for="text1" class="control-label ">Nomenclature
+                      </label>
+          </div>
                     <div class="col-lg-6">
 
                         <h:outputText id="data" value="#{depositaireBean.nomencl}" ></h:outputText>
 
                     </div>
-				</div>
-				<hr />
-				
+        </div>
+        <hr />
+        
                     
 
-				<div class="row">
-					<div class="col-lg-6 ">
-                    	<label for="text1" class="control-label ">Code Type Matériel
-                    	</label>
-					</div>
+        <div class="row">
+          <div class="col-lg-6 ">
+                      <label for="text1" class="control-label ">Code Type Matériel
+                      </label>
+          </div>
                     <div class="col-lg-6">
 
                         <h:outputText id="codetype" value="#{depositaireBean.typematerielToAdd.codeTypeMate}" ></h:outputText>
 
                     </div>
-				</div>
-				<hr />
+        </div>
+        <hr />
 
                  <div class="row" >
-					<div class="col-lg-6">   
-                    	<label for="text1" class="control-label ">Marque *
-                    	</label>
-					</div>
+          <div class="col-lg-6">   
+                      <label for="text1" class="control-label ">Marque *
+                      </label>
+          </div>
                     <div class="col-lg-6">
 
-	                    <p:selectOneMenu value="#{depositaireBean.marq}" converter="#{refConverter}" 
-	                         effect="fade"  filter="true" filterMatchMode="startsWith" panelStyle="width:250px;" 
-	                         required="true" requiredMessage="Marque est obligatoire"
-	                         >
-	                        <f:selectItem itemValue="#{null}"  itemLabel="Selectionner" noSelectionOption="true"/> 
-	                 
-	                        <f:selectItems value="#{siseBean.listMarque}" var="theme" itemLabel="#{theme.designation}" itemValue="#{theme}" />
-	                       	<!-- <p:column>
-	                            <h:outputText value="#{t.designation}" />
-	                        </p:column> -->
-	                        
-	                        <f:selectItem itemValue="#{siseBean.nouvmark}" itemLabel=" + Ajouter"/>
-                			<p:ajax listener="#{siseBean.addNewMarque}" />
-	                        
-							
-	                    </p:selectOneMenu>
-	                   
+                      <p:selectOneMenu value="#{depositaireBean.marq}" converter="#{refConverter}" 
+                           effect="fade"  filter="true" filterMatchMode="startsWith" panelStyle="width:250px;" 
+                           required="true" requiredMessage="Marque est obligatoire"
+                           >
+                          <f:selectItem itemValue="#{null}"  itemLabel="Selectionner" noSelectionOption="true"/> 
+                   
+                          <f:selectItems value="#{siseBean.listMarque}" var="theme" itemLabel="#{theme.designation}" itemValue="#{theme}" />
+                          <!-- <p:column>
+                              <h:outputText value="#{t.designation}" />
+                          </p:column> -->
+                          
+                          <f:selectItem itemValue="#{siseBean.nouvmark}" itemLabel=" + Ajouter"/>
+                      <p:ajax listener="#{siseBean.addNewMarque}" />
+                          
+              
+                      </p:selectOneMenu>
+                     
                     </div>
                 </div>
                  <hr></hr>
                 <div class="row">
-					<div class="col-lg-6">   
-	                    <label for="text1" class="control-label ">Prix unitaire *
-	                    </label>
-					</div>
+          <div class="col-lg-6">   
+                      <label for="text1" class="control-label ">Prix unitaire *
+                      </label>
+          </div>
                     <div class="col-lg-6">
 
                         <p:inputText
                         value="#{depositaireBean.unitPrice}"
-            			required="true"
+                  required="true"
                         requiredMessage="Prix Unitaire obligatoire"
                         placeholder="Prix unitaire en Ariary" styleClass="form-control top"
                         id = "montant"
@@ -251,32 +251,32 @@
                         (n)
                     </div>
                   </div>
-				 <hr></hr>
-				 
-				 <div class="row">
-					<div class="col-lg-6">
-                    	<label for="text1" class="control-label ">Caractéristiques
-                   		 </label>
-					</div>
+         <hr></hr>
+         
+         <div class="row">
+          <div class="col-lg-6">
+                      <label for="text1" class="control-label ">Caractéristiques
+                       </label>
+          </div>
                     <div class="col-lg-6">
 
                         <!-- p:inputText id="caratceristique" required="true"
                         value="#{depositaireBean.renseignement}"
                         requiredMessage=""
                         placeholder="Caractéristiques" styleClass="form-control top"></p:inputText-->
-						
-						<p:inputTextarea value="#{depositaireBean.renseignement}" rows="5" cols="20" counter="display" maxlength="250" counterTemplate="{0} restants." autoResize="false" />
-    						<h:outputText id="display" />
+            
+            <p:inputTextarea value="#{depositaireBean.renseignement}" rows="5" cols="20" counter="display" maxlength="250" counterTemplate="{0} restants." autoResize="false" />
+                <h:outputText id="display" />
 
                     </div>
                 </div>
                 <hr/>
                                    
-				<div class="row">
-					<div class="col-lg-6">
-	                    <label for="text1" class="control-label ">Autre
-	                    </label>
-					</div>
+        <div class="row">
+          <div class="col-lg-6">
+                      <label for="text1" class="control-label ">Autre
+                      </label>
+          </div>
                     <div class="col-lg-6">
 
                         <p:inputText
@@ -285,31 +285,31 @@
 
                    
                     </div>
-				</div>
-				<hr/>
-				<div class="row">
-					<div class="col-lg-6">
-				
-	                    <label for="text1" class="control-label ">Année d'acquisition *
-	                    </label>
-					</div>
+        </div>
+        <hr/>
+        <div class="row">
+          <div class="col-lg-6">
+        
+                      <label for="text1" class="control-label ">Année d'acquisition *
+                      </label>
+          </div>
                     <div class="col-lg-6">
 
                         <p:inputText  required="true"
                         value="#{depositaireBean.anneeAcquisition}"
                         requiredMessage="Champ Année d'acquisition obligatoire"
                         placeholder="Année d'acquisition" styleClass="form-control top"></p:inputText>
-						(n)
+            (n)
 
                     </div>
-				</div>
-				<hr />
-				
-				<div class="row">
-					<div class="col-lg-6">
-	                    <label for="text1" class="control-label ">Origine *
-	                    </label>
-					</div>
+        </div>
+        <hr />
+        
+        <div class="row">
+          <div class="col-lg-6">
+                      <label for="text1" class="control-label ">Origine *
+                      </label>
+          </div>
                     <div class="col-lg-6">
 
                         <p:inputText
@@ -319,14 +319,14 @@
                         requiredMessage="Origine obligatoire"
                         ></p:inputText>
                     </div>
-				</div>
-				<hr/>
-				
-				<div class="row">
-					<div class="col-lg-6">
-	                    <label for="text1" class="control-label ">Espèce des unités *
-	                    </label>
-					</div>
+        </div>
+        <hr/>
+        
+        <div class="row">
+          <div class="col-lg-6">
+                      <label for="text1" class="control-label ">Espèce des unités *
+                      </label>
+          </div>
                     <div class="col-lg-6">
 
                         <p:inputText  required="true"
@@ -336,27 +336,27 @@
 
                     </div>
 
-				</div>
-				<hr/>
+        </div>
+        <hr/>
 
-				<div class="row">
-					<div class="col-lg-6">
-	                    <label for="text1" class="control-label ">Etat *
-	                	</label>
-					</div>
-                	<div class="col-lg-6">
+        <div class="row">
+          <div class="col-lg-6">
+                      <label for="text1" class="control-label ">Etat *
+                    </label>
+          </div>
+                  <div class="col-lg-6">
 
 
-	                    <p:selectOneMenu value="#{depositaireBean.etat}" converter="#{refConverter}" 
-	                         effect="fade" filter="true" filterMatchMode="startsWith" panelStyle="width:250px;" >
-	                        <f:selectItem itemValue="#{null}" itemLabel="Selectionner" /> 
-	                            <f:selectItems value="#{siseBean.listEtatMateriel}" var="theme" itemLabel="#{theme.designation}" itemValue="#{theme}" />
-	                        <!-- <p:column>
-	                            <h:outputText value="#{t.designation}" />
-	                        </p:column> -->
-	                        
-	                    </p:selectOneMenu>
-					</div>
+                      <p:selectOneMenu value="#{depositaireBean.etat}" converter="#{refConverter}" 
+                           effect="fade" filter="true" filterMatchMode="startsWith" panelStyle="width:250px;" >
+                          <f:selectItem itemValue="#{null}" itemLabel="Selectionner" /> 
+                              <f:selectItems value="#{siseBean.listEtatMateriel}" var="theme" itemLabel="#{theme.designation}" itemValue="#{theme}" />
+                          <!-- <p:column>
+                              <h:outputText value="#{t.designation}" />
+                          </p:column> -->
+                          
+                      </p:selectOneMenu>
+          </div>
                 </div>
                 <hr />
                 
@@ -365,8 +365,8 @@
              
 
 
-			<!-- LES REFERENTIELS -->
-			
+      <!-- LES REFERENTIELS -->
+      
              <p:panel>
                            <p:inputText required="true" id="reference"
                         value="#{depositaireBean.matextoadd.reference}"
@@ -380,12 +380,12 @@
                         placeholder="Numéro de série * (obligatoire)" styleClass="form-control top"></p:inputText>
               </p:panel>
               <hr/>             
-           	
-           	 <div class="row">
-					<div class="col-lg-8 col-lg-offset-3">
-						<p:commandButton value="Ajouter nombre par type" process="@this,reference,numeroserie"
-			                             update="refid" actionListener="#{depositaireBean.addNewMateriel}"
-			                             ajax="true" />
+            
+             <div class="row">
+          <div class="col-lg-8 col-lg-offset-3">
+            <p:commandButton value="Ajouter nombre par type" process="@this,reference,numeroserie"
+                                   update="refid" actionListener="#{depositaireBean.addNewMateriel}"
+                                   ajax="true" />
                     </div>
              </div>
              <hr />
@@ -395,10 +395,10 @@
                              editMode="cell" widgetVar="documentTable"
                              rowIndexVar="rowIndex" emptyMessage="Aucun enregistrement">
 
-					<p:column headerText="N°" style="width:4%; text-align: center; word-wrap: break-word;">
-						#{rowIndex+1}
-					</p:column>
-					
+          <p:column headerText="N°" style="width:4%; text-align: center; word-wrap: break-word;">
+            #{rowIndex+1}
+          </p:column>
+          
 
                     <p:column headerText="Référence" style="width:7%; text-align: center; word-wrap: break-word;">
                         #{m.reference}
@@ -407,7 +407,7 @@
                         #{m.numSerie}
                     </p:column>
                     <p:column headerText="Supprimer" style="width:4%; text-align: center; word-wrap: break-word;"> 
-                    	<p:commandButton value="X" process="@this"
+                      <p:commandButton value="X" process="@this"
                              update="refid" actionListener="#{depositaireBean.deleteMateriel(rowIndex)}"
                              ajax="true" />
                     </p:column>
@@ -423,7 +423,7 @@
                 <div class="col-lg-4">
                     <h:commandLink id="btnSignId" action="#{depositaireBean.addMaterielExistant}" value=""
                         class="btn btn-lg btn-primary btn-block" >
-                        	<i class=" fa fa-plus"> </i> Créer
+                          <i class=" fa fa-plus"> </i> Créer
                     </h:commandLink>
                 </div>
 
@@ -436,20 +436,20 @@
 
         </h:form>
         <p:dialog id="addNewMarkDialog" widgetVar="widget_addNewJMarkDialog" header="Ajout de marque" showEffect="explode" hideEffect="explode" width="375" height="125" minWidth="350" minHeight="150">
-        	<hr/>
-        	<div class="row">
-        		<h:form>
-        		<div class="col-lg-8">
-        			<p:inputText value="#{siseBean.nouvmark.designation}" required="true" />
-        		</div>
-        		<div class="col-lg-4">
-        			<p:commandButton value="Ajouter" action="#{siseBean.saveNewMark}" update="@form" icon="ui-icon-circle-plus" />
-        			<p:messages />
-        		</div>
-        		</h:form>
-        	</div>
-   			<hr/>
-		</p:dialog>
+          <hr/>
+          <div class="row">
+            <h:form>
+            <div class="col-lg-8">
+              <p:inputText value="#{siseBean.nouvmark.designation}" required="true" />
+            </div>
+            <div class="col-lg-4">
+              <p:commandButton value="Ajouter" action="#{siseBean.saveNewMark}" update="@form" icon="ui-icon-circle-plus" />
+              <p:messages />
+            </div>
+            </h:form>
+          </div>
+        <hr/>
+    </p:dialog>
 
     </div>
 
